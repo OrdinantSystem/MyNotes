@@ -4,3 +4,4 @@ dist/
 .sites-runtime/
 .DS_Store
 references/source/
+.preview-dist-*/

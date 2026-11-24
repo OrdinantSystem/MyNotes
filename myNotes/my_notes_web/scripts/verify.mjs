@@ -6,7 +6,7 @@ import ts from "typescript";
 import katex from "katex";
 import { mathOptions } from "../src/lib/math-options.mjs";
 
-const root = path.resolve("dist");
+const root = path.resolve(process.env.MYNOTES_VERIFY_DIR || "dist");
 const base = (process.env.BASE_PATH || "/").replace(/\/$/, "");
 async function walk(dir) {
   const entries = await readdir(dir, { withFileTypes: true });

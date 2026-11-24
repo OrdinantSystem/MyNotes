@@ -24,6 +24,8 @@ Open [the archive](http://127.0.0.1:4321/) or [the representation library](http:
 ASTRO_TELEMETRY_DISABLED=1 npm exec -- astro preview stop
 ```
 
+`npm run preview` copies the completed build to an ignored `.preview-dist-*` folder, checks all generated pages/links there, then restarts Astro against that stable snapshot. Rebuilding `dist/` will not interrupt an open preview. After a successful new build, rerun `npm run preview` to show the update. A failed or mismatched-prefix snapshot leaves the existing preview running. `npm run preview -- stop`, `status`, and `logs` forward to Astro’s normal background-server commands.
+
 On Jean's computer, the Codex bundled Node directory can be prepended to PATH: /Users/jean/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin. This is a local convenience, not a build dependency.
 
 | Command | Purpose |
