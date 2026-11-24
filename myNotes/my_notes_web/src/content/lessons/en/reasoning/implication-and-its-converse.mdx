@@ -1,0 +1,405 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-two
+sourceId: reasoning-episode-11
+sourcePages: []
+sourceLocations: ["Sections 1–8; Reference reading"]
+title: "Why ‘if’ does not work backward"
+navTitle: "Implication and its converse"
+description: "Understand sufficient and necessary conditions, counterexamples, contraposition and the direction of a guarantee."
+order: 11
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [words-meanings-and-evidence]
+thumbnail: reasoning-conditional
+---
+
+## 1. A rule that works in only one direction
+
+Imagine I secretly choose an integer, and I tell you just one thing about it:
+
+**The number is a multiple of four.**
+
+Even without knowing which number I chose, you can immediately tell me something else about it. It must be even.
+
+Four is even. Eight is even. Twelve is even. Even negative multiples of four are even. And this isn't a coincidence: there's a mathematical reason why the rule works.
+
+But now suppose I change the information I give you. Instead of telling you that my number is a multiple of four, I simply tell you that it's even.
+
+Can you conclude that it's a multiple of four?
+
+Well, not necessarily. I might have chosen six, or ten, or fourteen. All of them are even, but none is a multiple of four.
+
+And that's interesting. We started with a perfectly correct statement, reversed its direction, and suddenly it stopped being correct.
+
+Let's understand what's happening.
+
+<Interactive kind="conditional" preset="numbers" id="integer-conditional" />
+
+Notice what this picture tells us. Every number that belongs to the smaller region also belongs to the larger one. But the larger region contains numbers that aren't in the smaller region.
+
+Mathematicians express this relationship using *sets*.
+
+Let's call the set of all integer multiples of four $M_4$, and the set of all even integers $E$. Then we can write:
+
+$$
+\boxed{M_4\subseteq E}
+$$
+
+This symbol, $\subseteq$, means that every element of the first set belongs to the second set.
+
+The entire smaller region sits inside the larger one. But there's no reason to expect them to be identical.
+
+And that gives us our first important discovery:
+
+**If one property guarantees another, that does not mean the second property guarantees the first.**
+
+The relationship has a direction.
+
+## 2. Giving the relationship a mathematical language
+
+Let's make our two properties more precise.
+
+For an integer $n$, define:
+
+$$
+\begin{aligned} P(n)&:\quad n\text{ is a multiple of four.}\\ Q(n)&:\quad n\text{ is even.} \end{aligned}
+$$
+
+Here, $P$ and $Q$ are *predicates*: statements whose truth can depend on the value of $n$.
+
+We can now express our original claim as:
+
+$$
+\boxed{P(n)\rightarrow Q(n)}
+$$
+
+Read the arrow as **"if $P(n)$, then $Q(n)$."**
+
+The statement before the arrow, $P(n)$, is called the *antecedent*. The statement after the arrow, $Q(n)$, is called the *consequent*.
+
+There are also two important words we use to describe this relationship: *sufficient* and *necessary*.
+
+<ReasoningFigure kind="conditional-roles" />
+
+Think about the difference.
+
+Being a multiple of four is **sufficient** to establish that a number is even. You don't need any additional information.
+
+Being even is **necessary** for being a multiple of four. Without evenness, the number cannot possibly be a multiple of four.
+
+But being even isn't sufficient to establish that the number is a multiple of four.
+
+This distinction is important because the words *necessary* and *sufficient* can sound almost interchangeable in everyday language. Mathematically, though, they describe different roles within the implication.
+
+And notice something else: we haven't yet proved that our original implication is true. We've illustrated it with examples, but examples alone aren't enough to justify a statement about every integer.
+
+So let's prove it.
+
+Suppose $n$ is a multiple of four. By definition, there must exist some integer $k$ such that
+
+$$
+n=4k.
+$$
+
+But we can rewrite this as
+
+$$
+n=2(2k).
+$$
+
+Because $k$ is an integer, $2k$ is also an integer. And that means $n$ is twice an integer, which is precisely the definition of an even number.
+
+Therefore,
+
+$$
+\boxed{\forall n\in\mathbb Z,\quad P(n)\rightarrow Q(n)}
+$$
+
+The symbol $\forall$ means *for every*. We have established that the implication holds for every integer, not just our three examples.
+
+Now we can use this proven relationship to investigate something more subtle: what exactly does the arrow promise?
+
+## 3. What would it take to break an implication?
+
+When we say "if $P$, then $Q$," we aren't claiming that $P$ is always true. We're claiming that whenever $P$ is true, $Q$ must also be true.
+
+Imagine trying to disprove that claim.
+
+Would finding a number like four help? No. Four satisfies both properties, so the rule works.
+
+What about seven? Seven isn't a multiple of four, but it also isn't even. Does that disprove the rule?
+
+No, because our original statement never said that *every* integer must be even. It only said that multiples of four must be even.
+
+What about six? Six is even but not a multiple of four. Does that contradict the original statement?
+
+Again, no. Our rule doesn't require all even numbers to be multiples of four.
+
+There is only **one kind of example that could disprove it**: a number that is a multiple of four but isn't even.
+
+In symbolic terms, we would need
+
+$$
+P(n)\land\neg Q(n).
+$$
+
+Here, $\land$ means *and*, while $\neg$ means *not*.
+
+In classical logic, the implication $P\rightarrow Q$ is false exactly when $P$ is true and $Q$ is false.
+
+<ReasoningFigure kind="conditional-cases" />
+
+This gives us a much more useful way to understand implication.
+
+Instead of memorizing a complicated rule about truth values, remember that **an implication forbids one particular combination: its antecedent being true while its consequent is false.**
+
+All other combinations are compatible with the conditional.
+
+This also explains something that often surprises people when they first study formal logic. For a particular number like seven, $P(7)\rightarrow Q(7)$ is considered true, even though neither $P(7)$ nor $Q(7)$ is true.
+
+The reason isn't that seven somehow provides positive evidence about multiples of four. It's that seven doesn't violate the promise the implication makes.
+
+We call this the *material conditional* in classical propositional logic. It evaluates whether a conditional is true from the truth values of its components.
+
+Now that we know exactly what would break an implication, we can examine four statements that look remarkably similar.
+
+And we'll discover that only two of them actually say the same thing.
+
+<Note title="Which comparison is intended?">
+Here we are comparing each form with the original implication. The original and contrapositive are equivalent. The full table below also shows a second equivalence pair: the converse and inverse.
+</Note>
+
+## 4. Four statements that look almost identical
+
+Let's begin with the statement we already proved:
+
+**If a number is a multiple of four, then it is even.**
+
+In symbolic form, that's $P\rightarrow Q$.
+
+Now, what if we exchange the antecedent and consequent?
+
+We get:
+
+**If a number is even, then it is a multiple of four.**
+
+This is called the *converse*.
+
+$$
+Q\rightarrow P
+$$
+
+And we already know why it doesn't work. Six is even, but six isn't a multiple of four.
+
+Notice that we didn't change the meaning of either property. We only changed the direction of the arrow, and that was enough to turn a true statement into a false one.
+
+Now let's try something different. Instead of switching the properties, suppose we negate both of them:
+
+**If a number is not a multiple of four, then it is not even.**
+
+This is called the *inverse*.
+
+$$
+\neg P\rightarrow\neg Q
+$$
+
+Does that work?
+
+### Your turn: test the inverse
+
+<Exercise question="Is it true that every integer which is not a multiple of four must be odd?">
+**No. The number 6 disproves it.**
+
+Six is not a multiple of four, but it is even. It satisfies $\neg P$, without satisfying $\neg Q$. Therefore the inverse is false.
+</Exercise>
+
+So neither reversing the arrow nor negating both properties preserves our original claim.
+
+But there's one more possibility.
+
+What if we do both operations together? First switch the positions, then negate both properties.
+
+We obtain:
+
+**If a number is not even, then it is not a multiple of four.**
+
+$$
+\neg Q\rightarrow\neg P
+$$
+
+This is called the *contrapositive*.
+
+And this time, it works.
+
+Think about our original diagram. The entire set of multiples of four is contained inside the set of even integers. So any number outside the set of even integers must also be outside the set of multiples of four.
+
+We haven't discovered a new property of numbers. We've described the same relationship from the opposite direction.
+
+<ReasoningFigure kind="conditional-forms" />
+
+It might be tempting to memorize these four names and which one is correct. But there's a deeper explanation that makes memorization almost unnecessary.
+
+## 5. Why the contrapositive preserves the truth
+
+Remember our discovery from earlier: an implication fails in exactly one situation, when its antecedent is true but its consequent is false.
+
+For the original implication $P\rightarrow Q$, that means $P$ is true and $Q$ is false.
+
+Now consider the contrapositive, $\neg Q\rightarrow\neg P$. When would that fail?
+
+It would fail if $\neg Q$ were true and $\neg P$ were false.
+
+But that's exactly the same situation! If $\neg Q$ is true, $Q$ is false. And if $\neg P$ is false, $P$ is true.
+
+In other words, the original statement and its contrapositive forbid **the exact same combination of possibilities**.
+
+This is what it means for two logical statements to be *equivalent*: they have the same truth value in every possible assignment of truth values to their components.
+
+Look at the complete comparison:
+
+<ReasoningFigure kind="conditional-table" />
+
+Notice the matching columns. The original and contrapositive always agree. The converse and inverse also always agree with each other.
+
+We can express these two logical equivalences as:
+
+$$
+\boxed{P\rightarrow Q\ \equiv\ \neg Q\rightarrow\neg P}
+$$
+
+$$
+\boxed{Q\rightarrow P\ \equiv\ \neg P\rightarrow\neg Q}
+$$
+
+The symbol $\equiv$ means *logically equivalent*.
+
+This is much more powerful than simply remembering which statement is called the contrapositive.
+
+It tells us that proving $P\rightarrow Q$ is logically equivalent to proving $\neg Q\rightarrow\neg P$.
+
+And that gives mathematicians an important technique: sometimes it's easier to prove the contrapositive than to prove the original conditional directly. Both establish precisely the same result.
+
+But can we use this understanding beyond numbers?
+
+Let's take a situation where reversing an implication might lead to a much more consequential mistake.
+
+## 6. The ticket that doesn't guarantee entry
+
+Imagine you're visiting a concert venue. To be admitted, the rules require you to have both a valid ticket and verified identification.
+
+Someone tells you:
+
+"If you were admitted to the venue, then you have a valid ticket."
+
+That makes sense. A valid ticket is required for admission.
+
+But now suppose someone shows you a valid ticket.
+
+Can you conclude that they will be admitted?
+
+Not necessarily. They might not have the required identification.
+
+Let's introduce three predicates about a visitor:
+
+$$
+\begin{aligned} A&:\text{The visitor is admitted.}\\ T&:\text{The visitor has a valid ticket.}\\ I&:\text{The visitor has verified ID.} \end{aligned}
+$$
+
+The venue rules tell us that
+
+$$
+\boxed{A\rightarrow(T\land I)}
+$$
+
+Meaning that everyone admitted must satisfy both requirements.
+
+<ReasoningFigure kind="conditional-admission" />
+
+Just like multiples of four were contained inside the set of even numbers, admitted visitors must belong to the set of valid-ticket holders.
+
+But being in the larger set doesn't guarantee membership in the smaller one.
+
+The important distinction is that a valid ticket is **necessary for admission, but not sufficient for admission**.
+
+And the contrapositive gives us something useful. From $A\rightarrow T$, we can conclude:
+
+$$
+\boxed{\neg T\rightarrow\neg A}
+$$
+
+If you don't have a valid ticket, you cannot be admitted under these rules.
+
+Notice that we have now reasoned *backward* in a legitimate way. We didn't simply reverse the arrow. We also negated both propositions.
+
+<Exercise question="A visitor has a valid ticket. Is their admission guaranteed?">
+**No.** The visitor might lack identification. The rules guarantee that admission requires a ticket, not that a ticket guarantees admission.
+
+Even having both documents may not be sufficient if other admission conditions exist.
+</Exercise>
+
+This kind of confusion appears in security rules, legal requirements, medical tests, and even everyday conversations. People frequently mistake a required condition for a condition that guarantees a result.
+
+And in each case, the same mathematical structure helps us identify the mistake.
+
+## 7. Does “if” also mean “because”?
+
+There's one final distinction we should make.
+
+In ordinary conversation, the word *if* can suggest several things. Sometimes it describes an absolute logical relationship. Sometimes it suggests a causal explanation. And sometimes it describes a pattern that merely happens frequently.
+
+These aren't equivalent claims.
+
+<ReasoningFigure kind="conditional-kinds" />
+
+Formal logic lets us study the structure of a conditional independently of questions about probability or causation. But when we translate ordinary language into logic, we must first understand what the speaker actually intends.
+
+Otherwise, we might perfectly analyze a mathematical statement that doesn't accurately represent the original claim.
+
+## 8. What we have actually discovered
+
+Let's return to where we started.
+
+Every multiple of four is even. That's true. But being even doesn't guarantee being a multiple of four.
+
+At first, this seemed like a small peculiarity of numbers. But our investigation revealed something much more general.
+
+An implication establishes a directional relationship between two properties. It tells us what must be true when a particular condition holds, without telling us that the relationship also works in reverse.
+
+We learned that the original conditional and its contrapositive always agree, not because of a trick with symbols, but because both forbid exactly the same logical possibility.
+
+And we learned something particularly useful for mathematics: **when a conclusion must follow from an assumption, we can sometimes establish that relationship by proving its contrapositive instead.**
+
+There's one last question worth asking.
+
+What if we really do want the relationship to work in both directions?
+
+Then we need more than one implication. We need to prove both:
+
+$$
+P\rightarrow Q \qquad\text{and}\qquad Q\rightarrow P.
+$$
+
+When both directions hold, we write
+
+$$
+\boxed{P\leftrightarrow Q}
+$$
+
+and say **"$P$ if and only if $Q$."**
+
+That is a stronger relationship: each property is both necessary and sufficient for the other.
+
+And understanding how to prove both directions will eventually give us one of the most useful tools in mathematical reasoning.
+
+For now, whenever you encounter a statement beginning with *if*, ask yourself:
+
+**Which direction does the guarantee actually go?**
+
+Because knowing that one thing follows from another isn't the same as knowing that the other follows from the first.
+
+And recognizing that difference is one of the foundations of thinking rigorously.
+
+Reference reading: [Richard Hammack, Book of Proof](https://richardhammack.github.io/BookOfProof/) · [Daniel Velleman, How to Prove It](https://www.cambridge.org/core/books/abs/how-to-prove-it/contents/D9098F367810400B8A7FFD6FFCC22695)

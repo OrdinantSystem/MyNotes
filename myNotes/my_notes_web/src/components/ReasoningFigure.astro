@@ -1,4 +1,40 @@
 ---
+import LemmaFigure from './LemmaFigure.astro';
+import {isLemmaFigure,type LemmaFigure as LemmaFigureKind} from '../lib/interactive/lemma-model';
+import ReframeFigure from './ReframeFigure.astro';
+import {isReframeFigure,type ReframeFigure as ReframeFigureKind} from '../lib/interactive/reframe-model';
+import TriangleFigure from './TriangleFigure.astro';
+import {isTriangleFigure,type TriangleFigure as TriangleFigureKind} from '../lib/interactive/triangle-model';
+import TransferFigure from './TransferFigure.astro';
+import {isTransferFigure,type TransferFigure as TransferFigureKind} from '../lib/interactive/transfer-model';
+import AuditFigure from './AuditFigure.astro';
+import {isAuditFigure,type AuditFigure as AuditFigureKind} from '../lib/interactive/audit-model';
+import UniquenessFigure from './UniquenessFigure.astro';
+import {isUniquenessFigure,type UniquenessFigure as UniquenessFigureKind} from '../lib/interactive/uniqueness-model';
+import InductionFigure from './InductionFigure.astro';
+import {isInductionFigure,type InductionFigure as InductionFigureKind} from '../lib/interactive/induction-model';
+import ContradictionFigure from './ContradictionFigure.astro';
+import {isContradictionFigure,type ContradictionFigure as ContradictionFigureKind} from '../lib/interactive/contradiction-model';
+import ContraFigure from './ContraFigure.astro';
+import {isContraFigure,type ContraFigure as ContraFigureKind} from '../lib/interactive/contraposition-model';
+import CasesFigure from './CasesFigure.astro';
+import {isCasesFigure,type CasesFigure as CasesFigureKind} from '../lib/interactive/cases-model';
+import DiscoveryFigure from './DiscoveryFigure.astro';
+import {isDiscoveryFigure,type DiscoveryFigure as DiscoveryFigureKind} from '../lib/interactive/discovery-model';
+import JustificationFigure from './JustificationFigure.astro';
+import {isJustificationFigure,type JustificationFigure as JustificationFigureKind} from '../lib/interactive/justification-model';
+import EquivalenceFigure from './EquivalenceFigure.astro';
+import {isEquivalenceFigure,type EquivalenceFigure as EquivalenceFigureKind} from '../lib/interactive/equivalence-model';
+import WorldFigure from './WorldFigure.astro';
+import {isWorldFigure,type WorldFigure as WorldFigureKind} from '../lib/interactive/world-model';
+import DependenceFigure from './DependenceFigure.astro';
+import {isDependenceFigure,type DependenceFigure as DependenceFigureKind} from '../lib/interactive/dependence-model';
+import SwitchFigure from './SwitchFigure.astro';
+import {isSwitchFigure,type SwitchFigure as SwitchFigureKind} from '../lib/interactive/switch-model';
+import ConditionalFigure from './ConditionalFigure.astro';
+import {isConditionalFigure,type ConditionalFigure as ConditionalFigureKind} from '../lib/interactive/conditional-model';
+import LanguageFigure from './LanguageFigure.astro';
+import {isLanguageFigure,type LanguageFigure as LanguageFigureKind} from '../lib/interactive/language-model';
 import ArgumentFigure from './ArgumentFigure.astro';
 import {isArgumentFigure,type ArgumentFigure as ArgumentFigureKind} from '../lib/interactive/argument-model';
 import InquiryFigure from './InquiryFigure.astro';
@@ -18,11 +54,11 @@ import ReasoningSetFigure from './ReasoningSetFigure.astro';
 import {structureNodes} from '../lib/reasoning/structure';
 import {reasoningCopy} from '../lib/reasoning/copy';
 import '../styles/reasoning.css';
-interface Props {kind:ArgumentFigureKind|'inquiry-opening'|'inquiry-successes'|'inquiry-cycle'|ValidityFigureKind|CounterFigureKind|PatternFigureKind|ProofFigureKind|'squared-solutions'|'opening'|'collections'|'addition'|'symbols'|'process'|'objects'|'singleton'|'singletons'|'matching'|'overlap'|'pairs'|'function'|AlgebraFigureKind}
+interface Props {kind:LemmaFigureKind|ReframeFigureKind|TriangleFigureKind|TransferFigureKind|AuditFigureKind|InductionFigureKind|UniquenessFigureKind|ContradictionFigureKind|ContraFigureKind|CasesFigureKind|DiscoveryFigureKind|JustificationFigureKind|EquivalenceFigureKind|WorldFigureKind|DependenceFigureKind|SwitchFigureKind|ConditionalFigureKind|LanguageFigureKind|ArgumentFigureKind|'inquiry-opening'|'inquiry-successes'|'inquiry-cycle'|ValidityFigureKind|CounterFigureKind|PatternFigureKind|ProofFigureKind|'squared-solutions'|'opening'|'collections'|'addition'|'symbols'|'process'|'objects'|'singleton'|'singletons'|'matching'|'overlap'|'pairs'|'function'|AlgebraFigureKind}
 const {kind}=Astro.props,locale=Astro.locals.locale||'en',c=reasoningCopy[locale];
 const setKind=kind==='addition'?'union':kind==='objects'||kind==='singleton'||kind==='singletons'||kind==='matching'||kind==='overlap'||kind==='pairs'||kind==='function'?kind:null;
 ---
-{isArgumentFigure(kind)?<ArgumentFigure kind={kind}/>:kind==='inquiry-opening'||kind==='inquiry-successes'||kind==='inquiry-cycle'?<InquiryFigure kind={kind}/>:isValidityFigureKind(kind)?<ValidityFigure kind={kind}/>:isCounterFigureKind(kind)?<CounterexampleFigure kind={kind}/>:isPatternFigureKind(kind)?<PatternFigure kind={kind}/>: isProofFigureKind(kind)?<ProofFigure kind={kind}/>:kind==='squared-solutions'?<EquationFigure/>:isAlgebraFigureKind(kind)?<AlgebraFigure kind={kind}/>:setKind?<ReasoningSetFigure kind={setKind}/>:kind==='process'?<div class="reasoning-process"><h3>{c.processTitle}</h3><Flow nodes={structureNodes[locale]} caption={c.processCaption}/></div>:
+{isLemmaFigure(kind)?<LemmaFigure kind={kind}/>:isReframeFigure(kind)?<ReframeFigure kind={kind}/>:isTriangleFigure(kind)?<TriangleFigure kind={kind}/>:isTransferFigure(kind)?<TransferFigure kind={kind}/>:isAuditFigure(kind)?<AuditFigure kind={kind}/>:isInductionFigure(kind)?<InductionFigure kind={kind}/>:isUniquenessFigure(kind)?<UniquenessFigure kind={kind}/>:isContradictionFigure(kind)?<ContradictionFigure kind={kind}/>:isContraFigure(kind)?<ContraFigure kind={kind}/>:isCasesFigure(kind)?<CasesFigure kind={kind}/>:isDiscoveryFigure(kind)?<DiscoveryFigure kind={kind}/>:isJustificationFigure(kind)?<JustificationFigure kind={kind}/>:isEquivalenceFigure(kind)?<EquivalenceFigure kind={kind}/>:isWorldFigure(kind)?<WorldFigure kind={kind}/>:isDependenceFigure(kind)?<DependenceFigure kind={kind}/>:isSwitchFigure(kind)?<SwitchFigure kind={kind}/>:isConditionalFigure(kind)?<ConditionalFigure kind={kind}/>:isLanguageFigure(kind)?<LanguageFigure kind={kind}/>:isArgumentFigure(kind)?<ArgumentFigure kind={kind}/>:kind==='inquiry-opening'||kind==='inquiry-successes'||kind==='inquiry-cycle'?<InquiryFigure kind={kind}/>:isValidityFigureKind(kind)?<ValidityFigure kind={kind}/>:isCounterFigureKind(kind)?<CounterexampleFigure kind={kind}/>:isPatternFigureKind(kind)?<PatternFigure kind={kind}/>: isProofFigureKind(kind)?<ProofFigure kind={kind}/>:kind==='squared-solutions'?<EquationFigure/>:isAlgebraFigureKind(kind)?<AlgebraFigure kind={kind}/>:setKind?<ReasoningSetFigure kind={setKind}/>:kind==='process'?<div class="reasoning-process"><h3>{c.processTitle}</h3><Flow nodes={structureNodes[locale]} caption={c.processCaption}/></div>:
 <figure class:list={['reasoning-figure',`reasoning-${kind}`]}>
  {kind==='opening'&&<>
   <svg viewBox="0 0 720 230" role="img" aria-label={c.openingDescription}>

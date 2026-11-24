@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-24",
+  "lesson": "existence-and-uniqueness",
+  "locales": [
+    "en",
+    "de"
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "observations": {
+    "figuresPerLesson": 18,
+    "activitiesPerLesson": 3,
+    "katexErrors": 0,
+    "pageOverflow": false,
+    "machine": {
+      "initialInput": 2,
+      "witnessInput": 4,
+      "keyboardHalfStep": 4.5,
+      "invalidQuarterStepRestores": 4.5,
+      "resetInput": 2,
+      "germanWitnessFeedback": true
+    },
+    "convergence": {
+      "initialStage": 1,
+      "finalStage": 5,
+      "upperButtonDisabled": true,
+      "resetStage": 1,
+      "germanStage2": true
+    },
+    "inspection": {
+      "initiallyUnanswered": true,
+      "missingChoicePrompt": true,
+      "wrongChoiceExplained": true,
+      "allFourCorrectChoicesExplained": true,
+      "resetClearsAllChoicesAndFeedback": true,
+      "germanEmptySetExplanation": true
+    },
+    "navigation": {
+      "previousLesson20": true,
+      "lesson20Next21": true,
+      "germanOverviewPartThreeCount": 5,
+      "germanOverviewCard": true
+    },
+    "search": {
+      "englishTitleResult": true,
+      "germanTitleResult": true
+    },
+    "gallery": {
+      "figures": 18,
+      "activities": 4,
+      "firstMachineInput": 4,
+      "independentMachineInput": 2,
+      "uniqueIds": true
+    },
+    "prefix": {
+      "base": "/MyNotes",
+      "home": "/MyNotes/",
+      "englishMachineWorks": true,
+      "germanSwitchWorks": true
+    },
+    "consoleWarningsErrors": []
+  },
+  "build": {
+    "staticPages": 241,
+    "localLinksAssets": 23213,
+    "texAnnotations": 9326,
+    "pagefindPages": 154,
+    "errors": 0,
+    "warnings": 0,
+    "existingHints": 6
+  },
+  "reviewStatus": "unreviewed"
+}

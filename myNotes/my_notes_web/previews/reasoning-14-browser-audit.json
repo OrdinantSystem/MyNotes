@@ -1,0 +1,163 @@
+{
+  "matrix": [
+    {
+      "language": "en",
+      "theme": "light",
+      "answers": 0,
+      "errors": 0,
+      "figures": 4,
+      "h1": 1,
+      "h2": 9,
+      "labs": 3,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "width": 1440
+    },
+    {
+      "language": "en",
+      "theme": "dark",
+      "answers": 0,
+      "errors": 0,
+      "figures": 4,
+      "h1": 1,
+      "h2": 9,
+      "labs": 3,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "width": 1440
+    },
+    {
+      "language": "en",
+      "theme": "light",
+      "answers": 0,
+      "errors": 0,
+      "figures": 4,
+      "h1": 1,
+      "h2": 9,
+      "labs": 3,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "language": "en",
+      "theme": "dark",
+      "answers": 0,
+      "errors": 0,
+      "figures": 4,
+      "h1": 1,
+      "h2": 9,
+      "labs": 3,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "language": "de",
+      "theme": "light",
+      "answers": 0,
+      "errors": 0,
+      "figures": 4,
+      "h1": 1,
+      "h2": 9,
+      "labs": 3,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "width": 1440
+    },
+    {
+      "language": "de",
+      "theme": "dark",
+      "answers": 0,
+      "errors": 0,
+      "figures": 4,
+      "h1": 1,
+      "h2": 9,
+      "labs": 3,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "width": 1440
+    },
+    {
+      "language": "de",
+      "theme": "light",
+      "answers": 0,
+      "errors": 0,
+      "figures": 4,
+      "h1": 1,
+      "h2": 9,
+      "labs": 3,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "language": "de",
+      "theme": "dark",
+      "answers": 0,
+      "errors": 0,
+      "figures": 4,
+      "h1": 1,
+      "h2": 9,
+      "labs": 3,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "width": 390
+    }
+  ],
+  "operations": [
+    {
+      "operation": "red",
+      "ids": [
+        "a",
+        "c",
+        "e",
+        "g"
+      ]
+    },
+    {
+      "operation": "triangles",
+      "ids": [
+        "a",
+        "b",
+        "e",
+        "h"
+      ]
+    },
+    {
+      "operation": "intersection",
+      "ids": [
+        "a",
+        "e"
+      ]
+    },
+    {
+      "operation": "union",
+      "ids": [
+        "a",
+        "b",
+        "c",
+        "e",
+        "g",
+        "h"
+      ]
+    },
+    {
+      "operation": "complement",
+      "ids": [
+        "b",
+        "d",
+        "f",
+        "h"
+      ]
+    }
+  ]
+}

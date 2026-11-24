@@ -1,0 +1,48 @@
+---
+import Math from '../Math.astro';
+import MathText from '../MathText.astro';
+import SwitchTable from '../SwitchTable.astro';
+import {switchText} from '../../lib/reasoning/switch-copy';
+import {initialSwitchState,switchPresets,checkpointAnswers,type SwitchPreset} from '../../lib/interactive/switch-model';
+import {switchMarkup} from '../../lib/interactive/switch-render';
+import '../../styles/counterexamples.css';import '../../styles/switches.css';
+interface Props{preset:SwitchPreset;id:string;group?:string}
+const {preset,id,group}=Astro.props,locale=Astro.locals.locale||'en',c=switchText(locale);
+if(!(switchPresets as readonly string[]).includes(preset))throw new Error('Unknown switch preset');
+const inputs=preset==='override'?['p','q','r'] as const:['p','q'] as const;
+const help=preset==='access'?c.accessHelp:preset==='override'?c.overrideHelp:preset==='scope'?c.scopeHelp:preset==='routes'||preset==='simplify'?c.routeHelp:'';
+---
+<figure class="counter-lab switch-lab" id={id} data-switch-lab={preset} data-locale={locale} data-switch-group={group||id}>
+ {preset!=='checkpoint'&&<h3>{c.titles[preset]}</h3>}
+ {preset==='checkpoint'?<>{c.question.map((question,i)=><fieldset class="switch-question"><legend>{c.questionNumber} {i+1} · <MathText text={question}/></legend>{c.options[i].map((option,j)=><label><input type="radio" name={`${id}-answer-${i}`} data-switch-answer={`${i}:${j}`} aria-controls={`${id}-feedback-${i}`}/><MathText text={option}/></label>)}<div id={`${id}-feedback-${i}`} data-switch-answer-view={i}></div></fieldset>)}<details><summary>{c.reference}</summary>{c.explanations.map((explanation,i)=><section><p><strong>{c.questionNumber} {i+1}</strong>: <MathText text={c.options[i][checkpointAnswers[i]]}/></p><p><MathText text={explanation}/></p></section>)}</details></>:<><fieldset class="switch-inputs"><legend class="visually-hidden">{c.titles[preset]}</legend>{inputs.map(key=><label><input type="checkbox" data-switch-input={key} checked={key==='p'} aria-controls={`${id}-view`}/>{c[key]}</label>)}</fieldset><div id={`${id}-view`} data-switch-view set:html={switchMarkup(locale,preset,initialSwitchState())}/></>}
+ {preset==='simplify'&&<details data-switch-solution><summary>{c.solution}</summary><p><strong>{c.solutionTitle}</strong></p><Math tex={String.raw`\boxed{P}`} display/><p>{c.solutionCopy}</p><SwitchTable preset="simplify"/></details>}
+ <div class="counter-controls"><button type="button" data-switch-reset>{c.reset}</button></div>
+ {help&&<figcaption>{help}{group&&<><br/>{c.linked}</>}</figcaption>}
+ <p class="visually-hidden" role="status" aria-live="polite" data-switch-status></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {initialSwitchState,type SwitchState,type SwitchPreset} from '../../lib/interactive/switch-model';
+import {switchMarkup,switchAnswerMarkup} from '../../lib/interactive/switch-render';
+const groups=new Map<string,{state:SwitchState;roots:HTMLElement[]}>();
+for(const root of document.querySelectorAll<HTMLElement>('[data-switch-lab]')){const key=root.dataset.switchGroup!;if(!groups.has(key))groups.set(key,{state:initialSwitchState(),roots:[]});groups.get(key)!.roots.push(root);}
+for(const {state,roots} of groups.values()){
+ function draw(initiator:HTMLElement,question?:number){
+  for(const root of roots){const preset=root.dataset.switchLab as SwitchPreset,locale=root.dataset.locale as Locale;
+   if(preset==='checkpoint'){
+    root.querySelectorAll<HTMLElement>('[data-switch-answer-view]').forEach(view=>{const i=Number(view.dataset.switchAnswerView);view.innerHTML=switchAnswerMarkup(locale,i,state.answers[i]);});
+    root.querySelectorAll<HTMLInputElement>('[data-switch-answer]').forEach(input=>{const [i,j]=input.dataset.switchAnswer!.split(':').map(Number);input.checked=state.answers[i]===j;});
+   }else{
+    root.querySelector('[data-switch-view]')!.innerHTML=switchMarkup(locale,preset,state);
+    root.querySelectorAll<HTMLInputElement>('[data-switch-input]').forEach(input=>input.checked=state[input.dataset.switchInput as 'p'|'q'|'r']);
+   }
+   root.querySelector<HTMLElement>('[data-switch-status]')!.textContent=root===initiator?(preset==='checkpoint'?(question===undefined?'':root.querySelector<HTMLElement>(`[data-switch-answer-view="${question}"]`)!.innerText):root.querySelector<HTMLElement>('[data-switch-view]')!.innerText):'';
+  }
+ }
+ for(const root of roots){
+  root.querySelectorAll<HTMLInputElement>('[data-switch-input]').forEach(input=>input.addEventListener('change',()=>{state[input.dataset.switchInput as 'p'|'q'|'r']=input.checked;draw(root);}));
+  root.querySelectorAll<HTMLInputElement>('[data-switch-answer]').forEach(input=>input.addEventListener('change',()=>{const [i,j]=input.dataset.switchAnswer!.split(':').map(Number);state.answers[i]=j;draw(root,i);}));
+  root.querySelector('[data-switch-reset]')!.addEventListener('click',()=>{Object.assign(state,initialSwitchState());roots.forEach(r=>r.querySelectorAll<HTMLDetailsElement>('details').forEach(d=>d.open=false));draw(root);});
+ }
+}
+</script>

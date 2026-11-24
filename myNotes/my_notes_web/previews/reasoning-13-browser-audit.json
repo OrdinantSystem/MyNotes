@@ -1,0 +1,148 @@
+{
+  "matrix": [
+    {
+      "language": "en",
+      "theme": "light",
+      "figures": 7,
+      "h1": 1,
+      "h2": 12,
+      "labs": 2,
+      "mathErrors": 0,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "uniqueIds": true,
+      "width": 1440
+    },
+    {
+      "language": "en",
+      "theme": "dark",
+      "figures": 7,
+      "h1": 1,
+      "h2": 12,
+      "labs": 2,
+      "mathErrors": 0,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "uniqueIds": true,
+      "width": 1440
+    },
+    {
+      "language": "en",
+      "theme": "light",
+      "figures": 7,
+      "h1": 1,
+      "h2": 12,
+      "labs": 2,
+      "mathErrors": 0,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "uniqueIds": true,
+      "width": 390
+    },
+    {
+      "language": "en",
+      "theme": "dark",
+      "figures": 7,
+      "h1": 1,
+      "h2": 12,
+      "labs": 2,
+      "mathErrors": 0,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "uniqueIds": true,
+      "width": 390
+    },
+    {
+      "language": "de",
+      "theme": "light",
+      "figures": 7,
+      "h1": 1,
+      "h2": 12,
+      "labs": 2,
+      "mathErrors": 0,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "uniqueIds": true,
+      "width": 1440
+    },
+    {
+      "language": "de",
+      "theme": "dark",
+      "figures": 7,
+      "h1": 1,
+      "h2": 12,
+      "labs": 2,
+      "mathErrors": 0,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "uniqueIds": true,
+      "width": 1440
+    },
+    {
+      "language": "de",
+      "theme": "light",
+      "figures": 7,
+      "h1": 1,
+      "h2": 12,
+      "labs": 2,
+      "mathErrors": 0,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "uniqueIds": true,
+      "width": 390
+    },
+    {
+      "language": "de",
+      "theme": "dark",
+      "figures": 7,
+      "h1": 1,
+      "h2": 12,
+      "labs": 2,
+      "mathErrors": 0,
+      "missingControls": 0,
+      "overflows": [],
+      "pageOverflow": false,
+      "uniqueIds": true,
+      "width": 390
+    }
+  ],
+  "networkCases": [
+    {
+      "mode": "cycle",
+      "person": 0,
+      "pair": "True · Alice knows Ben."
+    },
+    {
+      "mode": "cycle",
+      "person": 1,
+      "pair": "True · Ben knows Clara."
+    },
+    {
+      "mode": "cycle",
+      "person": 2,
+      "pair": "True · Clara knows Alice."
+    },
+    {
+      "mode": "shared",
+      "person": 0,
+      "pair": "True · Alice knows Ben."
+    },
+    {
+      "mode": "shared",
+      "person": 1,
+      "pair": "True · Ben knows Ben."
+    },
+    {
+      "mode": "shared",
+      "person": 2,
+      "pair": "True · Clara knows Ben."
+    }
+  ]
+}

@@ -1,0 +1,530 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-two
+sourceId: reasoning-episode-15
+sourcePages: []
+sourceLocations: ["Sections 1–10; Learning checkpoint; Recommended mathematical sources"]
+title: 'Wann können verschiedene Dinge als „gleich“ gelten?'
+navTitle: "Äquivalenzrelationen"
+description: "Gleichheit und Äquivalenz unterscheiden, die drei Relationseigenschaften beweisen und verstehen, warum Äquivalenzklassen eine Partition bilden."
+order: 15
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [sets-and-mathematical-worlds]
+thumbnail: reasoning-equivalence
+---
+
+## 1. Zwei Zahlen, die nicht gleich sein können
+
+Ich möchte dir etwas Merkwürdiges an zwei ganz gewöhnlichen Zahlen zeigen.
+
+<ReasoningFigure kind="equivalence-opening" />
+
+Vier und sieben.
+
+Offensichtlich sind sie nicht dieselbe Zahl. Vier ist kleiner als sieben, und ihre Differenz beträgt drei. Wenn du vier Äpfel hast und ich sieben, haben wir unterschiedlich viele Äpfel.
+
+Stell dir nun vor, ich gebe beide Zahlen in eine Maschine. Sie teilt jede ganze Zahl durch drei und nennt uns nur den Rest.
+
+Was würde passieren?
+
+<ReasoningFigure kind="equivalence-machine" />
+
+$$
+4=3\cdot1+1\qquad 7=3\cdot2+1
+$$
+
+Beide haben den Rest eins.
+
+Versuchen wir es mit zehn.
+
+$$
+10=3\cdot3+1
+$$
+
+Zehn liefert dasselbe Ergebnis.
+
+Wenn wir weitere Zahlen ausprobieren, entdecken wir etwas: Welche ganze Zahl wir auch wählen, der Rest bei Division durch drei ist immer null, eins oder zwei.
+
+Auch negative ganze Zahlen passen zu dieser Regel. Zum Beispiel lässt sich minus zwei als $3(-1)+1$ schreiben. Der Rest ist also eins.
+
+Wir könnten jede ganze Zahl durch unsere Maschine schicken und sie in eine von nur drei Gruppen einsortieren.
+
+Plötzlich gehören Zahlen zusammen, die völlig verschieden schienen.
+
+Aber dürfen wir sie deshalb als gleich behandeln? Oder haben wir bloß einen Weg erfunden, ihre Unterschiede zu verbergen?
+
+## 2. Eine Welt, in der verschiedene Zahlen zusammengehören
+
+Stell dir vor, unsere Maschine sortiert die ganzen Zahlen. Jede Zahl muss ihr Ziel finden.
+
+Die Regel ist einfach: Zahlen mit demselben Rest gehören zusammen. Probieren wir es aus.
+
+<Interactive kind="equivalence" preset="sorting" id="integer-sorting" />
+
+Wähle zuerst vier und dann sieben.
+
+An der hervorgehobenen Gruppe ändert sich nichts. Beide Zahlen gehören zu ihr. Wählst du dagegen acht, zeigt die Maschine eine andere Gruppe an.
+
+Das legt eine nützliche Unterscheidung nahe. Vier und sieben sind nicht *gleich*. Für den Zweck unserer Maschine sind sie aber austauschbar: Welche der beiden Zahlen wir nehmen, macht für die Bestimmung der Restklasse keinen Unterschied.
+
+Die Mathematik erlaubt uns, diese Idee präzise auszudrücken.
+
+Wir beginnen mit einer *Relation*: einer Regel, die festlegt, wann zwei Objekte miteinander in Beziehung stehen. Nennen wir unsere Relation $R$.
+
+Wir schreiben
+
+$$
+aRb
+$$
+
+und meinen damit, dass die ganze Zahl $a$ zur ganzen Zahl $b$ in Relation steht. Die Regel lautet:
+
+$$
+\boxed{aRb\iff a\text{ und }b\text{ haben bei Division durch }3\text{ denselben Rest.}}
+$$
+
+Das Zeichen $\iff$ bedeutet „genau dann, wenn“. Zwei ganze Zahlen stehen also genau dann in Relation, wenn sie bei Division durch drei denselben Rest liefern.
+
+Damit ist $4R7$ wahr, aber $4R8$ falsch.
+
+Das Zeichen $R$ hat für sich allein keine besondere Bedeutung. Wir haben ihm durch unsere Regel eine Bedeutung gegeben. Eine andere Regel könnte eine völlig andere Relation definieren.
+
+Wir können also die unterschiedlichsten Arten erfinden, Objekte zu vergleichen. Doch dabei gibt es ein Problem.
+
+Nicht jede Relation erlaubt eine so saubere Gruppeneinteilung wie unsere Maschine. Manche Vergleiche führen zu einer merkwürdigen Form von Gleichartigkeit.
+
+Um das zu verstehen, versuchen wir nun, eine Einteilung zu entwickeln, die sich nicht widerspricht.
+
+## 3. Wann ist eine Einteilungsregel verlässlich?
+
+Stell dir vor, du entwirfst diese Sortiermaschine, weißt aber noch nicht, welche mathematischen Eigenschaften sie braucht. Du weißt nur, was sie leisten soll.
+
+Jede ganze Zahl soll zu einer Gruppe gehören. Zahlen, die als gleichartig gelten, sollen zusammengehören. Und wenn zwei Gruppen verschiedene Arten von Zahlen darstellen, sollen sie sich nicht überschneiden.
+
+Welche Bedingungen muss unsere Regel dafür erfüllen?
+
+<ReasoningFigure kind="equivalence-tests" />
+
+### Erste Prüfung: Gehört etwas mit sich selbst zusammen?
+
+Nimm die Zahl vier.
+
+Unsere Maschine soll alle Zahlen zusammenfassen, die zu vier äquivalent sind. Wäre es sinnvoll, vier selbst aus dieser Gruppe auszuschließen?
+
+Eigentlich nicht. Zumindest sollte eine Zahl als gleichartig zu sich selbst gelten.
+
+Unsere Restregel verhält sich genau so: Vier hat denselben Rest wie vier, sieben denselben Rest wie sieben. Jede ganze Zahl hat denselben Rest wie sie selbst.
+
+Diese Eigenschaft heißt **Reflexivität**.
+
+$$
+\boxed{\forall a\in\mathbb Z,\quad aRa}
+$$
+
+Lesen wir das genau: $\forall$ bedeutet „für alle“, und $\mathbb Z$ bezeichnet die ganzen Zahlen. Für jede ganze Zahl $a$ gilt also, dass sie zu sich selbst in Relation steht.
+
+Nicht jede Relation besitzt diese Eigenschaft. „Ist größer als“ ist zum Beispiel nicht reflexiv, denn keine ganze Zahl ist größer als sie selbst.
+
+Unsere Restregel besteht diese Prüfung.
+
+### Zweite Prüfung: Gilt die Beziehung in beide Richtungen?
+
+Angenommen, die Maschine sagt uns, dass vier mit sieben zusammengehört. Könnte sie dann behaupten, sieben gehöre nicht mit vier zusammen?
+
+Das wäre eine seltsame Art, eine Gruppe festzulegen.
+
+Sollen zwei Objekte unter unserer Regel austauschbar sein, darf die Beziehung nicht davon abhängen, welches wir zuerst nennen.
+
+Wenn vier denselben Rest wie sieben hat, hat sieben notwendigerweise denselben Rest wie vier.
+
+$$
+4R7\quad\Longrightarrow\quad7R4
+$$
+
+Das ist **Symmetrie**.
+
+$$
+\boxed{\forall a,b\in\mathbb Z,\quad aRb\implies bRa}
+$$
+
+Das Zeichen $\implies$ bedeutet „impliziert“. Wenn $a$ zu $b$ in Relation steht, muss auch die umgekehrte Beziehung gelten.
+
+Unsere Maschine besteht auch diese Prüfung. Das interessanteste Problem steht uns aber noch bevor.
+
+### Dritte Prüfung: Was passiert bei einer Kette von Beziehungen?
+
+Die Maschine ordnet vier und sieben zusammen. Dann sagt sie, dass sieben und zehn zusammengehören.
+
+<ReasoningFigure kind="equivalence-chain" />
+
+Was würde passieren, wenn sie sich nun weigerte, vier mit zehn zusammenzuordnen?
+
+Wir hätten eine Gruppe mit vier und sieben und eine andere mit sieben und zehn. Sieben wäre in beiden, während vier und zehn angeblich zu verschiedenen Gruppen gehörten. Unser Versuch, getrennte Kategorien zu bilden, wäre gescheitert.
+
+Wir brauchen deshalb eine dritte Bedingung: Gehört $a$ mit $b$ zusammen und $b$ mit $c$, dann muss auch $a$ mit $c$ zusammengehören.
+
+Das ist **Transitivität**.
+
+$$
+\boxed{\forall a,b,c\in\mathbb Z,\quad(aRb\land bRc)\implies aRc}
+$$
+
+Das Zeichen $\land$ bedeutet „und“. Wir verbinden damit zwei Bedingungen, die beide wahr sein müssen.
+
+Unsere Restrelation erfüllt auch diese Eigenschaft. Haben vier und sieben denselben Rest und sieben und zehn ebenfalls, dann haben notwendigerweise auch vier und zehn denselben Rest.
+
+Wir haben drei Bedingungen gefunden, die unsere Einteilung widerspruchsfrei machen: Reflexivität ($aRa$), Symmetrie ($aRb\iff bRa$) und Transitivität ($(aRb\land bRc)\implies aRc$).
+
+Eine Relation, die alle drei Eigenschaften erfüllt, heißt *Äquivalenzrelation*.
+
+An einer Stelle müssen wir aber noch aufpassen. Wir haben gesehen, dass vier, sieben und zehn sich richtig verhalten. Was ist mit allen anderen ganzen Zahlen?
+
+Unendlich viele Beispiele können wir nicht testen. Zum Glück müssen wir das auch nicht.
+
+## 4. Beweisen, dass unsere Maschine immer funktioniert
+
+Eine zweite Beschreibung unserer Restregel macht den Beweis dieser Eigenschaften viel einfacher.
+
+Betrachte die Differenzen unserer drei Zahlen.
+
+$$
+7-4=3,\qquad10-7=3,\qquad10-4=6.
+$$
+
+Alle diese Differenzen sind durch drei teilbar. Das ist kein Zufall.
+
+Haben zwei ganze Zahlen bei Division durch drei denselben Rest, können wir sie so schreiben:
+
+$$
+a=3k+r,\qquad b=3m+r
+$$
+
+Dabei sind $k$ und $m$ ganze Zahlen und $r$ ist ihr gemeinsamer Rest.
+
+Subtrahiere die beiden Zahlen.
+
+$$
+a-b=(3k+r)-(3m+r)=3(k-m).
+$$
+
+Der Rest verschwindet.
+
+Für die umgekehrte Richtung schreiben wir $b=3m+r$ mit $0\le r<3$. Ist $a-b=3k$, dann gilt $a=3(m+k)+r$. Also hat auch $a$ den Rest $r$.
+
+Wenn zwei Zahlen denselben Rest haben, ist ihre Differenz somit ein Vielfaches von drei; auch die Umkehrung gilt.
+
+Wir können unsere Relation daher kürzer schreiben:
+
+$$
+\boxed{aRb\iff3\mid(a-b)}
+$$
+
+Die Schreibweise $3\mid(a-b)$ bedeutet „drei teilt $a-b$“.
+
+Damit lässt sich der Beweis fast unmittelbar ablesen: drei Eigenschaften, eine arithmetische Idee.
+
+### Reflexivität
+
+$$
+a-a=0=3\cdot0
+$$
+
+Die Differenz einer ganzen Zahl zu sich selbst ist durch drei teilbar.
+
+### Symmetrie
+
+$$
+a-b=3k\quad\Longrightarrow\quad b-a=3(-k)
+$$
+
+Das Umkehren einer Differenz ändert nur ihr Vorzeichen. Sie bleibt ein Vielfaches von drei.
+
+### Transitivität
+
+$$
+\underbrace{(a-b)}_{3k}+\underbrace{(b-c)}_{3m}=\underbrace{a-c}_{3(k+m)}
+$$
+
+Die mittleren Terme heben sich auf. Die verbleibende Differenz ist weiterhin ein Vielfaches von drei.
+
+Beachte, was diesen Beweis vom Testen einzelner Zahlen unterscheidet.
+
+Wir haben keine bestimmten Werte für $a$, $b$ oder $c$ gewählt. Wir haben über beliebige ganze Zahlen argumentiert und Eigenschaften benutzt, die für jede ganze Zahl gelten.
+
+Unsere Schlussfolgerung gilt damit für die gesamte unendliche Menge.
+
+Das ist eine Stärke mathematischer Beweise: Statt jedes Objekt einzeln zu prüfen, begründen wir eine Regel, die alle umfasst.
+
+Jetzt können wir entdecken, was uns diese drei Eigenschaften ermöglichen.
+
+## 5. Aus unendlich vielen Zahlen werden drei mathematische Objekte
+
+Erinnerst du dich an unsere Sortiermaschine? Sie zerlegte die ganzen Zahlen in drei Gruppen.
+
+Nun haben wir bewiesen, dass die Relation reflexiv, symmetrisch und transitiv ist. Damit erhalten diese Gruppen einen mathematischen Namen: **Äquivalenzklassen**.
+
+Die Äquivalenzklasse einer ganzen Zahl $a$, geschrieben $[a]$, ist die Menge aller ganzen Zahlen, die zu $a$ in Relation stehen.
+
+$$
+[a]=\{x\in\mathbb Z:xRa\}
+$$
+
+Die geschweiften Klammern bezeichnen eine Menge, und der Doppelpunkt bedeutet „sodass“. Wir sammeln genau die ganzen Zahlen $x$, für die $xRa$ gilt.
+
+Zum Beispiel ist die Klasse von vier
+
+$$
+[4]=\{\ldots,-5,-2,1,4,7,10,13,\ldots\}.
+$$
+
+Und die Klasse von sieben? Sie enthält genau dieselben ganzen Zahlen.
+
+$$
+\boxed{[4]=[7]=[1]}
+$$
+
+Vorsicht: Wir behaupten nicht, dass $4=7$ gilt. Wir sagen, dass die *Mengen* der zu vier beziehungsweise sieben äquivalenten Zahlen gleich sind. Das ist eine andere Aussage.
+
+Da jede ganze Zahl einen von drei möglichen Resten hat, gibt es genau drei verschiedene Äquivalenzklassen.
+
+<ReasoningFigure kind="equivalence-partition" />
+
+Eine solche Einteilung heißt **Partition** oder **Zerlegung**.
+
+Sie hat eine besondere Eigenschaft: Jede ganze Zahl gehört zu genau einer Klasse. Keine fehlt, und zwei verschiedene Klassen teilen kein Element.
+
+Warum das gilt, können wir auch unabhängig von unserem Restbeispiel verstehen.
+
+Reflexivität stellt sicher, dass jedes Objekt zu mindestens einer Äquivalenzklasse gehört: zu seiner eigenen.
+
+Angenommen, zwei Klassen teilen ein Element $x$.
+
+<ReasoningFigure kind="equivalence-shared" />
+
+Gehört $x$ zu beiden Klassen, steht es zu beiden Repräsentanten $a$ und $b$ in Relation.
+
+Aus Symmetrie und Transitivität folgt, dass $a$ und $b$ miteinander in Relation stehen müssen.
+
+Dann steht auch jedes zu $a$ in Relation stehende Element zu $b$ in Relation und umgekehrt. Die Klassen enthalten genau dieselben Elemente.
+
+Ihre scheinbare Überschneidung war also keine teilweise Überschneidung. Es handelte sich um dieselbe Klasse.
+
+$$
+\boxed{[a]\cap[b]\neq\varnothing\implies[a]=[b]}
+$$
+
+In Worten: Teilen zwei Äquivalenzklassen auch nur ein Element, sind sie gleich.
+
+<ReasoningFigure kind="equivalence-classes" />
+
+Das ist der Gewinn. Eine Äquivalenzrelation sagt uns mehr als nur, welche Objektpaare in Relation stehen. Sie erlaubt, die ursprüngliche Menge durch eine widerspruchsfreie Menge von Gruppen zu ersetzen.
+
+Das ist eine weitreichende Vereinfachung. Bevor wir uns daran gewöhnen, versuchen wir aber, diese Ordnung zu zerstören.
+
+## 6. Eine plausibel wirkende Regel, die scheitert
+
+Wir verwerfen unsere Restregel und vergleichen ganze Zahlen auf andere Weise.
+
+Zwei ganze Zahlen sollen nun genau dann in Relation stehen, wenn ihr Abstand höchstens eins beträgt. Eins steht zum Beispiel zu zwei in Relation, und zwei zu drei.
+
+Zunächst klingt das vernünftig: Nahe beieinanderliegende Zahlen gehören zusammen.
+
+Aber liefert diese Relation widerspruchsfreie Äquivalenzklassen? Vergleiche sie mit unserer ursprünglichen Regel.
+
+<Interactive kind="equivalence" preset="comparison" id="relation-comparison" />
+
+$$
+1R2,\quad2R3,\quad\neg(1R3)
+$$
+
+Die Kette bricht ab. Transitivität gilt nicht.
+
+Betrachte den Fehler: Eins steht zu zwei in Relation, weil der Abstand eins beträgt. Dasselbe gilt für zwei und drei. Eins steht jedoch nicht zu drei in Relation, denn ihr Abstand beträgt zwei.
+
+Die Relation ist reflexiv: Jede ganze Zahl hat zu sich selbst den Abstand null.
+
+Sie ist symmetrisch: Der Abstand zwischen $a$ und $b$ ist derselbe wie zwischen $b$ und $a$.
+
+Aber sie ist nicht transitiv. Dieses eine Scheitern verändert alles.
+
+Versuchen wir, alle ganzen Zahlen zusammenzufassen, deren Abstand zu eins höchstens eins beträgt. Wir erhalten:
+
+$$
+N(1)=\{0,1,2\}.
+$$
+
+Machen wir dasselbe mit zwei.
+
+$$
+N(2)=\{1,2,3\}.
+$$
+
+Die Gruppen teilen eins und zwei, sind aber nicht gleich.
+
+<ReasoningFigure kind="equivalence-neighborhoods" />
+
+Das ist keine Partition.
+
+Es ist durchaus sinnvoll, die Nähe von Zahlen zu untersuchen. Diese Relation kann sehr nützlich sein. Sie beschreibt jedoch nicht die Art von Gleichartigkeit, die zur Bildung von Äquivalenzklassen erforderlich ist.
+
+Das ist eine wichtige Unterscheidung: Eine mathematische Beziehung muss keine Äquivalenzrelation sein, um sinnvoll zu sein. Sie muss die Eigenschaften besitzen, die unsere jeweilige Aufgabe verlangt.
+
+Beachte auch, was aus Sicht des Beweisens passiert ist. Selbst tausend getestete Beispiele ohne gefundenes Problem wären kein allgemeiner Beweis. Die drei Zahlen eins, zwei und drei reichen dagegen aus, um das Scheitern der Transitivität zu zeigen.
+
+Um eine Äquivalenzrelation nachzuweisen, müssen wir alle drei Eigenschaften allgemein begründen. Um zu zeigen, dass eine Relation keine Äquivalenzrelation ist, genügt ein Gegenbeispiel zu einer davon.
+
+## 7. Deine Aufgabe: die verborgene Einteilung finden
+
+Versuchen wir ein letztes Experiment. Wir definieren eine Relation, die zunächst anders aussieht als unsere Restmaschine.
+
+Zwei ganze Zahlen sollen genau dann in Relation stehen, wenn ihre **Summe gerade** ist.
+
+$$
+aRb\iff a+b\text{ ist gerade}.
+$$
+
+Drei steht zu sieben in Relation, weil ihre Summe zehn ist. Drei steht aber nicht zu vier in Relation, denn ihre Summe ist sieben.
+
+Erfüllt diese Relation alle drei Eigenschaften? Denke darüber nach, bevor du antwortest.
+
+<Interactive kind="equivalence" preset="checkpoint" id="relation-checkpoint" />
+
+<Exercise>
+Reflexivität: $a+a=2a$ ist gerade. Symmetrie: Das Vertauschen von $a$ und $b$ ändert die Summe nicht. Transitivität: Sind $a+b$ und $b+c$ gerade, dann ist auch
+
+$$
+a+c=(a+b)+(b+c)-2b
+$$
+
+gerade. Die Relation ist also eine Äquivalenzrelation.
+</Exercise>
+
+In dieser Aufgabe steckt noch eine weitere Entdeckung.
+
+Haben zwei ganze Zahlen eine gerade Summe, sind entweder beide gerade oder beide ungerade. Daher entstehen nur zwei Äquivalenzklassen.
+
+<ReasoningFigure kind="equivalence-parity" />
+
+Dieselbe Struktur ergibt sich aus einer scheinbar anderen Definition. Auch negative ganze Zahlen gehören zu diesen Klassen.
+
+Wir begannen mit einer Regel über Summen und entdeckten, dass sie eigentlich die Parität beschreibt: ob Zahlen gerade oder ungerade sind.
+
+Das ist ein Merkmal mathematischer Abstraktion. Eine kompliziert wirkende Definition kann etwas Vertrautes beschreiben, sobald wir ihre Struktur verstehen.
+
+## 8. Was bedeutet „gleich“ eigentlich?
+
+Kehren wir kurz in eine Welt außerhalb der Mathematik zurück.
+
+Stell dir zwei Dateien auf deinem Computer vor.
+
+<ReasoningFigure kind="equivalence-files" />
+
+Sie haben verschiedene Namen. Vielleicht wurden sie zu unterschiedlichen Zeiten erstellt und liegen an ganz verschiedenen Orten.
+
+Sind sie gleich?
+
+Wenn wir nach dem Namen fragen: nein. Fragen wir dagegen, ob sie genau dieselben Bytes enthalten, sind sie unter dieser Relation äquivalent.
+
+Wir können prüfen, dass diese Relation reflexiv, symmetrisch und transitiv ist.
+
+Jede Datei hat denselben Inhalt wie sie selbst. Hat eine Datei denselben Inhalt wie eine andere, gilt das in beide Richtungen. Haben zwei Dateien jeweils denselben Inhalt wie eine dritte, haben sie auch untereinander denselben Inhalt.
+
+Die Äquivalenzklassen bestehen nun aus allen Dateien mit identischem Inhalt.
+
+Verschiedene Namen, Speicherorte und Entstehungsgeschichten spielen für diesen Vergleich keine Rolle.
+
+Wir haben damit aber nicht entdeckt, dass Namen oder Speicherorte bedeutungslos wären. Wir haben entschieden, dass sie **für unsere konkrete Frage** keine Rolle spielen.
+
+Dahinter steht die Idee mathematischer Abstraktion: Bei einer Äquivalenzrelation wählen wir, welche Unterschiede wir erhalten und welche wir außer Acht lassen.
+
+Unsere Restrelation lässt die genauen Zahlenwerte außer Acht, erhält aber den Rest bei Division durch drei.
+
+Die Inhaltsrelation für Dateien lässt Namen und Speicherorte außer Acht, erhält aber die gespeicherten Bytes.
+
+Wir behaupten nicht, dass sämtliche Unterschiede verschwunden sind. Wir bestimmen eine Beziehung, unter der verschiedene Objekte als äquivalent gelten können, ohne die für uns wichtige Information zu verlieren.
+
+Das führt zu einer weiteren Möglichkeit.
+
+## 9. Wenn verschiedene Objekte zu einem neuen Objekt werden
+
+Denke noch einmal an die ganzen Zahlen. Es gibt unendlich viele.
+
+Gruppieren wir sie nach ihrem Rest bei Division durch drei, bleiben aber nur drei Äquivalenzklassen.
+
+<ReasoningFigure kind="equivalence-quotient" />
+
+Aus unendlich vielen einzelnen Zahlen sind drei Arten von Zahlen geworden. Nun können wir Fragen direkt über diese Klassen stellen.
+
+Statt bestimmte ganze Zahlen zu addieren und anschließend ihre Reste zu betrachten, könnten wir versuchen, die Klassen selbst zu addieren.
+
+Das führt zu einer mathematischen Struktur, den ganzen Zahlen modulo drei, meist geschrieben als
+
+$$
+\mathbb Z/3\mathbb Z.
+$$
+
+Wir müssen sie hier nicht entwickeln. Dies ist aber der Anfang der Theorie der *Quotientenstrukturen*: mathematischer Systeme, deren Elemente Äquivalenzklassen sind.
+
+Entscheidend ist, dass wir nicht mehr jeden Unterschied zwischen den ursprünglichen Objekten mitführen müssen.
+
+Wir haben eine neue mathematische Welt geschaffen, in der jede Klasse als einzelnes Objekt behandelt werden kann. Manchmal brauchen wir genau diese Welt.
+
+## 10. Der Unterschied zwischen Gleichheit und Äquivalenz
+
+Kehren wir zu unserer ersten Frage zurück: Sind vier und sieben gleich?
+
+Jetzt können wir genauer antworten.
+
+Gewöhnliche Zahlengleichheit:
+
+$$
+4\neq7
+$$
+
+Kongruenz modulo drei:
+
+$$
+4\equiv7\pmod3
+$$
+
+Gleichheit der Äquivalenzklassen:
+
+$$
+[4]=[7]
+$$
+
+Alle drei Aussagen sind wahr.
+
+Die erste sagt, dass vier und sieben verschiedene Zahlen sind.
+
+Die zweite sagt, dass sie bei Division durch drei zur selben Restklasse gehören. Das Zeichen $\equiv$ bezeichnet hier die *Kongruenz*, und $\pmod3$ nennt den Modul: die Zahl drei.
+
+Die dritte sagt, dass die Äquivalenzklasse von vier genau dieselbe Menge ist wie die von sieben.
+
+Diese Aussagen widersprechen sich nicht. Wir haben gelernt, zwischen tatsächlicher Gleichheit und Äquivalenz unter einer gewählten Relation zu unterscheiden.
+
+Daraus ergibt sich eine allgemeine Einsicht. Die Mathematik kommt nicht immer dadurch voran, dass sie mehr Details einführt. Manchmal entdeckt sie, welche Details wir weglassen können.
+
+Unterschiede außer Acht zu lassen ist allerdings nur dann hilfreich, wenn wir verstehen, was wir dabei erhalten.
+
+Deshalb sind Äquivalenzrelationen wichtig. Sie geben uns eine präzise Möglichkeit zu sagen, dass zwei Dinge verschieden sein und dennoch für einen bestimmten Zweck als gleichartig gelten können.
+
+Die wichtigste Frage zum Mitnehmen lautet deshalb:
+
+**Wenn wir zwei Dinge gleich nennen: Was genau entscheiden wir dabei nicht zu unterscheiden?**
+
+## Lernkontrolle
+
+Die wesentlichen Ideen sind:
+
+- Eine Relation legt fest, welche Objektpaare miteinander in Beziehung stehen.
+- Eine Äquivalenzrelation ist reflexiv, symmetrisch und transitiv.
+- Äquivalenzklassen fassen die unter der gewählten Relation äquivalenten Objekte zusammen.
+- Verschiedene Äquivalenzklassen sind disjunkt und bilden zusammen eine Partition der Ausgangsmenge.
+- Ein Gegenbeispiel kann eine geforderte Eigenschaft widerlegen; allgemeine Beweise begründen sie für jedes Element.
+- Abstraktion erhält ausgewählte Informationen und lässt andere Unterschiede bewusst außer Acht.
+
+Empfohlene mathematische Quellen: [Richard Hammack, Book of Proof — Kapitel 11](https://richardhammack.github.io/BookOfProof/) und [MIT Mathematics for Computer Science — Relationen und modulare Arithmetik](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/).

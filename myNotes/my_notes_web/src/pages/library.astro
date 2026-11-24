@@ -1,4 +1,22 @@
 ---
+import {uniquenessPresets,uniquenessFigures} from '../lib/interactive/uniqueness-model';
+import {lemmaPresets,lemmaFigures} from '../lib/interactive/lemma-model';
+import {reframePresets,reframeFigures} from '../lib/interactive/reframe-model';
+import {trianglePresets,triangleFigures} from '../lib/interactive/triangle-model';
+import {transferPresets,transferFigures} from '../lib/interactive/transfer-model';
+import {auditPresets,auditFigures} from '../lib/interactive/audit-model';
+import {inductionPresets,inductionFigures} from '../lib/interactive/induction-model';
+import {contradictionPresets,contradictionFigures} from '../lib/interactive/contradiction-model';
+import {contraPresets,contraFigures,type ContraFigure} from '../lib/interactive/contraposition-model';
+import {casesPresets,casesFigures} from '../lib/interactive/cases-model';
+import {discoveryPresets,discoveryFigures} from '../lib/interactive/discovery-model';
+import {justificationPresets,justificationFigures} from '../lib/interactive/justification-model';
+import {equivalencePresets,equivalenceFigures} from '../lib/interactive/equivalence-model';
+import {worldPresets,worldFigures} from '../lib/interactive/world-model';
+import {dependencePresets,dependenceFigures} from '../lib/interactive/dependence-model';
+import {switchPresets,switchFigures} from '../lib/interactive/switch-model';
+import {conditionalFigures} from '../lib/interactive/conditional-model';
+import {languagePresets,languageFigures} from '../lib/interactive/language-model';
 import {argumentPresets,argumentFigures} from '../lib/interactive/argument-model';
 import {inquiryPresets} from '../lib/interactive/inquiry-model';
 import {validityPresets,validityFigureKinds} from '../lib/interactive/validity-model';
@@ -22,6 +40,8 @@ import VectorFigure from '../components/VectorFigure.astro';
 import {assets} from '../lib/interactive/catalog';
 import ReasoningFigure from '../components/ReasoningFigure.astro';
 import AnalysisProof from '../components/AnalysisProof.astro';
+import LogicFigure from '../components/LogicFigure.astro';
+import RecallChecklist from '../components/RecallChecklist.astro';
 Astro.locals.locale='en';
 ---
 <SiteLayout title="Representation library" description="Reusable teaching assets and authoring examples." locale="en" current="library">
@@ -32,6 +52,43 @@ Astro.locals.locale='en';
     <ul>{assets.map(asset=><li><a href={`#${asset.id}`}>{asset.name}</a> — {asset.purpose}</li>)}</ul>
     {assets.map(asset=><section id={asset.id}>
       <h2>{asset.name}</h2><p>{asset.purpose}</p><pre><code>{asset.example}</code></pre>
+      {asset.id==='logic-revision'&&<>{(['concept-map','predicate-mapping','proof-paths'] as const).map(kind=><LogicFigure kind={kind}/>)}<RecallChecklist items={['Explain a statement and an open formula.','Read $P:\\mathbb N\\to\\{0,1\\}$.']}/></>}
+      {asset.id==='uniqueness-labs'&&<>{uniquenessPresets.map(preset=><Interactive kind="uniqueness" preset={preset} id={`library-uniqueness-${preset}`}/>)}<Interactive kind="uniqueness" preset="machine" id="library-uniqueness-independent"/></>}
+      {asset.id==='uniqueness-figures'&&uniquenessFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='lemma-labs'&&<>{lemmaPresets.map(preset=><Interactive kind="lemma" preset={preset} id={`library-lemma-${preset}`}/>)}<Interactive kind="lemma" preset="bridge" id="library-lemma-independent"/></>}
+      {asset.id==='lemma-figures'&&lemmaFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='reframe-labs'&&<>{reframePresets.map(preset=><Interactive kind="reframe" preset={preset} id={`library-reframe-${preset}`}/>)}<Interactive kind="reframe" preset="construction" id="library-reframe-independent"/></>}
+      {asset.id==='reframe-figures'&&reframeFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='triangle-labs'&&<>{trianglePresets.map(preset=><Interactive kind="triangle" preset={preset} id={`library-triangle-${preset}`}/>)}<Interactive kind="triangle" preset="puzzle" id="library-triangle-independent"/></>}
+      {asset.id==='triangle-figures'&&triangleFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='transfer-labs'&&<>{transferPresets.map(preset=><Interactive kind="transfer" preset={preset} id={`library-transfer-${preset}`}/>)}<Interactive kind="transfer" preset="calibration" id="library-transfer-independent"/></>}
+      {asset.id==='transfer-figures'&&transferFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='audit-labs'&&<>{auditPresets.map(preset=><Interactive kind="audit" preset={preset} id={`library-audit-${preset}`}/>)}<Interactive kind="audit" preset="cancellation" id="library-audit-independent"/></>}
+      {asset.id==='audit-figures'&&auditFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='induction-labs'&&<>{inductionPresets.map(preset=><Interactive kind="induction" preset={preset} id={`library-induction-${preset}`}/>)}<Interactive kind="induction" preset="tiles" id="library-induction-independent"/></>}
+      {asset.id==='induction-figures'&&inductionFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='contradiction-labs'&&<>{contradictionPresets.map(preset=><Interactive kind="contradiction" preset={preset} id={`library-contradiction-${preset}`}/>)}<Interactive kind="contradiction" preset="prime-builder" id="library-contradiction-independent"/></>}
+      {asset.id==='contradiction-figures'&&contradictionFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='contraposition-labs'&&<>{contraPresets.map(preset=><Interactive kind="contraposition" preset={preset} id={`library-contra-${preset}`}/>)}<Interactive kind="contraposition" preset="truth" id="library-contra-independent"/></>}
+      {asset.id==='contraposition-figures'&&contraFigures.map(kind=><ReasoningFigure kind={kind as ContraFigure}/>)}
+      {asset.id==='cases-labs'&&<>{casesPresets.map(preset=><Interactive kind="cases" preset={preset} id={`library-cases-${preset}`}/>)}<Interactive kind="cases" preset="consecutive" id="library-cases-independent"/></>}
+      {asset.id==='cases-figures'&&casesFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='discovery-labs'&&<>{discoveryPresets.map(preset=><Interactive kind="discovery" preset={preset} id={`library-discovery-${preset}`}/>)}<Interactive kind="discovery" preset="workspace" id="library-discovery-independent"/></>}
+      {asset.id==='discovery-figures'&&discoveryFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='justification-labs'&&<>{justificationPresets.map(preset=><Interactive kind="justification" preset={preset} id={`library-justification-${preset}`}/>)}<Interactive kind="justification" preset="representations" id="library-justification-independent"/></>}
+      {asset.id==='justification-figures'&&justificationFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='equivalence-labs'&&<>{equivalencePresets.map(preset=><Interactive kind="equivalence" preset={preset} id={`library-equivalence-${preset}`}/>)}<Interactive kind="equivalence" preset="sorting" id="library-equivalence-independent"/></>}
+      {asset.id==='equivalence-figures'&&equivalenceFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='world-labs'&&<>{worldPresets.map(preset=><Interactive kind="worlds" preset={preset} id={`library-world-${preset}`}/>)}<Interactive kind="worlds" preset="operations" id="library-world-independent"/></>}
+      {asset.id==='world-figures'&&worldFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='dependence-labs'&&<>{dependencePresets.map(preset=><Interactive kind="dependence" preset={preset} id={`library-dependence-${preset}`}/>)}<Interactive kind="dependence" preset="network" id="library-dependence-independent"/></>}
+      {asset.id==='dependence-figures'&&dependenceFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='switch-labs'&&<>{switchPresets.map(preset=><Interactive kind="switches" preset={preset} id={`library-switch-${preset}`} group={preset==='routes'||preset==='simplify'?'library-switch-repair':undefined}/>)}<Interactive kind="switches" preset="access" id="library-switch-independent"/></>}
+      {asset.id==='switch-figures'&&switchFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='conditional-labs'&&<><Interactive kind="conditional" preset="numbers" id="library-conditional-numbers"/><Interactive kind="conditional" preset="numbers" id="library-conditional-independent"/></>}
+      {asset.id==='conditional-figures'&&conditionalFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='language-labs'&&languagePresets.map(preset=><Interactive kind="language" preset={preset} id={`library-language-${preset}`} group={['interpretations','scores','median','tests'].includes(preset)?'library-language-scores':undefined}/>)}
+      {asset.id==='language-figures'&&languageFigures.map(kind=><ReasoningFigure kind={kind}/>)}
       {asset.id==='argument-labs'&&argumentPresets.map(preset=><Interactive kind="arguments" preset={preset} id={`library-argument-${preset}`}/>)}
       {asset.id==='argument-figures'&&argumentFigures.map(kind=><ReasoningFigure kind={kind}/>)}
       {asset.id==='inquiry-labs'&&inquiryPresets.map(preset=><Interactive kind="inquiry" preset={preset} id={`library-inquiry-${preset}`}/>)}

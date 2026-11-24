@@ -1,0 +1,460 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-two
+sourceId: reasoning-episode-16
+sourcePages: []
+sourceLocations: ["Sections 1–8; Learning checkpoint; Preparation sources and further reading"]
+title: "Was macht aus einer Erklärung einen Beweis?"
+navTitle: "Erklärungen und Beweise"
+description: "Eine versteckte Einschränkung beheben, Voraussetzungen mit Folgerungen verbinden und Beispiele, Intuition und Beweis unterscheiden."
+order: 16
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [equivalence-relations]
+thumbnail: reasoning-justification
+---
+
+## 1. Ein Beweis mit einem versteckten Problem
+
+Ich möchte dir einen mathematischen Beweis zeigen.
+
+Er ist kurz, verwendet gewöhnliche Algebra und kommt zu einer Schlussfolgerung, für deren Wahrheit wir bereits gute Gründe haben.
+
+Die Behauptung lautet:
+
+**Die Summe zweier beliebiger ungerader ganzer Zahlen ist gerade.**
+
+Du kannst es ausprobieren: Drei plus fünf ergibt acht, sieben plus neun ergibt sechzehn, elf plus siebzehn ergibt achtundzwanzig.
+
+<ReasoningFigure kind="justification-examples" />
+
+Jedes Beispiel funktioniert. Wir wollen aber nicht nur drei bestimmte Zahlenpaare prüfen, sondern zeigen, dass es für *jedes* Paar gilt.
+
+Versuchen wir es also mathematischer.
+
+Seien $a$ und $b$ zwei beliebige ungerade ganze Zahlen. Eine ungerade ganze Zahl lässt sich als das Doppelte einer ganzen Zahl plus eins schreiben.
+
+Wir können daher schreiben:
+
+$$
+a=2k+1,\qquad b=2k+1.
+$$
+
+Addieren wir:
+
+$$
+\begin{aligned}
+a+b&=(2k+1)+(2k+1)\\
+&=4k+2\\
+&=2(2k+1).
+\end{aligned}
+$$
+
+Da wir die Summe als das Doppelte einer ganzen Zahl dargestellt haben, muss sie gerade sein.
+
+Also ist die Summe zweier beliebiger ungerader ganzer Zahlen gerade.
+
+**Ist das ein gültiger Beweis?**
+
+<Interactive kind="justification" preset="opening" id="proof-investigation" />
+
+Das ist eine interessante Situation. Die mathematische Schlussfolgerung ist wahr. Wir haben eine richtige Definition verwendet, korrekt gerechnet und einen tatsächlich geraden Ausdruck erhalten.
+
+Trotzdem funktioniert der Beweis nicht. Warum?
+
+Wir haben unbemerkt eine Einschränkung eingeführt, die in der ursprünglichen Behauptung nicht vorkam.
+
+Wir wollten zwei beliebige ungerade ganze Zahlen betrachten. Unser Argument erfasste aber nur zwei Kopien derselben ungeraden Zahl.
+
+Das ist das zentrale Problem dieser Lektion:
+
+**Eine Schlussfolgerung kann wahr sein, obwohl die zu ihrer Begründung verwendete Argumentation ungültig ist.**
+
+Wenn weder die richtige Schlussfolgerung noch korrekte Rechnungen ausreichen: Was macht ein Argument dann zu einem Beweis?
+
+Wir werden unser Argument reparieren, jeden dafür notwendigen Schritt verstehen und untersuchen, was passiert, wenn einer dieser Schritte fehlt.
+
+## 2. Die Struktur hinter den Zahlen finden
+
+Vergessen wir die Algebra vorübergehend.
+
+Was bedeutet es, dass eine positive ganze Zahl ungerade ist?
+
+Drei Objekte lassen sich zu einem Paar und einem einzelnen Objekt anordnen. Fünf ergeben zwei Paare und ein einzelnes Objekt. Sieben ergeben drei Paare und ein einzelnes Objekt.
+
+Entscheidend ist nicht die Anzahl vollständiger Paare. Entscheidend ist, dass genau ein Objekt ohne Partner bleibt.
+
+Stell dir nun vor, wir vereinigen zwei ungerade Sammlungen.
+
+Jede liefert vollständige Paare und ein einzelnes Objekt. Diese beiden einzelnen Objekte lassen sich zu einem neuen Paar verbinden.
+
+Plötzlich bleibt nichts mehr ohne Partner.
+
+<Interactive kind="justification" preset="representations" id="proof-representations" />
+
+Wir können die Zahl vollständiger Paare beliebig ändern. Der Mechanismus bleibt derselbe.
+
+Die erste Sammlung liefert ein einzelnes Objekt, die zweite ein weiteres. Zusammen ergeben sie genau ein zusätzliches Paar.
+
+Das erklärt, warum das Muster entsteht. Aber haben wir es damit bereits bewiesen?
+
+Wir sind näher dran. Die Idee gilt für Sammlungen beliebiger positiver ungerader Größe und nicht nur für unsere drei Ausgangsbeispiele.
+
+Unsere ursprüngliche Behauptung betrifft jedoch alle ungeraden ganzen Zahlen. Dazu gehören auch negative Zahlen.
+
+Was würde es bedeuten, minus fünf Objekte zu zeichnen und paarweise anzuordnen?
+
+Vielleicht ließe sich die anschauliche Argumentation erweitern. Das gewöhnliche Punktbild stellt aber nicht mehr unmittelbar unseren gesamten Zahlenbereich dar.
+
+Das ist ein nützlicher Moment mathematischer Überlegung: Wir haben eine Struktur entdeckt und müssen sie nun so ausdrücken, dass sie jeden Fall der Behauptung umfasst.
+
+Hier hilft Abstraktion.
+
+## 3. Den Beweis reparieren
+
+Überlege, was unser Bild tatsächlich gezeigt hat.
+
+Eine ungerade Anzahl besteht aus vollständigen Paaren und einer zusätzlichen Einheit.
+
+Statt diese Paare zu zeichnen, können wir sie mathematisch beschreiben.
+
+Eine ganze Zahl $n$ heißt ungerade, wenn eine ganze Zahl $k$ existiert, sodass
+
+$$
+n=2k+1.
+$$
+
+Eine ganze Zahl $n$ heißt gerade, wenn eine ganze Zahl $t$ existiert, sodass
+
+$$
+n=2t.
+$$
+
+Das sind Definitionen. Sie geben uns präzise Kriterien dafür, ob eine Zahl ungerade oder gerade ist.
+
+Anders als unsere Punktesammlung funktionieren sie auch für negative ganze Zahlen. Zum Beispiel gilt:
+
+$$
+-5=2(-3)+1.
+$$
+
+Minus fünf ist also nach derselben Definition ungerade.
+
+Kehren wir zum ursprünglichen Beweis zurück. Wir wollen zwei beliebige ungerade ganze Zahlen $a$ und $b$ betrachten.
+
+Nach der Definition lässt sich jede als das Doppelte einer ganzen Zahl plus eins schreiben.
+
+Denke aber an unseren Fehler: Wir dürfen nicht voraussetzen, dass beide Zahlen dieselbe ganze Zahl in dieser Darstellung verwenden.
+
+Diesmal schreiben wir deshalb:
+
+$$
+\boxed{a=2k+1,\qquad b=2m+1}
+$$
+
+mit $k,m\in\mathbb Z$.
+
+Das Zeichen $\mathbb Z$ bezeichnet die Menge der ganzen Zahlen: negative ganze Zahlen, null und positive ganze Zahlen.
+
+$k$ und $m$ sind unabhängig. Nichts verlangt, dass sie denselben Wert haben.
+
+Für drei und fünf können wir $k=1$ und $m=2$ verwenden. Für minus fünf und sieben können wir $k=-3$ und $m=3$ verwenden.
+
+Für jedes Paar ungerader ganzer Zahlen garantiert die Definition geeignete Werte.
+
+Addieren wir nun die Ausdrücke.
+
+<ReasoningFigure kind="justification-repair" />
+
+Damit haben wir mehr als unsere ursprünglichen Beispiele: Wir haben gezeigt, dass die Summe zweier beliebiger ungerader ganzer Zahlen diese Form besitzen muss.
+
+Weil $k$ und $m$ ganze Zahlen sind, ist auch ihre Summe plus eins eine ganze Zahl.
+
+Diese letzte Tatsache ist wichtig. Aus der gewöhnlichen Ganzzahlarithmetik wissen wir, dass die Summe ganzer Zahlen wieder ganzzahlig ist.
+
+Also ist $k+m+1$ ganzzahlig und der Ausdruck
+
+$$
+2(k+m+1)
+$$
+
+ist genau das Doppelte einer ganzen Zahl. Das entspricht unserer Definition von gerade. Die Summe muss deshalb gerade sein.
+
+Jetzt haben wir die Behauptung für beliebige ungerade ganze Zahlen bewiesen, auch für negative.
+
+Was hat sich gegenüber unserem ersten ungültigen Argument verändert?
+
+Die Schlussfolgerung blieb dieselbe. Auch der größte Teil der Rechnung blieb gleich. Geändert hat sich die Begründung.
+
+Im ersten Argument durften wir zwei beliebige ungerade Zahlen nicht mit demselben $k$ darstellen. Im reparierten Argument erhält jede Zahl ihre eigene Darstellung, genau wie die Definition es erlaubt.
+
+Alle weiteren Schritte folgen aus diesem Ausgangspunkt.
+
+Dahinter steht eine allgemeinere Idee:
+
+**Ein Beweis muss bewahren, was seine Voraussetzungen erlauben. Er darf weder unbemerkt Einschränkungen hinzufügen noch etwas als bewiesen behandeln, das noch nicht begründet wurde.**
+
+## 4. Ein Beweis ist ein Netz begründeter Verbindungen
+
+Betrachten wir, was wir gerade aufgebaut haben.
+
+Wir begannen nicht bei nichts. Unsere Voraussetzung war, dass die beiden ganzen Zahlen ungerade sind.
+
+Wir verwendeten die Definition: Eine ungerade ganze Zahl ist das Doppelte einer ganzen Zahl plus eins.
+
+Mit algebraischen Regeln formten wir einen Ausdruck um. Dabei nutzten wir die bekannte Eigenschaft, dass die Summe ganzer Zahlen ganzzahlig ist.
+
+Am Ende verwendeten wir die Definition von gerade, um die Schlussfolgerung zu erhalten.
+
+Diese Bestandteile erfüllen verschiedene Aufgaben.
+
+<ReasoningFigure kind="justification-dependencies" />
+
+Betrachte die Pfeile. Jeder steht für einen Übergang, den wir begründen können müssen.
+
+Die ersten beiden Kästen erlauben uns, $a$ und $b$ durch $2k+1$ und $2m+1$ darzustellen.
+
+Die algebraischen Regeln erlauben die Umformung in ein Vielfaches von zwei. Die letzte Schlussfolgerung gilt, weil der mit zwei multiplizierte Faktor ganzzahlig ist.
+
+Stell dir nun vor, eine dieser Verbindungen fehlt.
+
+Wüssten wir nicht, ob $k+m+1$ ganzzahlig ist, würde die Darstellung als das Doppelte dieses Ausdrucks noch nicht zeigen, dass die Summe gerade ist.
+
+Hätten wir nicht definiert, was ungerade bedeutet, hätte die Ersetzung $a=2k+1$ keine angegebene Begründung.
+
+Ein Beweis stellt also nicht bloß wahre Aussagen nebeneinander. Er begründet, **warum die Schlussfolgerung aus den Voraussetzungen folgt**.
+
+Das erklärt auch eine zunächst merkwürdige Frage: Woher kommen die Voraussetzungen und die bekannten Eigenschaften?
+
+Wenn jedes Ergebnis eine Begründung braucht, müssten wir dann nicht jede verwendete Tatsache mit einem weiteren Beweis rechtfertigen und diesen wieder mit einem weiteren – ohne Ende?
+
+Die Mathematik begegnet dem, indem sie innerhalb ausdrücklich festgelegter Grundlagen arbeitet.
+
+Manche Aussagen werden als Ausgangspunkte angenommen. Sie heißen *Axiome*. Andere Aussagen werden aus Axiomen, Definitionen und bereits bewiesenen Ergebnissen hergeleitet.
+
+Ein Axiom ist nicht einfach etwas, das uns offensichtlich erscheint. Es ist eine grundlegende Annahme des jeweiligen mathematischen Rahmens.
+
+In der gewöhnlichen Arithmetik verwenden wir vertraute Eigenschaften ganzer Zahlen, ohne sie jedes Mal neu zu beweisen. Bei einer Untersuchung der Grundlagen können diese Eigenschaften wiederum aus früheren Prinzipien entwickelt werden.
+
+Dadurch erhält mathematisches Wissen eine besondere Struktur.
+
+<ReasoningFigure kind="justification-foundations" />
+
+Mathematik ist nicht bloß eine Sammlung voneinander unabhängiger Entdeckungen. Sie ist ein zusammenhängendes Wissensgebäude, in dem bewiesene Ergebnisse neue Ergebnisse stützen können.
+
+## 5. Warum es Lemmata und Sätze gibt
+
+Sehen wir uns das an unserem Beispiel an. Wir haben bewiesen, dass die Summe zweier ungerader ganzer Zahlen gerade ist.
+
+Nun kommt eine neue Behauptung:
+
+**Die Summe dreier beliebiger ungerader ganzer Zahlen ist ungerade.**
+
+Wir könnten erneut drei Ausdrücke der Form $2k+1$ aufschreiben, addieren und den Beweis direkt führen.
+
+Vielleicht müssen wir aber gar nicht von vorn beginnen.
+
+Wir wissen bereits, dass zwei ungerade ganze Zahlen zusammen eine gerade Zahl ergeben. Für drei ungerade ganze Zahlen $a$, $b$ und $c$ können wir deshalb die ersten beiden zusammenfassen:
+
+$$
+\underbrace{(a+b)}_{\text{gerade}}+c.
+$$
+
+Unsere Aufgabe hat sich verändert. Wir addieren nun eine gerade und eine ungerade Zahl.
+
+Wenn gerade plus ungerade wieder ungerade ergibt, sind wir fertig.
+
+Diese Hilfsaussage lässt sich schnell beweisen. Seien $e$ eine beliebige gerade und $c$ eine beliebige ungerade ganze Zahl. Nach den Definitionen gilt
+
+$$
+e=2r,\qquad c=2s+1
+$$
+
+für ganze Zahlen $r$ und $s$. Daher ist
+
+$$
+e+c=2(r+s)+1.
+$$
+
+Weil $r+s$ ganzzahlig ist, ist das Ergebnis ungerade.
+
+Nun verbinden wir unsere beiden bewiesenen Ergebnisse.
+
+<ReasoningFigure kind="justification-lemmas" />
+
+Was ist passiert? Aus zwei bereits bewiesenen Ergebnissen haben wir einen neuen Beweis aufgebaut. Jedes Ergebnis wurde zu einem unterstützenden Schritt im größeren Argument.
+
+Ein solches Hilfsergebnis wird in der Mathematik häufig **Lemma** genannt.
+
+Ein Lemma ist kein unzuverlässiger oder weniger streng bewiesener Satz. Es ist ein bewiesenes Ergebnis, das dabei hilft, ein anderes Ergebnis zu beweisen.
+
+Die Bezeichnung beschreibt seine Aufgabe in der Darstellung, nicht seine Zuverlässigkeit.
+
+Ein Satz ist eine durch Beweis begründete Aussage. Auch ein Lemma ist eine bewiesene Aussage; es wird typischerweise vorgestellt, weil es einen weiteren Beweis unterstützt.
+
+Einmal bewiesene Sätze können wir wiederverwenden, ohne ihren gesamten Beweis jedes Mal neu aufzubauen.
+
+Das ermöglicht anspruchsvolle Mathematik. Stell dir vor, du müsstest für ein kompliziertes Ergebnis zuerst die gesamte Arithmetik, Eigenschaften von Funktionen und jeden verwendeten Satz von Grund auf neu begründen.
+
+Mathematik wäre kaum noch überschaubar. Stattdessen bauen wir auf bereits gerechtfertigtem Wissen auf.
+
+Dafür müssen wir unterscheiden, was tatsächlich bewiesen wurde und was nur plausibel klingt.
+
+## 6. Warum eine gute Erklärung nicht immer ein Beweis ist
+
+Betrachten wir unsere bisherigen Schritte.
+
+Zuerst prüften wir einige Paare ungerader Zahlen. Dann stellten wir ungerade Zahlen als Paare mit einem einzelnen Objekt dar. Schließlich verwendeten wir die Definition einer ungeraden ganzen Zahl für einen allgemeinen Beweis.
+
+Alle drei Wege halfen uns, dieselbe Behauptung zu verstehen. Sie erfüllten aber unterschiedliche Aufgaben.
+
+<ReasoningFigure kind="justification-roles" />
+
+Eine Veranschaulichung macht eine Aussage konkret. Eine intuitive Erklärung lässt uns einen Mechanismus erkennen. Ein Beweis begründet innerhalb eines festgelegten mathematischen Rahmens, dass eine Schlussfolgerung aus ihren Voraussetzungen folgt.
+
+Diese Kategorien können sich überschneiden.
+
+Ein Beweis kann sehr anschaulich sein. Und ein bildliches Argument kann ein echter Beweis sein, wenn es den gesamten beabsichtigten Bereich erfasst und alle wesentlichen Schritte begründet.
+
+Unser Paarargument lässt sich beispielsweise für nichtnegative ungerade ganze Zahlen präzisieren, indem man die allgemeine Paarregel angibt und begründet.
+
+Die algebraische Fassung ist besonders nützlich, weil sie negative ganze Zahlen direkt behandelt und ihre Voraussetzungen ausdrücklich nennt.
+
+Auch die umgekehrte Einsicht ist wichtig:
+
+**Ein Argument wird nicht allein dadurch zum Beweis, dass es mathematische Zeichen verwendet.**
+
+Erinnerst du dich an unseren ersten Fehler? Die Zeichen waren gewöhnlich, die Rechnungen korrekt und die Schlussfolgerung wahr. Der Fehler lag in der Argumentation.
+
+Gewöhnen wir uns deshalb etwas an: Frage nicht nur, ob das Endergebnis richtig erscheint. Frage, ob jeder Übergang begründet ist.
+
+Das prüfen wir an einem weiteren Beispiel.
+
+## 7. Kannst du dieses Argument ergänzen?
+
+Jemand legt folgenden Beweis vor.
+
+Seien $a$ und $b$ beliebige ungerade ganze Zahlen. Nach Definition existieren ganze Zahlen $k$ und $m$ mit
+
+$$
+a=2k+1,\qquad b=2m+1.
+$$
+
+Durch Addition folgt
+
+$$
+a+b=2(k+m+1).
+$$
+
+Also ist $a+b$ gerade.
+
+Anders als unser erster Versuch ist dieses Argument korrekt. Das haben wir bereits begründet.
+
+Stell dir aber vor, ein Student schreibt es zum ersten Mal auf. Die Lehrperson fragt, warum der letzte Schluss gilt.
+
+Was müsste er ergänzen?
+
+<Interactive kind="justification" preset="challenge" id="proof-justification" />
+
+Die Aufgabe wirkt vielleicht sehr einfach. Wir ergänzen schließlich nur einen Satz. Genau deshalb ist sie hilfreich.
+
+In einem kurzen Beweis lässt sich eine fehlende Begründung leicht nachtragen. In einem längeren Beweis kann dieselbe Art von Auslassung viel schwerer zu erkennen sein.
+
+Manchmal lässt sich die Lücke gar nicht schließen, weil die zu beweisende Aussage falsch ist.
+
+Betrachte die stärkere Behauptung:
+
+„Die Summe zweier beliebiger ungerader ganzer Zahlen ist durch vier teilbar.“
+
+Wir kommen immer noch zum Ausdruck
+
+$$
+a+b=2(k+m+1),
+$$
+
+brauchen jetzt aber, dass $k+m+1$ gerade ist, und nicht bloß ganzzahlig.
+
+Die Definition von ungerade garantiert das nicht.
+
+Wir können die neue Behauptung durch ein Gegenbeispiel widerlegen. Nimm eins und fünf:
+
+$$
+1+5=6.
+$$
+
+Sechs ist gerade, aber nicht durch vier teilbar.
+
+<ReasoningFigure kind="justification-counterexample" />
+
+Die ursprüngliche Schlussfolgerung war also richtig, die stärkere ist falsch.
+
+Das zeigt zwei verschiedene Arten des Scheiterns. Ein Argument kann einen unbegründeten Schritt enthalten, obwohl seine Schlussfolgerung wahr ist – wie unser erster Beweisversuch.
+
+Oder es kann eine falsche Schlussfolgerung begründen wollen. Dann kann es keinen gültigen Beweis aus wahren Voraussetzungen geben.
+
+Den Unterschied zu erkennen gehört zum mathematischen Denken.
+
+## 8. Was macht einen Beweis zum Beweis?
+
+Kehren wir zum Anfang zurück.
+
+Wir wollten beweisen, dass die Summe zweier beliebiger ungerader ganzer Zahlen gerade ist.
+
+Unser erster Versuch erreichte die richtige Schlussfolgerung, setzte aber unbemerkt voraus, dass beide Zahlen gleich waren.
+
+Dann untersuchten wir die Struktur ungerader Zahlen: zuerst anhand gepaarter Objekte, anschließend mit dem Ausdruck $2k+1$.
+
+Wir reparierten das Argument durch unabhängige Variablen und begründeten jeden Schritt.
+
+Schließlich erkannten wir, dass ein Beweis mehr als eine Folge von Gleichungen ist. Er ist ein Netz aus Voraussetzungen, Definitionen, bekannten Tatsachen und gültigen Folgerungen.
+
+Daraus ergibt sich ein praktisches Vorgehen für mathematische Argumente.
+
+**Vier Fragen an jeden Beweis**
+
+1. **Was genau wollen wir beweisen?** Die Schlussfolgerung muss klar formuliert sein, einschließlich Zahlenbereich und Bedingungen.
+2. **Was dürfen wir voraussetzen?** Benenne Voraussetzungen, Definitionen, Axiome und bereits bewiesene Ergebnisse.
+3. **Was begründet jeden Schritt?** Jede wesentliche Folgerung muss aus etwas folgen, das wir verwenden dürfen.
+4. **Folgt die Schlussfolgerung wirklich?** Prüfe, ob unbemerkt Annahmen hinzugekommen sind und ob der Beweis die ganze Allgemeinheit der Behauptung erfasst.
+
+Dieses Vorgehen reicht über die Mathematik hinaus.
+
+Wir begegnen oft überzeugend wirkenden Erklärungen. Sie verwenden Beispiele, vertraute Sprache, einprägsame Vergleiche und manchmal beeindruckende technische Details.
+
+Das Gefühl, eine Erklärung verstanden zu haben, garantiert aber nicht, dass ihre Schlussfolgerung folgt.
+
+Die Mathematik bietet uns eine besonders präzise Möglichkeit, diesen Unterschied zu untersuchen.
+
+Wir fragen nicht nur, ob eine Aussage richtig erscheint, sondern welche Voraussetzungen sie stützen, welche Regeln diese verbinden und ob die Verbindungen ausreichen.
+
+Sobald wir so fragen, wird ein Beweis mehr als eine Gleichungssammlung: Er wird zu einem Argument, dessen logische Struktur wir untersuchen, prüfen und verstehen können.
+
+**Ein Beweis sagt nicht nur, dass etwas wahr ist. Er begründet, warum die Schlussfolgerung innerhalb des angegebenen Rahmens wahr sein muss.**
+
+Solche Argumente aufbauen zu lernen gehört zu den Fähigkeiten, die Mathematik vermitteln kann.
+
+## Lernkontrolle
+
+1. Kann eine mathematische Aussage wahr sein, obwohl der vorgeschlagene Beweis ungültig ist?
+2. Welche versteckte Einschränkung enthielt unser erster Beweisversuch?
+3. Was unterscheidet einen Satz von einem Lemma?
+4. Kann eine bildliche Erklärung für einen Beweis ausreichen?
+5. Welche Tatsache ergänzt $a+b=2(k+m+1)$ zum Beweis, dass die Summe gerade ist?
+
+<Exercise>
+1. Ja. Eine wahre Aussage kann mit einem ungültigen Argument begründet werden. Ihre Wahrheit repariert die Folgerung nicht.
+2. Dasselbe $k$ erzwingt $a=b$. Beliebige ungerade Zahlen brauchen unabhängige Darstellungen mit $k$ und $m$. Diese Werte dürfen übereinstimmen, müssen es aber nicht.
+3. Beides sind bewiesene Aussagen. „Lemma“ bezeichnet eine unterstützende Aufgabe und keinen schwächeren Beweisstandard.
+4. Ja, wenn die begründete Argumentation den gesamten angegebenen Bereich umfasst. Das gewöhnliche Punktbild hier erfasst unmittelbar positive ungerade Anzahlen; die Algebra behandelt alle ungeraden ganzen Zahlen.
+5. Aus $k,m,1\in\mathbb Z$ und der Abgeschlossenheit unter Addition folgt $k+m+1\in\mathbb Z$. Die Summe ist also das Doppelte einer ganzen Zahl und damit nach Definition gerade.
+</Exercise>
+
+## Quellen zur Vorbereitung und weiterführende Literatur
+
+- **Kevin Houston — How to Think Like a Mathematician.** Zur Unterscheidung zwischen Definitionen, mathematischen Aussagen und Beweisen sowie zum Lesen und Aufbauen von Argumenten.
+- **Richard Hammack — Book of Proof.** Kapitel 4, insbesondere die Grundlagen direkter Beweise und der Übergang von Voraussetzungen zu Schlussfolgerungen. [Das frei verfügbare Lehrbuch lesen](https://richardhammack.github.io/BookOfProof/)
+- **Historische Ergänzung — [Lincolns autobiografische Skizze von 1860](https://hd.housedivided.dickinson.edu/node/40403).** Lincoln berichtete, Euklid studiert zu haben. Das veranschaulicht ein historisches Interesse an strengem Denken, belegt aber nicht, dass sein Euklidstudium seine späteren Leistungen verursachte.
+
+**Verbindung zum Lernweg:** Diese Lektion schließt den Übergang vom Verständnis logischer Aussagen zum Aufbau mathematischer Beweise ab. Im nächsten Schritt geht es darum, Beweise durch direkte Argumentation, Kontraposition, Widerspruch und weitere Verfahren zu konstruieren.

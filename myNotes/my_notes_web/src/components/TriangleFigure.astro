@@ -1,0 +1,8 @@
+---
+import type {TriangleFigure} from '../lib/interactive/triangle-model';
+import {triangleFigure,triangleTitle} from '../lib/interactive/triangle-render';
+import '../styles/counterexamples.css';import '../styles/discovery.css';import '../styles/triangle.css';
+interface Props{kind:TriangleFigure}
+const {kind}=Astro.props,locale=Astro.locals.locale||'en';
+---
+<figure class="counter-lab triangle-figure" data-triangle-figure={kind}><h3>{triangleTitle(locale,kind)}</h3><div set:html={triangleFigure(locale,kind)}/></figure>

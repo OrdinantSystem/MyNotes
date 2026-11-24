@@ -1,0 +1,54 @@
+---
+import MathText from '../MathText.astro';
+import {discoveryPresets,evenChoices,oddChoices,openingAnswers,initialDiscoveryState,type DiscoveryPreset} from '../../lib/interactive/discovery-model';
+import {discoveryText} from '../../lib/reasoning/discovery-copy';
+import {parityDiscoveryMarkup,workspaceMarkup} from '../../lib/interactive/discovery-render';
+import '../../styles/counterexamples.css';import '../../styles/discovery.css';
+interface Props{preset:DiscoveryPreset;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=discoveryText(locale),s=initialDiscoveryState();
+if(!(discoveryPresets as readonly string[]).includes(preset))throw new Error('Unknown discovery preset');
+---
+<figure class="counter-lab discovery-lab" id={id} data-discovery-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='parity'?<><div class="discovery-columns">{[evenChoices,oddChoices].map((choices,i)=><div><p>{i===0?c.evenInput:c.oddInput}</p><div class="counter-controls" role="group" aria-label={i===0?c.evenInput:c.oddInput}>{choices.map(n=><button type="button" data-discovery-choice={i===0?'even':'odd'} data-value={n} aria-pressed={n===(i===0?s.even:s.odd)} aria-controls={`${id}-output`}>{n}</button>)}</div></div>)}</div><div id={`${id}-output`} data-discovery-output set:html={parityDiscoveryMarkup(locale,s.even,s.odd)}/><figcaption>{c.parityCaption}</figcaption></>:preset==='workspace'?<><p data-discovery-position>{c.step} 1 / 5</p><div id={`${id}-output`} data-discovery-output set:html={workspaceMarkup(locale,0)}/><div class="counter-controls"><button type="button" data-discovery-back disabled>{c.back}</button><button type="button" data-discovery-next>{c.next}</button></div></>:<><p>{c.practiceHelp}</p><p data-discovery-position>{c.question} 1 / 4</p>{c.questions.map((question,i)=><fieldset class="discovery-question" data-discovery-question={i}><legend><MathText text={question}/></legend>{i!==1&&<p class="discovery-added">{c.additional}</p>}{c.options[i].map((option,j)=><label><input type="radio" name={`${id}-q${i}`} data-discovery-answer={`${i}:${j}`} aria-controls={`${id}-feedback-${i}`}/><span><MathText text={option}/></span></label>)}<div id={`${id}-feedback-${i}`} data-discovery-feedback={i}/></fieldset>)}<div class="counter-controls"><button type="button" data-discovery-question-back disabled>{c.previousQuestion}</button><button type="button" data-discovery-question-next>{c.nextQuestion}</button></div><details><summary>{c.reference}</summary>{c.questions.map((question,i)=><section><p><strong><MathText text={question}/></strong></p><p><MathText text={c.options[i][openingAnswers[i]]}/></p><p><MathText text={c.feedback[i][openingAnswers[i]]}/></p></section>)}</details></>}
+ <div class="counter-controls"><button type="button" data-discovery-reset>{c.reset}</button></div><p class="visually-hidden" role="status" aria-live="polite" data-discovery-status></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {initialDiscoveryState,advanceWorkspace,evenOddSelection} from '../../lib/interactive/discovery-model';
+import {discoveryText} from '../../lib/reasoning/discovery-copy';
+import {parityDiscoveryMarkup,workspaceMarkup,openingMoveFeedback} from '../../lib/interactive/discovery-render';
+for(const root of document.querySelectorAll<HTMLElement>('[data-discovery-lab]')){
+ const locale=root.dataset.locale as Locale,c=discoveryText(locale),s=initialDiscoveryState(),preset=root.dataset.discoveryLab;
+ function draw(announce=true){
+  let status='';
+  if(preset==='parity'){
+   root.querySelector('[data-discovery-output]')!.innerHTML=parityDiscoveryMarkup(locale,s.even,s.odd);
+   root.querySelectorAll<HTMLElement>('[data-discovery-choice]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.value)===s[b.dataset.discoveryChoice as 'even'|'odd'])));
+   const v=evenOddSelection(s.even,s.odd);status=c.parityReadout(v.e,v.o,v.sum,v.k);
+  }else if(preset==='workspace'){
+   root.querySelector('[data-discovery-output]')!.innerHTML=workspaceMarkup(locale,s.step);
+   root.querySelector<HTMLButtonElement>('[data-discovery-back]')!.disabled=s.step===0;
+   root.querySelector('[data-discovery-next]')!.textContent=s.step===4?c.replay:c.next;
+   status=`${c.step} ${s.step+1} / 5`;root.querySelector('[data-discovery-position]')!.textContent=status;
+  }else{
+   root.querySelectorAll<HTMLElement>('[data-discovery-question]').forEach(field=>field.hidden=Number(field.dataset.discoveryQuestion)!==s.question);
+   root.querySelectorAll<HTMLElement>('[data-discovery-feedback]').forEach(el=>{const i=Number(el.dataset.discoveryFeedback);el.innerHTML=openingMoveFeedback(locale,i,s.answers[i]);});
+   root.querySelectorAll<HTMLInputElement>('[data-discovery-answer]').forEach(input=>{const [i,j]=input.dataset.discoveryAnswer!.split(':').map(Number);input.checked=s.answers[i]===j;});
+   root.querySelector<HTMLButtonElement>('[data-discovery-question-back]')!.disabled=s.question===0;
+   root.querySelector<HTMLButtonElement>('[data-discovery-question-next]')!.disabled=s.question===3;
+   status=`${c.question} ${s.question+1} / 4`;root.querySelector('[data-discovery-position]')!.textContent=status;
+   const answer=s.answers[s.question];if(answer!==null)status+=': '+c.feedback[s.question][answer];
+  }
+  if(announce)root.querySelector<HTMLElement>('[data-discovery-status]')!.textContent=status;
+ }
+ root.querySelectorAll<HTMLButtonElement>('[data-discovery-choice]').forEach(b=>b.addEventListener('click',()=>{s[b.dataset.discoveryChoice as 'even'|'odd']=Number(b.dataset.value);draw();}));
+ root.querySelector('[data-discovery-next]')?.addEventListener('click',()=>{s.step=advanceWorkspace(s.step,'next');draw();});
+ root.querySelector('[data-discovery-back]')?.addEventListener('click',()=>{s.step=advanceWorkspace(s.step,'back');draw();});
+ root.querySelector('[data-discovery-question-next]')?.addEventListener('click',()=>{s.question=Math.min(3,s.question+1);draw();});
+ root.querySelector('[data-discovery-question-back]')?.addEventListener('click',()=>{s.question=Math.max(0,s.question-1);draw();});
+ root.querySelectorAll<HTMLInputElement>('[data-discovery-answer]').forEach(input=>input.addEventListener('change',()=>{const [i,j]=input.dataset.discoveryAnswer!.split(':').map(Number);s.answers[i]=j;draw();}));
+ root.querySelector('[data-discovery-reset]')!.addEventListener('click',()=>{Object.assign(s,initialDiscoveryState());root.querySelectorAll<HTMLDetailsElement>('details').forEach(d=>d.open=false);draw();});
+ if(preset==='practice')draw(false);
+}
+</script>

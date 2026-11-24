@@ -1,0 +1,48 @@
+---
+import MathText from '../MathText.astro';
+import {casesPresets,initialCasesState,type CasesPreset} from '../../lib/interactive/cases-model';
+import {casesText} from '../../lib/reasoning/cases-copy';
+import {integerStrip,oddSquareMarkup,caseQuestions,caseFeedback} from '../../lib/interactive/cases-render';
+import '../../styles/counterexamples.css';import '../../styles/discovery.css';import '../../styles/cases.css';
+interface Props{preset:CasesPreset;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=casesText(locale),s=initialCasesState();
+if(!(casesPresets as readonly string[]).includes(preset))throw new Error('Unknown cases preset');
+const numeric=preset==='consecutive'||preset==='triples'||preset==='odd-square',odd=preset==='odd-square',value=odd?s.side:preset==='triples'?s.triples:s.consecutive,min=odd?3:-12,max=odd?11:12,step=odd?2:1,q=numeric?null:caseQuestions(locale,preset);
+---
+<figure class="counter-lab cases-lab" id={id} data-cases-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {numeric?<>
+  <div class="cases-inputs">
+   {!odd&&<button type="button" data-cases-delta="-1" aria-label={c.decrease}>−</button>}
+   <label for={`${id}-number`}>{odd?c.side:c.start}<input id={`${id}-number`} type="number" min={min} max={max} step={step} value={value} data-cases-number aria-controls={`${id}-output`}/></label>
+   {!odd&&<button type="button" data-cases-delta="1" aria-label={c.increase}>+</button>}
+  </div>
+  {odd&&<label class="cases-range-label" for={`${id}-range`}>{c.side}<input id={`${id}-range`} type="range" min="3" max="11" step="2" value={value} data-cases-range aria-controls={`${id}-output`}/></label>}
+  <div id={`${id}-output`} data-cases-output set:html={odd?oddSquareMarkup(locale,value):integerStrip(locale,value,preset==='triples'?3:2)}/>
+  <figcaption>{odd?c.areaCaption:c.illustration}</figcaption>
+ </>:<>
+  {q!.questions.map((question,i)=><fieldset class="discovery-question" data-cases-question={i}><legend><MathText text={question}/></legend>{q!.options.map((option,j)=><label><input type="radio" name={`${id}-q${i}`} data-cases-answer={`${i}:${j}`} aria-controls={`${id}-feedback-${i}`}/><span><MathText text={option}/></span></label>)}<div id={`${id}-feedback-${i}`} data-cases-feedback={i}/></fieldset>)}
+  <details><summary>{c.reference}</summary>{q!.questions.map((question,i)=><section><p><strong><MathText text={question}/></strong></p><div set:html={caseFeedback(locale,preset as 'inspection'|'factors'|'coverage-practice',i,q!.answers[i])}/></section>)}</details>
+ </>}
+ <div class="counter-controls"><button type="button" data-cases-reset>{c.reset}</button></div><p class="visually-hidden" role="status" aria-live="polite" data-cases-status></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {initialCasesState,casesInput} from '../../lib/interactive/cases-model';
+import {casesText} from '../../lib/reasoning/cases-copy';
+import {integerStrip,oddSquareMarkup,caseFeedback} from '../../lib/interactive/cases-render';
+for(const root of document.querySelectorAll<HTMLElement>('[data-cases-lab]')){
+ const preset=root.dataset.casesLab!,locale=root.dataset.locale as Locale,c=casesText(locale),initial=initialCasesState(),odd=preset==='odd-square';
+ const numeric=odd||preset==='consecutive'||preset==='triples';let value=odd?initial.side:preset==='triples'?initial.triples:initial.consecutive;
+ const number=root.querySelector<HTMLInputElement>('[data-cases-number]'),range=root.querySelector<HTMLInputElement>('[data-cases-range]'),status=root.querySelector<HTMLElement>('[data-cases-status]')!,output=root.querySelector<HTMLElement>('[data-cases-output]');
+ const draw=()=>{if(!numeric)return;output!.innerHTML=odd?oddSquareMarkup(locale,value):integerStrip(locale,value,preset==='triples'?3:2);if(number)number.value=String(value);if(range)range.value=String(value);root.querySelectorAll<HTMLButtonElement>('[data-cases-delta]').forEach(b=>b.disabled=Number(b.dataset.casesDelta)<0?value===-12:value===12);};
+ const announce=()=>status.textContent=odd?`${c.side}: ${value}. ${value} × ${value} = ${value*value}.`:`${c.start}: ${value}. ${c.product}: ${preset==='triples'?value*(value+1)*(value+2):value*(value+1)}.`;
+ const commit=()=>{const next=casesInput(number!.value,odd);if(next===null){number!.value=String(value);status.textContent=odd?c.invalidOdd:c.invalid;}else{value=next;draw();announce();}};
+ number?.addEventListener('input',()=>{const next=casesInput(number.value,odd);if(next!==null){value=next;draw();announce();}});
+ number?.addEventListener('blur',commit);number?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();commit();}});
+ range?.addEventListener('input',()=>{value=Number(range.value);draw();announce();});
+ root.querySelectorAll<HTMLButtonElement>('[data-cases-delta]').forEach(b=>b.addEventListener('click',()=>{const next=value+Number(b.dataset.casesDelta);if(casesInput(String(next))!==null){value=next;draw();announce();}}));
+ root.querySelectorAll<HTMLInputElement>('[data-cases-answer]').forEach(input=>input.addEventListener('change',()=>{if(!input.checked)return;const [row,answer]=input.dataset.casesAnswer!.split(':').map(Number);const feedback=root.querySelector<HTMLElement>(`[data-cases-feedback="${row}"]`)!;feedback.innerHTML=caseFeedback(locale,preset as 'inspection'|'factors'|'coverage-practice',row,answer);status.textContent=feedback.textContent;}));
+ root.querySelector('[data-cases-reset]')?.addEventListener('click',()=>{value=odd?initial.side:preset==='triples'?initial.triples:initial.consecutive;draw();root.querySelectorAll<HTMLInputElement>('[data-cases-answer]').forEach(input=>input.checked=false);root.querySelectorAll<HTMLElement>('[data-cases-feedback]').forEach(e=>e.innerHTML='');root.querySelectorAll('details').forEach(e=>e.open=false);status.textContent=c.reset;});
+}
+</script>

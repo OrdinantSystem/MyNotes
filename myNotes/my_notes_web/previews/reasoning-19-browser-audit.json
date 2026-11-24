@@ -1,0 +1,64 @@
+{
+  "truth": [
+    {
+      "values": [
+        true,
+        true
+      ],
+      "results": [
+        "Implication satisfied: True",
+        "Implication satisfied: True"
+      ]
+    },
+    {
+      "values": [
+        false,
+        true
+      ],
+      "results": [
+        "Implication satisfied: True",
+        "Implication satisfied: True"
+      ]
+    },
+    {
+      "values": [
+        false,
+        false
+      ],
+      "results": [
+        "Implication satisfied: True",
+        "Implication satisfied: True"
+      ]
+    },
+    {
+      "values": [
+        true,
+        false
+      ],
+      "results": [
+        "Implication broken: False",
+        "Implication broken: False"
+      ]
+    }
+  ],
+  "checks": [
+    "EN/DE lesson routes, language switching, Part Three course entry and previous/next links",
+    "EN/DE production Pagefind results link to lesson 19",
+    "1440×1000 and 390×844, light/dark themes, no document overflow",
+    "All 18 figures and 3 presets rendered, no KaTeX errors",
+    "All four Boolean valuations agree; reset restores true/false",
+    "Numeric 1 and 6 boundaries, out-of-range and empty recovery on Enter/blur",
+    "Range Home and ArrowRight keep controls synchronized and focus stable",
+    "Three strategy choices, Space keyboard selection, previous/next preservation, reset clears answers/feedback/disclosures",
+    "Eight self-review checkboxes, native selection works",
+    "Gallery renders all 18 figures and 3 presets; second truth instance stays independent",
+    "Final /MyNotes/ prefix EN/DE routes, language switch, CSS and live 49-tile square",
+    "No warning/error console messages in lesson, gallery or prefix tabs"
+  ],
+  "build": {
+    "pages": 237,
+    "linksAndAssets": 22313,
+    "searchPages": 150,
+    "texAnnotations": 8592
+  }
+}

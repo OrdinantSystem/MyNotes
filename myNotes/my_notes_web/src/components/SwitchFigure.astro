@@ -1,0 +1,19 @@
+---
+import Math from './Math.astro';
+import SwitchTable from './SwitchTable.astro';
+import {switchText} from '../lib/reasoning/switch-copy';
+import {switchTex,type SwitchFigure} from '../lib/interactive/switch-model';
+import '../styles/counterexamples.css';import '../styles/switches.css';
+interface Props{kind:SwitchFigure}
+const {kind}=Astro.props,c=switchText(Astro.locals.locale||'en');
+const title=kind==='switch-and-table'?c.figures.and:kind==='switch-not-table'?c.figures.not:kind==='switch-demorgan-table'?c.figures.demorgan:kind==='switch-xor'?c.figures.xor:kind==='switch-laws'?c.figures.laws:kind==='switch-proof'?c.figures.proof:c.figures.notation;
+---
+<figure class="counter-figure switch-figure"><h3>{title}</h3>
+ {kind==='switch-and-table'&&<SwitchTable preset="and"/>}
+ {kind==='switch-not-table'&&<SwitchTable preset="not"/>}
+ {kind==='switch-demorgan-table'&&<SwitchTable preset="demorgan"/>}
+ {kind==='switch-xor'&&<><div class="counter-columns"><section class="switch-comparison"><h4>{c.inclusive}</h4><Math tex={String.raw`P\lor Q`} display/><p>P = 1, Q = 1</p><strong data-truth-value="1">{c.true}</strong><p>{c.atLeast}</p></section><section class="switch-comparison"><h4>{c.exclusive}</h4><Math tex={String.raw`P\oplus Q`} display/><p>P = 1, Q = 1</p><strong data-truth-value="0">{c.false}</strong><p>{c.exactly}</p></section></div><SwitchTable preset="xor"/></>}
+ {kind==='switch-laws'&&<div class="counter-columns">{[[c.negatingAnd,switchTex.locked,switchTex.failure,c.oneFails],[c.negatingOr,switchTex.neither,switchTex.bothFail,c.allFail]].map(([heading,left,right,caption])=><section class="switch-comparison"><h4>{heading}</h4><Math tex={left} display/><p aria-hidden="true">≡</p><Math tex={right} display/><p>{caption}</p></section>)}</div>}
+ {kind==='switch-proof'&&<Math tex={String.raw`\begin{aligned}&(P\land Q)\lor(P\land\neg Q)\\&\equiv P\land(Q\lor\neg Q)\\&\equiv P\land\top\\&\equiv P\end{aligned}`} display/>}
+ {kind==='switch-notation'&&<><SwitchTable preset="notation"/><figcaption>{c.notationHelp}</figcaption></>}
+</figure>

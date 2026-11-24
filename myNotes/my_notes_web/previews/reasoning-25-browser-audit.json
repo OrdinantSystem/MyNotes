@@ -1,0 +1,170 @@
+{
+  "initial": {
+    "choices": 0,
+    "duplicateIds": [],
+    "empty": true,
+    "figures": 19,
+    "labs": 3,
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "dark",
+    "width": 1440
+  },
+  "moved": [
+    "",
+    "",
+    "",
+    "1",
+    "",
+    ""
+  ],
+  "first": "1\n2\n3\n4\n5\n6\nLeft\n1\n+\n4\n+\n2\n=\n7\n1+4+2=7\nRight\n1\n+\n5\n+\n3\n=\n9\n1+5+3=9\nBottom\n2\n+\n6\n+\n3\n=\n11\n2+6+3=11\n\nRequired side sum: 10\n\nThe original target is not yet satisfied.\n\nRemaining pieces: —",
+  "solved": "Left: 10. Right: 10. Bottom: 10. Every piece is used exactly once and all three side sums meet the original target.",
+  "partial": "Left: ?. Right: ?. Bottom: 10. Some positions are still empty. A side sum is shown only when all three of its positions are filled.",
+  "keyboard": {
+    "focus": "triangle-puzzle-1",
+    "values": [
+      "2",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "side": [
+    "1 + 7 + 2 = 10",
+    "1 + 6 + 3 = 10",
+    "1 + 5 + 4 = 10",
+    "1 + 4 + 5 = 10",
+    "1 + 3 + 6 = 10"
+  ],
+  "sideKeyboard": "5",
+  "unanswered": "Choose an approach first. None is a measure of your overall ability.",
+  "strategies": [
+    "Trial can reveal structure, especially if you record what each attempt teaches you. Failed attempts alone do not prove impossibility; a structural bound is more decisive here.\n\nThis examines the proposed strategy. The written justification is not graded or stored.",
+    "Reuse 3S=21+a+b+c. With S=8 the corners would have to sum to 3; compare that requirement with the smallest available corner sum.\n\nThis examines the proposed strategy. The written justification is not graded or stored.",
+    "The smallest three distinct pieces sum to 6. Combine that bound with 3S=21+a+b+c to test whether S=8 can occur.\n\nThis examines the proposed strategy. The written justification is not graded or stored."
+  ],
+  "reference": {
+    "open": true,
+    "reason": "Compare the required corner sum with the smallest available sum."
+  },
+  "reset": {
+    "choices": 0,
+    "feedback": "",
+    "open": false,
+    "reason": ""
+  },
+  "enLight": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "light",
+    "width": 1440
+  },
+  "enCompactLight": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "light",
+    "width": 390
+  },
+  "enCompactDark": {
+    "overflow": false,
+    "theme": "dark",
+    "width": 390
+  },
+  "deCompactDark": {
+    "chapter": "Die Kunst des Denkens\n/\nTeil Vier\n/\nWas tun, wenn dir keine Idee ",
+    "figures": 19,
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "dark",
+    "title": "Was tun, wenn dir keine Idee kommt?",
+    "width": 390
+  },
+  "germanFeedback": "Verwende 3S=21+a+b+c. Bei S=8 müssten die Ecken zusammen drei ergeben. Vergleiche dies mit der kleinsten verfügbaren Eckensumme.\n\nHier wird der vorgeschlagene Ansatz untersucht. Die schriftliche Begründung wird weder bewertet noch gespeichert.",
+  "deCompactLight": {
+    "overflow": false,
+    "theme": "light",
+    "width": 390
+  },
+  "deDesktopDark": {
+    "overflow": false,
+    "theme": "dark",
+    "width": 1440
+  },
+  "deDesktopLight": {
+    "overflow": false,
+    "theme": "light",
+    "width": 1440
+  },
+  "previous": {
+    "chapter": "Die Kunst des Denkens\n/\nTeil Drei\n/\nErklärungen verstehen und selbstständig begründen\nErkl",
+    "next": "/de/reasoning/lessons/making-progress-when-stuck/",
+    "title": "Erklärungen verstehen und selbstständig begründen"
+  },
+  "overview": {
+    "cards": 25,
+    "partFour": "Teil Vier1 Lektion"
+  },
+  "germanSearch": 1,
+  "gallery": {
+    "duplicateIds": [],
+    "figures": 20,
+    "labs": 4,
+    "mathErrors": 0
+  },
+  "isolation": {
+    "first": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "second": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "galleryLogs": [],
+  "englishSearch": 1,
+  "prefixEn": {
+    "css": 2,
+    "home": "/MyNotes/",
+    "mathErrors": 0,
+    "status": "Left: 9. Right: 9. Bottom: 9. All sides have an equal sum, but the required target has not been reached.",
+    "table": "Move\tResult and discovery\n01 · Arrange\nTry an obvious configuration.\t\n7\n,\n  \n9\n,\n  \n11\n7,9,11\nDifferent positions influence the sums differently.\n02 · Exchange\nBalance the side sums.\t\n9\n,\n  \n9\n,\n  \n9\n9,9,9\nEqual sums are possible without reaching the target.\n03 · Isolate\nStudy one side.\t\n𝑥\n=\n10\n−\n𝑎\n−\n𝑏\nx=10−a−b\nCorner choices determine middle values.\n04 · Relax\nReplace 10 with S.\t\n3\n𝑆\n=\n21\n+\n𝑎\n+\n𝑏\n+\n𝑐\n3S=21+a+b+c\nA relationship governing every equal-sum arrangement.\n05 · Restore\nReturn to the original target.\t\n𝑎\n+\n𝑏\n+\n𝑐\n=\n9\na+b+c=9\nA way to construct and verify a solution.",
+    "title": "What to do when you have no idea"
+  },
+  "prefixDe": {
+    "css": 2,
+    "home": "/MyNotes/de/",
+    "mathErrors": 0,
+    "side": "1 + 3 + 6 = 10",
+    "title": "Was tun, wenn dir keine Idee kommt?"
+  },
+  "prefixLogs": [],
+  "finalTable": [
+    "7,\\;9,\\;11",
+    "9,\\;9,\\;9",
+    "x=10-a-b",
+    "3S=21+a+b+c",
+    "a+b+c=9"
+  ],
+  "lessonLogs": [],
+  "final": {
+    "empty": true,
+    "height": 720,
+    "mathErrors": 0,
+    "overflow": false,
+    "part": "The Art of Reasoning\n/\nPart Four\n/\nWhat to do when",
+    "title": "What to do when you have no idea",
+    "width": 1280
+  }
+}

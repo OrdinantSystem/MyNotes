@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-24",
+  "lesson": "mathematical-induction",
+  "locales": [
+    "en",
+    "de"
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "observations": {
+    "figuresPerLesson": 20,
+    "activitiesPerLesson": 3,
+    "worksheetDisclosures": 6,
+    "katexErrors": 0,
+    "pageOverflow": false,
+    "tiles": {
+      "initialSize": 4,
+      "initialConcealed": 9,
+      "revealReadout": "16 + 4 + 4 + 1 = 25 = 5²",
+      "keyboardSize": 5,
+      "keyboardCells": 36,
+      "invalidFractionRestores": 5,
+      "resetSize": 4,
+      "resetConcealed": 9,
+      "germanRevealAndReset": true
+    },
+    "chain": {
+      "connectedEstablishes": 6,
+      "brokenEstablishes": 3,
+      "missingLinks": 1,
+      "resetReturnsUnstarted": true,
+      "germanConnectedMode": true
+    },
+    "checkpoint": {
+      "initiallyUnanswered": true,
+      "missingChoicePrompt": true,
+      "wrongChoiceExplanation": true,
+      "allFourExpectedChoicesExplained": true,
+      "resetClearsChoices": true,
+      "germanRangeExplanation": true
+    },
+    "disclosures": {
+      "englishTriangularDerivation": true,
+      "englishSquareSumSolution": true
+    },
+    "navigation": {
+      "previousLesson21": true,
+      "lesson21Next22": true,
+      "germanOverviewPartThreeCount": 6,
+      "germanOverviewCard": true
+    },
+    "search": {
+      "englishTitleResult": true,
+      "germanTitleResult": true
+    },
+    "gallery": {
+      "figures": 20,
+      "activities": 4,
+      "firstTileSize": 6,
+      "independentTileSize": 4,
+      "independentConcealed": 9,
+      "uniqueIds": true
+    },
+    "prefix": {
+      "base": "/MyNotes",
+      "home": "/MyNotes/",
+      "englishRevealWorks": true,
+      "germanSwitchWorks": true
+    },
+    "consoleWarningsErrors": []
+  },
+  "build": {
+    "staticPages": 243,
+    "localLinksAssets": 23666,
+    "texAnnotations": 9738,
+    "pagefindPages": 156,
+    "errors": 0,
+    "warnings": 0,
+    "existingHints": 6
+  },
+  "reviewStatus": "unreviewed"
+}

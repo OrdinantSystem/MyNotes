@@ -1,0 +1,390 @@
+{
+  "matrix": [
+    {
+      "language": "en",
+      "desired": "light",
+      "brokenControls": 0,
+      "errors": 0,
+      "figures": 7,
+      "h1": 1,
+      "headings": 12,
+      "labs": 7,
+      "overflowingPanels": [],
+      "pageOverflow": false,
+      "width": 1440
+    },
+    {
+      "language": "en",
+      "desired": "dark",
+      "brokenControls": 0,
+      "errors": 0,
+      "figures": 7,
+      "h1": 1,
+      "headings": 12,
+      "labs": 7,
+      "overflowingPanels": [],
+      "pageOverflow": false,
+      "width": 1440
+    },
+    {
+      "language": "en",
+      "desired": "light",
+      "brokenControls": 0,
+      "errors": 0,
+      "figures": 7,
+      "h1": 1,
+      "headings": 12,
+      "labs": 7,
+      "overflowingPanels": [],
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "language": "en",
+      "desired": "dark",
+      "brokenControls": 0,
+      "errors": 0,
+      "figures": 7,
+      "h1": 1,
+      "headings": 12,
+      "labs": 7,
+      "overflowingPanels": [],
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "language": "de",
+      "desired": "light",
+      "brokenControls": 0,
+      "errors": 0,
+      "figures": 7,
+      "h1": 1,
+      "headings": 12,
+      "labs": 7,
+      "overflowingPanels": [],
+      "pageOverflow": false,
+      "width": 1440
+    },
+    {
+      "language": "de",
+      "desired": "dark",
+      "brokenControls": 0,
+      "errors": 0,
+      "figures": 7,
+      "h1": 1,
+      "headings": 12,
+      "labs": 7,
+      "overflowingPanels": [],
+      "pageOverflow": false,
+      "width": 1440
+    },
+    {
+      "language": "de",
+      "desired": "light",
+      "brokenControls": 0,
+      "errors": 0,
+      "figures": 7,
+      "h1": 1,
+      "headings": 12,
+      "labs": 7,
+      "overflowingPanels": [],
+      "pageOverflow": false,
+      "width": 390
+    },
+    {
+      "language": "de",
+      "desired": "dark",
+      "brokenControls": 0,
+      "errors": 0,
+      "figures": 7,
+      "h1": 1,
+      "headings": 12,
+      "labs": 7,
+      "overflowingPanels": [],
+      "pageOverflow": false,
+      "width": 390
+    }
+  ],
+  "circuitCases": [
+    {
+      "preset": "access",
+      "vals": [
+        false,
+        false,
+        false
+      ],
+      "actual": "false",
+      "text": "Input  P OFF Q OFF Door Locked 𝑃 ∧ 𝑄 P∧Q False"
+    },
+    {
+      "preset": "access",
+      "vals": [
+        false,
+        true,
+        false
+      ],
+      "actual": "false",
+      "text": "Input  P OFF Q ON Door Locked 𝑃 ∧ 𝑄 P∧Q False"
+    },
+    {
+      "preset": "access",
+      "vals": [
+        true,
+        false,
+        false
+      ],
+      "actual": "false",
+      "text": "Input  P ON Q OFF Door Locked 𝑃 ∧ 𝑄 P∧Q False"
+    },
+    {
+      "preset": "access",
+      "vals": [
+        true,
+        true,
+        false
+      ],
+      "actual": "true",
+      "text": "Input  P ON Q ON Door Open 𝑃 ∧ 𝑄 P∧Q True"
+    },
+    {
+      "preset": "override",
+      "vals": [
+        false,
+        false,
+        false
+      ],
+      "actual": "false",
+      "text": "\udc43 ∧ 𝑄 P∧Q Inactive Override path 𝑅 R Inactive Door Locked ( 𝑃 ∧ 𝑄 ) ∨ 𝑅 (P∧Q)∨R False"
+    },
+    {
+      "preset": "override",
+      "vals": [
+        false,
+        false,
+        true
+      ],
+      "actual": "true",
+      "text": "ath 𝑃 ∧ 𝑄 P∧Q Inactive Override path 𝑅 R Active Door Open ( 𝑃 ∧ 𝑄 ) ∨ 𝑅 (P∧Q)∨R True"
+    },
+    {
+      "preset": "override",
+      "vals": [
+        false,
+        true,
+        false
+      ],
+      "actual": "false",
+      "text": "\udc43 ∧ 𝑄 P∧Q Inactive Override path 𝑅 R Inactive Door Locked ( 𝑃 ∧ 𝑄 ) ∨ 𝑅 (P∧Q)∨R False"
+    },
+    {
+      "preset": "override",
+      "vals": [
+        false,
+        true,
+        true
+      ],
+      "actual": "true",
+      "text": "ath 𝑃 ∧ 𝑄 P∧Q Inactive Override path 𝑅 R Active Door Open ( 𝑃 ∧ 𝑄 ) ∨ 𝑅 (P∧Q)∨R True"
+    },
+    {
+      "preset": "override",
+      "vals": [
+        true,
+        false,
+        false
+      ],
+      "actual": "false",
+      "text": "\udc43 ∧ 𝑄 P∧Q Inactive Override path 𝑅 R Inactive Door Locked ( 𝑃 ∧ 𝑄 ) ∨ 𝑅 (P∧Q)∨R False"
+    },
+    {
+      "preset": "override",
+      "vals": [
+        true,
+        false,
+        true
+      ],
+      "actual": "true",
+      "text": "ath 𝑃 ∧ 𝑄 P∧Q Inactive Override path 𝑅 R Active Door Open ( 𝑃 ∧ 𝑄 ) ∨ 𝑅 (P∧Q)∨R True"
+    },
+    {
+      "preset": "override",
+      "vals": [
+        true,
+        true,
+        false
+      ],
+      "actual": "true",
+      "text": "ath 𝑃 ∧ 𝑄 P∧Q Active Override path 𝑅 R Inactive Door Open ( 𝑃 ∧ 𝑄 ) ∨ 𝑅 (P∧Q)∨R True"
+    },
+    {
+      "preset": "override",
+      "vals": [
+        true,
+        true,
+        true
+      ],
+      "actual": "true",
+      "text": " path 𝑃 ∧ 𝑄 P∧Q Active Override path 𝑅 R Active Door Open ( 𝑃 ∧ 𝑄 ) ∨ 𝑅 (P∧Q)∨R True"
+    },
+    {
+      "preset": "scope",
+      "vals": [
+        false,
+        false,
+        false
+      ],
+      "actual": null,
+      "text": " whole expression ¬ whole expression (P∧Q) \t​  \t​   The whole conjunction is negated  True"
+    },
+    {
+      "preset": "scope",
+      "vals": [
+        false,
+        true,
+        false
+      ],
+      "actual": null,
+      "text": " whole expression ¬ whole expression (P∧Q) \t​  \t​   The whole conjunction is negated  True"
+    },
+    {
+      "preset": "scope",
+      "vals": [
+        true,
+        false,
+        false
+      ],
+      "actual": null,
+      "text": " whole expression ¬ whole expression (P∧Q) \t​  \t​   The whole conjunction is negated  True"
+    },
+    {
+      "preset": "scope",
+      "vals": [
+        true,
+        true,
+        false
+      ],
+      "actual": null,
+      "text": "whole expression ¬ whole expression (P∧Q) \t​  \t​   The whole conjunction is negated  False"
+    },
+    {
+      "preset": "demorgan",
+      "vals": [
+        false,
+        false,
+        false
+      ],
+      "actual": null,
+      "text": "ule B ¬ 𝑃 ∨ ¬ 𝑄 ¬P∨¬Q  At least one fails  True  Door: Locked  ✓ Both descriptions agree"
+    },
+    {
+      "preset": "demorgan",
+      "vals": [
+        false,
+        true,
+        false
+      ],
+      "actual": null,
+      "text": "ule B ¬ 𝑃 ∨ ¬ 𝑄 ¬P∨¬Q  At least one fails  True  Door: Locked  ✓ Both descriptions agree"
+    },
+    {
+      "preset": "demorgan",
+      "vals": [
+        true,
+        false,
+        false
+      ],
+      "actual": null,
+      "text": "ule B ¬ 𝑃 ∨ ¬ 𝑄 ¬P∨¬Q  At least one fails  True  Door: Locked  ✓ Both descriptions agree"
+    },
+    {
+      "preset": "demorgan",
+      "vals": [
+        true,
+        true,
+        false
+      ],
+      "actual": null,
+      "text": "Rule B ¬ 𝑃 ∨ ¬ 𝑄 ¬P∨¬Q  At least one fails  False  Door: Open  ✓ Both descriptions agree"
+    },
+    {
+      "preset": "routes",
+      "vals": [
+        false,
+        false,
+        false
+      ],
+      "actual": "false",
+      "text": "Route 2 𝑃 ∧ ¬ 𝑄 P∧¬Q Inactive Door Locked ( 𝑃 ∧ 𝑄 ) ∨ ( 𝑃 ∧ ¬ 𝑄 ) (P∧Q)∨(P∧¬Q) False"
+    },
+    {
+      "preset": "routes",
+      "vals": [
+        false,
+        true,
+        false
+      ],
+      "actual": "false",
+      "text": "Route 2 𝑃 ∧ ¬ 𝑄 P∧¬Q Inactive Door Locked ( 𝑃 ∧ 𝑄 ) ∨ ( 𝑃 ∧ ¬ 𝑄 ) (P∧Q)∨(P∧¬Q) False"
+    },
+    {
+      "preset": "routes",
+      "vals": [
+        true,
+        false,
+        false
+      ],
+      "actual": "true",
+      "text": "tive Route 2 𝑃 ∧ ¬ 𝑄 P∧¬Q Active Door Open ( 𝑃 ∧ 𝑄 ) ∨ ( 𝑃 ∧ ¬ 𝑄 ) (P∧Q)∨(P∧¬Q) True"
+    },
+    {
+      "preset": "routes",
+      "vals": [
+        true,
+        true,
+        false
+      ],
+      "actual": "true",
+      "text": "ve Route 2 𝑃 ∧ ¬ 𝑄 P∧¬Q Inactive Door Open ( 𝑃 ∧ 𝑄 ) ∨ ( 𝑃 ∧ ¬ 𝑄 ) (P∧Q)∨(P∧¬Q) True"
+    },
+    {
+      "preset": "simplify",
+      "vals": [
+        false,
+        false,
+        false
+      ],
+      "actual": "false",
+      "text": "Route 2 𝑃 ∧ ¬ 𝑄 P∧¬Q Inactive Door Locked ( 𝑃 ∧ 𝑄 ) ∨ ( 𝑃 ∧ ¬ 𝑄 ) (P∧Q)∨(P∧¬Q) False"
+    },
+    {
+      "preset": "simplify",
+      "vals": [
+        false,
+        true,
+        false
+      ],
+      "actual": "false",
+      "text": "Route 2 𝑃 ∧ ¬ 𝑄 P∧¬Q Inactive Door Locked ( 𝑃 ∧ 𝑄 ) ∨ ( 𝑃 ∧ ¬ 𝑄 ) (P∧Q)∨(P∧¬Q) False"
+    },
+    {
+      "preset": "simplify",
+      "vals": [
+        true,
+        false,
+        false
+      ],
+      "actual": "true",
+      "text": "tive Route 2 𝑃 ∧ ¬ 𝑄 P∧¬Q Active Door Open ( 𝑃 ∧ 𝑄 ) ∨ ( 𝑃 ∧ ¬ 𝑄 ) (P∧Q)∨(P∧¬Q) True"
+    },
+    {
+      "preset": "simplify",
+      "vals": [
+        true,
+        true,
+        false
+      ],
+      "actual": "true",
+      "text": "ve Route 2 𝑃 ∧ ¬ 𝑄 P∧¬Q Inactive Door Open ( 𝑃 ∧ 𝑄 ) ∨ ( 𝑃 ∧ ¬ 𝑄 ) (P∧Q)∨(P∧¬Q) True"
+    }
+  ]
+}

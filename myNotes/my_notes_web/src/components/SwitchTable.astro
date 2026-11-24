@@ -1,0 +1,12 @@
+---
+import Math from './Math.astro';
+import {switchText} from '../lib/reasoning/switch-copy';
+import {switchRows,switchTex} from '../lib/interactive/switch-model';
+interface Props{preset:'and'|'xor'|'not'|'demorgan'|'simplify'|'notation'}
+const {preset}=Astro.props,c=switchText(Astro.locals.locale||'en'),truth=(b:boolean)=>b?c.true:c.false;
+const formulas=preset==='and'?[switchTex.access]:preset==='xor'?[String.raw`P\lor Q`,String.raw`P\oplus Q`]:preset==='demorgan'?[switchTex.locked,switchTex.failure]:[switchTex.simplify,'P'];
+const labels=preset==='and'?c.figures.and:preset==='xor'?c.figures.xor:preset==='not'?c.figures.not:preset==='simplify'?c.figures.proof:preset==='notation'?c.figures.notation:c.figures.demorgan;
+---
+<div class="table-scroll switch-table-region" role="region" aria-label={labels} tabindex="0">
+{preset==='notation'?<table class="switch-table"><thead><tr><th scope="col">{c.logicMeaning}</th><th scope="col">{c.mathLogic}</th><th scope="col">{c.boolean}</th></tr></thead><tbody>{[['AND',String.raw`P\land Q`,String.raw`P\cdot Q`],['OR',String.raw`P\lor Q`,'P+Q'],['NOT',String.raw`\neg P`,String.raw`\overline P`],['XOR',String.raw`P\oplus Q`,String.raw`P\oplus Q`]].map(([name,logical,algebra])=><tr><th scope="row">{name==='AND'?(Astro.locals.locale==='de'?'UND':'AND'):name==='OR'?(Astro.locals.locale==='de'?'ODER':'OR'):name==='NOT'?(Astro.locals.locale==='de'?'NICHT':'NOT'):name}</th><td><Math tex={logical}/></td><td><Math tex={algebra}/></td></tr>)}</tbody></table>:preset==='not'?<table class="switch-table"><thead><tr><th scope="col"><Math tex="P"/></th><th scope="col"><Math tex={String.raw`\neg P`}/></th></tr></thead><tbody>{[true,false].map(p=><tr><th scope="row">{truth(p)}</th><td data-truth-value={Number(!p)}>{truth(!p)}</td></tr>)}</tbody></table>:<table class="switch-table"><thead><tr><th scope="col">{preset==='and'?c.pass+' ':''}<Math tex="P"/></th><th scope="col">{preset==='and'?c.building+' ':''}<Math tex="Q"/></th>{formulas.map(tex=><th scope="col"><Math tex={tex}/></th>)}</tr></thead><tbody>{switchRows.map(row=><tr><th scope="row">{truth(row.p)}</th><td>{truth(row.q)}</td>{(preset==='and'?[row.ordinary]:preset==='xor'?[row.inclusive,row.xor]:preset==='demorgan'?[row.locked,row.failure]:[row.simplified,row.p]).map(v=><td data-truth-value={Number(v)}>{truth(v)}</td>)}</tr>)}</tbody></table>}
+</div>

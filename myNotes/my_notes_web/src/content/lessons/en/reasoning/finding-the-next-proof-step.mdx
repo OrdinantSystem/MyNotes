@@ -1,0 +1,429 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-three
+sourceId: reasoning-episode-17
+sourcePages: []
+sourceLocations: ["Sections 1–8; Episode preparation references"]
+title: "How do you find the next step in a proof?"
+navTitle: "Finding the next proof step"
+description: "Work forward from assumptions and backward from goals, construct witnesses, and use logical structure to plan a proof."
+order: 17
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [what-makes-a-proof]
+thumbnail: reasoning-discovery
+---
+
+## 1. The strange problem of knowing something is true
+
+Imagine you're sitting in front of a mathematical problem. You understand the statement, you know the definitions, and you're reasonably convinced that the result is correct.
+
+But there's a problem.
+
+You have no idea what to write first.
+
+Let's try something simple:
+
+**The sum of an even integer and an odd integer is always odd.**
+
+We could test it. Two plus three is five. Four plus seven is eleven. Eight plus nine is seventeen.
+
+Everything seems to work.
+
+And perhaps we can even see *why* it works.
+
+Take four objects and arrange them into pairs. Now take five more objects and do the same thing.
+
+<Interactive kind="discovery" preset="parity" id="discovery-parity" />
+
+No matter which examples we select, the pattern persists.
+
+An even collection can be arranged entirely into pairs. An odd collection consists of complete pairs and one extra object. When we combine them, we still have complete pairs and that one extra object.
+
+This picture gives us a reason to believe the statement.
+
+But is it already a proof?
+
+Not quite. We've illustrated a pattern with particular collections. To establish a claim about **every even and odd integer**, including negative integers, we need an argument that applies to all of them within the stated mathematical framework.
+
+And that's where the difficulty begins.
+
+We know what we want to establish. We have a promising intuition. But how do we turn that intuition into a rigorous argument?
+
+Perhaps the mistake is thinking that a proof has to be written from beginning to end, in exactly the order in which we discover it.
+
+What if, instead of asking *What can I write first?*, we asked a different question?
+
+**What would count as successfully finishing the proof?**
+
+## 2. Start at the destination
+
+Let's introduce two integers, $e$ and $o$. We know that $e$ is even and $o$ is odd.
+
+We want to prove that $e+o$ is odd.
+
+For now, forget about performing any calculations. Let's put our information on one side of the page and our goal on the other.
+
+<ReasoningFigure kind="discovery-have-goal" />
+
+Here's the interesting part.
+
+Instead of immediately trying to manipulate $e+o$, let's examine the word *odd* in the conclusion.
+
+What exactly does it mean for an integer to be odd?
+
+An integer is odd if it can be expressed as twice another integer, plus one.
+
+$$
+n\text{ is odd}\iff \exists k\in\mathbb Z:\ n=2k+1.
+$$
+
+The symbol $\exists$ means *there exists*, and $\mathbb Z$ represents the integers.
+
+This definition tells us something very specific about our goal.
+
+We no longer need to vaguely establish that $e+o$ has some property called oddness.
+
+We need to find an integer $k$ such that
+
+$$
+\boxed{e+o=2k+1}.
+$$
+
+That gives us an actual target.
+
+<ReasoningFigure kind="discovery-backward" />
+
+This is our first major technique: **working backward from the goal**.
+
+We ask what would be sufficient to establish the conclusion, and we replace a difficult-looking goal with a more specific obligation.
+
+But notice that we haven't proved anything yet.
+
+We cannot simply invent an integer $k$ and assume that the required equation holds. The equation is exactly what we're trying to establish.
+
+So we're now facing a better question than the one we started with.
+
+*Where could this integer *$k$* come from?*
+
+And to answer that, we need to turn around and look at what we already know.
+
+## 3. When the two sides meet
+
+Our assumptions tell us that one integer is even and another is odd.
+
+What happens if we unpack those definitions as well?
+
+Because $e$ is even, there must be some integer $a$ for which
+
+$$
+e=2a.
+$$
+
+And because $o$ is odd, there must be some integer $b$ for which
+
+$$
+o=2b+1.
+$$
+
+We now have something useful on both sides.
+
+Our conclusion requires an expression of the form $2k+1$. Our assumptions give us expressions involving $2a$ and $2b+1$.
+
+Look at those expressions for a moment.
+
+Can you see how they might fit together?
+
+<Interactive kind="discovery" preset="workspace" id="discovery-workspace" />
+
+Let's follow that connection carefully.
+
+We want to understand the sum $e+o$, so the first thing we can do is substitute the expressions we've obtained from our assumptions.
+
+$$
+e+o=2a+(2b+1).
+$$
+
+Now we rearrange the expression.
+
+$$
+e+o=2a+2b+1.
+$$
+
+And notice that the first two terms share a factor of two.
+
+$$
+\boxed{e+o=2(a+b)+1}.
+$$
+
+There it is.
+
+We began with a sum whose parity we didn't yet know how to justify. Now we've expressed it as twice something, plus one.
+
+Let's compare what we've found with what we were looking for.
+
+<ReasoningFigure kind="discovery-match" />
+
+So we choose $k=a+b$.
+
+But we must still check something: is $a+b$ actually an integer?
+
+Yes. Both $a$ and $b$ are integers, and adding two integers produces another integer. This is called *closure under addition*.
+
+That gives us everything required by the definition of an odd integer.
+
+Therefore, $e+o$ is odd.
+
+And because we did not choose any special even or odd integers, the argument works for all of them.
+
+Now consider what we actually did.
+
+We didn't solve the problem by blindly manipulating equations.
+
+We worked backward from our conclusion and discovered that we needed an expression of the form $2k+1$. Then we worked forward from the assumptions, discovered the forms $2a$ and $2b+1$, and used algebra to connect them.
+
+The proof appeared when those two directions met.
+
+<ReasoningFigure kind="discovery-directions" />
+
+This suggests a useful habit.
+
+When you're stuck on a proof, don't keep asking the same question over and over.
+
+Instead, alternate between two questions:
+
+*What can I deduce from the information I have?*
+
+And:
+
+*What would be sufficient to establish what I want?*
+
+The first question explores possibilities from the starting point. The second question reveals the conditions for reaching the destination.
+
+Very often, the missing idea lies somewhere between them.
+
+### A tempting shortcut
+
+There's another lesson hidden in this example.
+
+Once we know that our goal is $e+o=2k+1$, we might be tempted to rearrange it:
+
+$$
+k=\frac{e+o-1}{2}.
+$$
+
+Could we just define $k$ that way and declare the proof finished?
+
+Not yet.
+
+That expression certainly gives us the desired equation algebraically, but the definition of oddness requires $k$ to be an **integer**.
+
+We would still need to establish that $(e+o-1)/2$ is an integer. And that is essentially the parity question we started with.
+
+<ReasoningFigure kind="discovery-circular" />
+
+This is an important distinction. Finding an expression that *looks like* the answer is not always enough. Every condition in the definition must be justified.
+
+An attempted proof can reach the right-looking equation and still contain a gap.
+
+## 4. Why the finished proof looks so much simpler
+
+We've spent several minutes finding our proof.
+
+We asked questions, worked in different directions, unpacked definitions, and identified a missing witness.
+
+But imagine reading a mathematical textbook. Would we normally see all of this exploration?
+
+Usually not.
+
+We would probably encounter something much shorter.
+
+<Note title="Proposition">
+
+The sum of an even integer and an odd integer is odd.
+
+**Proof**
+
+Let $e,o\in\mathbb Z$, where $e$ is even and $o$ is odd.
+
+There exist integers $a,b$ such that $e=2a$ and $o=2b+1$.
+
+Thus,
+
+$$
+\begin{aligned} e+o&=2a+2b+1\\ &=2(a+b)+1. \end{aligned}
+$$
+
+Since $a+b\in\mathbb Z$, the sum has the form $2k+1$ for an integer $k=a+b$, and is therefore odd.
+
+$\square$
+
+</Note>
+
+That's the complete proof.
+
+It contains the same mathematical reasoning, but it doesn't reproduce every question that helped us discover it.
+
+This happens because **discovering a proof and presenting a proof are different activities**.
+
+| Activity | Question | Character |
+| --- | --- | --- |
+| Discovery | Which route could work? | Exploratory, sometimes nonlinear |
+| Presentation | Why does this route work? | A clear chain of justification |
+
+The discovery process might involve failed attempts or temporary guesses. The finished proof must make clear which statements follow from which accepted starting points.
+
+This also means something encouraging.
+
+When you read a beautiful three-line proof, don't assume the person who found it immediately knew those three lines.
+
+The simplicity of the finished argument tells you something about its presentation, not necessarily about how difficult it was to discover.
+
+And learning to prove things means developing both abilities: finding a valid route and explaining why the route is valid.
+
+## 5. When the shape of the goal gives us a plan
+
+Our parity example contained several decisions that are worth examining.
+
+We began with two arbitrary integers. We temporarily assumed that one was even and the other was odd. And eventually, we found an integer that satisfied the definition of oddness.
+
+Those weren't accidental choices.
+
+They corresponded to the logical structure of the claim.
+
+In mathematics, the form of a statement often suggests how to begin proving it.
+
+Let's explore that idea with a slightly more complicated example.
+
+**For every integer **$n$**, if **$n$** is even, then **$n^2$** and **$n+2$** are both even.**
+
+Don't try to prove it immediately.
+
+Instead, look at the structure of the sentence.
+
+It says *for every integer*. So we need an argument that works for an arbitrary integer $n$.
+
+It then says *if *$n$* is even*. That tells us we are allowed to temporarily assume evenness while establishing the conclusion.
+
+Finally, the conclusion contains an *and*. We have two things to prove: $n^2$ is even, and $n+2$ is even.
+
+The structure itself has divided the problem into smaller tasks.
+
+<ReasoningFigure kind="discovery-branches" />
+
+Notice how the original claim has transformed.
+
+We didn't have to invent a different strategy for every part. We recognized familiar logical structures and let them create a sequence of obligations.
+
+For a **universal statement**, we work with an arbitrary permitted object.
+
+For an **implication**, we temporarily assume its starting condition and establish what follows.
+
+For a **conjunction**, we have to establish both parts.
+
+And when a goal asks us to prove that **something exists**, we look for a witness and verify it satisfies the required conditions.
+
+That last move appeared inside our original parity proof: we needed an integer $k$, and eventually found $k=a+b$.
+
+<ReasoningFigure kind="discovery-rules" />
+
+There's an important detail in the branching diagram.
+
+The assumption that $n$ is even was enclosed within a boundary. Both branches were allowed to use it. But when we finished the argument, we closed that temporary assumption.
+
+We didn't prove that every integer is even.
+
+We proved something conditional: **whenever an integer is even, the two conclusions follow**.
+
+If we forget that boundary, we can easily mistake a statement assumed for the purpose of an argument for something established unconditionally.
+
+And there's another subtlety about the order of our choices.
+
+Consider the statement:
+
+*For every integer *$n$*, there exists an integer *$m$* greater than *$n$*.*
+
+We begin with an arbitrary integer $n$. Only after that do we choose $m$.
+
+We can choose $m=n+1$, because the integers are closed under addition, and $n+1>n$.
+
+<ReasoningFigure kind="discovery-dependence" />
+
+So the goal's structure doesn't just tell us which moves are available. It also constrains their order and scope.
+
+And that means we can use these patterns as a way to navigate proofs, even before we know how to complete them.
+
+## 6. Practice: can you find the opening move?
+
+Let's put the method to the test.
+
+I'll give you four statements. For each one, your task isn't to complete the proof.
+
+It's simply to choose a justified opening move.
+
+Try to identify the outermost logical structure first. What does the statement actually require, and which objects or assumptions are you allowed to introduce?
+
+<Interactive kind="discovery" preset="practice" id="discovery-practice" />
+
+If you recognized these opening moves, you've learned something more general than any particular algebraic trick.
+
+You've learned to inspect the structure of a mathematical claim and translate it into an action.
+
+That doesn't mean the remaining proof will always be easy. But it means you can often replace the vague problem of *not knowing what to do* with a smaller, more precise task.
+
+And sometimes, that is enough to make progress.
+
+## 7. A strategy is not a guarantee
+
+There's one final limitation we should understand.
+
+Knowing how to begin a proof does not guarantee that the claim is true.
+
+Consider this statement:
+
+*For every integer *$n$*, the square *$n^2$* is even.*
+
+The logical structure tells us to take an arbitrary integer and investigate its square.
+
+That's a valid way to begin. But what happens when we consider $n=1$?
+
+<ReasoningFigure kind="discovery-counterexample" />
+
+The proof strategy didn't fail. It helped us identify what we would need to establish. But the mathematical claim itself was false.
+
+And even when a statement is true, our first approach may lead to a difficult subgoal. We might need a new definition, a useful lemma, an indirect argument, or a completely different route.
+
+Proof strategies guide discovery. They don't replace mathematical creativity.
+
+## 8. Finding, writing, and understanding a proof
+
+Let's return to the empty page we imagined at the beginning.
+
+We now have a much more useful way to approach it.
+
+Instead of searching for a clever equation, we can separate the information available to us from the goal we're trying to establish. We can work forward from our assumptions, backward from our conclusion, and look for the point where the two directions connect.
+
+But there's a deeper distinction worth remembering.
+
+<ReasoningFigure kind="discovery-abilities" />
+
+Those are three related abilities, but they aren't identical.
+
+A proof is not merely a destination, and it isn't merely the path written on the page. Understanding it also means recognizing why that path was available.
+
+And the next time you find yourself staring at a mathematical statement, unable to see how to begin, remember that you don't need to see the entire proof at once.
+
+You need to identify the next obligation.
+
+Then ask:
+
+**What do I already have, and what would be enough to move one step closer?**
+
+## Episode preparation references
+
+These references support the proof strategies and logical structures introduced in the episode.
+
+- **Daniel J. Velleman — How to Prove It: A Structured Approach**, especially Chapter 3, *Proofs*. The primary reference for proof discovery, logical goal structures, and mathematical proof-writing. [Cambridge University Press](https://www.cambridge.org/core/books/abs/how-to-prove-it/contents/D9098F367810400B8A7FFD6FFCC22695)
+- **forall x: Calgary**, especially *The Very Idea of Natural Deduction* and *Constructing Proofs*. Useful for understanding temporary assumptions, proof obligations, and the distinction between deriving conclusions and planning a derivation. [Open Logic Project](https://forallx.openlogicproject.org/html/)

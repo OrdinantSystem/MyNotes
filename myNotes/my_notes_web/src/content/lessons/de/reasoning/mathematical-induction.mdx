@@ -1,0 +1,513 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-three
+sourceId: reasoning-episode-22
+sourcePages: []
+sourceLocations: ["Sections 1–10; End-of-episode learning material; Preparation sources; Course connections"]
+title: "Wie kann ein Schritt unendlich viele Aussagen beweisen?"
+navTitle: "Vollständige Induktion"
+description: "Einen geprüften Anfang mit einem allgemeinen Induktionsschritt verbinden und aus wachsenden Quadraten einen vollständigen Beweis entwickeln."
+order: 22
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [existence-and-uniqueness]
+thumbnail: reasoning-induction
+---
+
+## 1. Die unmögliche Aufgabe
+
+Stell dir vor, ich gebe dir eine mathematische Aussage und bitte dich zu beweisen, dass sie für jede positive ganze Zahl gilt. Nicht nur für die ersten zehn oder die erste Million, sondern für jede einzelne.
+
+Du könntest die erste Zahl prüfen, dann die zweite und die dritte. Mit einem leistungsfähigen Computer könntest du vielleicht eine Billion Zahlen überprüfen.
+
+<ReasoningFigure kind="induction-checked" />
+
+Doch nach beliebig vielen solchen Prüfungen bleiben immer noch unendlich viele ungeprüfte Zahlen übrig.
+
+Menschen haben endlich viel Zeit, und mathematische Beweise bestehen aus endlich vielen Schritten. Trotzdem beweist die Mathematik regelmäßig Aussagen über unendlich viele Objekte. Wie ist das möglich?
+
+Wir lernen eine Methode mit zwei wesentlichen Bestandteilen kennen. Dabei verschwindet die Unendlichkeit nicht. Statt jede Aussage einzeln zu prüfen, untersuchen wir die Verbindung zwischen den Aussagen.
+
+## 2. Ein Muster in den ungeraden Zahlen
+
+Betrachten wir die positiven ungeraden Zahlen:
+
+$$
+1,\quad3,\quad5,\quad7,\quad9,\quad11,\ldots
+$$
+
+Was passiert, wenn wir sie der Reihe nach addieren?
+
+<ReasoningFigure kind="induction-sums" />
+
+Jedes Ergebnis scheint eine Quadratzahl zu sein. Die erste ungerade Zahl ergibt eins zum Quadrat, die ersten beiden ergeben zwei zum Quadrat und die ersten drei drei zum Quadrat. Vielleicht gilt allgemein
+
+$$
+\underbrace{1+3+5+\cdots+(2n-1)}_{n\text{ ungerade Zahlen}}=n^2.
+$$
+
+Bevor wir das beweisen, betrachten wir Zahlen als Kacheln. Eine Kachel bildet ein $1\times1$-Quadrat. Drei weitere Kacheln am rechten und unteren Rand ergänzen es zu einem $2\times2$-Quadrat.
+
+<ReasoningFigure kind="induction-growth" />
+
+Fünf zusätzliche Kacheln erzeugen ein $3\times3$-Quadrat, sieben weitere ein $4\times4$-Quadrat. Wir sehen nun neben dem Zahlenmuster einen geometrischen Mechanismus, der es erklären könnte.
+
+Anfangs haben wir jedes Ergebnis unabhängig betrachtet. Jetzt untersuchen wir, wie ein Ergebnis zum nächsten wird.
+
+### Eigenes Experiment
+
+Wie viele Kacheln musst du ergänzen, um aus einem $4\times4$-Quadrat ein $5\times5$-Quadrat zu machen?
+
+<Interactive kind="induction" preset="tiles" id="induction-tiles" />
+
+Neun weitere Kacheln genügen. Ihre Anordnung deutet auf etwas hin, das über die einzelnen Beispiele hinausgeht: Was wäre mit einem Quadrat beliebiger Größe?
+
+## 3. Den Mechanismus entdecken
+
+Wir ersetzen die konkrete Seitenlänge durch $k$, wobei $k$ eine beliebige positive ganze Zahl ist. Das Quadrat enthält $k^2$ Kacheln. Für ein Quadrat der Seitenlänge $k+1$ erweitern wir es in zwei Richtungen.
+
+<ReasoningFigure kind="induction-regions" />
+
+Wir brauchen eine Spalte mit $k$ Kacheln, eine Zeile mit weiteren $k$ Kacheln und eine einzelne Ecke. Insgesamt kommen also
+
+$$
+k+k+1=2k+1
+$$
+
+Kacheln hinzu. Das ist genau die nächste ungerade Zahl nach $2k-1$.
+
+Wenn ein Quadrat der Größe $k$ bereits vorliegt, ergänzt die nächste ungerade Anzahl an Kacheln es zu einem Quadrat der Größe $k+1$. Algebraisch lautet dieselbe Umformung:
+
+$$
+\underbrace{k^2}_{\text{Bisheriges Quadrat}}+\underbrace{2k+1}_{\text{Neue Kacheln}}=\underbrace{(k+1)^2}_{\text{Nächstes Quadrat}}.
+$$
+
+Das ist stärker als eine Sammlung von Beispielen. Wir haben nicht nur den Übergang von drei zu vier gezeigt. Dasselbe Argument gilt für eine beliebige positive ganze Zahl $k$.
+
+<ReasoningFigure kind="induction-transitions" />
+
+Doch ein Übergang allein zeigt noch nicht, dass wir überhaupt ein erstes Quadrat haben. Hier kommen die beiden Bestandteile der vollständigen Induktion ins Spiel.
+
+## 4. Die Kette von Implikationen
+
+Stell dir eine scheinbar endlose Reihe von Dominosteinen vor. Jeder Stein ist so angeordnet, dass er beim Fallen den nächsten umstößt. Garantiert das, dass jeder Stein fällt?
+
+<ReasoningFigure kind="induction-domino-standing" />
+
+Nein. Alle könnten stehen bleiben. Die Anordnung garantiert, was geschieht, **falls** ein Stein fällt. Sie garantiert nicht, dass überhaupt einer fällt. Wir müssen den ersten Stein anstoßen.
+
+<ReasoningFigure kind="induction-domino-started" />
+
+Nun stößt der erste den zweiten um, der zweite den dritten und so weiter. Vollständige Induktion hat eine ähnliche logische Struktur. An die Stelle der Steine treten Aussagen $P(1),P(2),P(3),\ldots$.
+
+$P$ bezeichnet ein Prädikat. Setzen wir eine positive ganze Zahl ein, erhalten wir eine bestimmte Aussage, die wahr oder falsch ist. In unserem Beispiel:
+
+$$
+P(n):\quad1+3+\cdots+(2n-1)=n^2.
+$$
+
+$P(3)$ besagt beispielsweise, dass die ersten drei positiven ungeraden Zahlen zusammen neun ergeben.
+
+Wir zeigen nun erstens, dass $P(1)$ wahr ist, und zweitens, dass für jede positive ganze Zahl $k$ aus $P(k)$ die Aussage $P(k+1)$ folgt.
+
+$$
+P(1),\qquad\forall k\in\mathbb Z_{\geq1}:\;P(k)\Rightarrow P(k+1).
+$$
+
+<ReasoningFigure kind="induction-chain" />
+
+Diese beiden Bestandteile genügen, um $P(n)$ für jede positive ganze Zahl $n$ zu folgern. Jede solche Zahl ist von eins aus durch endlich viele Erhöhungen um eins erreichbar.
+
+Auch eine Milliarde benötigt keine neue Art von Argument: Dieselbe Implikation verbindet jede Aussage mit der nächsten.
+
+Anders als bei echten Dominosteinen müssen wir nicht warten, bis etwas geschieht. Der Beweis begründet eine allgemeine logische Beziehung, statt jeden Übergang physisch auszuführen. Rechtfertigt wird dieser Schluss durch das **Prinzip der vollständigen Induktion**, eine grundlegende Eigenschaft der natürlichen Zahlen.
+
+## 5. Unser erster vollständiger Induktionsbeweis
+
+Wir wollen zeigen:
+
+$$
+1+3+5+\cdots+(2n-1)=n^2
+$$
+
+für jede positive ganze Zahl $n$. Dazu brauchen wir einen Anfang und einen allgemeinen Übergang.
+
+### Schritt 1 — Die Aussage definieren
+
+Wir legen präzise fest, was zu beweisen ist:
+
+$$
+P(n):\quad\sum_{i=1}^{n}(2i-1)=n^2.
+$$
+
+Das Summenzeichen schreibt die Summe der ersten $n$ positiven ungeraden Zahlen kompakt auf, ohne sich auf eine lange Folge von Punkten zu verlassen.
+
+### Schritt 2 — Den Induktionsanfang prüfen
+
+Die erste erlaubte Zahl ist hier $n=1$:
+
+$$
+1=1^2.
+$$
+
+Das ist wahr, also gilt $P(1)$.
+
+<ReasoningFigure kind="induction-base" />
+
+Der Anfang steht fest. Jetzt brauchen wir die Verbindung zu allen folgenden Aussagen.
+
+### Schritt 3 — Die Induktionsannahme einführen
+
+Sei $k$ eine beliebige positive ganze Zahl. Wir nehmen vorübergehend $P(k)$ an, also
+
+$$
+1+3+\cdots+(2k-1)=k^2.
+$$
+
+Das ist die **Induktionsannahme**. Wir legen nicht fest, ob $k$ drei, zwanzig oder eine Million ist. Das Argument soll unabhängig von diesem Wert funktionieren.
+
+Unter dieser vorübergehenden Annahme wollen wir $P(k+1)$ zeigen.
+
+<ReasoningFigure kind="induction-hypothesis" />
+
+### Schritt 4 — Den Induktionsschritt beweisen
+
+Wir beginnen mit dem Ausdruck aus $P(k+1)$:
+
+$$
+1+3+5+\cdots+(2k-1)+(2k+1).
+$$
+
+Die ersten $k$ Summanden bilden genau den Ausdruck aus der Induktionsannahme:
+
+$$
+\underbrace{1+3+\cdots+(2k-1)}_{k^2}+(2k+1).
+$$
+
+Nach der Annahme dürfen wir diesen Teil durch $k^2$ ersetzen. Damit folgt
+
+$$
+\begin{aligned}
+1+3+\cdots+(2k-1)+(2k+1)&=k^2+(2k+1)\\
+&=k^2+2k+1\\
+&=(k+1)^2.
+\end{aligned}
+$$
+
+Genau das war zu zeigen. Geometrie und Algebra beschreiben dieselbe Umformung.
+
+<ReasoningFigure kind="induction-geometry" />
+
+Wir haben $P(k)\Rightarrow P(k+1)$ für jede positive ganze Zahl $k$ bewiesen. Außerdem gilt $P(1)$. Nach dem Induktionsprinzip folgt daher
+
+$$
+\boxed{\sum_{i=1}^{n}(2i-1)=n^2\quad\text{für alle ganzen }n\geq1.}
+$$
+
+Der Beweis ist vollständig. Ein endliches Argument hat eine Aussage über unendlich viele ganze Zahlen begründet.
+
+## 6. Setzen wir nicht das voraus, was wir beweisen wollen?
+
+Vollständige Induktion kann anfangs merkwürdig wirken: Wir wollen eine Aussage beweisen, nehmen sie aber mitten im Beweis an. Ist das kein Zirkelschluss?
+
+Wir haben **nicht** vorausgesetzt, dass sie für jede positive ganze Zahl wahr ist. Wir haben sie vorübergehend für eine bestimmte, aber beliebige Zahl $k$ angenommen und daraus die nächste Aussage hergeleitet.
+
+<ReasoningFigure kind="induction-circular" />
+
+Erinnere dich an bedingte Aussagen: Um eine Implikation zu beweisen, dürfen wir ihre Voraussetzung vorübergehend annehmen und prüfen, ob ihre Folgerung notwendig gilt. Genau das tun wir bei
+
+$$
+P(k)\Rightarrow P(k+1).
+$$
+
+Damit haben wir noch nicht behauptet, dass beide Aussagen für dieses beliebige $k$ unbedingt wahr sind. Wir haben gezeigt, dass die Wahrheit der einen für die Wahrheit der nächsten ausreicht.
+
+Verbinden wir diese Beziehung nun mit dem unabhängig geprüften Anfang:
+
+<ReasoningFigure kind="induction-propagation" />
+
+$P(1)$ hängt von keiner Annahme über den ganzen Satz ab. Wir haben es direkt geprüft. Aus $P(1)$ und $P(1)\Rightarrow P(2)$ folgt $P(2)$. Dasselbe begründet $P(3)$, dann $P(4)$ und so weiter.
+
+Wir setzen den Schluss nicht voraus. Wir haben den Anfang unabhängig nachgewiesen und die Weitergabe der Wahrheit begründet.
+
+<Interactive kind="induction" preset="chain" id="induction-chain" />
+
+## 7. Zwei Argumente, die nur wie Induktion aussehen
+
+Was passiert, wenn einer der wesentlichen Bestandteile fehlt?
+
+### Fehler A — Ein perfekter Übergang ohne Anfang
+
+Jemand behauptet, jede positive ganze Zahl sei mindestens zwei:
+
+$$
+P(n):\quad n\geq2.
+$$
+
+Das Argument lautet: Angenommen, $k\geq2$. Dann gilt $k+1\geq3$ und damit $k+1\geq2$. Also folgt $P(k+1)$ aus $P(k)$.
+
+Dieser Induktionsschritt ist gültig. Trotzdem ist der Satz falsch. Wo liegt der Fehler?
+
+<ReasoningFigure kind="induction-false-base" />
+
+Der Anfang ist falsch: Eins ist nicht mindestens zwei. Das Argument zeigt korrekt die Erhaltung der Eigenschaft, liefert aber den nötigen Anfang nicht.
+
+Nach direkter Prüfung von $P(2)$ könnte es die Aussage für alle ganzen Zahlen ab zwei beweisen, jedoch nicht ab eins. Der Anfang ist mathematischer Inhalt und keine bloße Formalität.
+
+### Fehler B — Viele Erfolge ohne allgemeinen Übergang
+
+Betrachten wir
+
+$$
+n^2+n+41.
+$$
+
+Für einige Werte ergibt sich:
+
+<ReasoningFigure kind="induction-prime-table" />
+
+Alle Ergebnisse sind prim. Tatsächlich gilt das für die Indizes null bis neununddreißig. Das wirkt wie ein überzeugendes Muster. Aber bei $n=40$ gilt
+
+$$
+\begin{aligned}
+40^2+40+41&=1600+40+41\\
+&=1681\\
+&=41^2.
+\end{aligned}
+$$
+
+Das Ergebnis ist keine Primzahl. Vierzig erfolgreiche Fälle begründen den einundvierzigsten nicht.
+
+<ReasoningFigure kind="induction-prime-grid" />
+
+Es fehlten nicht weitere Beispiele, sondern eine begründete Beziehung, die die Eigenschaft von einem Fall auf den nächsten überträgt. Ohne sie bleiben Bestätigungen einzelne Bestätigungen. Ein Gegenbeispiel kann auch Tausende erfolgreicher Beobachtungen widerlegen.
+
+## 8. Vollständige Induktion ist keine empirische Induktion
+
+Das Wort „Induktion“ wird auch außerhalb der Mathematik verwendet. Beobachtet eine Forscherin Hunderte ähnlich reagierende Objekte, könnte sie vermuten, dass weitere Objekte derselben Art wahrscheinlich ähnlich reagieren.
+
+Diese empirische Induktion führt von Beobachtungen zu einer gestützten, aber revidierbaren Verallgemeinerung. Vollständige Induktion funktioniert anders.
+
+<ReasoningFigure kind="induction-empirical" />
+
+Trotz ihres Namens ist sie **deduktives Schließen**. Ihr Ergebnis gilt nicht wegen statistischer Wahrscheinlichkeit, angesammelter Belege oder eines bisher fehlenden Gegenbeispiels. Es folgt notwendig aus dem Anfang, dem allgemeinen Schritt und dem Induktionsprinzip.
+
+## 9. Kannst du den Beweis vervollständigen?
+
+Beweise für jede positive ganze Zahl $n$:
+
+$$
+1+2+3+\cdots+n=\frac{n(n+1)}2.
+$$
+
+Der Anfang ist geprüft:
+
+$$
+1=\frac{1(1+1)}2.
+$$
+
+Die Induktionsannahme lautet
+
+$$
+1+2+\cdots+k=\frac{k(k+1)}2.
+$$
+
+Was kommt als Nächstes? Ergänze den Übergang:
+
+$$
+\underbrace{1+2+\cdots+k}_{\text{Aus der Annahme bekannt}}+\boxed{\phantom{k+1}}.
+$$
+
+Das Ziel ist
+
+$$
+\frac{(k+1)(k+2)}2.
+$$
+
+<details>
+<summary>Den fehlenden Summanden zeigen</summary>
+
+Der nächste Summand ist $k+1$. Er kommt zur gesamten Summe aus der Annahme hinzu.
+
+</details>
+
+<details>
+<summary>Die vollständige Herleitung zeigen</summary>
+
+**Ergänzte Referenzherleitung.** Mit der Induktionsannahme folgt
+
+$$
+\begin{aligned}
+1+2+\cdots+k+(k+1)&=\frac{k(k+1)}2+(k+1)\\
+&=\frac{k(k+1)+2(k+1)}2\\
+&=\frac{(k+1)(k+2)}2.
+\end{aligned}
+$$
+
+Der Anfang und die Implikation für jede ganze Zahl $k\geq1$ beweisen die Formel für jede ganze Zahl $n\geq1$.
+
+</details>
+
+Diese Aufgabe sieht zunächst anders aus als die wachsenden Quadrate. Ihre Beweisstruktur ist aber dieselbe: den Anfang zeigen, die $k$-te Aussage vorübergehend annehmen und die nächste beweisen. Die Ausdrücke wechseln, die Methode bleibt.
+
+## 10. Die Unendlichkeit war nie das Hindernis
+
+Zu Beginn schien die Aufgabe unmöglich: Wie kann ein endliches Argument unendlich viele Aussagen begründen?
+
+Wir müssen nicht jede Aussage einzeln untersuchen, wenn wir ihre Verbindung beweisen können.
+
+<ReasoningFigure kind="induction-compression" />
+
+Eine unendliche Sammlung zu verstehen bedeutet nicht immer, jedes ihrer Elemente getrennt zu verstehen. Manchmal genügt es, ihre verbindende Struktur zu erkennen. Wir haben die Unendlichkeit nicht durch schnelleres Zählen überwunden. Wir haben das Zählen überflüssig gemacht.
+
+## Lernkompendium
+
+### Der vollständige Aufbau der Induktion
+
+<ReasoningFigure kind="induction-architecture" />
+
+### Den Anfangsbereich verstehen
+
+Ein Induktionsbeweis muss nicht bei null oder eins beginnen. Er beginnt bei der ersten ganzen Zahl im Geltungsbereich der Behauptung. Verschiedene Anfänge begründen verschiedene Bereiche.
+
+<ReasoningFigure kind="induction-domains" />
+
+| Anfang | Induktionsschritt | Schluss |
+| --- | --- | --- |
+| $P(0)$ | Für jede ganze Zahl $k\geq0$ | Alle ganzen Zahlen $n\geq0$ |
+| $P(1)$ | Für jede ganze Zahl $k\geq1$ | Alle ganzen Zahlen $n\geq1$ |
+| $P(3)$ | Für jede ganze Zahl $k\geq3$ | Alle ganzen Zahlen $n\geq3$ |
+| $P(5)$ | Für jede ganze Zahl $k\geq5$ | Alle ganzen Zahlen $n\geq5$ |
+
+Der Induktionsschritt verbindet Aussagen vorwärts. Er begründet nicht automatisch die Fälle vor dem Anfang.
+
+### Prüfe dein Verständnis
+
+<Interactive kind="induction" preset="checkpoint" id="induction-checkpoint" />
+
+### Zusätzliche Arbeitsblattaufgaben
+
+Die Aufgaben entwickeln schrittweise das eigene Konstruieren von Induktionsbeweisen.
+
+| Aufgabe | Schwierigkeit | Fähigkeit |
+| --- | --- | --- |
+| $2+4+\cdots+2n=n(n+1)$ beweisen | Leicht | Den nächsten Summanden erkennen |
+| $2^n\geq n+1$ für $n\geq0$ beweisen | Leicht | Ungleichungen in Induktionen |
+| Zeigen, dass $3^n-1$ für $n\geq1$ gerade ist | Leicht | Die Teilbarkeitsdefinition verwenden |
+| $5\mid(6^n-1)$ für $n\geq1$ beweisen | Mittel | Algebraisch umformen |
+| $2^n\geq n^2$ für $n\geq4$ beweisen | Mittel | Einen anderen Anfang verwenden |
+| $\sum_{i=1}^n i^2=\frac{n(n+1)(2n+1)}6$ beweisen | Mittel | Komplexere Ausdrücke bearbeiten |
+
+### Referenzlösungen zum Arbeitsblatt
+
+Die Aufgaben stammen aus dem mitgelieferten Arbeitsblatt. Die folgenden Hinweise und vollständigen Referenzbeweise sind Ergänzungen.
+
+<Exercise question="Beweise $2+4+\cdots+2n=n(n+1)$ für jede ganze Zahl $n\geq1$.">
+
+**Hinweis:** Der nächste Summand ist $2(k+1)$.
+
+Für $n=1$ gilt $2=1(2)$. Gilt die Identität für eine beliebige ganze Zahl $k\geq1$, folgt
+
+$$
+2+4+\cdots+2k+2(k+1)=k(k+1)+2(k+1)=(k+1)(k+2).
+$$
+
+Das ist die Identität für $k+1$. Anfang und allgemeiner Schritt schließen die Induktion ab.
+
+</Exercise>
+
+<Exercise question="Beweise $2^n\geq n+1$ für jede ganze Zahl $n\geq0$.">
+
+**Hinweis:** Multipliziere die angenommene Ungleichung mit der positiven Zahl zwei.
+
+Bei null gilt $2^0=1\geq1$. Aus $2^k\geq k+1$ für eine beliebige ganze Zahl $k\geq0$ folgt
+
+$$
+2^{k+1}=2\cdot2^k\geq2(k+1)\geq k+2,
+$$
+
+denn $2(k+1)-(k+2)=k\geq0$. Damit gilt der nächste Fall und durch Induktion die Aussage für alle $n\geq0$.
+
+</Exercise>
+
+<Exercise question="Zeige, dass $3^n-1$ für jede ganze Zahl $n\geq1$ gerade ist.">
+
+**Hinweis:** Schreibe die angenommene gerade Zahl als $2m$ und zerlege die nächste Potenz.
+
+Bei eins ist $3-1=2$ gerade. Sei für ein beliebiges $k\geq1$ angenommen, dass $3^k-1=2m$ mit einer ganzen Zahl $m$ gilt. Dann
+
+$$
+3^{k+1}-1=3(3^k-1)+2=6m+2=2(3m+1).
+$$
+
+$3m+1$ ist ganzzahlig, also ist auch der nächste Ausdruck gerade. Induktion schließt den Beweis ab.
+
+</Exercise>
+
+<Exercise question="Beweise $5\mid(6^n-1)$ für jede ganze Zahl $n\geq1$.">
+
+**Hinweis:** Schreibe den nächsten Ausdruck als $6(6^k-1)+5$.
+
+Bei eins gilt $6-1=5$. Für ein beliebiges $k\geq1$ sei $6^k-1=5m$ mit $m\in\mathbb Z$. Dann
+
+$$
+6^{k+1}-1=6(6^k-1)+5=30m+5=5(6m+1).
+$$
+
+Der ganzzahlige Zeuge $6m+1$ zeigt die Teilbarkeit bei $k+1$. Mit dem Anfang folgt die Behauptung.
+
+</Exercise>
+
+<Exercise question="Beweise $2^n\geq n^2$ für jede ganze Zahl $n\geq4$.">
+
+**Hinweis:** Beginne bei vier und vergleiche $2k^2$ mit $(k+1)^2$.
+
+Bei vier gilt $2^4=16=4^2$. Für eine beliebige ganze Zahl $k\geq4$ nehmen wir $2^k\geq k^2$ an. Wegen
+
+$$
+2k^2-(k+1)^2=(k-1)^2-2\geq9-2=7>0
+$$
+
+folgt $2^{k+1}\geq2k^2\geq(k+1)^2$. Induktion zeigt die Aussage für alle $n\geq4$, ohne frühere Fälle zu behaupten.
+
+</Exercise>
+
+<Exercise question="Beweise $\sum_{i=1}^n i^2=\frac{n(n+1)(2n+1)}6$ für jede ganze Zahl $n\geq1$.">
+
+**Hinweis:** Addiere $(k+1)^2$, bringe beide Terme auf den Nenner sechs und klammere $k+1$ aus.
+
+Bei eins gilt $1=1(2)(3)/6$. Angenommen, die Identität gilt für eine beliebige ganze Zahl $k\geq1$. Dann
+
+$$
+\begin{aligned}
+\sum_{i=1}^{k+1}i^2&=\frac{k(k+1)(2k+1)}6+(k+1)^2\\
+&=\frac{(k+1)\bigl(k(2k+1)+6(k+1)\bigr)}6\\
+&=\frac{(k+1)(2k^2+7k+6)}6\\
+&=\frac{(k+1)(k+2)(2k+3)}6.
+\end{aligned}
+$$
+
+Das ist die Formel mit $n=k+1$. Anfang und allgemeiner Schritt beweisen die Behauptung.
+
+</Exercise>
+
+### Quellen zur Vorbereitung
+
+| Quelle | Relevante Stellen |
+| --- | --- |
+| [Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/) | Kapitel 10: Induktion, Induktionsannahme, formale Notation und Beispiele. |
+| [MIT — Mathematics for Computer Science](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/) | Induktion als systematische Beweismethode und ihre Beziehung zu rekursiven Strukturen und Algorithmen. |
+| Roger B. Nelsen — Proofs Without Words | Ergänzende visuelle Quelle zu geometrischen Identitäten und der Verbindung von Anschauung und allgemeinem Beweis. |
+
+### Verbindungen zu früheren Lektionen
+
+| Frühere Lektion | Anwendung |
+| --- | --- |
+| 04 — Visuelle Beweise | Aus einem konkreten Bild ein allgemeines Argument entwickeln |
+| 06 — Gegenbeispiele | Verstehen, warum geprüfte Beispiele nicht genügen |
+| 11 — Bedingte Aussagen | Die Richtung der Induktionsimplikation verstehen |
+| 13 — Quantoren | Den Übergang für eine beliebige ganze Zahl beweisen |
+| 16 — Was ist ein Beweis? | Annahmen von nachgewiesenen Folgerungen unterscheiden |
+| 17 — Den nächsten Schritt finden | Die Induktionsannahme verwenden, um das nächste Ziel zu erreichen |

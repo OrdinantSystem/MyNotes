@@ -1,0 +1,8 @@
+---
+import type {TransferFigure} from '../lib/interactive/transfer-model';
+import {transferFigure,transferTitle} from '../lib/interactive/transfer-render';
+import '../styles/counterexamples.css';import '../styles/discovery.css';import '../styles/justification.css';import '../styles/transfer.css';
+interface Props{kind:TransferFigure}
+const {kind}=Astro.props,locale=Astro.locals.locale||'en';
+---
+<figure class="counter-lab transfer-figure" data-transfer-figure={kind}><h3>{transferTitle(locale,kind)}</h3><div set:html={transferFigure(locale,kind)}/></figure>

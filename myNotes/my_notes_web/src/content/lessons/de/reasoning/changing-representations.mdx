@@ -1,0 +1,334 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-26
+sourcePages: []
+sourceLocations: ["Full script sections 1–10; underlying problem-solving technique; preparation sources"]
+title: "Ändere das Bild, ändere das Problem"
+navTitle: "Darstellungen ändern"
+description: "Eine Summenformel durch eine begründete geometrische Umformung entdecken und dieselbe Zählstruktur auf Händedrücke übertragen."
+order: 26
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [making-progress-when-stuck]
+thumbnail: reasoning-reframe
+---
+
+## 1. Was, wenn das Problem nicht das Problem ist?
+
+Stell dir vor, jemand gibt dir eine Aufgabe: Berechne die Summe aller ganzen Zahlen von eins bis einhundert.
+
+$$
+1+2+3+4+\cdots+98+99+100
+$$
+
+Keine einzelne Rechenoperation ist besonders schwierig. Wir können eins und zwei addieren, ebenso drei und vier. Mit genügend Zeit können wir den ganzen Term ausrechnen.
+
+Aber was wäre, wenn die letzte Zahl eine Million wäre? Oder wenn wir eine Antwort für jede positive ganze Zahl $n$ suchen?
+
+$$
+1+2+3+\cdots+n
+$$
+
+Dann liefert die Fähigkeit zu addieren allein noch keine effiziente allgemeine Lösung. Wir brauchen etwas anderes.
+
+<ReasoningFigure kind="reframe-expression" />
+
+Vielleicht wirkt die Aufgabe nicht wegen komplizierter Zahlen schwierig, sondern weil wir sie in einer ungünstigen Form betrachten. Könnten wir sie lösen, ohne all diese Additionen einzeln auszuführen?
+
+Es geht weder um schnelleres Rechnen noch um eine Näherung oder das Ersetzen der Frage durch eine leichtere. Wir untersuchen, was passiert, wenn wir die **Darstellung des Problems** ändern.
+
+## 2. Dasselbe Problem kann verschieden aussehen
+
+Tun wir zunächst etwas aus der vorherigen Lektion: Wir betrachten einen kleineren Fall.
+
+$$
+1+2+3+4+5
+$$
+
+Das könnten wir sofort ausrechnen. Aber widerstehen wir zunächst dieser Versuchung. Statt die Zahlen nur als Symbole zu schreiben, stellen wir jede durch eine Gruppe von Objekten dar. Eins wird zu einem Punkt, zwei zu zwei Punkten, drei zu drei Punkten und so weiter.
+
+<ReasoningFigure kind="reframe-objects" />
+
+Das Aussehen hat sich geändert, die gesuchte Anzahl aber nicht. Eins, zwei, drei, vier und fünf zu addieren bedeutet, alle Punkte dieser fünf Gruppen zu zählen.
+
+Eine **Darstellung** drückt ein Objekt, eine Situation oder eine Beziehung in einer bestimmten Form aus. Wir könnten einen Term, eine Liste, eine Tabelle oder eine geometrische Anordnung verwenden.
+
+<ReasoningFigure kind="reframe-forms" />
+
+Jede dieser Darstellungen enthält genug Information, um die gesuchte Summe zurückzugewinnen. Sie machen aber nicht dieselben Beziehungen gleich gut sichtbar. Mit der Wahl einer Darstellung entscheiden wir auch, welche Aspekte leicht erkennbar werden und welche eher verborgen bleiben.
+
+## 3. Eine zuvor verborgene Beziehung suchen
+
+Kehren wir zu den Punkten zurück. In der ersten Zeile liegt ein Punkt, in der zweiten liegen zwei, in der dritten drei und so weiter. Jede Zeile enthält genau einen Punkt mehr als ihre Vorgängerin. Dadurch entsteht eine Dreiecksform.
+
+Diese Beziehung haben wir nicht hinzugefügt. Sie war bereits im ursprünglichen Term vorhanden; das Bild macht sie leichter erkennbar.
+
+<ReasoningFigure kind="reframe-growth" />
+
+Die Punkte dieses Dreiecks zu zählen ist allerdings zunächst dieselbe Aufgabe wie die ursprüngliche Addition. Wir haben noch nichts gelöst, sondern nur eine andere Möglichkeit zur Untersuchung geschaffen.
+
+Vielleicht gibt es eine Form, deren Anzahl leichter bestimmbar ist.
+
+<ReasoningFigure kind="reframe-compare" />
+
+Betrachte ein Rechteck mit fünf Zeilen und sechs Punkten je Zeile. Weil alle Zeilen gleich lang sind, müssen wir die Punkte nicht einzeln zählen. Wir können multiplizieren:
+
+$$
+5\cdot6=30.
+$$
+
+Das Rechteck hat eine hilfreiche Eigenschaft, die dem Dreieck fehlt: gleich lange Zeilen. Können wir eine Beziehung zwischen dem Dreieck, dessen Anzahl wir suchen, und einem solchen Rechteck begründen?
+
+Was könnten wir mit dem Dreieck tun? Es umordnen, etwas ergänzen oder es mit einer anderen Form verbinden?
+
+<ReasoningFigure kind="reframe-challenge" />
+
+## 4. Die Entdeckung
+
+Ein möglicher Ansatz ist, die vorhandenen Punkte zunächst gar nicht umzuordnen. Wir erstellen eine zweite, identische Kopie des gesamten Dreiecks.
+
+<ReasoningFigure kind="reframe-copy" />
+
+Jetzt haben wir doppelt so viele Punkte wie zuvor. Weil beide Dreiecke identisch sind, gehört genau die Hälfte der gesamten Objekte zu unserem ursprünglichen Problem.
+
+Drehen wir die Kopie um $180^\circ$.
+
+<ReasoningFigure kind="reframe-rotate" />
+
+Dann schieben wir sie an das ursprüngliche Dreieck heran.
+
+<ReasoningFigure kind="reframe-rectangle" />
+
+<Interactive kind="reframe" preset="construction" id="reframe-construction" />
+
+Aus zwei dreieckigen Anordnungen ist ein Rechteck geworden. Dessen Objekte können wir zählen: fünf Zeilen mit je sechs Punkten, also insgesamt dreißig Punkte.
+
+$$
+2(1+2+3+4+5)=5\cdot6.
+$$
+
+Die ursprüngliche Aufgabe betrifft nur eines der beiden Dreiecke. Deshalb müssen wir die Wirkung der hinzugefügten Kopie durch Teilen durch zwei rückgängig machen.
+
+$$
+1+2+3+4+5=\frac{5\cdot6}{2}=15.
+$$
+
+<ReasoningFigure kind="reframe-half" />
+
+Anstelle mehrerer einzelner Additionen haben wir eine Multiplikation und eine Division ausgeführt. Diese Operationen sind nicht bloß Abkürzungen, die zufällig das richtige Ergebnis liefern. Jede beschreibt einen Teil der Konstruktion: Die Multiplikation zählt das Rechteck, die Division berücksichtigt, dass wir eine zweite gleich große Sammlung eingeführt haben.
+
+## 5. Warum sollte das für jede Zahl funktionieren?
+
+Bisher haben wir die Konstruktion nur an einem Dreieck mit fünf Zeilen gezeigt. Vielleicht klappt sie auch mit sechs oder zehn. Unsere ursprüngliche Frage war aber allgemeiner: Wir suchen eine Methode für jede positive ganze Zahl $n$.
+
+Dass etwas in einem Beispiel funktioniert, ist etwas anderes als eine Erklärung, warum es allgemein funktionieren muss. Untersuchen wir daher, warum die beiden Dreiecke zusammenpassen.
+
+<Interactive kind="reframe" preset="rows" id="reframe-rows" />
+
+Weitere Beispiele machen die Konstruktion überzeugend. Doch selbst tausend geprüfte Fälle würden eine Begründung nicht ersetzen.
+
+Konzentrieren wir uns auf eine Zeile. Im ursprünglichen Dreieck enthält die erste Zeile einen Punkt, die zweite zwei und die letzte $n$ Punkte. Im gedrehten Dreieck ist diese Reihenfolge umgekehrt: zuerst $n$, dann $n-1$ und schließlich ein Punkt.
+
+Beim Zusammensetzen gilt:
+
+$$
+\begin{aligned}
+1+n&=n+1\\
+2+(n-1)&=n+1\\
+3+(n-2)&=n+1\\
+&\vdots\\
+n+1&=n+1.
+\end{aligned}
+$$
+
+Wenn die Anzahl der ursprünglichen Punkte um eins wächst, sinkt die Anzahl der Kopiepunkte um eins. Die Gesamtlänge bleibt gleich, unabhängig von der gewählten Zeile.
+
+<ReasoningFigure kind="reframe-row" />
+
+Genauer: Wähle eine beliebige Zeile $k$ mit
+
+$$
+1\leq k\leq n.
+$$
+
+Sie enthält $k$ ursprüngliche Punkte. Die entsprechende Zeile der gedrehten Kopie enthält $n+1-k$ Punkte. Zusammen sind das
+
+$$
+k+(n+1-k)=n+1.
+$$
+
+Lege die ursprünglichen Punkte links und die Kopiepunkte unmittelbar rechts daneben ab. Dann füllen sie genau $n+1$ aufeinanderfolgende Positionen, ohne Lücken und ohne überlappende Objekte. Weil es $n$ solcher Zeilen gibt, entsteht ein Rechteck mit $n$ Zeilen und $n+1$ Spalten.
+
+Nennen wir die ursprüngliche Summe $S_n$:
+
+$$
+S_n=1+2+\cdots+n.
+$$
+
+Beide Dreiecke enthalten gleich viele Punkte; zusammen haben sie $2S_n$ Punkte. Zugleich enthält das Rechteck nach der gerade begründeten Konstruktion $n(n+1)$ Punkte. Also
+
+$$
+2S_n=n(n+1).
+$$
+
+Teilen durch die von null verschiedene Zahl zwei liefert
+
+$$
+\boxed{1+2+\cdots+n=\frac{n(n+1)}{2}}
+$$
+
+für jede positive ganze Zahl $n$.
+
+Das Bild half uns, das Ergebnis zu entdecken. Die Begründung für eine beliebige Zeile einer beliebigen erlaubten Größe erklärt, warum es immer gilt. So wird aus einer visuellen Beobachtung ein Beweis.
+
+## 6. Was dürfen wir verändern?
+
+In unseren Umformungen steckt eine wichtige Unterscheidung. Beim Übergang von Zahlen zu Punkten blieb die Anzahl erhalten. Auch die Drehung der Kopie änderte deren Anzahl nicht. Das Hinzufügen einer zweiten Kopie änderte dagegen die Gesamtanzahl tatsächlich.
+
+Das war zulässig, weil wir diese Änderung genau kannten: Wir verdoppelten die Anzahl und berücksichtigten diesen Faktor anschließend wieder.
+
+Bei jedem Darstellungswechsel müssen wir verstehen, was erhalten bleibt, was sich ändert und wie die neue Darstellung mit der ursprünglichen Frage zusammenhängt.
+
+<ReasoningFigure kind="reframe-accounting" />
+
+Was wäre, wenn sich beim Zusammenschieben einige Punkte versehentlich überlappten? Zwei Dreiecke könnten wie ein $5\times5$-Quadrat aussehen, wenn wir überlagerte Punkte als einzelne Objekte zählen.
+
+<ReasoningFigure kind="reframe-overlap" />
+
+Dann würden wir fälschlich fünfundzwanzig statt dreißig Punkte zählen. Das Bild könnte elegant aussehen und die Rechnung einfach sein; die Begründung wäre trotzdem falsch.
+
+Bilder müssen denselben Anforderungen an eine Begründung genügen wie andere Darstellungen. Sie können Wahrheit sichtbar machen, aber ebenso einen Fehler verbergen.
+
+## 7. Zwei Beweise derselben Aussage
+
+Die Aussage lässt sich auch mit der in Lektion 22 untersuchten vollständigen Induktion beweisen.
+
+Zunächst prüfen wir den Anfang $n=1$:
+
+$$
+1=\frac{1(1+1)}{2}.
+$$
+
+Nun nehmen wir an, dass die Formel für eine beliebige positive ganze Zahl $k$ gilt:
+
+$$
+1+2+\cdots+k=\frac{k(k+1)}{2}.
+$$
+
+Durch Hinzufügen des nächsten Summanden erhalten wir
+
+$$
+\begin{aligned}
+1+2+\cdots+k+(k+1)
+&=\frac{k(k+1)}{2}+(k+1)\\[3pt]
+&=\frac{k(k+1)+2(k+1)}{2}\\[3pt]
+&=\frac{(k+1)(k+2)}{2}.
+\end{aligned}
+$$
+
+Das ist genau die Formel für $k+1$. Mit dem Anfang und diesem Schritt gilt sie für jede positive ganze Zahl.
+
+Beide Beweise sind gültig und zeigen dieselbe Aussage. Sie erklären das Ergebnis aber auf unterschiedliche Weise.
+
+<ReasoningFigure kind="reframe-methods" />
+
+Die Induktion erklärt, warum die vorgeschlagene Formel beim Hinzufügen weiterer Glieder wahr bleibt. Die geometrische Konstruktion bietet hier einen naheliegenden Weg, das Produkt und den Faktor zwei überhaupt zu entdecken.
+
+Das bedeutet weder, dass geometrische Beweise immer besser sind, noch, dass Induktion keine Entdeckungen ermöglichen kann. Verschiedene Ansätze zeigen unterschiedliche Aspekte derselben mathematischen Wahrheit. Manchmal verstehen wir einen Satz tiefer, wenn wir mehrere Beweise kennen.
+
+### Den Beweis in Worte fassen
+
+Erkläre den geometrischen Beweis in einem kurzen Absatz ohne Bild. Begründe, warum das Rechteck $n$ Zeilen und $n+1$ Spalten hat, warum es die doppelte ursprüngliche Anzahl enthält und warum das für jede positive ganze Zahl gilt.
+
+<Exercise>
+
+**Ergänzter Beispielbeweis.** Sei $n$ eine positive ganze Zahl. Ordne die Summanden als Zeilen mit $1,2,\ldots,n$ Punkten an und erstelle eine identische Kopie. Drehe die Kopie um $180^\circ$. In einer beliebigen Zeile $k$ liefert das Original $k$ und die gedrehte Kopie $n+1-k$ Punkte. Unmittelbar hintereinander belegen sie $n+1$ Positionen ohne Lücken oder Überlappung. Bei $n$ Zeilen sind das insgesamt $n(n+1)$ Punkte. Weil die Kopie genauso viele Punkte wie das Original enthält, ist dies das Doppelte von $S_n$. Daher gilt $S_n=n(n+1)/2$. Die Begründung verwendet eine beliebige Zeile einer beliebigen positiven Größe, nicht nur eine bestimmte Zeichnung.
+
+</Exercise>
+
+## 8. Nicht jedes Bild ist eine Verbesserung
+
+Stell dir vor, wir ordneten die einzelnen Punktgruppen um einen gemeinsamen Mittelpunkt an, statt sie in waagerechte Zeilen zu legen.
+
+<ReasoningFigure kind="reframe-radial" />
+
+Beide Bilder stellen dieselben Zahlen dar. Die radiale Anordnung ist vielleicht optisch interessanter. Aber hilft sie, die benötigte Beziehung zu erkennen?
+
+Die Dreiecksanordnung macht den Unterschied zwischen aufeinanderfolgenden Gruppen unmittelbar sichtbar. Außerdem können wir eine wachsende Folge von Zeilen mit einer abnehmenden Folge ergänzen. Die radiale Anordnung zeigt diese Beziehung weniger direkt.
+
+Entscheidend ist daher nicht nur, ob eine Darstellung korrekt oder interessant ist, sondern ob sie die für unsere Frage relevanten Beziehungen leichter begründbar macht.
+
+## 9. Kannst du ein anderes Problem verändern?
+
+In einem Raum sind fünf Personen. Jede gibt jeder anderen genau einmal die Hand. Wie viele Händedrücke finden statt?
+
+Wir könnten alle Verbindungen zwischen den Personen einzeichnen.
+
+<ReasoningFigure kind="reframe-network" />
+
+Bei einhundert Personen wäre dieses Bild schnell unübersichtlich. Könnte eine andere Darstellung eine hilfreichere Struktur zeigen? Überlege zunächst selbst, wie du das Problem darstellen würdest.
+
+Konstruieren wir eine Tabelle. Jede Person steht einmal über einer Spalte und einmal links neben einer Zeile. Jedes Feld stellt nun eine mögliche Paarung dar.
+
+<ReasoningFigure kind="reframe-table" />
+
+Zwei Dinge werden sichtbar. Erstens kann sich niemand selbst die Hand geben: Die Diagonale entfällt. Zweitens beschreiben A mit B und B mit A denselben Händedruck. Jeder Händedruck wurde zweimal erfasst.
+
+Für $n$ Personen hat die Tabelle $n^2$ Felder. Wir entfernen die $n$ Diagonalfelder und teilen die verbleibende Anzahl durch zwei:
+
+$$
+\frac{n^2-n}{2}=\frac{n(n-1)}{2}.
+$$
+
+Für fünf Personen ergibt das
+
+$$
+\frac{5\cdot4}{2}=10.
+$$
+
+Der blaue Teil der Tabelle enthält dieselbe Dreiecksstruktur wie zuvor, diesmal mit $n-1$ nichtleeren Zeilen. Zwei scheinbar verschiedene Probleme haben dieselbe mathematische Struktur sichtbar gemacht.
+
+Ein Darstellungswechsel kann uns also auch helfen, in einem neuen Problem etwas Vertrautes wiederzuerkennen.
+
+<Interactive kind="reframe" preset="handshakes" id="reframe-handshakes" />
+
+## 10. Vielleicht musst du es anders betrachten
+
+Am Anfang stand eine lange Folge von Additionen. Am Ende betrachten wir ein Rechteck. Wir haben nicht schnelleres Addieren gelernt, sondern begründet, warum sich die Zahlen auf eine andere Weise zählen lassen.
+
+Wenn dir das nächste Mal eine Aufgabe besonders schwierig erscheint, frage dich vor der Suche nach einer Lösung auch: Ist dies die hilfreichste Art, das Problem zu betrachten?
+
+Manchmal beginnt die Entdeckung einer Lösung damit, die Frage anders zu sehen.
+
+<ReasoningFigure kind="reframe-synthesis" />
+
+## Lernkompendium
+
+| Beziehung | Was begründet werden muss |
+| --- | --- |
+| Darstellung | Wie die neue Form den ursprünglichen Objekten oder der Frage entspricht. |
+| Gleichwertige Darstellungen | Wie jede Form die zur Rückgewinnung der Summe nötige Information erhält. |
+| Erhaltene und veränderte Größen | Drehung erhält eine Anzahl, Kopieren verdoppelt sie, Teilen gewinnt sie zurück. |
+| Geometrischer Beweis | Jede beliebige Zeile belegt genau die benötigten Positionen ohne Lücken oder Überlappung. |
+| Summe aufeinanderfolgender Zahlen | Die beiden Kopien bilden ein Rechteck mit $n$ Zeilen und $n+1$ Spalten. |
+| Visuelle Anschauung und allgemeiner Beweis | Beispiele legen eine Konstruktion nahe; die beliebige Zeile begründet alle positiven ganzen Zahlen. |
+| Beweisvergleich | Induktion erklärt Wachstum, Umordnung das Produkt und den Faktor zwei. |
+| Doppelzählung | Ein Händedruck belegt zwei geordnete Tabellenfelder; Selbstpaare sind ausgeschlossen. |
+| Transfer | Die Händedrucktabelle enthält dieselbe Dreiecksstruktur mit $n-1$ nichtleeren Zeilen. |
+
+<ReasoningFigure kind="reframe-process" />
+
+### Verbindungen im Kurs
+
+Lektion 4 untersuchte, wie ein Bild zum allgemeinen Beweis werden kann. Lektion 22 entwickelte die Induktion. Lektion 25 suchte hilfreiche erste Schritte, wenn eine Lösung noch nicht sichtbar ist. Hier geht es darum, die Darstellung gezielt zu verändern, um einen Beweis zu entdecken, und anschließend die Verbindung zum ursprünglichen Problem zu prüfen.
+
+## Vorbereitungsquellen
+
+[George Pólya — How to Solve It](https://people.math.harvard.edu/~knill/teaching/math21b2001/polya/index.html): Der bei Harvard bereitgestellte Auszug behandelt Zeichnungen, Neuformulierungen und verwandte Probleme. Das sind Anregungen zur Untersuchung, kein garantiertes Lösungsverfahren.
+
+[MIT — Mathematics for Computer Science: Lektüre](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/): Die Leseliste verweist für Summen auf Abschnitte 14.1–14.6 und für Zähltechniken auf Kapitel 15. Sie bietet weiterführende mathematische Lektüre; eine Prüfung des gesamten Lehrbuchs wird hier nicht behauptet.
+
+[IES — Organizing Instruction and Study to Improve Student Learning](https://ies.ed.gov/ncee/wwc/PracticeGuide/1): Empfehlungen 3 und 4 betreffen die Verbindung von Grafiken mit Worten und von konkreten mit abstrakten Darstellungen. Beide erhalten die Evidenzstufe „moderat“. Das unterstützt einen didaktischen Ansatz, beweist aber weder den Nutzen jedes Diagramms noch einen garantierten Lernerfolg dieser Lektion.

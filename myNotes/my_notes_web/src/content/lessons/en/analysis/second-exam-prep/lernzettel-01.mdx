@@ -1,0 +1,344 @@
+---
+locale: en
+course: "analysis"
+chapter: analysis-second-exam-prep
+sourceId: analysis-second-exam-01
+sourcePages: []
+sourceLocations: ["Concept map; Sections 1–10"]
+title: "Lernzettel 01 — Mathematical logic"
+navTitle: "Lernzettel 01"
+description: "Statements, predicates, function notation, free and bound variables, quantifiers and the Kalupe exercise."
+order: 21
+kind: recap
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+thumbnail: logic
+---
+
+Mathematical logic connects the meaning of an expression with its formal notation and the reasoning needed to justify a conclusion. This revision sheet brings together statements, predicates, functions and quantifiers. We use classical two-valued logic, with $1$ for true and $0$ for false, and $\mathbb N=\{1,2,3,\ldots\}$.
+
+<LogicFigure kind="concept-map" />
+
+## 1. What is a mathematical statement? — Aussage
+
+A **statement** is a mathematical or logical expression that has a definite truth value: either true or false.
+
+Consider:
+
+$$
+A:\quad\text{“4 is an even number.”}
+$$
+
+We know this is true because an integer is even if it can be expressed as twice another integer. More formally, for $n\in\mathbb Z$:
+
+$$
+n\text{ is even}\iff\exists k\in\mathbb Z:\ n=2k.
+$$
+
+For our example, $4=2\cdot2$. Therefore:
+
+$$
+\boxed{A=1\quad\text{(true)}}
+$$
+
+A statement does not have to be *known* to be true or false. It simply has to possess a definite truth value once its meaning and mathematical context are fixed. Here $A=1$ is shorthand for assigning truth value $1$ to $A$.
+
+## 2. What is a predicate? — Prädikat
+
+Now replace the number $4$ with a variable:
+
+$$
+P(x):\quad\text{“}x\text{ is even.”}
+$$
+
+We cannot determine a single truth value without knowing $x$. For example:
+
+$$
+\begin{aligned}
+P(4)&=1\\
+P(5)&=0\\
+P(8)&=1\\
+P(9)&=0.
+\end{aligned}
+$$
+
+In classical two-valued logic, with the interpretation fixed, we can represent this predicate as a function whose output is either $0$ or $1$.
+
+<Flow nodes={[
+ {label:'Input',tex:'x\\in\\mathbb N',detail:'A natural number.'},
+ {label:'Predicate',tex:'P(x)',detail:'Is $x$ even?'},
+ {label:'Output',tex:'1\\text{ (true)}\\quad\\text{or}\\quad0\\text{ (false)}',detail:'Exactly one truth value for each input.'}
+]} caption="The predicate assigns one truth value to each input." />
+
+The difference is that $P$ is the truth-valued function, while $P(4)$ is its value at input $4$. The expression “$4$ is even” is the resulting statement; the function representation assigns it the value $1$.
+
+## 3. Understanding function notation
+
+We represent our predicate using:
+
+$$
+\boxed{P:\mathbb N\longrightarrow\{0,1\}}
+$$
+
+This notation specifies the function’s name, its domain and its codomain.
+
+| Symbol | Meaning | German terminology |
+| --- | --- | --- |
+| $P$ | Name of the function | Funktion |
+| $:$ | Introduces domain and codomain | — |
+| $\mathbb N$ | Natural numbers; domain | Definitionsmenge |
+| $\longrightarrow$ | Maps from one set to another | Abbildung |
+| $\{0,1\}$ | Set of possible outputs; codomain | Zielmenge |
+
+The notation alone does not specify the rule. Our earlier definition supplies it: even inputs map to $1$, odd inputs to $0$.
+
+<LogicFigure kind="predicate-mapping" />
+
+Notice two fundamental requirements of a function:
+
+- Every element of the domain must have an output.
+- Each input must have exactly one output.
+
+## 4. Statements versus predicates
+
+| Property | Statement | Predicate with free variables |
+| --- | --- | --- |
+| German | Aussage | Prädikat / offene Formel |
+| Example | $4\text{ is even}$ | $x\text{ is even}$ |
+| Free variable? | No | Yes |
+| Definite truth value? | Yes | Depends on assignment |
+| Example notation | $A$ | $P(x)$ |
+
+A predicate can produce a statement when we assign a value:
+
+$$
+\underbrace{P(x)}_{\text{Open expression}}
+\xrightarrow{x=4}
+\underbrace{P(4)}_{\text{Statement}}.
+$$
+
+Here $P(4)$ denotes the instantiated claim; in the truth-function notation of Section 2, we also write $P(4)=1$ for its truth value. Another way to form statements is to use **quantifiers**, as in Sections 6–7.
+
+## 5. Why definitions are not the same as variables
+
+Doesn’t the statement “$4$ is even” depend on how we define the words “$4$” and “even”? Yes, but we need to distinguish two kinds of dependence.
+
+### A. Dependence on definitions
+
+$$
+A:\quad4\text{ is even}.
+$$
+
+Its meaning depends on the definitions of the number $4$ and the property of being even. Once those definitions are fixed, however, there is no free variable in $A$.
+
+### B. Dependence on variables
+
+$$
+P(x):\quad x\text{ is even}.
+$$
+
+Here $x$ is deliberately left unspecified. The expression’s truth value depends on which number is assigned to $x$.
+
+### C. Can “even” itself become a variable?
+
+Yes. We can explicitly treat the property as another input. Suppose $R$ represents a subset of the natural numbers and define:
+
+$$
+Q(n,R)=\begin{cases}
+1,&n\in R,\\
+0,&n\notin R.
+\end{cases}
+$$
+
+Then:
+
+$$
+Q:\mathbb N\times\mathcal P(\mathbb N)\longrightarrow\{0,1\},
+$$
+
+where $\mathcal P(\mathbb N)$ is the set of all subsets of $\mathbb N$.
+
+If $R$ is the set of even natural numbers, then $Q(4,R)=1$. If $R$ is the set of odd natural numbers, then $Q(4,R)=0$. This allows the property itself to vary.
+
+**The fundamental distinction:** a missing definition means that the interpretation has not been fixed. A free variable means that the expression deliberately leaves an input unspecified.
+
+## 6. Free and bound variables — Freie und gebundene Variablen
+
+Consider the expression over the real numbers:
+
+$$
+A(x):\quad x^2=4.
+$$
+
+Here $x$ is a **free variable**: we have not assigned it a value or bound it with a quantifier. For example:
+
+$$
+A(2)=1,\qquad A(3)=0.
+$$
+
+Now introduce an existential quantifier:
+
+$$
+B:\quad\exists x\in\mathbb R:\ x^2=4.
+$$
+
+Read this as: “There exists at least one real number $x$ such that $x^2=4$.” The variable $x$ is now **bound** by the quantifier $\exists$.
+
+<Flow nodes={[
+ {label:'Free variable',tex:'x^2=4',detail:'Truth depends on $x$.'},
+ {label:'Bound variable',tex:'\\exists x\\in\\mathbb R:\\ x^2=4',detail:'A complete statement: $x=2$ is a witness.'}
+]} caption="Binding the free variable produces a statement. This existential statement is true." />
+
+Merely writing a quantifier does not necessarily eliminate *all* free variables. Every free variable must be assigned or appropriately bound to obtain a closed statement. For instance, $\exists x\in\mathbb R:x^2=y$ still leaves $y$ free.
+
+## 7. Quantifiers — Quantoren
+
+Quantifiers allow us to construct statements about elements of a set. There are two fundamental quantifiers.
+
+### Universal quantifier — Allquantor
+
+$$
+\forall x\in K:\ P(x)
+$$
+
+“For every $x$ belonging to $K$, the property $P(x)$ is true.” The statement requires the property to hold for every element of the domain.
+
+### Existential quantifier — Existenzquantor
+
+$$
+\exists x\in K:\ P(x)
+$$
+
+“There exists at least one $x$ belonging to $K$ for which $P(x)$ is true.” The statement requires at least one example satisfying the property.
+
+For the next comparison, redefine $P(x)$ to mean **“$x$ is prime.”** Then:
+
+$$
+\forall x\in\mathbb N:\ P(x)
+$$
+
+says “Every natural number is prime.” This is false because $4$ is not prime. But:
+
+$$
+\exists x\in\mathbb N:\ P(x)
+$$
+
+says “At least one natural number is prime.” This is true because $2$ is prime.
+
+| Quantified statement | To prove it | To disprove it |
+| --- | --- | --- |
+| $\forall x\in K:P(x)$ | Establish $P(x)$ for arbitrary $x\in K$ | Find one $x\in K$ with $\neg P(x)$ |
+| $\exists x\in K:P(x)$ | Exhibit one valid $x\in K$ | Show $\neg P(x)$ for all $x\in K$ |
+
+This distinction is a foundation of mathematical proof construction. If $K$ is empty, the universal statement is true and the existential statement is false.
+
+## 8. Applying everything to Übungsblatt 1 — The Kalupes
+
+The supplied exercise uses invented terminology so that we reason from the stated premises rather than from everyday knowledge.
+
+### A. German vocabulary
+
+| German expression | English meaning |
+| --- | --- |
+| Jede / Alle | Every / All |
+| Einige | Some / At least one |
+| Es gibt | There exists / There are |
+| Sowohl … als auch | Both … and |
+| Nicht / un- | Not / Negation |
+| Wenn … dann | If … then |
+| Schlüsse | Conclusions / Inferences |
+| Zulässig | Logically valid / Justified |
+
+### B. Defining our predicates
+
+Let $K$ represent the set of all Kalupes in Knusiland. We define:
+
+$$
+\begin{aligned}
+G(x)&:\quad x\text{ is gebrochselt},\\
+F(x)&:\quad x\text{ is foberant},\\
+D(x)&:\quad x\text{ is dorig}.
+\end{aligned}
+$$
+
+Each can be modeled as a function:
+
+$$
+G,F,D:K\longrightarrow\{0,1\}.
+$$
+
+### C. Translating the three premises
+
+**Premise 1:** *Jede ungebrochselte Kalupe ist dorig.* Every non-gebrochselt Kalupe is dorig.
+
+$$
+\boxed{\forall x\in K:\ (\neg G(x)\Rightarrow D(x))}
+$$
+
+**Premise 2:** *Jede foberante Kalupe ist dorig.* Every foberant Kalupe is dorig.
+
+$$
+\boxed{\forall x\in K:\ (F(x)\Rightarrow D(x))}
+$$
+
+**Premise 3:** *In Knusiland gibt es sowohl dorige als auch undorige Kalupen.* There exist both dorig and non-dorig Kalupes in Knusiland.
+
+$$
+\boxed{(\exists x\in K:D(x))\land(\exists y\in K:\neg D(y))}
+$$
+
+The geographical restriction is part of our domain $K$. The symbol $\land$ represents logical AND, while $\neg$ represents negation.
+
+### D. The five possible conclusions
+
+We can now translate every conclusion from Aufgabe 1 mathematically, without yet deciding which ones are valid.
+
+| Conclusion | Mathematical statement |
+| --- | --- |
+| (a) | $(\exists x\in K:G(x))\land(\exists y\in K:\neg G(y))$ |
+| (b) | $\exists x\in K:G(x)$ |
+| (c) | $\forall x\in K:(\neg D(x)\Rightarrow G(x))$ |
+| (d) | $\exists x\in K:(G(x)\land\neg F(x))$ |
+| (e) | $\forall x\in K:(G(x)\Rightarrow\neg F(x))$ |
+
+The task asks which conclusions **necessarily follow from the premises**. A conclusion being possible is not sufficient.
+
+For a conclusion that does not necessarily follow, we can construct a **countermodel (Gegenmodell)**: a mathematical world in which all premises hold but the proposed conclusion is false. The five conclusions remain open here for independent work.
+
+## 9. Connections to mathematical proofs
+
+These foundational concepts lead into the proof techniques used throughout Analysis I.
+
+<LogicFigure kind="proof-paths" />
+
+One particularly important distinction for Übungsblatt 1 is that **truth-table verification and algebraic derivation from axioms are different proof tasks**.
+
+In Aufgabe 3, the supplied text asks for logical equivalences to be demonstrated using truth tables. In Aufgabe 4, it asks for identities to be derived from the given Boolean algebra laws. Even if an identity is familiar, its derivation must use the permitted rules.
+
+This distinction matters again in topics such as induction and limits.
+
+## 10. Revision checklist
+
+Use these prompts for active recall. Check an item when you can explain it without looking at the revision sheet. Checkmarks are a local self-review; they do not verify exam readiness and are not saved by the site.
+
+<RecallChecklist items={[
+ 'Define a mathematical statement (Aussage).',
+ 'Explain what a predicate (Prädikat) is.',
+ 'Interpret $P:\\mathbb N\\to\\{0,1\\}$ correctly.',
+ 'Explain the difference between depending on definitions and having free variables.',
+ 'Distinguish free variables from bound variables.',
+ 'Explain and apply $\\forall$ and $\\exists$.',
+ 'Translate statements about Kalupes into predicate logic.',
+ 'Explain how to prove or disprove a quantified statement.'
+]} />
+
+### Meaning, formalization and proof
+
+Mathematical reasoning moves between three levels:
+
+$$
+\boxed{\text{Meaning}\longrightarrow\text{Formalization}\longrightarrow\text{Proof}}
+$$
+
+We first understand what a statement means, then represent it precisely using mathematical notation, and finally establish whether it necessarily follows from our assumptions. Continue by applying this method to Aufgabe 1(a), then to the algebraic proofs in Aufgabe 4.

@@ -1,0 +1,179 @@
+{
+  "constructions": [
+    {
+      "count": "1",
+      "focus": "contradiction-prime-builder-number",
+      "remainders": [
+        "21"
+      ],
+      "tex": [
+        "2=2",
+        "N=M+1=3",
+        "3=3"
+      ]
+    },
+    {
+      "count": "2",
+      "focus": "contradiction-prime-builder-number",
+      "remainders": [
+        "21",
+        "31"
+      ],
+      "tex": [
+        "2\\times3=6",
+        "N=M+1=7",
+        "7=7"
+      ]
+    },
+    {
+      "count": "3",
+      "focus": "contradiction-prime-builder-number",
+      "remainders": [
+        "21",
+        "31",
+        "51"
+      ],
+      "tex": [
+        "2\\times3\\times5=30",
+        "N=M+1=31",
+        "31=31"
+      ]
+    },
+    {
+      "count": "4",
+      "focus": "contradiction-prime-builder-number",
+      "remainders": [
+        "21",
+        "31",
+        "51",
+        "71"
+      ],
+      "tex": [
+        "2\\times3\\times5\\times7=210",
+        "N=M+1=211",
+        "211=211"
+      ]
+    },
+    {
+      "count": "5",
+      "focus": "contradiction-prime-builder-number",
+      "remainders": [
+        "21",
+        "31",
+        "51",
+        "71",
+        "111"
+      ],
+      "tex": [
+        "2\\times3\\times5\\times7\\times11=2310",
+        "N=M+1=2311",
+        "2311=2311"
+      ]
+    },
+    {
+      "count": "6",
+      "focus": "contradiction-prime-builder-number",
+      "remainders": [
+        "21",
+        "31",
+        "51",
+        "71",
+        "111",
+        "131"
+      ],
+      "tex": [
+        "2\\times3\\times5\\times7\\times11\\times13=30030",
+        "N=M+1=30031",
+        "30031=59\\times509"
+      ]
+    },
+    {
+      "count": "7",
+      "focus": "contradiction-prime-builder-number",
+      "remainders": [
+        "21",
+        "31",
+        "51",
+        "71",
+        "111",
+        "131",
+        "171"
+      ],
+      "tex": [
+        "2\\times3\\times5\\times7\\times11\\times13\\times17=510510",
+        "N=M+1=510511",
+        "510511=19\\times97\\times277"
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "collection": "Supposedly all primesp₁p₂p₃…pₙ",
+      "formulas": [
+        "S=\\{p_1,\\ldots,p_n\\}"
+      ],
+      "step": "Step 1 of 6"
+    },
+    {
+      "collection": "Supposedly all primesp₁p₂p₃…pₙ",
+      "formulas": [
+        "M=p_1p_2\\cdots p_n"
+      ],
+      "step": "Step 2 of 6"
+    },
+    {
+      "collection": "Supposedly all primesp₁p₂p₃…pₙ",
+      "formulas": [
+        "N=M+1>1"
+      ],
+      "step": "Step 3 of 6"
+    },
+    {
+      "collection": "Supposedly all primesp₁p₂p₃…pₙ",
+      "formulas": [
+        "N=p_i k_i+1,\\quad p_i\\nmid N"
+      ],
+      "step": "Step 4 of 6"
+    },
+    {
+      "collection": "Supposedly all primesp₁p₂p₃…pₙ",
+      "formulas": [
+        "q\\mid N,\\quad q\\notin S",
+        "q\\mid N,\\quad q\\notin S"
+      ],
+      "step": "Step 5 of 6"
+    },
+    {
+      "collection": "Supposedly all primesp₁p₂p₃…pₙ",
+      "formulas": [
+        "(q\\in S)\\land(q\\notin S)",
+        "q\\mid N,\\quad q\\notin S",
+        "(q\\in S)\\land(q\\notin S)"
+      ],
+      "step": "Step 6 of 6"
+    }
+  ],
+  "checks": [
+    "EN and DE lesson routes, language switching, active Part Three navigation and course listing",
+    "Lesson 19 previous/next navigation reaches lesson 20",
+    "Both production Pagefind language searches include and open lesson 20",
+    "Desktop 1440×1000 and compact 390×844; both themes, no page-wide overflow or KaTeX errors",
+    "All seven prime-count values show exact factors and remainder-one tables; numeric focus retained",
+    "Out-of-range Enter recovery and empty-input blur recovery preserve the last collection",
+    "Range Home/ArrowRight synchronization and pointer selection work",
+    "All six Euclid stages retain the same hypothetical collection; backward keyboard activation and reset work",
+    "German proof-step keyboard and on-screen pointer activation work",
+    "Every smallest-positive-real choice produces appropriate feedback; reset clears answer/feedback/disclosure",
+    "Five exercise hints and five solution disclosures; factorial reference handles n=1",
+    "Eight self-review checkboxes select and reset locally",
+    "Gallery renders all 24 figures and all three presets, with a second independent prime builder",
+    "Repository-prefix EN/DE routes, assets, language switch and live composite readout work",
+    "Lesson, gallery and prefix console checks contain no warning/error entries"
+  ],
+  "build": {
+    "pages": 239,
+    "linksAndAssets": 22764,
+    "searchPages": 152,
+    "texAnnotations": 9052
+  }
+}

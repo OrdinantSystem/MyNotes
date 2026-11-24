@@ -1,0 +1,51 @@
+---
+import MathText from '../MathText.astro';import Math from '../Math.astro';
+import {justificationPresets,representationViews,initialJustificationState,pairBounds,type JustificationPreset} from '../../lib/interactive/justification-model';
+import {justificationText} from '../../lib/reasoning/justification-copy';
+import {oddObjectsMarkup} from '../../lib/interactive/justification-render';
+import '../../styles/counterexamples.css';import '../../styles/justification.css';
+interface Props{preset:JustificationPreset;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=justificationText(locale),s=initialJustificationState();
+if(!(justificationPresets as readonly string[]).includes(preset))throw new Error('Unknown justification preset');
+---
+<figure class="counter-lab justification-lab" id={id} data-justification-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='representations'?<><div class="counter-controls" role="group" aria-label={c.titles.representations}>{representationViews.map((view,i)=><button type="button" data-justification-view={view} aria-pressed={view===s.view} aria-controls={`${id}-output`}>{c.views[i]}</button>)}</div><div data-justification-inputs><div class="justification-inputs">{(['k','m'] as const).map((key,i)=><div><label for={`${id}-${key}-range`}>{c.pairs[i]}</label><input type="range" id={`${id}-${key}-range`} data-justification-range={key} min={pairBounds.min} max={pairBounds.max} step="1" value={s[key]} aria-describedby={`${id}-bounds`}/><input type="number" aria-label={c.pairs[i]} data-justification-number={key} min={pairBounds.min} max={pairBounds.max} step="1" value={s[key]} inputmode="numeric" aria-describedby={`${id}-bounds`}/></div>)}</div><p class="justification-caption" id={`${id}-bounds`}>{c.pairRange}</p></div><div id={`${id}-output`} data-justification-output set:html={oddObjectsMarkup(locale,s.k,s.m)}/></>:<><fieldset class="justification-question"><legend><MathText text={preset==='opening'?c.openingQuestion:c.question}/></legend>{preset==='challenge'&&<><Math tex="a+b=2(k+m+1)" display/><p class="justification-combine" aria-hidden="true">↓ ?</p><p class="justification-readout"><MathText text={c.challengeTarget}/></p></>}{(preset==='opening'?c.openingOptions:c.options).map((option,i)=><label><input type="radio" name={`${id}-answer`} data-justification-answer={i} aria-controls={`${id}-feedback`}/><span><MathText text={option}/></span></label>)}</fieldset>{preset==='challenge'&&<div class="counter-controls"><button type="button" data-justification-check disabled>{c.check}</button></div>}<div id={`${id}-feedback`} data-justification-feedback/></>}
+ <div class="counter-controls"><button type="button" data-justification-reset>{c.reset}</button></div><p class="visually-hidden" role="status" aria-live="polite" data-justification-status></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {initialJustificationState,pairInput,oddPairState,representationViews,type RepresentationView} from '../../lib/interactive/justification-model';
+import {justificationText} from '../../lib/reasoning/justification-copy';
+import {oddObjectsMarkup,representationMarkup,justificationFeedback} from '../../lib/interactive/justification-render';
+for(const root of document.querySelectorAll<HTMLElement>('[data-justification-lab]')){
+ const locale=root.dataset.locale as Locale,c=justificationText(locale),s=initialJustificationState(),preset=root.dataset.justificationLab;
+ function draw(){
+  if(preset==='representations'){
+   root.querySelector('[data-justification-output]')!.innerHTML=s.view==='objects'?oddObjectsMarkup(locale,s.k,s.m):representationMarkup(locale,s.view);
+   root.querySelector<HTMLElement>('[data-justification-inputs]')!.hidden=s.view!=='objects';
+   root.querySelectorAll<HTMLElement>('[data-justification-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.justificationView===s.view)));
+   root.querySelectorAll<HTMLInputElement>('[data-justification-range],[data-justification-number]').forEach(input=>{input.value=String(s[(input.dataset.justificationRange??input.dataset.justificationNumber) as 'k'|'m']);input.removeAttribute('aria-invalid');});
+  }else{
+   const answer=preset==='opening'?s.opening:s.answer;
+   root.querySelector('[data-justification-feedback]')!.innerHTML=preset==='opening'||s.checked?justificationFeedback(locale,preset==='opening'?'opening':'challenge',answer):'';
+   root.querySelectorAll<HTMLInputElement>('[data-justification-answer]').forEach(input=>input.checked=Number(input.dataset.justificationAnswer)===answer);
+   const check=root.querySelector<HTMLButtonElement>('[data-justification-check]');if(check)check.disabled=answer===null;
+  }
+  const status=root.querySelector<HTMLElement>('[data-justification-status]')!;
+  if(preset==='representations'){const v=oddPairState(s.k,s.m);status.textContent=s.view==='objects'?c.pairReadout(v.x,v.y,v.pairs,v.sum):c.views[representationViews.indexOf(s.view)];}
+  else status.textContent=root.querySelector<HTMLElement>('[data-justification-feedback]')!.innerText;
+ }
+ root.querySelectorAll<HTMLButtonElement>('[data-justification-view]').forEach(b=>b.addEventListener('click',()=>{s.view=b.dataset.justificationView as RepresentationView;draw();}));
+ function updatePairs(input:HTMLInputElement,commit:boolean){
+  const n=pairInput(input.value),key=(input.dataset.justificationRange??input.dataset.justificationNumber) as 'k'|'m';
+  if(n===null){if(commit){input.value=String(s[key]);input.removeAttribute('aria-invalid');root.querySelector<HTMLElement>('[data-justification-status]')!.textContent=c.invalid;}else input.setAttribute('aria-invalid','true');return;}
+  input.removeAttribute('aria-invalid');s[key]=n;draw();
+ }
+ root.querySelectorAll<HTMLInputElement>('[data-justification-range]').forEach(input=>input.addEventListener('input',()=>updatePairs(input,true)));
+ root.querySelectorAll<HTMLInputElement>('[data-justification-number]').forEach(input=>{input.addEventListener('input',()=>updatePairs(input,false));input.addEventListener('blur',()=>updatePairs(input,true));input.addEventListener('keydown',event=>{if(event.key==='Enter')updatePairs(input,true);});});
+ root.querySelectorAll<HTMLInputElement>('[data-justification-answer]').forEach(input=>input.addEventListener('change',()=>{if(preset==='opening')s.opening=Number(input.dataset.justificationAnswer);else{s.answer=Number(input.dataset.justificationAnswer);s.checked=false;}draw();}));
+ root.querySelector('[data-justification-check]')?.addEventListener('click',()=>{s.checked=true;draw();});
+ root.querySelector('[data-justification-reset]')!.addEventListener('click',()=>{Object.assign(s,initialJustificationState());draw();});
+}
+</script>

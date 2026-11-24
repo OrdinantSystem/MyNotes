@@ -1,6 +1,6 @@
 # Analysis I course organization
 
-Analysis I has six sections and twenty lesson pages in EN/DE. Its current material develops mathematical language, logic, quantifiers, proof and a first sequence-convergence application. It is not a complete Analysis I syllabus. Boolean algebra and circuits are optional applications after the core route, not prerequisites for convergence.
+Analysis I has twenty core lesson pages across six sections, plus **Second Exam Prep** with its first revision sheet, in EN/DE: twenty-one pages across seven sections. Its current material develops mathematical language, logic, quantifiers, proof and a first sequence-convergence application. It is not a complete Analysis I syllabus. Boolean algebra and circuits are optional applications after the core route, not prerequisites for convergence.
 
 ## Reader route
 
@@ -12,14 +12,15 @@ The [first-semester refinement](analysis-teaching.md) updates the overview and s
 4. **Proof fundamentals** — methods/counterexamples/parity; contradiction and irrationality.
 5. **Sequences and convergence** — sequences/distance; the definition and proofs; failure at a target versus no real limit.
 6. **Boolean algebra and circuits · Optional** — starting laws and elementary derivations; complement uniqueness and algebraic negation laws; NAND networks.
+7. **Second Exam Prep** — separate supplied revision sheets, beginning with Lernzettel 01 on mathematical logic. See [the ingestion record](analysis-second-exam-prep.md).
 
 Analysis I is primarily a recap reference for previously studied material. Explain each foundation once, use short reminders at its applications, and retain the reasoning needed to reconstruct a result. Keep graphics and distinct worked arguments; do not turn the course into formula-only notes. The [substantial summary plan](analysis-summary-plan.md) and [current preservation contract](analysis-summary-coverage.json) govern the approximately forty-percent prose reduction; the [earlier recap plan](analysis-recap-plan.md) and [literal contract](analysis-recap-coverage.json) remain historical stage records.
 
-The course overview includes the former recall map, review questions, dependency chain and combined problem. It is not a twenty-first lesson. Subtopics use article headings and the existing contents rail. The Analysis sidebar renders course → section → lesson directly; it does not render a single intermediate subgroup. Other courses keep their existing group structure.
+The course overview includes the former recall map, review questions, dependency chain and combined problem. It remains overview content; the twenty-first lesson is the separately requested Lernzettel 01. Subtopics use article headings and the existing contents rail. The Analysis sidebar renders course → section → lesson directly; it does not render a single intermediate subgroup. Other courses keep their existing group structure.
 
 ## Content and provenance
 
-`my_notes_web/src/lib/analysis-organization.json` owns section labels, ordered canonical keys and localized compatibility destinations. `navigation.ts` consumes its six modules; the usual schema and outline validation still apply. The course review is MDX in `src/content/course-guides/{locale}/analysis.mdx`, loaded through the provenance-validated `courseGuides` collection and rendered inside the overview.
+`my_notes_web/src/lib/analysis-organization.json` owns the original core section labels, twenty canonical keys and localized compatibility destinations. `navigation.ts` consumes its six modules and separately registers Second Exam Prep. Supplemental exam sheets live in `src/content/lessons/{locale}/analysis/second-exam-prep/`, use unique course orders starting at 21, and are loaded by the same recursive collection. The historical summary/consolidation contracts retain their exact twenty-page scope; global content, translation, navigation, mathematics and generated-output checks also cover the new pages. Do not add invented historical aliases or semantic review receipts for a new source. The route renders compatibility code only when a historical alias exists. The course review is MDX in `src/content/course-guides/{locale}/analysis.mdx`, loaded through the provenance-validated `courseGuides` collection and rendered inside the overview.
 
 The [organization coverage ledger](analysis-organization-coverage.json) records every section of the former 53-page edition, preserved-original hashes and explicit paragraph-level consolidation dispositions. Exact EN/DE/ES copies of all 53 originals remain under [history/analysis-before-consolidation](history/analysis-before-consolidation/README.md), outside the content loader and the Pages artifact. The separate [52-lesson/28-concept ledger](analysis-zero-coverage.json) now points to the consolidated teaching destinations; original input hashes remain unchanged.
 

@@ -1,0 +1,645 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-two
+sourceId: reasoning-episode-15
+sourcePages: []
+sourceLocations: ["Sections 1–10; Learning checkpoint; Recommended mathematical sources"]
+title: 'When can different things count as “the same”?'
+navTitle: "Equivalence relations"
+description: "Distinguish equality from equivalence, prove the three relation properties, and understand why equivalence classes form a partition."
+order: 15
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [sets-and-mathematical-worlds]
+thumbnail: reasoning-equivalence
+---
+
+## 1. Two numbers that shouldn't be the same
+
+I want to show you something strange about two completely ordinary numbers.
+
+<ReasoningFigure kind="equivalence-opening" />
+
+Four and seven.
+
+Clearly, they are not the same number. Four is smaller than seven. Their difference is three. If you have four apples and I have seven, we don't have the same number of apples.
+
+But imagine that I put both numbers into a machine. A machine that divides any integer by three and tells us only the remainder.
+
+What would happen?
+
+<ReasoningFigure kind="equivalence-machine" />
+
+$$
+4=3\cdot1+1\qquad 7=3\cdot2+1
+$$
+
+Both leave a remainder of one.
+
+Now let's try ten.
+
+$$
+10=3\cdot3+1
+$$
+
+Ten produces the same result.
+
+And if we keep trying more numbers, we'll find something interesting: no matter which integer we choose, the remainder after division by three must be zero, one, or two.
+
+Even negative integers fit this rule. For example, negative two can be written as $3(-1)+1$, so its remainder is one.
+
+We could take every integer in existence, send it through our machine, and sort it into just three groups.
+
+And suddenly, numbers that seemed completely different start belonging together.
+
+But are we actually justified in treating them as the same?
+
+Or have we simply invented a way of hiding their differences?
+
+## 2. Let's build a world where different numbers belong together
+
+Imagine that our machine is sorting the integers. Every number must find its destination.
+
+The rule is simple: numbers that leave the same remainder go together.
+
+Let's try it.
+
+<Interactive kind="equivalence" preset="sorting" id="integer-sorting" />
+
+Try selecting four, and then seven.
+
+Nothing changes about the highlighted group. Both numbers belong to it.
+
+But select eight, and the machine identifies a different group entirely.
+
+This suggests a useful distinction. Four and seven are not *equal*. Yet, for the purpose of our machine, they are interchangeable. It doesn't matter which one we use to determine the remainder group.
+
+Mathematics gives us a way to express this idea precisely.
+
+We begin with a *relation*: a rule describing when two objects count as related.
+
+Let's call ours $R$.
+
+We write
+
+$$
+aRb
+$$
+
+to mean that the integer $a$ is related to the integer $b$. And we define the relationship as follows:
+
+$$
+\boxed{aRb\iff a\text{ and }b \text{ have the same remainder modulo }3.}
+$$
+
+Here, $\iff$ means “if and only if.” We're saying that two integers are related exactly when they produce the same remainder upon division by three.
+
+So $4R7$ is true, while $4R8$ is false.
+
+The symbol $R$ has no special meaning by itself. We gave it meaning by specifying our rule. Another rule could define a completely different relation.
+
+And that means we can invent all kinds of ways to compare objects.
+
+But there's a problem.
+
+Not every relation allows us to create groups as neatly as our machine just did.
+
+Some comparisons produce a rather strange kind of sameness.
+
+To understand why, we're going to try building a grouping system that cannot contradict itself.
+
+## 3. What makes a grouping rule trustworthy?
+
+Imagine that you are designing this sorting machine, but you don't yet know which mathematical properties it should have.
+
+You only know what you want it to accomplish.
+
+Every integer should belong to a group. Numbers that count as the same should belong together. And if two groups represent different kinds of numbers, they shouldn't overlap.
+
+Let's see what conditions our rule needs to satisfy.
+
+<ReasoningFigure kind="equivalence-tests" />
+
+### First test: can something belong with itself?
+
+Take the number four.
+
+If our machine is supposed to create a group containing all the numbers equivalent to four, would it make sense for four itself to be excluded from that group?
+
+Not really.
+
+At the very least, the number should count as the same as itself.
+
+And our remainder rule behaves exactly as we would expect. Four has the same remainder as four. Seven has the same remainder as seven. Every integer has the same remainder as itself.
+
+This property is called **reflexivity**.
+
+$$
+\boxed{\forall a\in\mathbb Z,\quad aRa}
+$$
+
+Let's read that carefully. The symbol $\forall$ means “for every,” and $\mathbb Z$ represents the integers.
+
+So the expression says: for every integer $a$, the number $a$ is related to itself.
+
+Not every relation has this property. For example, the relation “is greater than” isn't reflexive, because no integer is greater than itself.
+
+But our remainder rule passes.
+
+### Second test: does the relationship work in both directions?
+
+Suppose the machine tells us that four belongs with seven.
+
+Could the machine then claim that seven doesn't belong with four?
+
+That would be a rather strange way to define a group.
+
+If two objects are supposed to be interchangeable under our chosen rule, the relationship shouldn't depend on which object we mention first.
+
+In our example, if four has the same remainder as seven, then seven necessarily has the same remainder as four.
+
+$$
+4R7\quad\Longrightarrow\quad 7R4
+$$
+
+This is **symmetry**.
+
+$$
+\boxed{\forall a,b\in\mathbb Z,\quad aRb\implies bRa}
+$$
+
+The symbol $\implies$ means “implies.” So whenever $a$ is related to $b$, the reverse relationship must hold too.
+
+Our machine passes this test as well.
+
+But we haven't reached the most interesting problem yet.
+
+### Third test: what happens when relationships form a chain?
+
+Let's say the machine puts four and seven together.
+
+And then it tells us that seven and ten belong together.
+
+<ReasoningFigure kind="equivalence-chain" />
+
+Think about what would happen if the machine then refused to group four with ten.
+
+We would have a group containing four and seven, and another containing seven and ten. Seven would be in both groups, but four and ten would supposedly belong to different groups.
+
+Our attempt to create distinct categories would have broken down.
+
+So we need a third condition: whenever $a$ belongs with $b$, and $b$ belongs with $c$, then $a$ must belong with $c$ as well.
+
+This is **transitivity**.
+
+$$
+\boxed{\forall a,b,c\in\mathbb Z,\quad (aRb\land bRc)\implies aRc}
+$$
+
+The symbol $\land$ means “and.” We're combining two conditions that must both be true.
+
+And our remainder relation satisfies this property too. If four and seven have the same remainder, and seven and ten have the same remainder, then four and ten necessarily have the same remainder.
+
+We have discovered three conditions that make our grouping system consistent.
+
+A relation satisfying reflexivity, symmetry, and transitivity is called an *equivalence relation*.
+
+But there's still something we should be careful about.
+
+We've shown that four, seven, and ten behave correctly. What about all the other integers?
+
+We cannot test infinitely many examples.
+
+Fortunately, we don't have to.
+
+## 4. Proving that our machine always works
+
+There is a second way to describe our remainder rule that makes proving these properties much easier.
+
+Look at the differences between our three numbers.
+
+$$
+7-4=3,\qquad 10-7=3,\qquad 10-4=6.
+$$
+
+All these differences are divisible by three.
+
+And that is no coincidence.
+
+If two integers have the same remainder after division by three, we can write them as
+
+$$
+a=3k+r,\qquad b=3m+r
+$$
+
+where $k$ and $m$ are integers and $r$ is their shared remainder.
+
+Subtract them.
+
+$$
+a-b=(3k+r)-(3m+r)=3(k-m).
+$$
+
+The remainder disappears.
+
+For the reverse direction, write $b=3m+r$ with $0\le r<3$. If $a-b=3k$, then $a=3(m+k)+r$, so $a$ has the same remainder $r$.
+
+So whenever two numbers have the same remainder, their difference is a multiple of three. The reverse is true as well.
+
+We can therefore rewrite our relation more compactly:
+
+$$
+\boxed{aRb\iff 3\mid(a-b)}
+$$
+
+The notation $3\mid(a-b)$ means “three divides $a-b$.”
+
+And now our proof becomes almost visual.
+
+Three properties, one arithmetic idea
+
+### Reflexivity
+
+$$
+a-a=0=3\cdot0
+$$
+
+The difference between an integer and itself is divisible by three.
+
+### Symmetry
+
+$$
+a-b=3k\quad\Longrightarrow\quad b-a=3(-k)
+$$
+
+Reversing a difference only changes its sign. It remains a multiple of three.
+
+### Transitivity
+
+$$
+\underbrace{(a-b)}_{3k}+\underbrace{(b-c)}_{3m}=\underbrace{a-c}_{3(k+m)}
+$$
+
+The middle terms cancel. The remaining difference is still a multiple of three.
+
+Notice what makes this proof different from testing individual numbers.
+
+We didn't choose any particular values for $a$, $b$, or $c$. We reasoned about arbitrary integers, using properties that every integer satisfies.
+
+That means our conclusion applies to the entire infinite collection.
+
+And that's one of the great powers of mathematical proof: instead of checking every object, we establish a rule that covers them all.
+
+Now we're ready to discover what these three properties actually give us.
+
+## 5. Turning infinitely many numbers into three mathematical objects
+
+Remember our sorting machine?
+
+It took the integers and separated them into three groups.
+
+Now that we've proven the relation is reflexive, symmetric, and transitive, we can give these groups a mathematical name.
+
+They're called **equivalence classes**.
+
+The equivalence class of an integer $a$, written $[a]$, is the collection of all integers related to $a$.
+
+$$
+[a]=\{x\in\mathbb Z:xRa\}
+$$
+
+The braces represent a set, and the colon means “such that.” So we're collecting exactly those integers $x$ for which $xRa$ holds.
+
+For example, the class of four is
+
+$$
+[4]=\{\ldots,-5,-2,1,4,7,10,13,\ldots\}.
+$$
+
+And the class of seven?
+
+It turns out to contain exactly the same integers.
+
+$$
+\boxed{[4]=[7]=[1]}
+$$
+
+Be careful here. We're not saying that $4=7$.
+
+We're saying that the *sets* of numbers equivalent to four and seven are equal.
+
+That is a completely different statement.
+
+And since every integer leaves one of three possible remainders, there are exactly three distinct equivalence classes.
+
+<ReasoningFigure kind="equivalence-partition" />
+
+This kind of grouping is called a **partition**.
+
+And it has a beautiful property.
+
+Every integer belongs to exactly one class. No integer is left out, and two different classes never share an element.
+
+We can understand why without relying on our particular remainder example.
+
+Reflexivity guarantees that every object belongs to at least one equivalence class: its own.
+
+Now suppose two classes share an element $x$.
+
+<ReasoningFigure kind="equivalence-shared" />
+
+If $x$ belongs to both classes, then it is related to both representatives, $a$ and $b$.
+
+Symmetry and transitivity tell us that $a$ and $b$ must be related to each other.
+
+And once that is true, every element related to $a$ is also related to $b$, and vice versa.
+
+The two classes must contain precisely the same elements.
+
+So their apparent overlap wasn't a partial overlap at all. They were actually the same class.
+
+$$
+\boxed{[a]\cap[b]\neq\varnothing\implies[a]=[b]}
+$$
+
+In words: whenever two equivalence classes share even one element, they are identical.
+
+<ReasoningFigure kind="equivalence-classes" />
+
+That's the payoff.
+
+An equivalence relation doesn't merely tell us which pairs of objects are related.
+
+It allows us to replace an entire collection with a consistent collection of groups.
+
+And that's an extraordinarily powerful form of simplification.
+
+But before we become too comfortable with this idea, let's try breaking it.
+
+## 6. A rule that looks reasonable—but fails
+
+Imagine we throw away our remainder rule and introduce another way of comparing integers.
+
+Two integers now count as related whenever they differ by at most one.
+
+For example, one is related to two. Two is related to three.
+
+At first, this might sound perfectly reasonable. Numbers that are close to each other belong together.
+
+But would this relation produce consistent equivalence classes?
+
+Try comparing it with our original rule.
+
+<Interactive kind="equivalence" preset="comparison" id="relation-comparison" />
+
+$$
+1R2,\quad2R3,\quad\neg(1R3)
+$$
+
+The chain breaks. Transitivity fails.
+
+Look at what went wrong.
+
+One is related to two, because the difference is one.
+
+Two is related to three, for exactly the same reason.
+
+But one is not related to three, because their difference is two.
+
+Our relation is reflexive. Every integer differs from itself by zero.
+
+It's symmetric, because the distance between $a$ and $b$ is the same as the distance between $b$ and $a$.
+
+But it isn't transitive.
+
+And that single failure changes everything.
+
+Suppose we try to create a group consisting of all integers that differ from one by at most one.
+
+We get:
+
+$$
+N(1)=\{0,1,2\}.
+$$
+
+Now do the same with two.
+
+$$
+N(2)=\{1,2,3\}.
+$$
+
+The groups share one and two, but they're not the same group.
+
+<ReasoningFigure kind="equivalence-neighborhoods" />
+
+This isn't a partition.
+
+There's nothing wrong with studying which numbers are close to each other. That relation can be extremely useful. But it doesn't describe the kind of sameness required to form equivalence classes.
+
+And this is an important distinction.
+
+A mathematical relationship doesn't have to be an equivalence relation to be meaningful.
+
+It simply has to satisfy the properties needed for the task we're trying to accomplish.
+
+Also notice what just happened from the perspective of mathematical proof.
+
+We could have tested a thousand examples without finding a problem. But the three numbers one, two, and three were enough to demonstrate that transitivity fails.
+
+To prove that a relation is an equivalence relation, we must establish all three properties.
+
+To prove that it isn't, a single counterexample to one of them is enough.
+
+## 7. Your turn: find the hidden classification
+
+Let's try one final experiment.
+
+This time, we're going to invent a relation that looks rather different from our remainder machine.
+
+We say two integers are related whenever their **sum is even**.
+
+$$
+aRb\iff a+b\text{ is even}.
+$$
+
+For example, three is related to seven because their sum is ten.
+
+But three is not related to four because their sum is seven.
+
+Does this relation satisfy all three properties?
+
+Think about it before answering.
+
+<Interactive kind="equivalence" preset="checkpoint" id="relation-checkpoint" />
+
+<Exercise>
+
+
+Reflexivity: $a+a=2a$ is even. Symmetry: reversing $a+b$ doesn't change the sum. Transitivity: if $a+b$ and $b+c$ are even, then
+
+$$
+a+c=(a+b)+(b+c)-2b
+$$
+
+is also even. So the relation is an equivalence relation.
+
+</Exercise>
+
+There's an additional discovery hiding inside this exercise.
+
+If two integers have an even sum, either they're both even or they're both odd.
+
+So this relation creates just two equivalence classes.
+
+<ReasoningFigure kind="equivalence-parity" />
+
+The same structure emerges from a seemingly different definition. Negative integers are included in these classes too.
+
+We began with a rule about adding numbers, but discovered that it was really describing parity—whether numbers are even or odd.
+
+And that's a beautiful feature of mathematical abstraction.
+
+Sometimes a complicated-looking definition turns out to describe something familiar once we understand the structure behind it.
+
+## 8. What does “the same” actually mean?
+
+Let's return to a world outside mathematics for a moment.
+
+Imagine two files stored on your computer.
+
+<ReasoningFigure kind="equivalence-files" />
+
+They have different names. They might have different creation dates, and they might be stored in completely different places.
+
+Are they the same?
+
+Well, if we're asking whether they have the same name, no.
+
+But if we're asking whether they contain exactly the same bytes, then perhaps they are equivalent under that particular relation.
+
+And we can verify that this relation is reflexive, symmetric, and transitive.
+
+Every file has the same content as itself. If one file has the same content as another, the relationship works in both directions. And if two files each have the same content as a third, they must also have the same content as each other.
+
+The equivalence classes would now consist of all files with identical content.
+
+Different names, different locations, different histories—none of those distinctions matter for this particular comparison.
+
+But here's something important.
+
+We haven't discovered that file names or locations are meaningless.
+
+We've simply decided that they don't matter **for the question we're asking**.
+
+And that's the deeper idea behind mathematical abstraction.
+
+When we create an equivalence relation, we choose which distinctions we want to preserve and which ones we're willing to ignore.
+
+Our remainder relation ignores the exact values of integers, but preserves their remainder after division by three.
+
+Our file-content relation ignores filenames and locations, but preserves the bytes stored in each file.
+
+We're not claiming that every distinction has disappeared.
+
+We're identifying a particular relationship that lets us treat different objects as equivalent without losing the information we care about.
+
+And that leads to something even more powerful.
+
+## 9. When different objects become one new object
+
+Think about the integers again.
+
+There are infinitely many of them.
+
+Yet when we group them by their remainder after division by three, there are only three equivalence classes.
+
+<ReasoningFigure kind="equivalence-quotient" />
+
+We have transformed infinitely many individual numbers into three kinds of numbers.
+
+And once we've done that, we can start asking questions directly about those classes.
+
+For example, instead of adding specific integers and examining their remainders, we could try adding the classes themselves.
+
+That leads to a mathematical structure called the integers modulo three, usually written
+
+$$
+\mathbb Z/3\mathbb Z.
+$$
+
+We don't need to develop it here. But this is the beginning of the theory of *quotient structures*: mathematical systems whose elements are equivalence classes.
+
+The important idea is that we're no longer required to carry around every distinction between the original objects.
+
+We've created a new mathematical world in which each class can be treated as a single object.
+
+And sometimes, that's exactly the world we need.
+
+## 10. The difference between equality and equivalence
+
+Let's return to our very first question.
+
+Are four and seven the same?
+
+We can now give a much more precise answer.
+
+Ordinary numerical equality
+
+$$
+4\neq7
+$$
+
+Congruence modulo three
+
+$$
+4\equiv7\pmod3
+$$
+
+Equality of equivalence classes
+
+$$
+[4]=[7]
+$$
+
+All three statements are true.
+
+The first tells us that four and seven are different numbers.
+
+The second tells us that they belong to the same remainder class when divided by three. The symbol $\equiv$ is used here for *congruence*, and $\pmod3$ identifies the modulus—the number three.
+
+The third tells us that the equivalence class containing four is exactly the same set as the class containing seven.
+
+There is no contradiction between these statements.
+
+We've simply learned to distinguish between literal equality and equivalence under a chosen relation.
+
+And that distinction leads us to a surprisingly general lesson.
+
+Mathematics doesn't always make progress by introducing more and more details.
+
+Sometimes it makes progress by discovering which details can be ignored.
+
+But ignoring differences is only useful when we understand what we are preserving.
+
+That's why equivalence relations matter.
+
+They give us a rigorous way to say that two things can be different, while still counting as the same for a particular purpose.
+
+And that's perhaps the most important question to take away from this episode.
+
+**When we call two things the same, what exactly are we choosing not to distinguish?**
+
+## Learning checkpoint
+
+The main ideas to take away are:
+
+- A relation is a rule determining which pairs of objects are related.
+- An equivalence relation must be reflexive, symmetric, and transitive.
+- Equivalence classes group objects that are equivalent under the chosen relation.
+- Distinct equivalence classes are disjoint and together form a partition of the original set.
+- One counterexample can disprove a required property, while general proofs establish properties for every element.
+- Abstraction preserves selected information while deliberately discarding other distinctions.
+
+Recommended mathematical sources: [Richard Hammack, Book of Proof — Chapter 11](https://richardhammack.github.io/BookOfProof/) and [MIT Mathematics for Computer Science — relations and modular arithmetic](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/).

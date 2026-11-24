@@ -1,0 +1,41 @@
+---
+import {trianglePresets,initialTriangleState,type TrianglePreset} from '../../lib/interactive/triangle-model';
+import {triangleMarkup,sideMarkup,challengeProof} from '../../lib/interactive/triangle-render';
+import {triangleText} from '../../lib/reasoning/triangle-copy';
+import '../../styles/counterexamples.css';import '../../styles/discovery.css';import '../../styles/triangle.css';
+interface Props{preset:TrianglePreset;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=triangleText(locale),s=initialTriangleState();
+if(!(trianglePresets as readonly string[]).includes(preset))throw new Error('Unknown triangle preset');
+---
+<figure class="counter-lab triangle-lab" id={id} data-triangle-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='puzzle'?<>
+  <p>{c.rules}</p><p class="triangle-note">{c.placement}</p>
+  <div class="triangle-controls">{c.positions.map((label,i)=><label for={`${id}-${i}`}>{label}<select id={`${id}-${i}`} data-triangle-slot={i} aria-controls={`${id}-output`}><option value="">{c.empty}</option>{[1,2,3,4,5,6].map(n=><option value={n}>{n}</option>)}</select></label>)}</div>
+  <div class="counter-controls"><button type="button" data-triangle-example="first" aria-controls={`${id}-output`}>{c.loadInitial}</button><button type="button" data-triangle-example="balanced" aria-controls={`${id}-output`}>{c.loadExchange}</button></div><div id={`${id}-output`} data-triangle-output set:html={triangleMarkup(locale,s.values)}/>
+ </>:preset==='side'?<>
+  <p>{c.sidePrompt}</p><fieldset><legend>{c.corners}</legend>{[2,3,4,5,6].map(second=><label><input type="radio" name={`${id}-side`} data-triangle-side={second} checked={second===s.side} aria-controls={`${id}-output`}/> 1 &amp; {second}</label>)}</fieldset><div id={`${id}-output`} data-triangle-output set:html={sideMarkup(locale,s.side)}/>
+ </>:<>
+  <p>{c.target}: 8</p><fieldset><legend>{c.titles.challenge}</legend>{c.choices.map((label,i)=><label><input type="radio" name={`${id}-strategy`} data-triangle-choice={i} aria-controls={`${id}-feedback`}/> {label}</label>)}</fieldset>
+  <label for={`${id}-why`}>{c.why}<textarea id={`${id}-why`} data-triangle-why autocomplete="off" spellcheck="false"/></label><button type="button" data-triangle-check aria-controls={`${id}-feedback`}>{c.check}</button><div id={`${id}-feedback`} data-triangle-feedback/>
+  <details><summary>{c.reference}</summary><div set:html={challengeProof(locale)}/></details>
+ </>}
+ <div class="counter-controls"><button type="button" data-triangle-reset>{c.reset}</button></div><p class="triangle-note" role="status" aria-live="polite" data-triangle-status></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {initialTriangleState,assignPiece,triangleState,sideRequirement,firstAttempt,balancedAttempt} from '../../lib/interactive/triangle-model';
+import {triangleMarkup,sideMarkup,challengeFeedback} from '../../lib/interactive/triangle-render';
+import {triangleText} from '../../lib/reasoning/triangle-copy';
+for(const root of document.querySelectorAll<HTMLElement>('[data-triangle-lab]')){
+ const preset=root.dataset.triangleLab,locale=root.dataset.locale as Locale,c=triangleText(locale);let s=initialTriangleState();
+ const output=root.querySelector<HTMLElement>('[data-triangle-output]'),feedback=root.querySelector<HTMLElement>('[data-triangle-feedback]'),status=root.querySelector<HTMLElement>('[data-triangle-status]')!;
+ const draw=()=>{if(preset==='puzzle'){output!.innerHTML=triangleMarkup(locale,s.values);root.querySelectorAll<HTMLSelectElement>('[data-triangle-slot]').forEach(input=>input.value=s.values[Number(input.dataset.triangleSlot)]===null?'':String(s.values[Number(input.dataset.triangleSlot)]));const t=triangleState(s.values);status.textContent=c.sides.map((label,i)=>`${label}: ${t.sums[i]===null?'?':t.sums[i]}`).join('. ')+'. '+(!t.complete?c.partial:t.solved?c.solved:t.equal?c.equalWrong:c.notSolved);}if(preset==='side'){output!.innerHTML=sideMarkup(locale,s.side);root.querySelectorAll<HTMLInputElement>('[data-triangle-side]').forEach(input=>input.checked=Number(input.dataset.triangleSide)===s.side);}};
+ root.querySelectorAll<HTMLSelectElement>('[data-triangle-slot]').forEach(input=>input.addEventListener('change',()=>{s.values=assignPiece(s.values,Number(input.dataset.triangleSlot),input.value===''?null:Number(input.value));draw();}));
+ root.querySelectorAll<HTMLButtonElement>('[data-triangle-example]').forEach(button=>button.addEventListener('click',()=>{s.values=[...(button.dataset.triangleExample==='first'?firstAttempt:balancedAttempt)];draw();}));
+ root.querySelectorAll<HTMLInputElement>('[data-triangle-side]').forEach(input=>input.addEventListener('change',()=>{s.side=Number(input.dataset.triangleSide);draw();const t=sideRequirement(1,s.side);status.textContent=`1 + ${t.middle} + ${s.side} = 10. ${t.available?c.available:c.unavailable}`;}));
+ root.querySelectorAll<HTMLInputElement>('[data-triangle-choice]').forEach(input=>input.addEventListener('change',()=>{s.choice=Number(input.dataset.triangleChoice);feedback!.innerHTML='';status.textContent='';}));
+ root.querySelector('[data-triangle-check]')?.addEventListener('click',()=>{feedback!.innerHTML=challengeFeedback(locale,s.choice);status.textContent=s.choice===null?c.choose:c.report;});
+ root.querySelector('[data-triangle-reset]')!.addEventListener('click',()=>{s=initialTriangleState();root.querySelectorAll<HTMLInputElement>('[data-triangle-choice]').forEach(input=>input.checked=false);const why=root.querySelector<HTMLTextAreaElement>('[data-triangle-why]');if(why)why.value='';if(feedback)feedback.innerHTML='';root.querySelectorAll('details').forEach(d=>d.open=false);draw();status.textContent=c.reset;});
+}
+</script>

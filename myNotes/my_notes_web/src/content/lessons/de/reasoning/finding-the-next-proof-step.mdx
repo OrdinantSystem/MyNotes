@@ -1,0 +1,402 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-three
+sourceId: reasoning-episode-17
+sourcePages: []
+sourceLocations: ["Sections 1–8; Episode preparation references"]
+title: "Wie findest du den nächsten Schritt in einem Beweis?"
+navTitle: "Den nächsten Beweisschritt finden"
+description: "Von Voraussetzungen vorwärts und von Zielen rückwärts arbeiten, Zeugen konstruieren und die logische Struktur zur Beweisplanung nutzen."
+order: 17
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [what-makes-a-proof]
+thumbnail: reasoning-discovery
+---
+
+## 1. Das merkwürdige Problem, etwas für wahr zu halten
+
+Stell dir vor, du sitzt vor einer mathematischen Aufgabe. Du verstehst die Aussage, kennst die Definitionen und bist ziemlich überzeugt, dass das Ergebnis stimmt.
+
+Es gibt aber ein Problem: Du hast keine Ahnung, was du zuerst aufschreiben sollst.
+
+Versuchen wir etwas Einfaches:
+
+**Die Summe einer geraden und einer ungeraden ganzen Zahl ist immer ungerade.**
+
+Wir könnten Beispiele prüfen. Zwei plus drei ergibt fünf, vier plus sieben ergibt elf, acht plus neun ergibt siebzehn.
+
+Alles scheint zu funktionieren. Vielleicht erkennen wir sogar, *warum*.
+
+Nimm vier Objekte und ordne sie paarweise an. Nimm dann fünf weitere Objekte und mache dasselbe.
+
+<Interactive kind="discovery" preset="parity" id="discovery-parity" />
+
+Welche Beispiele wir auch auswählen: Das Muster bleibt erhalten.
+
+Eine gerade Sammlung lässt sich vollständig in Paare aufteilen. Eine ungerade Sammlung besteht aus vollständigen Paaren und einem zusätzlichen Objekt. Vereinigen wir beide, bleiben vollständige Paare und dieses eine zusätzliche Objekt.
+
+Das Bild gibt uns einen Grund, die Aussage zu glauben. Aber ist es bereits ein Beweis?
+
+Noch nicht. Wir haben ein Muster an bestimmten Sammlungen veranschaulicht. Für eine Behauptung über **jede gerade und ungerade ganze Zahl**, einschließlich negativer Zahlen, brauchen wir ein Argument, das im angegebenen mathematischen Rahmen alle erfasst.
+
+Hier beginnt die Schwierigkeit. Wir kennen das Ziel und haben eine vielversprechende Vorstellung. Wie wird daraus eine strenge Begründung?
+
+Vielleicht liegt der Fehler darin, dass wir einen Beweis genau in der Reihenfolge aufschreiben wollen, in der wir ihn entdecken.
+
+Statt zu fragen: *Was kann ich zuerst aufschreiben?*, könnten wir anders fragen:
+
+**Woran würden wir erkennen, dass der Beweis erfolgreich abgeschlossen ist?**
+
+## 2. Am Ziel beginnen
+
+Führen wir zwei ganze Zahlen $e$ und $o$ ein. Wir wissen, dass $e$ gerade und $o$ ungerade ist.
+
+Wir wollen beweisen, dass $e+o$ ungerade ist.
+
+Vergiss vorerst alle Rechnungen. Stellen wir unsere Informationen auf die eine Seite und unser Ziel auf die andere.
+
+<ReasoningFigure kind="discovery-have-goal" />
+
+Jetzt wird es interessant. Statt sofort $e+o$ umzuformen, untersuchen wir das Wort *ungerade* in der Schlussfolgerung.
+
+Was bedeutet es genau, dass eine ganze Zahl ungerade ist?
+
+Sie lässt sich als das Doppelte einer ganzen Zahl plus eins darstellen.
+
+$$
+n\text{ ist ungerade}\iff\exists k\in\mathbb Z:\ n=2k+1.
+$$
+
+Das Zeichen $\exists$ bedeutet *es gibt*, und $\mathbb Z$ bezeichnet die ganzen Zahlen.
+
+Die Definition macht unser Ziel konkret. Wir müssen nicht mehr unbestimmt zeigen, dass $e+o$ eine Eigenschaft namens Ungeradheit besitzt.
+
+Wir müssen eine ganze Zahl $k$ finden, sodass
+
+$$
+\boxed{e+o=2k+1}.
+$$
+
+Damit haben wir ein konkretes Ziel.
+
+<ReasoningFigure kind="discovery-backward" />
+
+Das ist unsere erste wichtige Technik: **vom Ziel aus rückwärts arbeiten**.
+
+Wir fragen, was für die Schlussfolgerung ausreichen würde, und ersetzen ein schwierig wirkendes Ziel durch eine genauere Beweispflicht.
+
+Beachte aber: Wir haben noch nichts bewiesen.
+
+Wir dürfen nicht einfach eine ganze Zahl $k$ erfinden und voraussetzen, dass die gewünschte Gleichung gilt. Genau diese Gleichung ist noch zu begründen.
+
+Die Frage ist nun präziser als am Anfang:
+
+*Woher könnte diese ganze Zahl $k$ kommen?*
+
+Um das zu beantworten, wenden wir uns wieder dem zu, was wir bereits wissen.
+
+## 3. Wenn sich beide Seiten treffen
+
+Unsere Voraussetzungen sagen, dass eine ganze Zahl gerade und die andere ungerade ist.
+
+Was erhalten wir, wenn wir auch diese Definitionen entfalten?
+
+Weil $e$ gerade ist, gibt es eine ganze Zahl $a$ mit
+
+$$
+e=2a.
+$$
+
+Weil $o$ ungerade ist, gibt es eine ganze Zahl $b$ mit
+
+$$
+o=2b+1.
+$$
+
+Nun haben wir auf beiden Seiten etwas Brauchbares.
+
+Unsere Schlussfolgerung verlangt einen Ausdruck der Form $2k+1$. Unsere Voraussetzungen liefern Ausdrücke mit $2a$ und $2b+1$.
+
+Betrachte sie einen Moment. Erkennst du, wie sie zusammenpassen könnten?
+
+<Interactive kind="discovery" preset="workspace" id="discovery-workspace" />
+
+Gehen wir die Verbindung sorgfältig durch.
+
+Wir wollen die Summe $e+o$ verstehen. Setzen wir zuerst die Darstellungen ein, die aus unseren Voraussetzungen folgen.
+
+$$
+e+o=2a+(2b+1).
+$$
+
+Dann ordnen wir um.
+
+$$
+e+o=2a+2b+1.
+$$
+
+Die ersten beiden Terme enthalten den gemeinsamen Faktor zwei.
+
+$$
+\boxed{e+o=2(a+b)+1}.
+$$
+
+Da ist die gesuchte Struktur.
+
+Am Anfang stand eine Summe, deren Parität wir noch nicht begründen konnten. Nun haben wir sie als das Doppelte eines Ausdrucks plus eins dargestellt.
+
+Vergleichen wir, was wir gefunden haben, mit dem, was wir suchten.
+
+<ReasoningFigure kind="discovery-match" />
+
+Wir wählen also $k=a+b$.
+
+Eine Sache müssen wir noch prüfen: Ist $a+b$ tatsächlich eine ganze Zahl?
+
+Ja. $a$ und $b$ sind ganzzahlig, und ihre Summe ist wieder ganzzahlig. Das heißt *Abgeschlossenheit unter Addition*.
+
+Damit haben wir alle Bedingungen der Definition von ungerade erfüllt.
+
+Also ist $e+o$ ungerade.
+
+Da wir keine bestimmten geraden oder ungeraden Zahlen ausgewählt haben, funktioniert das Argument für alle.
+
+Was haben wir dabei eigentlich getan?
+
+Wir haben die Aufgabe nicht durch blindes Umformen gelöst.
+
+Wir arbeiteten von der Schlussfolgerung rückwärts und erkannten, dass wir einen Ausdruck der Form $2k+1$ brauchen. Dann arbeiteten wir von den Voraussetzungen vorwärts, erhielten $2a$ und $2b+1$ und verbanden sie durch Algebra.
+
+Der Beweis entstand, als diese beiden Richtungen zusammentrafen.
+
+<ReasoningFigure kind="discovery-directions" />
+
+Daraus ergibt sich eine nützliche Gewohnheit.
+
+Wenn du bei einem Beweis feststeckst, stelle nicht immer wieder dieselbe Frage. Wechsle zwischen zwei Fragen:
+
+*Was kann ich aus meinen Informationen folgern?*
+
+Und:
+
+*Was würde ausreichen, um mein Ziel zu begründen?*
+
+Die erste erkundet Möglichkeiten vom Ausgangspunkt aus. Die zweite macht die Bedingungen für das Erreichen des Ziels sichtbar.
+
+Häufig liegt die fehlende Idee zwischen beiden.
+
+### Eine verlockende Abkürzung
+
+In unserem Beispiel steckt eine weitere Einsicht.
+
+Sobald wir das Ziel $e+o=2k+1$ kennen, könnten wir versucht sein, die Gleichung umzustellen:
+
+$$
+k=\frac{e+o-1}{2}.
+$$
+
+Könnten wir $k$ einfach so definieren und den Beweis für abgeschlossen erklären?
+
+Noch nicht.
+
+Algebraisch liefert der Ausdruck zwar die gewünschte Gleichung. Nach der Definition muss $k$ aber eine **ganze Zahl** sein.
+
+Wir müssten noch zeigen, dass $(e+o-1)/2$ ganzzahlig ist. Das ist im Wesentlichen die Paritätsfrage, mit der wir angefangen haben.
+
+<ReasoningFigure kind="discovery-circular" />
+
+Ein passend aussehender Ausdruck reicht also nicht immer aus. Jede Bedingung der Definition braucht eine Begründung.
+
+Ein Beweisversuch kann die richtige Gleichungsform erreichen und trotzdem eine Lücke enthalten.
+
+## 4. Warum der fertige Beweis so viel einfacher aussieht
+
+Wir haben mehrere Schritte gebraucht, um unseren Beweis zu finden.
+
+Wir stellten Fragen, arbeiteten in verschiedenen Richtungen, entfalteten Definitionen und ermittelten einen fehlenden Zeugen.
+
+Würden wir all diese Erkundungen normalerweise in einem Lehrbuch sehen?
+
+Meist nicht. Wahrscheinlich stünde dort etwas viel Kürzeres.
+
+<Note title="Behauptung">
+Die Summe einer geraden und einer ungeraden ganzen Zahl ist ungerade.
+
+**Beweis**
+
+Seien $e,o\in\mathbb Z$, wobei $e$ gerade und $o$ ungerade ist.
+
+Es existieren ganze Zahlen $a,b$ mit $e=2a$ und $o=2b+1$.
+
+Damit gilt
+
+$$
+\begin{aligned}
+e+o&=2a+2b+1\\
+&=2(a+b)+1.
+\end{aligned}
+$$
+
+Weil $a+b\in\mathbb Z$ gilt, hat die Summe die Form $2k+1$ mit der ganzen Zahl $k=a+b$. Sie ist also ungerade. $\square$
+</Note>
+
+Das ist der vollständige Beweis.
+
+Er enthält dieselbe mathematische Begründung, wiederholt aber nicht jede Frage, die uns zu ihr geführt hat.
+
+**Einen Beweis zu entdecken und ihn darzustellen sind verschiedene Tätigkeiten.**
+
+| Tätigkeit | Frage | Charakter |
+| --- | --- | --- |
+| Entdecken | Welcher Weg könnte funktionieren? | Erkundend, manchmal nicht linear |
+| Darstellen | Warum funktioniert dieser Weg? | Eine klare Begründungskette |
+
+Zum Entdecken können Fehlversuche oder vorläufige Vermutungen gehören. Der fertige Beweis muss dagegen klar zeigen, welche Aussagen aus welchen erlaubten Ausgangspunkten folgen.
+
+Das ist auch ermutigend.
+
+Wenn du einen eleganten Dreizeilenbeweis liest, solltest du nicht annehmen, dass die Person, die ihn gefunden hat, sofort genau diese drei Zeilen kannte.
+
+Die Einfachheit des fertigen Arguments sagt etwas über seine Darstellung aus, aber nicht unbedingt darüber, wie schwierig seine Entdeckung war.
+
+Beweisen zu lernen heißt, beide Fähigkeiten zu entwickeln: einen gültigen Weg finden und erklären, warum er gültig ist.
+
+## 5. Wenn die Form des Ziels einen Plan vorgibt
+
+Unser Paritätsbeispiel enthielt mehrere Entscheidungen, die wir näher betrachten sollten.
+
+Wir begannen mit zwei beliebigen ganzen Zahlen, nahmen vorübergehend an, eine sei gerade und die andere ungerade, und fanden schließlich eine ganze Zahl, die die Definition von Ungeradheit erfüllt.
+
+Diese Entscheidungen waren nicht zufällig. Sie entsprachen der logischen Struktur der Behauptung.
+
+Die Form einer Aussage legt in der Mathematik häufig nahe, wie wir ihren Beweis beginnen können.
+
+Untersuchen wir das an einem etwas umfangreicheren Beispiel.
+
+**Für jede ganze Zahl $n$ gilt: Ist $n$ gerade, dann sind sowohl $n^2$ als auch $n+2$ gerade.**
+
+Versuche noch nicht, sofort zu beweisen. Betrachte zuerst die Satzstruktur.
+
+„Für jede ganze Zahl“ verlangt ein Argument für eine beliebige ganze Zahl $n$.
+
+„Wenn $n$ gerade ist“ erlaubt uns, Geradheit vorübergehend anzunehmen, während wir die Schlussfolgerung begründen.
+
+Die Schlussfolgerung enthält ein „und“. Wir müssen zwei Dinge zeigen: $n^2$ ist gerade und $n+2$ ist gerade.
+
+Die Struktur selbst hat die Aufgabe in kleinere Teilaufgaben zerlegt.
+
+<ReasoningFigure kind="discovery-branches" />
+
+Beachte, wie sich die ursprüngliche Behauptung verändert hat.
+
+Wir mussten nicht für jeden Teil eine neue Strategie erfinden. Wir erkannten vertraute logische Formen und ließen daraus eine Folge von Beweispflichten entstehen.
+
+Bei einer **Allaussage** arbeiten wir mit einem beliebigen zulässigen Objekt.
+
+Bei einer **Implikation** nehmen wir ihre Bedingung vorübergehend an und begründen, was daraus folgt.
+
+Bei einer **Konjunktion** müssen wir beide Teile begründen.
+
+Verlangt ein Ziel die **Existenz** eines Objekts, suchen wir einen Zeugen und überprüfen die geforderten Bedingungen.
+
+Dieser letzte Schritt steckte in unserem Paritätsbeweis: Wir brauchten eine ganze Zahl $k$ und fanden $k=a+b$.
+
+<ReasoningFigure kind="discovery-rules" />
+
+Ein Detail des verzweigten Bildes ist wichtig.
+
+Die Annahme, dass $n$ gerade ist, stand innerhalb einer Grenze. Beide Zweige durften sie verwenden. Am Ende haben wir diese vorübergehende Annahme aufgehoben.
+
+Wir haben nicht bewiesen, dass jede ganze Zahl gerade ist.
+
+Wir bewiesen eine bedingte Aussage: **Immer wenn eine ganze Zahl gerade ist, folgen die beiden Ergebnisse.**
+
+Vergessen wir diese Grenze, könnten wir eine nur für ein Argument angenommene Aussage mit einer uneingeschränkt bewiesenen Tatsache verwechseln.
+
+Auch die Reihenfolge unserer Entscheidungen ist wichtig.
+
+Betrachte die Aussage:
+
+*Für jede ganze Zahl $n$ gibt es eine ganze Zahl $m$, die größer als $n$ ist.*
+
+Wir beginnen mit einer beliebigen ganzen Zahl $n$. Erst danach wählen wir $m$.
+
+Wir können $m=n+1$ wählen: Die ganzen Zahlen sind unter Addition abgeschlossen, und es gilt $n+1>n$.
+
+<ReasoningFigure kind="discovery-dependence" />
+
+Die Zielstruktur zeigt also nicht nur mögliche Schritte. Sie begrenzt auch deren Reihenfolge und Geltungsbereich.
+
+Wir können diese Muster deshalb zur Orientierung verwenden, bevor wir wissen, wie wir den gesamten Beweis abschließen.
+
+## 6. Übung: Findest du den Anfangsschritt?
+
+Erproben wir die Methode.
+
+Du erhältst vier Aussagen. Deine Aufgabe ist jeweils, einen begründeten Anfangsschritt zu wählen und noch keinen vollständigen Beweis zu liefern.
+
+Bestimme zuerst die äußerste logische Struktur. Was verlangt die Aussage, und welche Objekte oder Annahmen darfst du einführen?
+
+<Interactive kind="discovery" preset="practice" id="discovery-practice" />
+
+Wenn du diese Anfangsschritte erkennst, hast du etwas Allgemeineres gelernt als einen bestimmten algebraischen Trick.
+
+Du hast gelernt, die Struktur einer mathematischen Aussage zu untersuchen und in eine Handlung zu übersetzen.
+
+Der übrige Beweis muss deshalb noch nicht einfach sein. Aber aus dem unbestimmten Problem, *nicht zu wissen, was zu tun ist*, kann eine kleinere, genauere Aufgabe werden.
+
+Manchmal reicht das, um voranzukommen.
+
+## 7. Eine Strategie ist keine Garantie
+
+Eine letzte Grenze sollten wir verstehen.
+
+Zu wissen, wie ein Beweis beginnen kann, garantiert nicht, dass die Behauptung wahr ist.
+
+Betrachte diese Aussage:
+
+*Für jede ganze Zahl $n$ ist das Quadrat $n^2$ gerade.*
+
+Ihre logische Struktur legt nahe, eine beliebige ganze Zahl zu wählen und ihr Quadrat zu untersuchen.
+
+Das ist ein zulässiger Anfang. Was passiert aber für $n=1$?
+
+<ReasoningFigure kind="discovery-counterexample" />
+
+Die Beweisstrategie ist nicht gescheitert. Sie machte sichtbar, was wir zeigen müssten. Die mathematische Behauptung selbst war jedoch falsch.
+
+Auch bei einer wahren Aussage kann der erste Ansatz zu einem schwierigen Teilziel führen. Vielleicht brauchen wir eine neue Definition, ein hilfreiches Lemma, ein indirektes Argument oder einen anderen Weg.
+
+Beweisstrategien leiten die Entdeckung an. Sie ersetzen mathematische Kreativität nicht.
+
+## 8. Einen Beweis finden, schreiben und verstehen
+
+Kehren wir zum leeren Blatt vom Anfang zurück.
+
+Wir haben nun einen nützlicheren Zugang.
+
+Statt nach einer raffinierten Gleichung zu suchen, können wir die verfügbaren Informationen vom noch zu begründenden Ziel trennen. Wir können von den Voraussetzungen vorwärts und von der Schlussfolgerung rückwärts arbeiten und nach dem Verbindungspunkt suchen.
+
+Dabei sollten wir eine weitere Unterscheidung im Blick behalten.
+
+<ReasoningFigure kind="discovery-abilities" />
+
+Diese drei Fähigkeiten hängen zusammen, sind aber nicht identisch.
+
+Ein Beweis ist mehr als sein Ergebnis und mehr als der aufgeschriebene Weg. Ihn zu verstehen heißt auch zu erkennen, warum dieser Weg verfügbar war.
+
+Wenn du das nächste Mal vor einer mathematischen Aussage sitzt und keinen Anfang findest, denke daran: Du musst nicht den gesamten Beweis auf einmal sehen.
+
+Bestimme die nächste Beweispflicht. Frage dann:
+
+**Was habe ich bereits, und was würde für den nächsten Schritt zum Ziel ausreichen?**
+
+## Quellen zur Vorbereitung
+
+Diese Quellen unterstützen die vorgestellten Beweisstrategien und logischen Strukturen.
+
+- **Daniel J. Velleman — How to Prove It: A Structured Approach**, besonders Kapitel 3, *Proofs*. Die Hauptreferenz für Beweisentdeckung, logische Zielformen und das Schreiben mathematischer Beweise. [Cambridge University Press](https://www.cambridge.org/core/books/abs/how-to-prove-it/contents/D9098F367810400B8A7FFD6FFCC22695)
+- **forall x: Calgary**, besonders *The Very Idea of Natural Deduction* und *Constructing Proofs*. Zu vorübergehenden Annahmen, Beweispflichten und der Unterscheidung zwischen dem Herleiten einer Folgerung und dem Planen einer Herleitung. [Open Logic Project](https://forallx.openlogicproject.org/html/)

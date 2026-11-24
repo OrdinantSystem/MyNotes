@@ -1,0 +1,359 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-two
+sourceId: reasoning-episode-14
+sourcePages: []
+sourceLocations: ["Sections 1–8; Recommended foundations"]
+title: "Eine mathematische Welt zeichnen"
+navTitle: "Mengen und mathematische Welten"
+description: "Ordne Objekte ein, erkunde Mengen und unterscheide gezeichnete Beziehungen von logisch garantierten."
+order: 14
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [quantifiers-and-dependence]
+thumbnail: reasoning-worlds
+---
+
+Wann hilft uns ein Bild, eine mathematische Aussage zu verstehen? Und wann bringt es uns unbemerkt dazu, etwas zu glauben, das wir nicht bewiesen haben?
+
+## 1. Eine Welt mit acht Objekten
+
+Stell dir vor, unsere gesamte mathematische Welt besteht aus nur acht Formen. Einige sind rot, andere blau. Einige haben drei Seiten, andere vier.
+
+Hier sind sie.
+
+<ReasoningFigure kind="world-inventory" />
+
+Nun sollst du alle roten Formen finden. Das ist leicht: Du kannst auf a, c, e und g zeigen.
+
+Und alle Dreiecke? Das ist eine andere Sammlung: a, b, e und h.
+
+Aber hier ist eine interessantere Frage: Ist jede rote Form ein Dreieck?
+
+Nein. Wir sehen bereits zwei Gegenbeispiele: c und g. Beide sind rot, haben aber keine drei Seiten.
+
+Das wirkt fast zu einfach, um Mathematik zu verdienen. Wir ordnen nur Objekte in Gruppen ein. Doch diese einfache Tätigkeit enthält die Grundlagen einer mächtigen Sprache des Schlussfolgerns.
+
+Bevor wir diese Sprache richtig nutzen können, müssen wir eine oft unsichtbare Entscheidung treffen.
+
+**Was genau gehört zu unserer Welt?**
+
+## 2. Der Welt Grenzen geben
+
+Vereinbaren wir zunächst, dass diese acht Formen alle betrachteten Objekte sind. Außerhalb unseres Bildes gibt es keine versteckten Formen.
+
+Diese Sammlung heißt in der Mathematik das *Universum* oder die *Grundmenge* unserer Betrachtung. Wir nennen sie $U$.
+
+$$
+ U=\{a,b,c,d,e,f,g,h\}.
+$$
+
+Die geschweiften Klammern zeigen, dass wir eine Menge beschreiben: eine Sammlung mit festgelegten Elementen. Die Buchstaben in den Klammern benennen die Objekte, die dazugehören.
+
+Bilden wir nun eine kleinere Sammlung, die nur die roten Formen enthält, und nennen wir sie $R$.
+
+$$
+ R=\{a,c,e,g\}.
+$$
+
+Wir haben zwei Mengen definiert, die unterschiedliche Rollen spielen. $U$ legt das Universum fest; $R$ bezeichnet einige seiner Elemente.
+
+Um zu sagen, dass a zur Menge der roten Objekte gehört, schreiben wir:
+
+$$
+ a\in R.
+$$
+
+Das Symbol $\in$ bedeutet **ist ein Element von**.
+
+Nehmen wir dagegen die beiden Formen a und e und bilden eine neue Sammlung aus ihnen. Beide sind rot. Daher gehört jedes Element dieser neuen Sammlung zu $R$.
+
+$$
+ \{a,e\}\subseteq R.
+$$
+
+Das Symbol $\subseteq$ bedeutet **ist eine Teilmenge von**. Jedes Element der linken Menge ist auch ein Element der rechten Menge.
+
+Das sind unterschiedliche Beziehungen.
+
+<ReasoningFigure kind="world-membership" />
+
+Ein Element ist etwas, das zu einer Sammlung gehört. Eine Teilmenge ist selbst eine Sammlung, deren Elemente sämtlich in einer größeren Sammlung enthalten sind.
+
+Dieser Unterschied ist wichtig genug, um ihn sofort zu prüfen.
+
+Wir wissen, dass $a\in R$ gilt. Aber was ist mit $\{a\}\subseteq R$?
+
+Das ist ebenfalls wahr. Die Menge, die nur a enthält, hat kein Element außerhalb von $R$.
+
+Da jedes rote Objekt zu unserem Universum gehört, können wir außerdem schreiben:
+
+$$
+ R\subseteq U.
+$$
+
+Wir haben damit nicht $R\in U$ behauptet. Unser Universum enthält acht Formen und keine Sammlungen von Formen. Wir könnten ein anderes Universum entwerfen, zu dessen Elementen auch Mengen gehören. Aber das ist nicht die hier definierte Welt.
+
+Eine mathematische Aussage erhält ihre Bedeutung durch die betrachteten Objekte und die gewählten Definitionen.
+
+## 3. Ein Objekt, mehrere Einordnungen
+
+Kehren wir zu den acht Formen zurück. Ordnen wir sie diesmal nach ihrer Seitenzahl statt nach ihrer Farbe.
+
+Wir nennen die Menge der Dreiecke $T$.
+
+$$
+ T=\{a,b,e,h\}.
+$$
+
+Betrachte a. Es ist rot und ein Dreieck. Daher gehört a sowohl zu $R$ als auch zu $T$.
+
+Dagegen ist c rot, aber kein Dreieck. Und b ist ein Dreieck, aber nicht rot.
+
+Mengen müssen also keine getrennten Behälter sein. Dasselbe Objekt kann gleichzeitig zu mehreren Mengen gehören.
+
+Das ist besonders nützlich, weil wir beim mathematischen Schlussfolgern oft Bedingungen verbinden.
+
+Stell dir vor, ich sage:
+
+> Finde alle Objekte, die rot sind **und** drei Seiten haben.
+
+Du weißt bereits, wie das geht. Bestimme zuerst die roten Objekte und dann die Dreiecke. Behalte nur die Objekte, die beide Bedingungen erfüllen.
+
+Wir erhalten a und e.
+
+Dieselbe Idee lässt sich aber ausdrücken, ohne die Objekte einzeln aufzulisten. Wir können eine neue Menge aus den beiden bereits bekannten Mengen bilden.
+
+Damit erhalten wir unsere erste Mengenoperation.
+
+## 4. Sammlungen verknüpfen: UND, ODER und NICHT
+
+Die Menge der Objekte, die sowohl zu $R$ als auch zu $T$ gehören, heißt ihre *Schnittmenge*. Wir schreiben $R\cap T$.
+
+$$
+ R\cap T=\{a,e\}.
+$$
+
+Das Schnittmengensymbol $\cap$ verhält sich wie das logische Wort **UND**. Ein Objekt muss beide Bedingungen erfüllen, um zur Schnittmenge zu gehören.
+
+Betrachten wir dasselbe Universum in einem anderen Bild.
+
+<Interactive kind="worlds" preset="operations" id="eight-object-operations" />
+
+Ändern wir nun die Frage ein wenig.
+
+Statt nach Objekten zu fragen, die rot *und* dreieckig sind, suchen wir Objekte, die rot *oder* dreieckig sind.
+
+Jetzt nehmen wir jedes Objekt auf, das mindestens eine der beiden Bedingungen erfüllt.
+
+Diese Operation heißt *Vereinigung* und wird mit $\cup$ dargestellt.
+
+$$
+ R\cup T=\{a,b,c,e,g,h\}.
+$$
+
+Auch a und e gehören zum Ergebnis. Sie verschwinden nicht, nur weil sie beide Bedingungen erfüllen.
+
+In der Mathematik schließt ODER normalerweise ein, dass beide Aussagen wahr sind. Es bedeutet nicht automatisch entweder das eine oder das andere, aber nicht beides.
+
+Betrachten wir eine dritte Frage: Welche Objekte sind **nicht rot**?
+
+In unserem Universum bleiben b, d, f und h.
+
+Das ist das *Komplement* von $R$ bezüglich unseres Universums $U$. Ist das Universum klar, schreiben wir $R^c$, oder ausdrücklich $U\setminus R$.
+
+$$
+ R^c=U\setminus R=\{b,d,f,h\}.
+$$
+
+Die Komplementbildung verhält sich hier wie das logische **NICHT**.
+
+Deshalb mussten wir das Universum festlegen. Würden wir plötzlich einen grünen Kreis hinzufügen, könnte sich das Komplement ändern. Ohne das betrachtete Universum zu kennen, können wir nicht eindeutig fragen, was außerhalb einer Menge liegt.
+
+Fassen wir diese Beziehungen zusammen.
+
+| Mengenoperation | Logische Bedeutung | Zugehörigkeitsbedingung |
+| --- | --- | --- |
+| $R\cap T$ | UND | $x\in R\land x\in T$ |
+| $R\cup T$ | ODER | $x\in R\lor x\in T$ |
+| $R^c$ | NICHT | $x\notin R$, mit $x\in U$ |
+
+Die Symbole sind also nicht nur Anweisungen zum Zeichnen überlappender Kreise. Sie beschreiben logische Bedingungen, die Objekte erfüllen müssen.
+
+Deshalb können wir über Mengen nachdenken, ohne sie überhaupt zu zeichnen.
+
+Betrachte zum Beispiel diesen Ausdruck:
+
+$$
+ (R\cup T)^c.
+$$
+
+Gemeint sind Objekte, die weder rot noch Dreiecke sind. In unserem Universum sind das d und f, die blauen Quadrate.
+
+Ist ein Objekt weder rot noch dreieckig, muss es zugleich nicht rot **und** nicht dreieckig sein.
+
+Wir erhalten also:
+
+$$
+ \boxed{(R\cup T)^c=R^c\cap T^c}
+$$
+
+Das ist eines der de Morganschen Gesetze. Es ist dieselbe Beziehung, die wir beim Schlussfolgern mit UND, ODER und NICHT entdeckt haben.
+
+Die Schreibweise ändert sich, die zugrunde liegende Logik bleibt gleich.
+
+## 5. Die Sammlung, die nichts enthält
+
+Bevor unsere Zeichnungen gefährlich werden, sollten wir noch eine Menge einführen.
+
+Angenommen, ich suche alle Formen, die sowohl drei als auch vier Seiten haben.
+
+Nennen wir die Menge der Quadrate $S$. In unserer Welt ist jedes Objekt entweder ein Dreieck oder ein Quadrat, keines ist beides.
+
+Daher gilt:
+
+$$
+ T\cap S=\varnothing.
+$$
+
+Das Symbol $\varnothing$ bezeichnet die *leere Menge*: eine Menge ohne Elemente.
+
+<ReasoningFigure kind="world-empty" />
+
+Die leere Menge ist nicht dasselbe wie das Fehlen einer Menge. Sie ist wohldefiniert und hat einfach keine Elemente.
+
+Die leere Menge ist sogar eine Teilmenge jeder Menge.
+
+Warum?
+
+Erinnere dich: $A\subseteq B$ bedeutet, dass jedes Element von $A$ auch zu $B$ gehört. Um diese Regel zu verletzen, müssten wir ein Element von $A$ finden, das nicht zu $B$ gehört.
+
+Ist $A$ leer, gibt es kein solches Element.
+
+Also gilt:
+
+$$
+ \varnothing\subseteq R,\qquad \varnothing\subseteq T,\qquad \varnothing\subseteq U.
+$$
+
+Das mag zunächst seltsam wirken. Es zeigt aber, wie mathematische Definitionen etwas sichtbar machen können, das unserer Anschauung nicht sofort klar war.
+
+Damit sind wir bereit für ein noch interessanteres Problem: Was passiert, wenn uns ein Bild mehr nahelegt, als die Mathematik tatsächlich erlaubt?
+
+## 6. Wenn ein schönes Diagramm täuscht
+
+Beginnen wir eine neue mathematische Welt.
+
+Diesmal erhalten wir eine einzige Voraussetzung:
+
+**Jedes Dreieck ist rot.**
+
+Das können wir in Mengenschreibweise übersetzen.
+
+$$
+ T\subseteq R.
+$$
+
+Nun zeichnet jemand ein Diagramm, in dem die Dreiecksmenge vollständig innerhalb der Menge der roten Objekte liegt. Das erscheint vernünftig. Jedes Dreieck muss zur roten Menge gehören.
+
+Zusätzlich wird ein getrennter Bereich für Quadrate eingezeichnet. Er berührt den Bereich der roten Objekte nicht.
+
+Aus diesem Bild verkündet die Person eine Folgerung:
+
+*Kein Quadrat kann rot sein.*
+
+Vergleiche vor einer Entscheidung diese beiden möglichen Zeichnungen.
+
+<ReasoningFigure kind="world-drawings" />
+
+Beide Zeichnungen erfüllen die ursprüngliche Voraussetzung. In beiden liegt der Dreiecksbereich vollständig im Bereich der roten Objekte.
+
+Aber nur das erste Bild trennt Quadrate von roten Objekten.
+
+Das zweite lässt rote Quadrate zu.
+
+Welches Bild ist also richtig?
+
+Die entscheidende Antwort lautet: **Unsere Voraussetzung unterscheidet nicht zwischen ihnen.**
+
+Wir haben nur gesagt, dass jedes Dreieck rot ist. Über die erlaubten Farben der Quadrate haben wir nichts gesagt.
+
+Die erste Zeichnung hat eine zusätzliche Einschränkung eingeführt, die nicht zu unserer Voraussetzung gehört.
+
+Die sauber getrennten Bereiche mögen überzeugend aussehen. Doch das, was wir wissen, rechtfertigt diese Trennung nicht.
+
+Es gibt noch eine zweite Feinheit. Selbst wenn sich zwei Bereiche auf dem Papier überlappen, beweist das nicht automatisch, dass ein tatsächliches Objekt zu beiden Mengen gehört. Dafür brauchen wir einen Zeugen oder eine zusätzliche Voraussetzung.
+
+Die Flächen im Diagramm helfen uns, mögliche Beziehungen darzustellen. Sie erzeugen selbst keine mathematischen Tatsachen.
+
+Darin liegt die Gefahr, sich auf ein Bild zu verlassen, ohne zu prüfen, welche seiner Merkmale logisch notwendig sind.
+
+Ein Diagramm kann uns eine mögliche Welt zeigen.
+
+**Aber eine mögliche Welt ist nicht dasselbe wie jede mögliche Welt.**
+
+## 7. Eine Welt bauen, in der die Folgerung scheitert
+
+Machen wir daraus ein Experiment.
+
+Unsere Voraussetzung lautet weiterhin, dass jedes Dreieck rot ist. Die vorgeschlagene Folgerung lautet, dass kein Quadrat rot ist.
+
+Wir suchen eine Welt, in der die Voraussetzung wahr und die Folgerung falsch ist.
+
+Beginnen wir mit zwei roten Dreiecken und einem blauen Quadrat. Bisher ist die Voraussetzung erfüllt. Auch die Folgerung ist zufällig wahr.
+
+Was passiert aber, wenn wir ein weiteres Objekt hinzufügen: ein rotes Quadrat?
+
+<Interactive kind="worlds" preset="countermodel" id="red-square-countermodel" />
+
+Nach dem Hinzufügen des roten Quadrats sind weiterhin alle Dreiecke rot. An der Voraussetzung hat sich nichts geändert.
+
+Aber die Folgerung ist jetzt falsch.
+
+Wir haben ein *Gegenmodell* konstruiert: eine Interpretation, in der die Voraussetzungen wahr sind, die vorgeschlagene Folgerung aber falsch ist.
+
+Das genügt für eine wichtige Erkenntnis.
+
+Die Folgerung folgt nicht logisch aus der Voraussetzung.
+
+$$
+ T\subseteq R \quad\not\Rightarrow\quad S\cap R=\varnothing.
+$$
+
+Das Symbol $\not\Rightarrow$ besagt, dass die Beziehung links die Beziehung rechts nicht garantiert.
+
+Das ist mehr als die Behauptung, das erste Bild sei schlecht gezeichnet. Wir haben durch eine ausdrücklich konstruierte Welt gezeigt, dass die gegebenen Informationen die Folgerung nicht erzwingen.
+
+Um diesen Schluss zu widerlegen, müssen wir nicht jede mögliche Welt untersuchen. Eine einzige Welt, in der er scheitert, genügt.
+
+Das ist eine der nützlichsten Einsichten beim mathematischen Schlussfolgern:
+
+**Ein einziges gültiges Gegenmodell kann eine vorgeschlagene logische Folgerung widerlegen.**
+
+## 8. Was das Bild tatsächlich beweist
+
+Zum Abschluss folgen drei Fragen. Die ersten beiden beziehen sich auf das ursprüngliche Universum aus acht Formen. Die dritte fragt, was in jeder Welt gilt, die die neue Voraussetzung erfüllt.
+
+<Interactive kind="worlds" preset="checkpoint" id="world-checkpoint" />
+
+Am Anfang standen acht gewöhnliche Formen. Wir haben sie in Sammlungen eingeteilt, diese Sammlungen verknüpft und ihre Beziehungen mit mathematischen Symbolen beschrieben.
+
+Die wichtigste Entdeckung war aber nicht die Schreibweise selbst.
+
+Es war der Unterschied zwischen dem, was ein Bild **zeigt**, und dem, was eine Aussage **verlangt**.
+
+Ein mathematisches Diagramm kann abstrakte Beziehungen sichtbar machen. Es kann uns helfen, Muster zu entdecken, Ideen zu prüfen und Gegenbeispiele zu finden.
+
+Eine Zeichnung bleibt jedoch eine bestimmte Darstellung. Sie kann Einzelheiten enthalten, die unsere Voraussetzungen nie garantiert haben.
+
+Um streng zu argumentieren, müssen wir diese zufälligen Einzelheiten von den Beziehungen trennen, die gelten müssen.
+
+Wenn wir das lernen, können wir etwas viel Stärkeres tun, als eine mathematische Welt zu zeichnen.
+
+Wir können bestimmen, welche Folgerungen in jeder Welt wahr sein müssen, die unsere Annahmen erfüllt, und welche nur zufällig in der gezeichneten Welt wahr sind.
+
+## Weiterführende Literatur
+
+[Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/) zu Mengen, Operationen, Teilmengen und Venn-Diagrammen sowie [forall x — Open Logic Project](https://forallx.openlogicproject.org/html/) zu Interpretationen, Modellen und logischer Folgerung.

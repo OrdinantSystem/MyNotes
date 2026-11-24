@@ -1,0 +1,437 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-three
+sourceId: reasoning-episode-23
+sourcePages: []
+sourceLocations: ["Full script sections 1–8; Diagnostic distinctions; Revision table; Preparation sources"]
+title: "Wie man einen Beweis auseinandernimmt"
+navTitle: "Einen Beweis prüfen"
+description: "Behauptungen, Annahmen, Folgerungen und Schlüsse prüfen; ungültiges Schließen, fehlende Begründungen und falsche Aussagen unterscheiden."
+order: 23
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [mathematical-induction]
+thumbnail: reasoning-audit
+---
+
+Bisher haben wir vor allem gelernt, Argumente aufzubauen: direkte Beweise, Kontraposition, Widerspruch, Fallunterscheidung, Existenz, Eindeutigkeit und vollständige Induktion.
+
+Ebenso wichtig ist es, einen fertigen Beweis untersuchen zu können.
+
+## 1. Hier ist etwas gründlich schiefgegangen
+
+<ReasoningFigure kind="audit-opening" />
+
+Eins ist gleich zwei. Das glaubst du vermutlich nicht, und dafür hast du gute Gründe.
+
+Aber angenommen, ich zeige dir ein mathematisches Argument, das mit einer gewöhnlichen Annahme beginnt, vertraute algebraische Operationen ausführt und genau dort endet. Könntest du präzise sagen, was schiefgegangen ist?
+
+Es reicht nicht, das Ergebnis absurd zu nennen oder auf bekanntes Wissen zu verweisen. Wir suchen den konkreten unzulässigen Schritt und seinen Grund.
+
+<ReasoningFigure kind="audit-opening-chain" />
+
+Zu wissen, dass etwas falsch ist, ist etwas anderes, als zu wissen, **was** falsch ist. Eine bekanntermaßen falsche Folgerung gibt Anlass, einem Argument zu misstrauen. Bei einem unbekannten wissenschaftlichen, wirtschaftlichen, philosophischen oder mathematischen Ergebnis hilft uns das aber nicht immer.
+
+Wir brauchen eine Methode, die das Schließen selbst beurteilt. Heute bauen wir Beweise nicht auf, sondern nehmen sie auseinander.
+
+## 2. Ein Beweis ist mehr als sein Schluss
+
+Ein Beweis verbindet bereits akzeptierte Informationen mit einer Aussage, die wir zeigen wollen. Auf der einen Seite stehen Annahmen, Definitionen und bekannte Ergebnisse. Auf der anderen steht der Schluss. Dazwischen liegen Folgerungen.
+
+<ReasoningFigure kind="audit-bridge-intact" />
+
+Beim Schreiben müssen wir eine logisch tragfähige Verbindung herstellen. Beim Lesen müssen wir diese Verbindung prüfen. Was passiert, wenn eine Folgerung ungültig ist?
+
+Die Verbindung bricht ab. Die Behauptung selbst verschwindet dadurch aber nicht.
+
+<ReasoningFigure kind="audit-bridge-broken" />
+
+Vielleicht gibt es einen anderen gültigen Beweis für denselben Schluss. Bisher wissen wir nur, dass dieser Weg ihn nicht begründet.
+
+Betrachten wir das Argument:
+
+- Jedes Quadrat hat vier Seiten.
+- Dieses Rechteck hat vier Seiten.
+- Also ist dieses Rechteck ein Quadrat.
+
+<ReasoningFigure kind="audit-rectangle" />
+
+Vier Seiten sind für ein Quadrat notwendig, aber nicht hinreichend. Selbst wenn das gewählte Rechteck zufällig ein Quadrat wäre, bliebe das Argument ungültig.
+
+Entscheidend ist nicht, ob wir zufällig richtig liegen. Entscheidend ist, ob die vorherigen Informationen den Schluss rechtfertigen.
+
+**Prüfe die Verbindung, nicht nur das Ziel.**
+
+## 3. Die vier Prüffragen
+
+Viele Gleichungen, unbekannte Symbole und unklare Zwischenschritte können einen Beweis unübersichtlich machen. Statt alles gleichzeitig verstehen zu wollen, zerlegen wir die Prüfung in vier Fragen.
+
+<ReasoningFigure kind="audit-checkpoints" />
+
+Zuerst klären wir die **Behauptung**. Geht es um jedes Objekt eines Bereichs, um mindestens ein Objekt, um eine Implikation, Äquivalenz oder Eindeutigkeit? Die logische Struktur legt fest, was der Beweis leisten muss.
+
+Dann prüfen wir die **Annahmen**. Was ist gegeben? Welche Definitionen und Ergebnisse sind verfügbar? Welche Einschränkungen gelten für die Objekte?
+
+Als Nächstes untersuchen wir jede **Folgerung**. Folgt die neue Aussage aus dem bereits Gezeigten? Hat eine algebraische Operation eine Voraussetzung? Wird ein Satz außerhalb seines Bereichs verwendet oder eine Implikation unbegründet umgedreht?
+
+Schließlich vergleichen wir den **Schluss** mit dem ursprünglichen Ziel.
+
+<ReasoningFigure kind="audit-target" />
+
+Ein Argument kann nur korrekte Zwischenschritte enthalten und trotzdem das Ziel verfehlen. Vielleicht haben wir Existenz statt eindeutiger Existenz bewiesen, nur positive statt aller ganzen Zahlen erfasst oder bei einer Äquivalenz die Rückrichtung vergessen.
+
+Wir prüfen also nicht bloß einzelne wahre Sätze. Wir prüfen, ob sie gemeinsam die verlangte Arbeit erledigen.
+
+## 4. Den angeblichen Beweis von eins gleich zwei zerlegen
+
+Wir nehmen zwei gleiche reelle Zahlen $a$ und $b$ ungleich null an:
+
+$$
+a=b,\qquad a\neq0,\qquad b\neq0.
+$$
+
+Das ist zulässig; beide könnten etwa eins sein. Wir multiplizieren mit $a$:
+
+$$
+a^2=ab.
+$$
+
+Wir ziehen auf beiden Seiten $b^2$ ab:
+
+$$
+a^2-b^2=ab-b^2.
+$$
+
+Dann faktorisieren wir:
+
+$$
+(a-b)(a+b)=b(a-b).
+$$
+
+Im vorgeschlagenen Argument wird nun $a-b$ gekürzt:
+
+$$
+a+b=b.
+$$
+
+Wegen $a=b$ wird daraus
+
+$$
+2b=b.
+$$
+
+Da $b$ ungleich null ist, wird durch $b$ geteilt:
+
+$$
+\boxed{2=1}.
+$$
+
+<Interactive kind="audit" preset="faulty" id="audit-faulty" />
+
+Gesucht ist nicht die erste verdächtig wirkende Aussage, sondern der erste logisch unbegründete Übergang.
+
+Multiplikation mit derselben Zahl, Subtraktion derselben Zahl und beide Faktorisierungen sind erlaubt. Bis hierhin ist nichts schiefgegangen. Doch beim nächsten Schritt bedeutet Kürzen **Division**:
+
+$$
+\frac{(a-b)(a+b)}{a-b}=\frac{b(a-b)}{a-b}.
+$$
+
+Unsere Anfangsannahme $a=b$ liefert $a-b=0$. Wir hätten also
+
+$$
+\frac{0\cdot(a+b)}0=\frac{b\cdot0}0.
+$$
+
+Das ist Division durch null. Die scheinbare Vereinfachung war nicht erlaubt.
+
+Warum kann man hier nicht kürzen? Aus $3\cdot4=3\cdot4$ dürfen wir $4=4$ folgern. Aber auch $0\cdot4=0\cdot9$ ist wahr, ohne dass $4=9$ wäre.
+
+<Interactive kind="audit" preset="cancellation" id="audit-cancellation" />
+
+Multiplikation mit null verliert die Information über die ursprünglichen Zahlen. Wenn beide Seiten null sind, sagt ihre Gleichheit nichts darüber, ob die Eingaben gleich waren.
+
+Vor dem ungültigen Kürzen stand in unserem Argument lediglich $0=0$: eine wahre Aussage, die den behaupteten Schluss nicht begründet.
+
+<ReasoningFigure kind="audit-rule" />
+
+Eine vertraute Rechenregel enthält eine Voraussetzung. Eine Operation kann in einer Situation zulässig und in einer anderen unzulässig sein. Frage deshalb sowohl, **was** eine Regel erlaubt, als auch, **unter welchen Bedingungen** sie es erlaubt.
+
+## 5. Korrekte Schritte, aber ein unvollständiger Beweis
+
+Nicht jeder mangelhafte Beweis endet mit einer offensichtlichen Falschheit. Betrachten wir den wahren Satz:
+
+> Eine ganze Zahl ist genau dann gerade, wenn ihr Quadrat gerade ist.
+
+Ein vorgeschlagener Beweis beginnt mit einer geraden ganzen Zahl $n$. Nach Definition gibt es $k\in\mathbb Z$ mit $n=2k$. Also
+
+$$
+n^2=4k^2=2(2k^2).
+$$
+
+Da $2k^2$ ganzzahlig ist, ist $n^2$ gerade. Anschließend wird der ganze Genau-dann-wenn-Satz behauptet.
+
+Alle mathematischen Zwischenschritte sind richtig. Auch der Satz ist wahr. Trotzdem fehlt etwas: „Genau dann, wenn“ verlangt zwei Implikationen.
+
+Das Argument zeigt nur: Ist $n$ gerade, dann ist $n^2$ gerade. Es zeigt nicht die Rückrichtung.
+
+<ReasoningFigure kind="audit-direction-missing" />
+
+Wir ergänzen ein weiteres Argument. Sei $n$ ungerade, also $n=2k+1$ für ein $k\in\mathbb Z$. Dann
+
+$$
+\begin{aligned}
+n^2&=(2k+1)^2\\
+&=4k^2+4k+1\\
+&=2(2k^2+2k)+1.
+\end{aligned}
+$$
+
+Eine ungerade ganze Zahl hat somit ein ungerades Quadrat. Durch Kontraposition folgt: Ist das Quadrat einer ganzen Zahl gerade, dann ist die Zahl selbst gerade.
+
+<ReasoningFigure kind="audit-direction-complete" />
+
+Erst jetzt sind beide Beweisaufgaben erledigt. Beim angeblichen Beweis von eins gleich zwei mussten wir einen ungültigen Schluss verwerfen. Hier können wir alle bisherigen Schritte behalten und das fehlende Argument ergänzen.
+
+Die Diagnose bestimmt, wie wir reparieren sollten.
+
+## 6. Drei weitere Arten von Beweisfehlern
+
+Bisher haben wir eine missachtete Voraussetzung und ein unvollständig erreichtes Ziel gesehen. Weitere wiederkehrende Muster lassen sich an ihrer Struktur erkennen; ein Fehlerkatalog allein genügt nicht.
+
+### A. Ein fehlender Fall
+
+Behauptet wird
+
+$$
+x^2\geq x\qquad\text{für jedes }x\in\mathbb R.
+$$
+
+Das vorgeschlagene Argument behandelt zwei Fälle. Für $x\geq1$ dürfen wir $x\geq1$ mit der positiven Zahl $x$ multiplizieren und erhalten $x^2\geq x$. Für $x\leq0$ gilt $x^2\geq0\geq x$. Also, so der Schluss, gelte die Ungleichung für alle reellen Zahlen.
+
+Bis zum letzten Satz sind die Schritte korrekt.
+
+<ReasoningFigure kind="audit-coverage" />
+
+Die beiden Fälle erfassen jedoch nicht jede reelle Zahl. Das ganze offene Intervall zwischen null und eins fehlt. Für $x=\tfrac12$ gilt
+
+$$
+x^2=\frac14<\frac12=x.
+$$
+
+Das ist ein Gegenbeispiel.
+
+<ReasoningFigure kind="audit-quadratic" />
+
+<Interactive kind="audit" preset="cases" id="audit-cases" />
+
+Den ursprünglichen Satz können wir nicht vervollständigen, weil er falsch ist. Die bisherigen Schlüsse zeigen aber die schwächere Aussage:
+
+$$
+x^2\geq x\quad\text{für }x\leq0\text{ oder }x\geq1.
+$$
+
+Alternativ können wir den Definitionsbereich auf ganze Zahlen einschränken. Keine ganze Zahl liegt strikt zwischen null und eins. Daher
+
+$$
+\forall n\in\mathbb Z:\quad n^2\geq n.
+$$
+
+<ReasoningFigure kind="audit-integer-domain" />
+
+Wir haben den ursprünglichen Satz nicht repariert, sondern durch einen anderen, wahren Satz ersetzt. Manchmal ist es sinnvoller, die Behauptung zu ändern, als weiter die alte zu verteidigen.
+
+### B. Eine versteckte Einschränkung
+
+Die Gleichung
+
+$$
+\sqrt{x^2}=x
+$$
+
+wirkt vertraut: Quadrieren und Wurzelziehen scheinen Gegenoperationen zu sein. Aber für $x=-3$ ergibt sich
+
+$$
+\sqrt{(-3)^2}=\sqrt9=3,
+$$
+
+also nicht minus drei.
+
+<ReasoningFigure kind="audit-square-root" />
+
+Die ursprüngliche Identität gilt für nichtnegative Eingaben, aber nicht für beliebige reelle Zahlen. Allgemein gilt $\sqrt{x^2}=|x|$.
+
+Die Regel funktioniert in ihrem zulässigen Bereich. Definitionen, Bereiche und Einschränkungen gehören zum logischen Inhalt der Aussage.
+
+### C. Zirkuläres Schließen
+
+Jemand will zeigen, dass die Summe zweier gerader ganzer Zahlen gerade ist. Für gerade Zahlen $a,b$ schreibt die Person: Da die Summe gerade ist, gibt es $k\in\mathbb Z$ mit $a+b=2k$. Also ist $a+b$ gerade.
+
+Der Schluss folgt aus dem unmittelbar vorherigen Satz. Aber woher kam dieser Satz? Die zu beweisende Eigenschaft wurde bereits vorausgesetzt.
+
+<ReasoningFigure kind="audit-circular" />
+
+Ein gültiger Beweis braucht Voraussetzungen, die nicht vom eigenen Ziel abhängen. Gegeben ist hier nur, dass $a$ und $b$ jeweils gerade sind. Nach Definition existieren deshalb $m,n\in\mathbb Z$ mit
+
+$$
+a=2m,\qquad b=2n.
+$$
+
+Daraus folgt
+
+$$
+a+b=2m+2n=2(m+n).
+$$
+
+Weil $m+n$ ganzzahlig ist, folgt die Geradheit nun unabhängig.
+
+<ReasoningFigure kind="audit-repaired" />
+
+Der Unterschied liegt vor allem im Ausgangspunkt, nicht in der Algebra. Prüfe daher, woher jede Aussage stammt, statt nur darauf zu achten, ob sie mathematisch plausibel aussieht.
+
+## 7. Die Herausforderung für Beweisprüfer
+
+Untersuche die drei Argumente anhand der vier Fragen. Ein Fehler ist nicht garantiert. Gute Beweisprüfung bedeutet auch, gültiges Schließen anzuerkennen.
+
+### Aufgabe 1 — Wurde die Implikation umgedreht?
+
+**Behauptung:** Ist eine ganze Zahl durch vier teilbar, dann ist sie gerade.
+
+**Vorgeschlagener Beweis:** Sei $n$ gerade. Dann gilt $n=2k$ für ein $k\in\mathbb Z$. Multiplikation mit zwei liefert $2n=4k$. Also ist $n$ gerade, sobald es durch vier teilbar ist.
+
+<details>
+<summary>Analyse zeigen</summary>
+
+<ReasoningFigure kind="audit-challenge-direction" />
+
+Das Argument beginnt am falschen Ende: Es setzt Geradheit voraus, statt sie zu folgern. Außerdem wechselt es vom untersuchten Objekt $n$ zu $2n$.
+
+Eine Reparatur beginnt mit der Teilbarkeit durch vier: $n=4k$ für ein $k\in\mathbb Z$. Dann ist $n=2(2k)$, also gerade. Der Satz war richtig; der Weg war mangelhaft.
+
+</details>
+
+### Aufgabe 2 — Ein Beweis, der vielleicht keine Reparatur braucht
+
+**Behauptung:** Das Produkt zweier ungerader ganzer Zahlen ist ungerade.
+
+**Vorgeschlagener Beweis:** Seien $a,b$ beliebige ungerade ganze Zahlen. Dann existieren $m,n\in\mathbb Z$ mit
+
+$$
+a=2m+1,\qquad b=2n+1.
+$$
+
+Also
+
+$$
+\begin{aligned}
+ab&=(2m+1)(2n+1)\\
+&=4mn+2m+2n+1\\
+&=2(2mn+m+n)+1.
+\end{aligned}
+$$
+
+Weil $2mn+m+n$ ganzzahlig ist, ist $ab$ ungerade.
+
+<details>
+<summary>Analyse zeigen</summary>
+
+<ReasoningFigure kind="audit-odd-product" />
+
+**Diagnose: Gültig und vollständig.** Der Beweis beginnt mit beliebigen ungeraden ganzen Zahlen, verwendet ihre Definitionen korrekt, rechnet richtig und erreicht genau das geforderte Ziel.
+
+Das Diagramm zeigt ein positives Beispiel; das symbolische Argument erfasst auch negative ungerade Zahlen. Es fehlt weder ein Fall noch eine Begründung.
+
+Wenn Aufgaben immer nach einem Fehler fragen, kann man anfangen, unabhängig vom Argument einen Fehler zu erwarten. Kritik ist aber nicht dasselbe wie Genauigkeit. Hier ist Akzeptieren die richtige Antwort.
+
+</details>
+
+### Aufgabe 3 — Den Beweis reparieren oder die Behauptung ändern?
+
+**Behauptung:** Jede reelle Zahl hat ein multiplikatives Inverses:
+
+$$
+\forall x\in\mathbb R,\ \exists y\in\mathbb R:\quad xy=1.
+$$
+
+**Vorgeschlagener Beweis:** Sei $x$ beliebig reell. Wähle $y=1/x$. Dann ist $xy=x\cdot(1/x)=1$. Also besitzt jede reelle Zahl ein multiplikatives Inverses.
+
+<details>
+<summary>Analyse zeigen</summary>
+
+<ReasoningFigure kind="audit-inverse" />
+
+**Diagnose: Falsche Behauptung und unzulässige Division.** Bei $x=0$ ist der vorgeschlagene Zeuge $1/x$ nicht definiert. Außerdem gilt für jede reelle Zahl $y$:
+
+$$
+0\cdot y=0\neq1.
+$$
+
+Kein anderer Zeuge kann das Problem bei null lösen. Die ursprüngliche Behauptung ist falsch. Eine korrekte schwächere Behauptung lautet:
+
+$$
+\forall x\in\mathbb R\setminus\{0\},\ \exists y\in\mathbb R:\quad xy=1.
+$$
+
+Beschränken wir uns auf reelle Zahlen ungleich null, funktioniert das Argument wie beabsichtigt. Wir verwerfen nicht alles, sondern bestimmen genau, welcher Schluss die Prüfung übersteht.
+
+</details>
+
+## 8. Der Unterschied zwischen Zweifel und Verständnis
+
+Zu Beginn schien ein Argument eins gleich zwei zu beweisen. Wir wussten bereits, dass etwas falsch war. Die Untersuchung zeigte uns mehr: wo der Fehler lag, warum der Schritt unzulässig war und wann dieselbe Operation erlaubt gewesen wäre.
+
+Dabei haben wir verschiedene mögliche Ergebnisse kennengelernt.
+
+<ReasoningFigure kind="audit-outcomes" />
+
+Manchmal sollten wir einen richtigen Beweis akzeptieren. Manchmal fehlt eine ergänzbare Begründung. Manchmal braucht ungültiges Schließen einen anderen Weg. Manchmal müssen wir eine falsche Behauptung verwerfen oder abschwächen.
+
+Unser Ziel ist weder, einen Schluss zu verteidigen, noch, ihn unbedingt zu zerstören. Wir wollen herausfinden, was das Argument tatsächlich zu folgern erlaubt. Das unterscheidet bloßen Zweifel von begründetem Verständnis.
+
+Die vier Fragen bleiben:
+
+- Was wird behauptet?
+- Was wird angenommen?
+- Folgt jeder Schritt?
+- Was wurde tatsächlich nachgewiesen?
+
+Beginne bei einem Argument nicht nur mit deiner Zustimmung oder Ablehnung. Versuche, den Weg zum Schluss zu rekonstruieren. Die Antwort zu kennen und zu wissen, warum sie stimmt, sind verschiedene Leistungen.
+
+## Lernkompendium
+
+### Drei verschiedene Diagnosen
+
+**Die Aussage ist falsch:** Das angestrebte Ergebnis trifft nicht zu.
+
+**Das Argument ist ungültig:** Der Schluss folgt aus dem vorgelegten Schließen nicht.
+
+**Die Begründung ist unvollständig:** Ein möglicherweise tragfähiges Argument hat noch nicht alle Anforderungen erfüllt.
+
+Diese Diagnosen können sich überschneiden, sind aber nicht austauschbar. Ein mangelhafter Beweis macht seinen Schluss nicht automatisch falsch. Ein wahrer Schluss macht seinen Beweis nicht automatisch gültig.
+
+<ReasoningFigure kind="audit-architecture" />
+
+### Fehler, Prüffrage und Reaktion
+
+| Fehler | Prüffrage | Angemessene Reaktion |
+| --- | --- | --- |
+| Division durch null | Dürfen wir durch diesen Ausdruck teilen? | Voraussetzungen der Operation prüfen |
+| Unbegründete Umkehrung | Verwenden wir die richtige Richtung? | Die benötigte Implikation eigens beweisen |
+| Fehlender Fall | Sind alle erlaubten Objekte erfasst? | Die übrigen Fälle untersuchen |
+| Versteckte Einschränkung | Gilt die Regel im gesamten angegebenen Bereich? | Einschränkungen ausdrücklich nennen |
+| Zirkuläres Schließen | Hängt die Begründung vom eigenen Schluss ab? | Unabhängige Voraussetzungen finden |
+| Fehlende Beweisaufgabe | Wurde die ganze Aussage bewiesen? | Den fehlenden Teil ergänzen |
+| Ausgelassene Begründung | Lässt sich der Übergang aus verfügbaren Informationen herleiten? | Zwischenschritte ergänzen |
+| Falsche Behauptung | Gibt es ein zulässiges Gegenbeispiel? | Die Behauptung verwerfen oder umformulieren |
+
+Eine ausgelassene Begründung ist nicht automatisch ein ungültiger Schluss. Erfahrene Mathematiker lassen manchmal rekonstruierbare Zwischenrechnungen weg. Ein tatsächlich ungültiger Schritt lässt sich aus den verfügbaren Voraussetzungen in der vorliegenden Form nicht rechtfertigen. Diese Fälle müssen unterschieden werden.
+
+<ReasoningFigure kind="audit-inspect" />
+
+### Quellen zur Vorbereitung
+
+| Quelle | Relevante Inhalte |
+| --- | --- |
+| [Kevin Houston — How to Think Like a Mathematician](https://www.cambridge.org/core/books/how-to-think-like-a-mathematician/FB0813C3AEDDECD40BE58AF186370D52) | Argumente lesen, Beweisaufgaben erkennen, Annahmen identifizieren und mathematisch klar kommunizieren. |
+| [Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/) | Kapitel 4–9: direkte Beweise, Kontraposition, Widerspruch, Äquivalenz, Existenz und Widerlegung. |

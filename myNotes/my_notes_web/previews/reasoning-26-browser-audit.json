@@ -1,0 +1,264 @@
+{
+  "initial": {
+    "duplicateIds": [],
+    "figures": 19,
+    "instances": [
+      {
+        "id": "reframe-construction",
+        "n": "5",
+        "selected": [],
+        "stage": "Original triangle"
+      },
+      {
+        "id": "reframe-rows",
+        "n": "6",
+        "selected": []
+      },
+      {
+        "id": "reframe-handshakes",
+        "n": "5",
+        "selected": [
+          "",
+          ""
+        ]
+      }
+    ],
+    "labs": 3,
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "light",
+    "title": "Change the picture, change the problem",
+    "width": 1440
+  },
+  "stages": [
+    {
+      "formula": [
+        "1,2,\\ldots,n"
+      ],
+      "next": false,
+      "objects": 15,
+      "prev": true,
+      "title": "Original triangle"
+    },
+    {
+      "formula": [],
+      "next": false,
+      "objects": 30,
+      "prev": false,
+      "title": "Make an identical copy"
+    },
+    {
+      "formula": [],
+      "next": false,
+      "objects": 30,
+      "prev": false,
+      "title": "Rotate the copy 180°"
+    },
+    {
+      "formula": [
+        "n+1",
+        "2S_{5}=5\\cdot6=30",
+        "S_{5}=\\frac{5\\cdot6}{2}=15"
+      ],
+      "next": true,
+      "objects": 30,
+      "prev": false,
+      "title": "Combine without gaps or overlap"
+    }
+  ],
+  "keyboard": {
+    "focus": "reframe-construction-n-range",
+    "number": "6",
+    "objects": 42,
+    "range": "6"
+  },
+  "ten": [
+    "n+1",
+    "2S_{10}=10\\cdot11=110",
+    "S_{10}=\\frac{10\\cdot11}{2}=55"
+  ],
+  "invalid": {
+    "status": "Use a whole number within the stated bounds. The last valid value has been restored.",
+    "value": "10"
+  },
+  "one": [
+    "n+1",
+    "2S_{1}=1\\cdot2=2",
+    "S_{1}=\\frac{1\\cdot2}{2}=1"
+  ],
+  "clamped": {
+    "formula": [
+      "2+1=3",
+      "k",
+      "k",
+      "n+1-k",
+      "k+(n+1-k)=n+1"
+    ],
+    "k": "2",
+    "max": "2",
+    "n": "2"
+  },
+  "rowInvalid": {
+    "status": "Use a whole number within the stated bounds. The last valid value has been restored.",
+    "value": "2"
+  },
+  "rowKeyboard": "2 (native ArrowRight from 1)",
+  "pair": [
+    "AB",
+    "BA"
+  ],
+  "reversePair": [
+    "AB",
+    "BA"
+  ],
+  "same": "The selected diagonal cell is a self-pair and contributes no handshake.",
+  "selectionClamped": [
+    {
+      "options": 3,
+      "value": ""
+    },
+    {
+      "options": 3,
+      "value": "1"
+    }
+  ],
+  "oneHandshake": "One person has nobody else to greet: zero handshakes.",
+  "reference": "Added example proof. Let \n𝑛\nn be a positive integer. Arrange the terms as rows of \n1\n,\n2\n,\n…\n,\n𝑛\n1,2,…,n dots and make one identical copy. Rotate the copy by \n180\n∘\n180\n∘\n. In any row \n𝑘\nk, the original supplies \n𝑘\nk dots and the rotated copy supplies \n𝑛\n+\n1\n−\n𝑘\nn+1−k. Placed consecutively, they fill \n𝑛\n+\n1\nn+1 positions without gaps or overlap. There are \n𝑛\nn rows, so the combined count is \n𝑛\n(\n𝑛\n+\n1\n)\nn(n+1). The copy has exactly the original count; hence this is twice \n𝑆\n𝑛\nS\nn\n\t​\n\n, and \n𝑆\n𝑛\n=\n𝑛\n(\n𝑛\n+\n1\n)\n/\n2\nS\nn\n\t​\n\n=n(n+1)/2. The argument used an arbitrary row of an arbitrary positive size, not a particular drawing.",
+  "enDesktopLight": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "light",
+    "width": 1440
+  },
+  "enDesktopDark": {
+    "overflow": false,
+    "theme": "dark",
+    "width": 1440
+  },
+  "enCompactDark": {
+    "overflow": false,
+    "theme": "dark",
+    "width": 390
+  },
+  "enCompactLight": {
+    "overflow": false,
+    "theme": "light",
+    "width": 390
+  },
+  "compactTable": {
+    "cells": 100,
+    "contentWidth": 544,
+    "localWidth": 303,
+    "pageOverflow": false
+  },
+  "deCompactLight": {
+    "figures": 19,
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "light",
+    "title": "Ändere das Bild, ändere das Problem",
+    "width": 390
+  },
+  "deCompactDark": {
+    "overflow": false,
+    "theme": "dark",
+    "width": 390
+  },
+  "deFeedback": "Das ausgewählte Diagonalfeld ist ein Selbstpaar und trägt keinen Händedruck bei.",
+  "deReference": "Ergänzter Beispielbeweis. Sei \n𝑛\nn eine positive ganze Zahl. Ordne die Summande",
+  "deDesktopDark": {
+    "overflow": false,
+    "theme": "dark",
+    "width": 1440
+  },
+  "deDesktopLight": {
+    "overflow": false,
+    "theme": "light",
+    "width": 1440
+  },
+  "previous": {
+    "next": "/de/reasoning/lessons/changing-representations/",
+    "title": "Was tun, wenn dir keine Idee kommt?"
+  },
+  "overview": {
+    "cards": 26,
+    "partFour": "Teil Vier2 Lektionen"
+  },
+  "gallery": {
+    "duplicateIds": [],
+    "figures": 19,
+    "ids": [
+      "library-reframe-construction",
+      "library-reframe-rows",
+      "library-reframe-handshakes",
+      "library-reframe-independent"
+    ],
+    "labs": 4,
+    "mathErrors": 0
+  },
+  "isolation": {
+    "first": {
+      "n": "10",
+      "objects": 110
+    },
+    "second": {
+      "n": "5",
+      "objects": 15
+    }
+  },
+  "galleryLogs": [],
+  "germanSearch": 1,
+  "englishSearch": 1,
+  "prefixEn": {
+    "css": 2,
+    "emptyRestored": "5",
+    "formula": [
+      "n+1",
+      "2S_{5}=5\\cdot6=30",
+      "S_{5}=\\frac{5\\cdot6}{2}=15"
+    ],
+    "home": "/MyNotes/",
+    "invalid": "Use a whole number within the stated bounds. The last valid value has been restored.",
+    "labelClass": "visually-hidden",
+    "labelSize": 1,
+    "mathErrors": 0,
+    "pairStatus": "Number of people: 5. Handshakes: 10. These two mirrored cells describe one handshake. Swapping the people does not create another handshake."
+  },
+  "prefixDe": {
+    "home": "/MyNotes/de/",
+    "mathErrors": 0,
+    "status": "Anzahl der Personen: 5. Händedrücke: 10. Das ausgewählte Diagonalfeld ist ein Selbstpaar und trägt keinen Händedruck bei.",
+    "title": "Ändere das Bild, ändere das Problem"
+  },
+  "prefixLogs": [],
+  "finalStatus": "Number of people: 5. Handshakes: 10. These two mirrored cells describe one handshake. Swapping the people does not create another handshake.",
+  "lessonLogs": [],
+  "headings": [
+    "1. What if the problem isn’t the problem?",
+    "2. The same problem can have different appearances",
+    "3. Looking for a relationship that wasn’t visible before",
+    "4. The discovery",
+    "5. Why should this work for every number?",
+    "6. What are we allowed to change?",
+    "7. Two proofs of the same statement",
+    "8. Not every picture is an improvement",
+    "9. Can you change another problem?",
+    "10. Perhaps you need to see it differently",
+    "Learning compendium",
+    "Preparation sources"
+  ],
+  "final": {
+    "chapter": "The Art of Reasoning\n/\nPart Four\n/\nChange the pict",
+    "height": 720,
+    "initialConstruction": "Original triangle",
+    "mathErrors": 0,
+    "overflow": false,
+    "referenceOpen": false,
+    "selectedPeople": [
+      "",
+      ""
+    ],
+    "title": "Change the picture, change the problem",
+    "width": 1280
+  }
+}

@@ -1,0 +1,573 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-two
+sourceId: reasoning-episode-13
+sourcePages: []
+sourceLocations: ["Sections 1–11; Reference reading"]
+title: "Does everyone knowing someone mean someone is known by everyone?"
+navTitle: "Quantifiers and dependence"
+description: "Distinguish dependent and shared witnesses, reverse quantifiers carefully and negate nested claims."
+order: 13
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [reasoning-with-switches]
+thumbnail: reasoning-quantifiers
+---
+
+## 1. A surprisingly difficult question
+
+Imagine you're at a gathering with a group of people. You don't necessarily know everyone there, but there's one thing you can say with confidence:
+
+**Every person knows at least one person.**
+
+Now consider a second statement:
+
+**There is someone whom every person knows.**
+
+At first, these might sound like two ways of expressing roughly the same thing. After all, if everybody knows somebody, doesn't that mean there must be someone everybody knows?
+
+Not necessarily.
+
+In fact, those two sentences describe very different situations. And understanding precisely *why* they're different will reveal something fundamental about mathematical reasoning: the order in which we make choices can completely change the meaning of a statement.
+
+Let's investigate with just three people.
+
+## 2. A tiny world of three people
+
+Imagine three people: Alice, Ben, and Clara.
+
+Alice knows Ben. Ben knows Clara. And Clara knows Alice.
+
+That's all the acquaintance relationships we'll assume for now.
+
+<Interactive kind="dependence" preset="network" id="acquaintance-network" />
+
+Each arrow points from the person who knows someone to the person they know. So an arrow from Alice to Ben means Alice knows Ben.
+
+Notice that these arrows have a direction. Alice knowing Ben doesn't automatically mean Ben knows Alice. We are describing the relationships shown in this little world, rather than assuming that acquaintance must always be mutual.
+
+There's one more convention worth making explicit: we won't assume someone knows themselves unless the diagram has a loop pointing back to that same person. Our model allows such loops, but the first network has none.
+
+Now consider the original question: does everyone here know someone?
+
+Well, Alice knows Ben. Ben knows Clara. And Clara knows Alice.
+
+So yes. Every person has at least one outgoing arrow.
+
+But there's something interesting about how we've established that. We didn't find one person whom everybody knows. Instead, we found **a different person for each person we examined**.
+
+That difference is the whole mystery.
+
+## 3. Translating the network into mathematics
+
+Mathematics gives us a language for expressing relationships like these precisely.
+
+Let's introduce the expression
+
+$$
+ K(x,y)
+$$
+
+and read it as:
+
+"Person $x$ knows person $y$."
+
+Here, $K$ stands for our acquaintance relationship. The letters $x$ and $y$ are variables representing people.
+
+For example,
+
+$$
+ K(A,B)
+$$
+
+means Alice knows Ben, which is true in our network.
+
+But
+
+$$
+ K(B,A)
+$$
+
+means Ben knows Alice. According to the arrows we've drawn, that's false.
+
+This is called a **predicate**, or more precisely, a two-place predicate. Once we choose values for its two variables, it expresses a proposition that can be true or false.
+
+We also need to decide which people our variables can represent. That collection is called our *domain*.
+
+For now, the domain is simply
+
+$$
+ U=\{A,B,C\}.
+$$
+
+So when we say "everyone," we mean everyone in this three-person group. And when we say "someone," we mean at least one person from this same group.
+
+Now we're ready for two new symbols.
+
+<ReasoningFigure kind="quantifier-symbols" />
+
+The first symbol, $\forall$, is called the *universal quantifier*. It means "for every" or "for all."
+
+The second symbol, $\exists$, is called the *existential quantifier*. It means "there exists" or "for at least one."
+
+These symbols are called quantifiers because they tell us how extensively a condition must hold across our domain.
+
+With this notation, the statement "Everyone knows someone" becomes
+
+$$
+ \boxed{\forall x\;\exists y\;K(x,y)}
+$$
+
+Read it carefully, from left to right.
+
+For every person $x$, there exists a person $y$, such that $x$ knows $y$.
+
+What matters is that the first quantifier tells us to consider every possible $x$. Once we've selected a particular $x$, the second quantifier allows us to find some $y$ that works for that choice.
+
+Let's test it against our original network.
+
+## 4. Everyone knows someone
+
+We can think of the universal quantifier as giving us three cases to check: Alice, Ben, and Clara.
+
+The existential quantifier then asks whether we can find at least one suitable acquaintance in each case.
+
+| Person $x$ | Choice of $y$ | $K(x,y)$ |
+| -------------- | ----------------- | ------------ |
+| Alice          | Ben               |  True   |
+| Ben            | Clara             |  True   |
+| Clara          | Alice             |  True   |
+
+Every row passes. That means
+
+$$
+ \forall x\;\exists y\;K(x,y)
+$$
+
+is true in our network.
+
+But look at the second column. Our choice of $y$ changes depending on who $x$ is.
+
+For Alice, the chosen acquaintance is Ben. For Ben, it's Clara. And for Clara, it's Alice.
+
+There is nothing wrong with that. The statement never required us to use the same $y$ every time.
+
+In fact, we can represent the choices with a little rule:
+
+$$
+y(x)=\begin{cases}B&\text{if }x=A,\\C&\text{if }x=B,\\A&\text{if }x=C.\end{cases}
+$$
+
+Here, $y(x)$ simply records a witness we chose for each person $x$. We're not claiming that everyone has only one acquaintance. We just need one that works for each person.
+
+This gives us a powerful way to understand our first statement:
+
+**For every input $x$, we can find a suitable $y$.**
+
+<ReasoningFigure kind="dependent-choices" />
+
+Now, let's change the question.
+
+Instead of asking whether everyone can find somebody they know, suppose we ask:
+
+**Can we find one person whom everybody knows?**
+
+That sounds similar, but notice what happens to the mathematics.
+
+## 5. Someone whom everyone knows
+
+The new statement is
+
+$$
+ \boxed{\exists y\;\forall x\;K(x,y)}
+$$
+
+We've changed only the order of the two quantifiers.
+
+Now we begin by choosing a single person $y$. After making that choice, we must verify that every person $x$ knows that same $y$.
+
+We are no longer allowed to change our chosen $y$ from one person to the next.
+
+Let's try.
+
+Suppose we choose Alice as our candidate. Clara knows Alice, but Ben doesn't. So Alice fails.
+
+What about Ben? Alice knows Ben, but Clara doesn't. So Ben fails too.
+
+And Clara? Ben knows Clara, but Alice doesn't. Another failure.
+
+| Candidate known by everyone | A person who does not know them |
+| --------------------------- | ------------------------------- |
+| Alice                       | Ben                             |
+| Ben                         | Clara                           |
+| Clara                       | Alice                           |
+
+We've checked every possible candidate, and each one fails.
+
+Therefore,
+
+$$
+ \exists y\;\forall x\;K(x,y)
+$$
+
+is false in our original network.
+
+This is our first major discovery.
+
+<ReasoningFigure kind="quantifier-orders" />
+
+The first statement is true, and the second is false, even though they use exactly the same predicate, variables, and quantifiers.
+
+Only the order changed.
+
+And because we have found a situation in which they have different truth values, we have demonstrated that the two statements are **not logically equivalent**.
+
+## 6. What happens if everyone knows the same person?
+
+Now return to our interactive network and switch from "Different contacts" to "One shared contact."
+
+In that version, Alice knows Ben, Clara knows Ben, and Ben has a loop indicating that he knows himself.
+
+We can select Ben first, then check each person in turn.
+
+For Alice, $K(A,B)$ is true.
+
+For Ben, $K(B,B)$ is true.
+
+For Clara, $K(C,B)$ is true.
+
+This time the very same person works for every case. The stronger statement succeeds:
+
+$$
+ \exists y\;\forall x\;K(x,y).
+$$
+
+And something else follows immediately. If everybody knows Ben, then surely everybody knows *somebody*.
+
+That means the stronger statement guarantees the weaker one.
+
+$$
+ \boxed{ (\exists y\;\forall x\;K(x,y)) \;\Longrightarrow\; (\forall x\;\exists y\;K(x,y)) }
+$$
+
+The implication works in this direction, but not backward, as our original network already demonstrated.
+
+This is an important form of reasoning in mathematics. We haven't just compared two sentences. We've discovered a relationship between them.
+
+One statement is strong enough to guarantee the other, but the other doesn't contain enough information to guarantee it back.
+
+There's a subtle point about our model worth noticing, too.
+
+If we had defined knowing someone as a relationship that *strictly excludes knowing oneself*, then the literal sentence $\exists y\forall x K(x,y)$ would actually be impossible for a group where $x$ and $y$ range over the same people. Whoever we choose as $y$ would have to know themselves, because they're also one of the possible values of $x$.
+
+In ordinary conversation, saying that someone is "known by everyone" often means everyone *else*. We could formalize that more precisely by writing
+
+$$
+ \exists y\;\forall x\;(x\neq y\to K(x,y)).
+$$
+
+In words: there exists a person $y$ such that every person other than $y$ knows $y$.
+
+So mathematical precision isn't only about choosing the right symbols. It's also about defining the domain and relationship we're discussing.
+
+## 7. The deeper idea: dependence
+
+We've been talking about people, but the underlying idea is far more general.
+
+Consider these two expressions again:
+
+$$
+ \forall x\;\exists y\;P(x,y)
+$$
+
+$$
+ \exists y\;\forall x\;P(x,y).
+$$
+
+Here, $P(x,y)$ could describe almost any relationship: a student solving a problem, a customer receiving a service, a number being larger than another number, or a book citing a source.
+
+The first expression allows our chosen $y$ to **depend on $x$**.
+
+The second demands that we choose $y$ independently of $x$, and that one choice must work everywhere.
+
+Let's see how powerful that distinction becomes when the people are replaced with numbers.
+
+Consider:
+
+"For every real number $x$, there is a real number $y$ greater than $x$."
+
+Symbolically,
+
+$$
+ \forall x\in\mathbb R\;\exists y\in\mathbb R: y>x.
+$$
+
+Is that true?
+
+Of course. Whatever real number you give me, I can choose a larger one. If you give me 5, I can choose 6. If you give me 100, I can choose 101.
+
+In fact, I can use the general rule $y=x+1$.
+
+But what if we reverse the quantifiers?
+
+$$
+ \exists y\in\mathbb R\;\forall x\in\mathbb R: y>x.
+$$
+
+Now we're claiming that there exists one real number larger than every real number.
+
+That would have to be the greatest real number.
+
+And no such number exists. Whatever candidate $y$ you choose, I can find a larger number $x=y+1$, which makes the inequality $y>x$ false.
+
+<ReasoningFigure kind="real-choices" />
+
+Notice how we have transferred the same logical insight from a social network to the infinite set of real numbers.
+
+The objects changed. The relationship changed. But the structure of the reasoning stayed exactly the same.
+
+That's one reason mathematical logic is so useful: it allows us to recognize the same pattern underneath completely different problems.
+
+## 8. What does it mean for a quantified statement to be false?
+
+Let's take this one step further.
+
+So far, we've mostly been testing whether quantified statements are true. But mathematical proofs often require us to determine what it would mean for one of these statements to be false.
+
+And this is where the quantifiers become especially important.
+
+Suppose a teacher makes the following claim:
+
+"Every student solved at least one problem."
+
+Let's introduce the predicate $S(s,p)$, meaning student $s$ solved problem $p$.
+
+Our claim becomes
+
+$$
+ \boxed{\forall s\;\exists p\;S(s,p)}
+$$
+
+For every student $s$, there exists at least one problem $p$ that student solved.
+
+Now imagine we want to challenge this claim.
+
+What evidence would we need?
+
+Would it be enough to find a student who failed to solve one of the problems?
+
+No. The teacher only claimed that each student solved *at least one*. A student could fail nine problems and still satisfy the claim by solving the tenth.
+
+Would it be enough to find a problem that nobody solved?
+
+Again, not necessarily. Every student might have solved a different problem.
+
+To show that the teacher's statement is false, we need something more specific.
+
+We need to find **one student who didn't solve any problem at all**.
+
+Let's make the distinction visible.
+
+<Interactive kind="dependence" preset="students" id="student-counterexample" />
+
+At first, Maria solved Problem 1, and Noah solved Problem 2.
+
+The teacher's statement is true. Notice that no single problem was solved by both students, yet every student solved at least one problem.
+
+Now introduce a third student, Lea, who hasn't solved any of the problems.
+
+Suddenly, the original statement is false. Not because *everyone* failed, but because one particular student fails the condition completely.
+
+This is the fundamental logic of negation.
+
+To negate a universal claim, we only need one counterexample.
+
+And to negate the existential claim within it, we need to show that none of the possible choices works.
+
+Let's translate this reasoning into symbols.
+
+We begin with the original statement:
+
+$$
+ \forall s\;\exists p\;S(s,p).
+$$
+
+Its negation is
+
+$$
+ \neg(\forall s\;\exists p\;S(s,p)).
+$$
+
+The symbol $\neg$ means "it is not the case that."
+
+First, saying "not every student" means there exists a student for whom the remaining claim fails:
+
+$$
+ \exists s\;\neg(\exists p\;S(s,p)).
+$$
+
+But saying "there does not exist a problem that this student solved" means that every problem is one they did not solve:
+
+$$
+ \boxed{\exists s\;\forall p\;\neg S(s,p)}
+$$
+
+That's the final negation.
+
+<ReasoningFigure kind="quantifier-negation" />
+
+More generally, we have two important equivalences:
+
+$$
+ \neg\forall x\\,P(x)\equiv\exists x\\,\neg P(x)
+$$
+
+$$
+ \neg\exists x\\,P(x)\equiv\forall x\\,\neg P(x).
+$$
+
+Notice that the second equivalence says that "there is no $x$ for which $P(x)$ is true" means that $P(x)$ is false for every $x$.
+
+And the first says that "not every $x$ satisfies $P$" means that at least one $x$ fails.
+
+These aren't arbitrary rules for manipulating symbols. They are exactly what our counterexample investigation has already shown.
+
+## 9. Does "there exists" mean exactly one?
+
+Before we conclude, there's one more distinction we need to make.
+
+Suppose I tell you:
+
+"There exists a person Alice knows."
+
+You might imagine one particular acquaintance. But mathematically, the statement only requires at least one.
+
+It doesn't require exactly one.
+
+Let's look at three possible situations.
+
+<ReasoningFigure kind="existence-counts" />
+
+If Alice knows nobody, the existential statement is false.
+
+If Alice knows Ben, it's true.
+
+And if Alice knows both Ben and Clara, it's still true.
+
+The mathematical symbol $\exists$ requires **one or more witnesses**, not exactly one.
+
+When mathematicians want to say that exactly one object satisfies a condition, they express *unique existence*, often written with the symbol $\exists!$. We'll investigate that distinction more thoroughly in Episode 21.
+
+For now, remember that finding a second witness doesn't invalidate an existential statement. It simply means we have more than one possible way to satisfy it.
+
+## 10. Can you build a counterexample yourself?
+
+We've seen how to read statements with two quantifiers, how reversing their order can change their meaning, and how negation works when quantifiers are nested.
+
+Now let's see whether you can use those ideas without relying on our original network.
+
+Imagine a library with several books and several sources. Define
+
+$$
+ C(b,s)
+$$
+
+to mean that book $b$ cites source $s$.
+
+Consider the following statement:
+
+$$
+ \forall b\;\exists s\;C(b,s).
+$$
+
+Try translating it into ordinary language.
+
+It means every book cites at least one source.
+
+Now change the quantifier order.
+
+$$
+ \exists s\;\forall b\;C(b,s).
+$$
+
+What does this mean?
+
+It means there is one source that every book cites.
+
+Can you imagine a library where the first statement is true, but the second one is false?
+
+<Exercise>
+
+<ReasoningFigure kind="citation-witnesses" />
+
+Here is one possible answer. The first book cites Source 1. The second cites Source 2. And the third cites Source 3.
+
+Every book has a citation, so the first statement is true.
+
+But there is no source shared by all three books, so the second statement is false.
+
+It's the same logical structure as Alice, Ben, and Clara, only now we've applied it to a different situation.
+
+</Exercise>
+
+And one final question:
+
+What would it mean for the first statement to be false?
+
+Not every book cites a source.
+
+Which means that there must be **at least one book that cites no source at all**.
+
+In symbols,
+
+$$
+ \boxed{\exists b\;\forall s\;\neg C(b,s)}
+$$
+
+If you can explain that translation, and understand why our little network separates the first two statements, then you've grasped the central idea of this episode.
+
+## 11. What we've really discovered
+
+At the beginning, we asked whether everyone knowing someone meant that someone must be known by everyone.
+
+The answer was no.
+
+But the deeper discovery wasn't really about knowing people.
+
+It was about the order of our choices.
+
+When we write
+
+$$
+ \forall x\;\exists y,
+$$
+
+we're allowed to choose a suitable $y$ separately for every $x$.
+
+But when we write
+
+$$
+ \exists y\;\forall x,
+$$
+
+we must find one $y$ that works for every $x$.
+
+That's why the order of the quantifiers matters.
+
+It's also why negating a statement like "everyone has at least one" gives us "someone has none," rather than "everyone has none."
+
+And it's why a single counterexample can be enough to disprove a universal statement.
+
+In ordinary conversation, the difference between these sentences can be easy to overlook. But in mathematics, even a tiny change in their structure can mean the difference between a true statement and a false one.
+
+The next time you encounter a claim involving words like *every*, *some*, *at least one*, or *none*, try asking yourself:
+
+**Who gets to choose, and does that choice have to work for everyone?**
+
+Sometimes, understanding a statement begins with nothing more than noticing the order in which its questions are asked.
+
+## Reference reading
+
+[forall x: An Introduction to Formal Logic](https://forallx.openlogicproject.org/html/) (multiple generality and quantifier conversion) and [Velleman — How to Prove It](https://www.cambridge.org/core/books/abs/how-to-prove-it/contents/D9098F367810400B8A7FFD6FFCC22695) (quantificational logic).

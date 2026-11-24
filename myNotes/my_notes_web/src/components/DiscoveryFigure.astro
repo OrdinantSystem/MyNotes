@@ -1,0 +1,23 @@
+---
+import Math from './Math.astro';import MathText from './MathText.astro';
+import {isDiscoveryFigure,dependentInputs,nextInteger,type DiscoveryFigure} from '../lib/interactive/discovery-model';
+import {discoveryTex as t,branchClaim} from '../lib/interactive/discovery-render';
+import {discoveryText} from '../lib/reasoning/discovery-copy';
+import '../styles/counterexamples.css';import '../styles/discovery.css';
+interface Props{kind:DiscoveryFigure}
+const {kind}=Astro.props,locale=Astro.locals.locale||'en',c=discoveryText(locale);
+if(!isDiscoveryFigure(kind))throw new Error('Unknown discovery figure');
+---
+<figure class="counter-figure discovery-figure" data-discovery-figure={kind}>
+ <h3>{c.figures[kind]}</h3>
+ {kind==='discovery-have-goal'&&<div class="discovery-columns"><section class="discovery-panel discovery-known"><h4>{c.have}</h4>{c.assumptions.map(text=><p><MathText text={text}/></p>)}<p>{c.integers}</p></section><section class="discovery-panel discovery-goal"><h4>{c.need}</h4><p><MathText text={c.goal}/></p><p>{c.notYet}</p></section></div>}
+ {kind==='discovery-backward'&&<><p><MathText text={c.backward[0]}/></p><p class="discovery-arrow" aria-hidden="true">↓</p><p><MathText text={c.backward[1]}/></p><Math tex={t.target} display/><p class="discovery-readout"><MathText text={c.backward[2]}/></p></>}
+ {kind==='discovery-match'&&<><div class="discovery-columns"><section><h4>{c.fromAssumptions}</h4><Math tex={t.from} display/><Math tex={t.integers} display/></section><section><h4>{c.required}</h4><Math tex={t.target} display/></section></div><p class="discovery-arrow" aria-hidden="true">↓</p><Math tex={t.chosen} display/><figcaption>{c.match}</figcaption></>}
+ {kind==='discovery-directions'&&<><div class="discovery-columns"><section class="discovery-panel discovery-known"><h4>{c.forward}</h4><Math tex={t.evenForm} display/><Math tex={t.oddForm} display/><Math tex={t.connection} display/></section><section class="discovery-panel discovery-goal"><h4>{c.backwardLabel}</h4><p><MathText text={c.goal}/></p><p class="discovery-arrow" aria-hidden="true">↓</p><Math tex={t.target} display/></section></div><div class="discovery-established"><Math tex={t.chosen} display/><p>{c.meeting}</p></div></>}
+ {kind==='discovery-circular'&&<><Math tex={t.circular} display/><p><MathText text={c.circularQuestion}/></p><figcaption><MathText text={c.circularResolution}/></figcaption></>}
+ {kind==='discovery-branches'&&<><Math tex={branchClaim(locale)} display/><p><MathText text={c.arbitrary}/></p><section class="discovery-scope"><h4><MathText text={c.temporary}/></h4><Math tex={t.assumed} display/><p>{c.twoGoals}</p><div class="discovery-columns"><section class="discovery-obligation"><h4><MathText text={c.goalA}/></h4><Math tex={t.square} display/><p><MathText text={c.squareClosure}/></p></section><section class="discovery-obligation"><h4><MathText text={c.goalB}/></h4><Math tex={t.plus} display/><p><MathText text={c.plusClosure}/></p></section></div><p class="discovery-readout">{c.both}</p></section><p><strong>{c.close}</strong></p><figcaption><MathText text={c.universal}/></figcaption></>}
+ {kind==='discovery-rules'&&<><table class="discovery-rules"><thead><tr>{c.ruleHeaders.map(h=><th scope="col">{h}</th>)}</tr></thead><tbody>{t.rules.map((tex,i)=><tr><th scope="row"><Math tex={tex}/></th><td><MathText text={c.ruleMoves[i]}/></td></tr>)}</tbody></table><figcaption><MathText text={c.ruleCaption}/></figcaption></>}
+ {kind==='discovery-dependence'&&<><div class="discovery-triples">{dependentInputs.map(n=><section><p>{c.chooseN}</p><strong>{n}</strong><p class="discovery-arrow" aria-hidden="true">↓</p><p>{c.thenM}</p><strong>{nextInteger(n)}</strong></section>)}</div><Math tex={t.dependent} display/><figcaption><MathText text={c.dependency}/></figcaption></>}
+ {kind==='discovery-counterexample'&&<><Math tex={t.falseGoal} display/><p class="discovery-arrow" aria-hidden="true">↓</p><Math tex={t.falseCase} display/><figcaption><MathText text={c.counterexample}/></figcaption></>}
+ {kind==='discovery-abilities'&&<div class="discovery-abilities">{c.abilities.map((name,i)=><section><h4>{name}</h4><p>{c.abilityDetails[i]}</p></section>)}</div>}
+</figure>

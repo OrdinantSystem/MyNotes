@@ -1,0 +1,405 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-two
+sourceId: reasoning-episode-11
+sourcePages: []
+sourceLocations: ["Sections 1–8; Reference reading"]
+title: "Warum „wenn“ nicht rückwärts funktioniert"
+navTitle: "Implikation und ihre Umkehrung"
+description: "Hinreichende und notwendige Bedingungen, Gegenbeispiele, Kontraposition und die Richtung einer Garantie verstehen."
+order: 11
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [words-meanings-and-evidence]
+thumbnail: reasoning-conditional
+---
+
+## 1. Eine Regel, die nur in eine Richtung gilt
+
+Stell dir vor, ich wähle heimlich eine ganze Zahl und verrate dir nur eines über sie:
+
+**Die Zahl ist ein Vielfaches von vier.**
+
+Auch ohne zu wissen, welche Zahl ich gewählt habe, kannst du sofort etwas anderes über sie sagen. Sie muss gerade sein.
+
+Vier ist gerade. Acht ist gerade. Zwölf ist gerade. Auch negative Vielfache von vier sind gerade. Das ist kein Zufall: Es gibt einen mathematischen Grund dafür, dass die Regel gilt.
+
+Aber nehmen wir an, ich ändere die Information. Statt dir zu sagen, dass meine Zahl ein Vielfaches von vier ist, sage ich dir nur, dass sie gerade ist.
+
+Kannst du daraus schließen, dass sie ein Vielfaches von vier ist?
+
+Nicht unbedingt. Ich könnte sechs, zehn oder vierzehn gewählt haben. Sie sind alle gerade, aber keine davon ist ein Vielfaches von vier.
+
+Das ist interessant. Wir begannen mit einer vollkommen richtigen Aussage, kehrten ihre Richtung um, und plötzlich war sie nicht mehr richtig.
+
+Verstehen wir, was hier passiert.
+
+<Interactive kind="conditional" preset="numbers" id="integer-conditional" />
+
+Beachte, was das Bild zeigt. Jede Zahl im kleineren Bereich gehört auch zum größeren. Aber der größere Bereich enthält Zahlen, die nicht im kleineren liegen.
+
+In der Mathematik beschreiben wir diesen Zusammenhang mit *Mengen*.
+
+Nennen wir die Menge aller ganzzahligen Vielfachen von vier $M_4$ und die Menge aller geraden ganzen Zahlen $E$. Dann können wir schreiben:
+
+$$
+\boxed{M_4\subseteq E}
+$$
+
+Das Symbol $\subseteq$ bedeutet, dass jedes Element der ersten Menge auch zur zweiten Menge gehört.
+
+Der gesamte kleinere Bereich liegt innerhalb des größeren. Aber es gibt keinen Grund anzunehmen, dass beide identisch sind.
+
+Damit haben wir unsere erste wichtige Entdeckung:
+
+**Wenn eine Eigenschaft eine andere garantiert, heißt das nicht, dass die zweite Eigenschaft auch die erste garantiert.**
+
+Der Zusammenhang hat eine Richtung.
+
+## 2. Eine mathematische Sprache für den Zusammenhang
+
+Machen wir unsere beiden Eigenschaften präziser.
+
+Für eine ganze Zahl $n$ definieren wir:
+
+$$
+\begin{aligned} P(n)&:\quad n\text{ ist ein Vielfaches von vier.}\\ Q(n)&:\quad n\text{ ist gerade.} \end{aligned}
+$$
+
+Dabei sind $P$ und $Q$ *Prädikate*: Aussagen, deren Wahrheitswert vom Wert von $n$ abhängen kann.
+
+Unsere ursprüngliche Behauptung lässt sich nun so ausdrücken:
+
+$$
+\boxed{P(n)\rightarrow Q(n)}
+$$
+
+Lies den Pfeil als **„Wenn $P(n)$, dann $Q(n)$.“**
+
+Die Aussage vor dem Pfeil, $P(n)$, heißt *Vorderglied* oder *Antezedens*. Die Aussage nach dem Pfeil, $Q(n)$, heißt *Hinterglied* oder *Konsequens*.
+
+Es gibt zwei weitere wichtige Wörter für diesen Zusammenhang: *hinreichend* und *notwendig*.
+
+<ReasoningFigure kind="conditional-roles" />
+
+Denke über den Unterschied nach.
+
+Ein Vielfaches von vier zu sein ist **hinreichend**, um festzustellen, dass eine Zahl gerade ist. Du brauchst keine zusätzliche Information.
+
+Gerade zu sein ist **notwendig**, um ein Vielfaches von vier zu sein. Ohne Geradheit kann die Zahl unmöglich ein Vielfaches von vier sein.
+
+Aber gerade zu sein ist nicht hinreichend, um festzustellen, dass die Zahl ein Vielfaches von vier ist.
+
+Diese Unterscheidung ist wichtig, weil *notwendig* und *hinreichend* im Alltag fast austauschbar klingen können. Mathematisch beschreiben sie jedoch verschiedene Rollen innerhalb einer Implikation.
+
+Beachte außerdem: Wir haben noch nicht bewiesen, dass unsere ursprüngliche Implikation wahr ist. Wir haben sie mit Beispielen veranschaulicht, aber Beispiele allein reichen nicht aus, um eine Aussage über jede ganze Zahl zu rechtfertigen.
+
+Beweisen wir sie also.
+
+Angenommen, $n$ ist ein Vielfaches von vier. Nach Definition gibt es dann eine ganze Zahl $k$ mit
+
+$$
+n=4k.
+$$
+
+Das können wir umschreiben als
+
+$$
+n=2(2k).
+$$
+
+Weil $k$ eine ganze Zahl ist, ist auch $2k$ eine ganze Zahl. Damit ist $n$ das Doppelte einer ganzen Zahl – genau das ist die Definition einer geraden Zahl.
+
+Also gilt:
+
+$$
+\boxed{\forall n\in\mathbb Z,\quad P(n)\rightarrow Q(n)}
+$$
+
+Das Symbol $\forall$ bedeutet *für alle*. Wir haben gezeigt, dass die Implikation für jede ganze Zahl gilt, nicht nur für unsere drei Beispiele.
+
+Mit diesem bewiesenen Zusammenhang können wir nun etwas Feineres untersuchen: Was genau verspricht der Pfeil?
+
+## 3. Was müsste passieren, damit eine Implikation scheitert?
+
+Mit „Wenn $P$, dann $Q$“ behaupten wir nicht, dass $P$ immer wahr ist. Wir behaupten, dass immer dann, wenn $P$ wahr ist, auch $Q$ wahr sein muss.
+
+Stell dir vor, du möchtest diese Behauptung widerlegen.
+
+Würde eine Zahl wie vier dabei helfen? Nein. Vier erfüllt beide Eigenschaften, also funktioniert die Regel.
+
+Was ist mit sieben? Sieben ist kein Vielfaches von vier, aber auch nicht gerade. Widerlegt das die Regel?
+
+Nein, denn die ursprüngliche Aussage hat nie behauptet, dass *jede* ganze Zahl gerade sein muss. Sie sagt nur, dass Vielfache von vier gerade sein müssen.
+
+Was ist mit sechs? Sechs ist gerade, aber kein Vielfaches von vier. Widerspricht das der ursprünglichen Aussage?
+
+Wieder nein. Unsere Regel verlangt nicht, dass alle geraden Zahlen Vielfache von vier sind.
+
+Es gibt nur **eine Art von Beispiel, die sie widerlegen könnte**: eine Zahl, die ein Vielfaches von vier ist, aber nicht gerade.
+
+Symbolisch bräuchten wir
+
+$$
+P(n)\land\neg Q(n).
+$$
+
+Dabei bedeutet $\land$ *und*, während $\neg$ für *nicht* steht.
+
+In der klassischen Logik ist die Implikation $P\rightarrow Q$ genau dann falsch, wenn $P$ wahr und $Q$ falsch ist.
+
+<ReasoningFigure kind="conditional-cases" />
+
+Damit können wir Implikation viel nützlicher verstehen.
+
+Statt eine komplizierte Regel für Wahrheitswerte auswendig zu lernen, merke dir: **Eine Implikation verbietet genau eine Kombination – ihr Vorderglied ist wahr und ihr Hinterglied falsch.**
+
+Alle anderen Kombinationen sind mit der Konditionalaussage vereinbar.
+
+Das erklärt auch etwas, das viele am Anfang der formalen Logik überrascht. Für eine konkrete Zahl wie sieben gilt $P(7)\rightarrow Q(7)$ als wahr, obwohl weder $P(7)$ noch $Q(7)$ wahr ist.
+
+Der Grund ist nicht, dass sieben positive Evidenz über Vielfache von vier liefern würde. Sieben verletzt einfach nicht das Versprechen der Implikation.
+
+Das nennen wir die *materiale Implikation* der klassischen Aussagenlogik. Sie bestimmt den Wahrheitswert einer Konditionalaussage aus den Wahrheitswerten ihrer Bestandteile.
+
+Jetzt wissen wir genau, wodurch eine Implikation scheitern würde. Damit können wir vier Aussagen untersuchen, die sich bemerkenswert ähnlich sehen.
+
+Wir werden entdecken, dass nur zwei davon dasselbe ausdrücken.
+
+<Note title="Welcher Vergleich ist gemeint?">
+Hier vergleichen wir jede Form mit der ursprünglichen Implikation. Original und Kontraposition sind äquivalent. Die vollständige Tabelle zeigt außerdem ein zweites Äquivalenzpaar: Umkehrung und Inverse.
+</Note>
+
+## 4. Vier Aussagen, die fast gleich aussehen
+
+Beginnen wir mit der Aussage, die wir bereits bewiesen haben:
+
+**Wenn eine Zahl ein Vielfaches von vier ist, dann ist sie gerade.**
+
+Symbolisch ist das $P\rightarrow Q$.
+
+Was passiert nun, wenn wir Vorderglied und Hinterglied vertauschen?
+
+Wir erhalten:
+
+**Wenn eine Zahl gerade ist, dann ist sie ein Vielfaches von vier.**
+
+Das heißt *Umkehrung*.
+
+$$
+Q\rightarrow P
+$$
+
+Wir wissen bereits, warum das nicht funktioniert. Sechs ist gerade, aber kein Vielfaches von vier.
+
+Wir haben die Bedeutung keiner der beiden Eigenschaften verändert. Wir haben nur die Richtung des Pfeils geändert, und das genügte, um aus einer wahren Aussage eine falsche zu machen.
+
+Versuchen wir etwas anderes. Statt die Eigenschaften zu vertauschen, verneinen wir beide:
+
+**Wenn eine Zahl kein Vielfaches von vier ist, dann ist sie nicht gerade.**
+
+Das heißt *Inverse*.
+
+$$
+\neg P\rightarrow\neg Q
+$$
+
+Funktioniert das?
+
+### Jetzt du: Prüfe die Inverse
+
+<Exercise question="Stimmt es, dass jede ganze Zahl, die kein Vielfaches von vier ist, ungerade sein muss?">
+**Nein. Die Zahl 6 widerlegt die Aussage.**
+
+Sechs ist kein Vielfaches von vier, aber gerade. Sie erfüllt $\neg P$, ohne $\neg Q$ zu erfüllen. Deshalb ist die Inverse falsch.
+</Exercise>
+
+Weder das bloße Umkehren des Pfeils noch das Verneinen beider Eigenschaften bewahrt also unsere ursprüngliche Behauptung.
+
+Aber es gibt noch eine Möglichkeit.
+
+Was geschieht, wenn wir beide Operationen zusammen ausführen? Zuerst vertauschen wir die Positionen, dann verneinen wir beide Eigenschaften.
+
+Wir erhalten:
+
+**Wenn eine Zahl nicht gerade ist, dann ist sie kein Vielfaches von vier.**
+
+$$
+\neg Q\rightarrow\neg P
+$$
+
+Das heißt *Kontraposition*.
+
+Und dieses Mal funktioniert es.
+
+Denke an unser ursprüngliches Diagramm. Die gesamte Menge der Vielfachen von vier liegt innerhalb der Menge der geraden ganzen Zahlen. Jede Zahl außerhalb der geraden ganzen Zahlen muss deshalb auch außerhalb der Vielfachen von vier liegen.
+
+Wir haben keine neue Eigenschaft von Zahlen entdeckt. Wir haben denselben Zusammenhang aus der entgegengesetzten Richtung beschrieben.
+
+<ReasoningFigure kind="conditional-forms" />
+
+Es mag verlockend sein, diese vier Namen auswendig zu lernen und sich zu merken, welche Aussage richtig ist. Aber es gibt eine tiefere Erklärung, die das Auswendiglernen fast überflüssig macht.
+
+## 5. Warum die Kontraposition den Wahrheitswert bewahrt
+
+Erinnere dich an unsere Entdeckung: Eine Implikation scheitert in genau einer Situation – ihr Vorderglied ist wahr und ihr Hinterglied falsch.
+
+Für die ursprüngliche Implikation $P\rightarrow Q$ bedeutet das: $P$ ist wahr und $Q$ falsch.
+
+Betrachte nun die Kontraposition $\neg Q\rightarrow\neg P$. Wann würde sie scheitern?
+
+Sie würde scheitern, wenn $\neg Q$ wahr und $\neg P$ falsch wäre.
+
+Aber das ist genau dieselbe Situation! Wenn $\neg Q$ wahr ist, ist $Q$ falsch. Und wenn $\neg P$ falsch ist, ist $P$ wahr.
+
+Die ursprüngliche Aussage und ihre Kontraposition verbieten also **genau dieselbe Kombination von Möglichkeiten**.
+
+Zwei logische Aussagen heißen *äquivalent*, wenn sie bei jeder möglichen Belegung ihrer Bestandteile dieselben Wahrheitswerte haben.
+
+Sieh dir den vollständigen Vergleich an:
+
+<ReasoningFigure kind="conditional-table" />
+
+Beachte die übereinstimmenden Spalten. Original und Kontraposition stimmen immer überein. Auch Umkehrung und Inverse stimmen stets miteinander überein.
+
+Diese beiden logischen Äquivalenzen können wir so ausdrücken:
+
+$$
+\boxed{P\rightarrow Q\ \equiv\ \neg Q\rightarrow\neg P}
+$$
+
+$$
+\boxed{Q\rightarrow P\ \equiv\ \neg P\rightarrow\neg Q}
+$$
+
+Das Symbol $\equiv$ bedeutet *logisch äquivalent*.
+
+Das ist viel wirkungsvoller, als sich nur zu merken, welche Aussage Kontraposition heißt.
+
+Es sagt uns, dass ein Beweis von $P\rightarrow Q$ logisch gleichwertig mit einem Beweis von $\neg Q\rightarrow\neg P$ ist.
+
+Damit erhält die Mathematik eine wichtige Technik: Manchmal ist es leichter, die Kontraposition zu beweisen als die ursprüngliche Konditionalaussage direkt. Beide beweisen genau dasselbe Ergebnis.
+
+Können wir dieses Verständnis auch jenseits von Zahlen verwenden?
+
+Nehmen wir eine Situation, in der das Umkehren einer Implikation zu einem folgenreichen Fehler führen könnte.
+
+## 6. Die Eintrittskarte, die keinen Einlass garantiert
+
+Stell dir vor, du besuchst einen Konzertsaal. Die Regeln verlangen für den Einlass sowohl eine gültige Eintrittskarte als auch einen geprüften Ausweis.
+
+Jemand sagt dir:
+
+„Wenn du in den Saal eingelassen wurdest, dann hast du eine gültige Eintrittskarte.“
+
+Das leuchtet ein. Eine gültige Eintrittskarte ist für den Einlass erforderlich.
+
+Aber nun zeigt dir jemand eine gültige Eintrittskarte.
+
+Kannst du daraus schließen, dass diese Person eingelassen wird?
+
+Nicht unbedingt. Vielleicht fehlt ihr der erforderliche Ausweis.
+
+Führen wir drei Prädikate über eine besuchende Person ein:
+
+$$
+\begin{aligned} A&:\text{Die Person wird eingelassen.}\\ T&:\text{Die Person hat eine gültige Eintrittskarte.}\\ I&:\text{Die Person hat einen geprüften Ausweis.} \end{aligned}
+$$
+
+Die Regeln sagen uns:
+
+$$
+\boxed{A\rightarrow(T\land I)}
+$$
+
+Das bedeutet, dass alle Eingelassenen beide Voraussetzungen erfüllen müssen.
+
+<ReasoningFigure kind="conditional-admission" />
+
+So wie die Vielfachen von vier innerhalb der geraden Zahlen lagen, müssen eingelassene Personen zur Menge der Personen mit gültiger Eintrittskarte gehören.
+
+Aber die Zugehörigkeit zur größeren Menge garantiert nicht die Zugehörigkeit zur kleineren.
+
+Der wichtige Unterschied lautet: Eine gültige Eintrittskarte ist **notwendig für den Einlass, aber nicht hinreichend**.
+
+Die Kontraposition liefert uns etwas Nützliches. Aus $A\rightarrow T$ können wir schließen:
+
+$$
+\boxed{\neg T\rightarrow\neg A}
+$$
+
+Wenn du keine gültige Eintrittskarte hast, kannst du nach diesen Regeln nicht eingelassen werden.
+
+Beachte, dass wir nun auf zulässige Weise *rückwärts* geschlossen haben. Wir haben den Pfeil nicht einfach umgekehrt, sondern auch beide Aussagen verneint.
+
+<Exercise question="Eine Person hat eine gültige Eintrittskarte. Ist ihr Einlass garantiert?">
+**Nein.** Ihr könnte der Ausweis fehlen. Die Regeln garantieren, dass der Einlass eine Eintrittskarte erfordert, nicht, dass eine Eintrittskarte den Einlass garantiert.
+
+Selbst beide Dokumente zusammen reichen möglicherweise nicht aus, wenn es weitere Einlassbedingungen gibt.
+</Exercise>
+
+Diese Verwechslung begegnet uns bei Sicherheitsregeln, rechtlichen Voraussetzungen, medizinischen Tests und sogar in Alltagsgesprächen. Menschen verwechseln häufig eine erforderliche Bedingung mit einer Bedingung, die ein Ergebnis garantiert.
+
+In jedem dieser Fälle hilft dieselbe mathematische Struktur dabei, den Fehler zu erkennen.
+
+## 7. Bedeutet „wenn“ auch „weil“?
+
+Eine letzte Unterscheidung sollten wir noch treffen.
+
+Im Alltag kann *wenn* Verschiedenes nahelegen. Manchmal beschreibt es einen ausnahmslosen logischen Zusammenhang. Manchmal deutet es eine kausale Erklärung an. Und manchmal beschreibt es ein Muster, das lediglich häufig auftritt.
+
+Das sind keine gleichwertigen Behauptungen.
+
+<ReasoningFigure kind="conditional-kinds" />
+
+Die formale Logik erlaubt es uns, die Struktur einer Konditionalaussage unabhängig von Fragen nach Wahrscheinlichkeit oder Kausalität zu untersuchen. Wenn wir Alltagssprache in Logik übersetzen, müssen wir aber zuerst verstehen, was die sprechende Person tatsächlich meint.
+
+Sonst analysieren wir womöglich eine mathematische Aussage vollkommen korrekt, die die ursprüngliche Behauptung gar nicht angemessen wiedergibt.
+
+## 8. Was wir tatsächlich entdeckt haben
+
+Kehren wir zu unserem Ausgangspunkt zurück.
+
+Jedes Vielfache von vier ist gerade. Das stimmt. Aber gerade zu sein garantiert nicht, ein Vielfaches von vier zu sein.
+
+Zunächst wirkte das wie eine kleine Besonderheit von Zahlen. Unsere Untersuchung zeigte aber etwas viel Allgemeineres.
+
+Eine Implikation beschreibt einen gerichteten Zusammenhang zwischen zwei Eigenschaften. Sie sagt uns, was wahr sein muss, wenn eine bestimmte Bedingung erfüllt ist. Sie sagt uns nicht, dass der Zusammenhang auch umgekehrt gilt.
+
+Wir haben gelernt, dass die ursprüngliche Konditionalaussage und ihre Kontraposition immer übereinstimmen. Das liegt nicht an einem Symboltrick, sondern daran, dass beide genau dieselbe logische Möglichkeit verbieten.
+
+Und wir haben etwas besonders Nützliches für die Mathematik gelernt: **Wenn eine Schlussfolgerung aus einer Annahme folgen muss, können wir diesen Zusammenhang manchmal beweisen, indem wir stattdessen seine Kontraposition beweisen.**
+
+Eine letzte Frage lohnt sich noch.
+
+Was ist, wenn wir tatsächlich wollen, dass der Zusammenhang in beide Richtungen gilt?
+
+Dann brauchen wir mehr als eine Implikation. Wir müssen beide beweisen:
+
+$$
+P\rightarrow Q\qquad\text{und}\qquad Q\rightarrow P.
+$$
+
+Wenn beide Richtungen gelten, schreiben wir
+
+$$
+\boxed{P\leftrightarrow Q}
+$$
+
+und sagen **„$P$ genau dann, wenn $Q$.“**
+
+Das ist ein stärkerer Zusammenhang: Jede Eigenschaft ist sowohl notwendig als auch hinreichend für die andere.
+
+Zu verstehen, wie wir beide Richtungen beweisen, wird uns eines der nützlichsten Werkzeuge des mathematischen Denkens geben.
+
+Frage dich vorerst bei jeder Aussage, die mit *wenn* beginnt:
+
+**In welche Richtung geht die Garantie tatsächlich?**
+
+Zu wissen, dass etwas aus etwas anderem folgt, ist nicht dasselbe wie zu wissen, dass es auch umgekehrt folgt.
+
+Diesen Unterschied zu erkennen gehört zu den Grundlagen strengen Denkens.
+
+Weiterführende Literatur: [Richard Hammack, Book of Proof](https://richardhammack.github.io/BookOfProof/) · [Daniel Velleman, How to Prove It](https://www.cambridge.org/core/books/abs/how-to-prove-it/contents/D9098F367810400B8A7FFD6FFCC22695)

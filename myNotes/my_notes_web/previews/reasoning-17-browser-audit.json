@@ -1,0 +1,108 @@
+{
+  "lesson": "finding-the-next-proof-step",
+  "date": "2026-11-24",
+  "browser": "IAB",
+  "root": "http://127.0.0.1:4321/reasoning/lessons/finding-the-next-proof-step/",
+  "viewports": [
+    [
+      1440,
+      1000
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "locales": [
+    "en",
+    "de"
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "layout": {
+    "pageWideOverflow": false,
+    "katexErrors": 0,
+    "duplicateIds": 0,
+    "activities": 3,
+    "figures": 10,
+    "wideArticleTable": "Locally scrollable table wrapper; no page-wide overflow.",
+    "conditionalScope": "Both goals visibly inside temporary assumption; compact cards stack."
+  },
+  "parity": {
+    "observedSelections": [
+      [
+        2,
+        1,
+        3
+      ],
+      [
+        8,
+        7,
+        15
+      ],
+      [
+        4,
+        5,
+        9
+      ]
+    ],
+    "keyboard": "Space/Enter native buttons",
+    "reset": "4 and 5 restored"
+  },
+  "workspace": {
+    "stagesObserved": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "goalUnprovedUntilFinal": true,
+    "back": true,
+    "replay": true,
+    "reset": true,
+    "initialBackDisabled": true
+  },
+  "practice": {
+    "allFourCorrectAnswersObserved": true,
+    "incorrectFeedbackObserved": true,
+    "nativeRadioArrowNavigation": true,
+    "answersPersistAcrossQuestionNavigation": true,
+    "lastNextDisabled": true,
+    "resetClearsAnswersAndClosesReference": true,
+    "freshPageUnanswered": true,
+    "threeAddedQuestionsLabeled": true
+  },
+  "gallery": {
+    "allThreePresets": true,
+    "allTenFigures": true,
+    "independence": "First workspace at step 5; second remains step 1.",
+    "consoleWarningsErrors": []
+  },
+  "prefix": {
+    "base": "/MyNotes",
+    "stylesPrefixed": true,
+    "previousThenNext": true,
+    "languageSwitch": true,
+    "searchQuery": "Velleman",
+    "searchResultOpenedBothLocales": true,
+    "interactiveStepAdvanced": true,
+    "consoleWarningsErrors": []
+  },
+  "finalRootConsoleWarningsErrors": [],
+  "cleanup": {
+    "temporaryTabsClosed": true,
+    "viewportOverrideReset": true,
+    "normalEnglishDeliverableLeftOpen": true
+  },
+  "screenshots": [
+    "reasoning-17-desktop.jpg",
+    "reasoning-17-compact-de.jpg"
+  ],
+  "limits": [
+    "Finite interaction samples do not establish the general theorem.",
+    "No independent mathematics or translation review and no full accessibility audit."
+  ]
+}

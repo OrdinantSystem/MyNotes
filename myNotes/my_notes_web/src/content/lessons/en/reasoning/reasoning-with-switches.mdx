@@ -1,0 +1,545 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-two
+sourceId: reasoning-episode-12
+sourcePages: []
+sourceLocations: ["Sections 1–10; Learning checkpoint; Sources and further study"]
+title: "Reasoning with switches: AND, OR, and NOT"
+navTitle: "AND, OR and NOT"
+description: "Explore Boolean circuits, truth tables, negation, De Morgan’s laws and equivalent access rules."
+order: 12
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [implication-and-its-converse]
+thumbnail: reasoning-switches
+---
+
+## 1. A door with two conditions
+
+Imagine arriving at a building with an electronic security system. You have an access pass, you approach the entrance, and you scan your card.
+
+But the door doesn't open.
+
+Your pass is perfectly valid. The problem is that the building is closed, and the security system has been programmed to allow ordinary entry only during opening hours.
+
+So apparently, having a valid pass is not enough. The building must also be open.
+
+We have two conditions, and the door will open only when **both conditions are satisfied**.
+
+Let's see what that actually means.
+
+<Note title="Model assumption">Here the stated rule completely determines whether the door opens. We assume no additional conditions or faults. The circuit pictures illustrate Boolean behavior.</Note>
+
+<Interactive kind="switches" preset="access" id="access-switches" />
+
+Try a few combinations. Remove the valid pass while keeping the building open. Then give yourself a pass, but close the building. Finally, activate both conditions.
+
+You can see that the door behaves like an electrical circuit with two switches connected in series. Electricity can reach the output only when both switches complete the path.
+
+And this gives us our first logical operation.
+
+## 2. AND: When two conditions must hold
+
+We can express the entire access system using just two statements.
+
+$$
+\begin{aligned}P&:\text{The person has a valid pass.}\\Q&:\text{The building is open.}\end{aligned}
+$$
+
+Each statement has one of two truth values: true or false.
+
+To express that both statements must be true, we write:
+
+$$
+ \boxed{P\land Q}
+$$
+
+The symbol $\land$ means **AND**. In logic, combining statements this way is called a *conjunction*.
+
+Notice something important: we are not claiming that either statement must always be true. We're constructing a new statement whose truth depends on the truth values of its components.
+
+And we can work out exactly when that combined statement is true.
+
+If the pass is valid and the building is open, the result is true. But if either condition fails, the whole conjunction is false.
+
+In fact, there are only four possible combinations.
+
+<ReasoningFigure kind="switch-and-table" />
+
+This is our first **truth table**.
+
+It doesn't tell us which situation is currently happening. Instead, it describes what the rule would produce in every possible situation.
+
+And that distinction matters. A truth table lets us investigate the structure of a logical rule independently of the particular facts we feed into it.
+
+You might recognize something from mathematics here. If we want to prove a claim that depends on two true-or-false conditions, we can sometimes divide the problem into these four cases. Rather than testing a few examples and hoping the rule always works, we account for every possible combination.
+
+For two conditions, that's four cases. For three, there are eight. For four, sixteen.
+
+In general, for $n$ independent Boolean inputs, there are
+
+$$
+ 2^n
+$$
+
+possible truth assignments.
+
+Now, however, suppose our building's security system becomes a little more sophisticated.
+
+## 3. OR: When there is more than one way in
+
+The building administrator decides that there should be a second access route.
+
+Ordinary visitors still need a valid pass and an open building. But authorized emergency personnel can enter using a separate override credential, even outside opening hours.
+
+Let's call that third condition $R$.
+
+$$
+ R:\text{An authorized override is active.}
+$$
+
+The door now has two possible routes to opening:
+
+$$
+ \boxed{(P\land Q)\lor R}
+$$
+
+The symbol $\lor$ means **OR**, and this operation is called a *disjunction*.
+
+Unlike AND, which requires both conditions to be true, OR requires **at least one** to be true.
+
+<Interactive kind="switches" preset="override" id="override-switches" />
+
+Try enabling the override while the building is closed. The door opens, even though the ordinary access route fails.
+
+Now make both routes active simultaneously.
+
+The door remains open.
+
+This might seem obvious, but it reveals a distinction between the mathematical meaning of OR and the way we sometimes use the word in everyday conversation.
+
+Suppose I offer you tea or coffee. You might understand that you must choose one, but not both.
+
+In mathematical logic, however, $P\lor Q$ means at least one condition is true. It also allows both to be true.
+
+That's called **inclusive OR**.
+
+But there is another operation that specifically excludes the possibility of both conditions holding simultaneously.
+
+## 4. Inclusive OR versus exclusive OR
+
+Imagine that instead of an access system, we're designing a controller with two operating modes.
+
+One switch activates manual control. The other activates automatic control.
+
+We want the controller to work only when exactly one mode is selected. Turning both on at the same time should be considered an invalid configuration.
+
+That is an **exclusive OR**, commonly written XOR, or $\oplus$.
+
+$$
+ P\oplus Q
+$$
+
+The distinction becomes clear when we place the operations next to each other.
+
+<ReasoningFigure kind="switch-xor" />
+
+Notice that the two operations agree in three of the four cases.
+
+They disagree only when both inputs are true.
+
+And this is a recurring theme in reasoning: two rules can behave identically in many situations without being equivalent. To establish equivalence, we need to know what happens in *all* possible cases.
+
+So whenever you encounter the word "or" in an argument, a contract, or a mathematical problem, it's worth asking which meaning is intended.
+
+In formal mathematical logic, $\lor$ is inclusive unless explicitly defined otherwise.
+
+Now we have two ways to combine conditions: AND and OR.
+
+But what happens when we want to express the failure of a condition?
+
+## 5. NOT: Reversing the truth value
+
+Return to our original building, without the emergency override.
+
+The door opens when $P\land Q$ is true.
+
+What condition describes the door being locked?
+
+We might be tempted to answer: "The person has no pass, and the building is closed."
+
+But think about it. Is that the only situation where the door stays locked?
+
+Of course not. The door is also locked when the pass is valid but the building is closed. Or when the building is open but the person has no valid pass.
+
+What we really want to express is that the condition for opening the door is *not satisfied*.
+
+To do that, we introduce negation.
+
+The symbol $\neg$ means **NOT**.
+
+$$
+\begin{aligned}P&:\text{The pass is valid.}\\\neg P&:\text{The pass is not valid.}\end{aligned}
+$$
+
+Negation takes a statement and reverses its truth value.
+
+<ReasoningFigure kind="switch-not-table" />
+
+But when we have a compound statement, we need to pay attention to something very important: **what exactly are we negating?**
+
+Compare these expressions:
+
+$$
+ \neg P\land Q
+$$
+
+$$
+ \neg(P\land Q)
+$$
+
+The first says that the pass is invalid AND the building is open.
+
+The second says that it is NOT the case that both the pass is valid and the building is open.
+
+Those statements are not equivalent.
+
+<Interactive kind="switches" preset="scope" id="scope-switches" />
+
+The parentheses tell us which expression is being negated. Without them, we might change the meaning of the statement entirely.
+
+This is why negation in logic is not simply a matter of putting the word "not" somewhere in an English sentence.
+
+Negation is an operation on a *complete statement*, and we must identify precisely which statement it applies to.
+
+And now we're ready to discover something much more interesting.
+
+## 6. De Morgan's laws: Two ways to describe the same failure
+
+Our building opens when two conditions are satisfied:
+
+$$
+ P\land Q
+$$
+
+So it stays locked when that expression is false:
+
+$$
+ \neg(P\land Q)
+$$
+
+But instead of asking when the whole system fails, suppose we investigate what can cause it to fail.
+
+The pass might be invalid.
+
+Or the building might be closed.
+
+And those are the only possibilities for the ordinary access rule to fail: at least one of the two requirements must not hold.
+
+So we arrive at another way of expressing the exact same condition:
+
+$$
+ \neg P\lor\neg Q
+$$
+
+The first expression describes a failed conjunction. The second describes a disjunction of failures.
+
+<Interactive kind="switches" preset="demorgan" id="demorgan-switches" />
+
+Experiment with all four combinations. Can you make one expression true while the other is false?
+
+You can't.
+
+And rather than just taking that as a pattern we noticed, we can prove it.
+
+<ReasoningFigure kind="switch-demorgan-table" />
+
+The last two columns match in every row.
+
+And since those four rows represent every possible truth assignment to $P$ and $Q$, we've established something stronger than a collection of successful examples.
+
+We've proved a **logical equivalence**.
+
+$$
+ \boxed{\neg(P\land Q)\equiv\neg P\lor\neg Q}
+$$
+
+The symbol $\equiv$ means that both expressions always have the same truth value, regardless of the values assigned to their components.
+
+This is one of **De Morgan's laws**.
+
+But De Morgan discovered a second relationship of the same kind.
+
+Suppose the security system can open the door using either of two independent credentials, $P$ or $Q$.
+
+The door opens when:
+
+$$
+ P\lor Q
+$$
+
+When would this system fail?
+
+Think about the difference. Previously, our system required both conditions. So a single failure was sufficient to prevent access.
+
+But now, only one condition needs to succeed.
+
+To prevent access, both conditions must fail.
+
+$$
+ \boxed{\neg(P\lor Q)\equiv\neg P\land\neg Q}
+$$
+
+<ReasoningFigure kind="switch-laws" />
+
+Notice what's happening.
+
+When we negate a conjunction, AND becomes OR, and both individual statements become negated.
+
+When we negate a disjunction, OR becomes AND, and again, both statements become negated.
+
+We could memorize that transformation. But there is a better way to remember it: understand what it means for each system to fail.
+
+A system that needs everything to succeed fails if anything fails.
+
+A system that needs at least one success fails only if everything fails.
+
+The symbols reflect those two structures.
+
+And that is the real value of logical equivalence. It allows us to transform the form of a statement without changing what the statement means.
+
+## 7. Can we simplify a logical circuit?
+
+Let's apply everything we've learned to a new problem.
+
+An engineer has designed an access system with two routes. The first route activates when a person has a valid pass and the building is open. The second route activates when the person has a valid pass and the building is closed.
+
+The engineer writes the access condition as:
+
+$$
+ (P\land Q)\lor(P\land\neg Q)
+$$
+
+<Interactive kind="switches" preset="routes" id="implemented-switches" group="circuit-repair" />
+
+At first glance, this seems reasonable. Both routes describe different circumstances, and the OR combines them.
+
+But before we implement this rule in software or an electronic circuit, we should ask whether both routes are actually necessary.
+
+Look carefully at the expression.
+
+In both routes, the person must have a valid pass.
+
+The only difference is that one route requires the building to be open, while the other requires it to be closed.
+
+And the building must be either open or not open.
+
+What does that suggest?
+
+<Interactive kind="switches" preset="simplify" id="simplify-switches" group="circuit-repair" />
+
+If you've found that the entire rule simplifies to $P$, you've reached the right conclusion.
+
+But why exactly is that justified?
+
+We can derive the same result algebraically, using a principle similar to factoring in ordinary arithmetic.
+
+The expression is:
+
+$$
+ (P\land Q)\lor(P\land\neg Q)
+$$
+
+Both terms contain $P$, so we can factor it out:
+
+$$
+ P\land(Q\lor\neg Q)
+$$
+
+Now look at the expression inside the parentheses.
+
+$$
+ Q\lor\neg Q
+$$
+
+Either $Q$ is true, or $Q$ is false. There is no third possibility in classical two-valued logic.
+
+So this expression is always true.
+
+Such a statement is called a **tautology**.
+
+We can represent an always-true statement by the symbol $\top$.
+
+Our expression therefore becomes:
+
+$$
+ P\land\top
+$$
+
+And since combining $P$ with something that is always true does not change its truth value, the entire expression simplifies to:
+
+$$
+ \boxed{P}
+$$
+
+<ReasoningFigure kind="switch-proof" />
+
+A complicated access rule reduced to one condition.
+
+We've just used three logical ideas: factoring through the distributive law, recognizing a tautology, and simplifying an expression using equivalence.
+
+In the end, the original system and the simplified system will behave identically under every combination of inputs.
+
+That's not merely a convenient shortcut. It's a mathematical guarantee.
+
+And it means the building-status check contributes absolutely nothing to the access decision.
+
+This is also where logical simplification becomes useful for detecting mistakes. An engineer might have intended to restrict ordinary entry to opening hours, but the second route completely cancels that restriction.
+
+The mathematics exposes the problem.
+
+## 8. From logical statements to actual computation
+
+Everything we've built so far has been described using statements about passes, buildings, and opening hours.
+
+But the rules don't fundamentally depend on any of those meanings.
+
+We could substitute completely different statements for $P$, $Q$, and $R$, and the logical operators would continue to behave in the same way.
+
+That is what makes Boolean logic so useful in computing.
+
+At an abstract level, we can treat false as $0$ and true as $1$.
+
+<ReasoningFigure kind="switch-notation" />
+
+There is one important warning here.
+
+In Boolean algebra, the plus sign can mean OR. It does not mean ordinary numerical addition.
+
+For example, under the Boolean interpretation:
+
+$$
+ 1+1=1
+$$
+
+Because true OR true is true.
+
+By contrast, under ordinary integer arithmetic, $1+1=2$.
+
+The symbols may look the same, but their meaning depends on the operation we've defined.
+
+And this is another example of something important in mathematics: notation is not the meaning itself. The meaning comes from the definitions and the rules governing the objects we're working with.
+
+Once those operations are defined, we can build systems using them.
+
+A computer can use logical combinations to decide whether a condition has been met, whether a program should enter a particular branch, or whether two inputs should produce a particular output.
+
+Real electronic logic gates implement these Boolean functions using physical components. Their internal construction can be complicated, but the abstract logical behavior is exactly what we've been investigating.
+
+We can even describe a circuit as a Boolean function:
+
+$$
+ f:\{0,1\}^n\longrightarrow\{0,1\}
+$$
+
+That notation says the function takes $n$ Boolean inputs, each either $0$ or $1$, and produces one Boolean output.
+
+The access system we started with is such a function:
+
+$$
+ f(P,Q)=P\land Q
+$$
+
+And our truth table is simply a complete description of that function's outputs.
+
+## 9. One final connection: What does it mean for two rules to be the same?
+
+Earlier, we saw two expressions that looked different but behaved identically:
+
+$$
+ \neg(P\land Q)
+$$
+
+and
+
+$$
+ \neg P\lor\neg Q
+$$
+
+Then we found that an expression with two access routes could be replaced by a single condition.
+
+In both situations, the structure of the expression changed, but its truth value did not.
+
+This reveals a deeper distinction between **how something is written** and **what it means**.
+
+Two expressions can use different symbols, different arrangements, and even different numbers of logical operations, while still describing the same Boolean function.
+
+Logical equivalence tells us when that happens.
+
+And in classical propositional logic, a complete truth table gives us a mechanical way to verify it.
+
+There is even a connection with the conditional statements from our previous episode.
+
+Remember that $P\rightarrow Q$ means that whenever $P$ is true, $Q$ must also be true.
+
+The only way this conditional can fail is if $P$ is true and $Q$ is false.
+
+But that's exactly the situation in which the following expression is false:
+
+$$
+ \neg P\lor Q
+$$
+
+So we can write:
+
+$$
+ \boxed{P\rightarrow Q\equiv\neg P\lor Q}
+$$
+
+An implication can be expressed using only NOT and OR.
+
+That is a surprising result if we first learned conditionals through ordinary English. But it follows directly from their truth conditions.
+
+And it illustrates how a small collection of logical operators can express many different kinds of rules.
+
+## 10. What we've actually learned
+
+We began with an ordinary security system that needed two conditions to open a door.
+
+From that simple example, we discovered conjunction, disjunction, exclusive OR, negation, truth tables, De Morgan's laws, and logical equivalence.
+
+But the most important result isn't the list of symbols.
+
+It's that we now have a method for reasoning about complicated conditions.
+
+Instead of relying entirely on intuition, we can translate a rule into a precise expression, investigate its possible inputs, compare it with another expression, and establish whether the two really mean the same thing.
+
+A statement can look more complicated without actually containing more information.
+
+A rule can appear to impose a restriction that it doesn't impose at all.
+
+And two very different descriptions can turn out to be logically identical.
+
+That's why these operations are so valuable, whether you're studying mathematics, writing a program, designing a system, or evaluating an argument.
+
+The next time someone gives you a complicated rule involving "and", "or", and "not", don't just ask whether it sounds reasonable.
+
+Ask what happens in each possible case.
+
+Because sometimes, understanding a rule means discovering that part of it was never necessary in the first place.
+
+## Learning checkpoint
+
+Before finishing, try these three questions without consulting the explanations above.
+
+<Interactive kind="switches" preset="checkpoint" id="switch-checkpoint" />
+
+## Sources and further study
+
+The lesson follows the treatment of propositional connectives and truth tables in *forall x: Calgary* and the foundational mathematical logic sections of Hammack's *Book of Proof*. The access-system examples and the interactive demonstrations are original teaching adaptations.
+
+- [forall x: Calgary](https://forallx.openlogicproject.org/html/) — Sections 5, 9, 11, and 12: Connectives, characteristic truth tables, complete truth tables, and logical equivalence.
+
+- [Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/) — Chapter 2, especially Sections 2.2, 2.5, 2.6, and 2.10, for AND/OR/NOT, truth tables, logical equivalence, and negation.

@@ -1,0 +1,44 @@
+---
+import {initialReframeState,type ReframePreset} from '../../lib/interactive/reframe-model';
+import {constructionMarkup,rowsMarkup,handshakesMarkup} from '../../lib/interactive/reframe-render';
+import {reframeText} from '../../lib/reasoning/reframe-copy';
+import '../../styles/counterexamples.css';import '../../styles/discovery.css';import '../../styles/reframe.css';
+interface Props{preset:ReframePreset;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=reframeText(locale),s=initialReframeState(preset);
+---
+<figure class="counter-lab reframe-lab" id={id} data-reframe-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3><p class="reframe-note" id={`${id}-bounds`}>{c.bounds}</p>
+ <div class="reframe-controls">{(['n',...(preset==='rows'?['k']:[])] as const).map(key=><div>
+  <label for={`${id}-${key}-range`}>{key==='k'?c.k:preset==='handshakes'?c.people:c.n}<input id={`${id}-${key}-range`} type="range" min="1" max={key==='k'?s.n:10} step="1" value={key==='k'?s.k:s.n} data-reframe-input={key} aria-controls={`${id}-output`} aria-describedby={`${id}-bounds`}/></label>
+  <label for={`${id}-${key}-number`} class="visually-hidden">{key==='k'?c.k:preset==='handshakes'?c.people:c.n}</label><input id={`${id}-${key}-number`} type="number" min="1" max={key==='k'?s.n:10} step="1" value={key==='k'?s.k:s.n} data-reframe-input={key} aria-controls={`${id}-output`} aria-describedby={`${id}-bounds`}/>
+ </div>)}</div>
+ {preset==='construction'&&<div class="counter-controls"><button type="button" data-reframe-prev disabled aria-controls={`${id}-output`}>{c.previous}</button><button type="button" data-reframe-next aria-controls={`${id}-output`}>{c.next}</button></div>}
+ {preset==='handshakes'&&<div class="reframe-controls">{(['a','b'] as const).map(key=><label for={`${id}-${key}`}>{c[key]}<select id={`${id}-${key}`} data-reframe-person={key} aria-controls={`${id}-output`}><option value="">{c.none}</option>{Array.from({length:s.n},(_,i)=><option value={i}>{String.fromCharCode(65+i)}</option>)}</select></label>)}</div>}
+ <div id={`${id}-output`} data-reframe-output set:html={preset==='construction'?constructionMarkup(locale,s.n,s.stage):preset==='rows'?rowsMarkup(locale,s.n,s.k):handshakesMarkup(locale,s.n,s.a,s.b)}/>
+ <div class="counter-controls"><button type="button" data-reframe-reset>{c.reset}</button></div><p class="reframe-note" role="status" aria-live="polite" data-reframe-status></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {initialReframeState,reframeInput,person,rowState,pairState,type ReframePreset} from '../../lib/interactive/reframe-model';
+import {constructionMarkup,rowsMarkup,handshakesMarkup} from '../../lib/interactive/reframe-render';
+import {reframeText} from '../../lib/reasoning/reframe-copy';
+for(const root of document.querySelectorAll<HTMLElement>('[data-reframe-lab]')){
+ const preset=root.dataset.reframeLab as ReframePreset,locale=root.dataset.locale as Locale,c=reframeText(locale);let s=initialReframeState(preset);
+ const output=root.querySelector<HTMLElement>('[data-reframe-output]')!,status=root.querySelector<HTMLElement>('[data-reframe-status]')!;
+ const draw=()=>{
+  output.innerHTML=preset==='construction'?constructionMarkup(locale,s.n,s.stage):preset==='rows'?rowsMarkup(locale,s.n,s.k):handshakesMarkup(locale,s.n,s.a,s.b);
+  root.querySelectorAll<HTMLInputElement>('[data-reframe-input]').forEach(input=>{const key=input.dataset.reframeInput;input.value=String(key==='k'?s.k:s.n);input.max=String(key==='k'?s.n:10);});
+  root.querySelectorAll<HTMLSelectElement>('[data-reframe-person]').forEach(input=>{const key=input.dataset.reframePerson as 'a'|'b';if(input.options.length!==s.n+1){input.innerHTML='';const blank=document.createElement('option');blank.value='';blank.textContent=c.none;input.append(blank);for(let i=0;i<s.n;i++){const option=document.createElement('option');option.value=String(i);option.textContent=String.fromCharCode(65+i);input.append(option);}}input.value=s[key]===null?'':String(s[key]);});
+  const prev=root.querySelector<HTMLButtonElement>('[data-reframe-prev]'),next=root.querySelector<HTMLButtonElement>('[data-reframe-next]');if(prev)prev.disabled=s.stage===0;if(next)next.disabled=s.stage===3;
+ };
+ const announce=()=>{status.textContent=preset==='construction'?`${s.n} ${c.rows}. ${c.stages[s.stage]}.`:preset==='rows'?`${s.k} + ${rowState(s.n,s.k).copy} = ${s.n+1}`:`${c.people}: ${s.n}. ${c.handshakes}: ${pairState(s.n,s.a,s.b).pairs}. ${s.n===1?c.one:s.a===null||s.b===null?c.selection:s.a===s.b?c.same:c.different}`;};
+ root.querySelectorAll<HTMLInputElement>('[data-reframe-input]').forEach(input=>{
+  const update=(commit:boolean)=>{const key=input.dataset.reframeInput as 'n'|'k',n=reframeInput(input.value,key==='k'?s.n:10);if(n===null){if(commit){draw();status.textContent=c.invalid;}return;}s[key]=n;s.k=Math.min(s.k,s.n);if(s.a!==null&&s.a>=s.n)s.a=null;if(s.b!==null&&s.b>=s.n)s.b=null;draw();announce();};
+  input.addEventListener('input',()=>update(false));input.addEventListener('change',()=>update(true));input.addEventListener('blur',()=>update(true));
+ });
+ root.querySelector('[data-reframe-prev]')?.addEventListener('click',()=>{s.stage=Math.max(0,s.stage-1);draw();announce();});
+ root.querySelector('[data-reframe-next]')?.addEventListener('click',()=>{s.stage=Math.min(3,s.stage+1);draw();announce();});
+ root.querySelectorAll<HTMLSelectElement>('[data-reframe-person]').forEach(input=>input.addEventListener('change',()=>{s[input.dataset.reframePerson as 'a'|'b']=person(input.value,s.n);draw();announce();}));
+ root.querySelector('[data-reframe-reset]')!.addEventListener('click',()=>{s=initialReframeState(preset);draw();status.textContent=c.reset;});
+}
+</script>

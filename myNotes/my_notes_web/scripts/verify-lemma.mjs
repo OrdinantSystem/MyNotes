@@ -1,0 +1,27 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {lemmaChoices,lemmaFigures,tripleCollection,tripleParity,oddTriple,bridgeStep,advanceBridge,practiceCheck,transferWitness,divisibilityCase,multipleRows,initialLemmaState} from '../src/lib/interactive/lemma-model.ts';
+import {tripleMarkup,bridgeMarkup,practiceFeedback,lemmaFigure,lemmaTitle} from '../src/lib/interactive/lemma-render.ts';
+import {chapters} from '../src/lib/navigation.ts';
+for(const k of lemmaChoices){const s=tripleCollection(k);assert.equal(2*s.pairs+s.leftover,k);assert.equal(2*s.totalPairs+s.remaining,3*k);assert.equal(s.pooled,3*(k%2));assert.equal(s.newPairs,k%2);assert.equal(s.remaining,k%2);for(const locale of ['en','de'])assert(!/katex-error|undefined|NaN/.test(tripleMarkup(locale,k)));}
+let signed=0;for(let k=-1000;k<=1000;k++){
+ signed++;const s=tripleParity(k);assert.equal(s.product,3*k);assert.equal(s.even,k%2===0);assert.equal(s.productEven,s.even);if(!s.even)assert.equal(2*s.oddWitness+1,3*k);else assert.equal(s.oddWitness,null);
+ const o=oddTriple(k);assert.equal(o.k,2*k+1);assert.equal(o.product,2*(3*k+1)+1);assert.equal(o.oddWitness,3*k+1);
+ const t=transferWitness(k),n=2*k+1;assert.equal(t.n,n);assert.equal(t.product,Number(BigInt(k)*BigInt(k+1)));assert(t.product%2===0);assert(Number.isInteger(t.m));assert.equal(t.value,n*n-1);assert.equal(t.eightM,t.value);assert.equal(t.value,Number(4n*BigInt(k)*BigInt(k+1)));
+ const c=divisibilityCase(k,2,3,6);assert.equal(c.first,k%2===0);assert.equal(c.second,k%3===0);assert.equal(c.conclusion,k%6===0);if(c.first&&c.second){assert(c.conclusion);const witness=k/3;assert(Number.isInteger(witness/2));assert.equal(6*(witness/2),k);}
+ assert.equal(divisibilityCase(3*k,2,3,6).conclusion,k%2===0);
+}
+assert.equal(transferWitness(0).value,0);assert.equal(transferWitness(-1).value,0);
+assert.deepEqual(divisibilityCase(12,4,6,24),{n:12,a:4,b:6,target:24,first:true,second:true,conclusion:false});assert.equal(divisibilityCase(6,2,3,12).conclusion,false);
+assert.equal((6*2)%4,0);assert.notEqual(2%4,0);
+for(const [a,b,target,limit] of [[2,3,6,30],[4,6,24,24]])for(const row of multipleRows(a,b,target,limit)){assert.equal(row.values[0],0);assert.deepEqual(row.values,Array.from({length:Math.floor(limit/row.divisor)+1},(_,i)=>i*row.divisor));}
+for(let step=0;step<6;step++){const s=bridgeStep(step);assert.equal(s.candidate,step<3?null:step===3?'unproved':'proved');assert.equal(s.lemmaEstablished,step>=4);assert.equal(s.goalEstablished,step===5);assert.equal(advanceBridge(step,'next'),Math.min(5,step+1));assert.equal(advanceBridge(step,'back'),Math.max(0,step-1));assert.equal(advanceBridge(step,'reset'),0);for(const locale of ['en','de']){const html=bridgeMarkup(locale,step);assert(html.includes(`data-goal-established="${step===5}"`));assert(html.includes(`data-lemma-established="${step>=4}"`));assert(!/katex-error|undefined|NaN/.test(html));if(step===3)assert(html.includes('lemma-pending'));}}
+assert.equal(practiceCheck(null),null);for(let a=0;a<4;a++){const s=practiceCheck(a);assert.equal(s.universal,a===2);assert.equal(s.sufficient,a!==3);assert.equal(s.correct,a===2);if(a===0)assert.notEqual(s.counterexample%2,0);if(a===1)assert.notEqual((s.counterexample+1)%2,0);if(a===3)assert.equal((s.counterexample*(s.counterexample+1))%2,0);for(const locale of ['en','de'])assert(!/katex-error|undefined|NaN/.test(practiceFeedback(locale,a)));}
+for(const bad of [NaN,Infinity,.5,null,Number.MAX_SAFE_INTEGER])assert.throws(()=>tripleParity(bad));for(const bad of [0,1,7,-1,NaN])assert.throws(()=>tripleCollection(bad));for(const bad of [-1,6,.5,NaN])assert.throws(()=>bridgeStep(bad));assert.throws(()=>advanceBridge(0,'other'));assert.throws(()=>practiceCheck(4));assert.throws(()=>multipleRows(0,3,6,30));assert.throws(()=>transferWitness(Number.MAX_SAFE_INTEGER));
+const first=initialLemmaState();first.k=2;first.step=5;first.answer=2;first.checked=true;assert.deepEqual(initialLemmaState(),{k:5,step:0,answer:null,checked:false});
+for(const locale of ['en','de']){
+ for(const kind of lemmaFigures){const html=lemmaFigure(locale,kind);assert(!/katex-error|undefined|NaN/.test(html),`${locale} ${kind}`);assert(!/\bid=/.test(html));assert(lemmaTitle(locale,kind));}
+ const source=readFileSync(`src/content/lessons/${locale}/reasoning/inventing-a-lemma.mdx`,'utf8');assert.equal((source.match(/<ReasoningFigure/g)||[]).length,14);assert.equal((source.match(/<Interactive kind="lemma"/g)||[]).length,3);assert(source.includes('reviewStatus: unreviewed'));assert(source.includes('chapter: reasoning-part-four'));assert(source.includes('order: 27'));assert(source.includes('n=3k=3(2m)=6m'));assert(source.includes('2(3r+1)+1'));assert(source.includes('k(k+1)=2m'));assert(source.includes('8m'));assert(!/\/Users\/jean|references\/source|utm_source|images.openai.com|NETPOSITIV/.test(source));
+}
+assert.deepEqual(chapters.filter(c=>c.course==='reasoning').map(c=>c.groups.flatMap(g=>g.orders)),[[1,2,3,4,5,6,7,8],[9,10,11,12,13,14,15,16],[17,18,19,20,21,22,23,24],[25,26,27]]);
+console.log(`Verified all five source collections and count conservation, ${signed} signed parity/odd-triple/transfer/divisibility cases, zero and negative witnesses, six proof scopes, all four practice claims and counterexamples, bounds, independent state, fourteen EN/DE figures and Part IV orders 25–27.`);

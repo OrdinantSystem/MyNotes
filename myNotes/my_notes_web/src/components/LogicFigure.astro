@@ -1,0 +1,68 @@
+---
+import Math from './Math.astro';
+interface Props {kind:'concept-map'|'predicate-mapping'|'proof-paths'}
+const {kind}=Astro.props;
+const locale=Astro.locals.locale||'en';
+const t=(en:string,de:string)=>locale==='de'?de:en;
+const title=kind==='concept-map'?t('How the ideas connect','Wie die Begriffe zusammenhängen'):kind==='predicate-mapping'?t('A predicate as a function','Ein Prädikat als Funktion'):t('How logic becomes proof construction','Von der Logik zum Beweis');
+const sample=[1,2,3,4].map(n=>({n,value:n%2===0?1:0}));
+---
+<figure class="logic-figure">
+ <div class="figure-label">{title}</div>
+ {kind==='concept-map'&&<>
+  <div class="logic-stage"><strong>{t('Mathematical expressions','Mathematische Ausdrücke')}</strong><p>{t('Meaning is established by definitions and interpretation.','Definitionen und Interpretation legen die Bedeutung fest.')}</p></div>
+  <div class="logic-arrow" aria-hidden="true">↓</div>
+  <div class="logic-branches">
+   <div class="logic-node"><strong>{t('Statements (Aussagen)','Aussagen')}</strong><p>{t('No free variables','Keine freien Variablen')}</p><Math tex={t('4\\text{ is even}','4\\text{ ist gerade}')} display/><small>{t('Already have a definite truth value.','Haben bereits einen bestimmten Wahrheitswert.')}</small></div>
+   <div class="logic-node"><strong>{t('Open formulas (Prädikate)','Offene Formeln (Prädikate)')}</strong><p>{t('Have free variables','Haben freie Variablen')}</p><Math tex={t('P(x):x\\text{ is even}','P(x):x\\text{ ist gerade}')} display/><div class="logic-arrow" aria-hidden="true">↓</div><small>{t('Assign values or bind all free variables with quantifiers.','Werte einsetzen oder alle freien Variablen durch Quantoren binden.')}</small><Math tex={String.raw`\forall x,\quad\exists x`} display/></div>
+  </div>
+  <div class="logic-arrow" aria-hidden="true">↓</div>
+  <div class="logic-node result"><strong>{t('Complete mathematical statements','Vollständige mathematische Aussagen')}</strong><Math tex={String.raw`\forall x\in\mathbb N:P(x)`} display/><p>{t('A definite truth value can now be determined. This example is false: 1 is not even.','Nun lässt sich ein bestimmter Wahrheitswert ermitteln. Dieses Beispiel ist falsch: 1 ist nicht gerade.')}</p></div>
+  <figcaption>{t('Fix the interpretation first. An open formula becomes a statement when all its free inputs are supplied or bound.','Zuerst die Interpretation festlegen. Eine offene Formel wird zur Aussage, wenn alle freien Eingaben eingesetzt oder gebunden sind.')}</figcaption>
+ </>}
+ {kind==='predicate-mapping'&&<>
+  <svg viewBox="0 0 640 440" role="img" aria-label={t('Four sample inputs in the natural numbers: 1 and 3 map to 0, 2 and 4 map to 1.','Vier Beispiele aus den natürlichen Zahlen: 1 und 3 werden auf 0 abgebildet, 2 und 4 auf 1.')}>
+   <rect x="28" y="18" width="210" height="400" rx="24" fill="var(--surface)" stroke="var(--axis)"/>
+   <rect x="412" y="18" width="200" height="400" rx="24" fill="var(--surface)" stroke="var(--axis)"/>
+   <g text-anchor="middle" fill="var(--text)" font-size="24"><text x="133" y="59">{t('Domain ℕ','Definitionsmenge ℕ')}</text><text x="512" y="59">{'{0, 1}'}</text></g>
+   {sample.map(({n,value},i)=><g>
+    <path d={`M166 ${110+i*84} C275 ${110+i*84},330 ${value===1?155:310},466 ${value===1?155:310}`} fill="none" stroke={value===1?'var(--accent)':'var(--coral)'} stroke-width="3"/>
+    <circle cx="133" cy={110+i*84} r="32" fill="var(--panel)" stroke="var(--axis)" stroke-width="2"/>
+    <text x="133" y={119+i*84} text-anchor="middle" fill="var(--text)" font-size="28">{n}</text>
+   </g>)}
+   {[1,0].map((value,i)=><g><circle cx="512" cy={155+i*155} r="46" fill={value===1?'var(--tint)':'var(--coral-tint)'} stroke={value===1?'var(--accent)':'var(--coral)'} stroke-width="3"/><text x="512" y={166+i*155} text-anchor="middle" fill="var(--text)" font-size="34">{value}</text></g>)}
+  </svg>
+  <div class="logic-key"><span><i class="even" aria-hidden="true"/>{t('Even → 1 (true)','Gerade → 1 (wahr)')}</span><span><i class="odd" aria-hidden="true"/>{t('Odd → 0 (false)','Ungerade → 0 (falsch)')}</span></div>
+  <figcaption>{t('Only four sample inputs are shown. The actual function is defined on every natural number; each input has exactly one output.','Dargestellt sind nur vier Beispiele. Die Funktion ist auf jeder natürlichen Zahl definiert; jede Eingabe hat genau eine Ausgabe.')}</figcaption>
+ </>}
+ {kind==='proof-paths'&&<>
+  <div class="logic-stage"><strong>{t('Mathematical claim','Mathematische Behauptung')}</strong></div>
+  <div class="logic-arrow" aria-hidden="true">↓</div>
+  <div class="logic-branches">
+   <div class="logic-node"><strong>{t('Prove it','Beweisen')}</strong><p>{t('Use definitions, valid inference rules, lemmas and previously proved theorems.','Definitionen, gültige Schlussregeln, Hilfssätze und bereits bewiesene Sätze verwenden.')}</p></div>
+   <div class="logic-node"><strong>{t('Disprove it','Widerlegen')}</strong><p>{t('For a universal claim: a counterexample. For a proposed inference: a countermodel satisfying all premises.','Für eine Allaussage: ein Gegenbeispiel. Für einen vorgeschlagenen Schluss: ein Gegenmodell, das alle Prämissen erfüllt.')}</p></div>
+  </div>
+  <div class="logic-arrow" aria-hidden="true">↓</div>
+  <div class="logic-stage"><strong>{t('A logically justified conclusion','Eine logisch begründete Schlussfolgerung')}</strong></div>
+  <figcaption>{t('The proof method must match the claim. Refuting an existential claim requires ruling out every possible witness.','Die Beweismethode muss zur Behauptung passen. Um eine Existenzaussage zu widerlegen, muss jeder mögliche Zeuge ausgeschlossen werden.')}</figcaption>
+ </>}
+</figure>
+<style>
+ .logic-figure{margin:var(--space-8) 0;padding:var(--space-6);border:1px solid var(--line);border-radius:var(--radius-panel);background:var(--panel)}
+ .logic-figure .figure-label{font-size:18px;margin-bottom:var(--space-6);color:var(--text)}
+ .logic-stage{text-align:center;padding:var(--space-4) 0}
+ .logic-figure strong{font-size:18px;font-weight:600}
+ .logic-figure p{margin:var(--space-2) 0 0;color:var(--secondary);line-height:1.7}
+ .logic-arrow{text-align:center;color:var(--muted);padding:var(--space-2) 0;font-size:24px}
+ .logic-branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
+ .logic-node{padding:var(--space-5);min-width:0;text-align:center;border:1px solid var(--line);border-radius:var(--radius-panel)}
+ .logic-node small{display:block;color:var(--secondary);line-height:1.7}
+ .result{border-color:var(--accent)}
+ .logic-figure>svg{display:block;width:100%;max-width:640px;height:auto;margin:auto}
+ .logic-key{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-4);font-size:13px;margin-top:var(--space-4)}
+ .logic-key span{display:flex;align-items:center;gap:var(--space-2)}
+ .logic-key i{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+ .logic-key .odd{background:var(--coral)}
+ .logic-figure figcaption{margin-top:var(--space-5);font-size:12px;line-height:1.8;color:var(--muted)}
+ @media(max-width:540px){.logic-figure{padding:var(--space-4)}.logic-branches{grid-template-columns:1fr}.logic-node{padding:var(--space-4)}.logic-figure strong{font-size:16px}}
+</style>

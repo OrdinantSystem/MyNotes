@@ -1,0 +1,65 @@
+---
+import {languageText} from '../../lib/reasoning/language-copy';
+import {initialLanguageState,languagePresets,type LanguagePreset} from '../../lib/interactive/language-model';
+import {languageMarkup} from '../../lib/interactive/language-render';
+import '../../styles/counterexamples.css';import '../../styles/language.css';
+interface Props {preset:LanguagePreset;id:string;group?:string}
+const {preset,id,group}=Astro.props,locale=Astro.locals.locale||'en',c=languageText(locale),initial=initialLanguageState();
+if(!(languagePresets as readonly string[]).includes(preset))throw new Error('Unknown language preset');
+const numeric=preset==='scores'||preset==='threshold'||preset==='tall',label=preset==='scores'?c.magnitude:preset==='threshold'?c.gain:c.cutoff,min=preset==='tall'?155:0,max=preset==='tall'?205:40,value=preset==='tall'?180:30;
+---
+<figure class="counter-lab language-lab" id={id} data-language-lab={preset} data-locale={locale} data-language-group={group||id}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='interpretations'&&<><div class="language-choices" role="group" aria-label={c.titles[preset]}>{(['mean','majority','typical'] as const).map((meaning,i)=><button type="button" data-language-interpretation={meaning} aria-pressed={i===0} aria-controls={`${id}-view`}><strong>{c.labels[i]}</strong><span>{c.questions[i]}</span></button>)}</div></>}
+ {preset==='scores'&&<><p class="counter-help">{c.units}</p><div class="counter-controls" role="group" aria-label={c.titles.scores}>{(['gain','loss'] as const).map((mode,i)=><button type="button" data-language-arrangement={mode} aria-pressed={i===0} aria-controls={`${id}-view`}>{c.arrangements[i]}</button>)}</div></>}
+ {preset==='threshold'&&<p class="counter-help">{c.thresholdHelp}</p>}
+ {preset==='tall'&&<p class="counter-help">{c.tallHelp}</p>}
+ {preset==='free'&&<><p class="language-eyebrow">{c.premise} 1</p><p><strong>{c.freeP1}</strong></p><p class="counter-help">{c.price}</p><p class="language-eyebrow">{c.premise} 2</p><p><strong>{c.freeP2}</strong></p><fieldset class="language-options"><legend>{c.freeQuestion}</legend>{(['price','freedom'] as const).map(meaning=><label><input type="radio" name={`${id}-meaning`} data-language-meaning={meaning} checked={meaning==='freedom'}/>{c[meaning]}</label>)}</fieldset></>}
+ {numeric&&<div class="counter-inputs language-inputs"><label for={`${id}-range`}>{label}<span class="counter-help">{min}–{max} {preset==='tall'?'cm':c.points}</span><input id={`${id}-range`} type="range" min={min} max={max} step="1" value={value} data-language-range aria-controls={`${id}-view`}/></label><label for={`${id}-number`}>{preset==='tall'?'cm':c.points}<input id={`${id}-number`} type="number" min={min} max={max} step="1" value={value} data-language-number aria-describedby={`${id}-invalid`} aria-controls={`${id}-view`}/></label></div>}
+ <p id={`${id}-invalid`} data-language-invalid role="alert" hidden class="language-no">{c.invalid}</p>
+ {preset==='rewrite'&&<><p class="language-statement">{c.headline}</p><fieldset class="language-options"><legend>{c.rewriteQuestion}</legend>{c.options.map((option,i)=><label><input type="radio" name={`${id}-answer`} data-language-answer={i}/>{option}</label>)}</fieldset></>}
+ <div id={`${id}-view`} data-language-view set:html={languageMarkup(locale,preset,initial)}/>
+ {preset!=='median'&&preset!=='tests'&&<div class="counter-controls"><button type="button" data-language-reset aria-controls={`${id}-view`}>{preset==='scores'?c.resetScores:c.reset}</button></div>}
+ {preset==='interpretations'&&<p class="counter-help">{c.selectHelp}</p>}
+ {preset==='scores'&&<figcaption>{c.fiction}</figcaption>}
+ {preset==='free'&&<figcaption>{c.freeHelp}</figcaption>}
+ {preset==='rewrite'&&<><details data-pagefind-ignore="all"><summary>{c.reference}</summary><p><strong>{c.options[1]}</strong></p><p>{c.rewriteCorrectDetail}</p></details><p><strong>{c.clarify}</strong></p><p>✓ {c.precise}<br/>✓ {c.unsupported}</p></>}
+ <p class="visually-hidden" role="status" aria-live="polite" data-language-status></p>
+</figure>
+<script>
+import {initialLanguageState,boundedInteger,type LanguageState,type LanguagePreset,type Interpretation,type Arrangement} from '../../lib/interactive/language-model';
+import {languageMarkup} from '../../lib/interactive/language-render';
+import type {Locale} from '../../lib/i18n';
+const groups=new Map<string,{state:LanguageState;roots:HTMLElement[]}>();
+for(const root of document.querySelectorAll<HTMLElement>('[data-language-lab]')){
+ const key=root.dataset.languageGroup!;if(!groups.has(key))groups.set(key,{state:initialLanguageState(),roots:[]});groups.get(key)!.roots.push(root);
+}
+for(const {state,roots} of groups.values()){
+ function draw(initiator:HTMLElement){
+  for(const root of roots){
+   const preset=root.dataset.languageLab as LanguagePreset,locale=root.dataset.locale as Locale;
+   root.querySelector('[data-language-view]')!.innerHTML=languageMarkup(locale,preset,state);
+   root.querySelectorAll<HTMLElement>('[data-language-interpretation]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.languageInterpretation===state.interpretation)));
+   root.querySelectorAll<HTMLElement>('[data-language-arrangement]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.languageArrangement===state.arrangement)));
+   root.querySelectorAll<HTMLInputElement>('[data-language-meaning]').forEach(b=>b.checked=b.dataset.languageMeaning===state.meaning);
+   root.querySelectorAll<HTMLInputElement>('[data-language-answer]').forEach(b=>b.checked=Number(b.dataset.languageAnswer)===state.answer);
+   const value=preset==='scores'?state.magnitude:preset==='threshold'?state.gain:state.cutoff;
+   root.querySelectorAll<HTMLInputElement>('[data-language-range],[data-language-number]').forEach(b=>b.value=String(value));
+   root.querySelector<HTMLElement>('[data-language-status]')!.textContent=root===initiator?root.querySelector<HTMLElement>('[data-language-view]')!.innerText:'';
+  }
+ }
+ for(const root of roots){
+  const preset=root.dataset.languageLab as LanguagePreset;
+  root.querySelectorAll<HTMLElement>('[data-language-interpretation]').forEach(b=>b.addEventListener('click',()=>{state.interpretation=b.dataset.languageInterpretation as Interpretation;draw(root);}));
+  root.querySelectorAll<HTMLElement>('[data-language-arrangement]').forEach(b=>b.addEventListener('click',()=>{state.arrangement=b.dataset.languageArrangement as Arrangement;draw(root);}));
+  root.querySelectorAll<HTMLInputElement>('[data-language-meaning]').forEach(b=>b.addEventListener('change',()=>{state.meaning=b.dataset.languageMeaning as 'price'|'freedom';draw(root);}));
+  root.querySelectorAll<HTMLInputElement>('[data-language-answer]').forEach(b=>b.addEventListener('change',()=>{state.answer=Number(b.dataset.languageAnswer);draw(root);}));
+  function numeric(input:HTMLInputElement){const error=root.querySelector<HTMLElement>('[data-language-invalid]')!;error.hidden=true;try{const value=boundedInteger(input.valueAsNumber,preset==='tall'?155:0,preset==='tall'?205:40);if(preset==='scores')state.magnitude=value;else if(preset==='threshold')state.gain=value;else state.cutoff=value;}catch{error.hidden=false;}draw(root);}
+  root.querySelector<HTMLInputElement>('[data-language-range]')?.addEventListener('input',e=>numeric(e.currentTarget as HTMLInputElement));
+  const number=root.querySelector<HTMLInputElement>('[data-language-number]');
+  number?.addEventListener('input',()=>{if(number.validity.valid&&Number.isInteger(number.valueAsNumber))numeric(number);});
+  number?.addEventListener('change',()=>numeric(number));
+  root.querySelector('[data-language-reset]')?.addEventListener('click',()=>{if(preset==='scores'){state.magnitude=30;state.arrangement='gain';}else if(preset==='interpretations')state.interpretation='mean';else if(preset==='threshold')state.gain=30;else if(preset==='free')state.meaning='freedom';else if(preset==='tall')state.cutoff=180;else state.answer=null;roots.forEach(r=>r.querySelector<HTMLElement>('[data-language-invalid]')!.hidden=true);draw(root);});
+ }
+}
+</script>

@@ -1,0 +1,51 @@
+---
+import MathText from '../MathText.astro';
+import {inductionPresets,initialInductionState,chainModes,type InductionPreset} from '../../lib/interactive/induction-model';
+import {tileMarkup,chainMarkup,checkpointReference} from '../../lib/interactive/induction-render';
+import {inductionText} from '../../lib/reasoning/induction-copy';
+import '../../styles/counterexamples.css';import '../../styles/discovery.css';import '../../styles/cases.css';import '../../styles/induction.css';
+interface Props{preset:InductionPreset;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=inductionText(locale),s=initialInductionState();
+if(!(inductionPresets as readonly string[]).includes(preset))throw new Error('Unknown induction preset');
+---
+<figure class="counter-lab induction-lab" id={id} data-induction-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='tiles'?<>
+  <p>{c.tileQuestion}</p><div class="cases-inputs"><label for={`${id}-number`}>{c.size}<input id={`${id}-number`} type="number" min="1" max="8" step="1" value={s.k} data-induction-number aria-controls={`${id}-output`}/></label></div>
+  <label class="cases-range-label" for={`${id}-range`}>{c.size}<input id={`${id}-range`} type="range" min="1" max="8" step="1" value={s.k} data-induction-range aria-controls={`${id}-output`}/></label>
+  <div id={`${id}-output`} data-induction-output set:html={tileMarkup(locale,s.k,s.revealed)}/>
+  <button type="button" data-induction-reveal aria-expanded="false" aria-controls={`${id}-output`}>{c.reveal}</button><figcaption>{c.tileCaption}</figcaption>
+ </>:preset==='chain'?<>
+  <div class="counter-controls" role="group" aria-label={c.titles.chain}>{chainModes.map((mode,i)=><button type="button" data-induction-mode={mode} aria-pressed={mode===s.mode} aria-controls={`${id}-output`}>{c.modes[i]}</button>)}</div>
+  <div id={`${id}-output`} data-induction-output set:html={chainMarkup(locale,s.mode)}/><figcaption>{c.chainCaption}</figcaption>
+ </>:<>
+  {c.questions.map((question,row)=><section class="induction-question" data-induction-question={row}>
+   <fieldset class="discovery-question"><legend>{c.question} {row+1}. <MathText text={question}/></legend>{c.options[row].map((option,choice)=><label><input type="radio" name={`${id}-question-${row}`} data-induction-choice={choice} aria-controls={`${id}-feedback-${row}`}/><span><MathText text={option}/></span></label>)}</fieldset>
+   <button type="button" data-induction-check aria-controls={`${id}-feedback-${row}`}>{c.check}</button><div id={`${id}-feedback-${row}`} data-induction-feedback/>
+  </section>)}
+  <details><summary>{c.reference}</summary>{c.questions.map((_,row)=><section><h4>{c.question} {row+1}</h4><div set:html={checkpointReference(locale,row)}/></section>)}</details>
+ </>}
+ <div class="counter-controls"><button type="button" data-induction-reset>{c.reset}</button></div><p class="visually-hidden" role="status" aria-live="polite" data-induction-status></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {initialInductionState,tileInput,squareGrowth,chainModes,checkpointAnswer,type ChainMode} from '../../lib/interactive/induction-model';
+import {tileMarkup,chainMarkup,checkpointFeedback} from '../../lib/interactive/induction-render';
+import {inductionText} from '../../lib/reasoning/induction-copy';
+for(const root of document.querySelectorAll<HTMLElement>('[data-induction-lab]')){
+ const preset=root.dataset.inductionLab!,locale=root.dataset.locale as Locale,c=inductionText(locale);let s=initialInductionState();
+ const output=root.querySelector<HTMLElement>('[data-induction-output]'),status=root.querySelector<HTMLElement>('[data-induction-status]')!,number=root.querySelector<HTMLInputElement>('[data-induction-number]'),range=root.querySelector<HTMLInputElement>('[data-induction-range]'),reveal=root.querySelector<HTMLButtonElement>('[data-induction-reveal]');
+ const draw=()=>{if(preset==='tiles'){output!.innerHTML=tileMarkup(locale,s.k,s.revealed);number!.value=String(s.k);range!.value=String(s.k);reveal!.textContent=s.revealed?c.hide:c.reveal;reveal!.setAttribute('aria-expanded',String(s.revealed));}if(preset==='chain'){output!.innerHTML=chainMarkup(locale,s.mode);root.querySelectorAll<HTMLButtonElement>('[data-induction-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.inductionMode===s.mode)));}};
+ const announce=()=>{if(preset==='tiles'){const t=squareGrowth(s.k);status.textContent=`${c.existing}: ${t.existing}. ${s.revealed?`${c.newTiles}: ${t.added}. ${c.total}: ${t.total}.`:c.hidden}`;}else status.textContent=c.modeText[chainModes.indexOf(s.mode)];};
+ const commit=()=>{const next=tileInput(number!.value);if(next===null){number!.value=String(s.k);status.textContent=c.invalid;}else{s.k=next;draw();announce();}};
+ number?.addEventListener('input',()=>{const next=tileInput(number.value);if(next!==null){s.k=next;draw();announce();}});number?.addEventListener('blur',commit);number?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();commit();}});
+ range?.addEventListener('input',()=>{s.k=Number(range.value);draw();announce();});reveal?.addEventListener('click',()=>{s.revealed=!s.revealed;draw();announce();});
+ root.querySelectorAll<HTMLButtonElement>('[data-induction-mode]').forEach(b=>b.addEventListener('click',()=>{s.mode=b.dataset.inductionMode as ChainMode;draw();announce();}));
+ root.querySelectorAll<HTMLElement>('[data-induction-question]').forEach(question=>{
+  const row=Number(question.dataset.inductionQuestion),feedback=question.querySelector<HTMLElement>('[data-induction-feedback]')!;
+  question.querySelectorAll<HTMLInputElement>('[data-induction-choice]').forEach(input=>input.addEventListener('change',()=>{if(input.checked){s.answers[row]=Number(input.dataset.inductionChoice);feedback.innerHTML='';}}));
+  question.querySelector('[data-induction-check]')!.addEventListener('click',()=>{feedback.innerHTML=checkpointFeedback(locale,row,s.answers[row]);const correct=checkpointAnswer(row,s.answers[row]);status.textContent=`${c.question} ${row+1}: ${correct===null?c.choose:correct?c.correct:c.compare}`;});
+ });
+ root.querySelector('[data-induction-reset]')?.addEventListener('click',()=>{s=initialInductionState();root.querySelectorAll<HTMLInputElement>('[data-induction-choice]').forEach(input=>input.checked=false);root.querySelectorAll<HTMLElement>('[data-induction-feedback]').forEach(f=>f.innerHTML='');root.querySelectorAll('details').forEach(e=>e.open=false);draw();status.textContent=c.reset;});
+}
+</script>

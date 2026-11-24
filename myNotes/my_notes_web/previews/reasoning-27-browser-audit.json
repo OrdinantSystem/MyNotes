@@ -1,0 +1,299 @@
+{
+  "date": "2026-11-24",
+  "lesson": "inventing-a-lemma",
+  "checks": {
+    "initial": {
+      "duplicateIds": [],
+      "figures": 14,
+      "headings": [
+        "1. The step nobody tells you how to find",
+        "2. A surprisingly difficult little problem",
+        "3. What would be enough to finish?",
+        "4. Inventing the intermediate claim",
+        "5. What is a lemma?",
+        "6. The finished proof hides its own history",
+        "7. Not every stepping stone is useful",
+        "8. Discovering where the argument stops working",
+        "9. Practice: find the stepping stone yourself",
+        "10. Closing: learning to build the bridge",
+        "Learning compendium",
+        "Preparation sources"
+      ],
+      "labs": 3,
+      "mathErrors": 0,
+      "practiceChecked": 0
+    },
+    "parity": [
+      {
+        "chosen": "2",
+        "readout": [
+          "Original collection: 2 — even. Three copies: 6 — even.",
+          "Complete pairs: 3. Remaining unpaired objects: 0."
+        ],
+        "status": "2 → 6: even."
+      },
+      {
+        "chosen": "3",
+        "readout": [
+          "Original collection: 3 — odd. Three copies: 9 — odd.",
+          "Complete pairs: 4. Remaining unpaired objects: 1."
+        ],
+        "status": "3 → 9: odd."
+      },
+      {
+        "chosen": "4",
+        "readout": [
+          "Original collection: 4 — even. Three copies: 12 — even.",
+          "Complete pairs: 6. Remaining unpaired objects: 0."
+        ],
+        "status": "4 → 12: even."
+      },
+      {
+        "chosen": "5",
+        "readout": [
+          "Original collection: 5 — odd. Three copies: 15 — odd.",
+          "Complete pairs: 7. Remaining unpaired objects: 1."
+        ],
+        "status": "5 → 15: odd."
+      },
+      {
+        "chosen": "6",
+        "readout": [
+          "Original collection: 6 — even. Three copies: 18 — even.",
+          "Complete pairs: 9. Remaining unpaired objects: 0."
+        ],
+        "status": "6 → 18: even."
+      }
+    ],
+    "parityReset": "5",
+    "bridge": [
+      {
+        "backDisabled": true,
+        "candidate": "none",
+        "goal": "false",
+        "lemma": "false",
+        "nextDisabled": false,
+        "position": "Step 1 / 6",
+        "status": ""
+      },
+      {
+        "backDisabled": false,
+        "candidate": "none",
+        "goal": "false",
+        "lemma": "false",
+        "nextDisabled": false,
+        "position": "Step 2 / 6",
+        "status": "Inspect the goal"
+      },
+      {
+        "backDisabled": false,
+        "candidate": "none",
+        "goal": "false",
+        "lemma": "false",
+        "nextDisabled": false,
+        "position": "Step 3 / 6",
+        "status": "Expose the missing factor"
+      },
+      {
+        "backDisabled": false,
+        "candidate": "unproved",
+        "goal": "false",
+        "lemma": "false",
+        "nextDisabled": false,
+        "position": "Step 4 / 6",
+        "status": "Name the unproved subgoal"
+      },
+      {
+        "backDisabled": false,
+        "candidate": "proved",
+        "goal": "false",
+        "lemma": "true",
+        "nextDisabled": false,
+        "position": "Step 5 / 6",
+        "status": "Prove the parity lemma"
+      },
+      {
+        "backDisabled": false,
+        "candidate": "proved",
+        "goal": "true",
+        "lemma": "true",
+        "nextDisabled": true,
+        "position": "Step 6 / 6",
+        "status": "Use the lemma and finish"
+      }
+    ],
+    "bridgeBack": "false",
+    "emptyPractice": "Choose a claim first. Nothing has been selected or established by the activity.",
+    "practice": [
+      {
+        "answer": 0,
+        "previousFeedbackCleared": true,
+        "correct": "false",
+        "feedback": "Evenness of \n𝑘\nk would provide the missing factor two, but it is not true for every integer: \n𝑘\n=\n1\nk=1 is a counterexample. Sufficiency alone is not enough.\n\nFeedback concerns this claim, not your overall ability."
+      },
+      {
+        "answer": 1,
+        "previousFeedbackCleared": true,
+        "correct": "false",
+        "feedback": "Evenness of \n𝑘\n+\n1\nk+1 would suffice, but the universal statement fails at \n𝑘\n=\n0\nk=0. One of the consecutive factors is even; it need not always be the second.\n\nFeedback concerns this claim, not your overall ability."
+      },
+      {
+        "answer": 2,
+        "previousFeedbackCleared": true,
+        "correct": "true",
+        "feedback": "This claim is true for every integer: among \n𝑘\nk and \n𝑘\n+\n1\nk+1, one is even. Write \n𝑘\n(\n𝑘\n+\n1\n)\n=\n2\n𝑚\nk(k+1)=2m with integer \n𝑚\nm; then \n𝑛\n2\n−\n1\n=\n4\n𝑘\n(\n𝑘\n+\n1\n)\n=\n8\n𝑚\nn\n2\n−1=4k(k+1)=8m.\n\nFeedback concerns this claim, not your overall ability."
+      },
+      {
+        "answer": 3,
+        "previousFeedbackCleared": true,
+        "correct": "false",
+        "feedback": "The claim fails already at \n𝑘\n=\n0\nk=0, where the product is zero and even. Oddness also would not supply the missing factor two.\n\nFeedback concerns this claim, not your overall ability."
+      }
+    ],
+    "radioKeyboard": "1",
+    "resetIsolation": {
+      "practiceChecked": 0,
+      "feedback": "",
+      "parity": "6",
+      "bridge": "Step 2 / 6"
+    },
+    "german": {
+      "url": "http://127.0.0.1:4321/de/reasoning/lessons/inventing-a-lemma/",
+      "statuses": [
+        "Das Ziel untersuchen",
+        "2 → 6: gerade.",
+        "Die Produktaussage gilt allgemein und liefert den benötigten Faktor zwei."
+      ],
+      "feedback": "Diese Aussage gilt für jede ganze Zahl: Von \n𝑘\nk und \n𝑘\n+\n1\nk+1 ist einer gerade. Schreibe \n𝑘\n(\n𝑘\n+\n1\n)\n=\n2\n𝑚\nk(k+1)=2m mit ganzzahligem \n𝑚\nm. Dann gilt \n𝑛\n2\n−\n1\n=\n4\n𝑘\n(\n𝑘\n+\n1\n)\n=\n8\n𝑚\nn\n2\n−1=4k(k+1)=8m.\n\nDie Rückmeldung betrifft diese Aussage, nicht deine allgemeine Fähigkeit."
+    },
+    "previousNext": {
+      "backTo27": "http://127.0.0.1:4321/de/reasoning/lessons/inventing-a-lemma/",
+      "enPrevious": "http://127.0.0.1:4321/reasoning/lessons/changing-representations/",
+      "enNext": "http://127.0.0.1:4321/reasoning/lessons/inventing-a-lemma/"
+    },
+    "overview": {
+      "lesson27": "27A?CWie du den fehlenden Zwischenschritt entwickelst↗",
+      "lessonLinks": 27,
+      "mainLessonLinks": 27,
+      "partFour": "Teil Vier3 Lektionen",
+      "url": "http://127.0.0.1:4321/de/reasoning/"
+    },
+    "gallery": {
+      "duplicateIds": [],
+      "figures": 14,
+      "labs": 4,
+      "independence": [
+        "Step 2 / 6",
+        "Step 1 / 6"
+      ]
+    },
+    "searchDE": "/de/reasoning/lessons/inventing-a-lemma/",
+    "prefixEN": {
+      "bodyFont": "-apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "home": "/MyNotes/",
+      "mathErrors": 0,
+      "status": [
+        "Inspect the goal",
+        "3 → 9: odd.",
+        ""
+      ],
+      "styles": 2,
+      "url": "http://127.0.0.1:8448/MyNotes/reasoning/lessons/inventing-a-lemma/"
+    },
+    "prefixDE": {
+      "correct": "true",
+      "home": "/MyNotes/de/",
+      "mathErrors": 0,
+      "status": "Die Produktaussage gilt allgemein und liefert den benötigten Faktor zwei.",
+      "styles": 2,
+      "url": "http://127.0.0.1:8448/MyNotes/de/reasoning/lessons/inventing-a-lemma/"
+    },
+    "searchEN": "/reasoning/lessons/inventing-a-lemma/"
+  },
+  "layouts": [
+    {
+      "height": 1000,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "height": 1000,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "height": 844,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "height": 844,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "height": 844,
+      "locale": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "height": 844,
+      "locale": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "height": 1000,
+      "locale": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "height": 1000,
+      "locale": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 1440
+    }
+  ],
+  "logs": {
+    "lesson": [],
+    "gallery": [],
+    "prefix": []
+  },
+  "final": {
+    "figures": 14,
+    "height": 720,
+    "labs": 3,
+    "overflow": false,
+    "practiceChecked": 0,
+    "theme": "dark",
+    "title": "How to invent the missing stepping stone",
+    "url": "http://127.0.0.1:4321/reasoning/lessons/inventing-a-lemma/",
+    "width": 1280
+  },
+  "evidence": [
+    "reasoning-27-desktop.jpg",
+    "reasoning-27-compact-de.jpg"
+  ]
+}

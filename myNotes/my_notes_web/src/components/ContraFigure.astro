@@ -1,0 +1,9 @@
+---
+import type {ContraFigure} from '../lib/interactive/contraposition-model';
+import {contraFigure} from '../lib/interactive/contraposition-render';
+import {contraText} from '../lib/reasoning/contraposition-copy';
+import '../styles/counterexamples.css';import '../styles/discovery.css';import '../styles/cases.css';import '../styles/contraposition.css';
+interface Props{kind:ContraFigure}
+const {kind}=Astro.props,locale=Astro.locals.locale||'en',c=contraText(locale),key=kind.slice(7) as keyof typeof c.figures;
+---
+<figure class="counter-lab contra-figure" data-contra-figure={kind}><h3>{c.figures[key]}</h3><div set:html={contraFigure(locale,kind)}/></figure>

@@ -1,0 +1,319 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-two
+sourceId: reasoning-episode-10
+sourcePages: []
+sourceLocations: ["Sections 1–8; Further reading"]
+title: "Die Wörter, die unbemerkt das Problem verändern"
+navTitle: "Wörter, Bedeutungen und Evidenz"
+description: "Mehrdeutigkeit, Vagheit und Äquivokation anhand von Punktveränderungen, Gegenbeispielen und präzisen Definitionen unterscheiden."
+order: 10
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [belief-and-logical-structure]
+thumbnail: reasoning-language
+---
+
+## 1. Ein Satz, der drei verschiedene Geschichten erzählt
+
+Stell dir vor, ein Forschungsteam hat gerade ein neues Lernprogramm getestet. Zehn Personen haben teilgenommen, alle haben vor und nach dem Programm einen Test absolviert, und die Forschenden haben die Ergebnisse gesammelt.
+
+Ein paar Tage später veröffentlichen sie eine kurze Mitteilung.
+
+<ReasoningFigure kind="language-summary" />
+
+Das klingt ermutigend. Wenn du überlegst, an dem Programm teilzunehmen, könntest du durchaus optimistisch sein.
+
+Aber stell dir zwei Menschen vor, die diese Mitteilung lesen.
+
+Die eine Person sagt: „Prima! Also sind die meisten, die es ausprobiert haben, besser geworden.“
+
+Die andere antwortet: „Das steht da nicht unbedingt. Vielleicht ist der Gesamtdurchschnitt nur gestiegen, weil eine einzige Person sich enorm verbessert hat.“
+
+Sie lesen denselben Satz, stellen sich aber völlig unterschiedliche Ergebnisse vor.
+
+Und hier liegt die interessante Frage: **Könnte eine Interpretation wahr sein, während die andere falsch ist?**
+
+Bevor wir uns die Daten ansehen, überlege, was die Mitteilung bedeuten könnte.
+
+<Interactive kind="language" preset="interpretations" id="average-interpretations" group="study-data" />
+
+Diese drei Vorstellungen hängen zusammen, sind aber nicht gleichbedeutend. Und die dritte bringt eine weitere Schwierigkeit mit sich: Was macht jemanden *typisch*? Wir könnten den Median, das häufigste Ergebnis oder ein anderes Kriterium verwenden.
+
+Das ist unsere erste Entdeckung. Manchmal sind sich zwei Menschen nicht deshalb uneinig, weil sie unterschiedlich über die Daten nachdenken, sondern weil sie sich nicht darauf verständigt haben, welche Frage sie beantworten wollen.
+
+Öffnen wir den Forschungsbericht und schauen nach, was tatsächlich passiert ist.
+
+## 2. Zehn Menschen, ein überraschendes Ergebnis
+
+Hier siehst du die Veränderungen der Testergebnisse. Positive Zahlen bedeuten, dass die Punktzahlen gestiegen sind; negative Zahlen bedeuten, dass sie gesunken sind.
+
+<Interactive kind="language" preset="scores" id="participant-scores" group="study-data" />
+
+Sehen wir uns das ursprüngliche Ergebnis an.
+
+Eine Person verbesserte sich um dreißig Punkte. Die anderen neun schnitten tatsächlich etwas schlechter ab und verloren jeweils zwei Punkte.
+
+Wenn wir auf die Menschen statt auf die Rechnung schauen, wirkt das Ergebnis enttäuschend. Neun von zehn wurden schlechter.
+
+Wenn wir aber das arithmetische Mittel berechnen, passiert etwas Unerwartetes.
+
+$$ \frac{30+9(-2)}{10}=\frac{12}{10}=+1{,}2 $$
+
+Die mittlere Veränderung ist positiv.
+
+Wenn die Forschenden also meinten, dass das arithmetische Mittel der individuellen Punktveränderungen positiv war, ist ihre Aussage mathematisch richtig.
+
+Wenn du sie dagegen so verstanden hast, dass sich die meisten Teilnehmenden verbessert haben, ist sie falsch.
+
+Und was ist mit der typischen Person? Eine Möglichkeit, das zu untersuchen, ist der Median. Wir sortieren die zehn Punktveränderungen und betrachten die beiden mittleren Werte.
+
+<Interactive kind="language" preset="median" id="sorted-scores" group="study-data" />
+
+Bei den ursprünglichen Daten beträgt der Median minus zwei Punkte. Die meisten Menschen wurden schlechter, und auch die Person am Median schnitt schlechter ab, obwohl das Mittel positiv ist.
+
+Genau dieselben Daten stützen eine Interpretation und widersprechen einer anderen.
+
+Beachte: Niemand musste die Daten manipulieren. Niemand musste auch nur einen Rechenfehler machen.
+
+Der Unterschied entstand dadurch, wie der Satz verstanden wurde.
+
+Das heißt **Mehrdeutigkeit**. Ein Ausdruck ist mehrdeutig, wenn er im jeweiligen Kontext mehrere Interpretationen zulässt.
+
+Die Gefahr besteht nicht nur darin, dass jemand ein Wort missversteht. Wir können einem Satz überzeugt zustimmen und uns dabei Ergebnisse vorstellen, die der Satz überhaupt nicht belegt.
+
+## 3. Der mathematische Grund für die unterschiedlichen Interpretationen
+
+Wir können noch einen Schritt weitergehen. Warum kann sich das Mittel verbessern, wenn sich die meisten Personen nicht verbessern?
+
+Entscheidend ist, dass die beiden Interpretationen verschiedene Eigenschaften derselben Sammlung messen.
+
+Nennen wir die Punktveränderung der Person $i$ nun $\Delta_i$. Der griechische Buchstabe Delta, $\Delta$, wird häufig verwendet, um eine Veränderung zu bezeichnen.
+
+<Interactive kind="language" preset="tests" id="mathematical-tests" group="study-data" />
+
+Der erste Ausdruck berücksichtigt die Größe jedes Gewinns oder Verlusts. Der zweite zählt Personen mit positiver Veränderung, unabhängig davon, ob sie sich um einen oder hundert Punkte verbessert haben.
+
+Dieser Unterschied erlaubt es uns, eine ganze Familie von Gegenbeispielen zu konstruieren.
+
+Lass neun Personen bei minus zwei Punkten und die zehnte Person $G$ Punkte gewinnen.
+
+Das Mittel lautet dann:
+
+$$ \overline{\Delta}=\frac{G-18}{10} $$
+
+Wann ist es positiv?
+
+$$ \frac{G-18}{10}>0 $$
+
+Da zehn positiv ist, können wir beide Seiten mit zehn multiplizieren, ohne die Richtung der Ungleichung umzukehren.
+
+$$ \boxed{G>18} $$
+
+Das ist interessant. Jetzt wissen wir genau, wann das Mittel sein Vorzeichen wechselt.
+
+<Interactive kind="language" preset="threshold" id="mean-threshold" />
+
+Sobald der einzelne Gewinn achtzehn Punkte übersteigt, wird die mittlere Verbesserung positiv – obwohl die anderen neun weiterhin schlechter abschneiden.
+
+Kehren wir die Situation um. Wenn neun Personen jeweils zwei Punkte gewinnen und eine Person dreißig verliert, verbessert sich die Mehrheit, aber das Mittel wird negativ.
+
+Wir haben bewiesen, dass keine der beiden Aussagen die andere garantiert.
+
+<ReasoningFigure kind="language-independence" />
+
+Deshalb ist ein Gegenbeispiel so wirkungsvoll. Wir haben nicht nur behauptet, dass zwei Interpretationen auseinanderfallen könnten, sondern genau gezeigt, wie und warum das möglich ist.
+
+Der Ausdruck „Die durchschnittliche Person hat sich verbessert“ verbarg zwei verschiedene mathematische Fragen.
+
+Mathematische Präzision hat es uns ermöglicht, sie zu trennen.
+
+## 4. Wenn ein Wort mitten im Argument seine Bedeutung wechselt
+
+Mehrdeutigkeit ist erst der Anfang. Manchmal hat ein Wort nicht bloß zwei mögliche Bedeutungen. Seine Bedeutung wechselt tatsächlich, während jemand damit argumentiert.
+
+Stell dir vor, die Forschenden sagen:
+
+„Die durchschnittliche Person hat sich verbessert. Also kann jemand wie die meisten Teilnehmenden erwarten, sich zu verbessern.“
+
+Erkennst du, was passiert ist?
+
+<ReasoningFigure kind="language-shift" />
+
+Zunächst bezeichnete *Durchschnitt* das arithmetische Mittel. In der Schlussfolgerung wurde daraus unbemerkt etwas, das eher einem typischen Ergebnis oder dem Ergebnis der Mehrheit entspricht.
+
+Die Schlussfolgerung klingt wie eine natürliche Fortsetzung der Prämisse, aber die mathematische Verbindung ist verschwunden.
+
+Das ist ein Beispiel für **Äquivokation**: Ein Argument beruht darauf, dass ein Ausdruck zwischen Bedeutungen wechselt.
+
+Sehen wir uns dasselbe Problem in einem ganz anderen Zusammenhang an.
+
+Betrachte das englische Wort *free* im Zusammenhang mit Computersoftware.
+
+Ein *free download* kann bedeuten, dass das Herunterladen nichts kostet. *Free software*, also freie Software, kann sich dagegen auf die Freiheiten beziehen, Software zu nutzen, zu untersuchen, zu verändern und weiterzugeben.
+
+Das sind unterschiedliche Eigenschaften. Software kann die Freiheiten ihrer Nutzenden respektieren und trotzdem gegen Bezahlung verbreitet werden.
+
+Untersuche nun dieses Argument.
+
+<Interactive kind="language" preset="free" id="free-software" />
+
+Die erste Prämisse verwendet *free* im Sinn von „kostenlos“. Die zweite verwendet es in seiner üblichen technischen Bedeutung im Sinn von Freiheit.
+
+Das Argument behandelt beide Bedeutungen als austauschbar. Das sind sie nicht.
+
+Beachte, was passiert, wenn du die Interpretation der zweiten Prämisse änderst. Wenn sie tatsächlich besagt, dass der Download keinen Preis hat, folgt die Schlussfolgerung. Wenn sie sich nur auf die Softwarefreiheiten bezieht, folgt sie nicht.
+
+Wir haben das äußere Schlussmuster des Arguments nicht verändert. Wir haben verändert, was eine seiner Prämissen tatsächlich aussagt.
+
+<Note title="Bedeutung und logische Form">
+Ein gleichbleibendes Satzmuster garantiert noch keine gleichbleibende logische Form. Werden „kostenlos“ und „Freiheit“ als verschiedene Eigenschaften formalisiert, fehlt im ursprünglichen Argument die gemeinsame Verbindung zwischen den Prämissen. Nur unter der hypothetisch einheitlichen Bedeutung „kostenlos“ entsteht ein gültiger Schluss.
+</Note>
+
+Du kannst dir ein gültiges Argument als Brücke zwischen Prämissen und Schlussfolgerung vorstellen. Äquivokation ist, als würde man die erste Hälfte der Brücke mit einer Bedeutung bauen, dann unbemerkt zu einer anderen wechseln und so tun, als würden die Teile weiterhin zusammenpassen.
+
+Nicht jeder Wechsel ist absichtlich. Wir tun das oft, ohne es zu merken, weil Alltagssprache flexibel genug ist, um beide Bedeutungen natürlich klingen zu lassen.
+
+<ReasoningFigure kind="language-contrast" />
+
+## 5. Ein anderes Problem: Wörter ohne scharfe Grenzen
+
+Betrachte nun einen dritten Satz.
+
+„Diese Person ist groß.“
+
+Angenommen, wir sprechen über Erwachsene. Jemand mit 150 Zentimetern Körpergröße gilt in diesem Kontext wahrscheinlich nicht als groß. Jemand mit 205 Zentimetern wahrscheinlich schon.
+
+Aber was ist mit 180 Zentimetern? Oder 181? Oder 182?
+
+Ab welchem Zentimeter genau wird jemand groß?
+
+Hier besteht die Schwierigkeit nicht unbedingt darin, dass wir zwischen zwei Definitionen wechseln. Wir haben eine allgemeine Vorstellung davon, was *groß* bedeutet, aber die Grenze ist nicht vollkommen scharf.
+
+Das heißt **Vagheit**.
+
+Ein mehrdeutiges Wort hat mehrere mögliche Interpretationen. Ein vager Ausdruck hat Grenzfälle, bei denen unklar ist, ob er zutrifft.
+
+Um zu sehen, warum das wichtig ist, versuchen wir selbst, die Ungewissheit zu beseitigen.
+
+<Interactive kind="language" preset="tall" id="height-cutoff" />
+
+Wir können leicht eine Grenze erfinden. Wir könnten sagen, dass 180 Zentimeter als groß gelten und 179 nicht. Damit erhalten wir eine vollkommen präzise Klassifikationsregel.
+
+Das belegt aber nicht, dass die Alltagssprache schon immer bei genau 180 Zentimetern eine natürliche Grenze hatte.
+
+Eine Verschiebung der Grenze um einen Zentimeter kann die Einordnung einer Person plötzlich verändern, obwohl sich ihre tatsächliche Körpergröße überhaupt nicht geändert hat.
+
+Die Präzision stammt also aus der Regel, die wir eingeführt haben, und nicht aus der Entdeckung einer scharfen Grenze, die im Wort verborgen lag.
+
+Und Vagheit ist nicht immer ein Fehler.
+
+Denke an das Wort *warm*. Wir können es im Alltag erfolgreich verwenden, ohne einen universellen Temperaturgrenzwert festzulegen. Dasselbe Zimmer kann sich nach einem Winterspaziergang warm anfühlen und nach Stunden in der Sommerhitze kühl.
+
+Für gewöhnliche Gespräche ist diese Flexibilität nützlich.
+
+Stell dir aber ein wissenschaftliches Experiment vor, in dem Forschende Menschen nach ihrer Körpertemperatur in Gruppen einteilen müssen. Jetzt wird eine ausdrückliche operationale Grenze wichtig, weil verschiedene Forschende dieselbe Einteilung einheitlich anwenden müssen.
+
+<ReasoningFigure kind="language-uses" />
+
+Die Lehre daraus ist nicht, dass jedes Wort eine perfekte mathematische Definition braucht.
+
+Sondern: **Die nötige Präzision hängt davon ab, was wir feststellen wollen.**
+
+## 6. Was Definitionen leisten können – und was nicht
+
+Vielleicht ist die Lösung also einfach: Wir definieren unsere Wörter, bevor wir beginnen.
+
+Das hilft sicherlich. Aber Definitionen haben eine wichtige Grenze.
+
+Kehren wir zum ursprünglichen Forschungsbericht zurück. Wir könnten vereinbaren, mit *Verbesserung* einen Anstieg der Testpunktzahl zu meinen und mit *mittlerer Veränderung* das arithmetische Mittel der individuellen Veränderungen aller zehn Teilnehmenden.
+
+Jetzt hat unsere Aussage eine präzise Bedeutung. Wir können berechnen, ob sie wahr ist.
+
+Aber die Definition von Verbesserung verbessert noch niemanden.
+
+Selbst wenn das berechnete Mittel positiv ist, haben wir noch nicht festgestellt, dass das Programm die Verbesserung verursacht hat. Vielleicht hätten sich die Teilnehmenden auch ohne das Programm verbessert, oder andere Faktoren haben ihre Punktzahlen beeinflusst.
+
+<ReasoningFigure kind="language-evidence" />
+
+Definitionen legen fest, was unsere Aussagen bedeuten. Evidenz hilft zu bestimmen, ob diese Aussagen gestützt sind. Und kausale Schlussfolgerungen erfordern weitere Überlegungen.
+
+Diese Unterscheidung wird besonders wichtig, wenn Wörter politisches, ethisches oder philosophisches Gewicht haben.
+
+Nimm den Satz: „Diese Regelung ist gerecht.“
+
+Bedeutet *gerecht*, dass alle dieselben Ressourcen erhalten? Dass für alle dieselben Regeln gelten? Oder dass Ressourcen entsprechend den unterschiedlichen Bedürfnissen der Menschen verteilt werden?
+
+<ReasoningFigure kind="language-fairness" />
+
+Das sind konkurrierende Vorstellungen von Gerechtigkeit. Die Wahl einer Definition kann die Meinungsverschiedenheit klären. Sie legt aber nicht automatisch fest, welche Vorstellung von Gerechtigkeit wir übernehmen sollten.
+
+Oder jemand sagt: „Es ist möglich, dass dieser Plan gelingt.“
+
+Ist damit gemeint, dass der Plan keinen logischen Widerspruch enthält? Dass er physisch oder technisch umsetzbar ist? Oder dass er eine erhebliche Erfolgschance hat?
+
+<ReasoningFigure kind="language-possible" />
+
+Das sind sehr unterschiedliche Aussagen.
+
+Aus einer Möglichkeit folgt nicht automatisch eine Wahrscheinlichkeit. Und eine präzise Definition ist nicht automatisch eine Entdeckung über die Welt.
+
+## 7. Kannst du den ursprünglichen Satz verbessern?
+
+Kehren wir ein letztes Mal zur Forschungsmitteilung zurück.
+
+„Die durchschnittliche Person hat sich verbessert.“
+
+Wir haben genug gelernt, um sie ohne Mehrdeutigkeit umzuformulieren. Aber es gibt eine zusätzliche Herausforderung.
+
+**Unsere Umformulierung darf nicht mehr behaupten, als die Daten stützen.**
+
+Das klingt einfach. Trotzdem ist es verlockend, eine unklare Aussage durch eine stärkere, dramatischere zu ersetzen.
+
+Wähle anhand der ursprünglichen Daten – eine Person gewann dreißig Punkte, neun verloren jeweils zwei – die am besten begründete Umformulierung.
+
+<Interactive kind="language" preset="rewrite" id="precise-rewrite" />
+
+Die zweite Aussage ist die begründbare Wahl.
+
+Sie klingt nicht so aufregend wie die ursprüngliche Schlagzeile. Sie ist genauer und macht weniger Annahmen darüber, was die Lesenden verstehen werden.
+
+Aber genau das macht sie informativ.
+
+Wende dieses Prinzip nun in einem anderen Zusammenhang an. Stell dir vor, jemand sagt: „Unsere neue Regel ist gerecht.“
+
+Bevor du zustimmst oder widersprichst, könntest du fragen, welches Gerechtigkeitskriterium gemeint ist. Dann kannst du untersuchen, ob die Regel dieses Kriterium erfüllt – und getrennt davon überlegen, ob es das richtige Kriterium ist.
+
+Damit hast du noch nicht die ganze Meinungsverschiedenheit gelöst. Aber du hast die Frage identifiziert, die beantwortet werden muss.
+
+Das ist ein echter Fortschritt.
+
+## 8. Die Frage hinter jeder Frage
+
+Wir begannen mit einem Forschungsergebnis, das unkompliziert wirkte. Ein gewöhnlicher Satz, zehn Teilnehmende, ein positiver Durchschnitt.
+
+Indem wir seine möglichen Bedeutungen untersuchten, entdeckten wir, dass er verschiedene Aussagen mit unterschiedlichen Wahrheitswerten ausdrücken kann.
+
+Wir sahen, wie ein Bedeutungswechsel ein Argument unterbrechen kann und warum manche alltäglichen Begriffe tatsächlich unscharfe Grenzen haben.
+
+<ReasoningFigure kind="language-problems" />
+
+Die tiefere Einsicht betrifft das Verhältnis zwischen Sprache und Denken.
+
+Die Logik kann uns sagen, ob eine Schlussfolgerung aus ihren Prämissen folgt. Die Mathematik kann uns sagen, ob ein Zahlenzusammenhang gilt. Evidenz kann uns sagen, was in der Welt geschehen ist.
+
+Um diese Werkzeuge richtig zu nutzen, müssen wir aber zuerst verstehen, was unsere Sätze tatsächlich behaupten.
+
+Präzision bedeutet nicht, Sprache kompliziert zu machen. Sie bedeutet sicherzustellen, dass wir bei der Untersuchung einer Aussage tatsächlich die gemeinte Aussage untersuchen.
+
+Wenn dir also das nächste Mal eine selbstsichere Behauptung begegnet, besonders mit Wörtern wie *durchschnittlich*, *frei*, *möglich* oder *gerecht*, stelle dir vor dem Urteil über ihre Wahrheit eine Frage:
+
+<ReasoningFigure kind="language-question" />
+
+Denn manchmal passiert der wichtigste Fehler eines Arguments, bevor das Argument überhaupt beginnt.
+
+## Weiterführende Literatur
+
+Zu den begrifflichen Grundlagen dieser Lektion: [forall x: Calgary](https://forallx.openlogicproject.org/html/) zu Mehrdeutigkeit und Interpretation, [Fundamental Methods of Logic von Matthew Knachel](https://open.umn.edu/opentextbooks/textbooks/fundamental-methods-of-logic) zu sprachbezogenen Fehlschlüssen und [Stanford Encyclopedia of Philosophy – Informal Logic](https://plato.stanford.edu/entries/logic-informal/) zur Interpretation und Bewertung von Argumenten. Die [Definition freier Software des GNU-Projekts](https://www.gnu.org/philosophy/free-sw.html) erläutert die Unterscheidung zwischen Freiheit und Preis.

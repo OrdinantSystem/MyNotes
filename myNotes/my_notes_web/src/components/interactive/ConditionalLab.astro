@@ -1,0 +1,31 @@
+---
+import {conditionalText} from '../../lib/reasoning/conditional-copy';
+import {conditionalChoices,type ConditionalPreset} from '../../lib/interactive/conditional-model';
+import {conditionalMarkup} from '../../lib/interactive/conditional-render';
+import '../../styles/counterexamples.css';import '../../styles/conditionals.css';
+interface Props {preset:ConditionalPreset;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=conditionalText(locale);
+if(preset!=='numbers')throw new Error('Unknown conditional preset');
+---
+<figure class="counter-lab conditional-lab" id={id} data-conditional-lab data-locale={locale}>
+ <h3>{c.title}</h3>
+ <div class="counter-controls" role="group" aria-label={c.title}>{conditionalChoices.map(n=><button type="button" data-conditional-number={n} aria-pressed={n===6} aria-controls={`${id}-view`}>{n}</button>)}<button type="button" data-conditional-reset aria-controls={`${id}-view`}>{c.reset}</button></div>
+ <div id={`${id}-view`} data-conditional-view set:html={conditionalMarkup(locale,6)}/>
+ <figcaption>{c.choose}</figcaption>
+ <p class="visually-hidden" data-conditional-status role="status" aria-live="polite"></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {conditionalMarkup} from '../../lib/interactive/conditional-render';
+import {conditionalChoice} from '../../lib/interactive/conditional-model';
+for(const root of document.querySelectorAll<HTMLElement>('[data-conditional-lab]')){
+ const locale=root.dataset.locale as Locale;
+ function draw(n:number){
+  conditionalChoice(n);root.querySelector('[data-conditional-view]')!.innerHTML=conditionalMarkup(locale,n);
+  root.querySelectorAll<HTMLElement>('[data-conditional-number]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.conditionalNumber)===n)));
+  root.querySelector<HTMLElement>('[data-conditional-status]')!.textContent=root.querySelector<HTMLElement>('.conditional-for')!.innerText+' '+root.querySelector<HTMLElement>('.conditional-predicates')!.innerText;
+ }
+ root.querySelectorAll<HTMLElement>('[data-conditional-number]').forEach(b=>b.addEventListener('click',()=>draw(Number(b.dataset.conditionalNumber))));
+ root.querySelector('[data-conditional-reset]')!.addEventListener('click',()=>draw(6));
+}
+</script>

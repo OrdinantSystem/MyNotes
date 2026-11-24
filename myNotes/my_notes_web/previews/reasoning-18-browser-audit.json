@@ -1,0 +1,141 @@
+{
+  "lesson": "proof-by-cases-and-equivalence",
+  "date": "2026-11-24",
+  "browser": "IAB",
+  "viewports": [
+    [
+      1440,
+      1000
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "locales": [
+    "en",
+    "de"
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "layout": {
+    "pageWideOverflow": false,
+    "wideFiguresOrFieldsetsOnPhone": false,
+    "katexErrors": 0,
+    "duplicateIds": 0,
+    "activities": 6,
+    "figures": 25,
+    "finalDesktopBranchFormulaOverflow": false,
+    "wideContent": "Integer strips and wide mathematics scroll locally.",
+    "completedProof": "Independent n=2k / n=2k+1 branches explicitly state integer witnesses; multiline equations fit desktop panels."
+  },
+  "numericControls": {
+    "observedConsecutive": [
+      7,
+      8,
+      -3,
+      0,
+      -12,
+      12
+    ],
+    "boundsDisableButtons": true,
+    "invalid13RestoredLastValidZero": true,
+    "enterRetainsFocus": true,
+    "oddRangeHomeEnd": [
+      3,
+      11
+    ],
+    "gridAt3": {
+      "center": 4,
+      "strips": 4,
+      "corner": 1
+    },
+    "gridAt11": {
+      "center": 100,
+      "strips": 20,
+      "corner": 1
+    },
+    "invalidEvenSide4Restored11": true,
+    "resetRestores7": true,
+    "negativeTripleObserved": [
+      -2,
+      -1,
+      0
+    ]
+  },
+  "questions": {
+    "initiallyUnanswered": true,
+    "inspectionCorrectAndIncorrectFeedback": true,
+    "nativeRadioArrowNavigation": true,
+    "allThreeFactorAnswers": true,
+    "allFourCoverageAnswers": true,
+    "resetClearsOwnChoicesFeedbackAndDisclosure": true,
+    "otherInstanceSelectionsPreserved": true,
+    "eightNativeSelfReviewCheckboxes": true,
+    "spaceAndNativeChecklistReset": true,
+    "addedSolutions2and5Opened": true,
+    "zeroDisclosureOpened": true
+  },
+  "gallery": {
+    "presets": 6,
+    "instances": 7,
+    "figures": 25,
+    "independence": "First product explorer changed to −12; second remains 7.",
+    "consoleWarningsErrors": []
+  },
+  "prefix": {
+    "base": "/MyNotes",
+    "prefixedStyles": true,
+    "navigation": "18 → 17 (Part Three) → 16 (Part Two) → 17 → 18",
+    "germanOverview": {
+      "PartOne": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "PartTwo": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "PartThree": [
+        17,
+        18
+      ]
+    },
+    "languageSwitch": true,
+    "searchEnglish": "several routes",
+    "searchGerman": "Fallunterscheidung",
+    "bothLessonResultsOpened": true,
+    "consoleWarningsErrors": []
+  },
+  "final": {
+    "normalPreview": "http://127.0.0.1:4321/reasoning/lessons/proof-by-cases-and-equivalence/",
+    "unansweredChoices": true,
+    "chapter": "Part Three",
+    "consoleWarningsErrors": [],
+    "temporaryTabsClosed": true,
+    "viewportOverrideCleared": true,
+    "englishDeliverableLeftOpen": true
+  },
+  "screenshots": [
+    "reasoning-18-desktop.jpg",
+    "reasoning-18-compact-de.jpg"
+  ],
+  "limits": [
+    "No independent mathematics or translation review.",
+    "No full accessibility or learning-outcome audit."
+  ]
+}

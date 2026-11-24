@@ -1,0 +1,40 @@
+---
+import MathText from '../MathText.astro';
+import {equivalencePresets,sortingChoices,initialEquivalenceState,type EquivalencePreset} from '../../lib/interactive/equivalence-model';
+import {equivalenceText} from '../../lib/reasoning/equivalence-copy';
+import {classesMarkup,chainMarkup} from '../../lib/interactive/equivalence-render';
+import '../../styles/counterexamples.css';import '../../styles/equivalence.css';
+interface Props{preset:EquivalencePreset;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=equivalenceText(locale),state=initialEquivalenceState();
+if(!(equivalencePresets as readonly string[]).includes(preset))throw new Error('Unknown equivalence preset');
+---
+<figure class="counter-lab equivalence-lab" id={id} data-equivalence-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='sorting'?<><p>{c.sortingHelp}</p><div class="counter-controls" role="group" aria-label={c.sortingHelp}>{sortingChoices.map(n=><button type="button" data-equivalence-number={n} aria-pressed={n===state.selected} aria-controls={`${id}-view`}>{n}</button>)}</div><div id={`${id}-view`} data-equivalence-view set:html={classesMarkup(locale,state.selected)}/></>:preset==='comparison'?<><p>{c.comparisonHelp}</p><div class="counter-controls" role="group" aria-label={c.comparisonHelp}>{(['remainder','distance'] as const).map((rule,i)=><button type="button" data-equivalence-rule={rule} aria-pressed={rule===state.rule} aria-controls={`${id}-view`}>{c.rules[i]}</button>)}</div><div id={`${id}-view`} data-equivalence-view set:html={chainMarkup(locale,state.rule)}/></>:<fieldset class="equivalence-question"><legend><MathText text={c.question}/></legend>{c.options.map((option,i)=><label><input type="radio" name={`${id}-answer`} data-equivalence-answer={i} aria-controls={`${id}-feedback`}/><span>{option}</span></label>)}<div id={`${id}-feedback`} data-equivalence-feedback/></fieldset>}
+ <div class="counter-controls"><button type="button" data-equivalence-reset>{c.reset}</button></div><p class="visually-hidden" role="status" aria-live="polite" data-equivalence-status></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {initialEquivalenceState} from '../../lib/interactive/equivalence-model';
+import {classesMarkup,chainMarkup,equivalenceAnswerMarkup} from '../../lib/interactive/equivalence-render';
+for(const root of document.querySelectorAll<HTMLElement>('[data-equivalence-lab]')){
+ const locale=root.dataset.locale as Locale,state=initialEquivalenceState(),preset=root.dataset.equivalenceLab;
+ function draw(){
+  if(preset==='sorting'){
+   root.querySelector('[data-equivalence-view]')!.innerHTML=classesMarkup(locale,state.selected);
+   root.querySelectorAll<HTMLElement>('[data-equivalence-number]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.equivalenceNumber)===state.selected)));
+  }else if(preset==='comparison'){
+   root.querySelector('[data-equivalence-view]')!.innerHTML=chainMarkup(locale,state.rule);
+   root.querySelectorAll<HTMLElement>('[data-equivalence-rule]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.equivalenceRule===state.rule)));
+  }else{
+   root.querySelector('[data-equivalence-feedback]')!.innerHTML=equivalenceAnswerMarkup(locale,state.answer);
+   root.querySelectorAll<HTMLInputElement>('[data-equivalence-answer]').forEach(b=>b.checked=Number(b.dataset.equivalenceAnswer)===state.answer);
+  }
+  root.querySelector<HTMLElement>('[data-equivalence-status]')!.textContent=root.querySelector<HTMLElement>(preset==='checkpoint'?'[data-equivalence-feedback]':'.equivalence-readout')!.innerText;
+ }
+ root.querySelectorAll<HTMLButtonElement>('[data-equivalence-number]').forEach(b=>b.addEventListener('click',()=>{state.selected=Number(b.dataset.equivalenceNumber);draw();}));
+ root.querySelectorAll<HTMLButtonElement>('[data-equivalence-rule]').forEach(b=>b.addEventListener('click',()=>{state.rule=b.dataset.equivalenceRule as 'remainder'|'distance';draw();}));
+ root.querySelectorAll<HTMLInputElement>('[data-equivalence-answer]').forEach(b=>b.addEventListener('change',()=>{state.answer=Number(b.dataset.equivalenceAnswer);draw();}));
+ root.querySelector('[data-equivalence-reset]')!.addEventListener('click',()=>{Object.assign(state,initialEquivalenceState());draw();});
+}
+</script>

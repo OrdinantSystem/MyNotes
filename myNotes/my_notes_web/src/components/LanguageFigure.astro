@@ -1,0 +1,21 @@
+---
+import {languageText} from '../lib/reasoning/language-copy';
+import type {LanguageFigure} from '../lib/interactive/language-model';
+import Math from './Math.astro';
+import '../styles/counterexamples.css';import '../styles/language.css';
+interface Props{kind:LanguageFigure}
+const {kind}=Astro.props,c=languageText(Astro.locals.locale||'en'),key=kind.slice(9) as keyof typeof c.figures;
+const rows=kind==='language-contrast'?c.contrast:kind==='language-uses'?c.uses:kind==='language-evidence'?c.evidence:kind==='language-fairness'?c.fairness:kind==='language-possible'?c.possible:null;
+---
+<figure class="counter-figure language-figure">
+ <h3>{c.figures[key]}</h3>
+ {kind==='language-summary'&&<><p class="language-statement language-center">{c.headline}</p><figcaption>{c.study}</figcaption></>}
+ {kind==='language-independence'&&<><div class="language-center"><p>{c.independence[0]}</p><Math tex={String.raw`\not\Rightarrow\quad\not\Leftarrow`} display/><p>{c.independence[1]}</p></div><figcaption>{c.independence[2]}</figcaption></>}
+ {kind==='language-shift'&&<div class="language-flow"><section><p class="language-eyebrow">{c.premise}</p><p><strong>{c.shift[0]}</strong></p><p>{c.shift[1]}</p></section><p class="language-center language-no">↓ {c.shift[2]}</p><section><p class="language-eyebrow">{c.conclusion}</p><p><strong>{c.shift[3]}</strong></p><p>{c.shift[4]}</p></section><p class="language-center language-no">{c.shift[5]}</p></div>}
+ {rows&&<div class:list={['counter-columns',{'language-one-column':kind==='language-possible'}]}>{rows.map(row=><section class="language-case"><h4>{row[0]}</h4>{row.slice(1).map(text=><p>{text}</p>)}{kind==='language-contrast'&&<p class="language-center" aria-hidden="true">{row[0]===c.contrast[0][0]?'B ← A → C':'A → B'}</p>}</section>)}</div>}
+ {kind==='language-evidence'&&<><p class="language-center">↓ {c.evidenceBridge}</p><p class="language-statement language-yes">{c.evidenceClaim}</p><p><strong>{c.causalQuestion}</strong></p><figcaption>{c.causalLimit}</figcaption></>}
+ {kind==='language-fairness'&&<figcaption>{c.fairnessLimit}</figcaption>}
+ {kind==='language-possible'&&<figcaption><strong>{c.possibleLimit}</strong></figcaption>}
+ {kind==='language-problems'&&c.problems.map(row=><section class="language-problem"><h4>{row[0]}</h4><p>{row[1]}</p></section>)}
+ {kind==='language-question'&&<><p class="language-statement language-center">{c.remember}</p><figcaption>{c.words}</figcaption></>}
+</figure>

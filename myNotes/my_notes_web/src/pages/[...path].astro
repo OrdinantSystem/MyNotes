@@ -55,7 +55,7 @@ const i=lessons.findIndex(l=>l.key===lesson?.key),previous=lessons[i-1],next=les
    <header class="article-header"><h1 data-pagefind-meta="title">{lesson.data.title}</h1></header>
    {lesson.data.prerequisites.length>0&&<div class="prerequisites" data-pagefind-ignore><span>{t.prerequisites}</span>{lesson.data.prerequisites.map(id=><a href={lessonUrl(id,locale,course.id)}>{lessons.find(l=>l.key===id)?.data.navTitle}</a>)}</div>}
    <div class="prose"><Content components={learningComponents}/></div>
-   {course.id==='analysis'&&<AnalysisCompatibility alias={analysisAliases[locale as Locale][lesson.key]} locale={locale as Locale}/>}
+   {course.id==='analysis'&&analysisAliases[locale as Locale][lesson.key]&&<AnalysisCompatibility alias={analysisAliases[locale as Locale][lesson.key]} locale={locale as Locale}/>}
   </article>
   <nav class="page-turn" aria-label={t.lessons} data-pagefind-ignore><a href={previous?lessonUrl(previous.key,locale,course.id):courseUrl(course.id,locale)}><small>← {previous?t.previous:t.backOverview}</small><span>{previous?.data.navTitle||course.title[locale]}</span></a>{next&&<a class="next" href={lessonUrl(next.key,locale,course.id)}><small>{courseId==='analysis'&&next.data.order===18?t.optionalNext:t.next} →</small><span>{next.data.navTitle}</span></a>}</nav>
  </>}

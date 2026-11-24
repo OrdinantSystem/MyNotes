@@ -1,5 +1,17 @@
 # Reusable representation library
 
+Episode 16 adds `what-makes-a-proof`, three `Interactive kind="justification"` presets and seven `ReasoningFigure` variants, including existing Flow for the repair. All run in the gallery with a second independent representation activity. See [reasoning-justification.md](reasoning-justification.md) for the source, parity/domain, dependency and state contracts.
+
+Episode 15 adds the bilingual `equivalence-relations` lesson, three `Interactive kind="equivalence"` presets and eleven `ReasoningFigure` variants. All run in the gallery, including a second independent sorting instance. See [reasoning-equivalence.md](reasoning-equivalence.md) for source mapping, exact integer predicates, proofs, state/reset and verification contracts.
+
+Analysis Second Exam Prep adds `<LogicFigure kind="concept-map|predicate-mapping|proof-paths" />` and `<RecallChecklist items={["Explain $P(x)$."]} />`. The static figures explain branching statement formation, evenness mapping and proof/refutation paths in both languages. The checklist uses native labeled checkboxes and form reset, supports MathText, and has no storage, submission or score. Existing Flow handles linear predicate/binding diagrams. All variants run under `/library/#logic-revision`. A new family is justified because neither vector geometry nor a linear Flow expresses branching closure and the many-to-one truth mapping. See [the lesson contract](analysis-second-exam-prep.md).
+
+Episode 14 adds `Interactive kind="worlds" preset="operations|countermodel|checkpoint" id="unique-id"` and four `ReasoningFigure` kinds: `world-inventory`, `world-membership`, `world-empty`, and `world-drawings`. These reuse finite-set and Boolean operations with a fixed eight-object domain and a separate countermodel. All variants and an independent operations instance run in the gallery. See [reasoning-worlds.md](reasoning-worlds.md).
+
+Episode 13 adds `Interactive kind="dependence" preset="network|students" id="unique-id"` and seven quantifier/dependence `ReasoningFigure` variants. These reuse the finite-relation and witness-count models, adding a directed graph with explicit self-loops and a bounded named-student counterexample. All variants and a second independent network run in the gallery. See [reasoning-dependence.md](reasoning-dependence.md).
+
+Episode 12 adds `Interactive kind="switches" preset="access|override|scope|demorgan|routes|simplify|checkpoint" id="unique-id"` and seven `ReasoningFigure` kinds prefixed `switch-`. Optional `group` shares P/Q only between explicitly linked views. Native controls, initial server rendering, reset, closed reference solutions, complete truth tables and unanswered checkpoints follow [reasoning-switches.md](reasoning-switches.md). Every variant and a second independent access instance run in the gallery.
+
 Episode 06 adds `Interactive kind="counterexamples" preset="prime-detector|sieve|cards|divisibility" id="unique-id"` and ten `ReasoningFigure` kinds prefixed `counter-`. These closed states distinguish a qualifying failure, finite filtering, exact card thresholds and a divisibility transfer. All fourteen representations run in the gallery, retain build-time content and native input, and share the source/model/accessibility contract in [reasoning-counterexamples.md](reasoning-counterexamples.md).
 
 Episode 05 adds `Interactive kind="patterns" preset="continuations|next-test" id="unique-id"` and six `ReasoningFigure kind="pattern-…"` variants: history, machines, rules, test, forecasts and challenge. They distinguish observations from conditional predictions, compare candidate rules and identify an informative test. Shared Flow supplies the observation/conjecture/prediction chain. All eight new presets/variants run in the gallery. See [the mathematical, evidence and accessibility contract](reasoning-patterns.md).
@@ -172,3 +184,48 @@ The Reasoning Episode 08 finite comparison uses `Interactive kind="validity" pre
 `Interactive kind="arguments" preset="appeals|xray|countermodel|only|practice" id="unique-id"` covers paired judgments with deliberate explanation reveals, two stories × three abstraction modes, a shared-subset countermodel, all/only direction, and final valid/invalid practice. Controls preserve focus, are local and independent, offer reset, expose pressed/expanded state and politely announce results. No choices are preselected in judgment tasks; changing an answer conceals the explanation. Feedback is conditional on the actual choices. Native reference-answer disclosures remain available without JavaScript.
 
 `ReasoningFigure kind="argument-structure|argument-dimensions|argument-two-pass"` provides modus ponens abstraction, the validity/believability grid (logical possibilities, not research performance data), and separate inference/premise checks. Shared semantic frames and tokens preserve the canonical design; nested HTML regions keep language labels readable at compact widths, while SVG supplies the abstract overlap and witness geometry. The pure finite membership model reuses Episode 08’s forward-inference checker rather than creating a second propositional engine. All variants run in the gallery. See [the source/model contract](reasoning-arguments.md).
+
+## Language, averages and boundaries
+
+`Interactive kind="language"` adds interpretations, scores, median, tests, threshold, free, tall and rewrite presets. An optional explicit `group` shares the first four views’ data; other instances remain independent. `ReasoningFigure` adds ten `language-*` variants. The source example stays fixed at +30 and nine −2, while live results derive from their controls. The median is one named working criterion for “typical”; zero at G = 18 is not positive; hypothetical height rules use inclusive cutoffs. All variants run in the library. See [the full model and source contract](reasoning-language.md).
+
+## Conditional direction and integer predicates
+
+`Interactive kind="conditional" preset="numbers"` investigates 4, 6 and 7 in nested integer regions with derived P/Q truth, explanatory feedback and reset. `ReasoningFigure` adds conditional-roles, conditional-cases, conditional-forms, conditional-table, conditional-admission and conditional-kinds. The truth table reuses the unchanged Boolean engine. Native `Exercise` disclosures provide inverse/admission reference reasoning. All variants and two isolated explorers run in the central library. See [the full contract](reasoning-conditionals.md).
+
+## Finding the next proof step
+
+`Interactive kind="discovery" preset="parity|workspace|practice" id="unique-id"` adds finite even-plus-odd pairing, a five-state forward/backward workspace and four initially unanswered opening-move questions. The final workspace verifies its integer witness before marking the goal established. Native controls, reset and local explanatory feedback preserve independent state. Three practice questions are labeled additions because only the existence question was supplied. `ReasoningFigure` adds ten `discovery-*` variants, including scoped conditional branches, a four-row logical-rule table and dependent integer witnesses. All variants and a second independent workspace run in the gallery. See [the source and model contract](reasoning-discovery.md).
+
+## Exhaustive cases and equivalent properties
+
+`Interactive kind="cases" preset="consecutive|odd-square|inspection|triples|factors|coverage-practice" id="unique-id"` adds bounded integer controls, a square-region display and initially unanswered local judgments. Inputs range from −12 to 12; illustrated odd sides are 3–11. Formal arguments remain valid over all integers. All instances have reset, native keyboard controls and explanatory status. `ReasoningFigure` adds twenty-five `cases-*` variants for branching, coverage/overlap, square implications, completed proofs, real absolute-value cases and worksheet direction questions. Existing Euclidean remainder, Boolean implication and restricted math rendering are reused. All variants and a second independent product explorer run in the gallery. See [the source and model contract](reasoning-cases.md).
+
+## Contraposition
+
+Episode 19 adds three `Interactive kind="contraposition"` presets and eighteen `ReasoningFigure kind="contra-…"` variants, all in the gallery with a second independent truth explorer. See [reasoning-contraposition.md](reasoning-contraposition.md). The existing logic evaluator and signed square witness remain the mathematical sources.
+
+## Contradiction and Euclid’s construction
+
+Episode 20 adds three `Interactive kind="contradiction"` presets and twenty-four `ReasoningFigure kind="contradiction-…"` variants, all in the gallery with a second independent prime builder. See [reasoning-contradiction.md](reasoning-contradiction.md). Primality reuses the existing counterexample model; the product construction and bounded prime factorization are pure state functions.
+
+
+Episode 21 adds three `Interactive kind="uniqueness"` presets and eighteen `ReasoningFigure kind="unique-…"` variants. The library includes a second independent machine. Square roots reuse the existing equation model. See [reasoning-uniqueness.md](reasoning-uniqueness.md).
+
+
+Episode 22 adds three `Interactive kind="induction"` presets and twenty `ReasoningFigure kind="induction-…"` variants. The gallery contains a second independent tile activity. Primality reuses the existing counterexample model; tiles and chain reachability have pure models. See [reasoning-induction.md](reasoning-induction.md).
+
+
+Episode 23 adds three `Interactive kind="audit"` presets (`faulty`, `cancellation`, `cases`) and twenty-two `ReasoningFigure kind="audit-…"` variants. All run in the gallery with a second independent cancellation explorer. The square-preimage model and native control/math conventions are reused. See [reasoning-audit.md](reasoning-audit.md).
+
+
+Episode 24 adds `Interactive kind="transfer" preset="reconstruct|apply|calibration" id="unique-id"` and eighteen `ReasoningFigure kind="transfer-…"` variants. Every variant and preset runs in the gallery, with a second independent example record. It reuses odd-sum pairing and Euclidean remainder models. Free-text attempts are ungraded; forecasts and observations are local, optional and never interpreted as mastery. See [reasoning-transfer.md](reasoning-transfer.md).
+
+
+Episode 25 adds `Interactive kind="triangle" preset="puzzle|side|challenge" id="unique-id"` and twenty `ReasoningFigure kind="triangle-…"` variants. Native selects swap/move six distinct pieces; side experiments derive the required middle; the target-8 activity offers ungraded strategy feedback and a reference proof. Nineteen figures appear in the lesson; all variants and a second independent puzzle run in the gallery. Pure incidence/assignment mathematics remains separate from SVG and browser control. See [reasoning-triangle.md](reasoning-triangle.md).
+
+
+Episode 26 adds `Interactive kind="reframe" preset="construction|rows|handshakes" id="unique-id"` and nineteen `ReasoningFigure kind="reframe-…"` variants. Stepwise duplication/rotation/combination preserves object identities; row controls derive complementary lengths; person selectors highlight the two ordered cells of one unordered handshake. All run in the gallery with a second independent construction. Numeric/range controls support keyboard input, invalid-value restoration and reset. See [reasoning-representations.md](reasoning-representations.md).
+
+
+Episode 27 adds `Interactive kind="lemma" preset="parity|bridge|practice" id="unique-id"` and fourteen `ReasoningFigure kind="lemma-…"` variants. Native bounded choices show three-copy parity with conserved regrouped leftovers; six proof-planning stages distinguish an unproved candidate, proved lemma and established conclusion; initially unanswered radios give deliberate ungraded feedback. Signed remainder, consecutive products and square witnesses reuse existing pure models. The gallery includes a second independent bridge. See [reasoning-lemmas.md](reasoning-lemmas.md).

@@ -1,0 +1,9 @@
+---
+import type {ContradictionFigure} from '../lib/interactive/contradiction-model';
+import {contradictionFigure} from '../lib/interactive/contradiction-render';
+import {contradictionText} from '../lib/reasoning/contradiction-copy';
+import '../styles/counterexamples.css';import '../styles/discovery.css';import '../styles/cases.css';import '../styles/contradiction.css';
+interface Props{kind:ContradictionFigure}
+const {kind}=Astro.props,locale=Astro.locals.locale||'en',c=contradictionText(locale),key=kind.slice(14) as keyof typeof c.figures;
+---
+<figure class="counter-lab contradiction-figure" data-contradiction-figure={kind}><h3>{c.figures[key]}</h3><div set:html={contradictionFigure(locale,kind)}/></figure>

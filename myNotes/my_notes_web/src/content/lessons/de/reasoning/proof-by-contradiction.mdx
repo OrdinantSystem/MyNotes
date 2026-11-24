@@ -1,0 +1,633 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-three
+sourceId: reasoning-episode-20
+sourcePages: []
+sourceLocations: ["Sections 1–11; Learning checkpoint; Additional exercises; Preparation sources"]
+title: "Kann eine unmögliche Folgerung etwas beweisen?"
+navTitle: "Beweis durch Widerspruch"
+description: "Eine Verneinung vorübergehend annehmen, eine genaue Unvereinbarkeit finden und Euklids Beweis für unendlich viele Primzahlen rekonstruieren."
+order: 20
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [proof-by-contraposition]
+thumbnail: reasoning-contradiction
+---
+
+## 1. Die Zahl, die nicht existieren kann
+
+Stell dir vor, jemand behauptet, die größte ganze Zahl entdeckt zu haben.
+
+Gemeint ist nicht die größte Zahl, die ein Computer speichern kann, oder die größte jemals aufgeschriebene Zahl. Gemeint ist die größte ganze Zahl, die überhaupt existieren kann.
+
+Nennen wir diese geheimnisvolle Zahl $N$.
+
+<ReasoningFigure kind="contradiction-largest" />
+
+Falls die Behauptung stimmt, kann es keine ganze Zahl geben, die größer als $N$ ist. Wir hätten das Ende erreicht.
+
+An dieser Behauptung ist jedoch etwas merkwürdig. Wir wissen, wie Addition funktioniert. Nichts hindert uns daran, zu dieser Zahl eins zu addieren.
+
+$$
+N+1
+$$
+
+<ReasoningFigure kind="contradiction-successor" />
+
+Nun haben wir eine ganze Zahl, die größer als die größte ganze Zahl ist. Etwas ist schiefgegangen.
+
+Achte darauf, wo das Problem entstanden ist: Beim Addieren von eins haben wir keinen Fehler gemacht. Wir haben auch die Regeln der Mathematik nicht verändert. Wir haben lediglich die Folgen der ursprünglichen Behauptung untersucht.
+
+Das Problem war die Behauptung selbst.
+
+Daraus ergibt sich ein wirkungsvolles Verfahren: Statt etwas direkt zu beweisen, nehmen wir vorübergehend sein Gegenteil an und untersuchen die mathematische Welt, die daraus folgt.
+
+Kann diese Welt nicht existieren, kann auch die Annahme, aus der sie hervorgegangen ist, nicht gelten.
+
+## 2. Eine Welt aufbauen, die nicht existieren kann
+
+Untersuchen wir unseren Gedankengang genauer.
+
+Mit der Annahme, $N$ sei die größte ganze Zahl, haben wir etwas Bestimmtes akzeptiert: Jede ganze Zahl ist kleiner oder gleich $N$.
+
+$$
+\forall m\in\mathbb Z,\quad m\leq N.
+$$
+
+Das ist keine zusätzliche Annahme, sondern die Bedeutung von „größte ganze Zahl“.
+
+Die ganzen Zahlen sind unter Addition abgeschlossen. Da sowohl $N$ als auch $1$ ganzzahlig sind, ist auch ihre Summe ganzzahlig.
+
+$$
+N\in\mathbb Z\quad\Longrightarrow\quad N+1\in\mathbb Z.
+$$
+
+Weil $N$ angeblich mindestens so groß wie jede ganze Zahl ist, muss dies auch für $N+1$ gelten. Also folgt
+
+$$
+N+1\leq N.
+$$
+
+Aus den gewöhnlichen Eigenschaften der Zahlen wissen wir zugleich:
+
+$$
+N+1>N.
+$$
+
+Stellen wir beide Folgerungen nebeneinander.
+
+<ReasoningFigure kind="contradiction-integer-conflict" />
+
+Die Aussagen können nicht zugleich wahr sein. Die eine besagt, dass $N+1$ größer als $N$ ist, die andere, dass dies nicht der Fall ist.
+
+Das ist eine logische Unvereinbarkeit.
+
+Unsere Schlüsse waren gültig, und die übrigen verwendeten mathematischen Eigenschaften waren bereits anerkannt. Deshalb müssen wir die vorübergehende Annahme verwerfen.
+
+$$
+\boxed{\text{Es gibt keine größte ganze Zahl.}}
+$$
+
+Der Widerspruch ist nicht das Ergebnis, das wir beweisen wollten. Er zeigt, dass das Gegenteil unseres gewünschten Ergebnisses nicht gelten kann.
+
+Das Verfahren heißt **Beweis durch Widerspruch**, auch *reductio ad absurdum*.
+
+## 3. Warum funktioniert dieses Verfahren?
+
+Angenommen, wir möchten eine mathematische Aussage $P$ beweisen.
+
+Bei einem direkten Beweis beginnen wir mit gesichertem Wissen und entwickeln daraus einen Weg zu $P$.
+
+Beim Widerspruchsbeweis führen wir dagegen vorübergehend eine neue Annahme ein:
+
+$$
+\neg P.
+$$
+
+Wir behaupten nicht, dass sie wahr ist. Wir untersuchen, was folgen würde, wenn sie wahr wäre.
+
+<ReasoningFigure kind="contradiction-eliminate" />
+
+Nach einer Reihe gültiger Schlüsse gelangen wir möglicherweise zu zwei unvereinbaren Aussagen:
+
+$$
+Q\qquad\text{und}\qquad\neg Q.
+$$
+
+Dabei ist unwichtig, worüber $Q$ spricht: über Zahlen, Mengen, Funktionen, Geometrie oder etwas anderes. Entscheidend ist, dass beide Aussagen nicht zugleich wahr sein können.
+
+Diese logische Unmöglichkeit bezeichnen wir mit
+
+$$
+\bot.
+$$
+
+Das Symbol heißt auch *Bottom* und steht hier für Falschheit oder einen Widerspruch.
+
+Die gesamte Beweisstruktur lautet damit:
+
+$$
+\neg P\Longrightarrow\bot.
+$$
+
+Führt die Verneinung von $P$ unter unseren anerkannten Voraussetzungen notwendig zu einem Widerspruch, kann sie nicht wahr sein.
+
+In klassischer Logik folgt dann:
+
+$$
+\neg\neg P\Longrightarrow P.
+$$
+
+Damit haben wir die ursprünglich gesuchte Aussage bewiesen.
+
+<ReasoningFigure kind="contradiction-architecture" />
+
+Eine wichtige Einzelheit bleibt: Ein Widerspruch sagt bei mehreren Annahmen nicht automatisch, welche davon falsch ist. Er zeigt, dass sie nicht alle zugleich wahr sein können.
+
+In einem mathematischen Beweis isolieren wir die untersuchte Annahme, indem wir die übrigen Voraussetzungen festhalten und jeden Schluss rechtfertigen. Dadurch können wir genau bestimmen, was verworfen werden muss.
+
+## 4. Merkwürdig bedeutet nicht unmöglich
+
+Bevor wir das Verfahren weiter anwenden, müssen wir klären, was ein Widerspruch ist.
+
+Menschen verwechseln leicht Dinge, die unmöglich erscheinen, mit Dingen, die lediglich ungewohnt sind.
+
+Betrachten wir die Behauptung:
+
+*Zwei positive ganze Zahlen können ein Produkt haben, das gleich ihrer Summe ist.*
+
+Das mag zunächst unvernünftig klingen. Bei hinreichend großen positiven ganzen Zahlen ergibt die Multiplikation meist eine größere Zahl als die Addition.
+
+<ReasoningFigure kind="contradiction-operations" />
+
+Was geschieht aber, wenn wir die Möglichkeit untersuchen? Wählen wir beide Zahlen gleich zwei.
+
+<ReasoningFigure kind="contradiction-equal-operations" />
+
+Das Ergebnis mag überraschen. Logisch unmöglich ist daran nichts.
+
+Vergleichen wir drei Situationen.
+
+<ReasoningFigure kind="contradiction-comparison" />
+
+Nur die dritte Situation stellt eine logische Unmöglichkeit dar.
+
+Außerhalb der Mathematik ist diese Unterscheidung besonders wichtig. Dass uns eine Folgerung nicht gefällt oder unseren Erwartungen widerspricht, reicht nicht aus, um die zugrunde liegende Idee zu verwerfen.
+
+Ein Widerspruchsbeweis benötigt mehr als Unbehagen: Er benötigt Unvereinbarkeit.
+
+Damit untersuchen wir nun eine Frage, die Mathematiker seit Jahrtausenden beschäftigt.
+
+## 5. Könnten wir alle Primzahlen sammeln?
+
+Primzahlen gehören zu den grundlegenden Gegenständen der Mathematik.
+
+Eine Primzahl ist eine positive ganze Zahl größer als eins, deren einzige positive Teiler eins und die Zahl selbst sind.
+
+Zwei und drei sind Primzahlen. Vier ist keine, weil sie durch zwei teilbar ist. Fünf ist wieder eine Primzahl.
+
+Beim Durchgehen der positiven ganzen Zahlen begegnen uns immer weitere Primzahlen.
+
+<ReasoningFigure kind="contradiction-prime-grid" />
+
+Sie treten allerdings nicht in regelmäßigen Abständen auf. Manchmal liegen sie nahe beieinander, manchmal müssen wir deutlich weitergehen, um die nächste zu finden.
+
+<ReasoningFigure kind="contradiction-prime-gaps" />
+
+Daraus ergibt sich eine Frage: Was wäre, wenn wir irgendwann weit draußen auf der Zahlengeraden auf die letzte Primzahl stießen? Was wäre, wenn sich danach jede ganze Zahl in kleinere Faktoren zerlegen ließe?
+
+Ein Computer könnte nach weiteren Primzahlen suchen. Er könnte Tausende, Millionen oder Milliarden finden. Doch wie weit wir auch suchen: Dasselbe Problem bliebe bestehen.
+
+<ReasoningFigure kind="contradiction-search-limit" />
+
+Eine weitere gefundene Primzahl zeigt nur, dass unsere bisherige Liste unvollständig war. Sie beweist nicht, dass jede mögliche endliche Liste unvollständig ist.
+
+Wir brauchen mehr als eine Suche: ein mathematisches Argument.
+
+Deshalb versuchen wir nicht, unendlich viele Primzahlen einzeln zu finden. Wir nehmen vorübergehend an, es gäbe nur endlich viele.
+
+Wir konstruieren eine Welt, in der bereits jede Primzahl entdeckt wurde. Anschließend versuchen wir, mit ihren eigenen mathematischen Regeln aus dieser Welt auszubrechen.
+
+## 6. Den Ausweg konstruieren
+
+Beginnen wir mit einer kleinen Primzahlsammlung:
+
+$$
+2,\quad3,\quad5.
+$$
+
+Wir möchten eine Zahl konstruieren, die durch keine dieser drei Primzahlen ohne Rest teilbar ist.
+
+Wir könnten raten. Stattdessen bauen wir die Zahl gezielt auf.
+
+Zuerst multiplizieren wir die drei Primzahlen:
+
+$$
+M=2\times3\times5=30.
+$$
+
+Dreißig hat eine nützliche Eigenschaft: Die Zahl ist durch jede Primzahl unserer Sammlung teilbar. Das lässt sich mit dreißig Objekten in gleich großen Gruppen darstellen.
+
+<ReasoningFigure kind="contradiction-groups" />
+
+Weil dreißig als Produkt konstruiert wurde, bleibt bei keiner dieser Divisionen ein Rest.
+
+Nun führen wir eine einfache Änderung durch: Wir addieren eins.
+
+$$
+M+1=31.
+$$
+
+Was geschieht mit den Anordnungen?
+
+<ReasoningFigure kind="contradiction-plus-one" />
+
+In jedem Fall bleibt genau ein zusätzliches Objekt übrig.
+
+Durch Addition von eins entsteht aus $M$ die neue Zahl $M+1$. Das ursprüngliche Produkt war durch alle drei Primzahlen teilbar; die neue Zahl ist durch keine davon teilbar.
+
+$$
+\begin{aligned}
+31&=2(15)+1,\\
+31&=3(10)+1,\\
+31&=5(6)+1.
+\end{aligned}
+$$
+
+Mit Teilbarkeitsnotation:
+
+$$
+2\nmid31,\qquad3\nmid31,\qquad5\nmid31.
+$$
+
+Das Symbol $\nmid$ bedeutet „teilt nicht“.
+
+Ein weiterer Punkt fällt auf: Einunddreißig ist selbst eine Primzahl. Aus einer Sammlung von drei Primzahlen haben wir eine Primzahl außerhalb dieser Sammlung konstruiert.
+
+Könnte das ein allgemeines Verfahren zum Finden neuer Primzahlen sein?
+
+<Interactive kind="contradiction" preset="prime-builder" id="contradiction-prime-builder" />
+
+Das Experiment zeigt ein Muster, das unabhängig von der Größe der Sammlung zu gelten scheint. Es zeigt aber auch etwas, das wir genauer untersuchen müssen.
+
+## 7. Der schöne Irrtum
+
+Jetzt könnten wir versucht sein zu behaupten: Multipliziert man eine Sammlung von Primzahlen und addiert eins, erhält man immer eine neue Primzahl.
+
+Wäre das richtig, könnten wir unbegrenzt Primzahlen erzeugen. Mehrere Beispiele scheinen die Vermutung zu bestätigen.
+
+| Sammlung | Produkt + 1 | Ergebnis |
+| --- | --- | --- |
+| 2 | 3 | Primzahl |
+| 2, 3 | 7 | Primzahl |
+| 2, 3, 5 | 31 | Primzahl |
+| 2, 3, 5, 7 | 211 | Primzahl |
+| 2, 3, 5, 7, 11 | 2311 | Primzahl |
+
+Fünf erfolgreiche Versuche. Nehmen wir noch eine Primzahl hinzu:
+
+$$
+2\times3\times5\times7\times11\times13+1=30031.
+$$
+
+Die Zahl ist durch keine der Zahlen zwei, drei, fünf, sieben, elf oder dreizehn teilbar. Ist sie also prim?
+
+**Überlege vor dem Weiterlesen:** Reicht es aus, diese sechs Teiler auszuschließen?
+
+$$
+\boxed{30031=59\times509}
+$$
+
+<ReasoningFigure kind="contradiction-factorization" />
+
+Unsere Vermutung war falsch. Die ursprüngliche Beobachtung bleibt jedoch richtig: Keine Primzahl unserer Sammlung teilt die konstruierte Zahl.
+
+Wir haben niemals gezeigt, dass auch keine andere Primzahl sie teilt. Das sind zwei verschiedene Aussagen.
+
+<ReasoningFigure kind="contradiction-established" />
+
+Hier wird der scheinbare Misserfolg nützlich. Die konstruierte Zahl muss selbst gar keine Primzahl sein. Wir benötigen nur einen Primteiler, der in unserer ursprünglichen Sammlung fehlt.
+
+Jede ganze Zahl größer als eins hat mindestens einen Primteiler.
+
+Ist die Zahl selbst prim, ist sie ihr eigener Primteiler. Andernfalls können wir kleinere Faktoren größer als eins finden und weiter zerlegen, bis wir eine Primzahl erreichen. Ein strenger Abstieg in den positiven ganzen Zahlen kann nicht unbegrenzt weitergehen; deshalb endet dieses Verfahren bei einem Primteiler.
+
+<ReasoningFigure kind="contradiction-prime-divisor" />
+
+In beiden Fällen erhalten wir das Benötigte. Nun liegen alle Bausteine für den Beweis bereit, dass es unendlich viele Primzahlen gibt.
+
+## 8. Euklids Argument — unendlich viele Primzahlen beweisen
+
+Verlassen wir die einzelnen Zahlenbeispiele. Wir arbeiten nun mit einer beliebigen endlichen Primzahlsammlung.
+
+Unser gewünschtes Ergebnis lautet:
+
+$$
+P:\text{ Es gibt unendlich viele Primzahlen.}
+$$
+
+Wir beginnen mit seiner Verneinung:
+
+$$
+\neg P:\text{ Es gibt nur endlich viele Primzahlen.}
+$$
+
+Gäbe es nur endlich viele, könnten wir theoretisch eine vollständige Liste aufstellen:
+
+$$
+p_1,p_2,p_3,\ldots,p_n.
+$$
+
+Weder die Anzahl noch die Größe der Primzahlen müssen wir kennen. Wir nehmen nur an, dass die Liste jede existierende Primzahl enthält.
+
+<ReasoningFigure kind="contradiction-all-primes" />
+
+Wiederholen wir die zuvor entdeckte Konstruktion. Wir multiplizieren alle Primzahlen der Liste:
+
+$$
+M=p_1p_2p_3\cdots p_n.
+$$
+
+Anschließend setzen wir
+
+$$
+N=M+1.
+$$
+
+Damit gilt
+
+$$
+\boxed{N=p_1p_2\cdots p_n+1.}
+$$
+
+Jede Primzahl unserer Liste teilt $M$. Für ein beliebiges $p_i$ aus der Sammlung können wir schreiben:
+
+$$
+M=p_i k_i
+$$
+
+für eine ganze Zahl $k_i$. Folglich gilt
+
+$$
+N=p_i k_i+1.
+$$
+
+Bei Division von $N$ durch $p_i$ bleibt also Rest eins. Daher ist
+
+$$
+p_i\nmid N.
+$$
+
+Kein Schritt hing davon ab, welches $p_i$ wir ausgewählt haben. Das Ergebnis gilt für jeden Eintrag der Liste:
+
+$$
+\forall i\in\{1,\ldots,n\},\quad p_i\nmid N.
+$$
+
+<ReasoningFigure kind="contradiction-none-divide" />
+
+Zugleich wissen wir: $N>1$. Deshalb besitzt $N$ mindestens einen Primteiler. Nennen wir ihn $q$.
+
+$$
+q\mid N.
+$$
+
+Da keine aufgelistete Primzahl $N$ teilt, kann $q$ keiner der Einträge sein.
+
+$$
+q\neq p_1,\qquad q\neq p_2,\qquad\ldots,\qquad q\neq p_n.
+$$
+
+Nun ist etwas Unmögliches geschehen: Wir haben eine Primzahl außerhalb der Sammlung aller Primzahlen erhalten.
+
+<ReasoningFigure kind="contradiction-outside" />
+
+Isolieren wir den genauen Widerspruch. Wäre unsere Annahme wahr, müsste jede Primzahl zur Liste gehören. Weil $q$ prim ist, folgt
+
+$$
+q\in\{p_1,p_2,\ldots,p_n\}.
+$$
+
+Die Konstruktion zeigt jedoch
+
+$$
+q\notin\{p_1,p_2,\ldots,p_n\}.
+$$
+
+<ReasoningFigure kind="contradiction-prime-conflict" />
+
+Beide Aussagen können nicht zugleich wahr sein. Unsere ursprüngliche Annahme muss deshalb falsch sein.
+
+$$
+\boxed{\text{Es gibt unendlich viele Primzahlen.}}
+$$
+
+Wir mussten dafür weder unendlich viele Primzahlen finden noch eine Formel kennen, die Primzahlen erzeugt.
+
+Wir haben bewiesen, dass jede vorgeschlagene endliche Sammlung aller Primzahlen zwangsläufig unvollständig ist. Wie groß sie auch wird, sie kann niemals alle enthalten.
+
+<Interactive kind="contradiction" preset="euclid" id="contradiction-euclid" />
+
+### Der fertige mathematische Beweis
+
+Die ausführliche Untersuchung lässt sich jetzt zu einem strengen schriftlichen Argument verdichten. Wir wechseln vom Entdecken eines Beweises zu seiner Darstellung.
+
+**Satz.** Es gibt unendlich viele Primzahlen.
+
+**Beweis.** Nehmen wir zum Widerspruch an, es gäbe nur endlich viele Primzahlen. Sei
+
+$$
+p_1,p_2,\ldots,p_n
+$$
+
+eine Liste aller Primzahlen. Definiere
+
+$$
+N=p_1p_2\cdots p_n+1.
+$$
+
+Für jedes $i\in\{1,\ldots,n\}$ gilt
+
+$$
+N\equiv1\pmod{p_i}.
+$$
+
+Also ist $p_i\nmid N$. Wegen $N>1$ gibt es eine Primzahl $q$ mit
+
+$$
+q\mid N.
+$$
+
+Daher gilt $q\neq p_i$ für jedes $i$ und somit
+
+$$
+q\notin\{p_1,\ldots,p_n\}.
+$$
+
+Doch $q$ ist prim. Das widerspricht der Annahme, dass die Liste alle Primzahlen enthält. Folglich gibt es unendlich viele Primzahlen. $\square$
+
+Das zugrunde liegende Argument steht in Euklids *Elementen*, Buch IX, Proposition 20. Euklids ursprüngliche Darstellung konstruiert eine Primzahl außerhalb einer vorgegebenen endlichen Sammlung. Die obige Fassung verwendet einen modernen Widerspruchsbeweis.
+
+## 9. Drei Wege zur Wahrheit
+
+Wir haben nun drei wichtige Beweisverfahren kennengelernt.
+
+Ein direkter Beweis beginnt mit den verfügbaren Voraussetzungen und entwickelt daraus die Schlussfolgerung.
+
+Ein Beweis durch Kontraposition vertauscht die beiden Teile einer Implikation und verneint sie.
+
+Ein Widerspruchsbeweis nimmt vorübergehend die Verneinung des gewünschten Ergebnisses an und untersucht ihre Folgen.
+
+<ReasoningFigure kind="contradiction-methods" />
+
+Diese Verfahren erzeugen keine verschiedenen Arten mathematischer Wahrheit. Sie sind verschiedene Wege, Wahrheit zu begründen.
+
+Bei einer bedingten Aussage
+
+$$
+A\Longrightarrow B
+$$
+
+beginnt der Widerspruchsbeweis mit der Annahme, dass $A$ wahr und $B$ falsch ist. Genau dann wäre die ursprüngliche Implikation falsch.
+
+$$
+\neg(A\Rightarrow B)\equiv A\land\neg B.
+$$
+
+Die Verfahren können sich überschneiden. Ein Beweis durch Kontraposition lässt sich häufig in einen Widerspruchsbeweis umformen. Entscheidend ist, welcher Weg das klarste mathematische Argument liefert.
+
+## 10. Jetzt du — die unmögliche Welt finden
+
+Wenden wir das Verfahren selbst an. Die Aussage lautet:
+
+**Es gibt keine kleinste positive reelle Zahl.**
+
+Positive Zahlen können sehr klein werden. Könnte trotzdem eine von ihnen kleiner als alle anderen sein?
+
+<ReasoningFigure kind="contradiction-smallest" />
+
+Nehmen wir an, $r$ sei die kleinste positive reelle Zahl. Welche Operation liefert eine weitere positive reelle Zahl, die kleiner als $r$ ist?
+
+<Interactive kind="contradiction" preset="smallest" id="contradiction-smallest" />
+
+Aus $r>0$ folgt
+
+$$
+0<\frac r2<r.
+$$
+
+Wäre $r$ die kleinste positive reelle Zahl, müsste jede positive reelle Zahl mindestens so groß wie $r$ sein. Also müsste zugleich gelten:
+
+$$
+\frac r2\geq r.
+$$
+
+Wieder erhalten wir zwei unvereinbare Aussagen:
+
+$$
+\frac r2<r\qquad\land\qquad\frac r2\geq r.
+$$
+
+Die vorübergehende Annahme ist falsch. Daher gilt:
+
+$$
+\boxed{\text{Es gibt keine kleinste positive reelle Zahl.}}
+$$
+
+Vergleiche diesen Beweis mit unserem ersten Argument.
+
+<ReasoningFigure kind="contradiction-extremes" />
+
+Die mathematischen Gegenstände und Operationen unterscheiden sich. Die zugrunde liegende Beweisstruktur ist dieselbe.
+
+## 11. Was uns Unmöglichkeit lehren kann
+
+Am Anfang stellten wir uns eine Welt mit einer größten ganzen Zahl vor. Danach eine Welt mit nur endlich vielen Primzahlen. Schließlich eine Welt mit einer kleinsten positiven reellen Zahl.
+
+In jedem Fall nahmen wir die Möglichkeit vorübergehend an und verfolgten ihre Konsequenzen. Dabei zeigte sich, dass die angenommene Welt nicht widerspruchsfrei existieren kann.
+
+<ReasoningFigure kind="contradiction-synthesis" />
+
+Die wichtigste Einsicht betrifft vielleicht gar nicht ganze Zahlen oder Primzahlen, sondern den Zusammenhang zwischen einer Idee und ihren Folgen.
+
+Eine Idee kann zunächst überzeugend erscheinen. Sie zu akzeptieren bedeutet jedoch, auch alles zu akzeptieren, was logisch aus ihr folgt.
+
+Manchmal erkennen wir erst beim Untersuchen dieser Folgen, ob die Idee überhaupt möglich war.
+
+**Um zu verstehen, warum etwas wahr sein muss, müssen wir manchmal verstehen, warum es nicht falsch sein kann.**
+
+## Lernkontrolle
+
+<RecallChecklist items={[
+ "Ich kann die richtige Verneinung einer Aussage bilden.",
+ "Ich kann eine vorübergehende Annahme von einer gesicherten Tatsache unterscheiden.",
+ "Ich kann die Struktur eines Widerspruchsbeweises nachvollziehen.",
+ "Ich kann die genaue Paarung unvereinbarer Aussagen benennen.",
+ "Ich kann einen Widerspruch von einer überraschenden Folgerung unterscheiden.",
+ "Ich kann den Beweis für unendlich viele Primzahlen rekonstruieren.",
+ "Ich kann erklären, warum ein Primzahlprodukt plus eins nicht selbst prim sein muss.",
+ "Ich kann einen Widerspruchsbeweis auf ein neues mathematisches Problem anwenden."
+]} />
+
+## Zusätzliche Aufgaben
+
+### 1. Die größte reelle Zahl
+
+Beweise, dass es keine größte reelle Zahl gibt.
+
+<details><summary>Hinweis ansehen</summary>Nimm an, es gebe eine größte reelle Zahl $R$. Was folgt für $R+1$?</details>
+
+<Exercise>
+**Ergänzte Referenzlösung.** Angenommen, $R$ sei die größte reelle Zahl. Aus der Abgeschlossenheit unter Addition folgt $R+1\in\mathbb R$. Wegen der Maximalität müsste $R+1\leq R$ gelten. Aus $1>0$ folgt aber $R+1>R$, ein Widerspruch. Eine größte reelle Zahl existiert daher nicht.
+</Exercise>
+
+### 2. Das Argument reparieren
+
+Jemand behauptet, $2\cdot3\cdot5\cdot7\cdot11\cdot13+1$ sei prim, weil keine der sechs Primzahlen diese Zahl teilt. Finde den Fehler.
+
+<details><summary>Hinweis ansehen</summary>Wurden alle möglichen Primteiler ausgeschlossen?</details>
+
+<Exercise>
+**Ergänzte Referenzlösung.** Der Test schließt nur die sechs aufgelisteten Primzahlen aus. Tatsächlich gilt $30031=59\cdot509$, und beide Faktoren sind prim. Richtig ist nur: Keine aufgelistete Primzahl teilt die konstruierte Zahl. Andere Primteiler wurden nicht ausgeschlossen.
+</Exercise>
+
+### 3. Eine bedingte Aussage
+
+Beweise: Sind $a,b\in\mathbb Z$ und ist $ab$ ungerade, dann sind beide Faktoren ungerade.
+
+<details><summary>Hinweis ansehen</summary>Halte die Annahme des ungeraden Produkts fest und verneine „beide sind ungerade“ mit De Morgan.</details>
+
+<Exercise>
+**Ergänzte Referenzlösung.** Nehmen wir an, $ab$ sei ungerade und mindestens ein Faktor gerade. Gilt $a=2k$ für ein $k\in\mathbb Z$, so ist $ab=2(kb)$ gerade, weil $kb\in\mathbb Z$. Gilt $b=2k$, so ist $ab=2(ak)$ gerade, weil $ak\in\mathbb Z$. Die Fälle decken die verneinte Schlussfolgerung ab, auch wenn beide Faktoren gerade sind. Das Produkt wäre zugleich ungerade und gerade, ein Widerspruch. Also sind beide Faktoren ungerade.
+</Exercise>
+
+### 4. Zwischen zwei Zahlen
+
+Beweise, dass es keine zwei reellen Zahlen $a<b$ geben kann, zwischen denen keine weitere reelle Zahl liegt.
+
+<details><summary>Hinweis ansehen</summary>Betrachte den Mittelpunkt und vergleiche seinen Abstand zu beiden Endpunkten.</details>
+
+<Exercise>
+**Ergänzte Referenzlösung.** Angenommen, $a,b\in\mathbb R$, $a<b$, und es gebe keine reelle Zahl echt dazwischen. Setze $c=(a+b)/2$. Dann ist $c\in\mathbb R$. Weiter gilt $c-a=(b-a)/2>0$ und $b-c=(b-a)/2>0$. Also ist $a<c<b$, im Widerspruch zur Annahme. Zwischen zwei verschiedenen reellen Endpunkten liegt somit stets eine weitere reelle Zahl.
+</Exercise>
+
+### 5. Beliebig große Primzahlen
+
+Beweise, dass zu jeder positiven ganzen Zahl $n$ eine Primzahl größer als $n$ existiert.
+
+<details><summary>Hinweis ansehen</summary>Konstruiere $n!+1$. Ein Primteiler davon kann nicht höchstens $n$ sein.</details>
+
+<Exercise>
+**Ergänzte Referenzlösung.** Sei $n\in\mathbb Z$ mit $n\geq1$. Angenommen, keine Primzahl sei größer als $n$. Wegen $n!+1>1$ besitzt diese Zahl einen Primteiler $q$. Nach der Annahme gilt $2\leq q\leq n$. Also ist $q$ ein Faktor von $n!$. Damit teilt $q$ sowohl $n!+1$ als auch $n!$ und folglich ihre Differenz $1$. Für eine Primzahl ist das unmöglich. Somit existiert eine Primzahl größer als $n$. Für $n=1$ widerspricht die angenommene Schranke bereits $q\geq2$; die Primzahl $2$ liefert direkt das benötigte Beispiel.
+</Exercise>
+
+## Vorbereitung und mathematische Quellen
+
+| Quelle | Relevanter Inhalt |
+| --- | --- |
+| [Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/) | Kapitel 6, in der angegebenen Ausgabe ab S. 137: Abschnitte 6.1–6.2 über allgemeine und bedingte Widerspruchsbeweise; 6.3 über die Kombination von Verfahren. |
+| [MIT — Mathematics for Computer Science](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/) | Lecture 02: Contradiction and Induction; Abschnitt 1.8 zum Widerspruchsbeweis, 9.1–9.2 zur Zahlentheorie. |
+| [Euklid — Elemente, Buch IX, Proposition 20](https://www.euclids-elements.org/elements/books/bookIX/propositions/propIX20/) | Klassisches Argument für unendlich viele Primzahlen. Buch VII, Proposition 31 liefert die Aussage über Primteiler zusammengesetzter Zahlen. |
+| [Clay Mathematics Institute — Euklid-Übersetzung](https://www.claymath.org/euclid_index/number-theory/?chapter=19) | Historisches Material zur Zahlentheorie. |

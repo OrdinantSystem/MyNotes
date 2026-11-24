@@ -1,0 +1,399 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-three
+sourceId: reasoning-episode-21
+sourcePages: []
+sourceLocations: ["Sections 1–10; Pedagogical synthesis; Connections with previous episodes; Preparation sources"]
+title: "Etwas zu finden ist etwas anderes, als das Einzige zu finden"
+navTitle: "Existenz und Eindeutigkeit"
+description: "Einen Zeugen prüfen, die Gleichheit beliebiger Lösungen beweisen und Existenz von höchstens einer Lösung im angegebenen Bereich unterscheiden."
+order: 21
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [proof-by-contradiction]
+thumbnail: reasoning-uniqueness
+---
+
+## 1. Der Einstieg — Eine Antwort zu finden beendet die Untersuchung nicht
+
+Stell dir vor, du stehst vor einer verschlossenen Tür. Auf einem Tisch neben dir liegen fünf verschiedene Schlüssel. Du nimmst einen davon, steckst ihn ins Schloss und drehst ihn. Die Tür öffnet sich.
+
+<ReasoningFigure kind="unique-keys" />
+
+Du hast etwas entdeckt: Auf diesem Tisch liegt ein Schlüssel, der die Tür öffnet.
+
+Nun stellt dir jemand eine etwas andere Frage: Ist dies der **einzige** Schlüssel, der die Tür öffnet?
+
+Du könntest den Schlüssel in deiner Hand betrachten und erneut ausprobieren. Du könntest die Tür hundertmal damit öffnen. Aber das würde die neue Frage nicht beantworten.
+
+Dass ein Schlüssel funktioniert, sagt für sich allein nichts darüber aus, ob die anderen ebenfalls funktionieren.
+
+<ReasoningFigure kind="unique-worlds" />
+
+Beide Welten sind mit deiner Beobachtung vereinbar. In beiden öffnet der gewählte Schlüssel die Tür. Doch nur in der ersten ist er der einzige passende Schlüssel.
+
+Dieser Unterschied wird in der Mathematik wichtig. Manchmal wollen wir nicht bloß zeigen, dass eine Antwort existiert. Wir wollen zeigen, dass die Bedingungen keine andere Antwort zulassen.
+
+Heute untersuchen wir, warum das zwei verschiedene Aufgaben sind und wie man beide beweist.
+
+## 2. Drei verschiedene Behauptungen über dieselbe Welt
+
+In früheren Folgen haben wir gelernt, eine Sammlung von Objekten durch eine Eigenschaft zu beschreiben.
+
+Sei $D$ der **Definitionsbereich**, der alle erlaubten Objekte enthält. Sei $P$ eine Eigenschaft, die einige dieser Objekte erfüllen können. Wir stellen die Objekte in einer großen Region dar und heben diejenigen hervor, die die Bedingung erfüllen.
+
+<ReasoningFigure kind="unique-domain" />
+
+Wir fassen alle passenden Objekte zu einer Menge zusammen:
+
+$$
+S=\{x\in D:P(x)\}.
+$$
+
+Das ist unsere **Lösungsmenge**. Statt sofort nach ihren Elementen zu fragen, fragen wir zunächst nach ihrer Anzahl. Es gibt drei grundsätzlich verschiedene Möglichkeiten.
+
+<ReasoningFigure kind="unique-cardinalities" />
+
+Die Behauptung, eine Lösung **existiere**, schließt die erste Möglichkeit aus: Die Menge ist nicht leer.
+
+Die Behauptung, es gebe **höchstens eine** Lösung, schließt die dritte Möglichkeit aus: Es gibt keine zwei verschiedenen Lösungen.
+
+Die Behauptung, es gebe **genau eine** Lösung, schließt beide aus.
+
+<ReasoningFigure kind="unique-bounds" />
+
+Damit erhalten wir den Aufbau eines Existenz- und Eindeutigkeitsbeweises:
+
+$$
+\underbrace{|S|\geq1}_{\text{Existenz}}\quad\land\quad\underbrace{|S|\leq1}_{\text{Höchstens eine}}
+$$
+
+$$
+\Downarrow\qquad\boxed{|S|=1}
+$$
+
+Existenz liefert eine untere Schranke für die Anzahl der Lösungen. Eindeutigkeit im Sinne der Höchstens-eine-Bedingung liefert eine obere Schranke. Zusammen erzwingen sie genau eine Lösung.
+
+Diese Aufteilung organisiert den Beweis und sagt präzise, welche Informationen wir brauchen, bevor wir eine und nur eine Antwort behaupten dürfen.
+
+## 3. Existenz — Einen Zeugen finden
+
+Wir wechseln von Schlüsseln und Türen zu einer mathematischen Aufgabe:
+
+$$
+2x+3=11,\qquad x\in\mathbb R.
+$$
+
+Wir wollen beweisen, dass eine reelle Zahl diese Gleichung erfüllt. Mit dem Existenzquantor lautet die Behauptung:
+
+$$
+\exists x\in\mathbb R:\;2x+3=11.
+$$
+
+Unsere Aufgabe besteht darin, mindestens ein Objekt zu finden, das die Bedingung erfüllt.
+
+Stellen wir uns die Gleichung als Maschine vor: Sie nimmt eine reelle Zahl entgegen, multipliziert sie mit zwei und addiert drei. Die gewünschte Ausgabe ist elf.
+
+<Interactive kind="uniqueness" preset="machine" id="unique-machine" />
+
+Nach etwas Ausprobieren oder durch Umstellen vermuten wir, dass vier die richtige Zahl ist. Aber einen **Kandidaten vorzuschlagen** ist etwas anderes, als **nachzuweisen, dass er eine Lösung ist**.
+
+Wenn ich nur verkünde, die Antwort sei vier, habe ich noch nichts bewiesen. Ich habe eine Vermutung genannt. Jetzt muss ich prüfen, ob sie stimmt:
+
+$$
+\begin{aligned}
+2(4)+3&=8+3\\
+&=11.
+\end{aligned}
+$$
+
+Außerdem gilt $4\in\mathbb R$: Die Zahl gehört zum Definitionsbereich der Aufgabe.
+
+<ReasoningFigure kind="unique-witness" />
+
+Damit ist der Existenzbeweis vollständig. Die Zahl vier ist ein **Zeuge**: ein konkretes Objekt, das die Wahrheit einer Existenzaussage nachweist.
+
+Wir mussten weder jede reelle Zahl untersuchen noch wissen, ob eine weitere Zahl funktioniert. Ein geprüftes Beispiel reicht für diese Existenzaussage.
+
+Das spiegelt die Rolle eines Gegenbeispiels:
+
+| Eine Allaussage widerlegen | Eine Existenzaussage beweisen |
+| --- | --- |
+| Ein Objekt finden, bei dem die Bedingung scheitert | Ein Objekt finden, bei dem die Bedingung gilt |
+| Ein Gegenbeispiel | Ein Zeuge |
+| $\exists x:\neg P(x)$ | $\exists x:P(x)$ |
+
+In beiden Fällen kann ein einzelnes Objekt die Frage entscheiden. Das liegt an der jeweiligen logischen Struktur der Behauptung.
+
+## 4. Eindeutigkeit — Was wäre mit einer weiteren Antwort?
+
+Wir wissen jetzt, dass vier die Gleichung erfüllt. Doch woher wissen wir, dass es keine weitere Lösung gibt?
+
+Wir könnten fünf, drei oder eine Million prüfen. Aber es gibt unendlich viele reelle Zahlen. Einzelnes Ausprobieren reicht nicht aus.
+
+Statt jede Alternative einzeln zu untersuchen, beschreiben wir ein beliebiges Paar möglicher Lösungen. Seien $x$ und $y$ reelle Zahlen, die beide die Gleichung erfüllen.
+
+Wir nehmen **nicht** an, dass sie verschieden sind. Wir nehmen auch **nicht** an, dass eine von ihnen vier ist. Die Namen stehen für zwei beliebige Zahlen mit derselben geforderten Eigenschaft.
+
+<ReasoningFigure kind="unique-candidates" />
+
+Nach Voraussetzung gilt
+
+$$
+2x+3=11\qquad\text{und}\qquad2y+3=11.
+$$
+
+Beide Terme sind derselben Zahl gleich. Wie wir bei der Gleichheit gelernt haben, sind sie dann auch einander gleich:
+
+$$
+2x+3=2y+3.
+$$
+
+Auf beiden Seiten drei abzuziehen ergibt
+
+$$
+2x=2y.
+$$
+
+Division durch die von null verschiedene Zahl zwei liefert
+
+$$
+\boxed{x=y}.
+$$
+
+Wir haben mit zwei beliebigen Kandidaten begonnen, ihnen verschiedene Namen gegeben und zunächst verschiedene Werte zugelassen. Die gemeinsam erfüllte Bedingung hat ihre Gleichheit erzwungen.
+
+<ReasoningFigure kind="unique-convergence" />
+
+Je zwei Lösungen müssen übereinstimmen. Es kann keine erste Lösung und eine davon verschiedene zweite Lösung geben.
+
+<ReasoningFigure kind="unique-coincide" />
+
+Wir haben also höchstens eine Lösung nachgewiesen, ohne den Wert der Lösung kennen zu müssen. Der Existenzbeweis verwendete die Zahl vier. Der Eindeutigkeitsbeweis verwendete sie an keiner Stelle.
+
+Das eine Argument identifiziert ein Objekt. Das andere beschränkt die Struktur der gesamten Lösungsmenge. Zusammen ergeben sie
+
+$$
+\boxed{\exists!x\in\mathbb R:\;2x+3=11}.
+$$
+
+Es existiert genau eine reelle Lösung, und sie ist vier.
+
+<Interactive kind="uniqueness" preset="convergence" id="unique-convergence" />
+
+## 5. Der Aufbau eines Existenz- und Eindeutigkeitsbeweises
+
+Wir lassen die konkrete Gleichung weg und behalten die Struktur des Arguments. Sei $P(x)$ eine Bedingung über einem Definitionsbereich $D$.
+
+Das Symbol $\exists!$ liest man als „Es existiert genau ein“. Die Aussage
+
+$$
+\exists!x\in D:\;P(x)
+$$
+
+enthält zwei getrennte Beweisaufgaben.
+
+<ReasoningFigure kind="unique-architecture" />
+
+Die erste Aussage ist existenziell, die zweite universell. Wir verbinden zwei verschiedene logische Strukturen zu einer komplexeren Aussage.
+
+Vollständig ausgeschrieben bedeutet eindeutige Existenz:
+
+$$
+\begin{aligned}
+\exists!x\in D:\;P(x)\quad\Longleftrightarrow\quad&
+(\exists a\in D:\;P(a))\\
+&{}\land(\forall x,y\in D:\;(P(x)\land P(y))\Rightarrow x=y).
+\end{aligned}
+$$
+
+Wir können dieselbe Situation auch mit einem ausgezeichneten Objekt ausdrücken:
+
+$$
+\exists a\in D:\left(P(a)\land\forall x\in D\;(P(x)\Rightarrow x=a)\right).
+$$
+
+Der erste Teil sagt, dass $a$ die Bedingung erfüllt. Der zweite sagt, dass jedes Objekt, das die Bedingung erfüllt, dieses selbe Objekt sein muss.
+
+Diese allgemeine Strategie begegnet uns bei Gleichungen, Funktionen, Grenzwerten, Umkehroperationen und geometrischen Objekten wieder.
+
+## 6. Wenn Existenz und Eindeutigkeit auseinanderfallen
+
+Bisher waren beide Aussagen wahr. Es gibt aber auch Situationen, in denen nur eine gilt.
+
+Betrachten wir
+
+$$
+x^2=4,\qquad x\in\mathbb R.
+$$
+
+Ein Zeuge liegt sofort vor: $2^2=4$. Also existiert eine Lösung. Der Graph zeigt jedoch mehr.
+
+<ReasoningFigure kind="unique-square-two" />
+
+Zwei und minus zwei erfüllen dieselbe Bedingung. Beide sind Zeugen für die Existenzaussage. Weil sie verschieden sind, widerlegen sie zusammen die Höchstens-eine-Bedingung.
+
+Durch Faktorisieren zeigen wir, dass dies genau die beiden Lösungen sind:
+
+$$
+\begin{aligned}
+x^2&=4\\
+x^2-4&=0\\
+(x-2)(x+2)&=0.
+\end{aligned}
+$$
+
+Ein Produkt reeller Zahlen ist nur dann null, wenn mindestens ein Faktor null ist. Daher
+
+$$
+x=2\quad\lor\quad x=-2.
+$$
+
+Existenz ist wahr. Höchstens eine Lösung ist falsch.
+
+Nun ändern wir die Gleichung:
+
+$$
+x^2=-1,\qquad x\in\mathbb R.
+$$
+
+$$
+\forall x\in\mathbb R:\;x^2\geq0.
+$$
+
+<ReasoningFigure kind="unique-square-none" />
+
+Jede reelle Zahl hat ein nichtnegatives Quadrat. Daher kann kein reelles Quadrat minus eins sein. Der Graph veranschaulicht die Situation; die Eigenschaft reeller Quadrate begründet den Schluss.
+
+Die Lösungsmenge ist leer. Obwohl Existenz falsch ist, bleibt **höchstens eine Lösung** wahr. Null ist kleiner als eins. Gibt es keine Lösungen, kann es auch keine zwei verschiedenen Lösungen geben.
+
+Deshalb genügt der Nachweis, dass je zwei Lösungen gleich sein müssen, nicht als Existenzbeweis.
+
+<ReasoningFigure kind="unique-comparison" />
+
+Damit haben wir alle drei möglichen Konfigurationen einer Lösungsmenge gesehen. Wir unterscheiden sie, indem wir genau prüfen, was unsere Argumente zeigen, statt uns auf Vertrautheit oder Intuition zu verlassen.
+
+## 7. Eine andere mathematische Welt kann die Antwort verändern
+
+Untersuchen wir
+
+$$
+2x=1.
+$$
+
+Es scheint vernünftig, genau eine Lösung zu behaupten. Doch vorher müssen wir fragen: **Eine Lösung unter welchen Objekten?**
+
+Nehmen wir zunächst an, wir arbeiten ausschließlich mit ganzen Zahlen.
+
+<ReasoningFigure kind="unique-rational" />
+
+In der ersten Welt gibt es keine Lösung. Für jede ganze Zahl $x$ ist $2x$ gerade, während eins ungerade ist.
+
+In der zweiten Welt ist einhalb zugelassen, und es gilt
+
+$$
+2\left(\frac12\right)=1.
+$$
+
+Erfüllen zwei rationale Zahlen $x$ und $y$ die Gleichung, so gilt außerdem
+
+$$
+2x=1=2y\quad\Rightarrow\quad x=y.
+$$
+
+In dieser Welt existiert also genau eine Lösung.
+
+Weder die Gleichung noch die Rechenoperationen haben sich geändert. Geändert hat sich die Sammlung von Objekten, über der wir die Aussage interpretieren. Das allein hat ihren Wahrheitswert verändert.
+
+$$
+\mathbb Z\subseteq\mathbb Q\subseteq\mathbb R\subseteq\mathbb C.
+$$
+
+<ReasoningFigure kind="unique-hierarchy" />
+
+Auch die Gleichung $x^2=-1$, die über den reellen Zahlen keine Lösung hatte, besitzt über den komplexen Zahlen zwei Lösungen: $i$ und $-i$.
+
+Der Definitionsbereich ist kein unwichtiges Anhängsel. Er gehört zur Bedeutung der mathematischen Frage.
+
+## 8. Existenz beweisen, ohne ein Objekt zu finden?
+
+Bisher haben wir Existenz nachgewiesen, indem wir ein bestimmtes Objekt angegeben und geprüft haben. Das ist eine konstruktive Art des Existenzbeweises.
+
+Muss ein Existenzbeweis das gesuchte Objekt immer ausdrücklich angeben?
+
+Stell dir einen Raum mit dreizehn Personen vor. Es gibt nur zwölf mögliche Geburtsmonate.
+
+<ReasoningFigure kind="unique-pigeonhole" />
+
+Auch ohne einen Geburtstag zu kennen, können wir zeigen: Mindestens zwei Personen sind im selben Monat geboren.
+
+Hätte jeder Monat höchstens eine Person, könnten es insgesamt höchstens zwölf sein. Es sind aber dreizehn. Also existiert ein passendes Paar.
+
+Wir haben nicht bestimmt, welche beiden Personen dieses Paar bilden. Das Argument zeigt Existenz, ohne einen konkreten Zeugen anzugeben. Es veranschaulicht damit Existenzargumente, die das gewünschte Objekt nicht ausdrücklich konstruieren oder identifizieren. Wären die Geburtstage bekannt, ließe sich hier natürlich leicht ein Paar finden.
+
+Später begegnen uns tiefere Beispiele dieser Unterscheidung. Für jetzt genügt: Zu wissen, dass etwas existiert, und zu wissen, wie man es findet, sind nicht immer dieselbe Leistung.
+
+## 9. Du bist dran — Was wurde tatsächlich bewiesen?
+
+Es folgen vier kurze Argumente. Deine Aufgabe ist es, die vorgelegte Begründung zu beurteilen, nicht die Gleichungen zu lösen.
+
+Zeigt sie Existenz, höchstens eine Lösung, genau eine Lösung oder keine dieser Aussagen?
+
+<Interactive kind="uniqueness" preset="inspection" id="unique-inspection" />
+
+Wir beurteilen hier die Argumente und nicht bloß die Gleichungen. Dieser Unterschied zählt: Ein mathematischer Schluss kann wahr sein, während die angegebene Begründung unvollständig ist. Ein Argument kann auch eine schwächere Aussage korrekt zeigen als ursprünglich beabsichtigt.
+
+Bei einem Beweis fragen wir deshalb sowohl, ob der Schluss stimmt, als auch, ob die Begründung diesen Schluss rechtfertigt.
+
+## 10. Abschluss — Finden und eindeutig bestimmen
+
+Kehren wir zur verschlossenen Tür zurück. Zu Beginn hatten wir einen passenden Schlüssel gefunden. Wir hatten gezeigt, dass etwas funktioniert, aber noch nicht, dass nichts anderes funktionieren kann.
+
+Jetzt unterscheiden wir diese beiden Arten mathematischen Wissens.
+
+<ReasoningFigure kind="unique-closing" />
+
+Existenz sagt, dass die Bedingungen etwas zulassen. Eindeutigkeit sagt nach dem Existenznachweis, dass die Bedingungen dieses Objekt vollständig bestimmen.
+
+Der erste Nachweis eröffnet eine Möglichkeit. Der zweite schließt jede Alternative aus.
+
+Wenn eine Erklärung beansprucht, **die** Antwort statt nur **eine** Antwort gefunden zu haben, frage dich: *Was verhindert eine weitere Antwort?*
+
+Eine Antwort zu finden und zu beweisen, dass sie die einzig mögliche ist, sind verschiedene Leistungen.
+
+## Lernkompendium
+
+<ReasoningFigure kind="unique-obligations" />
+
+| Begriff | Was er festhält |
+| --- | --- |
+| Kandidat | Ein als mögliche Lösung vorgeschlagenes Objekt |
+| Zeuge | Ein Objekt, bei dem die Bedingung überprüft wurde |
+| Existenz | Mindestens eine Lösung |
+| Höchstens eine | Keine zwei verschiedenen Lösungen |
+| Eindeutige Existenz | Genau eine Lösung |
+| Nichtexistenz | Kein Objekt erfüllt die Bedingung |
+| Konstruktive Existenz | Existenz durch Konstruktion oder Angabe eines passenden Objekts |
+| Definitionsbereich | Die in der Aussage zugelassenen Objekte |
+
+### Verbindungen zu früheren Folgen
+
+| Frühere Lektion | Verbindung |
+| --- | --- |
+| 03 — Gleichheit | Terme mit demselben Wert sind einander gleich |
+| 06 — Gegenbeispiele | Ein Zeuge beweist Existenz; ein Gegenbeispiel widerlegt eine Allaussage |
+| 12 — UND, ODER und NICHT | Eindeutige Existenz verbindet zwei Anforderungen mit UND |
+| 13 — Quantoren | Existenzielle und universelle Beweisaufgaben |
+| 14 — Mengen und mathematische Welten | Lösungsmengen und die Rolle des Definitionsbereichs |
+| 17 — Den nächsten Beweisschritt finden | Die logische Struktur des Ziels legt die Methode nahe |
+| 20 — Widerspruch | Existenz ohne angegebenen Zeugen; verschiedene Alternativen ausschließen |
+| 21 — Existenz und Eindeutigkeit | Einzelne Werkzeuge zu einem vollständigen Beweis verbinden |
+
+### Quellen zur Vorbereitung
+
+| Quelle | Relevante Stellen |
+| --- | --- |
+| [Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/) | Dritte Auflage, Kapitel 7: §7.3 Existenz und Eindeutigkeit; §7.4 konstruktive und nichtkonstruktive Beweise. |
+| [Daniel J. Velleman — How to Prove It](https://www.cambridge.org/core/books/abs/how-to-prove-it/contents/D9098F367810400B8A7FFD6FFCC22695) | Dritte Auflage, Kapitel 3, §3.6, laut mitgelieferter Quellenangabe ab S. 153: eindeutige Existenz und existenzielle/universelle Beweisaufgaben. |

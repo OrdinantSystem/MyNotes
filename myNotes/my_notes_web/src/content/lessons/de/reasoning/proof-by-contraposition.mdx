@@ -1,0 +1,452 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-three
+sourceId: reasoning-episode-19
+sourcePages: []
+sourceLocations: ["Sections 1–9; Episode learning compendium; Learning checkpoint; Preparation sources"]
+title: "Etwas beweisen, indem man es umdreht"
+navTitle: "Beweis durch Kontraposition"
+description: "Eine Implikation ohne Bedeutungsänderung umformen und einen nützlichen Ausgangspunkt für den Beweis wählen."
+order: 19
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [proof-by-cases-and-equivalence]
+thumbnail: reasoning-contraposition
+---
+
+## 1. Die Schwierigkeit beim Vorwärtsgehen
+
+Stell dir vor, jemand gibt dir die folgende mathematische Aussage:
+
+> Wenn das Quadrat einer ganzen Zahl gerade ist, dann ist auch die Zahl selbst gerade.
+
+Das erscheint zunächst fast zu offensichtlich, um einen Beweis zu verdienen. Wir können einige Zahlen quadrieren und untersuchen, was geschieht.
+
+<ReasoningFigure kind="contra-samples" />
+
+Dabei zeigt sich ein Muster: Das Quadrat einer geraden ganzen Zahl ist gerade, das Quadrat einer ungeraden ganzen Zahl ist ungerade.
+
+Ein Muster zu beobachten und es zu beweisen sind jedoch zwei verschiedene Dinge.
+
+Um die ursprüngliche Aussage zu beweisen, teilen wir unseren Arbeitsraum wie in Lektion 17 in die verfügbaren Informationen und das gesuchte Ziel auf.
+
+<ReasoningFigure kind="contra-workspace" />
+
+Wir wissen, dass das Quadrat unserer ganzen Zahl das Doppelte einer anderen ganzen Zahl ist. Nun müssen wir zeigen, dass auch die ursprüngliche Zahl das Doppelte einer ganzen Zahl ist.
+
+Wir könnten versuchen, die Quadratwurzel zu ziehen. Dadurch erhalten wir aber nicht unmittelbar die benötigte Form.
+
+$$
+n^2=2k
+$$
+
+$$
+|n|=\sqrt{2k}
+$$
+
+Wie geht es weiter? Wir wissen zwar, dass $n$ ganzzahlig ist, haben aber noch nicht gezeigt, dass $n$ durch zwei teilbar ist.
+
+Ein direkter Beweis ist mit zusätzlichen Ergebnissen durchaus möglich. Es gibt jedoch einen anderen Weg, der das Argument erheblich vereinfacht.
+
+Statt zu fragen, was aus einem geraden Quadrat folgt: Was geschieht, wenn wir damit beginnen, dass die ursprüngliche Zahl **nicht gerade** ist?
+
+## 2. Die andere Seite einer Implikation
+
+Bevor wir zum mathematischen Problem zurückkehren, betrachten wir eine einfachere Aussage:
+
+> Wenn ein Tier ein Hund ist, dann ist es ein Säugetier.
+
+Diese Beziehung lässt sich bildlich darstellen.
+
+<ReasoningFigure kind="contra-animals" />
+
+Jeder Hund gehört zur Menge der Säugetiere. Das sagt die ursprüngliche Implikation aus.
+
+Nun begegnet uns ein Tier außerhalb der Säugetiere. Könnte es ein Hund sein?
+
+Nein, denn alle Hunde liegen innerhalb dieser Menge.
+
+Die ursprüngliche Aussage sagt also auch etwas über Tiere aus, die keine Säugetiere sind:
+
+> Wenn ein Tier kein Säugetier ist, dann ist es kein Hund.
+
+<ReasoningFigure kind="contra-animal-routes" />
+
+Die Aussagen scheinen von verschiedenen Dingen zu handeln: Die eine spricht über Hunde, die andere über Tiere, die keine Säugetiere sind. Beide stellen jedoch genau dieselbe Bedingung an die Welt.
+
+Keine erlaubt ein Tier, das ein Hund und zugleich kein Säugetier ist.
+
+Diese Beziehung heißt **Kontraposition**.
+
+Mit zwei Aussagen $P$ und $Q$ lässt sie sich so ausdrücken:
+
+$$
+\boxed{(P\Rightarrow Q)\equiv(\neg Q\Rightarrow\neg P)}
+$$
+
+Diese Äquivalenz gibt uns eine Wahl: Um eine Implikation zu beweisen, dürfen wir ihre Kontraposition beweisen. Mit dem Beweis der einen ist auch die andere bewiesen.
+
+## 3. Warum das Umdrehen funktioniert
+
+Wir sollten die Äquivalenz nicht allein deshalb akzeptieren, weil sie bei Hunden und Säugetieren funktioniert hat. Wir müssen verstehen, warum sie für beliebige Aussagen gilt.
+
+Aus den Lektionen über bedingte Aussagen wissen wir: Eine Implikation verspricht, dass bei wahrer Voraussetzung auch die Schlussfolgerung wahr ist.
+
+Dieses Versprechen wird nur in einem Fall verletzt.
+
+<ReasoningFigure kind="contra-worlds" />
+
+Ist $P$ wahr und $Q$ falsch, ist die Implikation falsch. Bei allen anderen Belegungen ist sie wahr.
+
+Betrachten wir nun die Kontraposition:
+
+$$
+\neg Q\Rightarrow\neg P
+$$
+
+Wann wäre sie falsch? Ihre Voraussetzung $\neg Q$ müsste wahr und ihre Schlussfolgerung $\neg P$ falsch sein.
+
+Das bedeutet genau, dass $Q$ falsch und $P$ wahr ist. Wir gelangen also zu derselben ausgeschlossenen Situation.
+
+<Interactive kind="contraposition" preset="truth" id="contra-truth" />
+
+Die vollständige Untersuchung lässt sich in einer Wahrheitstabelle zusammenfassen.
+
+| $P$ | $Q$ | $P\Rightarrow Q$ | $\neg Q\Rightarrow\neg P$ |
+| --- | --- | --- | --- |
+| W | W | W | W |
+| W | F | **F** | **F** |
+| F | W | W | W |
+| F | F | W | W |
+
+Die letzten beiden Spalten stimmen überein.
+
+Kontraposition ist deshalb mehr als eine interessante Umstellung von Wörtern: Sie ist eine logisch begründete Umformung.
+
+Wir schwächen die ursprüngliche Behauptung nicht ab, ersetzen sie nicht durch eine ähnliche Aussage und nehmen keine zusätzlichen Voraussetzungen hinzu. Wir drücken genau dieselbe logische Bedingung anders aus.
+
+Manchmal macht diese andere Form ein zunächst schwieriges Problem wesentlich einfacher.
+
+## 4. Zurück zum mathematischen Problem
+
+Kehren wir zu unserer gesuchten Aussage zurück:
+
+$$
+n^2\text{ ist gerade}\Rightarrow n\text{ ist gerade}
+$$
+
+Die Schwierigkeit bestand darin, dass die gegebene Information das Quadrat betrifft, die Schlussfolgerung aber die ursprüngliche Zahl.
+
+Nun können wir das Problem umformen.
+
+<ReasoningFigure kind="contra-transform" />
+
+Im letzten Schritt verwenden wir ein Ergebnis der vorherigen Lektion: Jede ganze Zahl ist entweder gerade oder ungerade, und keine ist beides.
+
+Innerhalb der ganzen Zahlen bedeutet „nicht gerade“ daher genau „ungerade“.
+
+Unsere neue Aufgabe lautet:
+
+$$
+\boxed{n\text{ ist ungerade}\Rightarrow n^2\text{ ist ungerade}}
+$$
+
+Wir passen unseren Arbeitsraum entsprechend an.
+
+<ReasoningFigure kind="contra-before-after" />
+
+Etwas Grundlegendes hat sich geändert. Zuvor wollten wir aus dem Quadrat Informationen über die ursprüngliche Zahl gewinnen.
+
+Jetzt liegt uns ein ausdrücklicher Term für die Zahl selbst vor. Wir müssen ihn nur noch quadrieren.
+
+Aus dem Problem, Informationen zu erschließen, ist ein Problem geworden, etwas aus bereits vorhandenen Informationen zu konstruieren. Das macht diese Richtung so nützlich.
+
+## 5. Sehen, warum ein ungerades Quadrat ungerade ist
+
+Vor der algebraischen Rechnung wollen wir geometrisch verstehen, warum das Quadrat einer ungeraden ganzen Zahl ungerade sein sollte.
+
+Stell dir ein Quadrat aus fünfundzwanzig kleinen Plättchen vor. An jeder Seite liegen fünf Plättchen.
+
+<ReasoningFigure kind="contra-tiles" />
+
+Können wir sie zu Paaren zusammenfassen, sodass genau ein Plättchen übrig bleibt, ist ihre Gesamtzahl ungerade.
+
+Wir paaren zunächst die ersten beiden Spalten und anschließend die nächsten beiden. Weil die Zahl der Spalten ungerade ist, bleibt genau eine Spalte übrig.
+
+<ReasoningFigure kind="contra-columns" />
+
+In der letzten Spalte liegen noch fünf Plättchen. Diese können wir senkrecht paaren.
+
+Da fünf ungerade ist, bleibt genau ein Plättchen ohne Partner.
+
+<ReasoningFigure kind="contra-paired" />
+
+Entscheidend ist nicht, dass das Verfahren bei fünf funktioniert. Kein Schritt hängt speziell von der Zahl fünf ab.
+
+Eine ungerade Anzahl von Plättchen lässt sich immer in Paare und einen Rest aufteilen. Bei einer ungeraden Anzahl von Zeilen und Spalten tritt diese Reststruktur in beiden Richtungen auf.
+
+Wir können das Quadrat auch in vier Bereiche zerlegen, um diese Struktur deutlicher zu erkennen.
+
+<Interactive kind="contraposition" preset="odd-square" id="contra-odd-square" />
+
+Es entstehen ein großes Quadrat mit $4k^2$ Plättchen, zwei Streifen mit jeweils $2k$ Plättchen und ein einzelnes Eckplättchen.
+
+Die ersten drei Bereiche enthalten jeweils eine gerade Anzahl von Plättchen. Nur die Ecke bleibt ungepaart.
+
+Das Bild liefert die Struktur des folgenden algebraischen Arguments. Geometrisch gilt es für positive ungerade ganze Zahlen. Die Algebra wird die Überlegung auch auf negative ungerade ganze Zahlen erweitern.
+
+## 6. Den formalen Beweis aufbauen
+
+Nun beweisen wir die Aussage für jede ganze Zahl, ohne uns auf ein bestimmtes Zahlenbeispiel zu stützen.
+
+Wir nehmen an, dass $n$ ungerade ist. Was gibt uns diese Annahme?
+
+Nach der Definition einer ungeraden ganzen Zahl existiert ein $k\in\mathbb Z$ mit
+
+$$
+n=2k+1.
+$$
+
+Die Definition verwandelt eine Eigenschaft der Zahl in einen Term, mit dem wir rechnen können.
+
+Da das Ziel das Quadrat von $n$ betrifft, quadrieren wir beide Seiten.
+
+$$
+\begin{aligned}
+n^2&=(2k+1)^2\\[5pt]
+&=(2k+1)(2k+1)\\[5pt]
+&=4k^2+2k+2k+1\\[5pt]
+&=4k^2+4k+1.
+\end{aligned}
+$$
+
+Der Term entspricht genau den vier Bereichen unserer geometrischen Darstellung.
+
+<ReasoningFigure kind="contra-regions" />
+
+Aus den ersten beiden Summanden des vereinfachten Terms können wir zwei ausklammern.
+
+$$
+n^2=4k^2+4k+1
+$$
+
+$$
+n^2=2(2k^2+2k)+1
+$$
+
+Jetzt erkennen wir die Form unseres Ziels.
+
+<ReasoningFigure kind="contra-witness" />
+
+Der Ausdruck in der Klammer sieht vielleicht kompliziert aus. Seinen Zahlenwert müssen wir aber nicht kennen. Es genügt zu zeigen, dass er ganzzahlig ist.
+
+Da $k$ ganzzahlig ist und die ganzen Zahlen unter Addition und Multiplikation abgeschlossen sind, gilt
+
+$$
+2k^2+2k\in\mathbb Z.
+$$
+
+Wir können also eine neue ganze Zahl einführen:
+
+$$
+m:=2k^2+2k.
+$$
+
+Damit erhalten wir
+
+$$
+n^2=2m+1,\qquad m\in\mathbb Z.
+$$
+
+Nach der Definition ist $n^2$ ungerade.
+
+Damit ist die Kontraposition bewiesen. Weil eine Implikation zu ihrer Kontraposition logisch äquivalent ist, ist auch die ursprüngliche Aussage bewiesen.
+
+### Der vollständige Beweis
+
+**Satz.** Sei $n\in\mathbb Z$. Ist $n^2$ gerade, dann ist $n$ gerade.
+
+**Beweis durch Kontraposition.** Nehmen wir an, dass $n$ ungerade ist. Dann existiert ein $k\in\mathbb Z$ mit $n=2k+1$. Folglich gilt
+
+$$
+\begin{aligned}
+n^2&=(2k+1)^2\\
+&=4k^2+4k+1\\
+&=2(2k^2+2k)+1.
+\end{aligned}
+$$
+
+Wegen $2k^2+2k\in\mathbb Z$ ist $n^2$ ungerade.
+
+Ist also $n$ nicht gerade, dann ist auch $n^2$ nicht gerade. Durch Kontraposition folgt: Ist $n^2$ gerade, dann ist $n$ gerade. $\square$
+
+Aus der anfänglichen Schwierigkeit wurde ein kurzer Beweis mit einer Definition, elementarer Algebra, der Abgeschlossenheit der ganzen Zahlen und einer logischen Äquivalenz.
+
+## 7. Das Falsche umdrehen
+
+Eine wichtige Unterscheidung bleibt: Eine Implikation umzudrehen bedeutet nicht, einfach ihren Pfeil umzukehren.
+
+Ein Lernender möchte unseren ursprünglichen Satz beweisen. Er nimmt an, dass $n$ gerade ist. Für eine ganze Zahl $k$ gilt dann
+
+$$
+n=2k.
+$$
+
+Durch Quadrieren folgt
+
+$$
+n^2=4k^2=2(2k^2).
+$$
+
+Weil $2k^2$ ganzzahlig ist, schließt er, dass $n^2$ gerade ist.
+
+Alle Rechenschritte sind richtig. Hat er damit aber die gesuchte Aussage bewiesen?
+
+<ReasoningFigure kind="contra-wrong-route" />
+
+Er hat die **Umkehrung** der ursprünglichen Aussage bewiesen. Diese ist in unserem Beispiel zwar ebenfalls wahr. Ihr Beweis allein beweist jedoch nicht die ursprüngliche Implikation.
+
+Wir können die vier verwandten Aussagen gemeinsam ordnen.
+
+<ReasoningFigure kind="contra-forms" />
+
+Um die Kontraposition zu erhalten, müssen wir zwei Umformungen vornehmen: die Richtung umkehren und beide Aussagen verneinen.
+
+Nur eine dieser Umformungen auszuführen ergibt im Allgemeinen eine andere logische Aussage.
+
+Für unseren konkreten mathematischen Satz sind jetzt beide Richtungen bewiesen. Deshalb können wir sie zu der in Lektion 18 angekündigten Äquivalenz zusammenfassen.
+
+$$
+\boxed{n^2\text{ ist gerade}\iff n\text{ ist gerade}}
+$$
+
+<ReasoningFigure kind="contra-equivalence" />
+
+Die Techniken der bisherigen Lektionen arbeiten zusammen: Eine Äquivalenz benötigt zwei Implikationen, die mit unterschiedlichen Verfahren bewiesen werden können.
+
+## 8. Eine Beweisstrategie wählen
+
+Aus dieser Lektion sollte nicht der Eindruck entstehen, Kontraposition sei immer besser als ein direkter Beweis.
+
+Ein Beweisverfahren ist ein Werkzeug. Sein Nutzen hängt vom jeweiligen Problem ab.
+
+Betrachten wir die Aussage:
+
+> Wenn eine ganze Zahl durch sechs teilbar ist, dann ist sie durch drei teilbar.
+
+Wir könnten die Kontraposition bilden. Die ursprüngliche Aussage lässt sich aber bereits sehr einfach direkt beweisen.
+
+Ist $n$ durch sechs teilbar, dann gibt es ein $k\in\mathbb Z$ mit
+
+$$
+n=6k=3(2k).
+$$
+
+Da $2k$ ganzzahlig ist, ist $n$ durch drei teilbar.
+
+Wenn die ursprüngliche Form bereits alles Benötigte liefert, gibt es wenig Anlass, das Problem umzuformen.
+
+Wir entwickeln die Fähigkeit, beide Wege zu untersuchen und den vielversprechenderen zu wählen.
+
+<Interactive kind="contraposition" preset="strategy" id="contra-strategy" />
+
+Die zweite Aufgabe verdient einen genaueren Blick, weil sie zwei kürzlich gelernte Verfahren verbindet.
+
+Wir wollen zeigen: Ist das Produkt zweier ganzer Zahlen ungerade, dann sind beide Zahlen ungerade.
+
+Die Schlussfolgerung ist eine Konjunktion. Ihre Verneinung ist nach De Morgan eine Disjunktion.
+
+$$
+\neg(A\land B)\equiv\neg A\lor\neg B
+$$
+
+Die Kontraposition lautet also:
+
+> Wenn mindestens eine der beiden ganzen Zahlen gerade ist, dann ist ihr Produkt gerade.
+
+Nun können wir einen Beweis durch Fallunterscheidung führen.
+
+<ReasoningFigure kind="contra-product-cases" />
+
+Die Fälle sind vollständig, obwohl beide Faktoren zugleich gerade sein können.
+
+In beiden Fällen ist das Produkt das Doppelte einer ganzen Zahl und damit gerade.
+
+Durch Kontraposition folgt: Ist das Produkt ungerade, müssen beide Faktoren ungerade sein.
+
+Wir haben Verneinung, De Morgan, Kontraposition, Fallunterscheidung, Definitionen und elementare Algebra zu einem Argument verbunden.
+
+Die verschiedenen Techniken sind keine isolierten Abläufe. Wir können sie als Bausteine für anspruchsvollere Beweise kombinieren.
+
+## 9. Das Problem ändern, ohne seine Wahrheit zu ändern
+
+Anfangs schien unsere mathematische Aussage kaum einen brauchbaren Ansatz zu bieten. Gegeben war eine Information über das Quadrat einer ganzen Zahl; gesucht war eine Eigenschaft der Zahl selbst.
+
+Wir änderten unsere Perspektive.
+
+<ReasoningFigure kind="contra-reformulate" />
+
+Wir formten die Voraussetzung und das Ziel um und fanden dadurch einen leichteren Weg zwischen ihnen.
+
+Die Wahrheit, die wir beweisen wollten, blieb währenddessen dieselbe.
+
+Manchmal liegt die Schwierigkeit eines Problems in seiner Formulierung und nicht in den mathematischen Gegenständen selbst.
+
+Deshalb fragen wir nicht nur: „Wie kann ich dieses Problem lösen?“, sondern auch: „Wie kann ich es anders ausdrücken, ohne seine Bedeutung zu ändern?“
+
+Kontraposition ist ein einfaches und wirkungsvolles Beispiel dafür.
+
+In der nächsten Lektion untersuchen wir einen weiteren Ansatz: Wir beginnen nicht mit einer anderen Implikation, sondern nehmen bewusst an, dass die zu beweisende Aussage falsch ist, und untersuchen die Folgen.
+
+Manchmal erkennen wir, dass etwas wahr sein muss, indem wir verstehen, warum es nicht falsch sein kann.
+
+## Lernkompendium
+
+### Die vier Formen einer Implikation
+
+| Form | Mathematische Struktur | Zur ursprünglichen Aussage äquivalent? |
+| --- | --- | --- |
+| Original | $P\Rightarrow Q$ | Ja |
+| Umkehrung | $Q\Rightarrow P$ | Nicht unbedingt |
+| Inverse | $\neg P\Rightarrow\neg Q$ | Nicht unbedingt |
+| Kontraposition | $\neg Q\Rightarrow\neg P$ | Immer |
+
+### Entscheidungshilfe zur Beweisstrategie
+
+<ReasoningFigure kind="contra-decision" />
+
+Die Darstellung ist eine Hilfe beim Entdecken und kein starrer Algorithmus. Ein Beweis kann mehrere Versuche oder eine Kombination von Techniken erfordern.
+
+### Verbindungen zu bisherigen Lektionen
+
+| Lektion | Verbindung |
+| --- | --- |
+| 11 — Bedingte Aussagen | Implikation, Umkehrung und Kontraposition |
+| 12 — UND, ODER und NICHT | Zusammengesetzte Aussagen verneinen |
+| 16 — Was ist ein Beweis? | Jeden Schluss rechtfertigen |
+| 17 — Den nächsten Schritt finden | Verfügbare Informationen und gesuchtes Ziel |
+| 18 — Fälle und Äquivalenz | Möglichkeiten abdecken und beide Richtungen beweisen |
+| 19 — Kontraposition | Logische Äquivalenz, Konstruktion und strategische Umformung |
+| 20 — Widerspruch (als Nächstes) | Folgen einer als falsch angenommenen Behauptung untersuchen |
+
+### Lernkontrolle
+
+<RecallChecklist items={[
+ "Ich kann die Kontraposition einer Implikation bilden.",
+ "Ich kann erklären, warum eine Implikation und ihre Kontraposition äquivalent sind.",
+ "Ich kann Kontraposition vom Beweis der Umkehrung unterscheiden.",
+ "Ich kann den Beweis rekonstruieren, dass eine ungerade ganze Zahl ein ungerades Quadrat hat.",
+ "Ich verstehe, warum die Kontraposition den ursprünglichen Satz beweist.",
+ "Ich kann eine Schlussfolgerung mit UND oder ODER verneinen.",
+ "Ich kann erkennen, wann Kontraposition zweckmäßiger als ein direkter Beweis ist.",
+ "Ich kann Kontraposition mit Fallunterscheidung verbinden."
+]} />
+
+### Vorbereitung und Quellen
+
+| Quelle | Relevanter Inhalt |
+| --- | --- |
+| [Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/) | Kapitel 5: Contrapositive Proof. Logische Struktur, Definitionen, Beweiskonventionen und Beispiele. |
+| [Daniel J. Velleman — How to Prove It](https://www.cambridge.org/core/books/abs/how-to-prove-it/contents/D9098F367810400B8A7FFD6FFCC22695) | Kapitel 3: Proofs. Logische Struktur des Ziels und Wahl einer Beweisstrategie. |

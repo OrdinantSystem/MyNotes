@@ -1,0 +1,21 @@
+{
+  "base": "/MyNotes",
+  "results": [
+    {
+      "locale": "en",
+      "courseSection": true,
+      "languageSwitch": true,
+      "searchHref": "/MyNotes/analysis/lessons/lernzettel-01/",
+      "previous": "nand-schaltungen"
+    },
+    {
+      "locale": "de",
+      "courseSection": true,
+      "languageSwitch": true,
+      "searchHref": "/MyNotes/de/analysis/lessons/lernzettel-01/",
+      "previous": "nand-schaltungen"
+    }
+  ],
+  "gallery": true,
+  "legacyFragment": true
+}

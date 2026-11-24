@@ -1,0 +1,44 @@
+---
+import MathText from '../MathText.astro';
+import {contradictionPresets,initialContradictionState,type ContradictionPreset} from '../../lib/interactive/contradiction-model';
+import {primeBuilderMarkup,euclidMarkup} from '../../lib/interactive/contradiction-render';
+import {contradictionText} from '../../lib/reasoning/contradiction-copy';
+import '../../styles/counterexamples.css';import '../../styles/discovery.css';import '../../styles/cases.css';import '../../styles/contradiction.css';
+interface Props{preset:ContradictionPreset;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=contradictionText(locale),s=initialContradictionState();
+if(!(contradictionPresets as readonly string[]).includes(preset))throw new Error('Unknown contradiction preset');
+---
+<figure class="counter-lab contradiction-lab" id={id} data-contradiction-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='prime-builder'?<>
+  <div class="cases-inputs"><label for={`${id}-number`}>{c.count}<input id={`${id}-number`} type="number" min="1" max="7" step="1" value={s.count} data-contradiction-number aria-controls={`${id}-output`}/></label></div>
+  <label class="cases-range-label" for={`${id}-range`}>{c.count}<input id={`${id}-range`} type="range" min="1" max="7" step="1" value={s.count} data-contradiction-range aria-controls={`${id}-output`}/></label>
+  <div id={`${id}-output`} data-contradiction-output set:html={primeBuilderMarkup(locale,s.count)}/><figcaption>{c.builderCaption}</figcaption>
+ </>:preset==='euclid'?<>
+  <div id={`${id}-output`} data-contradiction-output set:html={euclidMarkup(locale,s.stage)}/>
+  <div class="contradiction-step-controls"><button type="button" data-contradiction-step="-1" disabled aria-controls={`${id}-output`}>{c.previous}</button><button type="button" data-contradiction-step="1" aria-controls={`${id}-output`}>{c.next}</button></div>
+ </>:<>
+  <fieldset class="discovery-question"><legend>{c.titles.smallest}</legend>{c.options.map((option,i)=><label><input type="radio" name={`${id}-expression`} data-contradiction-choice={i} aria-controls={`${id}-feedback`}/><span><MathText text={option}/></span></label>)}</fieldset>
+  <div id={`${id}-feedback`} data-contradiction-feedback/>
+  <details><summary>{c.reference}</summary><p><MathText text={c.smallestReference}/></p></details>
+ </>}
+ <div class="counter-controls"><button type="button" data-contradiction-reset>{c.reset}</button></div><p class="visually-hidden" role="status" aria-live="polite" data-contradiction-status></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {initialContradictionState,primeCountInput,primeCollection,smallestAnswer} from '../../lib/interactive/contradiction-model';
+import {primeBuilderMarkup,euclidMarkup,smallestFeedback} from '../../lib/interactive/contradiction-render';
+import {contradictionText} from '../../lib/reasoning/contradiction-copy';
+for(const root of document.querySelectorAll<HTMLElement>('[data-contradiction-lab]')){
+ const preset=root.dataset.contradictionLab!,locale=root.dataset.locale as Locale,c=contradictionText(locale);let s=initialContradictionState();
+ const output=root.querySelector<HTMLElement>('[data-contradiction-output]'),status=root.querySelector<HTMLElement>('[data-contradiction-status]')!,number=root.querySelector<HTMLInputElement>('[data-contradiction-number]'),range=root.querySelector<HTMLInputElement>('[data-contradiction-range]');
+ const draw=()=>{if(preset==='prime-builder'){output!.innerHTML=primeBuilderMarkup(locale,s.count);number!.value=String(s.count);range!.value=String(s.count);}if(preset==='euclid'){output!.innerHTML=euclidMarkup(locale,s.stage);root.querySelectorAll<HTMLButtonElement>('[data-contradiction-step]').forEach(b=>b.disabled=Number(b.dataset.contradictionStep)<0?s.stage===0:s.stage===5);}};
+ const announce=()=>{if(preset==='prime-builder'){const t=primeCollection(s.count);status.textContent=`${c.count}: ${s.count}. ${t.product}+1=${t.n}. ${c.factorization}: ${t.factors.join(' × ')}. ${t.prime?c.prime:c.composite}`;}else status.textContent=`${c.step} ${s.stage+1} ${c.of} 6: ${c.stages[s.stage]}. ${c.stageText[s.stage]}`;};
+ const commit=()=>{const next=primeCountInput(number!.value);if(next===null){number!.value=String(s.count);status.textContent=c.invalid;}else{s.count=next;draw();announce();}};
+ number?.addEventListener('input',()=>{const next=primeCountInput(number.value);if(next!==null){s.count=next;draw();announce();}});number?.addEventListener('blur',commit);number?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();commit();}});
+ range?.addEventListener('input',()=>{s.count=Number(range.value);draw();announce();});
+ root.querySelectorAll<HTMLButtonElement>('[data-contradiction-step]').forEach(b=>b.addEventListener('click',()=>{s.stage=Math.max(0,Math.min(5,s.stage+Number(b.dataset.contradictionStep)));draw();announce();}));
+ root.querySelectorAll<HTMLInputElement>('[data-contradiction-choice]').forEach(input=>input.addEventListener('change',()=>{if(!input.checked)return;s.answer=Number(input.dataset.contradictionChoice);root.querySelector<HTMLElement>('[data-contradiction-feedback]')!.innerHTML=smallestFeedback(locale,s.answer);status.textContent=smallestAnswer(s.answer)?c.correct:c.compare;}));
+ root.querySelector('[data-contradiction-reset]')?.addEventListener('click',()=>{s=initialContradictionState();root.querySelectorAll<HTMLInputElement>('[data-contradiction-choice]').forEach(input=>input.checked=false);const feedback=root.querySelector<HTMLElement>('[data-contradiction-feedback]');if(feedback)feedback.innerHTML='';root.querySelectorAll('details').forEach(e=>e.open=false);draw();status.textContent=c.reset;});
+}
+</script>

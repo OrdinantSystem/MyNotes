@@ -1,0 +1,20 @@
+---
+import {conditionalText} from '../lib/reasoning/conditional-copy';
+import {conditionalForms,conditionalRows,conditionalTex,type ConditionalFigure} from '../lib/interactive/conditional-model';
+import Math from './Math.astro';
+import '../styles/counterexamples.css';import '../styles/conditionals.css';
+interface Props {kind:ConditionalFigure}
+const {kind}=Astro.props,c=conditionalText(Astro.locals.locale||'en'),key=kind.slice(12) as keyof typeof c.titles;
+const rows=[...conditionalRows].reverse();
+const truth=(v:boolean)=>v?c.true:c.false;
+const orderedForms=['implication','contrapositive','converse','inverse'] as const;
+---
+<figure class="counter-figure conditional-figure">
+ <h3>{c.titles[key]}</h3>
+ {kind==='conditional-roles'&&<><div class="conditional-direction"><div><small>{c.antecedent}</small><strong><Math tex="P" /></strong><p>{c.p}</p></div><span aria-label="P → Q">⟶</span><div><small>{c.consequent}</small><strong><Math tex="Q" /></strong><p>{c.q}</p></div></div><div class="counter-columns"><section><h4>{c.sufficient}</h4><p>{c.sufficientDetail}</p></section><section><h4>{c.necessary}</h4><p>{c.necessaryDetail}</p></section></div></>}
+ {kind==='conditional-cases'&&<><div class="counter-columns">{[[true,true],[true,false],[false,true],[false,false]].map(([p,q],i)=><section class:list={['conditional-case',{'conditional-forbidden':i===1}]}><h4>{c.cases[i]}</h4><p>P: {truth(p)} · Q: {truth(q)}</p><p>{i===1?c.noInteger:`${c.example}: ${[4,0,6,7][i]}`}</p><p><Math tex={String.raw`P\to Q`} />: <strong>{truth(i!==1)}</strong></p></section>)}</div><figcaption>{c.caseCaption}</figcaption></>}
+ {kind==='conditional-forms'&&<div class="counter-columns">{conditionalForms.map(form=><section class="conditional-case"><h4>{c.names[form]}</h4><Math tex={conditionalTex[form]} display/><p>{c.readings[form]}</p><p><strong>{form==='implication'||form==='contrapositive'?c.allIntegers:c.counterSix}</strong></p></section>)}</div>}
+ {kind==='conditional-table'&&<><div class="table-scroll" role="region" aria-label={c.titles.table} tabindex="0"><table class="conditional-table"><thead><tr><th scope="col">P</th><th scope="col">Q</th>{orderedForms.map(form=><th scope="col">{c.names[form]}<span><Math tex={conditionalTex[form]}/></span></th>)}</tr></thead><tbody>{rows.map(row=><tr><th scope="row">{truth(row.p)}</th><td>{truth(row.q)}</td>{orderedForms.map(form=><td data-truth-value={Number(row[form])}>{truth(row[form])}</td>)}</tr>)}</tbody></table></div><figcaption>{c.tableHelp}</figcaption></>}
+ {kind==='conditional-admission'&&<><p class="conditional-universe-label">{c.visitors}</p><div class="conditional-venue-labels"><span><strong>T</strong>: {c.ticket}</span><span><strong>I</strong>: {c.id}</span></div><div class="conditional-venue" role="img" aria-label={`A ⊆ T ∩ I. T: ${c.ticket}; I: ${c.id}; A: ${c.admitted}. ${c.admissionCaption}`}><div class="conditional-ticket"><strong>T</strong></div><div class="conditional-id"><strong>I</strong></div><div class="conditional-admitted">A</div><span class="conditional-ticket-only">●<br/>{c.ticketOnly}</span><span class="conditional-id-only">●<br/>{c.idOnly}</span></div><p class="conditional-center">A: {c.admitted}</p><Math tex={String.raw`A\subseteq T\cap I`} display/><figcaption>{c.admissionCaption}</figcaption></>}
+ {kind==='conditional-kinds'&&<div class="conditional-kinds">{c.kinds.map(row=><section><h4>{row[0]}</h4><p>{row[1]}</p><p>{row[2]}</p></section>)}</div>}
+</figure>

@@ -1,0 +1,55 @@
+---
+import MathText from '../MathText.astro';
+import {transferPresets,initialExperiment,initialRecord,type TransferPreset} from '../../lib/interactive/transfer-model';
+import {recordMarkup,experimentReadout,experimentSolution} from '../../lib/interactive/transfer-render';
+import {transferText} from '../../lib/reasoning/transfer-copy';
+import '../../styles/counterexamples.css';import '../../styles/discovery.css';import '../../styles/transfer.css';
+interface Props{preset:TransferPreset;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=transferText(locale),rows=initialRecord();
+if(!(transferPresets as readonly string[]).includes(preset))throw new Error('Unknown transfer preset');
+---
+<figure class="counter-lab transfer-lab" id={id} data-transfer-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='calibration'?<>
+  <p>{c.illustrative}</p><div class="transfer-table-wrap" tabindex="0" role="region" aria-label={c.titles.calibration}><table class="transfer-record"><thead><tr><th scope="col">{c.task}</th><th scope="col">{c.prediction}</th><th scope="col">{c.result}</th></tr></thead><tbody>{rows.map((row,i)=><tr><th scope="row">{c.tasks[i]}</th><td><input aria-label={`${c.prediction} · ${c.tasks[i]}`} type="number" min="0" max="100" step="1" value={row.prediction} data-transfer-probability={i} aria-controls={`${id}-output`}/></td><td><select aria-label={`${c.result} · ${c.tasks[i]}`} data-transfer-result={i} aria-controls={`${id}-output`}><option value="" selected={row.success===null}>{c.unknown}</option><option value="yes" selected={row.success===true}>{c.success}</option><option value="no" selected={row.success===false}>{c.failure}</option></select></td></tr>)}</tbody></table></div>
+  <div id={`${id}-output`} data-transfer-output set:html={recordMarkup(locale,rows)}/><p>{c.warning}</p>
+ </>:<>
+  <p class="transfer-note">{c.local}</p>
+  <label for={`${id}-confidence`}>{c.confidence}<input id={`${id}-confidence`} data-transfer-confidence type="number" min="0" max="100" step="1" aria-describedby={`${id}-estimate`} aria-controls={`${id}-readout`}/></label>
+  <label for={`${id}-range`}>{c.range}<input id={`${id}-range`} data-transfer-range type="range" min="0" max="100" step="1" value="50" aria-describedby={`${id}-estimate`} aria-controls={`${id}-readout`}/></label><p id={`${id}-estimate`} data-transfer-estimate>{c.draft}</p>
+  <button type="button" data-transfer-record aria-controls={`${id}-readout`}>{c.record}</button>
+  <h4>{c.given}</h4><MathText text={preset==='reconstruct'?String.raw`$x=2a+1,\quad y=2b+1,\quad a,b\in\mathbb Z$`:String.raw`$x=5a+2,\quad y=5b+2,\quad a,b\in\mathbb Z$`}/><p>{preset==='reconstruct'?c.reconstructPrompt:c.applyPrompt}</p>
+  <label for={`${id}-work`}>{c.work}<textarea id={`${id}-work`} data-transfer-work autocomplete="off" spellcheck="false"/></label>
+  <details data-transfer-reference><summary>{c.reveal}</summary><div set:html={experimentSolution(locale,preset)}/></details>
+  <fieldset><legend>{c.reflection}</legend>{(['independent','supported','not-yet'] as const).map((outcome,i)=><label><input type="radio" name={`${id}-outcome`} value={outcome} data-transfer-outcome aria-controls={`${id}-readout`}/> {c.outcomes[i]}</label>)}</fieldset>
+  <div id={`${id}-readout`} class="transfer-readout" data-transfer-readout set:html={experimentReadout(locale,initialExperiment())}/>
+ </>}
+ <div class="counter-controls"><button type="button" data-transfer-reset>{c.reset}</button></div><p class="transfer-note" role="status" aria-live="polite" data-transfer-status></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {probability,initialExperiment,recordPrediction,beginAttempt,viewReference,initialRecord,recordSummary,type Outcome} from '../../lib/interactive/transfer-model';
+import {recordMarkup,experimentReadout,percent} from '../../lib/interactive/transfer-render';
+import {transferText} from '../../lib/reasoning/transfer-copy';
+for(const root of document.querySelectorAll<HTMLElement>('[data-transfer-lab]')){
+ const locale=root.dataset.locale as Locale,c=transferText(locale),status=root.querySelector<HTMLElement>('[data-transfer-status]')!;
+ if(root.dataset.transferLab==='calibration'){
+  let rows=initialRecord();const output=root.querySelector<HTMLElement>('[data-transfer-output]')!;
+  const draw=()=>{output.innerHTML=recordMarkup(locale,rows);const s=recordSummary(rows);status.textContent=s.n?`${c.paired}: ${s.n}. ${c.predicted}: ${percent(s.predicted!)}. ${c.observed}: ${percent(s.observed!)}`:c.empty;};
+  root.querySelectorAll<HTMLInputElement>('[data-transfer-probability]').forEach(input=>{const i=Number(input.dataset.transferProbability);input.addEventListener('input',()=>{if(!input.value.trim()){rows[i].prediction=null;draw();return;}const n=probability(input.value);if(n!==null){rows[i].prediction=n;draw();}});const commit=()=>{if(input.value.trim()&&probability(input.value)===null){input.value=rows[i].prediction===null?'':String(rows[i].prediction);status.textContent=c.invalid;}};input.addEventListener('blur',commit);input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();commit();}});});
+  root.querySelectorAll<HTMLSelectElement>('[data-transfer-result]').forEach(input=>input.addEventListener('change',()=>{rows[Number(input.dataset.transferResult)].success=input.value===''?null:input.value==='yes';draw();}));
+  root.querySelector('[data-transfer-reset]')!.addEventListener('click',()=>{rows=initialRecord();root.querySelectorAll<HTMLInputElement>('[data-transfer-probability]').forEach(input=>input.value=String(rows[Number(input.dataset.transferProbability)].prediction));root.querySelectorAll<HTMLSelectElement>('[data-transfer-result]').forEach(input=>input.value=rows[Number(input.dataset.transferResult)].success?'yes':'no');draw();status.textContent=c.reset;});
+ }else{
+  let s=initialExperiment();const number=root.querySelector<HTMLInputElement>('[data-transfer-confidence]')!,range=root.querySelector<HTMLInputElement>('[data-transfer-range]')!,estimate=root.querySelector<HTMLElement>('[data-transfer-estimate]')!,record=root.querySelector<HTMLButtonElement>('[data-transfer-record]')!,readout=root.querySelector<HTMLElement>('[data-transfer-readout]')!,work=root.querySelector<HTMLTextAreaElement>('[data-transfer-work]')!,reference=root.querySelector<HTMLDetailsElement>('[data-transfer-reference]')!;
+  const draw=()=>{readout.innerHTML=experimentReadout(locale,s);estimate.textContent=s.prediction===null?(s.draft===null?c.draft:percent(s.draft)):`${c.saved}: ${percent(s.prediction)}`;number.disabled=range.disabled=record.disabled=s.prediction!==null;};
+  number.addEventListener('input',()=>{const n=probability(number.value);if(n!==null||!number.value.trim()){s.draft=n;if(n!==null)range.value=String(n);draw();}});
+  const commit=()=>{if(number.value.trim()&&probability(number.value)===null){number.value=s.draft===null?'':String(s.draft);status.textContent=c.invalid;}};number.addEventListener('blur',commit);number.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();commit();}});
+  range.addEventListener('input',()=>{s.draft=Number(range.value);number.value=range.value;draw();});
+  record.addEventListener('click',()=>{if(s.started||s.solutionSeen){status.textContent=c.late;return;}if(s.draft===null){status.textContent=c.missing;return;}s=recordPrediction(s);draw();status.textContent=`${c.saved}: ${percent(s.prediction!)}. ${c.locked}`;});
+  work.addEventListener('input',()=>{if(work.value.trim()&&!s.started){s=beginAttempt(s);draw();status.textContent=c.attemptFeedback;}});
+  reference.addEventListener('toggle',()=>{if(reference.open){s=viewReference(s);draw();status.textContent=c.referenceSeen;}});
+  root.querySelectorAll<HTMLInputElement>('[data-transfer-outcome]').forEach(input=>input.addEventListener('change',()=>{s=beginAttempt(s);s.outcome=input.value as Outcome;draw();status.textContent=c.report;}));
+  root.querySelector('[data-transfer-reset]')!.addEventListener('click',()=>{s=initialExperiment();work.value='';reference.open=false;number.value='';range.value='50';root.querySelectorAll<HTMLInputElement>('[data-transfer-outcome]').forEach(input=>input.checked=false);draw();status.textContent=c.reset;});
+ }
+}
+</script>

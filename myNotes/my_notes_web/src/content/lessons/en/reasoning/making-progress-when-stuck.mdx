@@ -1,0 +1,461 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-25
+sourcePages: []
+sourceLocations: ["Full script sections 1–10; Attempt logs; Intellectual progression; Preparation sources"]
+title: "What to do when you have no idea"
+navTitle: "Making progress when stuck"
+description: "Use representation, smaller cases and structural constraints to turn unsuccessful attempts into better-informed next steps."
+order: 25
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [understanding-and-independent-reasoning]
+thumbnail: reasoning-triangle
+---
+
+## 1. The blank page
+
+Imagine that someone gives you a problem. You understand the individual words. You understand what you are being asked to do. You look at the information in front of you, and yet, for some reason, you cannot think of a single meaningful step toward the solution.
+
+What do you do?
+
+Perhaps you read the question again. Perhaps you try something almost at random. Perhaps you wait, hoping that an idea will eventually appear.
+
+And when nothing happens, you might begin to wonder whether you simply lack the ability to solve it.
+
+But there is something interesting about this situation. We are treating the absence of an idea as if it were the absence of anything useful to do.
+
+Those are two very different things.
+
+Consider the following problem.
+
+<Interactive kind="triangle" preset="puzzle" id="triangle-puzzle" />
+
+You have six numbers, from one to six, and six positions on the triangle. Your task is to arrange them so that the three numbers along each side add up to exactly ten.
+
+Take a moment to look at it.
+
+Not necessarily to solve it. Just to decide what you would do first.
+
+Perhaps you already have an idea. Perhaps you don't.
+
+Today, we are going to investigate what happens between receiving a problem and knowing how to solve it.
+
+Because that part of reasoning is rarely shown.
+
+We usually see the beautiful solution at the end. We rarely see the uncertainty, the unsuccessful attempts, or the smaller discoveries that made that solution possible.
+
+And that is precisely what we are going to explore.
+
+## 2. Doing something is not necessarily making progress
+
+Suppose we begin with the simplest arrangement we can think of. We place the numbers one, two and three at the corners, and then distribute the remaining numbers along the sides.
+
+These attempts are a reconstructed teaching example of exploration.
+
+<ReasoningFigure kind="triangle-initial" />
+
+That doesn't work. We have seven on one side, nine on another, and eleven at the bottom.
+
+Perhaps we should exchange two numbers. The left side needs a larger number, so we could move the six from the bottom to the left.
+
+<ReasoningFigure kind="triangle-exchange" />
+
+Interesting. Now every side adds up to nine.
+
+We have accidentally solved a slightly different problem. But we still haven't solved the original one.
+
+We could continue exchanging numbers. And eventually, because the number of possible arrangements is finite, we might find a solution through exhaustive trial.
+
+But suppose this problem had sixty numbers instead of six. Or suppose we were trying to prove a statement about infinitely many numbers.
+
+Trying things without understanding why they might work becomes increasingly expensive.
+
+So rather than immediately attempting another arrangement, we are going to stop and ask a different question.
+
+What have we learned from what we just did?
+
+### Attempt log
+
+| Move tried      | Exchange 4 and 6.                                                           |
+| --------------- | --------------------------------------------------------------------------- |
+| Reason          | Increase the left sum and decrease the bottom sum.                          |
+| Result          | All three sides equal 9.                                                    |
+| What we learned | Equal side sums are possible. Reaching exactly 10 is a separate difficulty. |
+
+The attempt failed as a solution. But it succeeded in revealing something about the problem.
+
+That distinction is going to become increasingly important.
+
+## 3. What does it actually mean to be stuck?
+
+When we say that we don't know how to solve a problem, we are often describing several fundamentally different situations with the same sentence.
+
+Sometimes we don't understand exactly what the question requires. Sometimes we understand the question but are representing the problem in a way that makes its important relationships difficult to see. And sometimes we are missing a definition, a theorem, or a piece of information that would allow us to continue.
+
+These difficulties require different responses.
+
+<ReasoningFigure kind="triangle-diagnosis" />
+
+If you misunderstand a question, trying harder to solve your interpretation of it may accomplish very little. If your representation conceals an important relationship, learning another theorem might not help. And if you genuinely lack the necessary background knowledge, staring at the problem for another hour is not guaranteed to produce it.
+
+So the first useful thing we can do when we are stuck is to investigate why.
+
+This is closely related to the approach developed by mathematician George Pólya in his book *How to Solve It*. Pólya organized mathematical problem-solving around four broad activities: understanding a problem, developing a strategy, executing that strategy, and examining the result. [Pólya’s framework](https://people.math.harvard.edu/~knill/teaching/math21b2001/polya/index.html).
+
+<ReasoningFigure kind="triangle-polya" />
+
+These activities are not necessarily performed in a straight line. Carrying out an idea may reveal that we misunderstood the problem. Examining an unsuccessful attempt may suggest an entirely different strategy.
+
+The framework gives us questions to investigate, not a mechanical procedure guaranteed to produce a solution.
+
+And we can begin applying it right now.
+
+## 4. Understand the problem before trying to solve it
+
+Let's return to our triangle.
+
+We know that we have six numbers and six positions. We know that every number must be used exactly once. And we know that each of the three sides must have a sum of ten.
+
+But so far, we have treated all six positions as if they were fundamentally identical.
+
+Are they?
+
+<ReasoningFigure kind="triangle-roles" />
+
+A number placed at a corner contributes to the sum of two sides. A number placed in the middle contributes to only one.
+
+So although every position holds one number, the positions play different roles in the problem.
+
+This is something we didn't explicitly consider in our previous attempts.
+
+And now we can introduce a little notation. Not because we want to make the puzzle more complicated, but because we want to describe these relationships precisely.
+
+We will call the three corners $a,b,c$, and the three middle positions $x,y,z$.
+
+The requirement for the left side becomes:
+
+$$
+a+x+b=10.
+$$
+
+The right side becomes:
+
+$$
+a+y+c=10.
+$$
+
+And the bottom becomes:
+
+$$
+b+z+c=10.
+$$
+
+<ReasoningFigure kind="triangle-representation" />
+
+We haven't solved anything yet. But we have transformed an arrangement puzzle into a system of relationships.
+
+And those relationships might be easier to investigate than the original picture.
+
+Notice what happened here. We didn't obtain any additional information from outside the problem. Everything we just wrote was already contained in the original question.
+
+We simply organized that information differently.
+
+Sometimes making progress does not require knowing more. It requires seeing more clearly what you already know.
+
+## 5. If the whole problem is difficult, investigate a part of it
+
+Instead of trying to arrange all six numbers simultaneously, what if we concentrate on just one side?
+
+Let's temporarily ignore the rest of the triangle.
+
+Suppose that the two corners of this side contain the numbers one and two. What number would have to appear between them?
+
+<ReasoningFigure kind="triangle-one-side" />
+
+There is no seven among our pieces.
+
+Which means that placing one and two at two corners is already enough to make the original problem impossible, regardless of how we arrange the remaining numbers.
+
+That's interesting. We can now reject entire families of arrangements without individually testing them.
+
+Let's try a few other small cases.
+
+<Interactive kind="triangle" preset="side" id="triangle-side" />
+
+The important discovery is that once we choose the two corners, we no longer have the freedom to choose the middle number independently.
+
+It is determined.
+
+If the corners are $a$ and $b$, then:
+
+$$
+x=10-a-b.
+$$
+
+And the same reasoning applies to the other two sides.
+
+$$
+\begin{aligned} x&=10-a-b,\\ y&=10-a-c,\\ z&=10-b-c. \end{aligned}
+$$
+
+<ReasoningFigure kind="triangle-dependence" />
+
+Our original problem appeared to require six decisions. But now we understand that three of those decisions determine the others.
+
+We investigated a smaller problem, and in doing so, discovered something useful about the larger one.
+
+This is one of the most powerful reasons to examine small cases. Not merely to collect examples, but to identify relationships that survive when we return to the original problem.
+
+## 6. What if we remove one of the constraints?
+
+Now remember something strange that happened near the beginning.
+
+We found an arrangement in which every side added up to nine.
+
+Although that arrangement did not satisfy the original problem, it raises an interesting question.
+
+Why nine? Why not ten, or eleven, or twelve?
+
+Instead of insisting that the common sum must be ten, let's temporarily allow it to be any number.
+
+<ReasoningFigure kind="triangle-relax" />
+
+We haven't abandoned the original goal. We have created a related, less restrictive problem that might reveal something about it.
+
+We can now write:
+
+$$
+\begin{aligned} a+x+b&=S,\\ a+y+c&=S,\\ b+z+c&=S. \end{aligned}
+$$
+
+What happens if we add these three equations together?
+
+<ReasoningFigure kind="triangle-counting" />
+
+Every corner appears twice, because it belongs to two sides. Every middle number appears once.
+
+Therefore:
+
+$$
+3S=2a+2b+2c+x+y+z.
+$$
+
+But we can rearrange the right-hand side.
+
+$$
+3S= \underbrace{a+b+c+x+y+z}_{\text{All six numbers}} + \underbrace{a+b+c}_{\text{Corners again}}.
+$$
+
+And regardless of how the numbers are arranged, their total is always the same.
+
+$$
+1+2+3+4+5+6=21.
+$$
+
+Which gives us:
+
+<ReasoningFigure kind="triangle-invariant" />
+
+Look at how much information is contained in this little equation.
+
+It tells us that whenever a valid arrangement has equal side sums, the value of that common sum cannot be independent of the numbers placed at the corners.
+
+We have discovered a necessary relationship that every valid arrangement must obey.
+
+And now we can finally return to the problem we were originally trying to solve.
+
+## 7. The moment the problem changes
+
+We want our common sum to be exactly ten.
+
+So we restore the constraint that we temporarily removed.
+
+$$
+S=10.
+$$
+
+Substituting this into our relationship gives us:
+
+$$
+3(10)=21+a+b+c.
+$$
+
+$$
+30=21+a+b+c.
+$$
+
+And therefore:
+
+<ReasoningFigure kind="triangle-corner-nine" />
+
+Suddenly, the original puzzle looks completely different.
+
+We no longer need to search blindly for an arrangement of six numbers. We can begin by selecting three distinct numbers whose sum is nine.
+
+For example:
+
+$$
+1+3+5=9.
+$$
+
+Let's place those at the corners.
+
+<ReasoningFigure kind="triangle-partial" />
+
+But remember what we discovered earlier. Once we choose the corners, each middle number is determined.
+
+Between one and three, we need:
+
+$$
+x=10-1-3=6.
+$$
+
+Between one and five:
+
+$$
+y=10-1-5=4.
+$$
+
+And between three and five:
+
+$$
+z=10-3-5=2.
+$$
+
+<ReasoningFigure kind="triangle-solution" />
+
+And there it is.
+
+Notice that the corner-sum relationship alone was not enough to establish that we had a solution. We still needed to calculate the remaining values and verify every original condition.
+
+A necessary condition is not automatically a sufficient one.
+
+But in this particular arrangement, all the conditions are satisfied.
+
+We have solved the problem.
+
+And if someone had shown us this completed triangle at the beginning, the solution would have appeared almost trivial.
+
+What would have remained invisible, however, was how we discovered it.
+
+## 8. Understanding the path we took
+
+Let's reconstruct what actually happened.
+
+We began with an unsuccessful arrangement. Then we accidentally discovered an arrangement with equal sums. We noticed that some positions played different roles from others, investigated individual sides, and temporarily changed one of the constraints.
+
+Each of these actions revealed something that we could use in a subsequent step.
+
+### Our completed attempt log
+
+| **Move**                                       | **Result and discovery**                                               |
+| ---------------------------------------------- | ---------------------------------------------------------------------- |
+| 01 · Arrange<br />Try an obvious configuration.  | $7,\;9,\;11$<br />Different positions influence the sums differently.  |
+| 02 · Exchange<br />Balance the side sums.        | $9,\;9,\;9$<br />Equal sums are possible without reaching the target.  |
+| 03 · Isolate<br />Study one side.                | $x=10-a-b$<br />Corner choices determine middle values.                  |
+| 04 · Relax<br />Replace 10 with S.               | $3S=21+a+b+c$<br />A relationship governing every equal-sum arrangement. |
+| 05 · Restore<br />Return to the original target. | $a+b+c=9$<br />A way to construct and verify a solution.                 |
+
+The first attempt was not successful in the conventional sense. But without experimentation, we might not have noticed the significance of the corners or the relationship between the different side sums.
+
+This doesn't mean every unsuccessful attempt is automatically valuable. Repeating the same approach without examining its results may teach us very little.
+
+What makes an unsuccessful attempt informative is our ability to extract something from it.
+
+What was I trying to accomplish? Why didn't it work? What did the result reveal? What should I investigate differently now?
+
+<ReasoningFigure kind="triangle-learning" />
+
+The objective is not to avoid unsuccessful attempts altogether.
+
+It is to make our subsequent attempts better informed than our previous ones.
+
+## 9. A new problem — what would you do first?
+
+Now I'm going to give you a slightly different version of the same problem.
+
+We still have the numbers one through six. We still have the same triangular arrangement. But this time, every side must add up to exactly eight.
+
+<ReasoningFigure kind="triangle-challenge" />
+
+But I don't want you to immediately solve the problem. I want you to propose a meaningful first move and explain why you think it could help.
+
+Would you begin by arranging the numbers? Would you calculate the total of all three sides? Would you try to find the smallest possible sum of the corners?
+
+<Interactive kind="triangle" preset="challenge" id="triangle-challenge" />
+
+We already know that:
+
+$$
+3S=21+a+b+c.
+$$
+
+If the common sum must be eight, then:
+
+$$
+24=21+a+b+c.
+$$
+
+Which means:
+
+$$
+a+b+c=3.
+$$
+
+But the three smallest distinct numbers available to us are one, two and three.
+
+<ReasoningFigure kind="triangle-impossible" />
+
+There is no solution.
+
+And we didn't have to test a single arrangement to establish that.
+
+In the previous problem, the relationship helped us construct a solution. In this problem, the very same relationship allowed us to prove that a solution cannot exist.
+
+This is what it means to discover something transferable. We haven't merely learned how to solve one puzzle. We have acquired a piece of reasoning that can be used to investigate another.
+
+## 10. What should you do when you have no idea?
+
+The next time you encounter a problem and cannot see how to solve it, remember that finding the complete solution is not the only meaningful objective available to you.
+
+You can try to understand the question more precisely. Identify its objects and restrictions. Change its representation. Investigate a smaller case. Solve a related problem. Temporarily remove a constraint and examine what becomes possible without it.
+
+And if you discover that you are missing essential knowledge, you can identify what you need to learn.
+
+None of these approaches guarantees that you will find a solution.
+
+But they give you something more useful than simply waiting for inspiration. They give you a way to investigate your own uncertainty.
+
+<ReasoningFigure kind="triangle-next" />
+
+Perhaps the most important question when you are stuck is not:
+
+*"How do I solve this?"*
+
+But rather:
+
+**"What can I discover about this problem that I don't know yet?"**
+
+Because sometimes the path toward a solution begins long before we have any idea what that solution will look like.
+
+## Learning compendium
+
+<ReasoningFigure kind="triangle-progress" />
+
+Investigating a smaller part reveals a local relationship. Counting the contributions across the whole triangle reveals a global one. Both become useful only when we return to the original conditions and verify them.
+
+## Preparation sources
+
+[George Pólya — How to Solve It](https://people.math.harvard.edu/~knill/teaching/math21b2001/polya/index.html) supplies the conceptual framework: understand the problem, devise and carry out a plan, then examine the result. The excerpt includes related problems, restating questions and examining only part of a condition. These are questions to investigate, not a guaranteed procedure.
+
+[Kevin Houston — How to Think Like a Mathematician](https://www.cambridge.org/core/books/how-to-think-like-a-mathematician/FB0813C3AEDDECD40BE58AF186370D52) is complementary reading: Part I, chapter 5, “How to solve problems,” pp. 41–50. The publisher confirms the chapter information. Its full text was not consulted here; no specific unverified claims from it are attributed to the author.
+
+The triangle puzzle, reconstructed attempts and transfer task are instructional examples, not a documentary record of how this puzzle was first solved.
+
+### From following a proof to finding a first move
+
+Lesson 24 distinguished understanding someone else’s explanation from independently producing one. Part Four begins investigating what happens before a proof or solution has been constructed. Restating a question, examining an auxiliary case, identifying a missing fact and testing a structural relationship offer concrete actions when perseverance alone does not identify the next move.

@@ -1,0 +1,359 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-two
+sourceId: reasoning-episode-14
+sourcePages: []
+sourceLocations: ["Sections 1–8; Recommended foundations"]
+title: "How to draw a mathematical world"
+navTitle: "Sets and mathematical worlds"
+description: "Classify objects, explore sets and distinguish what a diagram shows from what a premise guarantees."
+order: 14
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [quantifiers-and-dependence]
+thumbnail: reasoning-worlds
+---
+
+When does a picture help us understand a mathematical statement, and when does it quietly make us believe something we have not proved?
+
+## 1. A world with eight objects
+
+Imagine that everything in our mathematical world consists of just eight shapes. Some are red, others are blue. Some have three sides, others have four.
+
+Here they are.
+
+<ReasoningFigure kind="world-inventory" />
+
+Now suppose I ask you to find every red shape. That's easy. You can point to them: a, c, e, and g.
+
+What about every triangle? That's a different collection: a, b, e, and h.
+
+But here's a more interesting question. Is it true that every red shape is a triangle?
+
+No. We can already see two counterexamples: c and g. Both are red, but neither has three sides.
+
+It seems almost too simple to deserve mathematics. We're just putting objects into groups. But this simple activity contains the foundations of a powerful language for reasoning.
+
+And before we can use that language properly, we need to make a decision that is often left invisible.
+
+**What exactly counts as part of our world?**
+
+## 2. Giving the world its boundaries
+
+For now, let's agree that those eight shapes are all the objects under consideration. There are no hidden shapes somewhere outside our picture.
+
+Mathematicians call this collection our *universe*, or *universal set*, for the discussion. We'll call it $U$.
+
+$$
+ U=\{a,b,c,d,e,f,g,h\}.
+$$
+
+Those curly brackets mean we're describing a set: a collection whose members are determined. The letters between the brackets name the objects that belong to it.
+
+Now let's make a smaller collection containing only the red shapes, and call it $R$.
+
+$$
+ R=\{a,c,e,g\}.
+$$
+
+We've just defined two sets, but they don't play exactly the same role. $U$ establishes the universe, and $R$ identifies some of its members.
+
+Suppose we want to say that a belongs to the set of red objects. We write:
+
+$$
+ a\in R.
+$$
+
+The symbol $\in$ means **is an element of**.
+
+But imagine we take two shapes, a and e, and make a new collection from them. Both shapes are red, so every element of this new collection belongs to $R$.
+
+$$
+ \{a,e\}\subseteq R.
+$$
+
+The symbol $\subseteq$ means **is a subset of**. It says that every element of the set on the left is also an element of the set on the right.
+
+These are different relationships.
+
+<ReasoningFigure kind="world-membership" />
+
+An element is something inside a collection. A subset is itself a collection whose members are all contained in a larger collection.
+
+That distinction is important enough to test immediately.
+
+We know that $a\in R$. But what about $\{a\}\subseteq R$?
+
+Also true. The set containing only a has no elements outside $R$.
+
+In fact, since every red object belongs to our universe, we can also say:
+
+$$
+ R\subseteq U.
+$$
+
+Notice what we haven't said: $R\in U$. Our particular universe contains eight shapes, not collections of shapes. We could design a different universe whose members include sets, but that is not the world we've defined.
+
+A mathematical statement gets its meaning from the objects we're talking about and the definitions we've chosen.
+
+## 3. One object, several classifications
+
+Let's return to the eight shapes, but instead of classifying by color, classify them by their number of sides.
+
+We'll call the set of triangles $T$.
+
+$$
+ T=\{a,b,e,h\}.
+$$
+
+Now consider a. It's red, and it's a triangle. This means a belongs to both $R$ and $T$.
+
+On the other hand, c is red, but it isn't a triangle. And b is a triangle, but it isn't red.
+
+What we're discovering is that sets aren't necessarily separate containers. The same object may belong to several sets at once.
+
+That's especially useful because mathematical reasoning often asks us to combine conditions.
+
+Imagine I say:
+
+> Find every object that is red **and** has three sides.
+
+You already know how to solve this. First identify the red objects, then identify the triangles, and keep only the objects that satisfy both conditions.
+
+We get a and e.
+
+But we can express the same idea without listing the objects individually. We can define a new set by combining the two sets we already know.
+
+And this gives us our first set operation.
+
+## 4. Combining collections: AND, OR, and NOT
+
+The collection of objects that belong to both $R$ and $T$ is called their *intersection*. We write it as $R\cap T$.
+
+$$
+ R\cap T=\{a,e\}.
+$$
+
+The intersection symbol $\cap$ behaves like the logical word **AND**. An object has to satisfy both conditions to belong to the intersection.
+
+Let's see the same universe through a different picture.
+
+<Interactive kind="worlds" preset="operations" id="eight-object-operations" />
+
+Now imagine changing the question slightly.
+
+Instead of asking for objects that are red *and* triangular, I ask you to find objects that are red *or* triangular.
+
+We now include every object that satisfies at least one of those conditions.
+
+This operation is called *union*, represented by $\cup$.
+
+$$
+ R\cup T=\{a,b,c,e,g,h\}.
+$$
+
+Notice that a and e still belong to the result. They don't disappear merely because they satisfy both conditions.
+
+In mathematics, OR normally includes the possibility that both statements are true. It doesn't automatically mean one or the other, but not both.
+
+Now let's consider a third question: which objects are **not red**?
+
+Within our universe, that leaves b, d, f, and h.
+
+This is the *complement* of $R$, relative to our universe $U$. We can write it as $R^c$, once the universe is understood, or as $U\setminus R$.
+
+$$
+ R^c=U\setminus R=\{b,d,f,h\}.
+$$
+
+Here, set complementation behaves like logical **NOT**.
+
+And that's why specifying the universe was essential. If we suddenly introduced a green circle, our complement could change. We cannot properly ask what is outside a set without knowing the universe we're considering.
+
+Let's put these relationships together.
+
+| Set operation | Logical meaning | Membership condition               |
+| ------------- | --------------- | ---------------------------------- |
+| $R\cap T$ | AND             | $x\in R\land x\in T$           |
+| $R\cup T$ | OR              | $x\in R\lor x\in T$            |
+| $R^c$     | NOT             | $x\notin R$, with $x\in U$ |
+
+This table reveals something important. The symbols are not just instructions for drawing overlapping circles. They describe logical conditions that objects must satisfy.
+
+And that means we can reason about sets without drawing them at all.
+
+For example, consider this expression:
+
+$$
+ (R\cup T)^c.
+$$
+
+It means: objects that are neither red nor triangles. In our universe, those objects are d and f, the blue squares.
+
+But if an object is neither red nor triangular, then it must simultaneously be not red **and** not triangular.
+
+So we obtain:
+
+$$
+ \boxed{(R\cup T)^c=R^c\cap T^c}
+$$
+
+This is one of De Morgan's laws. It is the same relationship we discovered when reasoning with AND, OR, and NOT.
+
+The notation changes, but the underlying logic remains the same.
+
+## 5. The collection containing nothing
+
+There's one more set we should introduce before our drawings start to become dangerous.
+
+Suppose I ask for all shapes that have both three sides and four sides.
+
+Let's call the set of squares $S$. In our world, every object is either a triangle or a square, and none is both.
+
+So:
+
+$$
+ T\cap S=\varnothing.
+$$
+
+The symbol $\varnothing$ represents the *empty set*: a set containing no elements.
+
+<ReasoningFigure kind="world-empty" />
+
+The empty set is not the same as no set existing. It is a perfectly well-defined set, and it happens to have no members.
+
+In fact, the empty set is a subset of every set.
+
+Why?
+
+Remember that $A\subseteq B$ means every element of $A$ belongs to $B$. To violate this rule, we would need to find an element of $A$ that does not belong to $B$.
+
+But if $A$ is empty, there's no such element to find.
+
+So:
+
+$$
+ \varnothing\subseteq R,\qquad \varnothing\subseteq T,\qquad \varnothing\subseteq U.
+$$
+
+This may feel strange at first. But it's a good example of how mathematical definitions can reveal something that wasn't obvious from intuition alone.
+
+And it prepares us for an even more interesting problem: what happens when our intuition about a picture tells us more than the mathematics actually allows?
+
+## 6. When a beautiful diagram lies
+
+Let's start a new mathematical world.
+
+This time, someone gives us a single premise:
+
+**Every triangle is red.**
+
+We can translate it into set notation.
+
+$$
+ T\subseteq R.
+$$
+
+Now someone draws a diagram in which the set of triangles sits entirely inside the set of red objects. That seems reasonable. Every triangle must belong to the red set.
+
+They also draw a separate region for squares. It doesn't touch the region containing red objects.
+
+And from this picture, they announce a conclusion:
+
+*No square can be red.*
+
+Before deciding whether they're correct, compare these two possible drawings.
+
+<ReasoningFigure kind="world-drawings" />
+
+Look carefully. Both drawings satisfy our original premise. In both, the triangle region is entirely contained in the red region.
+
+But only the first picture separates squares from red objects.
+
+The second permits red squares.
+
+So which picture is correct?
+
+The important answer is that **our premise doesn't distinguish between them**.
+
+We only said that every triangle is red. We didn't say anything about the colors that squares are allowed to have.
+
+The first drawing introduced an additional restriction that wasn't part of our premise.
+
+It may look convincing because the regions are neatly separated. But the separation isn't justified by what we've been told.
+
+And there's a second subtlety. Even when two regions overlap on the page, that doesn't automatically prove some actual object belongs to both sets. To establish that such an object exists, we need a witness or an additional premise.
+
+The areas of a diagram help us represent possible relationships. They don't create mathematical facts by themselves.
+
+This is the danger of relying on a picture without asking which parts of it are logically necessary.
+
+A diagram can show us one possible world.
+
+**But one possible world is not the same as every possible world.**
+
+## 7. Constructing a world that breaks the conclusion
+
+Let's turn this into an experiment.
+
+Our premise is still that every triangle is red. Our proposed conclusion is that no square is red.
+
+We want to find a world in which the premise is true but the conclusion is false.
+
+Start with two red triangles and a blue square. So far, everything satisfies the premise. And the conclusion also happens to be true.
+
+But what if we introduce one additional object: a red square?
+
+<Interactive kind="worlds" preset="countermodel" id="red-square-countermodel" />
+
+After introducing that red square, every triangle is still red. Nothing about the premise has changed.
+
+But the conclusion is now false.
+
+We've constructed what mathematicians and logicians call a *countermodel*: an interpretation in which the premises are true and the proposed conclusion is false.
+
+And that's enough to establish something very important.
+
+The conclusion does not logically follow from the premise.
+
+$$
+ T\subseteq R \quad\not\Rightarrow\quad S\cap R=\varnothing.
+$$
+
+The symbol $\not\Rightarrow$ tells us that the relationship on the left does not guarantee the relationship on the right.
+
+Notice that this is stronger than saying the first picture was badly drawn. We have shown, by constructing an explicit world, that the proposed conclusion is not forced by the given information.
+
+We don't need to examine every possible world to refute that inference. We only need one world where it fails.
+
+And this is one of the most useful lessons in mathematical reasoning:
+
+**A single valid countermodel can defeat a proposed logical consequence.**
+
+## 8. What the picture actually proves
+
+Let's finish with three questions. The first two use our original universe of eight shapes. The third asks what follows in every world satisfying the new premise.
+
+<Interactive kind="worlds" preset="checkpoint" id="world-checkpoint" />
+
+At the beginning of this lesson, we had eight ordinary shapes. We divided them into collections, combined those collections, and learned to describe their relationships using mathematical notation.
+
+But the most important discovery wasn't the notation itself.
+
+It was the distinction between what a picture **shows** and what a statement **requires**.
+
+A mathematical diagram can make abstract relationships visible. It can help us discover patterns, test ideas, and find counterexamples.
+
+But a drawing is still a particular representation. It may include details that were never guaranteed by our premises.
+
+To reason rigorously, we have to separate those accidental details from the relationships that must hold.
+
+And once we learn to make that distinction, we can do something much more powerful than draw a mathematical world.
+
+We can determine which conclusions must be true in every world satisfying our assumptions — and which conclusions merely happen to be true in the one we've drawn.
+
+## Reference reading
+
+[Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/) for sets, operations, subsets, and Venn diagrams; [forall x — Open Logic Project](https://forallx.openlogicproject.org/html/) for interpretations, models, and logical consequence.

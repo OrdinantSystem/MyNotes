@@ -1,0 +1,8 @@
+---
+import type {ReframeFigure} from '../lib/interactive/reframe-model';
+import {reframeFigure,reframeTitle} from '../lib/interactive/reframe-render';
+import '../styles/counterexamples.css';import '../styles/discovery.css';import '../styles/reframe.css';
+interface Props{kind:ReframeFigure}
+const {kind}=Astro.props,locale=Astro.locals.locale||'en';
+---
+<figure class="counter-lab reframe-figure" data-reframe-figure={kind}><h3>{reframeTitle(locale,kind)}</h3><div set:html={reframeFigure(locale,kind)}/></figure>

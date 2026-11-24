@@ -1,0 +1,621 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-three
+sourceId: reasoning-episode-18
+sourcePages: []
+sourceLocations: ["Sections 1–9; Companion worksheet; Learning checkpoint; Preparation sources"]
+title: "Wenn ein Argument mehrere Wege braucht"
+navTitle: "Fälle und beide Richtungen"
+description: "Erfasse jeden Fall, begründe beide Richtungen einer Äquivalenz und untersuche die Beweispflichten einer Aussage."
+order: 18
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [finding-the-next-proof-step]
+thumbnail: reasoning-cases
+---
+
+## 1. Ein Muster, dem offenbar niemand entkommt
+
+Stell dir eine einfache Herausforderung vor: Wähle eine beliebige ganze Zahl, multipliziere sie mit ihrem unmittelbaren Nachfolger und versuche, ein ungerades Ergebnis zu erhalten.
+
+Du darfst eine positive Zahl, eine negative Zahl oder null wählen. Die einzige Bedingung ist, dass es eine ganze Zahl ist.
+
+Beginnen wir mit einem Beispiel.
+
+<Interactive kind="cases" preset="consecutive" id="cases-consecutive" />
+
+Vier mal fünf ergibt zwanzig, sieben mal acht ergibt sechsundfünfzig. Auch bei negativen Zahlen beobachten wir dasselbe Muster:
+
+$$
+\begin{aligned}
+4\cdot5&=20,\\
+7\cdot8&=56,\\
+(-3)\cdot(-2)&=6,\\
+0\cdot1&=0.
+\end{aligned}
+$$
+
+Jedes Ergebnis ist gerade. Doch ein Muster zu finden und zu beweisen, dass es niemals scheitert, sind zwei verschiedene Leistungen.
+
+Unsere Vermutung lautet nicht nur, dass es häufig funktioniert. Wir behaupten es für **jede ganze Zahl**:
+
+$$
+\boxed{\forall n\in\mathbb Z,\quad 2\mid n(n+1)}.
+$$
+
+Die Schreibweise $2\mid n(n+1)$ bedeutet, dass zwei das Produkt ohne Rest teilt.
+
+Es gibt unendlich viele ganze Zahlen. Wir können sie nicht alle einzeln prüfen. Vielleicht müssen wir das auch nicht: Statt unendlich viele Werte zu untersuchen, könnten wir untersuchen, welche *Arten* von Zahlen überhaupt vorkommen können.
+
+## 2. Unendlich viele Möglichkeiten auf zwei reduzieren
+
+Betrachten wir unsere Zahlengerade erneut. Diesmal konzentrieren wir uns auf eine einzige Eigenschaft: die Parität.
+
+<ReasoningFigure kind="cases-parity" />
+
+Die gewählte Zahl, ihre Größe und ihr Vorzeichen können wechseln. Trotzdem gehört jede ganze Zahl zu einer dieser beiden Kategorien.
+
+Was passiert bei zwei aufeinanderfolgenden ganzen Zahlen?
+
+<ReasoningFigure kind="cases-possibilities" />
+
+Ist die erste Zahl gerade, ist die zweite ungerade. Ist die erste ungerade, ist die zweite gerade. Zwei aufeinanderfolgende ganze Zahlen können niemals beide ungerade sein.
+
+Vielleicht ändert sich also der Grund für das gerade Produkt mit der gewählten Zahl. Manchmal liefert der erste Faktor den Faktor zwei, manchmal der zweite. Die Folgerung bleibt dieselbe, aber der Weg dorthin ändert sich.
+
+<ReasoningFigure kind="cases-routes" />
+
+Das ist die Grundidee eines **Beweises durch Fallunterscheidung**. Wir müssen nicht einen einzigen Rechenweg finden, der alle Möglichkeiten gleichzeitig behandelt. Wir teilen die Möglichkeiten in Gruppen und begründen die Folgerung für jede Gruppe.
+
+Damit daraus ein Beweis wird, müssen wir zweierlei zeigen: Die Gruppen erfassen jede mögliche ganze Zahl, und innerhalb jeder Gruppe folgt tatsächlich die gewünschte Aussage.
+
+## 3. Aus den beiden Wegen einen Beweis machen
+
+In der vorigen Lektion haben wir gesehen, dass die Form unseres Ziels hilft, den nächsten Schritt zu finden. Holen wir diese Beweisübersicht zurück.
+
+<ReasoningFigure kind="cases-workspace" />
+
+Gesucht ist ein Faktor zwei im Produkt. Zunächst wissen wir aber nur, dass $n$ eine ganze Zahl ist. Wie können wir diese Information nutzbar machen?
+
+Jede ganze Zahl besitzt genau eine der beiden Formen
+
+$$
+n=2k\qquad\text{oder}\qquad n=2k+1,
+$$
+
+wobei $k\in\mathbb Z$ gilt. Das folgt aus der Division mit Rest: Beim Teilen durch zwei ist der Rest entweder null oder eins.
+
+Unsere Fälle sind also keine willkürlichen Vermutungen, sondern eine vollständige Beschreibung der möglichen Reste.
+
+### Fall 1 — Angenommen, $n$ ist gerade
+
+Wir beginnen mit dem linken Zweig. Jetzt können wir eine Information einführen, die vorher noch nicht verfügbar war:
+
+$$
+n=2k,\qquad k\in\mathbb Z.
+$$
+
+Die beiden aufeinanderfolgenden Faktoren sehen damit so aus:
+
+<ReasoningFigure kind="cases-even-pairs" />
+
+$$
+n(n+1)=(2k)(2k+1).
+$$
+
+Im ersten Faktor steckt bereits die benötigte zwei. Wir können sie ausklammern:
+
+$$
+\begin{aligned}
+n(n+1)&=(2k)(2k+1)\\
+&=\underbrace{2}_{\text{Faktor zwei}}\underbrace{[k(2k+1)]}_{\text{eine ganze Zahl}}.
+\end{aligned}
+$$
+
+Vergleichen wir das Ergebnis mit unserem ursprünglichen Ziel.
+
+<ReasoningFigure kind="cases-even-match" />
+
+Mit $m=k(2k+1)$ haben wir die erforderliche Form erreicht. Weil $k$ und $2k+1$ ganze Zahlen sind, ist auch ihr Produkt $m$ ganzzahlig.
+
+Damit ist bewiesen: Ist $n$ gerade, ist das Produkt mit seinem Nachfolger gerade.
+
+Doch Vorsicht: Die ursprüngliche Allaussage ist noch nicht bewiesen. Wir haben erst einen ihrer Zweige behandelt.
+
+### Fall 2 — Angenommen, $n$ ist ungerade
+
+Wir kehren zu der Stelle zurück, an der wir die Fälle getrennt haben. Diesmal gilt
+
+$$
+n=2k+1,\qquad k\in\mathbb Z.
+$$
+
+Der erste Faktor hilft nicht unmittelbar. Was passiert aber, wenn wir ihn um eins erhöhen?
+
+<ReasoningFigure kind="cases-odd-successor" />
+
+$$
+\underbrace{2k+1}_{\text{ungerade}}+1=\underbrace{2(k+1)}_{\text{gerade}}.
+$$
+
+Das vorher einzelne Objekt hat einen Partner erhalten. Algebraisch lautet diese Umformung
+
+$$
+n+1=2k+2=2(k+1).
+$$
+
+Der zweite Faktor liefert also die benötigte zwei:
+
+$$
+\begin{aligned}
+n(n+1)&=(2k+1)\,2(k+1)\\
+&=\underbrace{2}_{\text{Faktor zwei}}\underbrace{[(2k+1)(k+1)]}_{\text{eine ganze Zahl}}.
+\end{aligned}
+$$
+
+Wieder haben wir die Zielform $n(n+1)=2m$ erreicht, diesmal mit
+
+$$
+m=(2k+1)(k+1).
+$$
+
+Beide Faktoren in diesem Ausdruck sind ganzzahlig; folglich ist auch dieser Zeuge $m$ eine ganze Zahl.
+
+So hat sich unsere ursprüngliche Beweisübersicht verändert:
+
+<ReasoningFigure kind="cases-completed" />
+
+Die Ausdrücke in den Klammern sind verschieden. Beide erfüllen jedoch dieselbe Definition einer geraden Zahl. Und weil keine ganze Zahl außerhalb der beiden Fälle liegt, gilt die Folgerung für jede ganze Zahl.
+
+Ein Problem über unendlich viele Objekte ist auf zwei mathematische Argumente reduziert. Darin liegt die Stärke der Fallunterscheidung.
+
+## 4. Wenn richtige Argumente einen unvollständigen Beweis ergeben
+
+Stell dir vor, jemand teilt die ganzen Zahlen stattdessen in positive und negative Zahlen auf. Die Aussage wird erfolgreich für jede positive Zahl bewiesen, anschließend für jede negative Zahl.
+
+Beide Argumente sind mathematisch richtig. Ist damit die ursprüngliche Behauptung bewiesen?
+
+<ReasoningFigure kind="cases-missing-zero" />
+
+Eine ganze Zahl gehört zu keiner dieser Kategorien: null. Zwar wissen wir, dass die Folgerung auch für null stimmt. Der vorgeschlagene Beweis hat diesen Wert aber nicht behandelt.
+
+Keines der einzelnen Argumente muss fehlerhaft sein. Der Fehler liegt in ihrem Verhältnis zur ursprünglichen Aussage: Die Zweige sind richtig, die Struktur ist unvollständig.
+
+Eine Fallunterscheidung heißt **vollständig** oder **erschöpfend**, wenn jede relevante Möglichkeit zu mindestens einem der Fälle gehört.
+
+Muss jede Möglichkeit zu *genau einem* Fall gehören? Vergleichen wir drei Aufteilungen eines mathematischen Bereichs.
+
+<ReasoningFigure kind="cases-coverage" />
+
+In der ersten Darstellung bleiben Möglichkeiten unbehandelt. Die zweite funktioniert: Jede Möglichkeit gehört zu genau einem Fall. Aber auch die dritte funktioniert.
+
+Wir könnten die ganzen Zahlen beispielsweise in die Fälle $n\leq0$ und $n\geq0$ aufteilen. Null gehört dann zu beiden Gruppen. Wenn wir die Folgerung in beiden Gruppen zeigen, wird null einfach zweimal behandelt.
+
+Überschneidungen können zusätzliche Arbeit verursachen. Doppelte Arbeit ist jedoch kein logischer Fehler. Entscheidend ist, dass keine Möglichkeit unberücksichtigt bleibt.
+
+### Die zugrunde liegende logische Struktur
+
+Erinnern wir uns an ODER und Implikation. Angenommen, für zwei Bedingungen $P$ und $Q$ wissen wir, dass mindestens eine gilt:
+
+$$
+P\lor Q.
+$$
+
+Wir zeigen einerseits $P\Rightarrow R$ und unabhängig davon $Q\Rightarrow R$.
+
+<ReasoningFigure kind="cases-logic" />
+
+Welche Möglichkeit auch vorliegt: $R$ folgt. Als ein logisches Prinzip geschrieben:
+
+$$
+\boxed{[(P\lor Q)\land(P\Rightarrow R)\land(Q\Rightarrow R)]\Rightarrow R}.
+$$
+
+Genau das tat unser erster Beweis unter seiner algebraischen Oberfläche. Gerade und ungerade Zahlen waren eine Anwendung einer viel allgemeineren logischen Struktur.
+
+## 5. Zwei Pfeile mit einer anderen Bedeutung
+
+Ein zweites Problem scheint ebenfalls zwei Argumente zu verlangen:
+
+**Eine ganze Zahl ist genau dann gerade, wenn ihr Quadrat gerade ist.**
+
+Untersuchen wir die Behauptung zunächst an Beispielen.
+
+<ReasoningFigure kind="cases-square-samples" />
+
+Gerade Zahlen scheinen gerade Quadrate zu ergeben, ungerade Zahlen ungerade Quadrate. Doch achten wir auf die Formulierung.
+
+Wir haben nicht bloß gesagt: **Wenn** eine ganze Zahl gerade ist, ist ihr Quadrat gerade. Wir sagen: **genau dann, wenn**. Welche zusätzliche Beweispflicht entsteht dadurch?
+
+Benennen wir die beiden Aussagen.
+
+<ReasoningFigure kind="cases-properties" />
+
+Wenn wir zeigen, dass jede gerade ganze Zahl ein gerades Quadrat besitzt, erhalten wir die Hinrichtung:
+
+<ReasoningFigure kind="cases-forward" />
+
+Nun gebe ich dir eine ganze Zahl, ohne ihre Parität zu verraten. Du weißt nur, dass ihr Quadrat gerade ist. Darfst du schließen, dass auch die ursprüngliche Zahl gerade ist?
+
+Das ist eine andere Frage. Wir beginnen jetzt bei $Q$ und wollen $P$ erreichen.
+
+<ReasoningFigure kind="cases-reverse" />
+
+Das meinen wir mit einer Äquivalenz:
+
+$$
+\boxed{P\Leftrightarrow Q\quad\equiv\quad(P\Rightarrow Q)\land(Q\Rightarrow P)}.
+$$
+
+Beide Implikationen müssen gelten. Auch hier brauchen wir zwei Argumente, doch ihre Aufgaben sind verschieden von der Fallunterscheidung.
+
+Bei Fällen beginnen wir mit verschiedenen Möglichkeiten und erreichen dieselbe Folgerung. Bei einer Äquivalenz beweisen wir eine Aussage aus der anderen und tauschen anschließend ihre Rollen. Wir teilen nicht den Definitionsbereich auf, sondern begründen einen Zusammenhang zwischen zwei Eigenschaften.
+
+## 6. Warum die Rückrichtung eine andere Idee braucht
+
+Versuchen wir, die Äquivalenz zu beweisen, beginnend mit der Hinrichtung.
+
+### Hinrichtung — Ist eine ganze Zahl gerade, ist ihr Quadrat gerade
+
+Unsere Beweisübersicht ist zunächst einfach:
+
+<ReasoningFigure kind="cases-square-workspace" />
+
+Stellen wir eine positive gerade ganze Zahl als Länge dar und konstruieren damit ein Quadrat.
+
+<ReasoningFigure kind="cases-even-square" />
+
+$$
+(2k)^2=\underbrace{2k^2+2k^2}_{\text{zwei gleiche ganzzahlige Teile}}.
+$$
+
+Das Quadrat lässt sich in zwei gleiche Rechtecke aufteilen. Jedes enthält eine ganzzahlige Anzahl von Einheitsquadraten. Genau das drückt unsere Algebra aus:
+
+$$
+\begin{aligned}
+n^2&=(2k)^2\\
+&=4k^2\\
+&=2(2k^2).
+\end{aligned}
+$$
+
+Da $2k^2$ ganzzahlig ist, ist $n^2$ gerade. Die Zeichnung veranschaulicht den Faktor zwei; die Algebra beweist die Aussage für jede gerade ganze Zahl, einschließlich negativer Zahlen und null.
+
+Die erste Implikation ist bewiesen:
+
+$$
+\boxed{n\text{ gerade}\Rightarrow n^2\text{ gerade}}.
+$$
+
+### Rückrichtung — Ist das Quadrat gerade, ist die ganze Zahl gerade
+
+Jetzt kehren wir die Frage um.
+
+<ReasoningFigure kind="cases-reverse-workspace" />
+
+Vielleicht möchten wir einfach die vorige Rechnung umkehren. Aus $n^2=2m$ folgt
+
+$$
+n=\pm\sqrt{2m}.
+$$
+
+Zeigt dieser Ausdruck bereits, dass $n$ gerade ist? Nicht unmittelbar. Wir müssten noch begründen, warum diese ganze Zahl einen Faktor zwei enthält. Die vorige Methode liefert das nicht automatisch. Wir brauchen einen anderen Weg.
+
+Kehren wir zum Anfang zurück: Jede ganze Zahl ist gerade oder ungerade. Können wir eine dieser Möglichkeiten ausschließen, wenn ihr Quadrat gerade ist?
+
+<ReasoningFigure kind="cases-eliminate-before" />
+
+Was passiert beim Quadrieren einer ungeraden Zahl? Untersuchen wir zuerst die Geometrie.
+
+<Interactive kind="cases" preset="odd-square" id="cases-odd-square" />
+
+Das ungerade Quadrat zerfällt in vier Bereiche. Die Zeichnung verwendet positive Seitenlängen; die folgende Algebra gilt für jeden ganzzahligen Zeugen $k$, auch für negative Werte.
+
+Das zentrale Quadrat hat Seitenlänge $2k$. Dazu kommen zwei Streifen mit jeweils $2k$ Einheitsquadraten und ein einzelnes Eckquadrat.
+
+Das zentrale Quadrat hat geraden Flächeninhalt, ebenso jeder der beiden Streifen. Es bleibt aber genau ein zusätzliches Einheitsquadrat. Dieses eine Objekt ändert die Parität der gesamten Anzahl.
+
+Übersetzen wir die Konstruktion in Algebra:
+
+$$
+\begin{aligned}
+n^2&=(2k+1)^2\\
+&=(2k)(2k)+(2k)(1)\\
+&\phantom{=}+(1)(2k)+(1)(1)\\
+&=4k^2+4k+1.
+\end{aligned}
+$$
+
+Aus den ersten beiden Termen lässt sich zwei ausklammern:
+
+$$
+n^2=\underbrace{2(2k^2+2k)}_{\text{gerade}}+\underbrace{1}_{\text{zusätzliche Einheit}}.
+$$
+
+Da $2k^2+2k$ ganzzahlig ist, hat das Quadrat genau die Form einer ungeraden ganzen Zahl. Also gilt
+
+$$
+n\text{ ungerade}\Rightarrow n^2\text{ ungerade}.
+$$
+
+Erinnern wir uns an unser Ziel. Gegeben war eine ganze Zahl mit geradem Quadrat. Wäre die Zahl ungerade, müsste auch ihr Quadrat ungerade sein. Das ist mit der Voraussetzung unvereinbar.
+
+<ReasoningFigure kind="cases-eliminate-after" />
+
+Weil jede ganze Zahl gerade oder ungerade ist und die ungerade Möglichkeit ausgeschlossen wurde, muss die Zahl gerade sein. Damit ist die Rückrichtung bewiesen:
+
+$$
+\boxed{n^2\text{ gerade}\Rightarrow n\text{ gerade}}.
+$$
+
+Diese Strategie heißt **Beweis durch Kontraposition**. In der nächsten Lektion untersuchen wir sie genauer. Hier zählt zunächst, dass wir einen funktionierenden Weg gefunden haben.
+
+Die Hinrichtung folgte direkt aus der Definition einer geraden Zahl. Für die Rückrichtung untersuchten wir, was passiert, wenn die gewünschte Folgerung nicht gilt. Zwei Methoden begründen zwei verschiedene Implikationen.
+
+<ReasoningFigure kind="cases-equivalence" />
+
+$$
+\boxed{n\text{ ist gerade}\iff n^2\text{ ist gerade}}.
+$$
+
+Erst jetzt ist die Äquivalenz bewiesen.
+
+## 7. Kann ein wahrer Satz einen ungültigen Beweis haben?
+
+Stell dir vor, du findest in einem Lehrbuch das folgende Argument.
+
+<Note title="Vorgeschlagener Beweis — zu untersuchen">
+
+**Behauptung:** Eine ganze Zahl ist genau dann gerade, wenn ihr Quadrat gerade ist.
+
+Angenommen, $n$ ist gerade. Dann gibt es ein $k\in\mathbb Z$ mit $n=2k$. Folglich gilt
+
+$$
+n^2=4k^2=2(2k^2).
+$$
+
+Da $2k^2$ ganzzahlig ist, ist $n^2$ gerade. Also gilt
+
+$$
+n\text{ gerade}\iff n^2\text{ gerade}.
+$$
+
+$\square$
+
+</Note>
+
+Die gesamte Rechnung ist richtig. Auch die Folgerung ist wahr, wie wir selbst gerade bewiesen haben. Ist dies trotzdem ein gültiger Beweis?
+
+<Interactive kind="cases" preset="inspection" id="cases-inspection" />
+
+Jemand kann eine wahre Folgerung erreichen, ohne sie ausreichend begründet zu haben. Hier ist die angekündigte Folgerung stärker als das, was tatsächlich gezeigt wurde.
+
+Erreicht wurde $P\Rightarrow Q$. Behauptet wird aber $P\Leftrightarrow Q$. Diese beiden Aussagen sind nicht austauschbar.
+
+Beim Prüfen eines Beweises müssen wir vergleichen, was die Aussage verlangt und was das Argument liefert. Manchmal fehlt ein ganzer Fall, manchmal eine einzelne Implikation.
+
+## 8. Was passiert bei mehr als zwei Möglichkeiten?
+
+Bisher hatten unsere Fallunterscheidungen zwei Möglichkeiten. An der Zahl zwei ist jedoch nichts Besonderes.
+
+Multiplizieren wir nun drei aufeinanderfolgende ganze Zahlen:
+
+$$
+n(n+1)(n+2).
+$$
+
+Diesmal fragen wir nach Teilbarkeit durch drei:
+
+$$
+\boxed{\forall n\in\mathbb Z,\quad3\mid n(n+1)(n+2)}.
+$$
+
+Färben wir die Zahlengerade nach dem Rest bei Division durch drei.
+
+<Interactive kind="cases" preset="triples" id="cases-triples" />
+
+Jede ganze Zahl hat dabei Rest null, eins oder zwei. Sie gehört also zu genau einem der Fälle
+
+$$
+\begin{aligned}
+n&=3k,\\
+n&=3k+1,\\
+n&=3k+2,
+\end{aligned}
+\qquad k\in\mathbb Z.
+$$
+
+Versuche vorherzusagen, welcher Faktor im jeweiligen Fall durch drei teilbar ist.
+
+<Interactive kind="cases" preset="factors" id="cases-factors" />
+
+Für $n=3k$ ist der erste Faktor bereits durch drei teilbar. Für $n=3k+1$ wird der dritte Faktor zu
+
+$$
+n+2=3k+3=3(k+1).
+$$
+
+Für $n=3k+2$ wird dagegen der zweite Faktor zu
+
+$$
+n+1=3k+3=3(k+1).
+$$
+
+Nun können wir einen Beweis mit drei Zweigen aufbauen.
+
+<ReasoningFigure kind="cases-three-branches" />
+
+In jedem Fall haben wir einen durch drei teilbaren Faktor gefunden. Da die übrigen Faktoren ganzzahlig sind, ist auch das gesamte Produkt durch drei teilbar. Die drei Restfälle erfassen alle ganzen Zahlen, also ist der Beweis vollständig.
+
+Vielleicht zeichnet sich schon ein weiteres Muster ab. Was geschieht bei vier, fünf oder hundert aufeinanderfolgenden ganzen Zahlen?
+
+Könnten wir ebenso beweisen, dass das Produkt von $m$ aufeinanderfolgenden ganzen Zahlen für jede positive ganze Zahl $m$ durch $m$ teilbar ist?
+
+Die möglichen Reste wären
+
+$$
+\underbrace{0,1,2,\ldots,m-1}_{m\text{ mögliche Reste}}.
+$$
+
+Diesen allgemeinen Beweis haben wir hier noch nicht aufgeschrieben. Wir haben aber seine mögliche Struktur gefunden. Eine Methode, die zunächst ein einzelnes Problem löst, kann so eine ganze Familie von Problemen erschließen.
+
+## 9. Die Architektur eines Arguments verstehen
+
+Kehren wir zu den beiden Strukturen zurück, die wir untersucht haben.
+
+<ReasoningFigure kind="cases-architecture" />
+
+Bei der Fallunterscheidung müssen wir jede Möglichkeit erfassen. Bei einer Äquivalenz müssen wir jede geforderte Richtung begründen.
+
+Eine einzige mathematische Aussage kann mehrere Beweispflichten enthalten, auch wenn sie nur aus einem Satz besteht. Das verändert unsere Herangehensweise.
+
+Statt sofort „Wie beweise ich das?“ zu fragen, können wir zuerst fragen: „Was genau müsste gezeigt werden, damit diese Aussage feststeht?“
+
+Manchmal genügt eine Rechnung. Manchmal sind mehrere Fälle nötig. Manchmal brauchen zwei Implikationen ganz unterschiedliche Methoden.
+
+Mathematik zu lernen heißt nicht nur, von einer Aussage zur nächsten zu gelangen. Es heißt auch, die Struktur des Weges vor dem Losgehen zu erkennen.
+
+**Ein Beweis ist erst vollständig, wenn jede von der Aussage verlangte Beweispflicht begründet wurde.**
+
+## Begleitübungen
+
+Die Aufgaben dienen dem selbstständigen Konstruieren von Beweisen und gehen über das bloße Wiederholen der gezeigten Beispiele hinaus.
+
+### Übung 1 — Vollständigkeit prüfen
+
+Welche der folgenden Fallunterscheidungen erfassen alle ganzen Zahlen?
+
+<Interactive kind="cases" preset="coverage-practice" id="cases-coverage-practice" />
+
+### Übung 2 — Einen Beweis mit drei Fällen konstruieren
+
+Beweise, dass das Quadrat jeder ganzen Zahl bei Division durch drei den Rest null oder eins besitzt.
+
+$$
+\forall n\in\mathbb Z,\quad n^2\bmod3\in\{0,1\}.
+$$
+
+| Fall | Quadrat | Rest |
+| --- | --- | --- |
+| $n=3k$ | $(3k)^2$ | ? |
+| $n=3k+1$ | $(3k+1)^2$ | ? |
+| $n=3k+2$ | $(3k+2)^2$ | ? |
+
+<Exercise>
+
+**Ergänzte Referenzlösung.** Schreibe $n=3k+r$ mit $k\in\mathbb Z$ und $r\in\{0,1,2\}$.
+
+| Fall | Quadrat | Rest |
+| --- | --- | --- |
+| $n=3k$ | $n^2=3(3k^2)$ | $0$ |
+| $n=3k+1$ | $n^2=3(3k^2+2k)+1$ | $1$ |
+| $n=3k+2$ | $n^2=3(3k^2+4k+1)+1$ | $1$ |
+
+Jeder Ausdruck in Klammern ist ganzzahlig. Die drei Restfälle erfassen alle ganzen Zahlen. Ein Quadrat kann daher niemals den Rest zwei modulo drei haben.
+
+</Exercise>
+
+### Übung 3 — Eine falsche Äquivalenz
+
+Untersuche die Behauptung
+
+$$
+6\mid n\iff3\mid n.
+$$
+
+Bestimme die wahre und die falsche Richtung. Beweise die wahre Implikation und finde ein Gegenbeispiel zur falschen.
+
+<ReasoningFigure kind="cases-divisibility" />
+
+<Exercise>
+
+Die Hinrichtung ist wahr. Für eine ganze Zahl $k$ gilt
+
+$$
+n=6k=3(2k).
+$$
+
+Jedes Vielfache von sechs ist ein Vielfaches von drei, weil auch $2k$ ganzzahlig ist.
+
+Die Rückrichtung ist falsch. Wähle $n=9$. Es gilt
+
+$$
+3\mid9,\qquad6\nmid9.
+$$
+
+Die vorgeschlagene Äquivalenz ist also falsch.
+
+</Exercise>
+
+### Übung 4 — Eigene Fälle wählen
+
+Beweise für jede reelle Zahl $x$:
+
+$$
+\boxed{|x|\geq x}.
+$$
+
+Hier geht es um reelle Zahlen statt um ganze Zahlen. Eine Aufteilung nach Parität ist deshalb ungeeignet. Finde zwei Fälle anhand der Definition des Betrags.
+
+<ReasoningFigure kind="cases-absolute" />
+
+<Exercise>
+
+Nach Definition gilt
+
+$$
+|x|=\begin{cases}x,&x\geq0,\\-x,&x<0.\end{cases}
+$$
+
+Für $x\geq0$ ist $|x|=x$, also gilt die Ungleichung.
+
+Für $x<0$ ist $-x>0>x$. Daher gilt $|x|=-x>x$.
+
+Die beiden Fälle erfassen alle reellen Zahlen. Somit gilt $|x|\geq x$ für jedes $x\in\mathbb R$. $\square$
+
+</Exercise>
+
+### Übung 5 — Verallgemeinerung
+
+Sei $m$ eine positive ganze Zahl. Beweise, dass das Produkt beliebiger $m$ aufeinanderfolgender ganzer Zahlen durch $m$ teilbar ist:
+
+$$
+\boxed{m\mid\prod_{j=0}^{m-1}(n+j)}.
+$$
+
+Diese Aufgabe verallgemeinert unsere zentrale Untersuchung. Schreibe nicht für jeden möglichen Wert von $m$ einen eigenen Beweis und zähle nicht jeden möglichen Rest einzeln auf. Argumentiere stattdessen mit einem beliebigen Rest $r$.
+
+<Exercise>
+
+**Ergänzte Referenzlösung.** Sei $m\in\mathbb Z$ mit $m\geq1$ und $n\in\mathbb Z$ beliebig. Nach Division mit Rest gilt $n=qm+r$ mit $q\in\mathbb Z$ und $0\leq r<m$.
+
+Ist $r=0$, wähle $j=0$. Dann ist $n+j=qm$.
+
+Ist $r>0$, wähle $j=m-r$. Es gilt $1\leq j\leq m-1$ und $n+j=(q+1)m$. Also ist einer der vorkommenden Faktoren ein Vielfaches von $m$.
+
+Alle übrigen Faktoren sind ganzzahlig, daher ist auch das ganze Produkt ein Vielfaches von $m$. Für $m=1$ enthält das Produkt nur den Faktor $n$, der durch eins teilbar ist. Das Argument erfasst auch null und negative Anfangswerte.
+
+</Exercise>
+
+## Selbstüberprüfung
+
+<RecallChecklist items={[
+ 'Ich erkenne, wann ein Beweis durch Fallunterscheidung sinnvoll ist.',
+ 'Ich kann begründen, warum eine Fallunterscheidung vollständig ist.',
+ 'Ich verstehe, warum sich Fälle überschneiden dürfen.',
+ 'Ich kann einen Beweis mit drei oder mehr Fällen konstruieren.',
+ 'Ich kann Fallunterscheidung und Äquivalenzbeweis unterscheiden.',
+ 'Ich kann erkennen, welche Implikation ein Argument zeigt.',
+ 'Ich erkenne einen unvollständigen Beweis auch bei wahrer Folgerung.',
+ 'Ich kann Fälle anhand der beteiligten Definitionen wählen.'
+]} />
+
+## Quellen zur Vorbereitung
+
+| Quelle | Relevante Inhalte |
+| --- | --- |
+| [Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/) | Fallunterscheidung, Genau-dann-wenn-Beweise, direkter Beweis |
+| [MIT — Mathematics for Computer Science](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/) | Fallunterscheidungen, logische Implikationen und Beweisstrukturen |
+| Frühere Lektionen | 04: anschaulicher Beweis; 11: Implikation und Kontraposition; 12: Verknüpfungen; 15: Äquivalenzrelationen; 17: Beweisschritte entdecken |

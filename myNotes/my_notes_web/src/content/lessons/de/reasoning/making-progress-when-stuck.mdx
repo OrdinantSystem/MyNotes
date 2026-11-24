@@ -1,0 +1,393 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-25
+sourcePages: []
+sourceLocations: ["Full script sections 1–10; Attempt logs; Intellectual progression; Preparation sources"]
+title: "Was tun, wenn dir keine Idee kommt?"
+navTitle: "Weiterkommen, wenn du feststeckst"
+description: "Darstellungen, kleinere Fälle und strukturelle Bedingungen nutzen, um aus erfolglosen Versuchen besser informierte Schritte zu entwickeln."
+order: 25
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [understanding-and-independent-reasoning]
+thumbnail: reasoning-triangle
+---
+
+## 1. Das leere Blatt
+
+Stell dir vor, jemand gibt dir eine Aufgabe. Du verstehst die einzelnen Wörter und weißt, was du tun sollst. Du betrachtest die Informationen vor dir. Trotzdem fällt dir kein einziger sinnvoller Schritt zur Lösung ein.
+
+Was tust du?
+
+Vielleicht liest du die Frage noch einmal. Vielleicht probierst du fast zufällig etwas aus. Vielleicht wartest du darauf, dass irgendwann eine Idee auftaucht. Geschieht nichts, fragst du dich womöglich, ob dir einfach die Fähigkeit fehlt, die Aufgabe zu lösen.
+
+Daran ist etwas bemerkenswert: Wir behandeln das Fehlen einer Idee so, als könnten wir überhaupt nichts Nützliches mehr tun. Das sind zwei verschiedene Dinge.
+
+Betrachte diese Aufgabe.
+
+<Interactive kind="triangle" preset="puzzle" id="triangle-puzzle" />
+
+Du hast sechs Zahlen von eins bis sechs und sechs Positionen auf einem Dreieck. Ordne die Zahlen so an, dass die drei Zahlen auf jeder Seite zusammen genau zehn ergeben.
+
+Betrachte es einen Moment. Du musst es noch nicht lösen. Entscheide zunächst nur, was du als Erstes tun würdest.
+
+Vielleicht hast du schon eine Idee. Vielleicht auch nicht. Wir untersuchen heute, was zwischen dem Erhalten einer Aufgabe und dem Wissen um ihre Lösung geschieht.
+
+Diesen Teil des Denkens sieht man selten. Meist sehen wir die schöne Lösung am Ende. Die Unsicherheit, erfolglosen Versuche und kleineren Entdeckungen, die sie ermöglicht haben, bleiben uns verborgen.
+
+Genau das wollen wir untersuchen.
+
+## 2. Etwas tun heißt nicht automatisch weiterkommen
+
+Beginnen wir mit einer naheliegenden Anordnung. Wir setzen eins, zwei und drei an die Ecken und verteilen die übrigen Zahlen auf die Seiten.
+
+Die folgenden Versuche sind ein rekonstruiertes Lehrbeispiel für mathematisches Erkunden.
+
+<ReasoningFigure kind="triangle-initial" />
+
+Das funktioniert nicht. Eine Seite ergibt sieben, eine neun und die untere elf.
+
+Vielleicht tauschen wir zwei Zahlen. Links brauchen wir eine größere Zahl. Wir könnten die sechs von unten auf die linke Seite verschieben und mit der vier tauschen.
+
+<ReasoningFigure kind="triangle-exchange" />
+
+Interessant: Jetzt ergibt jede Seite neun. Wir haben zufällig eine etwas andere Aufgabe gelöst. Die ursprüngliche ist aber noch offen.
+
+Wir könnten weiter Zahlen tauschen. Weil es nur endlich viele Anordnungen gibt, könnten wir durch vollständiges Ausprobieren schließlich eine Lösung finden.
+
+Was aber, wenn wir sechzig statt sechs Zahlen hätten? Oder wenn wir eine Aussage über unendlich viele Zahlen beweisen wollten?
+
+Ausprobieren, ohne zu verstehen, warum etwas funktionieren könnte, wird zunehmend aufwendig. Statt sofort die nächste Anordnung zu versuchen, halten wir deshalb an und fragen:
+
+Was haben wir aus diesem Versuch gelernt?
+
+### Versuchsprotokoll
+
+| Was versucht wurde | Vier und sechs tauschen. |
+| --- | --- |
+| Grund | Die linke Summe erhöhen und die untere verringern. |
+| Ergebnis | Alle drei Seiten ergeben neun. |
+| Erkenntnis | Gleiche Seitensummen sind möglich. Genau zehn zu erreichen ist eine zusätzliche Schwierigkeit. |
+
+Als Lösung war der Versuch erfolglos. Dennoch hat er etwas über das Problem aufgedeckt. Diese Unterscheidung wird immer wichtiger.
+
+## 3. Was bedeutet es eigentlich, festzustecken?
+
+Wenn wir sagen, wir wüssten nicht, wie eine Aufgabe zu lösen ist, beschreiben wir oft verschiedene Situationen mit demselben Satz.
+
+Manchmal ist unklar, was genau die Frage verlangt. Manchmal verstehen wir die Frage, stellen das Problem aber so dar, dass wichtige Beziehungen schwer erkennbar sind. Manchmal fehlt eine Definition, ein Satz oder eine Information, die uns weiterhelfen würde.
+
+Diese Schwierigkeiten verlangen unterschiedliche Reaktionen.
+
+<ReasoningFigure kind="triangle-diagnosis" />
+
+Hast du eine Frage falsch verstanden, hilft es womöglich wenig, dich noch stärker um die Lösung deiner eigenen Interpretation zu bemühen. Verbirgt deine Darstellung eine wichtige Beziehung, bringt ein weiterer Satz vielleicht nichts. Fehlt tatsächlich notwendiges Vorwissen, erzeugt eine weitere Stunde des Anstarrens dieses Wissen nicht unbedingt.
+
+Der erste nützliche Schritt kann daher sein, zu untersuchen, warum du feststeckst.
+
+Das hängt eng mit dem Ansatz von George Pólya in *How to Solve It* zusammen. Er gliedert mathematisches Problemlösen in vier breite Tätigkeiten: ein Problem verstehen, eine Strategie entwickeln, sie ausführen und das Ergebnis untersuchen. [Pólyas Darstellung](https://people.math.harvard.edu/~knill/teaching/math21b2001/polya/index.html).
+
+<ReasoningFigure kind="triangle-polya" />
+
+Diese Tätigkeiten verlaufen nicht unbedingt geradlinig. Beim Ausführen einer Idee kann auffallen, dass wir die Aufgabe falsch verstanden haben. Das Untersuchen eines erfolglosen Versuchs kann eine andere Strategie nahelegen.
+
+Das Schema liefert Fragen für eine Untersuchung, kein mechanisches Verfahren mit Lösungsgarantie. Wir können es gleich anwenden.
+
+## 4. Das Problem verstehen, bevor wir es lösen
+
+Kehren wir zum Dreieck zurück. Wir haben sechs Zahlen und sechs Positionen. Jede Zahl muss genau einmal vorkommen. Jede der drei Seiten soll zehn ergeben.
+
+Bisher haben wir alle sechs Positionen behandelt, als wären sie grundsätzlich gleich. Sind sie das?
+
+<ReasoningFigure kind="triangle-roles" />
+
+Eine Eckzahl trägt zu zwei Seitensummen bei. Eine Zahl in der Mitte trägt nur zu einer bei. Jede Position enthält zwar eine Zahl, aber die Positionen übernehmen unterschiedliche Rollen.
+
+Das haben wir in den bisherigen Versuchen noch nicht ausdrücklich berücksichtigt.
+
+Führen wir etwas Notation ein. Sie soll das Rätsel nicht komplizierter machen, sondern die Beziehungen präzise beschreiben.
+
+Die drei Ecken heißen $a,b,c$, die drei Mitten $x,y,z$.
+
+Die Bedingung für die linke Seite lautet
+
+$$
+a+x+b=10.
+$$
+
+Rechts gilt
+
+$$
+a+y+c=10.
+$$
+
+Unten gilt
+
+$$
+b+z+c=10.
+$$
+
+<ReasoningFigure kind="triangle-representation" />
+
+Gelöst haben wir noch nichts. Aber aus einem Anordnungsrätsel ist ein System von Beziehungen geworden. Vielleicht lassen sich diese leichter untersuchen als das ursprüngliche Bild.
+
+Wir haben keine zusätzliche Information von außen erhalten. Alles stand bereits in der Frage. Wir haben die Informationen nur anders geordnet.
+
+Manchmal verlangt Fortschritt nicht mehr Wissen. Er verlangt, klarer zu erkennen, was man schon weiß.
+
+## 5. Wenn das Ganze schwierig ist, untersuche einen Teil
+
+Was wäre, wenn wir statt aller sechs Zahlen nur eine Seite betrachteten? Ignorieren wir den Rest des Dreiecks vorübergehend.
+
+Angenommen, die beiden Ecken dieser Seite enthalten eins und zwei. Welche Zahl müsste dazwischenstehen?
+
+<ReasoningFigure kind="triangle-one-side" />
+
+Unter den Zahlen gibt es keine sieben. Eins und zwei an zwei Ecken machen die ursprüngliche Aufgabe also bereits unmöglich, ganz unabhängig von der Anordnung der übrigen Zahlen.
+
+Damit können wir ganze Gruppen von Anordnungen verwerfen, ohne sie einzeln zu testen. Betrachten wir weitere kleine Fälle.
+
+<Interactive kind="triangle" preset="side" id="triangle-side" />
+
+Die wichtige Entdeckung lautet: Sobald die beiden Ecken feststehen, lässt sich die Mitte nicht mehr unabhängig wählen. Sie ist bestimmt.
+
+Bei den Ecken $a$ und $b$ gilt
+
+$$
+x=10-a-b.
+$$
+
+Dasselbe gilt für die anderen Seiten.
+
+$$
+\begin{aligned}
+x&=10-a-b,\\
+y&=10-a-c,\\
+z&=10-b-c.
+\end{aligned}
+$$
+
+<ReasoningFigure kind="triangle-dependence" />
+
+Die ursprüngliche Aufgabe schien sechs Entscheidungen zu verlangen. Jetzt wissen wir: Drei bestimmen die anderen drei.
+
+Wir haben ein kleineres Problem untersucht und dabei etwas für das größere entdeckt. Genau deshalb sind kleine Fälle so nützlich: Wir sammeln nicht nur Beispiele, sondern suchen Beziehungen, die bei der Rückkehr zur ursprünglichen Aufgabe bestehen bleiben.
+
+## 6. Was geschieht, wenn wir eine Bedingung entfernen?
+
+Erinnere dich an das merkwürdige Ergebnis vom Anfang: Wir hatten eine Anordnung gefunden, bei der jede Seite neun ergab. Sie löste die ursprüngliche Aufgabe nicht, warf aber eine Frage auf.
+
+Warum neun? Warum nicht zehn, elf oder zwölf?
+
+Lassen wir die gemeinsame Summe vorübergehend beliebig, statt auf zehn zu bestehen.
+
+<ReasoningFigure kind="triangle-relax" />
+
+Wir geben das ursprüngliche Ziel nicht auf. Wir schaffen ein verwandtes, weniger eingeschränktes Problem, das etwas darüber aufdecken könnte.
+
+Nun schreiben wir
+
+$$
+\begin{aligned}
+a+x+b&=S,\\
+a+y+c&=S,\\
+b+z+c&=S.
+\end{aligned}
+$$
+
+Was geschieht, wenn wir diese drei Gleichungen addieren?
+
+<ReasoningFigure kind="triangle-counting" />
+
+Jede Ecke erscheint zweimal, weil sie zu zwei Seiten gehört. Jede Mitte erscheint einmal. Deshalb gilt
+
+$$
+3S=2a+2b+2c+x+y+z.
+$$
+
+Die rechte Seite können wir anders gruppieren.
+
+$$
+3S=\underbrace{a+b+c+x+y+z}_{\text{Alle sechs Zahlen}}+\underbrace{a+b+c}_{\text{Ecken nochmals}}.
+$$
+
+Unabhängig von ihrer Anordnung ist die Gesamtsumme immer dieselbe.
+
+$$
+1+2+3+4+5+6=21.
+$$
+
+Damit erhalten wir
+
+<ReasoningFigure kind="triangle-invariant" />
+
+Diese kleine Gleichung enthält viel Information. Bei einer gültigen Anordnung mit gleichen Seitensummen ist die gemeinsame Summe nicht unabhängig von den Eckzahlen.
+
+Wir haben einen notwendigen Zusammenhang gefunden, den jede gültige Anordnung erfüllen muss. Nun können wir zur ursprünglichen Aufgabe zurückkehren.
+
+## 7. Der Moment, in dem das Problem anders aussieht
+
+Die gemeinsame Summe soll genau zehn sein. Stellen wir die zuvor entfernte Bedingung wieder her.
+
+$$
+S=10.
+$$
+
+Einsetzen ergibt
+
+$$
+3(10)=21+a+b+c.
+$$
+
+$$
+30=21+a+b+c.
+$$
+
+Also
+
+<ReasoningFigure kind="triangle-corner-nine" />
+
+Plötzlich sieht das Rätsel anders aus. Wir müssen nicht mehr blind nach einer Anordnung aller sechs Zahlen suchen. Wir können mit drei verschiedenen Zahlen beginnen, deren Summe neun ist.
+
+Zum Beispiel
+
+$$
+1+3+5=9.
+$$
+
+Setzen wir diese Zahlen an die Ecken.
+
+<ReasoningFigure kind="triangle-partial" />
+
+Erinnere dich: Mit den Ecken stehen auch die Mitten fest. Zwischen eins und drei brauchen wir
+
+$$
+x=10-1-3=6.
+$$
+
+Zwischen eins und fünf brauchen wir
+
+$$
+y=10-1-5=4.
+$$
+
+Zwischen drei und fünf brauchen wir
+
+$$
+z=10-3-5=2.
+$$
+
+<ReasoningFigure kind="triangle-solution" />
+
+Da ist die Lösung. Der Zusammenhang für die Eckensumme allein hat sie noch nicht bewiesen. Wir mussten die übrigen Werte berechnen und jede ursprüngliche Bedingung prüfen.
+
+Eine notwendige Bedingung ist nicht automatisch hinreichend. In dieser Anordnung sind aber alle Bedingungen erfüllt.
+
+Wir haben das Problem gelöst. Hätte jemand uns zu Beginn das fertige Dreieck gezeigt, wäre die Lösung beinahe trivial erschienen. Unsichtbar geblieben wäre, wie wir sie gefunden haben.
+
+## 8. Den eingeschlagenen Weg verstehen
+
+Rekonstruieren wir, was geschehen ist. Wir begannen mit einer erfolglosen Anordnung und entdeckten zufällig eine mit gleichen Summen. Wir bemerkten die unterschiedlichen Rollen der Positionen, untersuchten einzelne Seiten und änderten vorübergehend eine Bedingung.
+
+Jede dieser Handlungen zeigte etwas, das wir später verwenden konnten.
+
+### Unser vollständiges Versuchsprotokoll
+
+| Schritt | Ergebnis und Entdeckung |
+| --- | --- |
+| 01 · Anordnen: eine naheliegende Verteilung versuchen. | $7,9,11$. Verschiedene Positionen beeinflussen die Summen unterschiedlich. |
+| 02 · Tauschen: die Seitensummen ausgleichen. | $9,9,9$. Gleiche Summen sind möglich, ohne das Ziel zu erreichen. |
+| 03 · Isolieren: eine Seite untersuchen. | $x=10-a-b$. Die Eckzahlen bestimmen die Mitte. |
+| 04 · Lockern: zehn durch $S$ ersetzen. | $3S=21+a+b+c$. Ein Zusammenhang für jede Anordnung mit gleichen Summen. |
+| 05 · Wiederherstellen: zur ursprünglichen Zielsumme zurückkehren. | $a+b+c=9$. Eine Möglichkeit, eine Lösung zu konstruieren und zu prüfen. |
+
+Der erste Versuch war im üblichen Sinn nicht erfolgreich. Ohne das Experimentieren hätten wir aber vielleicht weder die Bedeutung der Ecken noch den Zusammenhang der Seitensummen bemerkt.
+
+Das macht nicht jeden erfolglosen Versuch automatisch wertvoll. Wiederholen wir denselben Ansatz, ohne das Ergebnis zu untersuchen, lernen wir womöglich wenig.
+
+Aufschlussreich wird der Versuch, wenn wir etwas daraus gewinnen: Was wollte ich erreichen? Warum hat es nicht funktioniert? Was hat das Ergebnis gezeigt? Was sollte ich jetzt anders untersuchen?
+
+<ReasoningFigure kind="triangle-learning" />
+
+Das Ziel ist nicht, erfolglose Versuche vollständig zu vermeiden. Unsere nächsten Versuche sollen besser informiert sein als die bisherigen.
+
+## 9. Ein neues Problem: Was würdest du zuerst tun?
+
+Hier ist eine leicht veränderte Version derselben Aufgabe. Die Zahlen eins bis sechs und das Dreieck bleiben gleich. Diesmal muss jede Seite aber genau acht ergeben.
+
+<ReasoningFigure kind="triangle-challenge" />
+
+Du sollst die Aufgabe nicht sofort lösen. Schlage zunächst einen sinnvollen ersten Schritt vor und begründe, warum er helfen könnte.
+
+Würdest du Zahlen anordnen? Die Summe aller drei Seiten berechnen? Oder die kleinste mögliche Eckensumme suchen?
+
+<Interactive kind="triangle" preset="challenge" id="triangle-challenge" />
+
+Wir wissen bereits
+
+$$
+3S=21+a+b+c.
+$$
+
+Für die gemeinsame Summe acht folgt
+
+$$
+24=21+a+b+c.
+$$
+
+Das bedeutet
+
+$$
+a+b+c=3.
+$$
+
+Die drei kleinsten verschiedenen verfügbaren Zahlen sind aber eins, zwei und drei.
+
+<ReasoningFigure kind="triangle-impossible" />
+
+Es gibt keine Lösung. Dafür mussten wir keine einzige Anordnung testen.
+
+Im vorherigen Problem half uns der Zusammenhang, eine Lösung zu konstruieren. Hier beweist derselbe Zusammenhang, dass keine Lösung existieren kann.
+
+Das ist übertragbare Erkenntnis. Wir haben nicht bloß ein einzelnes Rätsel gelernt, sondern eine Begründung gewonnen, mit der wir ein anderes untersuchen können.
+
+## 10. Was tun, wenn dir keine Idee kommt?
+
+Wenn du bei der nächsten Aufgabe nicht siehst, wie sie zu lösen ist, denke daran: Die vollständige Lösung zu finden ist nicht das einzige sinnvolle Ziel.
+
+Du kannst die Frage genauer verstehen, ihre Objekte und Einschränkungen bestimmen, eine andere Darstellung wählen, einen kleineren Fall untersuchen oder ein verwandtes Problem lösen. Du kannst eine Bedingung vorübergehend entfernen und untersuchen, was ohne sie möglich wird.
+
+Fehlt wesentliches Wissen, kannst du feststellen, was du lernen musst. Keiner dieser Ansätze garantiert eine Lösung. Aber sie helfen mehr als bloßes Warten auf Inspiration: Sie geben dir eine Möglichkeit, deine eigene Unsicherheit zu untersuchen.
+
+<ReasoningFigure kind="triangle-next" />
+
+Vielleicht ist die wichtigste Frage beim Feststecken nicht:
+
+*„Wie löse ich das?“*
+
+Sondern:
+
+**„Was kann ich über dieses Problem entdecken, das ich noch nicht weiß?“**
+
+Manchmal beginnt der Weg zur Lösung lange bevor wir wissen, wie sie aussehen wird.
+
+## Lernkompendium
+
+<ReasoningFigure kind="triangle-progress" />
+
+Die Untersuchung eines Teils zeigt einen lokalen Zusammenhang. Das Zählen der Beiträge im gesamten Dreieck zeigt einen globalen. Nützlich werden beide, wenn wir zu den ursprünglichen Bedingungen zurückkehren und diese überprüfen.
+
+## Vorbereitende Quellen
+
+[George Pólya — How to Solve It](https://people.math.harvard.edu/~knill/teaching/math21b2001/polya/index.html) liefert den begrifflichen Rahmen: Problem verstehen, Plan entwickeln und ausführen, Ergebnis untersuchen. Der Auszug behandelt verwandte Probleme, Neuformulieren und das Prüfen eines Teils einer Bedingung. Das sind Fragen für eine Untersuchung, kein Verfahren mit Lösungsgarantie.
+
+[Kevin Houston — How to Think Like a Mathematician](https://www.cambridge.org/core/books/how-to-think-like-a-mathematician/FB0813C3AEDDECD40BE58AF186370D52) ist ergänzende Lektüre: Teil I, Kapitel 5, „How to solve problems“, S. 41–50. Der Verlag bestätigt die Kapitelangaben. Der vollständige Text wurde hier nicht konsultiert; ihm werden keine bestimmten ungeprüften Aussagen zugeschrieben.
+
+Dreiecksrätsel, rekonstruierte Versuche und Transferaufgabe sind Lehrbeispiele, kein historisches Protokoll der ersten Lösung dieses Rätsels.
+
+### Vom Nachvollziehen zum ersten eigenen Schritt
+
+Lektion 24 unterschied das Verstehen einer fremden Erklärung von ihrem selbstständigen Erzeugen. Teil Vier untersucht nun, was vor einem fertigen Beweis oder einer Lösung geschieht. Eine Frage neu zu formulieren, einen Hilfsfall zu betrachten, fehlendes Wissen zu bestimmen und einen strukturellen Zusammenhang zu prüfen bietet konkrete Handlungen, wenn bloßes Durchhalten den nächsten Schritt nicht erkennen lässt.

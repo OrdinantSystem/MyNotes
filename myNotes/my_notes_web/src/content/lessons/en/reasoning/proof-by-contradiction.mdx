@@ -1,0 +1,740 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-three
+sourceId: reasoning-episode-20
+sourcePages: []
+sourceLocations: ["Sections 1–11; Learning checkpoint; Additional exercises; Preparation sources"]
+title: "Can an impossible conclusion prove something?"
+navTitle: "Proof by contradiction"
+description: "Use a temporary negation, identify an exact incompatibility, and reconstruct Euclid's argument for infinitely many primes."
+order: 20
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [proof-by-contraposition]
+thumbnail: reasoning-contradiction
+---
+
+## 1. The number that cannot exist
+
+Imagine that someone tells you they have discovered the largest integer.
+
+Not the largest number that a computer can store. Not the largest number that anyone has written down. The largest integer that can possibly exist.
+
+Let's call this mysterious number $N$.
+
+<ReasoningFigure kind="contradiction-largest" />
+
+If this person is correct, there cannot be an integer larger than $N$. We have reached the end.
+
+But there is something strange about this claim. We already know how addition works. Nothing prevents us from taking this number and adding one to it.
+
+$$
+N+1
+$$
+
+<ReasoningFigure kind="contradiction-successor" />
+
+And now we have an integer larger than the largest integer.
+
+Something has gone wrong.
+
+But notice where the problem appeared. We did not make a mistake when adding one. We did not change the rules of mathematics. We simply followed the consequences of accepting the original claim.
+
+The problem was the claim itself.
+
+And this gives us a surprisingly powerful way of reasoning.
+
+Instead of trying to prove something directly, we can temporarily accept its opposite and investigate the mathematical world that follows from it.
+
+If that world cannot possibly exist, neither can the assumption that produced it.
+
+## 2. Building a world that cannot exist
+
+Let's examine what actually happened in our argument.
+
+When we assumed that $N$ was the largest integer, we accepted something very specific. Every integer must be smaller than or equal to $N$.
+
+Mathematically, we can express this as:
+
+$$
+\forall m\in\mathbb Z,\quad m\leq N.
+$$
+
+This is not an additional assumption. It is what being the largest integer means.
+
+But the integers are closed under addition. Since both $N$ and $1$ are integers, their sum must also be an integer.
+
+$$
+N\in\mathbb Z \quad\Longrightarrow\quad N+1\in\mathbb Z.
+$$
+
+And because $N$ was supposedly larger than or equal to every integer, this must also apply to $N+1$.
+
+Therefore:
+
+$$
+N+1\leq N.
+$$
+
+At the same time, from the ordinary properties of numbers, we know that:
+
+$$
+N+1>N.
+$$
+
+Now place these two conclusions beside each other.
+
+<ReasoningFigure kind="contradiction-integer-conflict" />
+
+These statements cannot simultaneously be true. One says that $N+1$ is greater than $N$. The other says that it is not.
+
+This is a genuine logical incompatibility.
+
+And because our reasoning was valid, and the other mathematical properties we used were already accepted, we must reject the temporary assumption.
+
+$$
+\boxed{\text{There is no largest integer.}}
+$$
+
+The contradiction is not the result we wanted to prove. It is the evidence that the opposite of our desired result cannot hold.
+
+This method is called **proof by contradiction**, sometimes referred to by its Latin name, *reductio ad absurdum*.
+
+## 3. Why does this method work?
+
+Imagine that we have a mathematical proposition $P$ that we want to prove.
+
+In a direct proof, we begin with what we already know and try to construct a path toward $P$.
+
+But in a proof by contradiction, we do something different. We temporarily introduce a new assumption:
+
+$$
+\neg P.
+$$
+
+We are not claiming that this assumption is true. We are investigating what would follow if it were true.
+
+<ReasoningFigure kind="contradiction-eliminate" />
+
+Suppose that, after a sequence of valid deductions, we arrive at two incompatible statements:
+
+$$
+Q\qquad\text{and}\qquad\neg Q.
+$$
+
+It does not particularly matter what $Q$ is. It could be a statement about numbers, sets, functions, geometry, or something else entirely.
+
+What matters is that the two statements cannot both be true.
+
+We represent this logical impossibility with the symbol:
+
+$$
+\bot
+$$
+
+This symbol is sometimes called *bottom*, and in this context it denotes falsity or contradiction.
+
+The entire structure of our reasoning can therefore be represented as:
+
+$$
+\neg P\Longrightarrow\bot.
+$$
+
+If the negation of $P$ necessarily leads to a contradiction, then the negation of $P$ cannot be true, given our accepted premises.
+
+Consequently, in classical logic:
+
+$$
+\neg\neg P\Longrightarrow P.
+$$
+
+And we have established the proposition we originally wanted to prove.
+
+<ReasoningFigure kind="contradiction-architecture" />
+
+There is an important detail here.
+
+A contradiction does not automatically tell us which of several assumptions is false. It tells us that they cannot all be true together.
+
+In a mathematical proof, we isolate the assumption under investigation by keeping the other premises fixed and ensuring that every deduction is valid.
+
+That is what allows us to identify precisely what must be rejected.
+
+## 4. Strange does not mean impossible
+
+Before we use this technique to prove something more interesting, we need to understand what a contradiction actually is.
+
+Because human beings have a tendency to confuse things that seem impossible with things that merely seem strange.
+
+Imagine someone presents the following statement:
+
+*It is possible for two positive integers to have a product that is equal to their sum.*
+
+At first, this might appear unreasonable.
+
+Multiplication usually produces larger numbers than addition does when we work with sufficiently large positive integers.
+
+<ReasoningFigure kind="contradiction-operations" />
+
+But what happens if we actually investigate the possibility?
+
+Suppose that the two numbers are both equal to two.
+
+<ReasoningFigure kind="contradiction-equal-operations" />
+
+The result may be unexpected, but there is nothing logically impossible about it.
+
+Now compare these three situations.
+
+<ReasoningFigure kind="contradiction-comparison" />
+
+Only the third situation establishes a logical impossibility.
+
+This distinction becomes particularly important when we apply reasoning outside mathematics.
+
+The fact that an idea leads to a conclusion we dislike, or one that challenges our expectations, is not sufficient reason to reject it.
+
+A proof by contradiction requires more than discomfort. It requires incompatibility.
+
+And now we are going to use this distinction to investigate a question that mathematicians have been studying for thousands of years.
+
+## 5. Could we collect every prime number?
+
+Prime numbers are among the most fundamental objects in mathematics.
+
+A prime number is a positive integer greater than one whose only positive divisors are one and itself.
+
+The number two is prime. Three is prime. Four is not, because we can divide it by two. Five is prime.
+
+As we continue exploring the positive integers, we encounter more and more of them.
+
+<ReasoningFigure kind="contradiction-prime-grid" />
+
+But something interesting happens. Prime numbers do not appear at regular intervals.
+
+Sometimes they are very close to each other. Sometimes we have to travel considerably further to find another one.
+
+<ReasoningFigure kind="contradiction-prime-gaps" />
+
+This gives rise to an interesting question.
+
+What if, somewhere unimaginably far along the number line, we encounter the last prime number?
+
+What if after that point, every integer can be decomposed into smaller factors?
+
+We could use a computer to search for more primes. We could discover thousands, millions, or billions of them.
+
+But no matter how far we search, we would still have the same problem.
+
+<ReasoningFigure kind="contradiction-search-limit" />
+
+Discovering another prime tells us that our previous list was incomplete. But it does not prove that every possible finite list will be incomplete.
+
+We need something more powerful than searching.
+
+We need a mathematical argument.
+
+So instead of trying to find infinitely many prime numbers, we are going to temporarily assume that there are only finitely many.
+
+We are going to construct a world in which every prime number has already been discovered.
+
+And then we will try to escape that world using its own mathematical rules.
+
+## 6. Constructing the escape
+
+To understand how we might escape, let's first work with a small collection of prime numbers:
+
+$$
+2,\quad3,\quad5.
+$$
+
+We want to construct a number that cannot be divided evenly by any of these three primes.
+
+We could start guessing. But instead, let's construct such a number deliberately.
+
+First, multiply our three primes together.
+
+$$
+M=2\times3\times5=30.
+$$
+
+The number thirty has a particularly useful property. It is divisible by every prime in our collection.
+
+We can visualize this by arranging thirty objects into groups.
+
+<ReasoningFigure kind="contradiction-groups" />
+
+Now we perform the simplest possible transformation.
+
+We add one.
+
+$$
+M+1=31.
+$$
+
+What happens to each of our arrangements?
+
+<ReasoningFigure kind="contradiction-plus-one" />
+
+In every case, we are left with exactly one additional object.
+
+Adding one changes the number from $M$ to $M+1$: the original product was divisible by all three primes; the new number is divisible by none of them.
+
+$$
+\begin{aligned} 31&=2(15)+1,\\ 31&=3(10)+1,\\ 31&=5(6)+1. \end{aligned}
+$$
+
+Using the divisibility notation:
+
+$$
+2\nmid31,\qquad 3\nmid31,\qquad 5\nmid31.
+$$
+
+The symbol $\nmid$ simply means *does not divide*.
+
+But notice something even more interesting. Thirty-one is itself a prime number.
+
+We started with a collection of three primes and constructed a number outside that collection.
+
+Could this be a general method for discovering new primes?
+
+<Interactive kind="contradiction" preset="prime-builder" id="contradiction-prime-builder" />
+
+The experiment reveals a pattern that appears to hold regardless of how many primes we include.
+
+But it also reveals something that we need to investigate carefully.
+
+## 7. The beautiful mistake
+
+At this point, we might be tempted to make the following argument.
+
+Whenever we multiply a collection of prime numbers and add one, we obtain a new prime number.
+
+If that were true, we could generate prime numbers indefinitely.
+
+And we have several examples that seem to confirm our idea.
+
+| Collection     | Product + 1 | Result |
+| -------------- | ----------- | ------ |
+| 2              | 3           | Prime  |
+| 2, 3           | 7           | Prime  |
+| 2, 3, 5        | 31          | Prime  |
+| 2, 3, 5, 7     | 211         | Prime  |
+| 2, 3, 5, 7, 11 | 2311        | Prime  |
+
+Five successful experiments.
+
+But let's include another prime.
+
+$$
+2\times3\times5\times7\times11\times13+1
+$$
+
+$$
+=30031.
+$$
+
+This number looks promising. It is not divisible by two, three, five, seven, eleven, or thirteen.
+
+So is it prime?
+
+**Before reading on:** does excluding the six listed divisors establish that $30031$ is prime?
+
+$$
+\boxed{30031=59\times509}
+$$
+
+<ReasoningFigure kind="contradiction-factorization" />
+
+Our conjecture was wrong.
+
+But our original observation remains completely valid.
+
+The number we constructed is not divisible by any prime in our collection.
+
+We never established that it was divisible by no other prime numbers.
+
+Those are two very different statements.
+
+<ReasoningFigure kind="contradiction-established" />
+
+And here is where our apparent failure becomes something much more interesting.
+
+We do not actually need the constructed number to be prime.
+
+We only need it to have a prime divisor that was not in our original collection.
+
+And every integer greater than one has at least one prime divisor.
+
+If the integer is itself prime, it is its own prime divisor. Otherwise, we can find smaller factors greater than one and continue factoring until we reach a prime.
+
+A strictly decreasing sequence of positive integers cannot continue indefinitely, so this factorization reaches a prime divisor.
+
+<ReasoningFigure kind="contradiction-prime-divisor" />
+
+Either way, we obtain exactly what we need.
+
+We now have all the ingredients necessary to prove that there are infinitely many prime numbers.
+
+## 8. Euclid's argument — proving the infinitude of primes
+
+We are now going to leave behind our particular examples.
+
+Instead of working with two, three, five, or any particular collection, we are going to work with an arbitrary finite collection of primes.
+
+Our desired result is:
+
+$$
+P:\text{ There are infinitely many primes.}
+$$
+
+We begin by assuming its negation.
+
+$$
+\neg P:\text{ There are only finitely many primes.}
+$$
+
+If there are only finitely many primes, we can theoretically place all of them into one complete list.
+
+$$
+p_1,p_2,p_3,\ldots,p_n.
+$$
+
+We do not need to know how many primes there are. We do not need to know how large they are.
+
+We simply assume that this list contains every prime number that exists.
+
+<ReasoningFigure kind="contradiction-all-primes" />
+
+Now repeat the operation we discovered earlier.
+
+Multiply every prime in the list together:
+
+$$
+M=p_1p_2p_3\cdots p_n.
+$$
+
+And construct the number:
+
+$$
+N=M+1.
+$$
+
+Or equivalently:
+
+$$
+\boxed{N=p_1p_2\cdots p_n+1.}
+$$
+
+Every prime in our list divides $M$.
+
+For any prime $p_i$ in the collection, we can write:
+
+$$
+M=p_i k_i
+$$
+
+for some integer $k_i$.
+
+Consequently,
+
+$$
+N=p_i k_i+1.
+$$
+
+The remainder when dividing $N$ by $p_i$ is one.
+
+Therefore:
+
+$$
+p_i\nmid N.
+$$
+
+And because nothing in our reasoning depends on which prime we selected, this is true for every prime in our list.
+
+$$
+\forall i\in\{1,\ldots,n\}, \quad p_i\nmid N.
+$$
+
+<ReasoningFigure kind="contradiction-none-divide" />
+
+But we also know something else.
+
+The number $N$ is greater than one. Therefore, it must have at least one prime divisor.
+
+Let's call that prime divisor $q$.
+
+$$
+q\mid N.
+$$
+
+We know that $q$ is prime.
+
+And because none of the primes in our collection divides $N$, we know that $q$ cannot be any of them.
+
+$$
+q\neq p_1,\qquad q\neq p_2,\qquad \ldots,\qquad q\neq p_n.
+$$
+
+And now something impossible has happened.
+
+We have discovered a prime number that does not belong to the collection of all prime numbers.
+
+<ReasoningFigure kind="contradiction-outside" />
+
+Let's isolate the exact contradiction.
+
+If our original assumption were true, every prime number would belong to the list.
+
+Since $q$ is prime:
+
+$$
+q\in\{p_1,p_2,\ldots,p_n\}.
+$$
+
+But our construction proves that:
+
+$$
+q\notin\{p_1,p_2,\ldots,p_n\}.
+$$
+
+<ReasoningFigure kind="contradiction-prime-conflict" />
+
+The two statements cannot simultaneously be true.
+
+Therefore, our original assumption must be false.
+
+$$
+\boxed{\text{There are infinitely many prime numbers.}}
+$$
+
+What makes this proof so remarkable is that we did not need to discover infinitely many primes.
+
+We did not even need to know a formula that generates prime numbers.
+
+We proved that every proposed finite collection of all primes necessarily fails to contain them all.
+
+No matter how large the collection becomes, it can never be complete.
+
+<Interactive kind="contradiction" preset="euclid" id="contradiction-euclid" />
+
+### The finished mathematical proof
+
+*The previous investigation can now be compressed into a rigorous written argument. This is the transition from discovering a proof to presenting one, as established in earlier lessons.*
+
+**Theorem.** There are infinitely many prime numbers.
+
+**Proof.** Suppose, for contradiction, that there are only finitely many primes. Let
+
+$$
+p_1,p_2,\ldots,p_n
+$$
+
+be a list containing all prime numbers.
+
+Define
+
+$$
+N=p_1p_2\cdots p_n+1.
+$$
+
+For every $i\in\{1,\ldots,n\}$,
+
+$$
+N\equiv1\pmod{p_i}.
+$$
+
+Hence,
+
+$$
+p_i\nmid N.
+$$
+
+Since $N>1$, there exists a prime $q$ such that
+
+$$
+q\mid N.
+$$
+
+Therefore, $q\neq p_i$ for every $i$. In particular,
+
+$$
+q\notin\{p_1,\ldots,p_n\}.
+$$
+
+But $q$ is prime, contradicting the assumption that the list contains all prime numbers.
+
+Thus there are infinitely many primes. $\square$
+
+The underlying argument appears in Euclid's Elements, Book IX, Proposition 20. Euclid's original presentation constructs a prime outside an assigned finite collection; the version above uses a modern proof-by-contradiction formulation.
+
+## 9. Three different ways of reaching the truth
+
+We have now encountered three important approaches to proving mathematical statements.
+
+A direct proof begins with the available assumptions and constructs a path toward the conclusion.
+
+A proof by contraposition reverses and negates the two components of an implication.
+
+And a proof by contradiction temporarily accepts the negation of the desired result and investigates its consequences.
+
+<ReasoningFigure kind="contradiction-methods" />
+
+These are not three different kinds of mathematical truth. They are three different routes for establishing truth.
+
+In the case of a conditional statement,
+
+$$
+A\Longrightarrow B,
+$$
+
+proof by contradiction begins by assuming that $A$ is true and $B$ is false, because this is precisely the situation in which the original implication would fail.
+
+$$
+\neg(A\Rightarrow B) \equiv A\land\neg B.
+$$
+
+Sometimes these proof methods overlap. A contrapositive proof can often be adapted into a proof by contradiction.
+
+The important skill is learning which route gives you the clearest mathematical argument.
+
+## 10. Your turn — find the impossible world
+
+Let's finish by applying the method ourselves.
+
+Consider the following proposition:
+
+**There is no smallest positive real number.**
+
+At first, this might sound strange. Positive numbers can become incredibly small.
+
+But could there be one that is smaller than all the others?
+
+<ReasoningFigure kind="contradiction-smallest" />
+
+Assume that $r$ is the smallest positive real number.
+
+What mathematical operation could we perform to construct another positive real number smaller than $r$?
+
+<Interactive kind="contradiction" preset="smallest" id="contradiction-smallest" />
+
+Since $r>0$, we have:
+
+$$
+0<\frac r2<r.
+$$
+
+But if $r$ is the smallest positive real number, every positive real number must be greater than or equal to $r$.
+
+Therefore,
+
+$$
+\frac r2\geq r.
+$$
+
+Once again, we arrive at two incompatible statements.
+
+$$
+\frac r2<r \qquad\land\qquad \frac r2\geq r.
+$$
+
+Consequently, our temporary assumption is false.
+
+$$
+\boxed{\text{There is no smallest positive real number.}}
+$$
+
+Notice the similarity between this proof and the argument with which we began.
+
+<ReasoningFigure kind="contradiction-extremes" />
+
+Different mathematical objects. Different operations. The same underlying architecture of reasoning.
+
+## 11. What impossibility can teach us
+
+At the beginning of this episode, we imagined a world containing a largest integer.
+
+Then we imagined a world containing only finitely many prime numbers.
+
+And finally, a world containing a smallest positive real number.
+
+In each case, we temporarily accepted the possibility. We followed its consequences. And eventually, we discovered that the world we had imagined could not consistently exist.
+
+<ReasoningFigure kind="contradiction-synthesis" />
+
+But perhaps the most important lesson is not about integers or prime numbers.
+
+It is about the relationship between an idea and its consequences.
+
+An idea might appear convincing when we first encounter it. But accepting an idea means accepting everything that logically follows from it.
+
+And sometimes, it is only by exploring those consequences that we can understand whether the idea was possible in the first place.
+
+**Sometimes, to understand why something must be true, we need to understand why it cannot be false.**
+
+## Learning checkpoint
+
+<RecallChecklist items={["Identify the correct negation of a proposition.", "Distinguish a temporary assumption from an established fact.", "Follow the structure of a proof by contradiction.", "Identify the exact pair of incompatible statements.", "Distinguish a contradiction from a surprising consequence.", "Reconstruct the proof of the infinitude of primes.", "Explain why the product of primes plus one need not itself be prime.", "Apply proof by contradiction to a new mathematical problem."]} />
+
+## Additional exercises
+
+### 1. The largest real number
+
+Prove that there is no largest real number.
+
+<details><summary>Show hint</summary>Assume a largest real number $R$ exists. What happens to $R+1$?</details>
+
+<Exercise>
+**Reference solution (added).** Suppose $R$ is the largest real number. Closure under addition gives $R+1\in\mathbb R$, so maximality implies $R+1\leq R$. But $1>0$ implies $R+1>R$, a contradiction. Thus no largest real number exists.
+</Exercise>
+
+### 2. Repair the argument
+
+Someone claims that $2\cdot3\cdot5\cdot7\cdot11\cdot13+1$ is prime because none of the six primes divides it. Identify the error.
+
+<details><summary>Show hint</summary>Have all possible prime divisors been tested?</details>
+
+<Exercise>
+**Reference solution (added).** The test excludes only the six listed primes. In fact, $30031=59\cdot509$, where both factors are prime. The valid conclusion is that no listed prime divides the constructed number; its prime divisors need not be listed.
+</Exercise>
+
+### 3. A conditional statement
+
+Prove that if $a,b\in\mathbb Z$ and $ab$ is odd, then both $a$ and $b$ are odd.
+
+<details><summary>Show hint</summary>Keep the odd-product assumption and negate “both are odd” using De Morgan's law.</details>
+
+<Exercise>
+**Reference solution (added).** Suppose $ab$ is odd and at least one factor is even. If $a=2k$ with $k\in\mathbb Z$, then $ab=2(kb)$ is even because $kb\in\mathbb Z$. If $b=2k$, then $ab=2(ak)$ is even because $ak\in\mathbb Z$. These cases cover the negated conclusion, including when both factors are even. The product would be both odd and even, a contradiction. Therefore both factors are odd.
+</Exercise>
+
+### 4. Between two numbers
+
+Prove that there cannot be two real numbers $a<b$ with no real number strictly between them.
+
+<details><summary>Show hint</summary>Consider the midpoint and compare its distance from each endpoint.</details>
+
+<Exercise>
+**Reference solution (added).** Suppose $a,b\in\mathbb R$, $a<b$, and no real number lies strictly between them. Set $c=(a+b)/2$. Then $c\in\mathbb R$ and $c-a=(b-a)/2>0$, while $b-c=(b-a)/2>0$. Hence $a<c<b$, contradicting the assumption. Thus every pair of distinct real endpoints has a real number strictly between them.
+</Exercise>
+
+### 5. Arbitrarily large primes
+
+Prove that for every positive integer $n$, there is a prime greater than $n$.
+
+<details><summary>Show hint</summary>Construct $n!+1$. A prime divisor of it cannot be at most $n$.</details>
+
+<Exercise>
+**Reference solution (added).** Let $n\in\mathbb Z$ with $n\geq1$. Suppose no prime exceeds $n$. Since $n!+1>1$, it has a prime divisor $q$. Our assumption gives $2\leq q\leq n$, so $q$ is a factor of $n!$. Thus $q$ divides both $n!+1$ and $n!$, hence also their difference $1$, which is impossible for a prime. Therefore a prime greater than $n$ exists. If $n=1$, the assumed bound already contradicts $q\geq2$; equivalently, the prime $2$ supplies the required example.
+</Exercise>
+
+## Preparation sources and mathematical foundations
+
+| Source | Relevant material |
+| --- | --- |
+| [Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/) | Chapter 6, beginning on p. 137 in the supplied reference: §§6.1–6.2 on general/conditional contradiction proofs; §6.3 on combining techniques. |
+| [MIT — Mathematics for Computer Science](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/) | Lecture 02: Contradiction and Induction; §1.8 on contradiction and §§9.1–9.2 on supporting number theory. |
+| [Euclid — Elements, Book IX, Proposition 20](https://www.euclids-elements.org/elements/books/bookIX/propositions/propIX20/) | The classical argument for infinitely many primes. Book VII, Proposition 31 supplies the prime-divisor result for composite numbers. |
+| [Clay Mathematics Institute — Euclid translation](https://www.claymath.org/euclid_index/number-theory/?chapter=19) | Historical number-theory material. |

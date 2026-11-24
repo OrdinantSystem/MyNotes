@@ -1,0 +1,14 @@
+import type {Locale} from '../i18n.ts';
+import {equivalenceText} from '../reasoning/equivalence-copy.ts';
+import {renderMathText} from '../math-text.ts';
+import {escapeSvg} from './plane.ts';
+import {remainder,remainderClasses,sortingChoices,relationExample,checkpointAnswer} from './equivalence-model.ts';
+export function classesMarkup(locale:Locale,selected:number|null=null){
+ const c=equivalenceText(locale);if(selected!==null&&!(sortingChoices as readonly number[]).includes(selected))throw new Error('Invalid sorting selection');
+ return `<div class="equivalence-groups">${remainderClasses().map((values,r)=>`<section class="equivalence-group" data-remainder="${r}" data-active="${selected!==null&&remainder(selected)===r}"><h4>${selected===null?`[${r}] · `:''}${c.remainder} ${r}</h4><ul>${values.map(n=>`<li data-selected="${n===selected}">${n}</li>`).join('')}</ul><span aria-hidden="true">⋯</span></section>`).join('')}</div><p class="equivalence-readout">${selected===null?c.partition:c.selected(selected,remainder(selected))}</p><p class="equivalence-caption">${c.samples}</p>`;
+}
+export function chainMarkup(locale:Locale,rule:'remainder'|'distance'|'question'){
+ const c=equivalenceText(locale),example=relationExample(rule==='question'?'remainder':rule),[a,b,d]=example.values,complete=rule!=='distance',color=rule==='question'?'var(--purple)':complete?'var(--accent)':'var(--coral)';
+ return `<svg viewBox="0 0 660 240" role="img" aria-label="${escapeSvg(rule==='question'?c.chain:complete?c.closes:c.breaks)}"><path d="M123 168H282M378 168H537" stroke="var(--accent)" stroke-width="5"/><path d="M107 126Q330 -75 553 126" stroke="${color}" stroke-width="4" fill="none" ${rule!=='remainder'?'stroke-dasharray="8 6"':''}/><g fill="var(--text)" text-anchor="middle" font-size="22"><text x="200" y="149">✓</text><text x="460" y="149">✓</text><text x="330" y="44">${rule==='question'?'?':complete?'✓':'×'}</text></g>${[a,b,d].map((n,i)=>`<circle cx="${75+i*255}" cy="168" r="48" fill="var(--panel)" stroke="var(--accent)" stroke-width="3"/><text x="${75+i*255}" y="180" fill="var(--text)" text-anchor="middle" font-size="34">${n}</text>`).join('')}</svg>${rule==='question'?`<p class="equivalence-readout">${c.chain}</p>`:`<ul class="equivalence-pairs">${example.pairs.map(p=>`<li data-related="${p.holds}">${p.a} R ${p.b} · ${p.holds?c.related:c.notRelated}</li>`).join('')}</ul><p class="equivalence-readout">${complete?c.closes:c.breaks}</p><p class="equivalence-caption">${c.finite}</p>`}`;
+}
+export function equivalenceAnswerMarkup(locale:Locale,answer:number|null){const correct=checkpointAnswer(answer);if(answer===null)return '';const c=equivalenceText(locale);return `<p data-correct="${correct}"><strong>${correct?c.correct:c.compare}</strong> ${renderMathText(c.feedback[answer])}</p>`;}

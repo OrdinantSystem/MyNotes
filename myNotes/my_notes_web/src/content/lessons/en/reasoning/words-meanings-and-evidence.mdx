@@ -1,0 +1,321 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-two
+sourceId: reasoning-episode-10
+sourcePages: []
+sourceLocations: ["Sections 1–8; Further reading"]
+title: "The words that quietly change the problem"
+navTitle: "Words, meanings and evidence"
+description: "Separate ambiguity, vagueness and equivocation using score changes, counterexamples and precise definitions."
+order: 10
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [belief-and-logical-structure]
+thumbnail: reasoning-language
+---
+
+## 1. A sentence that tells three different stories
+
+Imagine that a research team has just finished testing a new learning program. Ten people participated, everyone completed a test before and after the program, and the researchers have collected the results.
+
+A few days later, they publish a short announcement.
+
+<ReasoningFigure kind="language-summary" />
+
+That sounds encouraging. If you were considering joining the program, you might reasonably feel optimistic.
+
+But imagine two people reading this announcement.
+
+One says, “Great! So most people who tried it got better.”
+
+The other replies, “That's not necessarily what it says. Maybe the overall average went up because one person improved enormously.”
+
+They're reading the same sentence, but they're imagining completely different results.
+
+And here's the interesting question: **could one interpretation be true while the other is false?**
+
+Before we look at the evidence, think about what the announcement might mean.
+
+<Interactive kind="language" preset="interpretations" id="average-interpretations" group="study-data" />
+
+These three ideas are related, but they aren't equivalent. And the third introduces another difficulty: what makes somebody *typical*? We might use the median, the most common outcome, or some other criterion.
+
+This is our first discovery. Sometimes two people disagree not because they reason differently about the evidence, but because they haven't agreed on what question they're trying to answer.
+
+Let's open the research report and find out what actually happened.
+
+## 2. Ten people, one surprising result
+
+Here are the changes in the participants' test scores. Positive numbers mean their scores increased; negative numbers mean they decreased.
+
+<Interactive kind="language" preset="scores" id="participant-scores" group="study-data" />
+
+Let's examine the original result.
+
+One participant improved by thirty points. The other nine participants actually performed slightly worse, each losing two points.
+
+If you look at the people rather than the arithmetic, the story seems disappointing. Nine out of ten got worse.
+
+But when we calculate the arithmetic mean, something unexpected happens.
+
+$$ \frac{30+9(-2)}{10} =\frac{12}{10} =+1.2 $$
+
+The mean change is positive.
+
+So if the researchers meant that the arithmetic mean of the individual score changes was positive, their statement is mathematically correct.
+
+But if you interpreted it as saying that most participants improved, it's false.
+
+And what about the typical participant? One possible way to investigate that is to calculate the median. We sort the ten score changes and look at the middle two.
+
+<Interactive kind="language" preset="median" id="sorted-scores" group="study-data" />
+
+For the original data, the median is negative two points. Most people did worse, and the median participant did worse, even though the mean is positive.
+
+The exact same evidence supports one interpretation and contradicts another.
+
+Notice something important: nobody had to manipulate the data. Nobody even had to make a calculation error.
+
+The difference came from what the sentence was taken to mean.
+
+This is called **ambiguity**. An expression is ambiguous when it permits more than one interpretation in context.
+
+And the danger isn't simply that someone might misunderstand a word. It's that we can confidently agree with a sentence while imagining evidence that the sentence doesn't actually establish.
+
+## 3. The mathematical reason the interpretations separate
+
+We can take this a little further. Why can the mean improve when most individuals don't?
+
+The key is that these two interpretations measure different properties of the same collection.
+
+Let's call the score change of participant $i$, $\Delta_i$. The Greek letter delta, $\Delta$, is commonly used to represent a change.
+
+<Interactive kind="language" preset="tests" id="mathematical-tests" group="study-data" />
+
+The first expression takes into account how large every gain or loss is. The second counts people whose changes were positive, without caring whether they improved by one point or a hundred.
+
+And that difference allows us to construct an entire family of counterexamples.
+
+Keep nine participants at minus two points, but let the tenth participant gain $G$ points.
+
+The mean becomes:
+
+$$ \overline{\Delta}=\frac{G-18}{10} $$
+
+When will it be positive?
+
+$$ \frac{G-18}{10}>0 $$
+
+Since ten is positive, we can multiply both sides by ten without reversing the inequality.
+
+$$ \boxed{G>18} $$
+
+That's interesting. We now know precisely when the mean changes sign.
+
+<Interactive kind="language" preset="threshold" id="mean-threshold" />
+
+As soon as the single gain exceeds eighteen points, the mean improvement becomes positive—even though the other nine people are still doing worse.
+
+And now reverse the situation. If nine people each gain two points while one person loses thirty, the majority improves, but the mean becomes negative.
+
+We've proved that neither statement guarantees the other.
+
+<ReasoningFigure kind="language-independence" />
+
+This is why a counterexample is so powerful. Rather than merely saying that two interpretations might differ, we've demonstrated exactly how and why they can.
+
+The phrase “the average participant improved” concealed two distinct mathematical questions.
+
+And mathematical precision allowed us to separate them.
+
+## 4. When a word changes meaning halfway through
+
+But ambiguity is only the beginning. Sometimes a word doesn't merely have two possible meanings. Its meaning actually changes while someone is using it to reason.
+
+Imagine the researchers say:
+
+“The average participant improved. Therefore, someone like most participants can expect to improve.”
+
+Can you spot what happened?
+
+<ReasoningFigure kind="language-shift" />
+
+At first, *average* referred to the arithmetic mean. In the conclusion, it quietly became something closer to a typical or majority outcome.
+
+The conclusion sounds like a natural continuation of the premise, but the mathematical connection has disappeared.
+
+This is an example of **equivocation**: an argument relies on an expression shifting between meanings.
+
+Let's see the same problem in a completely different setting.
+
+Consider the word *free* in the context of computer software.
+
+A free download might mean that downloading it costs nothing. But *free software* can instead refer to the freedoms users have to use, study, modify, and redistribute software.
+
+Those are different properties. Software can respect users' freedoms and still be distributed for a fee.
+
+Now examine this argument.
+
+<Interactive kind="language" preset="free" id="free-software" />
+
+The first premise uses *free* to mean that there is no price. The second, in its usual technical sense, uses it to mean freedom.
+
+The argument treats the two meanings as interchangeable. They aren't.
+
+And notice what happens when you change the interpretation of the second premise. If it really meant that the download had no price, the conclusion would follow. But when it refers only to software freedoms, it doesn't.
+
+We haven't changed the logical form of the argument. We've changed what one of its premises actually says.
+
+<Note title="Meaning and logical form">
+The sentence pattern stays the same, but this alone does not preserve logical form. Formalizing “no price” and “user freedom” as different properties exposes the missing connection between the original premises. Only the hypothetical consistent no-price reading gives a valid inference.
+</Note>
+
+You can think of a valid argument as a bridge between premises and conclusion. Equivocation is like building the first half of that bridge using one meaning, then quietly switching to another and pretending the pieces still connect.
+
+And not every shift is intentional. We often do this without noticing because ordinary language is flexible enough to make both meanings sound natural.
+
+<ReasoningFigure kind="language-contrast" />
+
+## 5. A different problem: words without sharp boundaries
+
+Now consider a third sentence.
+
+“This participant is tall.”
+
+Suppose we're discussing adults. Someone who is 150 centimeters tall probably won't be considered tall in that context. Someone who is 205 centimeters probably will be.
+
+But what about 180 centimeters? Or 181? Or 182?
+
+At precisely which centimeter does someone become tall?
+
+Here, the difficulty isn't necessarily that we're switching between two definitions. We have a general idea of what *tall* means, but its boundary isn't perfectly sharp.
+
+This is called **vagueness**.
+
+An ambiguous word has multiple possible interpretations. A vague expression has borderline cases where it's unclear whether it applies.
+
+To see why this matters, let's try to eliminate the uncertainty ourselves.
+
+<Interactive kind="language" preset="tall" id="height-cutoff" />
+
+We can easily invent a cutoff. We could say that 180 centimeters counts as tall and 179 doesn't. That gives us a perfectly precise classification rule.
+
+But it doesn't establish that ordinary language had a natural boundary at exactly 180 centimeters all along.
+
+And changing the cutoff by one centimeter can suddenly change someone's classification, even though their actual height hasn't changed at all.
+
+So the precision came from the rule we introduced, not from discovering a sharp boundary hidden inside the word.
+
+And vagueness isn't always a mistake.
+
+Think about the word *warm*. We can use it successfully every day without establishing a universal temperature threshold. The same room might feel warm after a winter walk and cool after spending hours in summer heat.
+
+For ordinary conversation, that flexibility is useful.
+
+But imagine a scientific experiment where researchers need to divide participants into groups based on body temperature. Now an explicit operational threshold becomes important, because different researchers must apply the same classification consistently.
+
+<ReasoningFigure kind="language-uses" />
+
+The lesson isn't that every word needs a perfect mathematical definition.
+
+It's that **the precision we need depends on what we're trying to establish**.
+
+## 6. What definitions can—and cannot—do
+
+So perhaps the solution is simple: define our words before we begin.
+
+That certainly helps. But definitions have an important limitation.
+
+Return to our original research report. We could agree to use *improvement* to mean an increase in test score, and *mean change* to mean the arithmetic mean of all ten participants' individual changes.
+
+Now our statement has a precise meaning. We can calculate whether it is true.
+
+But defining improvement doesn't make anyone improve.
+
+And even if the calculated mean is positive, we still haven't established that the program caused the improvement. Perhaps participants would have improved without it, or perhaps their scores were affected by other factors.
+
+<ReasoningFigure kind="language-evidence" />
+
+Definitions specify what our claims mean. Evidence helps determine whether those claims are supported. And causal conclusions require further reasoning.
+
+This distinction becomes especially important when words carry political, ethical, or philosophical weight.
+
+Take the sentence, “This policy is fair.”
+
+Does *fair* mean everyone receives the same resources? That everyone follows the same rules? Or that resources are allocated according to people's different needs?
+
+<ReasoningFigure kind="language-fairness" />
+
+These are competing ways to understand fairness. Choosing a definition may clarify the disagreement, but it doesn't automatically establish which conception of fairness we ought to adopt.
+
+Or consider someone saying, “It's possible that this plan will succeed.”
+
+Do they mean the plan is not logically contradictory? That it is physically or technically achievable? Or that it has a substantial chance of succeeding?
+
+<ReasoningFigure kind="language-possible" />
+
+Those are very different claims.
+
+A possibility is not automatically a probability. And a precise definition is not automatically a discovery about the world.
+
+## 7. Can you repair the original sentence?
+
+Let's return to the research announcement one last time.
+
+“The average participant improved.”
+
+We've learned enough to rewrite it without ambiguity. But there's an additional challenge.
+
+**Our rewrite must not claim more than the evidence supports.**
+
+That sounds easy, but it's surprisingly tempting to replace an unclear statement with a stronger, more dramatic one.
+
+Given the original data—one participant gained thirty points and nine lost two—choose the most defensible rewrite.
+
+<Interactive kind="language" preset="rewrite" id="precise-rewrite" />
+
+The second sentence is the defensible choice.
+
+Notice that it isn't as exciting as the original headline. It's more specific, and it makes fewer assumptions about what the reader will understand.
+
+But that's precisely what makes it informative.
+
+Now try this principle in a different context. Imagine someone tells you, “Our new rule is fair.”
+
+Before agreeing or disagreeing, you might ask which criterion of fairness they have in mind. Then you can investigate whether the rule meets that criterion—and separately consider whether it's the right criterion.
+
+You haven't solved the whole disagreement. But you've identified the question that needs to be answered.
+
+And that's genuine progress.
+
+## 8. The question beneath every question
+
+We began with a research result that seemed straightforward. One ordinary sentence, ten participants, a positive average.
+
+By examining what that sentence might mean, we discovered that it could express different claims with different truth values.
+
+We saw how a shift in meaning can break an argument, and why some everyday concepts have genuinely fuzzy boundaries.
+
+<ReasoningFigure kind="language-problems" />
+
+And the deeper lesson is about the relationship between language and reasoning.
+
+Logic can tell us whether a conclusion follows from its premises. Mathematics can tell us whether a numerical relationship holds. Evidence can tell us what happened in the world.
+
+But to use any of them properly, we first need to understand what our sentences are actually claiming.
+
+Precision isn't about making language complicated. It's about making sure that when we investigate a claim, we're investigating the claim we intended.
+
+So the next time you encounter a confident statement, especially one involving words like *average*, *free*, *possible*, or *fair*, consider one question before deciding whether it's true:
+
+<ReasoningFigure kind="language-question" />
+
+Because sometimes the most important mistake in an argument happens before the argument even begins.
+
+## Further reading
+
+For the conceptual foundations behind the episode, see [forall x: An Introduction to Formal Logic](https://forallx.openlogicproject.org/html/) for ambiguity and interpretation, [Fundamental Methods of Logic by Matthew Knachel](https://open.umn.edu/opentextbooks/textbooks/fundamental-methods-of-logic) for language-related fallacies, and [Stanford Encyclopedia of Philosophy — Informal Logic](https://plato.stanford.edu/entries/logic-informal/) for argument interpretation and evaluation.
+
+The [GNU definition of free software](https://www.gnu.org/philosophy/free-sw.html) explains the distinction between user freedom and price.

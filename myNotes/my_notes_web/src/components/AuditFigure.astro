@@ -1,0 +1,8 @@
+---
+import type {AuditFigure} from '../lib/interactive/audit-model';
+import {auditFigure,auditTitle} from '../lib/interactive/audit-render';
+import '../styles/counterexamples.css';import '../styles/discovery.css';import '../styles/cases.css';import '../styles/audit.css';
+interface Props{kind:AuditFigure}
+const {kind}=Astro.props,locale=Astro.locals.locale||'en';
+---
+<figure class="counter-lab audit-figure" data-audit-figure={kind}><h3>{auditTitle(locale,kind)}</h3><div set:html={auditFigure(locale,kind)}/></figure>

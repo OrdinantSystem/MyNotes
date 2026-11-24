@@ -18,7 +18,11 @@ import StudyTemplate from './StudyTemplate.astro';
 import RelationMap from './RelationMap.astro';
 import MindMap from './interactive/MindMap.astro';
 import AnalysisProof from './AnalysisProof.astro';
+import LogicFigure from './LogicFigure.astro';
+import RecallChecklist from './RecallChecklist.astro';
 export const learningComponents = {
+  LogicFigure,
+  RecallChecklist,
   ReasoningFigure,
   AnalysisProof,
   Math,

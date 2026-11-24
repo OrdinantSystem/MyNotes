@@ -1,0 +1,8 @@
+---
+import type {LemmaFigure} from '../lib/interactive/lemma-model';
+import {lemmaFigure,lemmaTitle} from '../lib/interactive/lemma-render';
+import '../styles/counterexamples.css';import '../styles/discovery.css';import '../styles/lemma.css';
+interface Props{kind:LemmaFigure}
+const {kind}=Astro.props,locale=Astro.locals.locale||'en';
+---
+<figure class="counter-lab lemma-figure" data-lemma-figure={kind}><h3>{lemmaTitle(locale,kind)}</h3><div set:html={lemmaFigure(locale,kind)}/></figure>

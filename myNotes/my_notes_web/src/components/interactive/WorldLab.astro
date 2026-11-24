@@ -1,0 +1,41 @@
+---
+import MathText from '../MathText.astro';
+import {initialWorldState,worldPresets,worldOperations,worldTex,worldAnswers,type WorldPreset} from '../../lib/interactive/world-model';
+import {worldText} from '../../lib/reasoning/world-copy';
+import {operationsMarkup,counterWorldMarkup} from '../../lib/interactive/world-render';
+import '../../styles/counterexamples.css';import '../../styles/worlds.css';
+interface Props{preset:WorldPreset;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=worldText(locale),s=initialWorldState();
+if(!(worldPresets as readonly string[]).includes(preset))throw new Error('Unknown world preset');
+---
+<figure class="counter-lab world-lab" id={id} data-world-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='operations'?<><div class="counter-controls world-operations" role="group" aria-label={c.titles.operations}>{worldOperations.map(operation=><button type="button" data-world-operation={operation} aria-pressed={operation===s.operation} aria-controls={`${id}-view`}><MathText text={`$${worldTex[operation]}$`}/></button>)}</div><div id={`${id}-view`} data-world-view set:html={operationsMarkup(locale,s.operation)}/><figcaption>{c.operationsHelp}</figcaption></>:preset==='countermodel'?<><div class="counter-controls"><button type="button" data-world-add aria-pressed="false" aria-controls={`${id}-view`}>{c.add}</button></div><div id={`${id}-view`} data-world-view set:html={counterWorldMarkup(locale,false)}/></>:<>{c.questions.map((question,i)=><fieldset class="world-question"><legend>{c.questionNumber} {i+1} · <MathText text={question}/></legend>{c.options[i].map((option,j)=><label><input type="radio" name={`${id}-answer-${i}`} data-world-answer={`${i}:${j}`} aria-controls={`${id}-feedback-${i}`}/><MathText text={option}/></label>)}<div id={`${id}-feedback-${i}`} data-world-answer-view={i}/></fieldset>)}<details><summary>{c.reference}</summary>{c.explanations.map((text,i)=><section><p><strong>{c.questionNumber} {i+1}</strong>: <MathText text={c.options[i][worldAnswers[i]]}/></p><p><MathText text={text}/></p></section>)}</details></>}
+ <div class="counter-controls"><button type="button" data-world-reset>{c.reset}</button></div><p class="visually-hidden" role="status" aria-live="polite" data-world-status></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {initialWorldState,worldSelection,type WorldOperation} from '../../lib/interactive/world-model';
+import {worldText} from '../../lib/reasoning/world-copy';
+import {operationsMarkup,counterWorldMarkup,worldAnswerMarkup} from '../../lib/interactive/world-render';
+for(const root of document.querySelectorAll<HTMLElement>('[data-world-lab]')){
+ const locale=root.dataset.locale as Locale,c=worldText(locale),state=initialWorldState(),preset=root.dataset.worldLab;
+ function draw(question?:number){
+  if(preset==='operations'){
+   root.querySelector('[data-world-view]')!.innerHTML=operationsMarkup(locale,state.operation);
+   root.querySelectorAll<HTMLElement>('[data-world-operation]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.worldOperation===state.operation)));
+  }else if(preset==='countermodel'){
+   root.querySelector('[data-world-view]')!.innerHTML=counterWorldMarkup(locale,state.includeRedSquare);
+   const b=root.querySelector<HTMLButtonElement>('[data-world-add]')!;b.textContent=state.includeRedSquare?c.remove:c.add;b.setAttribute('aria-pressed',String(state.includeRedSquare));
+  }else{
+   root.querySelectorAll<HTMLElement>('[data-world-answer-view]').forEach(v=>{const i=Number(v.dataset.worldAnswerView);v.innerHTML=worldAnswerMarkup(locale,i,state.answers[i]);});
+   root.querySelectorAll<HTMLInputElement>('[data-world-answer]').forEach(input=>{const [i,j]=input.dataset.worldAnswer!.split(':').map(Number);input.checked=state.answers[i]===j;});
+  }
+  root.querySelector<HTMLElement>('[data-world-status]')!.textContent=preset==='checkpoint'?(question===undefined?'':root.querySelector<HTMLElement>(`[data-world-answer-view="${question}"]`)!.innerText):preset==='operations'?c.operationNames[state.operation]+': '+worldSelection(state.operation).join(', '):root.querySelector<HTMLElement>('.world-feedback')!.innerText;
+ }
+ root.querySelectorAll<HTMLButtonElement>('[data-world-operation]').forEach(b=>b.addEventListener('click',()=>{state.operation=b.dataset.worldOperation as WorldOperation;draw();}));
+ root.querySelector('[data-world-add]')?.addEventListener('click',()=>{state.includeRedSquare=!state.includeRedSquare;draw();});
+ root.querySelectorAll<HTMLInputElement>('[data-world-answer]').forEach(input=>input.addEventListener('change',()=>{const [i,j]=input.dataset.worldAnswer!.split(':').map(Number);state.answers[i]=j;draw(i);}));
+ root.querySelector('[data-world-reset]')!.addEventListener('click',()=>{Object.assign(state,initialWorldState());root.querySelectorAll<HTMLDetailsElement>('details').forEach(d=>d.open=false);draw();});
+}
+</script>

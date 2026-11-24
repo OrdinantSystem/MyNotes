@@ -1,0 +1,545 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-two
+sourceId: reasoning-episode-12
+sourcePages: []
+sourceLocations: ["Sections 1–10; Learning checkpoint; Sources and further study"]
+title: "Mit Schaltern denken: UND, ODER und NICHT"
+navTitle: "UND, ODER und NICHT"
+description: "Untersuche boolesche Schaltungen, Wahrheitstabellen, Negation, de Morgansche Gesetze und äquivalente Zugangsregeln."
+order: 12
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [implication-and-its-converse]
+thumbnail: reasoning-switches
+---
+
+## 1. Eine Tür mit zwei Bedingungen
+
+Stell dir vor, du kommst zu einem Gebäude mit elektronischem Zugangssystem. Du hast einen Zugangsausweis, gehst zum Eingang und hältst die Karte an das Lesegerät.
+
+Aber die Tür öffnet sich nicht.
+
+Dein Ausweis ist gültig. Das Problem: Das Gebäude ist geschlossen. Das System wurde so programmiert, dass der gewöhnliche Zugang nur während der Öffnungszeiten möglich ist.
+
+Ein gültiger Ausweis reicht also offenbar nicht aus. Das Gebäude muss außerdem geöffnet sein.
+
+Wir haben zwei Bedingungen. Die Tür öffnet sich nur, wenn **beide Bedingungen erfüllt sind**.
+
+Sehen wir uns an, was das bedeutet.
+
+<Note title="Modellannahme">Hier legt die angegebene Regel vollständig fest, ob sich die Tür öffnet. Wir nehmen keine weiteren Bedingungen oder Störungen an. Die Schaltungsbilder veranschaulichen boolesches Verhalten.</Note>
+
+<Interactive kind="switches" preset="access" id="access-switches" />
+
+Probiere einige Kombinationen aus. Entferne den gültigen Ausweis, während das Gebäude geöffnet bleibt. Gib dir dann einen Ausweis, schließe aber das Gebäude. Aktiviere schließlich beide Bedingungen.
+
+Die Tür verhält sich wie eine elektrische Schaltung mit zwei Schaltern in Reihe. Strom erreicht den Ausgang nur, wenn beide Schalter den Stromkreis schließen.
+
+Damit erhalten wir unsere erste logische Operation.
+
+## 2. UND: Wenn zwei Bedingungen gelten müssen
+
+Wir können das gesamte Zugangssystem mit nur zwei Aussagen beschreiben.
+
+$$
+\begin{aligned}P&:\text{Die Person hat einen gültigen Ausweis.}\\Q&:\text{Das Gebäude ist geöffnet.}\end{aligned}
+$$
+
+Jede Aussage hat einen von zwei Wahrheitswerten: wahr oder falsch.
+
+Um auszudrücken, dass beide Aussagen wahr sein müssen, schreiben wir:
+
+$$
+ \boxed{P\land Q}
+$$
+
+Das Symbol $\land$ bedeutet **UND**. In der Logik heißt eine solche Verknüpfung von Aussagen *Konjunktion*.
+
+Dabei behaupten wir nicht, dass eine der Aussagen immer wahr sein muss. Wir bilden eine neue Aussage, deren Wahrheit von den Wahrheitswerten ihrer Bestandteile abhängt.
+
+Und wir können genau bestimmen, wann diese zusammengesetzte Aussage wahr ist.
+
+Sind der Ausweis gültig und das Gebäude geöffnet, ist das Ergebnis wahr. Scheitert auch nur eine Bedingung, ist die gesamte Konjunktion falsch.
+
+Es gibt genau vier mögliche Kombinationen.
+
+<ReasoningFigure kind="switch-and-table" />
+
+Das ist unsere erste **Wahrheitstabelle** in dieser Lektion.
+
+Sie sagt uns nicht, welche Situation gerade vorliegt. Stattdessen beschreibt sie, welches Ergebnis die Regel in jeder möglichen Situation liefert.
+
+Dieser Unterschied ist wichtig. Eine Wahrheitstabelle lässt uns die Struktur einer logischen Regel unabhängig von den konkreten Tatsachen untersuchen, die wir einsetzen.
+
+Vielleicht erkennst du hier etwas aus der Mathematik wieder. Wollen wir eine Behauptung beweisen, die von zwei Wahr-oder-falsch-Bedingungen abhängt, können wir das Problem manchmal in diese vier Fälle aufteilen. Wir prüfen dann nicht nur einige Beispiele und hoffen, dass die Regel immer gilt, sondern erfassen jede mögliche Kombination.
+
+Bei zwei Bedingungen sind das vier Fälle. Bei drei sind es acht, bei vier sechzehn.
+
+Allgemein gibt es für $n$ unabhängig wählbare boolesche Eingaben
+
+$$
+ 2^n
+$$
+
+mögliche Wahrheitswertbelegungen.
+
+Nehmen wir nun an, das Zugangssystem unseres Gebäudes wird etwas anspruchsvoller.
+
+## 3. ODER: Wenn es mehr als einen Zugangsweg gibt
+
+Die Gebäudeverwaltung beschließt, einen zweiten Zugangsweg einzurichten.
+
+Gewöhnliche Besucher brauchen weiterhin einen gültigen Ausweis und ein geöffnetes Gebäude. Berechtigte Einsatzkräfte können jedoch mit einer gesonderten Berechtigung auch außerhalb der Öffnungszeiten eintreten.
+
+Nennen wir diese dritte Bedingung $R$.
+
+$$
+R:\text{Ein autorisierter Sonderzugang ist aktiv.}
+$$
+
+Die Tür hat jetzt zwei mögliche Wege, sich zu öffnen:
+
+$$
+ \boxed{(P\land Q)\lor R}
+$$
+
+Das Symbol $\lor$ bedeutet **ODER**. Diese Operation heißt *Disjunktion*.
+
+Anders als UND, das zwei wahre Bedingungen verlangt, benötigt ODER **mindestens eine** wahre Bedingung.
+
+<Interactive kind="switches" preset="override" id="override-switches" />
+
+Aktiviere den Sonderzugang, während das Gebäude geschlossen ist. Die Tür öffnet sich, obwohl der gewöhnliche Zugangsweg nicht funktioniert.
+
+Aktiviere nun beide Wege gleichzeitig.
+
+Die Tür bleibt geöffnet.
+
+Das erscheint vielleicht selbstverständlich. Es zeigt aber einen Unterschied zwischen dem mathematischen ODER und der Bedeutung, die das Wort im Alltag manchmal hat.
+
+Wenn ich dir Tee oder Kaffee anbiete, verstehst du vielleicht, dass du eines von beidem wählen sollst, aber nicht beides.
+
+In der mathematischen Logik bedeutet $P\lor Q$ hingegen, dass mindestens eine Bedingung wahr ist. Beide dürfen zugleich wahr sein.
+
+Das heißt **inklusives ODER**.
+
+Es gibt jedoch eine andere Operation, die ausdrücklich ausschließt, dass beide Bedingungen gleichzeitig gelten.
+
+## 4. Inklusives und exklusives ODER
+
+Stell dir vor, wir entwerfen statt eines Zugangssystems eine Steuerung mit zwei Betriebsarten.
+
+Ein Schalter aktiviert die manuelle Steuerung. Der andere aktiviert die automatische Steuerung.
+
+Die Steuerung soll nur funktionieren, wenn genau eine Betriebsart ausgewählt ist. Beide gleichzeitig einzuschalten soll als ungültige Konfiguration gelten.
+
+Das ist ein **exklusives ODER**, meist XOR oder $\oplus$ geschrieben.
+
+$$
+ P\oplus Q
+$$
+
+Der Unterschied wird deutlich, wenn wir die Operationen nebeneinanderstellen.
+
+<ReasoningFigure kind="switch-xor" />
+
+Die beiden Operationen stimmen in drei der vier Fälle überein.
+
+Sie unterscheiden sich nur, wenn beide Eingaben wahr sind.
+
+Das ist ein wiederkehrendes Thema beim Schlussfolgern: Zwei Regeln können sich in vielen Situationen gleich verhalten, ohne äquivalent zu sein. Um Äquivalenz festzustellen, müssen wir wissen, was in *allen* möglichen Fällen geschieht.
+
+Wenn dir in einem Argument, einem Vertrag oder einer mathematischen Aufgabe das Wort „oder“ begegnet, lohnt es sich deshalb, nach der gemeinten Bedeutung zu fragen.
+
+In der formalen mathematischen Logik ist $\lor$ inklusiv, sofern es nicht ausdrücklich anders definiert wird.
+
+Jetzt haben wir zwei Möglichkeiten, Bedingungen zu verbinden: UND und ODER.
+
+Aber wie drücken wir aus, dass eine Bedingung nicht erfüllt ist?
+
+## 5. NICHT: Den Wahrheitswert umkehren
+
+Kehren wir zum ursprünglichen Gebäude ohne Sonderzugang zurück.
+
+Die Tür öffnet sich, wenn $P\land Q$ wahr ist.
+
+Welche Bedingung beschreibt, dass die Tür verschlossen ist?
+
+Vielleicht möchten wir antworten: „Die Person hat keinen Ausweis, und das Gebäude ist geschlossen.“
+
+Aber ist das wirklich die einzige Situation, in der die Tür verschlossen bleibt?
+
+Natürlich nicht. Sie ist auch verschlossen, wenn der Ausweis gültig, das Gebäude aber geschlossen ist. Oder wenn das Gebäude geöffnet ist, die Person aber keinen gültigen Ausweis hat.
+
+Was wir ausdrücken möchten: Die Bedingung zum Öffnen der Tür ist *nicht erfüllt*.
+
+Dafür führen wir die Negation ein.
+
+Das Symbol $\neg$ bedeutet **NICHT**.
+
+$$
+\begin{aligned}P&:\text{Der Ausweis ist gültig.}\\\neg P&:\text{Der Ausweis ist nicht gültig.}\end{aligned}
+$$
+
+Die Negation nimmt eine Aussage und kehrt ihren Wahrheitswert um.
+
+<ReasoningFigure kind="switch-not-table" />
+
+Bei einer zusammengesetzten Aussage müssen wir jedoch genau aufpassen: **Was negieren wir eigentlich?**
+
+Vergleiche diese Ausdrücke:
+
+$$
+ \neg P\land Q
+$$
+
+$$
+ \neg(P\land Q)
+$$
+
+Der erste besagt, dass der Ausweis ungültig UND das Gebäude geöffnet ist.
+
+Der zweite besagt, dass NICHT beide Bedingungen zugleich gelten: Der Ausweis ist gültig und das Gebäude ist geöffnet.
+
+Diese Aussagen sind nicht äquivalent.
+
+<Interactive kind="switches" preset="scope" id="scope-switches" />
+
+Die Klammern zeigen, welcher Ausdruck negiert wird. Ohne sie könnten wir die Bedeutung der Aussage vollständig verändern.
+
+Deshalb besteht Negation in der Logik nicht einfach darin, irgendwo das Wort „nicht“ in einen Satz einzufügen.
+
+Negation ist eine Operation auf einer *vollständigen Aussage*. Wir müssen genau bestimmen, auf welche Aussage sie sich bezieht.
+
+Jetzt können wir etwas noch Interessanteres entdecken.
+
+## 6. Die de Morganschen Gesetze: Zwei Beschreibungen desselben Scheiterns
+
+Unser Gebäude öffnet sich, wenn zwei Bedingungen erfüllt sind:
+
+$$
+ P\land Q
+$$
+
+Die Tür bleibt also verschlossen, wenn dieser Ausdruck falsch ist:
+
+$$
+ \neg(P\land Q)
+$$
+
+Statt zu fragen, wann das gesamte System scheitert, untersuchen wir nun, welche nicht erfüllten Bedingungen dazu führen können.
+
+Der Ausweis könnte ungültig sein.
+
+Oder das Gebäude könnte geschlossen sein.
+
+Nur so kann die gewöhnliche Zugangsregel scheitern: Mindestens eine der beiden Anforderungen muss unerfüllt sein.
+
+Damit erhalten wir eine andere Beschreibung derselben Bedingung:
+
+$$
+ \neg P\lor\neg Q
+$$
+
+Der erste Ausdruck beschreibt eine gescheiterte Konjunktion. Der zweite beschreibt eine Disjunktion von nicht erfüllten Bedingungen.
+
+<Interactive kind="switches" preset="demorgan" id="demorgan-switches" />
+
+Experimentiere mit allen vier Kombinationen. Kannst du einen Ausdruck wahr und den anderen falsch machen?
+
+Das geht nicht.
+
+Und statt dieses beobachtete Muster einfach hinzunehmen, können wir es beweisen.
+
+<ReasoningFigure kind="switch-demorgan-table" />
+
+Die letzten beiden Spalten stimmen in jeder Zeile überein.
+
+Da diese vier Zeilen jede mögliche Wahrheitswertbelegung von $P$ und $Q$ erfassen, haben wir mehr als eine Sammlung erfolgreicher Beispiele.
+
+Wir haben eine **logische Äquivalenz** bewiesen.
+
+$$
+ \boxed{\neg(P\land Q)\equiv\neg P\lor\neg Q}
+$$
+
+Das Symbol $\equiv$ bedeutet, dass beide Ausdrücke immer denselben Wahrheitswert haben, unabhängig von den Werten ihrer Bestandteile.
+
+Das ist eines der **de Morganschen Gesetze**.
+
+Es gibt eine zweite Beziehung derselben Art.
+
+Angenommen, das Zugangssystem kann die Tür mit einer von zwei unabhängig verwendbaren Berechtigungen öffnen: $P$ oder $Q$.
+
+Die Tür öffnet sich bei:
+
+$$
+ P\lor Q
+$$
+
+Wann würde dieses System scheitern?
+
+Beachte den Unterschied. Zuvor verlangte unser System beide Bedingungen. Daher genügte eine nicht erfüllte Bedingung, um den Zugang zu verhindern.
+
+Jetzt muss jedoch nur eine Bedingung erfüllt sein.
+
+Um den Zugang zu verhindern, müssen beide Bedingungen unerfüllt sein.
+
+$$
+ \boxed{\neg(P\lor Q)\equiv\neg P\land\neg Q}
+$$
+
+<ReasoningFigure kind="switch-laws" />
+
+Beachte, was hier geschieht.
+
+Negieren wir eine Konjunktion, wird UND zu ODER, und beide einzelnen Aussagen werden negiert.
+
+Negieren wir eine Disjunktion, wird ODER zu UND, und wieder werden beide Aussagen negiert.
+
+Wir könnten diese Umformung auswendig lernen. Besser lässt sie sich merken, wenn wir verstehen, wann das jeweilige System scheitert.
+
+Ein System, für das alles funktionieren muss, scheitert, sobald etwas nicht funktioniert.
+
+Ein System, für das mindestens eine Möglichkeit funktionieren muss, scheitert erst, wenn alle Möglichkeiten ausfallen.
+
+Die Symbole spiegeln diese beiden Strukturen wider.
+
+Darin liegt der Nutzen logischer Äquivalenz: Wir können die Form einer Aussage verändern, ohne ihre Bedeutung zu ändern.
+
+## 7. Können wir eine logische Schaltung vereinfachen?
+
+Wenden wir alles Gelernte auf ein neues Problem an.
+
+Ein Ingenieur hat ein Zugangssystem mit zwei Wegen entworfen. Der erste ist aktiv, wenn eine Person einen gültigen Ausweis hat und das Gebäude geöffnet ist. Der zweite ist aktiv, wenn die Person einen gültigen Ausweis hat und das Gebäude geschlossen ist.
+
+Der Ingenieur schreibt die Zugangsbedingung so:
+
+$$
+ (P\land Q)\lor(P\land\neg Q)
+$$
+
+<Interactive kind="switches" preset="routes" id="implemented-switches" group="circuit-repair" />
+
+Auf den ersten Blick wirkt das vernünftig. Beide Wege beschreiben unterschiedliche Umstände, und ODER verbindet sie.
+
+Bevor wir diese Regel in Software oder einer elektronischen Schaltung umsetzen, sollten wir aber fragen, ob beide Wege wirklich notwendig sind.
+
+Sieh dir den Ausdruck genau an.
+
+Auf beiden Wegen muss die Person einen gültigen Ausweis haben.
+
+Der einzige Unterschied: Ein Weg verlangt ein geöffnetes Gebäude, der andere ein geschlossenes.
+
+Und das Gebäude muss entweder geöffnet oder nicht geöffnet sein.
+
+Was legt das nahe?
+
+<Interactive kind="switches" preset="simplify" id="simplify-switches" group="circuit-repair" />
+
+Wenn du herausgefunden hast, dass sich die gesamte Regel zu $P$ vereinfacht, ist deine Schlussfolgerung richtig.
+
+Aber warum ist sie gerechtfertigt?
+
+Wir können dasselbe Ergebnis algebraisch herleiten, mit einem Prinzip ähnlich dem Ausklammern in der gewöhnlichen Arithmetik.
+
+Der Ausdruck lautet:
+
+$$
+ (P\land Q)\lor(P\land\neg Q)
+$$
+
+Beide Terme enthalten $P$. Wir können es also ausklammern:
+
+$$
+ P\land(Q\lor\neg Q)
+$$
+
+Betrachten wir nun den Ausdruck in der Klammer.
+
+$$
+ Q\lor\neg Q
+$$
+
+Entweder ist $Q$ wahr oder $Q$ ist falsch. In der klassischen zweiwertigen Logik gibt es keine dritte Möglichkeit.
+
+Dieser Ausdruck ist also immer wahr.
+
+Eine solche Aussage heißt **Tautologie**.
+
+Eine immer wahre Aussage können wir mit dem Symbol $\top$ darstellen.
+
+Unser Ausdruck wird damit zu:
+
+$$
+ P\land\top
+$$
+
+Da die Verknüpfung von $P$ mit einer immer wahren Aussage den Wahrheitswert von $P$ nicht verändert, vereinfacht sich der gesamte Ausdruck zu:
+
+$$
+ \boxed{P}
+$$
+
+<ReasoningFigure kind="switch-proof" />
+
+Eine komplizierte Zugangsregel ist auf eine Bedingung reduziert.
+
+Wir haben drei logische Ideen verwendet: Ausklammern mit dem Distributivgesetz, Erkennen einer Tautologie und Vereinfachen durch Äquivalenz.
+
+Das ursprüngliche und das vereinfachte System verhalten sich bei jeder Kombination der Eingaben gleich.
+
+Das ist mehr als eine praktische Abkürzung. Es ist eine mathematische Garantie.
+
+Und es bedeutet, dass die Prüfung des Gebäudestatus überhaupt nichts zur Zugangsentscheidung beiträgt.
+
+Hier hilft die logische Vereinfachung auch, Fehler zu erkennen. Vielleicht wollte der Ingenieur den gewöhnlichen Zugang auf die Öffnungszeiten beschränken. Der zweite Weg hebt diese Beschränkung jedoch vollständig auf.
+
+Die Mathematik legt das Problem offen.
+
+## 8. Von logischen Aussagen zu tatsächlichen Berechnungen
+
+Bisher haben wir alles mit Aussagen über Ausweise, Gebäude und Öffnungszeiten beschrieben.
+
+Die Regeln hängen aber nicht grundsätzlich von diesen Bedeutungen ab.
+
+Wir könnten für $P$, $Q$ und $R$ völlig andere Aussagen einsetzen. Die logischen Operatoren würden sich weiterhin genauso verhalten.
+
+Das macht boolesche Logik in der Informatik so nützlich.
+
+Auf abstrakter Ebene können wir falsch als $0$ und wahr als $1$ behandeln.
+
+<ReasoningFigure kind="switch-notation" />
+
+Hier müssen wir auf einen wichtigen Unterschied achten.
+
+In der booleschen Algebra kann das Pluszeichen ODER bedeuten. Es steht dann nicht für die gewöhnliche Addition von Zahlen.
+
+Unter der booleschen Interpretation gilt zum Beispiel:
+
+$$
+ 1+1=1
+$$
+
+Denn wahr ODER wahr ist wahr.
+
+In der gewöhnlichen Ganzzahlarithmetik gilt dagegen $1+1=2$.
+
+Die Symbole sehen gleich aus, doch ihre Bedeutung hängt von der definierten Operation ab.
+
+Auch das ist eine wichtige Einsicht in der Mathematik: Die Notation ist nicht die Bedeutung selbst. Die Bedeutung entsteht durch Definitionen und die Regeln für die betrachteten Objekte.
+
+Sobald diese Operationen definiert sind, können wir mit ihnen Systeme aufbauen.
+
+Ein Computer kann logische Verknüpfungen verwenden, um zu entscheiden, ob eine Bedingung erfüllt ist, ob ein Programm einen bestimmten Zweig ausführen soll oder ob zwei Eingaben eine bestimmte Ausgabe erzeugen sollen.
+
+Reale elektronische Logikgatter setzen diese booleschen Funktionen mit physischen Bauteilen um. Ihr innerer Aufbau kann kompliziert sein. Das abstrakte logische Verhalten ist jedoch genau das, was wir untersucht haben.
+
+Wir können eine Schaltung sogar als boolesche Funktion beschreiben:
+
+$$
+ f:\{0,1\}^n\longrightarrow\{0,1\}
+$$
+
+Diese Notation besagt, dass die Funktion $n$ boolesche Eingaben entgegennimmt, jede entweder $0$ oder $1$, und eine boolesche Ausgabe liefert.
+
+Das ursprüngliche Zugangssystem ist eine solche Funktion:
+
+$$
+ f(P,Q)=P\land Q
+$$
+
+Unsere Wahrheitstabelle beschreibt die Ausgaben dieser Funktion vollständig.
+
+## 9. Eine letzte Verbindung: Wann sind zwei Regeln gleich?
+
+Zuvor haben wir zwei Ausdrücke gesehen, die unterschiedlich aussahen, sich aber gleich verhielten:
+
+$$
+ \neg(P\land Q)
+$$
+
+und
+
+$$
+ \neg P\lor\neg Q
+$$
+
+Dann haben wir festgestellt, dass ein Ausdruck mit zwei Zugangswegen durch eine einzige Bedingung ersetzt werden kann.
+
+In beiden Fällen änderte sich die Struktur des Ausdrucks, sein Wahrheitswert aber nicht.
+
+Das zeigt einen tieferen Unterschied zwischen **der Schreibweise** und **der Bedeutung**.
+
+Zwei Ausdrücke können verschiedene Symbole, Anordnungen und sogar unterschiedlich viele logische Operationen verwenden und dennoch dieselbe boolesche Funktion beschreiben.
+
+Logische Äquivalenz sagt uns, wann das der Fall ist.
+
+In der klassischen Aussagenlogik bietet eine vollständige Wahrheitstabelle ein mechanisches Verfahren, dies zu überprüfen.
+
+Es gibt sogar eine Verbindung zu den bedingten Aussagen aus der vorherigen Lektion.
+
+Erinnere dich: $P\rightarrow Q$ bedeutet, dass immer dann, wenn $P$ wahr ist, auch $Q$ wahr sein muss.
+
+Diese Implikation kann nur scheitern, wenn $P$ wahr und $Q$ falsch ist.
+
+Aber genau dann ist auch der folgende Ausdruck falsch:
+
+$$
+ \neg P\lor Q
+$$
+
+Wir können also schreiben:
+
+$$
+ \boxed{P\rightarrow Q\equiv\neg P\lor Q}
+$$
+
+Eine Implikation lässt sich allein mit NICHT und ODER ausdrücken.
+
+Wenn wir bedingte Aussagen zunächst aus der Alltagssprache kennen, überrascht dieses Ergebnis vielleicht. Es folgt jedoch direkt aus ihren Wahrheitsbedingungen.
+
+Und es zeigt, wie eine kleine Sammlung logischer Operatoren viele verschiedene Arten von Regeln ausdrücken kann.
+
+## 10. Was wir gelernt haben
+
+Am Anfang stand ein gewöhnliches Zugangssystem, das zwei Bedingungen zum Öffnen einer Tür verlangte.
+
+An diesem einfachen Beispiel haben wir Konjunktion, Disjunktion, exklusives ODER, Negation, Wahrheitstabellen, die de Morganschen Gesetze und logische Äquivalenz entdeckt.
+
+Das wichtigste Ergebnis ist aber nicht die Liste der Symbole.
+
+Wir haben jetzt eine Methode, um über komplizierte Bedingungen nachzudenken.
+
+Statt uns allein auf unser Gefühl zu verlassen, können wir eine Regel in einen präzisen Ausdruck übersetzen, ihre möglichen Eingaben untersuchen, sie mit einem anderen Ausdruck vergleichen und feststellen, ob beide tatsächlich dasselbe bedeuten.
+
+Eine Aussage kann komplizierter aussehen, ohne mehr Information zu enthalten.
+
+Eine Regel kann eine Beschränkung vorzutäuschen scheinen, die sie überhaupt nicht durchsetzt.
+
+Und zwei sehr unterschiedliche Beschreibungen können logisch identisch sein.
+
+Deshalb sind diese Operationen so wertvoll: beim Mathematiklernen, Programmieren, Entwerfen eines Systems oder Bewerten eines Arguments.
+
+Wenn dir das nächste Mal jemand eine komplizierte Regel mit „und“, „oder“ und „nicht“ nennt, frage nicht nur, ob sie vernünftig klingt.
+
+Frage, was in jedem möglichen Fall geschieht.
+
+Denn manchmal verstehen wir eine Regel erst, wenn wir erkennen, dass ein Teil von ihr von Anfang an unnötig war.
+
+## Lernkontrolle
+
+Versuche vor dem Abschluss, diese drei Fragen zu beantworten, ohne die Erklärungen oben nachzulesen.
+
+<Interactive kind="switches" preset="checkpoint" id="switch-checkpoint" />
+
+## Quellen und weiterführendes Studium
+
+Die Lektion folgt der Behandlung von Aussagenverknüpfungen und Wahrheitstabellen in *forall x: Calgary* und den Grundlagenkapiteln zur mathematischen Logik in Hammacks *Book of Proof*. Die Beispiele zum Zugangssystem und die interaktiven Demonstrationen sind eigenständige didaktische Ausarbeitungen der Vorlage.
+
+- [forall x: Calgary](https://forallx.openlogicproject.org/html/) — Abschnitte 5, 9, 11 und 12: Verknüpfungen, charakteristische und vollständige Wahrheitstabellen sowie logische Äquivalenz.
+
+- [Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/) — Kapitel 2, insbesondere Abschnitte 2.2, 2.5, 2.6 und 2.10 zu UND/ODER/NICHT, Wahrheitstabellen, logischer Äquivalenz und Negation.

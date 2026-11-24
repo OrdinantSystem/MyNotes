@@ -1,0 +1,531 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-27
+sourcePages: []
+sourceLocations: ["Complete episode script 00:00–16:00; conceptual framework; preparation sources"]
+title: "How to invent the missing stepping stone"
+navTitle: "Inventing a lemma"
+description: "Discover and prove an intermediate claim by connecting a sufficient goal with what the assumptions can establish."
+order: 27
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [changing-representations]
+thumbnail: reasoning-lemma
+---
+
+## 1. The step nobody tells you how to find
+
+Imagine opening a mathematics textbook and encountering a proof that looks something like this.
+
+We know that $A$ is true.
+
+Therefore, $B$ is true.
+
+Since $B$ is true, $C$ follows.
+
+Hence, we have proved $C$.
+
+<ReasoningFigure kind="lemma-chain" />
+
+You read the proof. Every individual step makes sense. You understand why $A$ implies $B$, and you understand why $B$ implies $C$.
+
+And yet, there is something that the proof has not explained.
+
+Why did anyone think of $B$ in the first place?
+
+If you had been given only the assumptions and the conclusion, would you have thought of that intermediate step yourself?
+
+This is one of the strange things about learning mathematics. We are frequently shown the finished products of reasoning, but we are rarely shown the decisions that made those products possible.
+
+It is like being shown a completed bridge and being told that crossing the river is easy. Of course it is easy. Someone has already built the bridge.
+
+But what happens when you arrive at a river where there is no bridge?
+
+<ReasoningFigure kind="lemma-gap" />
+
+Today, we are going to explore how to build that bridge ourselves. Not by guessing random mathematical statements until something works, but by learning to investigate what an intermediate step would need to accomplish.
+
+## 2. A surprisingly difficult little problem
+
+Let us begin with a statement that probably sounds completely obvious.
+
+If an integer is divisible by two and divisible by three, then it is divisible by six.
+
+Take a few examples.
+
+Six is divisible by two and three. So is twelve. So is eighteen, twenty-four and thirty.
+
+The multiples of two and the multiples of three appear to meet precisely at the multiples of six.
+
+<ReasoningFigure kind="lemma-multiples" />
+
+We can see the pattern. But, as we have already learned, seeing a pattern and explaining why it must continue are two different things.
+
+So let us attempt to prove it.
+
+First, we introduce our notation. When we write
+
+$$
+a\mid b,
+$$
+
+we mean that $a$ divides $b$. In other words, $b$ can be written as $a$ multiplied by some integer.
+
+Our statement becomes:
+
+$$
+\forall n\in\mathbb Z,\qquad (2\mid n\land 3\mid n)\Rightarrow 6\mid n.
+$$
+
+Let us separate the information we have from the information we need.
+
+<ReasoningFigure kind="lemma-assumptions" />
+
+Since $n$ is divisible by two, we know that $n=2a$ for some integer $a$.
+
+Since it is divisible by three, we know that $n=3k$ for some integer $k$.
+
+And what do we need to prove? That there exists an integer $m$ such that $n=6m$.
+
+At this point, a beginner might look at the numbers two and three, multiply them together, obtain six and assume that this is enough.
+
+But why should we be allowed to do that?
+
+Consider twelve. Twelve is divisible by four, and twelve is divisible by six. Yet twelve is not divisible by twenty-four.
+
+So apparently, the argument that two divisors can simply be multiplied together does not work in general.
+
+Something is missing.
+
+And identifying that missing piece is going to be our main task.
+
+## 3. What would be enough to finish?
+
+When we cannot see how to move forward, there is another direction in which we can think.
+
+Backward.
+
+Instead of asking ourselves what we can deduce from our assumptions, we temporarily look at the conclusion and ask a different question:
+
+**What would be enough to make this conclusion true?**
+
+We need to establish that
+
+$$
+n=6m
+$$
+
+for some integer $m$.
+
+But six is three multiplied by two. So we could rewrite our desired conclusion as
+
+$$
+n=3(2m).
+$$
+
+Now compare this with one of the statements we already know.
+
+<ReasoningFigure kind="lemma-match" />
+
+These expressions are remarkably similar.
+
+We already have the factor of three. What we are missing is a factor of two inside the remaining integer, $k$.
+
+So if we could demonstrate that $k$ is even, we would immediately have our proof.
+
+Because if $k$ is even, then $k=2m$ for some integer $m$. Substituting this into our original expression gives us
+
+$$
+\begin{aligned} n&=3k\\  &=3(2m)\\  &=6m. \end{aligned}
+$$
+
+And that is exactly what we wanted.
+
+Of course, we have not proved anything new yet. We have merely identified something that, if we could prove it, would allow us to finish.
+
+But notice what has happened to the problem.
+
+Originally, we were trying to understand the interaction between divisibility by two, three and six.
+
+Now we have a much more specific question:
+
+Is $k$ even?
+
+This is one of the most powerful things you can do when solving a problem. You can replace a question that you do not know how to answer with a question whose answer would allow you to solve the original problem.
+
+We have not abandoned our original objective. We have simply changed our immediate objective.
+
+And importantly, we did not discover this new question by randomly exploring the mathematics. We discovered it by examining the structure of our desired conclusion.
+
+<Interactive kind="lemma" preset="bridge" id="lemma-bridge" />
+
+## 4. Inventing the intermediate claim
+
+We now need to understand the relationship between $k$ and $3k$.
+
+Let us temporarily forget about divisibility by six.
+
+Imagine that $k$ represents a collection of objects, and that multiplying $k$ by three means creating three copies of that collection.
+
+<Interactive kind="lemma" preset="parity" id="lemma-parity" />
+
+If $k$ is even, every object in the original collection can be paired with another object. Making three copies preserves that ability to pair everything.
+
+But what happens if $k$ is odd?
+
+Each collection contains one object that cannot be paired within that collection. After making three copies, we are left with three such objects. We can pair two of them, but one will still remain.
+
+So multiplying an odd number by three produces another odd number.
+
+We can see this with five.
+
+$$
+5+5+5=15.
+$$
+
+And with seven.
+
+$$
+7+7+7=21.
+$$
+
+But there is something more important happening here than the examples themselves. The pairing construction suggests why this should work for every positive odd integer.
+
+We can now express that reasoning algebraically, covering negative integers as well.
+
+Suppose that $k$ is odd. By definition, there exists an integer $r$ such that
+
+$$
+k=2r+1.
+$$
+
+Multiplying this expression by three gives us
+
+$$
+\begin{aligned} 3k&=3(2r+1)\\   &=6r+3\\   &=6r+2+1\\   &=2(3r+1)+1. \end{aligned}
+$$
+
+Since $3r+1$ is an integer, this is precisely the form of an odd number.
+
+We have just established a small mathematical result:
+
+If $k$ is an odd integer, then $3k$ is odd.
+
+And now we can use something we learned in our earlier discussions about logical implications.
+
+If an odd $k$ necessarily produces an odd $3k$, then an even $3k$ cannot have come from an odd $k$.
+
+Every integer is either even or odd. Therefore,
+
+$$
+3k\text{ is even} \Rightarrow k\text{ is even}.
+$$
+
+This is the contrapositive of the implication we just established.
+
+<ReasoningFigure kind="lemma-contrapositive" />
+
+And look at what we know about our original problem.
+
+$$
+3k=n.
+$$
+
+We know that $n$ is even. Consequently, $3k$ is even.
+
+Which means that $k$ must be even.
+
+We have found our missing stepping stone.
+
+## 5. What is a lemma?
+
+Mathematicians frequently isolate useful intermediate results like this and give them a particular name: a *lemma*.
+
+A lemma is a mathematical statement proved and used to help establish another result.
+
+There is no fundamental difference in logical validity between a lemma and a theorem. Both require justification. The distinction is primarily about the role that the statement plays within a larger mathematical argument.
+
+The lemma connects the available information to the desired conclusion.
+
+<ReasoningFigure kind="lemma-definition" />
+
+Our lemma could be stated independently of the original problem.
+
+For every integer $k$,
+
+$$
+2\mid 3k\Rightarrow 2\mid k.
+$$
+
+We have established this statement without assuming anything about divisibility by six. And once it has been proved, we can use it whenever we encounter another problem involving the parity of a multiple of three.
+
+This is one reason why lemmas are so useful. Instead of solving every difficult problem as one enormous argument, mathematics allows us to develop smaller pieces of reasoning and reuse them.
+
+Imagine that you were investigating a much more complicated mathematical problem, and you kept encountering expressions involving the parity of a product. You would not necessarily want to repeat the same argument every time.
+
+You could prove the relevant statement once, give it a name and use it whenever its conditions are satisfied.
+
+Mathematics gradually builds an infrastructure of established results. What was once a problem becomes a tool for solving another problem.
+
+But there is also a more immediate benefit.
+
+Even if we never use our lemma again, the process of finding it has already helped us. It transformed an unclear problem into two smaller problems with clearly defined objectives.
+
+## 6. The finished proof hides its own history
+
+We can now assemble the entire argument.
+
+**Theorem**
+
+Let $n\in\mathbb Z$. If $2\mid n$ and $3\mid n$, then $6\mid n$.
+
+**Proof.** Suppose that $2\mid n$ and $3\mid n$.
+
+Since $3\mid n$, there exists an integer $k$ such that
+
+$$
+n=3k.
+$$
+
+Because $n$ is even, $3k$ is even.
+
+If $k$ were odd, we could write $k=2r+1$ for some integer $r$. But then
+
+$$
+3k=2(3r+1)+1,
+$$
+
+which would make $3k$ odd. This contradicts the fact that $3k$ is even.
+
+Therefore, $k$ is even, so $k=2m$ for some integer $m$.
+
+Consequently,
+
+$$
+n=3k=3(2m)=6m.
+$$
+
+Hence $6\mid n$. $\square$
+
+Here we have a complete mathematical proof. But if this had been the first thing I had shown you, you might have understood every line while still wondering why anyone would think to investigate whether $k$ is even.
+
+The finished proof does not tell you that we initially looked at the conclusion, decomposed the number six and discovered that the factor of two was missing from $k$.
+
+All of that exploration has disappeared.
+
+<ReasoningFigure kind="lemma-order" />
+
+Notice that working backward does not mean assuming that the conclusion is true and then using it as evidence.
+
+During discovery, we investigate what conditions would be sufficient to establish the conclusion. During verification, we must still prove those conditions using the original assumptions and previously established facts.
+
+The order in which ideas are discovered need not be the order in which they are justified.
+
+And that distinction is incredibly important.
+
+## 7. Not every stepping stone is useful
+
+Now that we understand how an intermediate claim can help us, we should ask what makes an intermediate claim a good one.
+
+Imagine that, instead of trying to prove that $k$ is even, I had proposed the following intermediate statement:
+
+"There exists an integer $m$ such that $n=6m$."
+
+Would that be enough to complete our proof?
+
+Certainly. But it would not help us solve the problem, because that is simply the original conclusion written in a different form.
+
+I have renamed the obstacle without making it any easier to overcome.
+
+Alternatively, I might propose proving that $n$ is divisible by twelve. That would also be sufficient, since every multiple of twelve is a multiple of six. But it is not something that follows from our assumptions: consider $n=6$.
+
+A useful intermediate claim must therefore satisfy two different requirements.
+
+<ReasoningFigure kind="lemma-criteria" />
+
+Our earlier intermediate claim, that $k$ is even, is particularly interesting. Under the condition that $n=3k$, it is actually equivalent to our original conclusion.
+
+Yet it is not merely a useless restatement. It exposes a relationship involving parity, for which we have an accessible method of proof.
+
+A good intermediate problem does not necessarily have to be logically weaker than the original problem. It needs to be more approachable.
+
+And this brings us back to the importance of representation. Sometimes a different formulation of the very same mathematical requirement is enough to make a proof possible.
+
+## 8. Discovering where the argument stops working
+
+Before we finish with our main example, let us return to the problem we encountered earlier.
+
+Suppose that an integer is divisible by four and divisible by six.
+
+Can we conclude that it is divisible by twenty-four?
+
+<ReasoningFigure kind="lemma-counterexample" />
+
+We already know that the answer is no. But let us investigate exactly where our previous reasoning would fail.
+
+Since $n$ is divisible by six, we can write
+
+$$
+n=6k.
+$$
+
+To conclude that $n$ is divisible by twenty-four, it would be enough to establish that $k$ is divisible by four.
+
+$$
+n=6(4m)=24m.
+$$
+
+So we have found a potential intermediate claim.
+
+But can we actually establish it?
+
+Consider $n=12$.
+
+$$
+12=6\cdot2.
+$$
+
+The original number is divisible by four, but the remaining factor, two, is not.
+
+Our potential lemma would have to be
+
+$$
+4\mid 6k\Rightarrow 4\mid k.
+$$
+
+And that statement is false.
+
+<ReasoningFigure kind="lemma-compare" />
+
+The difference is that two and three are *coprime*: they have no positive common divisor other than one. Four and six are not.
+
+There is a more general mathematical theory that explains exactly when this kind of reasoning works. But for our purposes, the important discovery is that an intermediate claim can be perfectly sufficient to solve a problem and still be impossible to establish.
+
+Working backward tells us what we would like to prove. It does not guarantee that we can prove it.
+
+## 9. Practice: find the stepping stone yourself
+
+Let us try a different problem.
+
+Suppose that $n$ is an odd integer. Prove that
+
+$$
+n^2-1
+$$
+
+is divisible by eight.
+
+I do not want you to solve the entire problem immediately. I want you to investigate what a useful intermediate statement might look like.
+
+We know that $n$ is odd, so we can write
+
+$$
+n=2k+1.
+$$
+
+Substituting this expression into our target gives us
+
+$$
+\begin{aligned} n^2-1&=(2k+1)^2-1\\ &=4k^2+4k\\ &=4k(k+1). \end{aligned}
+$$
+
+We now know that the expression is divisible by four. But we need it to be divisible by eight.
+
+What would be enough to finish?
+
+<Interactive kind="lemma" preset="practice" id="lemma-practice" />
+
+We need an additional factor of two inside $k(k+1)$.
+
+In other words, it would be enough to prove that the product of two consecutive integers is even.
+
+And this is something we can establish quite easily. Any two consecutive integers contain one even integer and one odd integer. Their product must therefore contain an even factor.
+
+<ReasoningFigure kind="lemma-consecutive" />
+
+We can write
+
+$$
+k(k+1)=2m
+$$
+
+for some integer $m$, and therefore
+
+$$
+n^2-1=4k(k+1)=8m.
+$$
+
+Our proof is complete.
+
+Notice that the mathematical content of this problem is different from our first problem, but the process of discovering the solution is remarkably similar.
+
+We examined what we needed, compared it with what we already had and identified the precise relationship that was missing.
+
+That is the skill I want you to take away from this episode.
+
+## 10. Closing: learning to build the bridge
+
+The next time you encounter a problem and cannot see how to solve it, remember that you do not necessarily need to find the entire solution.
+
+You can ask yourself two smaller questions.
+
+What would be enough to finish?
+
+And can I establish that from what I already know?
+
+<ReasoningFigure kind="lemma-bridge" />
+
+If the intermediate problem is still too difficult, you can repeat the process. You can search for another stepping stone.
+
+And gradually, something that once seemed impossible to reach can become a sequence of smaller, understandable steps.
+
+Because learning to reason is not simply learning how to follow a path that someone else has constructed.
+
+**It is learning how to construct the path yourself.**
+
+## Learning compendium
+
+<ReasoningFigure kind="lemma-directions" />
+
+The two directions belong to the discovery process. The final proof must establish a valid chain of implications from the assumptions to the conclusion.
+
+| Concept            | What the viewer should understand                                          |
+| ------------------ | -------------------------------------------------------------------------- |
+| Auxiliary problem  | A related problem whose solution can help solve the original problem.      |
+| Lemma              | A proved result that supports another mathematical result.                 |
+| Forward reasoning  | Exploring what can be deduced from available information.                  |
+| Backward reasoning | Identifying conditions sufficient to reach a desired conclusion.           |
+| Sufficiency        | Whether the intermediate statement allows us to finish.                    |
+| Accessibility      | Whether we can establish that statement using available knowledge.         |
+| Decomposition      | Replacing one difficult objective with several more manageable objectives. |
+| Proof discovery    | The exploratory process through which a proof is constructed.              |
+| Proof verification | Establishing that every inference in the completed proof is valid.         |
+
+### Connections in Part Four
+
+| Lesson | Investigative move |
+| --- | --- |
+| 25 | Diagnose the obstacle when the solution is not apparent. |
+| 26 | Change the representation to reveal useful relationships. |
+| 27 | Construct an intermediate objective that is sufficient and approachable. |
+
+These are related ways of discovering a path toward a proof. They do not replace checking every inference in the finished argument.
+
+## Preparation sources
+
+[George Pólya — How to Solve It](https://people.math.harvard.edu/~knill/teaching/math21b2001/polya/index.html). The Harvard-hosted excerpt discusses auxiliary problems, examining the unknown, returning to definitions and finding connections between known information and the desired result. These are prompts for investigation, not a guaranteed proof procedure.
+
+[Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/). The author’s contents list identifies chapter 4 on direct proof, chapter 5 on contrapositive proof and chapter 6 on contradiction. They are further reading for the techniques used here; no review of the entire textbook is claimed.
+
+### Optional mathematical background
+
+Euclid’s lemma and coprimality explain a more general divisibility principle:
+
+$$
+\gcd(a,b)=1\ \land\ a\mid n\ \land\ b\mid n\quad\Rightarrow\quad ab\mid n,
+$$
+
+for positive integers $a,b$ and any integer $n$. Its formal proof is outside this lesson; the specific parity lemma used above has been proved in full. The common-factor counterexample explains why omitting the coprimality condition fails.

@@ -1,0 +1,35 @@
+---
+import MathText from '../MathText.astro';
+import {lemmaPresets,lemmaChoices,initialLemmaState,type LemmaPreset} from '../../lib/interactive/lemma-model';
+import {tripleMarkup,bridgeMarkup} from '../../lib/interactive/lemma-render';
+import {lemmaText} from '../../lib/reasoning/lemma-copy';
+import '../../styles/counterexamples.css';import '../../styles/discovery.css';import '../../styles/lemma.css';
+interface Props{preset:LemmaPreset;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=lemmaText(locale),s=initialLemmaState();
+if(!(lemmaPresets as readonly string[]).includes(preset))throw new Error('Unknown lemma preset');
+---
+<figure class="counter-lab lemma-lab" id={id} data-lemma-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='parity'?<><p>{c.choose}</p><div class="counter-controls" role="group" aria-label={c.choose}>{lemmaChoices.map(k=><button type="button" data-lemma-k={k} aria-pressed={k===s.k} aria-controls={`${id}-output`}>{k}</button>)}</div><div id={`${id}-output`} data-lemma-output set:html={tripleMarkup(locale,s.k)}/></>:preset==='bridge'?<><p data-lemma-position>{c.step} 1 / 6</p><div id={`${id}-output`} data-lemma-output set:html={bridgeMarkup(locale,s.step)}/><div class="counter-controls"><button type="button" data-lemma-back disabled aria-controls={`${id}-output`}>{c.back}</button><button type="button" data-lemma-next aria-controls={`${id}-output`}>{c.next}</button></div></>:<><fieldset><legend><MathText text={locale==='de'?'Welche Aussage gilt für jedes ganzzahlige $k$ und reicht bei $n^2-1=4k(k+1)$ zum Abschluss?':'Which claim holds for every integer $k$ and suffices when $n^2-1=4k(k+1)$?'}/></legend>{c.choices.map((choice,i)=><label><input type="radio" name={`${id}-claim`} data-lemma-answer={i} aria-controls={`${id}-feedback`}/><span><MathText text={choice}/></span></label>)}</fieldset><button type="button" data-lemma-check aria-controls={`${id}-feedback`}>{c.check}</button><div id={`${id}-feedback`} data-lemma-feedback/></>}
+ <div class="counter-controls"><button type="button" data-lemma-reset>{c.reset}</button></div><p class="lemma-note" role="status" aria-live="polite" data-lemma-status></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {initialLemmaState,advanceBridge,tripleCollection} from '../../lib/interactive/lemma-model';
+import {tripleMarkup,bridgeMarkup,practiceFeedback} from '../../lib/interactive/lemma-render';
+import {lemmaText} from '../../lib/reasoning/lemma-copy';
+for(const root of document.querySelectorAll<HTMLElement>('[data-lemma-lab]')){
+ const locale=root.dataset.locale as Locale,preset=root.dataset.lemmaLab,c=lemmaText(locale);let s=initialLemmaState();
+ const output=root.querySelector<HTMLElement>('[data-lemma-output]'),feedback=root.querySelector<HTMLElement>('[data-lemma-feedback]'),status=root.querySelector<HTMLElement>('[data-lemma-status]')!;
+ const draw=()=>{
+  if(preset==='parity'){output!.innerHTML=tripleMarkup(locale,s.k);root.querySelectorAll<HTMLElement>('[data-lemma-k]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.lemmaK)===s.k)));const t=tripleCollection(s.k);status.textContent=`${s.k} → ${t.product}: ${t.productEven?c.even:c.odd}.`;}
+  if(preset==='bridge'){output!.innerHTML=bridgeMarkup(locale,s.step);root.querySelector<HTMLButtonElement>('[data-lemma-back]')!.disabled=s.step===0;root.querySelector<HTMLButtonElement>('[data-lemma-next]')!.disabled=s.step===5;root.querySelector('[data-lemma-position]')!.textContent=`${c.step} ${s.step+1} / 6`;status.textContent=c.stages[s.step];}
+  if(preset==='practice'){root.querySelectorAll<HTMLInputElement>('[data-lemma-answer]').forEach(input=>input.checked=Number(input.dataset.lemmaAnswer)===s.answer);feedback!.innerHTML=s.checked?practiceFeedback(locale,s.answer):'';}
+ };
+ root.querySelectorAll<HTMLButtonElement>('[data-lemma-k]').forEach(b=>b.addEventListener('click',()=>{s.k=Number(b.dataset.lemmaK);draw();}));
+ root.querySelector('[data-lemma-back]')?.addEventListener('click',()=>{s.step=advanceBridge(s.step,'back');draw();});root.querySelector('[data-lemma-next]')?.addEventListener('click',()=>{s.step=advanceBridge(s.step,'next');draw();});
+ root.querySelectorAll<HTMLInputElement>('[data-lemma-answer]').forEach(input=>input.addEventListener('change',()=>{s.answer=Number(input.dataset.lemmaAnswer);s.checked=false;draw();status.textContent='';}));
+ root.querySelector('[data-lemma-check]')?.addEventListener('click',()=>{s.checked=true;draw();status.textContent=s.answer===null?c.unanswered:c.announcements[s.answer];});
+ root.querySelector('[data-lemma-reset]')!.addEventListener('click',()=>{s=initialLemmaState();draw();status.textContent=c.reset;});
+}
+</script>

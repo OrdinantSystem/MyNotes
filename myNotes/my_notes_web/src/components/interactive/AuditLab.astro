@@ -1,0 +1,44 @@
+---
+import MathText from '../MathText.astro';
+import {auditPresets,initialAuditState,faultyLines,cancellationFactors,type AuditPreset} from '../../lib/interactive/audit-model';
+import {faultyFeedback,cancellationMarkup,casesMarkup} from '../../lib/interactive/audit-render';
+import {auditText} from '../../lib/reasoning/audit-copy';
+import '../../styles/counterexamples.css';import '../../styles/discovery.css';import '../../styles/cases.css';import '../../styles/audit.css';
+interface Props{preset:AuditPreset;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=auditText(locale),s=initialAuditState();
+if(!(auditPresets as readonly string[]).includes(preset))throw new Error('Unknown audit preset');
+---
+<figure class="counter-lab audit-lab" id={id} data-audit-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='faulty'?<>
+  <fieldset class="audit-lines"><legend>{c.select}</legend>{faultyLines.map((line,i)=><label data-audit-line={i}><input type="radio" name={`${id}-line`} data-audit-choice={i} aria-controls={`${id}-feedback`}/><span><strong>{i+1}.</strong><MathText text={`$${line}$`}/><small>{c.steps[i]}</small></span></label>)}</fieldset>
+  <button type="button" data-audit-check aria-controls={`${id}-feedback`}>{c.check}</button><div id={`${id}-feedback`} data-audit-feedback/>
+  <details><summary>{c.reference}</summary><div set:html={faultyFeedback(locale,4)}/></details>
+ </>:preset==='cancellation'?<>
+  <div class="counter-controls" role="group" aria-label={c.factor}>{cancellationFactors.map(factor=><button type="button" data-audit-factor={factor} aria-pressed={factor===s.factor} aria-controls={`${id}-output`}>× {factor}</button>)}</div><div id={`${id}-output`} data-audit-output set:html={cancellationMarkup(locale,s.factor)}/>
+ </>:<>
+  <div class="cases-inputs"><label for={`${id}-number`}>{c.input}<input id={`${id}-number`} type="number" min="-2" max="3" step="0.25" value={s.x} data-audit-number aria-controls={`${id}-output`}/></label></div>
+  <label class="cases-range-label" for={`${id}-range`}>{c.input}<input id={`${id}-range`} type="range" min="-2" max="3" step="0.25" value={s.x} data-audit-range aria-controls={`${id}-output`}/></label>
+  <div id={`${id}-output`} data-audit-output set:html={casesMarkup(locale,s.x)}/><figcaption>{c.caseCaption}</figcaption>
+ </>}
+ <div class="counter-controls"><button type="button" data-audit-reset>{c.reset}</button></div><p class="visually-hidden" role="status" aria-live="polite" data-audit-status></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {initialAuditState,auditInput,caseState,cancellationState,faultyChoice} from '../../lib/interactive/audit-model';
+import {faultyFeedback,cancellationMarkup,casesMarkup} from '../../lib/interactive/audit-render';
+import {auditText} from '../../lib/reasoning/audit-copy';
+for(const root of document.querySelectorAll<HTMLElement>('[data-audit-lab]')){
+ const preset=root.dataset.auditLab!,locale=root.dataset.locale as Locale,c=auditText(locale);let s=initialAuditState();
+ const output=root.querySelector<HTMLElement>('[data-audit-output]'),status=root.querySelector<HTMLElement>('[data-audit-status]')!,number=root.querySelector<HTMLInputElement>('[data-audit-number]'),range=root.querySelector<HTMLInputElement>('[data-audit-range]'),feedback=root.querySelector<HTMLElement>('[data-audit-feedback]');
+ const draw=()=>{if(preset==='cases'){output!.innerHTML=casesMarkup(locale,s.x);number!.value=String(s.x);range!.value=String(s.x);}if(preset==='cancellation'){output!.innerHTML=cancellationMarkup(locale,s.factor);root.querySelectorAll<HTMLButtonElement>('[data-audit-factor]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.auditFactor)===s.factor)));}};
+ const announce=()=>{if(preset==='cases'){const t=caseState(s.x);status.textContent=`x=${t.x}. x²=${t.squared}. ${t.covered?c.covered:c.gap}. ${t.holds?c.holds:c.fails}`;}else {const t=cancellationState(s.factor);status.textContent=`${c.factor}: ${t.c}. ${t.left}, ${t.right}. ${t.canCancel?c.nonzero:c.zero}`;}};
+ const commit=()=>{const next=auditInput(number!.value);if(next===null){number!.value=String(s.x);status.textContent=c.invalid;}else{s.x=next;draw();announce();}};
+ number?.addEventListener('input',()=>{const next=auditInput(number.value);if(next!==null){s.x=next;draw();announce();}});number?.addEventListener('blur',commit);number?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();commit();}});
+ range?.addEventListener('input',()=>{s.x=Number(range.value);draw();announce();});
+ root.querySelectorAll<HTMLButtonElement>('[data-audit-factor]').forEach(b=>b.addEventListener('click',()=>{s.factor=Number(b.dataset.auditFactor);draw();announce();}));
+ root.querySelectorAll<HTMLInputElement>('[data-audit-choice]').forEach(input=>input.addEventListener('change',()=>{if(input.checked){s.choice=Number(input.dataset.auditChoice);feedback!.innerHTML='';root.querySelectorAll('[data-audit-line]').forEach(e=>e.classList.remove('diagnosed'));}}));
+ root.querySelector('[data-audit-check]')?.addEventListener('click',()=>{feedback!.innerHTML=faultyFeedback(locale,s.choice);const correct=faultyChoice(s.choice);if(s.choice!==null)root.querySelector('[data-audit-line="4"]')!.classList.add('diagnosed');status.textContent=correct===null?c.choose:correct?c.correct:c.compare;});
+ root.querySelector('[data-audit-reset]')?.addEventListener('click',()=>{s=initialAuditState();root.querySelectorAll<HTMLInputElement>('[data-audit-choice]').forEach(input=>input.checked=false);root.querySelectorAll('[data-audit-line]').forEach(e=>e.classList.remove('diagnosed'));if(feedback)feedback.innerHTML='';root.querySelectorAll('details').forEach(e=>e.open=false);draw();status.textContent=c.reset;});
+}
+</script>

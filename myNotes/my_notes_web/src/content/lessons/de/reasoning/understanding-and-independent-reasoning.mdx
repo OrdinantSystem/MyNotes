@@ -1,0 +1,389 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-three
+sourceId: reasoning-episode-24
+sourcePages: []
+sourceLocations: ["Full script sections 1–9; Complementary and delayed exercises; Scientific foundations"]
+title: "Erklärungen verstehen und selbstständig begründen"
+navTitle: "Verstehen und selbstständig begründen"
+description: "Wiedererkennen, Erklären, selbstständiges Konstruieren und Transfer unterscheiden; Zuversicht mit den Ergebnissen eigener Versuche vergleichen."
+order: 24
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [auditing-a-proof]
+thumbnail: reasoning-transfer
+---
+
+Ein vorgelegtes Argument zu verstehen ist nicht unbedingt dieselbe Fähigkeit, wie dieses Argument selbst zu konstruieren oder seine Begründungsstruktur in einem anderen Problem wiederzuerkennen.
+
+## 1. Das Gefühl des Verstehens
+
+Hast du schon einmal jemandem beim Lösen eines schwierigen Problems zugesehen und gedacht: *Natürlich. Das ist vollkommen einleuchtend.*
+
+Jeder Schritt wirkt vernünftig. Der Schluss ergibt sich ganz natürlich. Vielleicht fragst du dich sogar, warum dir die Aufgabe ursprünglich schwergefallen ist.
+
+Doch später stehst du allein vor einem ähnlichen Problem. Plötzlich weißt du nicht, wo du anfangen sollst.
+
+<ReasoningFigure kind="transfer-complete" />
+
+Solange die Erklärung sichtbar ist, scheint jeder Schritt klar zu sein.
+
+Stell dir nun vor, wir entfernen die Zwischenschritte. Kannst du die Verbindungen ohne die Erklärung selbst herstellen?
+
+<ReasoningFigure kind="transfer-withheld" />
+
+Die Ausgangsinformation ist genau dieselbe. Der Schluss hat sich nicht verändert. Dennoch ist die Aufgabe erheblich anders geworden. Warum?
+
+In der ersten Situation hat jemand anderes entschieden, was als Nächstes zu tun ist. Deine Aufgabe bestand darin, diese Entscheidungen zu verstehen. In der zweiten Situation liegen die Entscheidungen bei dir.
+
+Beides verlangt Denken. Beides ist wertvoll. Es sind jedoch unterschiedliche Tätigkeiten.
+
+Wir untersuchen diesen Unterschied. Statt nur zu fragen, ob wir eine Erklärung verstehen, stellen wir eine schwierigere Frage:
+
+**Welche Belege haben wir dafür, dass wir sie gut genug verstehen, um sie anzuwenden?**
+
+## 2. Vier verschiedene Fähigkeiten
+
+Stell dir vor, jemand lernt, sich in einer unbekannten Stadt zurechtzufinden. Beim ersten Mal geht die Person mit einem ortskundigen Freund. An jeder Kreuzung sagt er, wohin sie abbiegen soll.
+
+Sie sieht die Gebäude, erkennt die Straßen wieder und kann den Weg vom Anfang bis zum Ende nachvollziehen.
+
+<ReasoningFigure kind="transfer-route" />
+
+Könnte sie diesen Weg notwendigerweise allein wiederholen? Könnte sie erklären, warum bestimmte Straßen gewählt wurden? Könnte sie einen anderen Weg finden, wenn eine Straße gesperrt wäre?
+
+Das sind verschiedene Fähigkeiten, obwohl sie dieselbe Stadt betreffen. Beim Lernen des Begründens ist es ähnlich. Für unsere Zwecke unterscheiden wir vier Fähigkeiten.
+
+<ReasoningFigure kind="transfer-abilities" />
+
+Das sind keine vier starren Stufen, die alle in genau dieser Reihenfolge durchlaufen müssen. Es sind vier verschiedene Möglichkeiten zu untersuchen, was jemand gelernt hat.
+
+Du kannst einen Beweis möglicherweise gut erklären, solange er vor dir liegt, hast aber Schwierigkeiten, ihn selbstständig wiederzugeben. Vielleicht kannst du einen vertrauten Beweis auswendig reproduzieren, ohne zu verstehen, wie seine Begründung auf andere Situationen übertragbar ist.
+
+Das Problem entsteht, wenn wir eine Fähigkeit zeigen und daraus automatisch auf die anderen schließen.
+
+<ReasoningFigure kind="transfer-evidence" />
+
+Wir behaupten damit nicht, dass die anderen Fähigkeiten fehlen. Wir haben lediglich noch nicht genügend Belege dafür, ob sie vorhanden sind. Diese Unterscheidung ist in einem Kurs über vernünftiges Begründen besonders wichtig.
+
+## 3. Ein Experiment mit einem mathematischen Beweis
+
+Betrachte folgende Behauptung:
+
+> Die Summe zweier beliebiger ungerader ganzer Zahlen ist gerade.
+
+Wir könnten zunächst einzelne Beispiele betrachten.
+
+$$
+3+5=8
+$$
+
+$$
+7+9=16
+$$
+
+$$
+11+13=24
+$$
+
+Diese Beispiele beweisen jedoch nicht, dass die Aussage für jedes Paar ungerader ganzer Zahlen gilt. Untersuchen wir stattdessen, was eine ganze Zahl ungerade macht.
+
+<ReasoningFigure kind="transfer-pairs" />
+
+Jede positive ungerade Zahl lässt sich in Paare und eine zusätzliche Einheit zerlegen. Führen wir zwei solche Sammlungen zusammen, bilden die beiden übrigen Einheiten ein weiteres Paar. Nichts bleibt übrig.
+
+Damit haben wir eine anschauliche Erklärung, zumindest für positive ungerade ganze Zahlen. Um die vollständige Aussage einschließlich negativer ungerader Zahlen zu beweisen, drücken wir dieselbe Struktur algebraisch aus.
+
+Seien $x$ und $y$ beliebige ungerade ganze Zahlen. Nach der Definition gibt es ganze Zahlen $a$ und $b$ mit
+
+$$
+x=2a+1
+$$
+
+und
+
+$$
+y=2b+1.
+$$
+
+Addieren ergibt
+
+$$
+\begin{aligned}
+x+y&=(2a+1)+(2b+1)\\[4pt]
+&=2a+2b+2\\[4pt]
+&=2(a+b+1).
+\end{aligned}
+$$
+
+Weil $a,b$ ganzzahlig sind und ganze Zahlen unter Addition abgeschlossen sind, gilt
+
+$$
+a+b+1\in\mathbb Z.
+$$
+
+Die Summe hat also die Form
+
+$$
+2k,\qquad k\in\mathbb Z.
+$$
+
+Genau das ist die Definition einer geraden ganzen Zahl.
+
+<ReasoningFigure kind="transfer-form" />
+
+Damit ist der Beweis vollständig. Frage dich nun, solange er noch sichtbar ist: Verstehst du ihn?
+
+Falls du mit Ja antwortest, ist das nachvollziehbar. Bevor wir daraus weitere Schlüsse ziehen, untersuchen wir aber, was diese Antwort tatsächlich aussagt.
+
+## 4. Die Erklärung entfernen
+
+Versuche denselben Beweis nun ohne die Zwischenschritte. Triff vorher eine Vorhersage: Wie zuversichtlich bist du, dass du die fehlende Begründung ohne die ursprüngliche Erklärung rekonstruieren kannst?
+
+<Interactive kind="transfer" preset="reconstruct" id="transfer-reconstruct" />
+
+Vielleicht konntest du die Begründung sofort rekonstruieren. Vielleicht wusstest du noch, dass ein Faktor zwei ausgeklammert werden muss, aber nicht mehr genau wie. Oder das Argument schien eben noch offensichtlich, während du jetzt nicht weißt, wie es weitergeht.
+
+Alle drei Ergebnisse liefern Informationen.
+
+Du musst den ursprünglichen Beweis nicht Wort für Wort behalten. Wenn du die Voraussetzungen und die Definition der Geradheit verstehst, kannst du das Argument aus diesen Bestandteilen wieder aufbauen.
+
+Entscheidend ist nicht, ob du dich an die Anordnung der Symbole erinnerst. Entscheidend ist, ob du die Begründung wiederherstellen kannst.
+
+<ReasoningFigure kind="transfer-decisions" />
+
+Beim ursprünglichen Nachvollziehen des Beweises waren diese Entscheidungen schon für dich getroffen worden. Beim Rekonstruieren musstest du zumindest einige davon selbst treffen.
+
+Deshalb kann selbstständiges Üben Schwierigkeiten sichtbar machen, die beim bloßen Folgen einer Erklärung verborgen bleiben.
+
+## 5. Warum Vertrautheit täuschen kann
+
+Eine gut aufgebaute Erklärung lässt eine komplizierte Begründung oft einfach erscheinen. Die Informationen sind geordnet, Unwesentliches ist entfernt, wichtige Verbindungen sind hervorgehoben. Jeder Schritt kommt im passenden Moment.
+
+All das unterstützt das Verstehen. Die Leichtigkeit, mit der wir die Erklärung verarbeiten, kann aber auch beeinflussen, wie gut wir uns das selbstständige Wiederherstellen zutrauen.
+
+Ein fertiger Beweis verbirgt einen großen Teil der Arbeit, die zu seiner Entdeckung geführt hat. Wir sehen nicht jeden erfolglosen Versuch, jede irrelevante Möglichkeit oder jede Unsicherheit vor dem fertigen Text. Wir sehen den ausgewählten Weg. Diesem Weg zu folgen kann sich anders anfühlen, als ihn selbst zu finden.
+
+<ReasoningFigure kind="transfer-search" />
+
+Das führt zum Begriff **Metakognition**. Kognition umfasst Tätigkeiten wie Erinnern, Begründen und Problemlösen. Metakognition bedeutet, diese Tätigkeiten zu überwachen und zu regulieren: einzuschätzen, was wir wissen, und zu entscheiden, wie wir weiterlernen.
+
+<ReasoningFigure kind="transfer-cognition" />
+
+Dabei gibt es eine Schwierigkeit: Auch unsere Urteile über das eigene Verstehen können falsch sein.
+
+Das Gefühl des Verstehens sagt etwas über unsere Erfahrung aus. Es ist nicht automatisch ein verlässlicher Beleg dafür, dass wir jede damit verbundene Aufgabe bewältigen können.
+
+Die Lösung besteht nicht darin, Zuversicht vollständig zu ignorieren. Wir vergleichen sie mit dem, was wir tatsächlich tun können.
+
+## 6. Dieselbe Begründung woanders erkennen
+
+Betrachten wir ein anderes Problem. Die Lösung wird diesmal nicht sofort vorgegeben.
+
+Zwei ganze Zahlen lassen bei Division durch fünf jeweils den Rest zwei. Beweise, dass ihre Differenz durch fünf teilbar ist.
+
+<ReasoningFigure kind="transfer-remainder" />
+
+Zum Beispiel lassen zwölf und sieben bei Division durch fünf den Rest zwei. Ihre Differenz ist fünf. Wieder wollen wir jedoch eine Aussage für beliebige passende ganze Zahlen beweisen, nicht nur ein einzelnes Beispiel untersuchen.
+
+Hier sind die nötigen Definitionen. Eine ganze Zahl mit Rest zwei bei Division durch fünf kann als
+
+$$
+5m+2,\qquad m\in\mathbb Z
+$$
+
+geschrieben werden. Eine durch fünf teilbare ganze Zahl hat die Form
+
+$$
+5k,\qquad k\in\mathbb Z.
+$$
+
+Triff vor dem Versuch eine weitere Vorhersage.
+
+<Interactive kind="transfer" preset="apply" id="transfer-apply" />
+
+<ReasoningFigure kind="transfer-comparison" />
+
+Die Probleme sehen unterschiedlich aus. Eines betrifft Addition und ungerade Zahlen, das andere Subtraktion und Teilbarkeit durch fünf. Unter diesen Unterschieden liegt jedoch eine gemeinsame Struktur.
+
+Wir übersetzen die Voraussetzungen in mathematische Ausdrücke. Dann formen wir diese so um, dass die vom Schluss verlangte Form entsteht. Schließlich prüfen wir die Bedingungen dieser Form.
+
+<ReasoningFigure kind="transfer-structure" />
+
+Diese gemeinsame Struktur zu erkennen und auf das zweite Problem anzuwenden ist ein Beispiel für Transfer.
+
+Transfer ist besonders wichtig, weil uns außerhalb gezielt gestalteter Übungen niemand unbedingt sagt, welche Beweistechnik nötig ist. Wir müssen sie selbst erkennen.
+
+## 7. Untersuchen, was wir tatsächlich können
+
+Falls du für beide Experimente Vorhersagen festgehalten hast, liegen nun zwei Einschätzungen deiner eigenen Fähigkeit vor.
+
+Stell dir vor, du führst dieses Experiment in den nächsten Wochen über mehrere Aufgaben fort. Vor jeder Aufgabe hältst du fest, wie wahrscheinlich du sie vollständig und selbstständig lösen wirst. Danach notierst du, was tatsächlich geschah.
+
+Angenommen, es entsteht ein Protokoll wie dieses:
+
+<Interactive kind="transfer" preset="calibration" id="transfer-calibration" />
+
+Im unveränderten Beispiel haben wir eine relativ hohe Erfolgswahrscheinlichkeit vorhergesagt, aber nur drei von fünf Aufgaben selbstständig gelöst.
+
+Beweist das, dass wir im Allgemeinen übermäßig zuversichtlich sind? Nein.
+
+Fünf Beobachtungen, zumal bei unterschiedlichen Aufgabenarten, reichen für einen derart breiten Schluss nicht aus. Auch ein Misserfolg bei einer Vorhersage von neunzig Prozent macht diese nicht automatisch unvernünftig. Neunzig Prozent lassen weiterhin Misserfolg zu.
+
+Die Beobachtungen geben uns aber etwas, das wir weiter untersuchen können. Vielleicht schätzen wir recht gut ein, ob wir Erklärungen nachvollziehen können, aber weniger gut, ob wir Beweise selbstständig konstruieren können.
+
+Tritt dieses Muster wiederholt bei vergleichbaren Aufgaben auf, haben wir bessere Belege für eine bestimmte Schwäche unserer Selbsteinschätzung.
+
+Auch das Gegenteil ist möglich: Wir können unsere Fähigkeiten systematisch unterschätzen. Das Ziel ist nicht weniger Zuversicht, sondern eine genauere Zuversicht.
+
+Die Diagonale steht für ideale Kalibrierung bei genügend vielen vergleichbaren Beobachtungen. Das Beispielprotokoll ist eine Illustration, keine verlässliche Diagnose.
+
+Diesen Vergleich nennt man Kalibrierung von Zuversicht. Statt subjektive Eindrücke als endgültig zu akzeptieren, vergleichen wir unsere Vorhersagen mit Belegen. Damit wenden wir die Prinzipien vernünftigen Begründens auf Urteile über den eigenen Geist an.
+
+## 8. Wie sollten wir anders üben?
+
+Was folgt daraus? Sollten wir auf Erklärungen und ausgearbeitete Lösungen verzichten? Natürlich nicht.
+
+Ausgearbeitete Beispiele sind besonders bei unvertrauten Begriffen hilfreich. Sie zeigen Methoden, die wir sonst nur schwer entdecken würden, und machen den Aufbau eines Arguments verständlich.
+
+Das Problem ist nicht, dass Erklärungen vorhanden sind. Es entsteht, wenn wir sie nie entfernen.
+
+Ein nützlicher Ansatz wechselt zwischen dem Untersuchen einer Lösung und einem selbstständigen Versuch.
+
+<ReasoningFigure kind="transfer-practice" />
+
+Wer versucht, Informationen ohne Nachsehen abzurufen, übt aktiven Abruf. Wer die Übung auf mehrere Gelegenheiten verteilt, statt alles in einer Sitzung zu erledigen, übt verteilt.
+
+Dunlosky und Kollegen bewerteten in ihrer Übersicht von 2013 Übungstests und verteiltes Üben für verschiedene Lernaufgaben als besonders nützlich. [Forschungsübersicht](https://doi.org/10.1177/1529100612453266).
+
+Erinnern ist jedoch nur ein Teil des Lernens von Begründungen. Wir müssen auch Verbindungen erklären, Argumente konstruieren, unvertraute Probleme lösen und Rückmeldung erhalten, wenn unsere Begründung scheitert.
+
+Verschiedene Aufgaben verlangen verschiedene Übungsformen. Die Tätigkeit, mit der wir Lernen überprüfen, muss die Fähigkeit erfassen, die wir entwickeln wollen.
+
+Wollen wir Beweise konstruieren können, müssen wir irgendwann selbst Beweise konstruieren. Wollen wir Begründungen auf unvertraute Situationen übertragen, müssen wir irgendwann auf unvertraute Situationen treffen.
+
+Anderen dabei zuzusehen ist eine wertvolle Vorbereitung, kann diese Tätigkeiten aber nicht vollständig ersetzen.
+
+## 9. Woher weißt du, dass du es weißt?
+
+Im Kurs haben wir immer wieder gefragt, woher wir wissen, ob eine Aussage wahr ist. Wir haben Belege, Voraussetzungen, Definitionen, Gegenbeispiele und logische Argumente untersucht.
+
+Heute richten wir diese Frage auf etwas anderes: unser eigenes Verstehen.
+
+<ReasoningFigure kind="transfer-questions" />
+
+Eine Erklärung zu verstehen ist eine echte Leistung. Zugleich ist es eine Einladung, weiter zu untersuchen.
+
+Kann ich erklären, warum das funktioniert? Kann ich es ohne Unterstützung rekonstruieren? Kann ich dieselbe Begründungsstruktur in einer ganz anderen Situation erkennen?
+
+Jede dieser Fragen bietet eine weitere Gelegenheit zu entdecken, was wir gelernt haben. Eine wichtige Gewohnheit vernünftigen Denkens besteht darin, zwischen dem Gefühl des Wissens und den Belegen dafür zu unterscheiden.
+
+**Woher weißt du, dass du es weißt?**
+
+## Ergänzende Übungen
+
+Versuche die Aufgaben, ohne zuerst zu den ausgearbeiteten Beispielen zurückzukehren. Die folgenden vier Referenzlösungen sind Ergänzungen. Vergleiche deine Begründung nach einem selbstständigen Versuch.
+
+### 1. Wiedererkennen
+
+Welches Argument beweist für ganze Zahlen $a,b$ korrekt, dass die Summe zweier gerader ganzer Zahlen gerade ist?
+
+$$
+(2a)+(2b)=2(a+b)
+$$
+
+$$
+2a+2b=4ab
+$$
+
+<Exercise>
+**Ergänzte Referenzlösung.** Die erste Identität folgt aus dem Distributivgesetz. Weil $a+b$ ganzzahlig ist, ist die Summe gerade. Die zweite Identität gilt nicht für beliebige $a,b$: Bei $a=b=1$ stimmen die Seiten zufällig überein, aber bei $a=1,b=2$ ergeben sie $6$ und $8$.
+</Exercise>
+
+### 2. Erklären
+
+Warum genügt die Form $2k$ nicht, solange nicht feststeht, dass $k$ ganzzahlig ist?
+
+<Exercise>
+**Ergänzte Referenzlösung.** Jede reelle Zahl $t$ lässt sich als $2(t/2)$ schreiben. Das allein beweist keine Geradheit. Zum Beispiel ist $3=2(3/2)$, aber $3/2$ ist keine ganze Zahl. Geradheit verlangt einen ganzzahligen Zeugen $k$.
+</Exercise>
+
+### 3. Selbstständiges Konstruieren
+
+Beweise, dass die Differenz zweier ungerader ganzer Zahlen gerade ist.
+
+<Exercise>
+**Ergänzte Referenzlösung.** Seien $x=2a+1$ und $y=2b+1$ mit beliebigen ganzen Zahlen $a,b$. Dann gilt
+
+$$
+x-y=(2a+1)-(2b+1)=2(a-b).
+$$
+
+Weil $a-b\in\mathbb Z$, ist dies das Doppelte einer ganzen Zahl. Negative Differenzen und null sind eingeschlossen.
+</Exercise>
+
+### 4. Transfer
+
+Beweise, dass das Produkt zweier ungerader ganzer Zahlen ungerade ist.
+
+<Exercise>
+**Ergänzte Referenzlösung.** Für beliebige $a,b\in\mathbb Z$ seien $x=2a+1$ und $y=2b+1$. Dann
+
+$$
+xy=(2a+1)(2b+1)=4ab+2a+2b+1=2(2ab+a+b)+1.
+$$
+
+Der Zeuge $2ab+a+b$ ist ganzzahlig, also ist das Produkt ungerade. Der Beweis umfasst negative ungerade ganze Zahlen.
+</Exercise>
+
+### Später zu dieser Aufgabe zurückkehren
+
+Versuche dies nach einer Pause, ohne zuerst die ausgearbeiteten Beispiele anzusehen oder dir die Methode nennen zu lassen.
+
+> Zwei ganze Zahlen lassen bei Division durch eine positive ganze Zahl $d$ denselben Rest. Beweise, dass ihre Differenz durch $d$ teilbar ist.
+
+<Exercise>
+Der mitgelieferte allgemeine Beweis verwendet
+
+$$
+x=da+r,\qquad y=db+r,
+$$
+
+wobei $d$ positiv und ganzzahlig ist, $a,b,r\in\mathbb Z$ und $0\leq r<d$. Also
+
+$$
+x-y=d(a-b).
+$$
+
+Weil $a-b\in\mathbb Z$, gilt
+
+$$
+\boxed{d\mid(x-y)}.
+$$
+
+Dies verallgemeinert den zweiten Beweis: Der gemeinsame Rest fällt weg. Auch negative Eingaben, gleiche Eingaben und $d=1$ sind eingeschlossen.
+</Exercise>
+
+Erkenne die gemeinsame Struktur unter der abstrakteren Aussage, statt nur eine gerade vorgeführte Symbolfolge wiederzugeben.
+
+## Lernkompendium
+
+<ReasoningFigure kind="transfer-fading" />
+
+Entferne vorgegebene Schritte allmählich und übernimm damit selbst die Verantwortung, die Verbindungen zu finden und zu begründen.
+
+## Wissenschaftliche Grundlagen und Vorbereitung
+
+[Dunlosky et al. (2013)](https://doi.org/10.1177/1529100612453266) untersucht zehn Lerntechniken; siehe auch die [Zusammenfassung der Autoren](https://pubmed.ncbi.nlm.nih.gov/26173288/). Übungstests und verteiltes Üben erhalten hohe, Selbsterklärung und verschachteltes Üben mittlere Nützlichkeitsbewertungen. Relevant sind die Abschnitte zu Tests, Verteilung, Selbsterklärung und erneutem Lesen. Daraus folgt nicht, dass ausgearbeitete Erklärungen wirkungslos sind.
+
+Der [Praxisleitfaden des Institute of Education Sciences](https://ies.ed.gov/ncee/wwc/PracticeGuide/1) empfiehlt den Wechsel zwischen Beispielen und eigenen Lösungen, die Verbindung bildlicher und abstrakter Darstellungen, aktiven Abruf und spätere Wiederholung. Die Evidenzbewertungen variieren, auch bei Urteilen über weiteren Lernbedarf. Übung muss zu Ziel und Bedingungen passen.
+
+### Die Frage nach innen richten
+
+Bisher haben wir vor allem die äußere Struktur des Begründens untersucht: gültige Argumente, Beweiskonstruktion, Methodenwahl und Fehlererkennung. Dieselbe Sorgfalt lässt sich auf das eigene Verstehen anwenden.
+
+<ReasoningFigure kind="transfer-course" />
+
+Einer Erklärung zu folgen bietet eine Gelegenheit zum Lernen. Ohne sie erfolgreich zu begründen ist eine andere Leistung. Suche mit den mathematischen Aufgaben nach Belegen für beides.

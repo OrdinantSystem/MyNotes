@@ -1,0 +1,576 @@
+{
+  "origin": "http://127.0.0.1:4322",
+  "base": "",
+  "rows": [
+    {
+      "lang": "en",
+      "theme": "light",
+      "width": 1440,
+      "scroll": 1440,
+      "h1": 1,
+      "h2": 10,
+      "figures": 3,
+      "flows": 2,
+      "checkboxes": 8,
+      "katexErrors": 0,
+      "overflow": [],
+      "active": "/analysis/lessons/lernzettel-01/",
+      "sectionOpen": true,
+      "toc": [
+        "#1-what-is-a-mathematical-statement--aussage",
+        "#2-what-is-a-predicate--pr%C3%A4dikat",
+        "#3-understanding-function-notation",
+        "#4-statements-versus-predicates",
+        "#5-why-definitions-are-not-the-same-as-variables",
+        "#6-free-and-bound-variables--freie-und-gebundene-variablen",
+        "#7-quantifiers--quantoren",
+        "#8-applying-everything-to-%C3%BCbungsblatt-1--the-kalupes",
+        "#9-connections-to-mathematical-proofs",
+        "#10-revision-checklist"
+      ],
+      "uniqueIds": true,
+      "svgLabels": [
+        {
+          "text": "Domain ℕ",
+          "x": 83.2265625,
+          "right": 182.7734375
+        },
+        {
+          "text": "{0, 1}",
+          "x": 486.46875,
+          "right": 537.53125
+        },
+        {
+          "text": "1",
+          "x": 126.6015625,
+          "right": 139.3984375
+        },
+        {
+          "text": "2",
+          "x": 124.8828125,
+          "right": 141.1171875
+        },
+        {
+          "text": "3",
+          "x": 124.5234375,
+          "right": 141.4765625
+        },
+        {
+          "text": "4",
+          "x": 124.34375,
+          "right": 141.65625
+        },
+        {
+          "text": "1",
+          "x": 504.265625,
+          "right": 519.734375
+        },
+        {
+          "text": "0",
+          "x": 501.4921875,
+          "right": 522.5078125
+        }
+      ],
+      "language": "/de/analysis/lessons/lernzettel-01/"
+    },
+    {
+      "lang": "en",
+      "theme": "light",
+      "width": 390,
+      "scroll": 390,
+      "h1": 1,
+      "h2": 10,
+      "figures": 3,
+      "flows": 2,
+      "checkboxes": 8,
+      "katexErrors": 0,
+      "overflow": [],
+      "active": "/analysis/lessons/lernzettel-01/",
+      "sectionOpen": true,
+      "toc": [
+        "#1-what-is-a-mathematical-statement--aussage",
+        "#2-what-is-a-predicate--pr%C3%A4dikat",
+        "#3-understanding-function-notation",
+        "#4-statements-versus-predicates",
+        "#5-why-definitions-are-not-the-same-as-variables",
+        "#6-free-and-bound-variables--freie-und-gebundene-variablen",
+        "#7-quantifiers--quantoren",
+        "#8-applying-everything-to-%C3%BCbungsblatt-1--the-kalupes",
+        "#9-connections-to-mathematical-proofs",
+        "#10-revision-checklist"
+      ],
+      "uniqueIds": true,
+      "svgLabels": [
+        {
+          "text": "Domain ℕ",
+          "x": 83.23884582519531,
+          "right": 182.76113891601562
+        },
+        {
+          "text": "{0, 1}",
+          "x": 486.4744873046875,
+          "right": 537.5254440307617
+        },
+        {
+          "text": "1",
+          "x": 126.59871673583984,
+          "right": 139.40126514434814
+        },
+        {
+          "text": "2",
+          "x": 124.87897491455078,
+          "right": 141.12101364135742
+        },
+        {
+          "text": "3",
+          "x": 124.51273345947266,
+          "right": 141.48725509643555
+        },
+        {
+          "text": "4",
+          "x": 124.33757019042969,
+          "right": 141.66241073608398
+        },
+        {
+          "text": "1",
+          "x": 504.2611083984375,
+          "right": 519.7388153076172
+        },
+        {
+          "text": "0",
+          "x": 501.49041748046875,
+          "right": 522.5095252990723
+        }
+      ],
+      "language": "/de/analysis/lessons/lernzettel-01/"
+    },
+    {
+      "lang": "en",
+      "theme": "dark",
+      "width": 1440,
+      "scroll": 1440,
+      "h1": 1,
+      "h2": 10,
+      "figures": 3,
+      "flows": 2,
+      "checkboxes": 8,
+      "katexErrors": 0,
+      "overflow": [],
+      "active": "/analysis/lessons/lernzettel-01/",
+      "sectionOpen": true,
+      "toc": [
+        "#1-what-is-a-mathematical-statement--aussage",
+        "#2-what-is-a-predicate--pr%C3%A4dikat",
+        "#3-understanding-function-notation",
+        "#4-statements-versus-predicates",
+        "#5-why-definitions-are-not-the-same-as-variables",
+        "#6-free-and-bound-variables--freie-und-gebundene-variablen",
+        "#7-quantifiers--quantoren",
+        "#8-applying-everything-to-%C3%BCbungsblatt-1--the-kalupes",
+        "#9-connections-to-mathematical-proofs",
+        "#10-revision-checklist"
+      ],
+      "uniqueIds": true,
+      "svgLabels": [
+        {
+          "text": "Domain ℕ",
+          "x": 83.2265625,
+          "right": 182.7734375
+        },
+        {
+          "text": "{0, 1}",
+          "x": 486.46875,
+          "right": 537.53125
+        },
+        {
+          "text": "1",
+          "x": 126.6015625,
+          "right": 139.3984375
+        },
+        {
+          "text": "2",
+          "x": 124.8828125,
+          "right": 141.1171875
+        },
+        {
+          "text": "3",
+          "x": 124.5234375,
+          "right": 141.4765625
+        },
+        {
+          "text": "4",
+          "x": 124.34375,
+          "right": 141.65625
+        },
+        {
+          "text": "1",
+          "x": 504.265625,
+          "right": 519.734375
+        },
+        {
+          "text": "0",
+          "x": 501.4921875,
+          "right": 522.5078125
+        }
+      ],
+      "language": "/de/analysis/lessons/lernzettel-01/"
+    },
+    {
+      "lang": "en",
+      "theme": "dark",
+      "width": 390,
+      "scroll": 390,
+      "h1": 1,
+      "h2": 10,
+      "figures": 3,
+      "flows": 2,
+      "checkboxes": 8,
+      "katexErrors": 0,
+      "overflow": [],
+      "active": "/analysis/lessons/lernzettel-01/",
+      "sectionOpen": true,
+      "toc": [
+        "#1-what-is-a-mathematical-statement--aussage",
+        "#2-what-is-a-predicate--pr%C3%A4dikat",
+        "#3-understanding-function-notation",
+        "#4-statements-versus-predicates",
+        "#5-why-definitions-are-not-the-same-as-variables",
+        "#6-free-and-bound-variables--freie-und-gebundene-variablen",
+        "#7-quantifiers--quantoren",
+        "#8-applying-everything-to-%C3%BCbungsblatt-1--the-kalupes",
+        "#9-connections-to-mathematical-proofs",
+        "#10-revision-checklist"
+      ],
+      "uniqueIds": true,
+      "svgLabels": [
+        {
+          "text": "Domain ℕ",
+          "x": 83.23884582519531,
+          "right": 182.76113891601562
+        },
+        {
+          "text": "{0, 1}",
+          "x": 486.4744873046875,
+          "right": 537.5254440307617
+        },
+        {
+          "text": "1",
+          "x": 126.59871673583984,
+          "right": 139.40126514434814
+        },
+        {
+          "text": "2",
+          "x": 124.87897491455078,
+          "right": 141.12101364135742
+        },
+        {
+          "text": "3",
+          "x": 124.51273345947266,
+          "right": 141.48725509643555
+        },
+        {
+          "text": "4",
+          "x": 124.33757019042969,
+          "right": 141.66241073608398
+        },
+        {
+          "text": "1",
+          "x": 504.2611083984375,
+          "right": 519.7388153076172
+        },
+        {
+          "text": "0",
+          "x": 501.49041748046875,
+          "right": 522.5095252990723
+        }
+      ],
+      "language": "/de/analysis/lessons/lernzettel-01/"
+    },
+    {
+      "lang": "de",
+      "theme": "light",
+      "width": 1440,
+      "scroll": 1440,
+      "h1": 1,
+      "h2": 10,
+      "figures": 3,
+      "flows": 2,
+      "checkboxes": 8,
+      "katexErrors": 0,
+      "overflow": [],
+      "active": "/de/analysis/lessons/lernzettel-01/",
+      "sectionOpen": true,
+      "toc": [
+        "#1-was-ist-eine-mathematische-aussage",
+        "#2-was-ist-ein-pr%C3%A4dikat",
+        "#3-die-funktionsschreibweise-verstehen",
+        "#4-aussagen-und-pr%C3%A4dikate-im-vergleich",
+        "#5-warum-definitionen-und-variablen-verschieden-sind",
+        "#6-freie-und-gebundene-variablen",
+        "#7-quantoren",
+        "#8-anwendung-auf-%C3%BCbungsblatt-1--die-kalupen",
+        "#9-verbindungen-zu-mathematischen-beweisen",
+        "#10-checkliste-zur-wiederholung"
+      ],
+      "uniqueIds": true,
+      "svgLabels": [
+        {
+          "text": "Definitionsmenge ℕ",
+          "x": 32.21875,
+          "right": 233.78125
+        },
+        {
+          "text": "{0, 1}",
+          "x": 486.46875,
+          "right": 537.53125
+        },
+        {
+          "text": "1",
+          "x": 126.6015625,
+          "right": 139.3984375
+        },
+        {
+          "text": "2",
+          "x": 124.8828125,
+          "right": 141.1171875
+        },
+        {
+          "text": "3",
+          "x": 124.5234375,
+          "right": 141.4765625
+        },
+        {
+          "text": "4",
+          "x": 124.34375,
+          "right": 141.65625
+        },
+        {
+          "text": "1",
+          "x": 504.265625,
+          "right": 519.734375
+        },
+        {
+          "text": "0",
+          "x": 501.4921875,
+          "right": 522.5078125
+        }
+      ],
+      "language": "/analysis/lessons/lernzettel-01/"
+    },
+    {
+      "lang": "de",
+      "theme": "light",
+      "width": 390,
+      "scroll": 390,
+      "h1": 1,
+      "h2": 10,
+      "figures": 3,
+      "flows": 2,
+      "checkboxes": 8,
+      "katexErrors": 0,
+      "overflow": [],
+      "active": "/de/analysis/lessons/lernzettel-01/",
+      "sectionOpen": true,
+      "toc": [
+        "#1-was-ist-eine-mathematische-aussage",
+        "#2-was-ist-ein-pr%C3%A4dikat",
+        "#3-die-funktionsschreibweise-verstehen",
+        "#4-aussagen-und-pr%C3%A4dikate-im-vergleich",
+        "#5-warum-definitionen-und-variablen-verschieden-sind",
+        "#6-freie-und-gebundene-variablen",
+        "#7-quantoren",
+        "#8-anwendung-auf-%C3%BCbungsblatt-1--die-kalupen",
+        "#9-verbindungen-zu-mathematischen-beweisen",
+        "#10-checkliste-zur-wiederholung"
+      ],
+      "uniqueIds": true,
+      "svgLabels": [
+        {
+          "text": "Definitionsmenge ℕ",
+          "x": 32.2515983581543,
+          "right": 233.74840927124023
+        },
+        {
+          "text": "{0, 1}",
+          "x": 486.4744873046875,
+          "right": 537.5254440307617
+        },
+        {
+          "text": "1",
+          "x": 126.59871673583984,
+          "right": 139.40126514434814
+        },
+        {
+          "text": "2",
+          "x": 124.87897491455078,
+          "right": 141.12101364135742
+        },
+        {
+          "text": "3",
+          "x": 124.51273345947266,
+          "right": 141.48725509643555
+        },
+        {
+          "text": "4",
+          "x": 124.33757019042969,
+          "right": 141.66241073608398
+        },
+        {
+          "text": "1",
+          "x": 504.2611083984375,
+          "right": 519.7388153076172
+        },
+        {
+          "text": "0",
+          "x": 501.49041748046875,
+          "right": 522.5095252990723
+        }
+      ],
+      "language": "/analysis/lessons/lernzettel-01/"
+    },
+    {
+      "lang": "de",
+      "theme": "dark",
+      "width": 1440,
+      "scroll": 1440,
+      "h1": 1,
+      "h2": 10,
+      "figures": 3,
+      "flows": 2,
+      "checkboxes": 8,
+      "katexErrors": 0,
+      "overflow": [],
+      "active": "/de/analysis/lessons/lernzettel-01/",
+      "sectionOpen": true,
+      "toc": [
+        "#1-was-ist-eine-mathematische-aussage",
+        "#2-was-ist-ein-pr%C3%A4dikat",
+        "#3-die-funktionsschreibweise-verstehen",
+        "#4-aussagen-und-pr%C3%A4dikate-im-vergleich",
+        "#5-warum-definitionen-und-variablen-verschieden-sind",
+        "#6-freie-und-gebundene-variablen",
+        "#7-quantoren",
+        "#8-anwendung-auf-%C3%BCbungsblatt-1--die-kalupen",
+        "#9-verbindungen-zu-mathematischen-beweisen",
+        "#10-checkliste-zur-wiederholung"
+      ],
+      "uniqueIds": true,
+      "svgLabels": [
+        {
+          "text": "Definitionsmenge ℕ",
+          "x": 32.21875,
+          "right": 233.78125
+        },
+        {
+          "text": "{0, 1}",
+          "x": 486.46875,
+          "right": 537.53125
+        },
+        {
+          "text": "1",
+          "x": 126.6015625,
+          "right": 139.3984375
+        },
+        {
+          "text": "2",
+          "x": 124.8828125,
+          "right": 141.1171875
+        },
+        {
+          "text": "3",
+          "x": 124.5234375,
+          "right": 141.4765625
+        },
+        {
+          "text": "4",
+          "x": 124.34375,
+          "right": 141.65625
+        },
+        {
+          "text": "1",
+          "x": 504.265625,
+          "right": 519.734375
+        },
+        {
+          "text": "0",
+          "x": 501.4921875,
+          "right": 522.5078125
+        }
+      ],
+      "language": "/analysis/lessons/lernzettel-01/"
+    },
+    {
+      "lang": "de",
+      "theme": "dark",
+      "width": 390,
+      "scroll": 390,
+      "h1": 1,
+      "h2": 10,
+      "figures": 3,
+      "flows": 2,
+      "checkboxes": 8,
+      "katexErrors": 0,
+      "overflow": [],
+      "active": "/de/analysis/lessons/lernzettel-01/",
+      "sectionOpen": true,
+      "toc": [
+        "#1-was-ist-eine-mathematische-aussage",
+        "#2-was-ist-ein-pr%C3%A4dikat",
+        "#3-die-funktionsschreibweise-verstehen",
+        "#4-aussagen-und-pr%C3%A4dikate-im-vergleich",
+        "#5-warum-definitionen-und-variablen-verschieden-sind",
+        "#6-freie-und-gebundene-variablen",
+        "#7-quantoren",
+        "#8-anwendung-auf-%C3%BCbungsblatt-1--die-kalupen",
+        "#9-verbindungen-zu-mathematischen-beweisen",
+        "#10-checkliste-zur-wiederholung"
+      ],
+      "uniqueIds": true,
+      "svgLabels": [
+        {
+          "text": "Definitionsmenge ℕ",
+          "x": 32.2515983581543,
+          "right": 233.74840927124023
+        },
+        {
+          "text": "{0, 1}",
+          "x": 486.4744873046875,
+          "right": 537.5254440307617
+        },
+        {
+          "text": "1",
+          "x": 126.59871673583984,
+          "right": 139.40126514434814
+        },
+        {
+          "text": "2",
+          "x": 124.87897491455078,
+          "right": 141.12101364135742
+        },
+        {
+          "text": "3",
+          "x": 124.51273345947266,
+          "right": 141.48725509643555
+        },
+        {
+          "text": "4",
+          "x": 124.33757019042969,
+          "right": 141.66241073608398
+        },
+        {
+          "text": "1",
+          "x": 504.2611083984375,
+          "right": 519.7388153076172
+        },
+        {
+          "text": "0",
+          "x": 501.49041748046875,
+          "right": 522.5095252990723
+        }
+      ],
+      "language": "/analysis/lessons/lernzettel-01/"
+    }
+  ],
+  "errors": [],
+  "nativeResetWithoutJavaScript": true
+}

@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-24",
+  "lesson": "auditing-a-proof",
+  "languages": [
+    "en",
+    "de"
+  ],
+  "viewports": [
+    [
+      1440,
+      1000
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "figuresPerLesson": 22,
+  "activitiesPerLesson": 3,
+  "sections": 8,
+  "compendium": true,
+  "firstInvalidStep": {
+    "initialNeutral": true,
+    "emptyCheckPrompt": true,
+    "laterLine6Feedback": true,
+    "correctLine5": true,
+    "diagnosticStyleOnlyAfterCheck": true,
+    "resetClears": true,
+    "keyboardCheck": true
+  },
+  "cancellation": {
+    "factors": [
+      3,
+      1,
+      0
+    ],
+    "zeroOutputs": [
+      0,
+      0
+    ],
+    "resetFactor": 3
+  },
+  "cases": {
+    "initial": 0.5,
+    "checked": [
+      -2,
+      0,
+      0.75,
+      1,
+      3
+    ],
+    "keyboardQuarterStep": true,
+    "invalidPoint1RestoresPoint75": true,
+    "reset": 0.5,
+    "graphIntersections": [
+      [
+        100,
+        300
+      ],
+      [
+        245,
+        170
+      ]
+    ],
+    "halfReference": [
+      [
+        172.5,
+        235
+      ],
+      [
+        172.5,
+        267.5
+      ]
+    ]
+  },
+  "challenges": {
+    "initiallyClosed": 3,
+    "openedInBothLanguages": true,
+    "firstArgumentChangesNTo2N": true,
+    "oddProductValid": true,
+    "zeroHasNoInverse": true
+  },
+  "navigation": {
+    "previous22AndNext23": true,
+    "overviewLessonCards": 23
+  },
+  "search": {
+    "enQuery": "take proof apart",
+    "deQuery": "Beweis auseinandernimmt",
+    "titleLinkFoundBoth": true
+  },
+  "gallery": {
+    "figures": 22,
+    "activities": 4,
+    "duplicateIds": 0,
+    "firstCancellationZeroIndependentThree": true
+  },
+  "prefix": {
+    "path": "/MyNotes/",
+    "englishAndGerman": true,
+    "homeLinksCorrect": true,
+    "interactiveZeroFactor": true,
+    "brokenImages": 0
+  },
+  "pageOverflow": false,
+  "mathErrors": 0,
+  "browserWarningsOrErrors": [],
+  "screenshots": [
+    "reasoning-23-desktop.jpg",
+    "reasoning-23-compact-de.jpg"
+  ],
+  "reviewStatus": "unreviewed",
+  "limits": [
+    "No physical touch/pen or screen-reader audit",
+    "Build and visual checks are not mathematical or translation review"
+  ]
+}

@@ -1,0 +1,20 @@
+---
+import MathText from './MathText.astro';
+interface Props {items:string[]}
+const {items}=Astro.props,locale=Astro.locals.locale||'en';
+---
+<form class="recall-checklist" autocomplete="off">
+ <fieldset><legend>{locale==='de'?'Selbstüberprüfung':'Self-review'}</legend>
+  {items.map(item=><label><input type="checkbox"/><span><MathText text={item}/></span></label>)}
+ </fieldset>
+ <button type="reset">{locale==='de'?'Auswahl zurücksetzen':'Clear checkmarks'}</button>
+</form>
+<style>
+ .recall-checklist{margin:var(--space-6) 0}
+ fieldset{border:1px solid var(--line);border-radius:var(--radius-panel);padding:var(--space-4) var(--space-5)}
+ legend{font-weight:600;padding:0 var(--space-2)}
+ label{display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-3) 0;cursor:pointer;line-height:1.7}
+ input{width:18px;height:18px;flex-shrink:0;margin-top:5px;accent-color:var(--accent)}
+ button{margin-top:var(--space-3);padding:var(--space-2) var(--space-3);background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:var(--radius-control);font:inherit;font-size:13px;cursor:pointer}
+ input:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+</style>

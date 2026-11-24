@@ -1,5 +1,41 @@
 ---
 /** Public MDX entry point. Presets are versioned with source, not copied into pages. */
+import LemmaLab from './LemmaLab.astro';
+import type {LemmaPreset} from '../../lib/interactive/lemma-model';
+import ReframeLab from './ReframeLab.astro';
+import type {ReframePreset} from '../../lib/interactive/reframe-model';
+import TriangleLab from './TriangleLab.astro';
+import type {TrianglePreset} from '../../lib/interactive/triangle-model';
+import TransferLab from './TransferLab.astro';
+import type {TransferPreset} from '../../lib/interactive/transfer-model';
+import AuditLab from './AuditLab.astro';
+import type {AuditPreset} from '../../lib/interactive/audit-model';
+import UniquenessLab from './UniquenessLab.astro';
+import type {UniquenessPreset} from '../../lib/interactive/uniqueness-model';
+import InductionLab from './InductionLab.astro';
+import type {InductionPreset} from '../../lib/interactive/induction-model';
+import ContradictionLab from './ContradictionLab.astro';
+import type {ContradictionPreset} from '../../lib/interactive/contradiction-model';
+import ContraLab from './ContraLab.astro';
+import type {ContraPreset} from '../../lib/interactive/contraposition-model';
+import CasesLab from './CasesLab.astro';
+import type {CasesPreset} from '../../lib/interactive/cases-model';
+import DiscoveryLab from './DiscoveryLab.astro';
+import type {DiscoveryPreset} from '../../lib/interactive/discovery-model';
+import JustificationLab from './JustificationLab.astro';
+import type {JustificationPreset} from '../../lib/interactive/justification-model';
+import EquivalenceLab from './EquivalenceLab.astro';
+import type {EquivalencePreset} from '../../lib/interactive/equivalence-model';
+import WorldLab from './WorldLab.astro';
+import type {WorldPreset} from '../../lib/interactive/world-model';
+import DependenceLab from './DependenceLab.astro';
+import type {DependencePreset} from '../../lib/interactive/dependence-model';
+import SwitchLab from './SwitchLab.astro';
+import type {SwitchPreset} from '../../lib/interactive/switch-model';
+import ConditionalLab from './ConditionalLab.astro';
+import type {ConditionalPreset} from '../../lib/interactive/conditional-model';
+import LanguageLab from './LanguageLab.astro';
+import type {LanguagePreset} from '../../lib/interactive/language-model';
 import ArgumentLab from './ArgumentLab.astro';
 import type {ArgumentPreset} from '../../lib/interactive/argument-model';
 import InquiryLab from './InquiryLab.astro';
@@ -28,6 +64,24 @@ import ParameterExplorer from './ParameterExplorer.astro';
 import MatrixProduct from './MatrixProduct.astro';
 import type {VectorPreset,VectorScenario} from '../../lib/interactive/vector-scenarios';
 type Props =
+ | {kind:'lemma';preset:LemmaPreset;id:string}
+ | {kind:'reframe';preset:ReframePreset;id:string}
+ | {kind:'triangle';preset:TrianglePreset;id:string}
+ | {kind:'transfer';preset:TransferPreset;id:string}
+ | {kind:'audit';preset:AuditPreset;id:string}
+ | {kind:'induction';preset:InductionPreset;id:string}
+ | {kind:'uniqueness';preset:UniquenessPreset;id:string}
+ | {kind:'contradiction';preset:ContradictionPreset;id:string}
+ | {kind:'contraposition';preset:ContraPreset;id:string}
+ | {kind:'cases';preset:CasesPreset;id:string}
+ | {kind:'discovery';preset:DiscoveryPreset;id:string}
+ | {kind:'justification';preset:JustificationPreset;id:string}
+ | {kind:'equivalence';preset:EquivalencePreset;id:string}
+ | {kind:'worlds';preset:WorldPreset;id:string}
+ | {kind:'dependence';preset:DependencePreset;id:string}
+ | {kind:'switches';preset:SwitchPreset;id:string;group?:string}
+ | {kind:'conditional';preset:ConditionalPreset;id:string}
+ | {kind:'language';preset:LanguagePreset;id:string;group?:string}
  | {kind:'arguments';preset:ArgumentPreset;id:string}
  | {kind:'inquiry';preset:InquiryPreset;id:string}
  | {kind:'validity';preset:ValidityPreset;id:string}
@@ -53,4 +107,4 @@ type Props =
  | {kind:'matrix-product';left?:number[][];right?:number[][];title?:string;description?:string;caption?:string;id?:string};
 const props=Astro.props;
 ---
-{props.kind==='arguments'?<ArgumentLab {...props}/>:props.kind==='inquiry'?<InquiryLab {...props}/>:props.kind==='validity'?<ValidityLab {...props}/>:props.kind==='counterexamples'?<CounterexampleLab {...props}/>:props.kind==='patterns'?<PatternLab {...props}/>:props.kind==='parity'?<ParityLab {...props}/>:props.kind==='equations'?<EquationLab {...props}/>:props.kind==='algebra'?<AlgebraLab {...props}/>:props.kind==='reasoning'?<ReasoningLab {...props}/>:props.kind==='candidates'||props.kind==='conditions'||props.kind==='number-line'||props.kind==='quantifiers'||props.kind==='sequence'?<AnalysisLab {...props}/>:props.kind==='mind-map'?<MindMap {...props}/>:props.kind==='logic'?<LogicLab {...props}/>:props.kind==='vectors'?<VectorLab preset={props.preset} scenario={props.scenario} id={props.id}/>:props.kind==='matrix-product'?<MatrixProduct {...props}/>:<ParameterExplorer kind={props.kind} id={props.id}/>}
+{props.kind==='lemma'?<LemmaLab {...props}/>:props.kind==='reframe'?<ReframeLab {...props}/>:props.kind==='triangle'?<TriangleLab {...props}/>:props.kind==='transfer'?<TransferLab {...props}/>:props.kind==='audit'?<AuditLab {...props}/>:props.kind==='induction'?<InductionLab {...props}/>:props.kind==='uniqueness'?<UniquenessLab {...props}/>:props.kind==='contradiction'?<ContradictionLab {...props}/>:props.kind==='contraposition'?<ContraLab {...props}/>:props.kind==='cases'?<CasesLab {...props}/>:props.kind==='discovery'?<DiscoveryLab {...props}/>:props.kind==='justification'?<JustificationLab {...props}/>:props.kind==='equivalence'?<EquivalenceLab {...props}/>:props.kind==='worlds'?<WorldLab {...props}/>:props.kind==='dependence'?<DependenceLab {...props}/>:props.kind==='switches'?<SwitchLab {...props}/>:props.kind==='conditional'?<ConditionalLab {...props}/>:props.kind==='language'?<LanguageLab {...props}/>:props.kind==='arguments'?<ArgumentLab {...props}/>:props.kind==='inquiry'?<InquiryLab {...props}/>:props.kind==='validity'?<ValidityLab {...props}/>:props.kind==='counterexamples'?<CounterexampleLab {...props}/>:props.kind==='patterns'?<PatternLab {...props}/>:props.kind==='parity'?<ParityLab {...props}/>:props.kind==='equations'?<EquationLab {...props}/>:props.kind==='algebra'?<AlgebraLab {...props}/>:props.kind==='reasoning'?<ReasoningLab {...props}/>:props.kind==='candidates'||props.kind==='conditions'||props.kind==='number-line'||props.kind==='quantifiers'||props.kind==='sequence'?<AnalysisLab {...props}/>:props.kind==='mind-map'?<MindMap {...props}/>:props.kind==='logic'?<LogicLab {...props}/>:props.kind==='vectors'?<VectorLab preset={props.preset} scenario={props.scenario} id={props.id}/>:props.kind==='matrix-product'?<MatrixProduct {...props}/>:<ParameterExplorer kind={props.kind} id={props.id}/>}

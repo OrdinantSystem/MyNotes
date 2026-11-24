@@ -1,0 +1,344 @@
+---
+locale: de
+course: "analysis"
+chapter: analysis-second-exam-prep
+sourceId: analysis-second-exam-01
+sourcePages: []
+sourceLocations: ["Concept map; Sections 1–10"]
+title: "Lernzettel 01 — Mathematische Logik"
+navTitle: "Lernzettel 01"
+description: "Aussagen, Prädikate, Funktionsschreibweise, freie und gebundene Variablen, Quantoren und die Kalupenaufgabe."
+order: 21
+kind: recap
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+thumbnail: logic
+---
+
+Mathematische Logik verbindet die Bedeutung eines Ausdrucks mit seiner formalen Schreibweise und der Begründung einer Schlussfolgerung. Dieser Lernzettel führt Aussagen, Prädikate, Funktionen und Quantoren zusammen. Wir verwenden die klassische zweiwertige Logik mit $1$ für wahr und $0$ für falsch sowie $\mathbb N=\{1,2,3,\ldots\}$.
+
+<LogicFigure kind="concept-map" />
+
+## 1. Was ist eine mathematische Aussage?
+
+Eine **Aussage** ist ein mathematischer oder logischer Ausdruck mit einem bestimmten Wahrheitswert: entweder wahr oder falsch.
+
+Betrachte:
+
+$$
+A:\quad\text{„4 ist eine gerade Zahl.“}
+$$
+
+Wir wissen, dass dies wahr ist: Eine ganze Zahl heißt gerade, wenn sie sich als das Doppelte einer ganzen Zahl schreiben lässt. Formal gilt für $n\in\mathbb Z$:
+
+$$
+n\text{ ist gerade}\iff\exists k\in\mathbb Z:\ n=2k.
+$$
+
+In unserem Beispiel ist $4=2\cdot2$. Also:
+
+$$
+\boxed{A=1\quad\text{(wahr)}}
+$$
+
+Wir müssen den Wahrheitswert einer Aussage nicht *kennen*. Entscheidend ist, dass sie einen bestimmten Wahrheitswert besitzt, sobald Bedeutung und mathematischer Kontext feststehen. Hier ist $A=1$ eine Kurzschreibweise dafür, der Aussage $A$ den Wahrheitswert $1$ zuzuordnen.
+
+## 2. Was ist ein Prädikat?
+
+Ersetzen wir die Zahl $4$ durch eine Variable:
+
+$$
+P(x):\quad\text{„}x\text{ ist gerade.“}
+$$
+
+Ohne den Wert von $x$ können wir keinen einzelnen Wahrheitswert bestimmen. Zum Beispiel:
+
+$$
+\begin{aligned}
+P(4)&=1\\
+P(5)&=0\\
+P(8)&=1\\
+P(9)&=0.
+\end{aligned}
+$$
+
+In der klassischen zweiwertigen Logik können wir dieses Prädikat bei festgelegter Interpretation als Funktion mit den Ausgabewerten $0$ und $1$ darstellen.
+
+<Flow nodes={[
+ {label:'Eingabe',tex:'x\\in\\mathbb N',detail:'Eine natürliche Zahl.'},
+ {label:'Prädikat',tex:'P(x)',detail:'Ist $x$ gerade?'},
+ {label:'Ausgabe',tex:'1\\text{ (wahr)}\\quad\\text{oder}\\quad0\\text{ (falsch)}',detail:'Genau ein Wahrheitswert für jede Eingabe.'}
+]} caption="Das Prädikat ordnet jeder Eingabe einen Wahrheitswert zu." />
+
+$P$ ist die wahrheitswertige Funktion, während $P(4)$ ihr Wert bei der Eingabe $4$ ist. Der Ausdruck „$4$ ist gerade“ ist die entstandene Aussage; die Funktionsdarstellung ordnet ihr den Wert $1$ zu.
+
+## 3. Die Funktionsschreibweise verstehen
+
+Unser Prädikat schreiben wir als:
+
+$$
+\boxed{P:\mathbb N\longrightarrow\{0,1\}}
+$$
+
+Diese Schreibweise nennt den Funktionsnamen, die Definitionsmenge und die Zielmenge.
+
+| Symbol | Bedeutung | Fachbegriff |
+| --- | --- | --- |
+| $P$ | Name der Funktion | Funktion |
+| $:$ | Leitet Definitionsmenge und Zielmenge ein | — |
+| $\mathbb N$ | Natürliche Zahlen; Eingabemenge | Definitionsmenge |
+| $\longrightarrow$ | Bildet von einer Menge in eine andere ab | Abbildung |
+| $\{0,1\}$ | Menge der möglichen Ausgaben | Zielmenge |
+
+Die Schreibweise allein legt die Zuordnungsvorschrift nicht fest. Unsere vorherige Definition liefert sie: Gerade Eingaben werden auf $1$ abgebildet, ungerade auf $0$.
+
+<LogicFigure kind="predicate-mapping" />
+
+Beachte zwei grundlegende Anforderungen an eine Funktion:
+
+- Jedes Element der Definitionsmenge muss eine Ausgabe haben.
+- Jede Eingabe muss genau eine Ausgabe haben.
+
+## 4. Aussagen und Prädikate im Vergleich
+
+| Eigenschaft | Aussage | Prädikat mit freien Variablen |
+| --- | --- | --- |
+| Bezeichnung | Aussage | Prädikat / offene Formel |
+| Beispiel | $4\text{ ist gerade}$ | $x\text{ ist gerade}$ |
+| Freie Variable? | Nein | Ja |
+| Bestimmter Wahrheitswert? | Ja | Abhängig von der Belegung |
+| Beispielschreibweise | $A$ | $P(x)$ |
+
+Ein Prädikat kann eine Aussage liefern, wenn wir einen Wert einsetzen:
+
+$$
+\underbrace{P(x)}_{\text{Offener Ausdruck}}
+\xrightarrow{x=4}
+\underbrace{P(4)}_{\text{Aussage}}.
+$$
+
+Hier bezeichnet $P(4)$ die durch Einsetzen entstandene Behauptung; in der Wahrheitsfunktionsschreibweise aus Abschnitt 2 schreiben wir außerdem $P(4)=1$ für ihren Wahrheitswert. Eine weitere Möglichkeit, Aussagen zu bilden, sind **Quantoren**, wie in den Abschnitten 6–7.
+
+## 5. Warum Definitionen und Variablen verschieden sind
+
+Hängt die Aussage „$4$ ist gerade“ nicht davon ab, wie wir „$4$“ und „gerade“ definieren? Ja, aber wir müssen zwei Arten der Abhängigkeit unterscheiden.
+
+### A. Abhängigkeit von Definitionen
+
+$$
+A:\quad4\text{ ist gerade}.
+$$
+
+Die Bedeutung hängt von den Definitionen der Zahl $4$ und der Eigenschaft „gerade“ ab. Sobald diese Definitionen feststehen, enthält $A$ jedoch keine freie Variable.
+
+### B. Abhängigkeit von Variablen
+
+$$
+P(x):\quad x\text{ ist gerade}.
+$$
+
+Hier bleibt $x$ bewusst unbestimmt. Der Wahrheitswert des Ausdrucks hängt davon ab, welche Zahl wir für $x$ einsetzen.
+
+### C. Kann „gerade“ selbst zu einer Variablen werden?
+
+Ja. Wir können die Eigenschaft ausdrücklich als weitere Eingabe behandeln. Sei $R$ eine Teilmenge der natürlichen Zahlen. Wir definieren:
+
+$$
+Q(n,R)=\begin{cases}
+1,&n\in R,\\
+0,&n\notin R.
+\end{cases}
+$$
+
+Dann ist:
+
+$$
+Q:\mathbb N\times\mathcal P(\mathbb N)\longrightarrow\{0,1\},
+$$
+
+wobei $\mathcal P(\mathbb N)$ die Menge aller Teilmengen von $\mathbb N$ bezeichnet.
+
+Ist $R$ die Menge der geraden natürlichen Zahlen, gilt $Q(4,R)=1$. Ist $R$ die Menge der ungeraden natürlichen Zahlen, gilt $Q(4,R)=0$. So kann die Eigenschaft selbst variieren.
+
+**Der grundlegende Unterschied:** Bei einer fehlenden Definition ist die Interpretation noch nicht festgelegt. Bei einer freien Variablen lässt der Ausdruck eine Eingabe bewusst unbestimmt.
+
+## 6. Freie und gebundene Variablen
+
+Betrachte den Ausdruck über den reellen Zahlen:
+
+$$
+A(x):\quad x^2=4.
+$$
+
+Hier ist $x$ eine **freie Variable**: Wir haben weder einen Wert eingesetzt noch sie durch einen Quantor gebunden. Zum Beispiel:
+
+$$
+A(2)=1,\qquad A(3)=0.
+$$
+
+Nun führen wir einen Existenzquantor ein:
+
+$$
+B:\quad\exists x\in\mathbb R:\ x^2=4.
+$$
+
+Lies dies als: „Es gibt mindestens eine reelle Zahl $x$, sodass $x^2=4$.“ Die Variable $x$ ist nun durch den Quantor $\exists$ **gebunden**.
+
+<Flow nodes={[
+ {label:'Freie Variable',tex:'x^2=4',detail:'Der Wahrheitswert hängt von $x$ ab.'},
+ {label:'Gebundene Variable',tex:'\\exists x\\in\\mathbb R:\\ x^2=4',detail:'Eine vollständige Aussage: $x=2$ ist ein Zeuge.'}
+]} caption="Durch das Binden der freien Variablen entsteht eine Aussage. Diese Existenzaussage ist wahr." />
+
+Ein Quantor beseitigt nicht automatisch *alle* freien Variablen. Jede freie Variable muss durch einen Wert ersetzt oder passend gebunden werden, damit eine geschlossene Aussage entsteht. In $\exists x\in\mathbb R:x^2=y$ bleibt beispielsweise $y$ frei.
+
+## 7. Quantoren
+
+Mit Quantoren bilden wir Aussagen über Elemente einer Menge. Es gibt zwei grundlegende Quantoren.
+
+### Allquantor
+
+$$
+\forall x\in K:\ P(x)
+$$
+
+„Für jedes $x$ aus $K$ ist die Eigenschaft $P(x)$ wahr.“ Die Eigenschaft muss für jedes Element der Definitionsmenge gelten.
+
+### Existenzquantor
+
+$$
+\exists x\in K:\ P(x)
+$$
+
+„Es gibt mindestens ein $x$ aus $K$, für das $P(x)$ wahr ist.“ Es muss mindestens ein Beispiel geben, das die Eigenschaft erfüllt.
+
+Für den folgenden Vergleich definieren wir $P(x)$ neu als **„$x$ ist eine Primzahl.“** Dann bedeutet:
+
+$$
+\forall x\in\mathbb N:\ P(x)
+$$
+
+„Jede natürliche Zahl ist eine Primzahl.“ Das ist falsch, denn $4$ ist keine Primzahl. Dagegen bedeutet:
+
+$$
+\exists x\in\mathbb N:\ P(x)
+$$
+
+„Mindestens eine natürliche Zahl ist eine Primzahl.“ Das ist wahr, denn $2$ ist eine Primzahl.
+
+| Quantifizierte Aussage | Zum Beweisen | Zum Widerlegen |
+| --- | --- | --- |
+| $\forall x\in K:P(x)$ | $P(x)$ für ein beliebiges $x\in K$ zeigen | Ein $x\in K$ mit $\neg P(x)$ finden |
+| $\exists x\in K:P(x)$ | Ein passendes $x\in K$ angeben | $\neg P(x)$ für alle $x\in K$ zeigen |
+
+Dieser Unterschied ist eine Grundlage mathematischer Beweise. Ist $K$ leer, ist die Allaussage wahr und die Existenzaussage falsch.
+
+## 8. Anwendung auf Übungsblatt 1 — Die Kalupen
+
+Die bereitgestellte Aufgabe verwendet erfundene Begriffe, damit wir aus den genannten Prämissen schließen, statt Alltagswissen heranzuziehen.
+
+### A. Wörter für logische Beziehungen
+
+| Ausdruck | Logische Bedeutung |
+| --- | --- |
+| Jede / Alle | Für jedes Element |
+| Einige | Mindestens eines |
+| Es gibt | Existenz |
+| Sowohl … als auch | Beide Bedingungen gelten |
+| Nicht / un- | Negation |
+| Wenn … dann | Implikation |
+| Schlüsse | Folgerungen aus Prämissen |
+| Zulässig | Logisch gültig / begründet |
+
+### B. Die Prädikate definieren
+
+$K$ sei die Menge aller Kalupen in Knusiland. Wir definieren:
+
+$$
+\begin{aligned}
+G(x)&:\quad x\text{ ist gebrochselt},\\
+F(x)&:\quad x\text{ ist foberant},\\
+D(x)&:\quad x\text{ ist dorig}.
+\end{aligned}
+$$
+
+Jedes Prädikat lässt sich als Funktion modellieren:
+
+$$
+G,F,D:K\longrightarrow\{0,1\}.
+$$
+
+### C. Die drei Prämissen übersetzen
+
+**Prämisse 1:** *Jede ungebrochselte Kalupe ist dorig.*
+
+$$
+\boxed{\forall x\in K:\ (\neg G(x)\Rightarrow D(x))}
+$$
+
+**Prämisse 2:** *Jede foberante Kalupe ist dorig.*
+
+$$
+\boxed{\forall x\in K:\ (F(x)\Rightarrow D(x))}
+$$
+
+**Prämisse 3:** *In Knusiland gibt es sowohl dorige als auch undorige Kalupen.*
+
+$$
+\boxed{(\exists x\in K:D(x))\land(\exists y\in K:\neg D(y))}
+$$
+
+Die geografische Einschränkung ist Teil unserer Definitionsmenge $K$. Das Symbol $\land$ steht für das logische UND, $\neg$ für die Negation.
+
+### D. Die fünf möglichen Schlussfolgerungen
+
+Nun können wir jede Schlussfolgerung aus Aufgabe 1 mathematisch ausdrücken, ohne schon über ihre Gültigkeit zu entscheiden.
+
+| Schluss | Mathematische Aussage |
+| --- | --- |
+| (a) | $(\exists x\in K:G(x))\land(\exists y\in K:\neg G(y))$ |
+| (b) | $\exists x\in K:G(x)$ |
+| (c) | $\forall x\in K:(\neg D(x)\Rightarrow G(x))$ |
+| (d) | $\exists x\in K:(G(x)\land\neg F(x))$ |
+| (e) | $\forall x\in K:(G(x)\Rightarrow\neg F(x))$ |
+
+Gesucht sind die Schlussfolgerungen, die **notwendig aus den Prämissen folgen**. Dass eine Schlussfolgerung möglich ist, reicht nicht aus.
+
+Für einen Schluss, der nicht notwendig folgt, können wir ein **Gegenmodell** angeben: eine mathematische Welt, in der alle Prämissen gelten, die vorgeschlagene Schlussfolgerung jedoch falsch ist. Die fünf Schlüsse bleiben hier zur selbstständigen Bearbeitung offen.
+
+## 9. Verbindungen zu mathematischen Beweisen
+
+Diese Grundlagen führen zu den Beweistechniken, die wir in Analysis I verwenden.
+
+<LogicFigure kind="proof-paths" />
+
+Für Übungsblatt 1 ist besonders wichtig: **Die Überprüfung mit einer Wahrheitstafel und eine algebraische Herleitung aus Axiomen sind verschiedene Beweisaufgaben.**
+
+Laut bereitgestelltem Text sollen in Aufgabe 3 logische Äquivalenzen mit Wahrheitstafeln gezeigt werden. In Aufgabe 4 sollen dagegen Identitäten aus den vorgegebenen Gesetzen der booleschen Algebra hergeleitet werden. Auch wenn eine Identität bekannt ist, muss ihre Herleitung die erlaubten Regeln verwenden.
+
+Dieser Unterschied wird bei Themen wie Induktion und Grenzwerten erneut wichtig.
+
+## 10. Checkliste zur Wiederholung
+
+Nutze diese Fragen zum aktiven Abrufen. Setze ein Häkchen, wenn du den Punkt ohne Blick auf den Lernzettel erklären kannst. Die Häkchen dienen einer lokalen Selbstüberprüfung; sie bestätigen keine Klausurreife und werden von der Website nicht gespeichert.
+
+<RecallChecklist items={[
+ 'Definiere eine mathematische Aussage.',
+ 'Erkläre, was ein Prädikat ist.',
+ 'Interpretiere $P:\\mathbb N\\to\\{0,1\\}$ richtig.',
+ 'Erkläre den Unterschied zwischen der Abhängigkeit von Definitionen und freien Variablen.',
+ 'Unterscheide freie und gebundene Variablen.',
+ 'Erkläre $\\forall$ und $\\exists$ und wende sie an.',
+ 'Übersetze Aussagen über Kalupen in Prädikatenlogik.',
+ 'Erkläre, wie man eine quantifizierte Aussage beweist oder widerlegt.'
+]} />
+
+### Bedeutung, Formalisierung und Beweis
+
+Mathematisches Denken bewegt sich zwischen drei Ebenen:
+
+$$
+\boxed{\text{Bedeutung}\longrightarrow\text{Formalisierung}\longrightarrow\text{Beweis}}
+$$
+
+Zuerst verstehen wir die Bedeutung einer Aussage. Dann stellen wir sie mit mathematischer Schreibweise präzise dar. Schließlich begründen wir, ob sie notwendig aus unseren Annahmen folgt. Wende diese Methode als Nächstes auf Aufgabe 1(a) an, danach auf die algebraischen Beweise in Aufgabe 4.

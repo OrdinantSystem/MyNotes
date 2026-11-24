@@ -1,0 +1,497 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-26
+sourcePages: []
+sourceLocations: ["Full script sections 1–10; underlying problem-solving technique; preparation sources"]
+title: "Change the picture, change the problem"
+navTitle: "Changing representations"
+description: "Discover a summation formula through a justified geometric transformation, then transfer the same counting structure to handshakes."
+order: 26
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [making-progress-when-stuck]
+thumbnail: reasoning-reframe
+---
+
+## 1. What if the problem isn't the problem?
+
+Imagine that someone gives you the following task.
+
+Calculate the sum of every integer from one to one hundred.
+
+$$
+1+2+3+4+\cdots+98+99+100
+$$
+
+There is nothing particularly difficult about any individual operation here. We know how to add one and two. We know how to add three and four. And, given enough time, we can calculate the entire expression.
+
+But now imagine that instead of one hundred, we are given one million.
+
+Or that we are asked to find an answer that works for any positive integer $n$.
+
+$$
+1+2+3+\cdots+n
+$$
+
+Suddenly, knowing how to perform addition is no longer enough to give us an efficient general solution.
+
+We need something else.
+
+<ReasoningFigure kind="reframe-expression" />
+
+Here is an interesting question.
+
+What if the reason this problem looks difficult is not because the numbers themselves are complicated, but because we have chosen to look at them in an inconvenient way?
+
+What if we could solve it without actually performing all those additions?
+
+Not by calculating faster. Not by approximating the result. Not by replacing the question with an easier one.
+
+But simply by changing what we are looking at.
+
+Today, we are going to explore one of the most powerful ideas in mathematical reasoning: changing the representation of a problem.
+
+## 2. The same problem can have different appearances
+
+Before trying to solve the general problem, let us do something we explored in the previous episode.
+
+Consider a smaller case.
+
+$$
+1+2+3+4+5
+$$
+
+We could calculate this immediately. But for now, let us resist that temptation.
+
+Instead of writing the numbers as symbols, we are going to represent each number using a collection of objects.
+
+The number one becomes one dot. Two becomes two dots. Three becomes three dots. And so on.
+
+<ReasoningFigure kind="reframe-objects" />
+
+Notice what has happened. We have changed the appearance of the problem, but we have not changed the quantity that we are interested in.
+
+Adding one, two, three, four and five is equivalent to counting all the dots in these five groups.
+
+This is what we mean by a representation.
+
+A representation expresses an object, a situation or a relationship in a particular form.
+
+We could represent our problem using an equation, a list, a table or a geometrical arrangement.
+
+<ReasoningFigure kind="reframe-forms" />
+
+Each of these representations contains enough information to recover the sum we want to calculate. But they do not make the same relationships equally visible.
+
+And that difference is important.
+
+When we choose a representation, we are also choosing which aspects of a problem will be easy to notice and which aspects will remain hidden.
+
+## 3. Looking for a relationship that wasn't visible before
+
+Let us return to our collection of dots.
+
+We have one dot in the first row, two in the second, three in the third, and so on.
+
+Because each row contains exactly one more dot than the previous one, the arrangement naturally forms a triangular shape.
+
+We did not introduce that relationship ourselves. It was already present in the original expression. The picture simply makes it easier to see.
+
+<ReasoningFigure kind="reframe-growth" />
+
+Now, counting the number of objects in this triangular arrangement is essentially the same task as performing the original addition.
+
+So, at this point, we haven't really solved anything.
+
+We have only given ourselves a different way of investigating the problem.
+
+But perhaps there is another shape whose number of objects would be much easier to determine.
+
+<ReasoningFigure kind="reframe-compare" />
+
+Consider a rectangular arrangement with five rows and six dots in each row.
+
+We do not need to count these dots individually. Because every row contains the same number of objects, we can multiply.
+
+$$
+5\cdot6=30
+$$
+
+The rectangle has a useful property that our triangle doesn't have: its rows are equally long.
+
+So now we have a more interesting question.
+
+Can we establish a relationship between our triangle, whose number of dots we want to determine, and a rectangle, whose number of dots we already know how to determine?
+
+Look carefully at the triangular shape.
+
+What could we do to it?
+
+Could we rearrange it? Could we add something to it? Could we combine it with another shape?
+
+<ReasoningFigure kind="reframe-challenge" />
+
+## 4. The discovery
+
+Here is one possible approach.
+
+What if, instead of trying to rearrange the dots we already have, we create a second copy of the entire triangle?
+
+<ReasoningFigure kind="reframe-copy" />
+
+We now have twice as many dots as we originally had.
+
+And because both triangles are identical, we know that exactly half of the objects belong to our original problem.
+
+Now watch what happens when we rotate the second triangle by one hundred and eighty degrees.
+
+<ReasoningFigure kind="reframe-rotate" />
+
+And then move it toward the first.
+
+<ReasoningFigure kind="reframe-rectangle" />
+
+<Interactive kind="reframe" preset="construction" id="reframe-construction" />
+
+Something rather remarkable has happened.
+
+We have transformed two triangular arrangements into a single rectangular arrangement.
+
+And we already know how to count the objects in a rectangle.
+
+There are five rows, each containing six dots.
+
+So the two triangles together contain thirty dots.
+
+$$
+2(1+2+3+4+5)=5\cdot6
+$$
+
+But our original problem only concerned one of those triangles. Since we have introduced an identical copy, we must divide the total by two.
+
+$$
+1+2+3+4+5=\frac{5\cdot6}{2}=15
+$$
+
+<ReasoningFigure kind="reframe-half" />
+
+Instead of adding five different numbers, we have performed a multiplication and a division.
+
+And the important thing is that multiplication and division are not merely shortcuts that happen to give us the correct answer.
+
+Each operation corresponds to something we have actually done.
+
+Multiplication counts the rectangular arrangement. Division removes the effect of introducing a second, equally large collection.
+
+The mathematics is describing the construction.
+
+## 5. Why should this work for every number?
+
+Of course, we have only demonstrated that this works for a triangle with five rows.
+
+Perhaps it works for six.
+
+Perhaps it works for ten.
+
+But our original question was more ambitious than that. We wanted a method that works for any positive integer $n$.
+
+And as we have learned throughout this course, seeing that something works in a particular example is different from explaining why it must work in general.
+
+So let us investigate what makes these two triangles fit together.
+
+<Interactive kind="reframe" preset="rows" id="reframe-rows" />
+
+Increasing the number of rows certainly makes the construction look convincing. But even if we tested a thousand different cases, we would still need an explanation.
+
+Let us focus on one particular row.
+
+In our original triangle, row number one contains one dot. Row number two contains two dots. And row number $n$ contains $n$ dots.
+
+In the rotated triangle, the order is reversed.
+
+Its first row contains $n$ dots. Its second row contains $n-1$ dots. And its final row contains one dot.
+
+When we combine them, something interesting happens.
+
+$$
+\begin{aligned} 1+n&=n+1\\ 2+(n-1)&=n+1\\ 3+(n-2)&=n+1\\ &\vdots\\ n+1&=n+1 \end{aligned}
+$$
+
+Every time the number of blue dots increases by one, the number of cyan dots decreases by one.
+
+So the combined number of dots remains constant.
+
+The particular row may change. Its total length does not.
+
+<ReasoningFigure kind="reframe-row" />
+
+More precisely, consider any row $k$, where
+
+$$
+1\leq k\leq n.
+$$
+
+That row contains $k$ original dots.
+
+Because the second triangle has been rotated, the corresponding copy row contains
+
+$$
+n+1-k
+$$
+
+dots.
+
+Together, they contain
+
+$$
+k+(n+1-k)=n+1.
+$$
+
+And this is true regardless of which row we choose.
+
+If we place the blue dots on the left and the copy dots immediately to their right, each row fills exactly $n+1$ consecutive positions, with no gaps and no overlapping objects.
+
+Since there are $n$ such rows, the result must be an $n$-by-$(n+1)$ rectangle.
+
+Let us call the original sum $S_n$.
+
+$$
+S_n=1+2+\cdots+n
+$$
+
+Because the two triangles contain equally many dots, their combined number is $2S_n$.
+
+But we have just established that the combined arrangement contains $n(n+1)$ dots.
+
+Therefore,
+
+$$
+2S_n=n(n+1).
+$$
+
+Dividing both sides by the nonzero number two gives us
+
+$$
+\boxed{1+2+\cdots+n=\frac{n(n+1)}{2}}
+$$
+
+For every positive integer $n$.
+
+Notice the difference between what we have done here and what we did with five rows.
+
+The picture helped us discover the result.
+
+But by explaining the relationship between arbitrary rows, we have established why the construction works in every permitted case.
+
+We have turned a visual observation into a proof.
+
+## 6. What are we allowed to change?
+
+There is an important distinction hiding inside everything we have just done.
+
+When we transformed the numbers into dots, we preserved their quantities.
+
+When we rotated the second triangle, we preserved its number of objects.
+
+But when we introduced the second triangle, we actually changed the total number of objects.
+
+This was perfectly legitimate because we understood exactly how the quantity had changed. We had doubled it, and we knew how to account for that transformation afterward.
+
+This gives us a general principle.
+
+Whenever we change the representation of a problem, we need to understand what has been preserved, what has changed, and how the new representation relates to the original question.
+
+<ReasoningFigure kind="reframe-accounting" />
+
+Imagine that we had placed the triangles together, but some of the dots accidentally overlapped.
+
+Two triangles can appear to form a $5\times5$ square if overlapping dots are counted as single objects.
+
+<ReasoningFigure kind="reframe-overlap" />
+
+We might mistakenly conclude that the two triangles contain twenty-five dots instead of thirty.
+
+The diagram would look elegant. The calculation would be straightforward. And the argument would still be wrong.
+
+This is why pictures are not exempt from the requirements of reasoning.
+
+A representation can help us discover the truth, but it can also hide a mistake.
+
+## 7. Two proofs of the same statement
+
+There is another way of proving the statement we have just established.
+
+In episode twenty-two, we explored mathematical induction.
+
+We could use that method here as well.
+
+First, we verify that our formula works when $n=1$.
+
+$$
+1=\frac{1(1+1)}{2}.
+$$
+
+Then we assume that the formula holds for an arbitrary positive integer $k$.
+
+$$
+1+2+\cdots+k=\frac{k(k+1)}{2}.
+$$
+
+By adding the next term, we obtain
+
+$$
+\begin{aligned} 1+2+\cdots+k+(k+1) &=\frac{k(k+1)}{2}+(k+1)\\[3pt] &=\frac{k(k+1)+2(k+1)}{2}\\[3pt] &=\frac{(k+1)(k+2)}{2}. \end{aligned}
+$$
+
+Which is precisely the formula for $k+1$.
+
+Therefore, the formula holds for every positive integer.
+
+Both proofs establish the same mathematical statement. Both are valid. But notice the difference in the way they explain the result.
+
+<ReasoningFigure kind="reframe-methods" />
+
+The induction proof verifies that the proposed formula continues to work as we add more terms.
+
+The geometrical proof gives us a particularly natural way of discovering the formula in the first place.
+
+This does not mean that geometrical proofs are always better than algebraic proofs, or that induction cannot lead us to discover new results.
+
+It means that different approaches can expose different aspects of the same mathematical truth.
+
+Sometimes, understanding a theorem more deeply involves understanding more than one proof of it.
+
+### Put the proof into words
+
+Try explaining our geometrical proof in a short paragraph, without using a picture.
+
+Your explanation should make clear why the rectangle is $n$ by $n+1$, why we have twice the original number of dots, and why the resulting formula works for any positive integer.
+
+<Exercise>
+
+**Added example proof.** Let $n$ be a positive integer. Arrange the terms as rows of $1,2,\ldots,n$ dots and make one identical copy. Rotate the copy by $180^\circ$. In any row $k$, the original supplies $k$ dots and the rotated copy supplies $n+1-k$. Placed consecutively, they fill $n+1$ positions without gaps or overlap. There are $n$ rows, so the combined count is $n(n+1)$. The copy has exactly the original count; hence this is twice $S_n$, and $S_n=n(n+1)/2$. The argument used an arbitrary row of an arbitrary positive size, not a particular drawing.
+
+</Exercise>
+
+## 8. Not every picture is an improvement
+
+Now imagine that, instead of arranging the dots in horizontal rows, we had arranged each collection around a common centre.
+
+<ReasoningFigure kind="reframe-radial" />
+
+Both pictures represent exactly the same numbers.
+
+And the radial arrangement is perhaps more visually interesting.
+
+But does it help us establish the relationship we need?
+
+The triangular arrangement makes the difference between consecutive groups immediately accessible. It also makes it possible to combine a growing sequence of rows with a decreasing sequence of rows.
+
+The radial arrangement does not reveal that relationship as naturally.
+
+So the question is not simply whether a representation is correct, or whether it looks interesting.
+
+The question is whether it makes the relationships relevant to our particular problem easier to reason about.
+
+## 9. Can you change another problem?
+
+Imagine a room containing five people.
+
+Each person shakes hands exactly once with every other person.
+
+How many handshakes take place?
+
+You could try drawing every connection between the people.
+
+<ReasoningFigure kind="reframe-network" />
+
+Could a different representation make this easier?
+
+But if we imagine a hundred people, this picture would quickly become difficult to understand.
+
+Can we represent the same problem in a way that exposes a more useful mathematical structure?
+
+Instead of drawing people and connections, let us construct a table.
+
+We place every person along the top of the table and along its left-hand side.
+
+Every cell now represents a possible pairing.
+
+<ReasoningFigure kind="reframe-table" />
+
+We can immediately see two things.
+
+First, a person cannot shake hands with themselves, so we must exclude the diagonal.
+
+Second, the pairing of A with B is the same handshake as the pairing of B with A.
+
+We have counted every handshake twice.
+
+For $n$ people, there are $n^2$ cells in the table. We remove the $n$ diagonal cells and divide the remaining count by two.
+
+$$
+\frac{n^2-n}{2}=\frac{n(n-1)}{2}
+$$
+
+For five people, this gives us
+
+$$
+\frac{5\cdot4}{2}=10.
+$$
+
+And look at the blue portion of the table.
+
+It contains exactly the triangular structure we investigated earlier, this time with $n-1$ nonempty rows.
+
+Two apparently different problems have revealed the same underlying mathematical structure.
+
+That is one of the greatest benefits of changing a representation. It doesn't just help us solve the current problem. It can help us recognize that we have encountered a familiar problem somewhere else.
+
+<Interactive kind="reframe" preset="handshakes" id="reframe-handshakes" />
+
+## 10. Perhaps you need to see it differently
+
+At the beginning of this episode, we were looking at a long sequence of additions.
+
+We ended up looking at a rectangle.
+
+We did not learn how to add numbers faster. We discovered why those numbers could be counted in a completely different way.
+
+So the next time you encounter a problem that seems particularly difficult, before asking yourself how to solve it, perhaps you should ask yourself another question.
+
+Is this the most useful way of looking at it?
+
+Because sometimes, discovering a solution begins by discovering a different way of seeing the question.
+
+<ReasoningFigure kind="reframe-synthesis" />
+
+## Learning compendium
+
+| Relationship | What must be justified |
+| --- | --- |
+| Representation | How the new form corresponds to the original objects or question. |
+| Equivalent representations | How each form retains the information needed to recover the sum. |
+| Preserved and changed quantities | Rotation preserves a count; duplication doubles it; division recovers it. |
+| Geometrical proof | Every arbitrary row fills exactly the required positions, without overlap or gaps. |
+| Sum of consecutive integers | The two copies form an $n$-by-$(n+1)$ rectangle. |
+| Visual intuition and general proof | Trying examples suggests a construction; the arbitrary-row argument justifies all positive integers. |
+| Comparing proofs | Induction explains growth; rearrangement explains the product and factor two. |
+| Double counting | A handshake occupies two ordered table cells, with self-pairs excluded. |
+| Transfer | The handshake table contains the same triangular structure with $n-1$ nonempty rows. |
+
+<ReasoningFigure kind="reframe-process" />
+
+### Connections in the course
+
+Lesson 4 examined how a picture can become a general proof. Lesson 22 developed induction. Lesson 25 investigated useful first moves when a solution is not apparent. Here, the emphasis is on deliberately changing the representation to discover a proof, then checking the relationship with the original problem.
+
+## Preparation sources
+
+[George Pólya — How to Solve It](https://people.math.harvard.edu/~knill/teaching/math21b2001/polya/index.html): the Harvard-hosted excerpt includes drawing figures, restating a problem and seeking related problems. These are investigative prompts, not a guaranteed recipe.
+
+[MIT — Mathematics for Computer Science readings](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/): the reading list points to sections 14.1–14.6 for sums and chapter 15 for counting techniques. It supplies further mathematical reading; no claim of reviewing the entire textbook is made here.
+
+[IES — Organizing Instruction and Study to Improve Student Learning](https://ies.ed.gov/ncee/wwc/PracticeGuide/1): recommendations 3 and 4 concern combining graphics with words and connecting concrete and abstract representations, both rated moderate evidence. This supports an instructional approach; it does not establish that every diagram is useful or that this lesson guarantees a learning outcome.

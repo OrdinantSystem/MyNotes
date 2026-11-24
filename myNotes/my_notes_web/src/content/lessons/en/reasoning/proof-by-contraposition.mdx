@@ -1,0 +1,456 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-three
+sourceId: reasoning-episode-19
+sourcePages: []
+sourceLocations: ["Sections 1–9; Episode learning compendium; Learning checkpoint; Preparation sources"]
+title: "Proving something by turning it around"
+navTitle: "Proof by contraposition"
+description: "Reformulate an implication without changing its truth, and choose a useful starting point for a proof."
+order: 19
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [proof-by-cases-and-equivalence]
+thumbnail: reasoning-contraposition
+---
+
+## 1. The problem with going forward
+
+Imagine that someone gives you the following mathematical statement:
+
+> If the square of an integer is even, then the integer itself is even.
+
+At first, this might seem almost too obvious to deserve a proof. We can take a few numbers, square them, and investigate what happens.
+
+<ReasoningFigure kind="contra-samples" />
+
+Something interesting seems to happen. When we square an even integer, we obtain another even integer. When we square an odd integer, we obtain another odd integer.
+
+But as we already know, observing a pattern and proving a pattern are two different things.
+
+Suppose we want to prove our original statement. Following the method we developed in Episode 17, we divide our working space into what we have and what we need to establish.
+
+<ReasoningFigure kind="contra-workspace" />
+
+We know that the square of our integer is twice another integer. Somehow, we need to establish that the original number is also twice an integer.
+
+We could try taking the square root, but that does not immediately give us the form we need.
+
+$$
+n^2=2k
+$$
+
+$$
+|n|=\sqrt{2k}
+$$
+
+Where do we go from here? We know that $n$ is an integer, but we have not yet established that it is divisible by two.
+
+A direct proof is certainly possible using additional results. However, there is another route that makes the argument considerably easier.
+
+Instead of asking what happens if the square is even, what happens if we begin by asking what would happen if the original number were **not even**?
+
+## 2. The other side of an implication
+
+Before returning to our mathematical problem, consider a simpler statement:
+
+> If an animal is a dog, then it is a mammal.
+
+We can represent this relationship visually.
+
+<ReasoningFigure kind="contra-animals" />
+
+Every dog belongs to the collection of mammals. This is what our original implication tells us.
+
+Now imagine that we encounter an animal outside the collection of mammals. Could that animal possibly be a dog?
+
+It could not, because all dogs are contained inside that collection.
+
+So the original statement also tells us something about animals that are not mammals:
+
+> If an animal is not a mammal, then it is not a dog.
+
+<ReasoningFigure kind="contra-animal-routes" />
+
+These statements appear to communicate different things. One speaks about dogs, while the other speaks about animals that are not mammals. But they impose exactly the same restriction on the world.
+
+Neither permits an animal to be a dog without also being a mammal.
+
+This relationship is called **contraposition**.
+
+If we represent our first statement using two propositions, $P$ and $Q$, we can express the relationship as follows:
+
+$$
+\boxed{(P\Rightarrow Q)\equiv(\neg Q\Rightarrow\neg P)}
+$$
+
+The remarkable thing about this equivalence is that it gives us a choice. Whenever we need to prove an implication, we can also prove its contrapositive. Establishing either one establishes the other.
+
+## 3. Why turning it around works
+
+Of course, we should not accept this equivalence simply because it worked in the example with dogs and mammals.
+
+We need to understand why it works for any two propositions.
+
+Recall from our earlier lessons on conditionals that an implication makes a particular promise: whenever its antecedent is true, its consequent must also be true.
+
+There is only one situation in which that promise is broken.
+
+<ReasoningFigure kind="contra-worlds" />
+
+If $P$ is true and $Q$ is false, the implication fails. In every other combination, the implication is true.
+
+Now consider our contrapositive:
+
+$$
+\neg Q\Rightarrow\neg P
+$$
+
+When would this implication fail?
+
+Its antecedent, $\neg Q$, would need to be true, while its consequent, $\neg P$, would need to be false.
+
+But that means precisely that $Q$ is false and $P$ is true.
+
+We have arrived at the same forbidden situation.
+
+<Interactive kind="contraposition" preset="truth" id="contra-truth" />
+
+We can summarize the complete investigation with a truth table.
+
+| $P$ | $Q$ | $P\Rightarrow Q$ | $\neg Q\Rightarrow\neg P$ |
+| ------- | ------- | -------------------- | ----------------------------- |
+| T       | T       | T                    | T                             |
+| T       | F       | **F**                | **F**                         |
+| F       | T       | T                    | T                             |
+| F       | F       | T                    | T                             |
+
+The last two columns are identical.
+
+This is why contraposition is more than an interesting rearrangement of words. It is a logically justified transformation.
+
+We are not weakening our original claim, replacing it with a similar claim, or introducing additional assumptions. We are expressing exactly the same logical condition in a different form.
+
+And sometimes, that different form makes an otherwise difficult problem remarkably simple.
+
+## 4. Returning to our mathematical problem
+
+Let us return to the statement we were trying to prove.
+
+$$
+n^2\text{ is even}\Rightarrow n\text{ is even}
+$$
+
+Our original difficulty was that the information we received concerned the square of a number, while the conclusion concerned the number itself.
+
+We now have the ability to transform the problem.
+
+<ReasoningFigure kind="contra-transform" />
+
+Notice that in the final step we used something we established in the previous episode. Every integer is either even or odd, and no integer is both.
+
+Therefore, within the integers, not being even is equivalent to being odd.
+
+Our new task is now:
+
+$$
+\boxed{n\text{ is odd}\Rightarrow n^2\text{ is odd}}
+$$
+
+We can update our working space accordingly.
+
+<ReasoningFigure kind="contra-before-after" />
+
+Something fundamental has changed. Previously, we were trying to extract information about a number from its square.
+
+Now, we have an explicit expression for the number itself, and all we need to do is square it.
+
+We have replaced a problem of extracting information with a problem of constructing something from information we already possess.
+
+That is what makes this new direction so powerful.
+
+## 5. Seeing why an odd square is odd
+
+Before we perform the algebra, let us try to understand geometrically why the square of an odd integer should be odd.
+
+Imagine a square made from twenty-five small tiles. There are five tiles along each side.
+
+<ReasoningFigure kind="contra-tiles" />
+
+If we can arrange these tiles into pairs with exactly one tile left over, we will have shown that the total number of tiles is odd.
+
+We can start by pairing the first two columns, and then the next two columns. Because the number of columns is odd, exactly one column will remain.
+
+<ReasoningFigure kind="contra-columns" />
+
+But we still have five tiles in our remaining column. We can pair those vertically.
+
+And because five is odd, exactly one tile remains unpaired.
+
+<ReasoningFigure kind="contra-paired" />
+
+The interesting part is not that this works for five. It is that nothing about our method depends specifically on the number five.
+
+An odd number of tiles can always be divided into pairs with one left over. When we arrange an odd number of rows and an odd number of columns, that leftover structure appears in both dimensions.
+
+We can even reorganize our square into four regions to make that structure clearer.
+
+<Interactive kind="contraposition" preset="odd-square" id="contra-odd-square" />
+
+We now have four regions. A large square containing $4k^2$ tiles, two strips containing $2k$ tiles each, and a single tile in the corner.
+
+The first three regions contain even numbers of tiles. Only the corner remains unpaired.
+
+This picture gives us the structure of the algebraic argument we are about to construct. It applies geometrically to positive odd integers, but the algebra will allow us to extend the reasoning to negative odd integers as well.
+
+## 6. Constructing the formal proof
+
+We are now ready to establish the statement for every integer, without relying on any particular numerical example.
+
+We begin by assuming that $n$ is odd. What does that actually give us?
+
+By the definition of an odd integer, there exists an integer $k$ such that
+
+$$
+n=2k+1.
+$$
+
+The definition is important because it transforms a property of a number into an expression that we can manipulate mathematically.
+
+Since our objective concerns the square of $n$, we square both sides.
+
+$$
+\begin{aligned} n^2&=(2k+1)^2\\[5pt] &=(2k+1)(2k+1)\\[5pt] &=4k^2+2k+2k+1\\[5pt] &=4k^2+4k+1. \end{aligned}
+$$
+
+Notice how the expression corresponds exactly to the four regions of our previous geometric representation.
+
+<ReasoningFigure kind="contra-regions" />
+
+We can now factor out two from the first two terms of our simplified expression.
+
+$$
+n^2=4k^2+4k+1
+$$
+
+$$
+n^2=2(2k^2+2k)+1
+$$
+
+At this point, we should recognize the shape of our goal.
+
+<ReasoningFigure kind="contra-witness" />
+
+The expression inside the parentheses might look complicated, but we do not need to know its numerical value. We only need to establish that it is an integer.
+
+Since $k$ is an integer, and integers are closed under addition and multiplication,
+
+$$
+2k^2+2k\in\mathbb Z.
+$$
+
+Consequently, we can introduce a new integer:
+
+$$
+m:=2k^2+2k.
+$$
+
+And therefore,
+
+$$
+n^2=2m+1,\qquad m\in\mathbb Z.
+$$
+
+By the definition of an odd integer, $n^2$ is odd.
+
+We have successfully established our contrapositive. And because an implication and its contrapositive are logically equivalent, we have also established our original statement.
+
+### The complete proof
+
+**Theorem.** Let $n\in\mathbb Z$. If $n^2$ is even, then $n$ is even.
+
+**Proof by contraposition.**
+
+Suppose that $n$ is odd. Then there exists $k\in\mathbb Z$ such that $n=2k+1$.
+
+Consequently,
+
+$$
+\begin{aligned} n^2&=(2k+1)^2\\ &=4k^2+4k+1\\ &=2(2k^2+2k)+1. \end{aligned}
+$$
+
+Since $2k^2+2k\in\mathbb Z$, it follows that $n^2$ is odd.
+
+Thus, if $n$ is not even, then $n^2$ is not even.
+
+By contraposition, if $n^2$ is even, then $n$ is even.
+
+$\square$
+
+What initially appeared difficult became a short argument involving only a definition, elementary algebra, closure of the integers, and a logical equivalence.
+
+## 7. Turning around the wrong thing
+
+There is, however, an important distinction that we must make. Turning an implication around does not mean that we can simply reverse its arrow.
+
+Consider a student attempting to prove our original theorem.
+
+The student begins by assuming that $n$ is even. Then, for some integer $k$,
+
+$$
+n=2k.
+$$
+
+Squaring both sides gives
+
+$$
+n^2=4k^2=2(2k^2).
+$$
+
+Since $2k^2$ is an integer, the student concludes that $n^2$ is even.
+
+Everything in this argument is mathematically correct. But has the student proved the statement we asked them to prove?
+
+<ReasoningFigure kind="contra-wrong-route" />
+
+The student has established the converse of our original statement. And although the converse happens to be true in this particular example, proving it does not, by itself, prove the original implication.
+
+We can now organize the four related statements into a single visual structure.
+
+<ReasoningFigure kind="contra-forms" />
+
+To obtain the contrapositive, we must perform two transformations. We reverse the direction of the implication, and we negate both propositions.
+
+Doing only one of these transformations generally produces a different logical statement.
+
+In fact, because we have now proved both directions of our particular mathematical claim, we can combine them into the equivalence we previewed in Episode 18.
+
+$$
+\boxed{n^2\text{ is even}\iff n\text{ is even}}
+$$
+
+<ReasoningFigure kind="contra-equivalence" />
+
+We can therefore see how the techniques from our previous episodes begin to work together. Proving an equivalence requires two implications, and each implication may be approached using a different method.
+
+## 8. Learning to choose a proof strategy
+
+We should not come away from this lesson believing that contraposition is always better than direct proof.
+
+A proof technique is a tool, and the usefulness of a tool depends on the problem we are trying to solve.
+
+Consider the following statement:
+
+> If an integer is divisible by six, then it is divisible by three.
+
+We could transform this into its contrapositive. But notice how easily the original statement can be proved directly.
+
+If $n$ is divisible by six, then for some integer $k$,
+
+$$
+n=6k=3(2k).
+$$
+
+Since $2k$ is an integer, $n$ is divisible by three.
+
+There is little reason to transform a problem when its original form already gives us everything we need.
+
+The skill we are developing is the ability to examine both routes before deciding which one is more promising.
+
+<Interactive kind="contraposition" preset="strategy" id="contra-strategy" />
+
+Let us examine the second problem more closely, because it combines two techniques that we have recently learned.
+
+Suppose that we want to prove that if the product of two integers is odd, then both integers are odd.
+
+The conclusion is a conjunction. Negating it using De Morgan's law gives us a disjunction.
+
+$$
+\neg(A\land B)\equiv\neg A\lor\neg B
+$$
+
+So our contrapositive becomes:
+
+> If at least one of the integers is even, then their product is even.
+
+And now we can use a proof by cases.
+
+<ReasoningFigure kind="contra-product-cases" />
+
+The cases are exhaustive, even though both factors could be even simultaneously.
+
+In both cases, the product is twice an integer, and therefore even.
+
+By contraposition, if the product is odd, then both factors must be odd.
+
+Notice what we have just done. We have combined logical negation, De Morgan's law, contraposition, proof by cases, definitions, and elementary algebra into a single argument.
+
+The different reasoning techniques we have learned are not isolated procedures. They are components that we can combine to construct more sophisticated arguments.
+
+## 9. Changing the problem without changing the truth
+
+When we first encountered our mathematical statement, we were looking at a problem that seemed to offer very little room to move.
+
+We were given information about the square of an integer and asked to establish something about the integer itself.
+
+Instead of forcing our way through that problem, we changed our perspective.
+
+<ReasoningFigure kind="contra-reformulate" />
+
+We transformed our assumption, transformed our goal, and found a much easier path between them.
+
+But throughout this entire process, the truth we were trying to establish never changed.
+
+This reveals something important about mathematical reasoning. Sometimes, the difficulty of a problem lies not in the mathematical objects themselves, but in the way the problem has been expressed.
+
+A good mathematician does not simply ask, “How can I solve this problem?”
+
+A good mathematician also asks, “In what other ways can I express this problem without changing its meaning?”
+
+Contraposition is one of the simplest and most powerful examples of this idea.
+
+And in the next episode, we will investigate an even more surprising approach. Rather than beginning with an alternative implication, we will deliberately assume that something we want to prove is false, and investigate what that assumption leads to.
+
+Because sometimes, to establish that something must be true, we need to understand why it cannot possibly be false.
+
+## Episode learning compendium
+
+### The four forms of an implication
+
+| Form           | Mathematical structure        | Equivalent to the original? |
+| -------------- | ----------------------------- | --------------------------- |
+| Original       | $P\Rightarrow Q$          | Yes                         |
+| Converse       | $Q\Rightarrow P$          | Not necessarily             |
+| Inverse        | $\neg P\Rightarrow\neg Q$ | Not necessarily             |
+| Contrapositive | $\neg Q\Rightarrow\neg P$ | Always                      |
+
+### Proof strategy decision map
+
+<ReasoningFigure kind="contra-decision" />
+
+A discovery heuristic, not a rigid algorithm. A proof may require several attempts or a combination of techniques.
+
+### How this episode connects to previous lessons
+
+| Lesson | Connection |
+| --- | --- |
+| 11 — Conditional statements | Implication, converse and contraposition |
+| 12 — AND, OR and NOT | Negating compound propositions |
+| 16 — What constitutes a proof? | Justifying every deduction |
+| 17 — Finding the next step | Available information and the desired goal |
+| 18 — Cases and equivalence | Covering possibilities and proving both directions |
+| 19 — Contraposition | Logical equivalence, construction and strategic reformulation |
+| 20 — Contradiction (next) | Investigating what follows when the desired claim is assumed false |
+
+### Learning checkpoint
+
+<RecallChecklist items={["I can construct the contrapositive of an implication.", "I can explain why an implication and its contrapositive are equivalent.", "I can distinguish contraposition from proving the converse.", "I can reconstruct the proof that an odd integer has an odd square.", "I understand why contraposition establishes the original theorem.", "I can negate a conclusion containing AND or OR.", "I can recognize when contraposition is more convenient than direct proof.", "I can combine contraposition with proof by cases."]} />
+
+### Preparation and research sources
+
+| Source | Relevant material |
+| --- | --- |
+| [Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/) | Chapter 5: Contrapositive Proof. Logical structure, definitions, proof-writing conventions and examples. |
+| [Daniel J. Velleman — How to Prove It](https://www.cambridge.org/core/books/abs/how-to-prove-it/contents/D9098F367810400B8A7FFD6FFCC22695) | Chapter 3: Proofs. The logical structure of a goal and the choice of proof strategy. |

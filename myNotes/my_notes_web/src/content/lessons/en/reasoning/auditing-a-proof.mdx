@@ -1,0 +1,730 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-three
+sourceId: reasoning-episode-23
+sourcePages: []
+sourceLocations: ["Full script sections 1–8; Diagnostic distinctions; Revision table; Preparation sources"]
+title: "How to take a proof apart"
+navTitle: "Auditing a proof"
+description: "Inspect claims, assumptions, deductions and conclusions; distinguish invalid reasoning, missing justification and false claims."
+order: 23
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [mathematical-induction]
+thumbnail: reasoning-audit
+---
+
+Until now, we have primarily been learning how to construct arguments. We have explored direct proofs, contraposition, contradiction, proof by cases, existence, uniqueness and mathematical induction.
+
+But there is another skill that is just as important as constructing a proof: knowing how to examine one.
+
+## 1. Something has gone terribly wrong
+
+<ReasoningFigure kind="audit-opening" />
+
+One equals two.
+
+You probably don't believe that. And you have very good reasons not to.
+
+But suppose I could show you a mathematical argument in which we begin with an ordinary assumption, perform a series of familiar algebraic operations, and eventually arrive at precisely this conclusion.
+
+Would you be able to tell me exactly what went wrong?
+
+Not simply that the answer is ridiculous. Not that mathematics tells us otherwise. But which particular step we were not allowed to make, and why.
+
+<ReasoningFigure kind="audit-opening-chain" />
+
+There is an important difference between knowing that something is wrong and knowing what is wrong.
+
+If you already know that a conclusion is false, you have a reason to distrust the argument. But imagine encountering a conclusion about something you do not understand particularly well.
+
+Perhaps a scientific paper, an economic prediction, a philosophical argument, or a mathematical result that you have never encountered before.
+
+In those situations, you cannot always rely on recognizing an absurd answer. You need a method that allows you to evaluate the reasoning itself.
+
+Today, instead of building proofs, we are going to take them apart.
+
+## 2. A proof is more than its conclusion
+
+Think of a proof as a structure connecting what we already accept to something we want to establish.
+
+At one end, we have our assumptions, definitions and previously established results. At the other end, we have our conclusion. Between them, we have a sequence of deductions.
+
+<ReasoningFigure kind="audit-bridge-intact" />
+
+When we write a proof, our responsibility is to construct a connection that is logically sound. When we read a proof, our responsibility is to inspect that connection.
+
+Now imagine that one of these deductions is invalid.
+
+The connection is broken. But notice something important: the conclusion has not disappeared.
+
+<ReasoningFigure kind="audit-bridge-broken" />
+
+There might be another perfectly valid proof that reaches the same conclusion. What we have discovered is that this particular route does not establish it.
+
+Consider the following argument:
+
+Every square has four sides.
+
+This rectangle has four sides.
+
+Therefore, this rectangle is a square.
+
+<ReasoningFigure kind="audit-rectangle" />
+
+We recognize the mistake. Having four sides is necessary for being a square, but it is not sufficient.
+
+Now suppose that the rectangle we selected happened to be a square.
+
+The conclusion would be true. But the reasoning would still be invalid.
+
+The problem is not whether we were fortunate enough to arrive at the right answer. The problem is whether the answer was established by what came before it.
+
+This is the first principle of proof auditing:
+
+**Evaluate the connection, not just the destination.**
+
+## 3. The four checkpoints
+
+When confronted with a complicated proof, it can be difficult to know where to begin. There may be dozens of equations, unfamiliar symbols, and deductions whose purpose is not immediately apparent.
+
+Instead of trying to understand everything simultaneously, we can divide our investigation into four questions.
+
+<ReasoningFigure kind="audit-checkpoints" />
+
+First, we need to understand the claim.
+
+Is it about every object of a certain kind? Is it about the existence of at least one object? Are we trying to establish an implication, an equivalence, or perhaps uniqueness?
+
+The logical structure tells us what the proof owes us.
+
+Next, we inspect the assumptions. We ask what the argument is entitled to use. Which properties are given? Which definitions are available? Are there restrictions on the objects involved?
+
+Then we examine each deduction.
+
+This is where we investigate whether a new statement actually follows from what has already been established. Perhaps an algebraic operation has a condition attached to it. Perhaps a theorem is being applied outside its intended domain. Perhaps an implication has been reversed without justification.
+
+Finally, we compare the conclusion with the original claim.
+
+<ReasoningFigure kind="audit-target" />
+
+An argument can contain nothing but correct deductions and still fail to prove the intended theorem.
+
+Perhaps we demonstrated that something exists when we were supposed to demonstrate that it exists uniquely. Perhaps we proved something for positive integers when the statement concerns all integers. Perhaps we established one direction of an equivalence and forgot the other.
+
+Proof auditing is not simply checking whether individual sentences are true. It is also checking whether those sentences collectively accomplish what they were supposed to accomplish.
+
+## 4. Dissecting the proof that one equals two
+
+With these four questions in mind, we can return to our mysterious equation.
+
+Let us begin by assuming that $a$ and $b$ are two equal, nonzero real numbers.
+
+$$
+a=b,\qquad a\neq 0,\qquad b\neq 0.
+$$
+
+There is nothing problematic about this. For example, both numbers could be one.
+
+We multiply both sides of the equality by $a$.
+
+$$
+a^2=ab.
+$$
+
+Then we subtract $b^2$ from both sides.
+
+$$
+a^2-b^2=ab-b^2.
+$$
+
+We factor both expressions.
+
+$$
+(a-b)(a+b)=b(a-b).
+$$
+
+We cancel the common factor $a-b$.
+
+$$
+a+b=b.
+$$
+
+Since $a=b$, we can replace $a$ with $b$.
+
+$$
+2b=b.
+$$
+
+And finally, since $b$ is nonzero, we divide both sides by $b$.
+
+$$
+\boxed{2=1}
+$$
+
+<Interactive kind="audit" preset="faulty" id="audit-faulty" />
+
+Before continuing, try to identify the first invalid step in this argument.
+
+Remember, we are not looking for the first statement that looks suspicious. We are looking for the first transition that is not logically justified.
+
+Let's inspect the argument from the beginning.
+
+Multiplying both sides of an equality by the same number is permitted. Subtracting the same number from both sides is permitted. Both of our factorizations are correct.
+
+So far, nothing has gone wrong.
+
+But now we reach this expression.
+
+$$
+\underbrace{(a-b)}_{\text{Common factor}}(a+b) = b\underbrace{(a-b)}_{\text{Common factor}}
+$$
+
+We would like to cancel the common factor. This is an operation we perform so frequently that it is easy to forget what it actually means.
+
+Cancellation here is division.
+
+$$
+\frac{(a-b)(a+b)}{a-b} = \frac{b(a-b)}{a-b}.
+$$
+
+And what was our starting assumption?
+
+$$
+a=b.
+$$
+
+Which means that
+
+$$
+a-b=0.
+$$
+
+$$
+\frac{0\cdot(a+b)}{0} = \frac{b\cdot 0}{0}.
+$$
+
+We are dividing by zero.
+
+The operation that looked like ordinary simplification was never permitted.
+
+But rather than simply remembering that division by zero is forbidden, let's understand why cancellation fails here.
+
+Suppose I tell you that
+
+$$
+3\cdot 4=3\cdot 4.
+$$
+
+If I cancel the common factor of three, I obtain a perfectly valid equality.
+
+$$
+4=4.
+$$
+
+Now suppose I tell you something different.
+
+$$
+0\cdot 4=0\cdot 9.
+$$
+
+This is also a true equality, because both sides equal zero. But it certainly does not establish that four equals nine.
+
+<Interactive kind="audit" preset="cancellation" id="audit-cancellation" />
+
+Different inputs produce identical outputs. The original information is lost.
+
+Multiplying by zero destroys our ability to distinguish between the original numbers. Once both sides have become zero, their equality tells us nothing about whether the original numbers were equal.
+
+That is precisely what happens in our supposed proof.
+
+The expression before cancellation was simply
+
+$$
+0=0.
+$$
+
+A true statement, but one that does not establish our conclusion.
+
+What we have uncovered is a hidden condition inside an otherwise familiar algebraic rule.
+
+<ReasoningFigure kind="audit-rule" />
+
+And this teaches us something more general. A mathematical operation can be perfectly legitimate in one situation and completely invalid in another.
+
+Whenever we encounter a rule, we should not only ask what the rule allows us to do.
+
+We should also ask under which conditions it allows us to do it.
+
+## 5. When every step is correct, but the proof is incomplete
+
+The previous example was relatively dramatic. Its conclusion was obviously false, and we eventually discovered a particular invalid operation.
+
+But many defective mathematical arguments are much less theatrical.
+
+Consider the following statement:
+
+> An integer is even if and only if its square is even.
+
+We have encountered this relationship before. Let us imagine that someone presents the following proof.
+
+Let $n$ be an even integer. By the definition of evenness, there exists an integer $k$ such that
+
+$$
+n=2k.
+$$
+
+Squaring both sides gives
+
+$$
+n^2=4k^2=2(2k^2).
+$$
+
+Since $2k^2$ is an integer, $n^2$ is even.
+
+Therefore, an integer is even if and only if its square is even.
+
+Every mathematical deduction in the body of this proof is correct.
+
+And the theorem we are trying to establish is also true.
+
+Nevertheless, the proof is incomplete.
+
+Why?
+
+Let us return to the first checkpoint and examine the claim itself.
+
+The expression "if and only if" represents two implications.
+
+Our argument establishes that if $n$ is even, then $n^2$ is even.
+
+But nothing in the argument establishes that if $n^2$ is even, then $n$ must be even.
+
+<ReasoningFigure kind="audit-direction-missing" />
+
+The problem is not that we followed an incorrect route. The problem is that we only completed half of the journey.
+
+To repair this proof, we need another argument.
+
+And from our earlier episode on contraposition, we already have one.
+
+Suppose that $n$ is odd. Then, for some integer $k$,
+
+$$
+n=2k+1.
+$$
+
+Therefore,
+
+$$
+\begin{aligned} n^2&=(2k+1)^2\\ &=4k^2+4k+1\\ &=2(2k^2+2k)+1. \end{aligned}
+$$
+
+This establishes that an odd integer has an odd square.
+
+By contraposition, if the square of an integer is even, then the integer itself is even.
+
+Only now have we fulfilled both obligations.
+
+<ReasoningFigure kind="audit-direction-complete" />
+
+This is a different kind of defect from what we encountered in the proof that one equals two.
+
+In that argument, we had to reject an invalid deduction. Here, we were able to preserve every mathematical deduction we had already made and supply the missing argument.
+
+Understanding the difference tells us how to repair a proof, rather than merely declaring it defective.
+
+## 6. Three more ways a proof can break
+
+We have now encountered two different problems: performing an operation without satisfying its conditions, and failing to establish the entire conclusion.
+
+There are several other recurring patterns worth recognizing. You do not need to memorize a catalogue of mistakes. What matters is understanding the structure behind them.
+
+### A. A missing case
+
+Consider the following claim:
+
+$$
+x^2\geq x \qquad\text{for every }x\in\mathbb R.
+$$
+
+Someone proposes the following argument.
+
+If $x\geq 1$, then multiplying the inequality $x\geq 1$ by the positive number $x$ gives us
+
+$$
+x^2\geq x.
+$$
+
+If $x\leq 0$, then $x^2\geq 0$, and therefore
+
+$$
+x^2\geq 0\geq x.
+$$
+
+Consequently, $x^2\geq x$ for every real number.
+
+Everything seemed to be going well until that final sentence.
+
+<ReasoningFigure kind="audit-coverage" />
+
+Both cases are correct. But together, they do not cover every real number.
+
+There is an entire interval between zero and one that our argument has ignored.
+
+And if we select a number from that interval, something interesting happens.
+
+$$
+x=\frac12
+$$
+
+$$
+x^2=\frac14<\frac12=x.
+$$
+
+We have found a counterexample.
+
+<ReasoningFigure kind="audit-quadratic" />
+
+<Interactive kind="audit" preset="cases" id="audit-cases" />
+
+This time, completing the proof is impossible, because the original claim is false.
+
+But our earlier deductions are still useful. They establish a weaker statement.
+
+$$
+x^2\geq x \quad\text{whenever}\quad x\leq 0\ \text{or}\ x\geq 1.
+$$
+
+Alternatively, we could restrict the domain to the integers, because there are no integers strictly between zero and one.
+
+$$
+\forall n\in\mathbb Z,\qquad n^2\geq n.
+$$
+
+<ReasoningFigure kind="audit-integer-domain" />
+
+Notice that we have not repaired the original theorem. We have replaced it with a different, true theorem that our argument actually establishes.
+
+Sometimes the most productive response to a failed proof is to change the claim rather than continue trying to defend it.
+
+### B. A hidden restriction
+
+Now consider a familiar expression.
+
+$$
+\sqrt{x^2}=x.
+$$
+
+At first glance, it appears completely natural. Squaring and taking a square root seem like opposite operations.
+
+But what happens if $x=-3$?
+
+$$
+\sqrt{(-3)^2} = \sqrt9 = 3.
+$$
+
+Not negative three.
+
+<ReasoningFigure kind="audit-square-root" />
+
+The original identity is valid when $x$ is nonnegative, but not for arbitrary real numbers.
+
+The general identity is
+
+$$
+\sqrt{x^2}=|x|.
+$$
+
+Once again, the problem is not that the rule never works. It is that we have forgotten where it works.
+
+Definitions, domains and restrictions are not peripheral details. They are part of the logical content of a mathematical statement.
+
+### C. Circular reasoning
+
+There is another kind of error that can be surprisingly difficult to notice.
+
+Suppose someone wants to establish that the sum of two even integers is even.
+
+They begin with two even integers, $a$ and $b$, and write:
+
+Since their sum is even, we can express it as
+
+$$
+a+b=2k
+$$
+
+for some integer $k$. Therefore, $a+b$ is even.
+
+The conclusion follows from the sentence immediately before it. But where did that sentence come from?
+
+We simply assumed the property that we were supposed to establish.
+
+<ReasoningFigure kind="audit-circular" />
+
+A valid proof needs to derive its conclusion from premises that do not depend on the very result it is trying to establish.
+
+In this case, our legitimate assumptions are that $a$ is even and that $b$ is even. From their definitions, we obtain
+
+$$
+a=2m,\qquad b=2n,
+$$
+
+where $m,n\in\mathbb Z$.
+
+Then,
+
+$$
+a+b=2m+2n=2(m+n).
+$$
+
+Since $m+n$ is an integer, the conclusion now follows independently.
+
+<ReasoningFigure kind="audit-repaired" />
+
+The difference between the two arguments is not primarily in their algebra. It is in where the reasoning begins.
+
+And that is why proof auditing requires us to examine the origin of each statement, not merely whether it resembles something mathematically correct.
+
+## 7. The proof auditor's challenge
+
+We are now going to examine three short arguments.
+
+For each one, ask yourself what the argument is trying to establish, whether its assumptions are legitimate, whether its deductions are justified, and whether the conclusion matches its original target.
+
+And remember: there is no guarantee that an argument contains a mistake.
+
+Being a good proof auditor means being able to recognize valid reasoning, not simply becoming suspicious of everything you read.
+
+### Challenge 1 — Has the implication been reversed?
+
+**Claim:** If an integer is divisible by four, then it is even.
+
+**Proposed proof:**
+
+Suppose that $n$ is even. Then there exists an integer $k$ such that
+
+$$
+n=2k.
+$$
+
+Multiplying by two gives
+
+$$
+2n=4k.
+$$
+
+Therefore, $n$ is even whenever it is divisible by four.
+
+<details>
+<summary>Reveal analysis</summary>
+
+<ReasoningFigure kind="audit-challenge-direction" />
+
+The argument begins at the wrong end of the implication. It assumes evenness instead of deriving it.
+
+Additionally, it changes the object under examination from $n$ to $2n$.
+
+We can repair the proof by assuming that $n$ is divisible by four. That means $n=4k$ for an integer $k$. Rewriting this as $n=2(2k)$ immediately establishes evenness.
+
+The theorem was never the problem. The route was.
+
+</details>
+
+### Challenge 2 — A proof that might not need repairing
+
+**Claim:** The product of two odd integers is odd.
+
+**Proposed proof:**
+
+Let $a$ and $b$ be arbitrary odd integers. Then, for some integers $m$ and $n$,
+
+$$
+a=2m+1,\qquad b=2n+1.
+$$
+
+Therefore,
+
+$$
+\begin{aligned} ab&=(2m+1)(2n+1)\\ &=4mn+2m+2n+1\\ &=2(2mn+m+n)+1. \end{aligned}
+$$
+
+Since $2mn+m+n$ is an integer, $ab$ is odd.
+
+<details>
+<summary>Reveal analysis</summary>
+
+<ReasoningFigure kind="audit-odd-product" />
+
+**Diagnosis: Valid and complete.**
+
+The proof begins with arbitrary odd integers, uses their definitions correctly, performs justified algebraic operations and establishes precisely the required conclusion.
+
+The diagram illustrates a positive-integer example. The symbolic argument proves the statement for all odd integers.
+
+This argument is correct.
+
+We began with arbitrary odd integers, rather than selecting particular examples. We used the definition of oddness, correctly expanded the product, and demonstrated that the result has the form $2k+1$, where $k$ is an integer.
+
+There is no missing case and no invalid deduction.
+
+One of the dangers of exercises that always ask you to find a mistake is that you can begin to expect a mistake regardless of what the reasoning actually says.
+
+But criticism is not the same as accuracy.
+
+Sometimes the correct response to an argument is to accept it.
+
+</details>
+
+### Challenge 3 — Repair the proof or change the claim?
+
+**Claim:** Every real number has a multiplicative inverse.
+
+In other words,
+
+$$
+\forall x\in\mathbb R,\ \exists y\in\mathbb R: \quad xy=1.
+$$
+
+**Proposed proof:**
+
+Let $x$ be an arbitrary real number.
+
+Choose
+
+$$
+y=\frac1x.
+$$
+
+Then
+
+$$
+xy=x\cdot\frac1x=1.
+$$
+
+Therefore, every real number has a multiplicative inverse.
+
+<details>
+<summary>Reveal analysis</summary>
+
+<ReasoningFigure kind="audit-inverse" />
+
+**Diagnosis: False claim and invalid application of division.**
+
+When $x=0$, the proposed witness $1/x$ is undefined. Furthermore, for every real y,
+
+$$
+0\cdot y=0\neq1.
+$$
+
+The original claim cannot be proved. A correct, weaker claim is:
+
+$$
+\forall x\in\mathbb R\setminus\{0\},\ \exists y\in\mathbb R:\ xy=1.
+$$
+
+We have encountered the problem of division by zero again, but this time in a different context.
+
+There is a single real number for which our proposed construction fails. Zero.
+
+Could we find a different witness when $x=0$?
+
+No. Multiplying zero by any real number gives zero, never one.
+
+The original claim is false.
+
+However, once we restrict our claim to nonzero real numbers, the argument works exactly as intended.
+
+$$
+\mathbb R \quad\longrightarrow\quad \mathbb R\setminus\{0\}.
+$$
+
+We have not discarded the entire argument. We have discovered precisely how much of its conclusion survives scrutiny.
+
+</details>
+
+## 8. The difference between doubt and understanding
+
+At the beginning of this episode, we encountered an argument that appeared to prove that one equals two.
+
+We already knew that something was wrong. But by investigating the argument, we discovered something considerably more useful: exactly where it failed, why the operation was invalid, and under which conditions that same operation would have been legitimate.
+
+And throughout the episode, we have encountered several different outcomes.
+
+<ReasoningFigure kind="audit-outcomes" />
+
+Sometimes an argument is correct, and we should accept it. Sometimes a justification has been omitted, and we can supply it. Sometimes the reasoning is invalid, and we need to find a different route. And sometimes the statement itself is false, and we need to reconsider what we are trying to establish.
+
+These distinctions matter far beyond mathematics.
+
+Because when we examine an argument, our objective should not be to defend its conclusion, nor should it be to destroy it.
+
+Our objective should be to discover what the reasoning actually allows us to conclude.
+
+That is the difference between merely doubting something and understanding why we should or should not believe it.
+
+What is being claimed?
+
+What is being assumed?
+
+Does each step follow?
+
+What has actually been established?
+
+The next time you encounter an argument, try not to begin with the question of whether you agree with its conclusion.
+
+Begin by asking whether you can reconstruct the path that leads to it.
+
+Because knowing the answer is one thing.
+
+Knowing why it is the answer is something else entirely.
+
+## Learning compendium
+
+### Three different diagnoses
+
+The central distinction is between three different problems:
+
+**The statement is false.**
+
+What we are trying to establish is not true.
+
+**The argument is invalid.**
+
+The conclusion does not follow from the reasoning provided.
+
+**The justification is incomplete.**
+
+A potentially valid argument has not established everything it needs to establish.
+
+These diagnoses can overlap, but they are not interchangeable. Finding a defective proof does not necessarily mean that its conclusion is false. And finding a true conclusion does not mean that the argument establishing it is valid.
+
+<ReasoningFigure kind="audit-architecture" />
+
+### Failure, question and response
+
+| Failure                  | Diagnostic question                                        | Appropriate response                           |
+| ------------------------ | ---------------------------------------------------------- | ---------------------------------------------- |
+| Division by zero         | Are we permitted to divide by this expression?             | Check the conditions of the operation.         |
+| Unjustified converse     | Are we using the correct direction of the implication?     | Establish the required implication separately. |
+| Missing case             | Have we covered every permitted object?                    | Examine the remaining cases.                   |
+| Hidden restriction       | Does this rule apply throughout the stated domain?         | Make the restrictions explicit.                |
+| Circular reasoning       | Does the justification depend on the conclusion itself?    | Find independent premises.                     |
+| Missing proof obligation | Did we prove the entire statement?                         | Complete the missing portion.                  |
+| Omitted justification    | Can this transition be derived from available information? | Supply the intermediate reasoning.             |
+| False claim              | Is there a permitted counterexample?                       | Reject or reformulate the claim.               |
+
+A particularly important distinction is that an omitted justification is not automatically an invalid inference. An experienced mathematician may omit intermediate algebra that can be reconstructed. A genuinely invalid deduction cannot be justified from the available premises as presented.
+
+That distinction tells us whether to supply a missing justification or find a different argument.
+
+<ReasoningFigure kind="audit-inspect" />
+
+### Preparation sources
+
+| Source | Relevant material |
+| --- | --- |
+| [Kevin Houston — How to Think Like a Mathematician](https://www.cambridge.org/core/books/how-to-think-like-a-mathematician/FB0813C3AEDDECD40BE58AF186370D52) | Reading arguments, proof obligations, assumptions and clear mathematical communication. |
+| [Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/) | Chapters 4–9: direct proofs, contraposition, contradiction, equivalences, existence and disproof. |

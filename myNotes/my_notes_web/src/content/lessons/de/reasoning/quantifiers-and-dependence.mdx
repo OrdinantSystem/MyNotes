@@ -1,0 +1,573 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-two
+sourceId: reasoning-episode-13
+sourcePages: []
+sourceLocations: ["Sections 1–11; Reference reading"]
+title: "Wenn jeder jemanden kennt: Gibt es jemanden, den alle kennen?"
+navTitle: "Quantoren und Abhängigkeit"
+description: "Unterscheide abhängige und gemeinsame Zeugen, vertausche Quantoren sorgfältig und negiere verschachtelte Aussagen."
+order: 13
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [reasoning-with-switches]
+thumbnail: reasoning-quantifiers
+---
+
+## 1. Eine überraschend schwierige Frage
+
+Stell dir vor, du bist mit einer Gruppe von Menschen auf einer Veranstaltung. Du kennst dort nicht unbedingt alle, aber eines kannst du sicher sagen:
+
+**Jede Person kennt mindestens eine Person.**
+
+Betrachte nun eine zweite Aussage:
+
+**Es gibt jemanden, den jede Person kennt.**
+
+Zunächst klingen diese Sätze vielleicht wie zwei Formulierungen derselben Sache. Wenn alle jemanden kennen, muss es dann nicht jemanden geben, den alle kennen?
+
+Nicht unbedingt.
+
+Die beiden Sätze beschreiben sehr unterschiedliche Situationen. Wenn wir genau verstehen, *warum* sie sich unterscheiden, entdecken wir etwas Grundlegendes über mathematisches Denken: Die Reihenfolge unserer Entscheidungen kann die Bedeutung einer Aussage vollständig verändern.
+
+Untersuchen wir das mit nur drei Personen.
+
+## 2. Eine kleine Welt mit drei Personen
+
+Stell dir drei Personen vor: Alice, Ben und Clara.
+
+Alice kennt Ben. Ben kennt Clara. Und Clara kennt Alice.
+
+Das sind vorerst alle Bekanntschaften, die wir annehmen.
+
+<Interactive kind="dependence" preset="network" id="acquaintance-network" />
+
+Jeder Pfeil zeigt von der Person, die jemanden kennt, zur gekannten Person. Ein Pfeil von Alice zu Ben bedeutet also: Alice kennt Ben.
+
+Diese Pfeile haben eine Richtung. Dass Alice Ben kennt, bedeutet nicht automatisch, dass Ben Alice kennt. Wir beschreiben die Beziehungen in dieser kleinen Welt und setzen nicht voraus, dass Bekanntschaft immer gegenseitig ist.
+
+Eine weitere Vereinbarung sollten wir ausdrücklich nennen: Wir nehmen nicht an, dass jemand sich selbst kennt, solange das Diagramm keine Schleife zu dieser Person zeigt. Unser Modell erlaubt solche Schleifen, das erste Netz enthält aber keine.
+
+Betrachten wir nun die ursprüngliche Frage: Kennt hier jeder jemanden?
+
+Alice kennt Ben. Ben kennt Clara. Und Clara kennt Alice.
+
+Also ja. Jede Person hat mindestens einen ausgehenden Pfeil.
+
+Interessant ist jedoch, wie wir das festgestellt haben. Wir haben keine einzelne Person gefunden, die alle kennen. Stattdessen fanden wir **für jede untersuchte Person eine andere Person**.
+
+In diesem Unterschied steckt das ganze Rätsel.
+
+## 3. Das Netz in Mathematik übersetzen
+
+Die Mathematik gibt uns eine Sprache, mit der wir solche Beziehungen präzise ausdrücken können.
+
+Führen wir den Ausdruck
+
+$$
+ K(x,y)
+$$
+
+ein und lesen ihn so:
+
+„Person $x$ kennt Person $y$.“
+
+Dabei steht $K$ für unsere Bekanntschaftsbeziehung. Die Buchstaben $x$ und $y$ sind Variablen für Personen.
+
+Zum Beispiel bedeutet
+
+$$
+ K(A,B)
+$$
+
+dass Alice Ben kennt. Das ist in unserem Netz wahr.
+
+Aber
+
+$$
+ K(B,A)
+$$
+
+bedeutet, dass Ben Alice kennt. Den eingezeichneten Pfeilen zufolge ist das falsch.
+
+Das ist ein **Prädikat**, genauer ein zweistelliges Prädikat. Sobald wir Werte für seine beiden Variablen einsetzen, drückt es eine Aussage aus, die wahr oder falsch sein kann.
+
+Wir müssen außerdem festlegen, welche Personen unsere Variablen bezeichnen dürfen. Diese Menge heißt unser *Grundbereich*.
+
+Vorerst ist der Grundbereich einfach
+
+$$
+ U=\{A,B,C\}.
+$$
+
+Mit „alle“ meinen wir also alle in dieser Gruppe aus drei Personen. Mit „jemand“ meinen wir mindestens eine Person aus derselben Gruppe.
+
+Jetzt sind wir bereit für zwei neue Symbole.
+
+<ReasoningFigure kind="quantifier-symbols" />
+
+Das erste Symbol, $\forall$, heißt *Allquantor*. Es bedeutet „für jedes“ oder „für alle“.
+
+Das zweite Symbol, $\exists$, heißt *Existenzquantor*. Es bedeutet „es gibt“ oder „für mindestens eines“.
+
+Diese Symbole heißen Quantoren, weil sie angeben, in welchem Umfang eine Bedingung im Grundbereich gelten muss.
+
+Mit dieser Notation wird die Aussage „Jeder kennt jemanden“ zu
+
+$$
+ \boxed{\forall x\;\exists y\;K(x,y)}
+$$
+
+Lies den Ausdruck sorgfältig von links nach rechts.
+
+Für jede Person $x$ gibt es eine Person $y$, sodass $x$ die Person $y$ kennt.
+
+Der erste Quantor verlangt, dass wir jedes mögliche $x$ betrachten. Haben wir ein bestimmtes $x$ ausgewählt, dürfen wir mit dem zweiten Quantor ein passendes $y$ für diese Wahl finden.
+
+Prüfen wir das an unserem ursprünglichen Netz.
+
+## 4. Jeder kennt jemanden
+
+Den Allquantor können wir als Aufforderung verstehen, drei Fälle zu prüfen: Alice, Ben und Clara.
+
+Der Existenzquantor fragt dann, ob wir in jedem Fall mindestens eine passende Bekanntschaft finden.
+
+| Person $x$ | Wahl von $y$ | $K(x,y)$ |
+| --- | --- | --- |
+| Alice | Ben | Wahr |
+| Ben | Clara | Wahr |
+| Clara | Alice | Wahr |
+
+Jede Zeile besteht die Prüfung. Damit ist
+
+$$
+ \forall x\;\exists y\;K(x,y)
+$$
+
+in unserem Netz wahr.
+
+Aber sieh dir die zweite Spalte an. Unsere Wahl von $y$ ändert sich abhängig davon, wer $x$ ist.
+
+Für Alice wählen wir Ben. Für Ben wählen wir Clara. Und für Clara wählen wir Alice.
+
+Das ist völlig zulässig. Die Aussage verlangte nie, jedes Mal dasselbe $y$ zu verwenden.
+
+Wir können unsere Auswahl sogar durch eine kleine Regel darstellen:
+
+$$
+y(x)=\begin{cases}B&\text{falls }x=A,\\C&\text{falls }x=B,\\A&\text{falls }x=C.\end{cases}
+$$
+
+Dabei hält $y(x)$ einfach einen Zeugen fest, den wir für jede Person $x$ ausgewählt haben. Wir behaupten nicht, dass jede Person nur eine Bekanntschaft hat. Wir brauchen lediglich für jede Person eine passende.
+
+So lässt sich unsere erste Aussage besonders gut verstehen:
+
+**Für jede Eingabe $x$ können wir ein passendes $y$ finden.**
+
+<ReasoningFigure kind="dependent-choices" />
+
+Ändern wir nun die Frage.
+
+Statt zu fragen, ob jede Person jemanden findet, den sie kennt, fragen wir:
+
+**Können wir eine Person finden, die alle kennen?**
+
+Das klingt ähnlich. Aber beachte, was mit der Mathematik geschieht.
+
+## 5. Jemand, den alle kennen
+
+Die neue Aussage lautet
+
+$$
+ \boxed{\exists y\;\forall x\;K(x,y)}
+$$
+
+Wir haben nur die Reihenfolge der beiden Quantoren verändert.
+
+Jetzt wählen wir zuerst eine einzelne Person $y$. Anschließend müssen wir überprüfen, ob jede Person $x$ genau diese Person $y$ kennt.
+
+Wir dürfen das gewählte $y$ nicht mehr von Person zu Person wechseln.
+
+Versuchen wir es.
+
+Wählen wir Alice als Kandidatin. Clara kennt Alice, Ben aber nicht. Alice scheidet also aus.
+
+Wie steht es mit Ben? Alice kennt Ben, Clara aber nicht. Auch Ben scheidet aus.
+
+Und Clara? Ben kennt Clara, Alice aber nicht. Wieder ein Fehlschlag.
+
+| Person, die alle kennen sollen | Eine Person, die sie nicht kennt |
+| --- | --- |
+| Alice | Ben |
+| Ben | Clara |
+| Clara | Alice |
+
+Wir haben alle möglichen Kandidaten geprüft. Jeder scheitert.
+
+Deshalb ist
+
+$$
+ \exists y\;\forall x\;K(x,y)
+$$
+
+in unserem ursprünglichen Netz falsch.
+
+Das ist unsere erste wichtige Entdeckung.
+
+<ReasoningFigure kind="quantifier-orders" />
+
+Die erste Aussage ist wahr und die zweite falsch, obwohl sie genau dasselbe Prädikat, dieselben Variablen und dieselben Quantoren verwenden.
+
+Nur die Reihenfolge hat sich geändert.
+
+Da wir eine Situation mit unterschiedlichen Wahrheitswerten gefunden haben, haben wir gezeigt: Die beiden Aussagen sind **nicht logisch äquivalent**.
+
+## 6. Was passiert, wenn alle dieselbe Person kennen?
+
+Kehre zum interaktiven Netz zurück und wechsle von „Verschiedene Kontakte“ zu „Ein gemeinsamer Kontakt“.
+
+In dieser Variante kennt Alice Ben, Clara kennt Ben, und Ben hat eine Schleife: Er kennt sich selbst.
+
+Wir können zuerst Ben auswählen und anschließend jede Person einzeln prüfen.
+
+Für Alice ist $K(A,B)$ wahr.
+
+Für Ben ist $K(B,B)$ wahr.
+
+Für Clara ist $K(C,B)$ wahr.
+
+Diesmal passt dieselbe Person in jedem Fall. Die stärkere Aussage ist erfüllt:
+
+$$
+ \exists y\;\forall x\;K(x,y).
+$$
+
+Und etwas Weiteres folgt unmittelbar: Wenn alle Ben kennen, kennen sicher alle *jemanden*.
+
+Die stärkere Aussage garantiert also die schwächere.
+
+$$
+ \boxed{ (\exists y\;\forall x\;K(x,y)) \;\Longrightarrow\; (\forall x\;\exists y\;K(x,y)) }
+$$
+
+Die Implikation gilt in dieser Richtung, aber nicht rückwärts. Das hat unser ursprüngliches Netz bereits gezeigt.
+
+Das ist eine wichtige Form mathematischen Schlussfolgerns. Wir haben nicht nur zwei Sätze verglichen, sondern eine Beziehung zwischen ihnen entdeckt.
+
+Eine Aussage ist stark genug, um die andere zu garantieren. Die andere enthält jedoch nicht genug Information, um die Garantie zurückzugeben.
+
+Außerdem gibt es einen feinen Punkt an unserem Modell.
+
+Hätten wir Bekanntschaft so definiert, dass sie Selbstbekanntschaft *strikt ausschließt*, wäre die wörtliche Aussage $\exists y\forall x K(x,y)$ in einer Gruppe unmöglich, wenn $x$ und $y$ dieselben Personen durchlaufen. Jede gewählte Person $y$ müsste sich selbst kennen, weil sie auch ein möglicher Wert von $x$ ist.
+
+Im Alltag bedeutet „jemand, den alle kennen“ häufig: alle *anderen*. Das könnten wir präziser so formulieren:
+
+$$
+ \exists y\;\forall x\;(x\neq y\to K(x,y)).
+$$
+
+In Worten: Es gibt eine Person $y$, sodass jede von $y$ verschiedene Person $x$ diese Person $y$ kennt.
+
+Mathematische Präzision bedeutet also mehr, als passende Symbole auszuwählen. Wir müssen auch den Grundbereich und die betrachtete Beziehung definieren.
+
+## 7. Die tiefere Idee: Abhängigkeit
+
+Wir haben über Personen gesprochen. Die zugrunde liegende Idee ist aber viel allgemeiner.
+
+Betrachten wir diese beiden Ausdrücke erneut:
+
+$$
+ \forall x\;\exists y\;P(x,y)
+$$
+
+$$
+ \exists y\;\forall x\;P(x,y).
+$$
+
+Dabei könnte $P(x,y)$ fast jede Beziehung beschreiben: eine Person, die eine Aufgabe löst; einen Kunden, der eine Leistung erhält; eine Zahl, die größer als eine andere ist; oder ein Buch, das eine Quelle zitiert.
+
+Der erste Ausdruck erlaubt, dass das gewählte $y$ **von $x$ abhängt**.
+
+Der zweite verlangt, dass wir $y$ unabhängig von $x$ wählen. Diese eine Wahl muss überall passen.
+
+Sehen wir uns an, wie wichtig der Unterschied wird, wenn wir die Personen durch Zahlen ersetzen.
+
+Betrachte:
+
+„Für jede reelle Zahl $x$ gibt es eine reelle Zahl $y$, die größer als $x$ ist.“
+
+In Symbolen:
+
+$$
+ \forall x\in\mathbb R\;\exists y\in\mathbb R: y>x.
+$$
+
+Ist das wahr?
+
+Natürlich. Welche reelle Zahl du mir auch gibst, ich kann eine größere wählen. Gibst du mir 5, wähle ich 6. Gibst du mir 100, wähle ich 101.
+
+Ich kann sogar die allgemeine Regel $y=x+1$ verwenden.
+
+Was geschieht aber, wenn wir die Quantoren vertauschen?
+
+$$
+ \exists y\in\mathbb R\;\forall x\in\mathbb R: y>x.
+$$
+
+Jetzt behaupten wir, es gebe eine einzelne reelle Zahl, die größer als jede reelle Zahl ist.
+
+Das müsste eine größte reelle Zahl sein.
+
+Eine solche Zahl gibt es nicht. Welche Zahl $y$ du auch vorschlägst, ich finde eine größere Zahl $x=y+1$. Damit ist die Ungleichung $y>x$ falsch.
+
+<ReasoningFigure kind="real-choices" />
+
+Wir haben dieselbe logische Einsicht von einem sozialen Netz auf die unendliche Menge der reellen Zahlen übertragen.
+
+Die Objekte und die Beziehung haben sich verändert. Die Struktur der Argumentation ist gleich geblieben.
+
+Das ist ein Grund, warum mathematische Logik so nützlich ist: Wir erkennen dasselbe Muster hinter ganz unterschiedlichen Problemen.
+
+## 8. Wann ist eine quantifizierte Aussage falsch?
+
+Gehen wir einen Schritt weiter.
+
+Bisher haben wir vor allem geprüft, ob quantifizierte Aussagen wahr sind. In mathematischen Beweisen müssen wir jedoch oft bestimmen, was es bedeutet, dass eine solche Aussage falsch ist.
+
+Hier werden die Quantoren besonders wichtig.
+
+Angenommen, eine Lehrkraft behauptet:
+
+„Alle Lernenden haben mindestens eine Aufgabe gelöst.“
+
+Wir führen das Prädikat $S(s,p)$ ein: Die lernende Person $s$ hat Aufgabe $p$ gelöst.
+
+Unsere Behauptung wird zu
+
+$$
+ \boxed{\forall s\;\exists p\;S(s,p)}
+$$
+
+Für jede lernende Person $s$ gibt es mindestens eine Aufgabe $p$, die diese Person gelöst hat.
+
+Nun wollen wir diese Behauptung infrage stellen.
+
+Welchen Beleg brauchen wir?
+
+Genügt es, jemanden zu finden, der eine der Aufgaben nicht gelöst hat?
+
+Nein. Die Lehrkraft behauptete nur, dass jede Person *mindestens eine* gelöst hat. Jemand könnte an neun Aufgaben scheitern und die Behauptung durch das Lösen der zehnten trotzdem erfüllen.
+
+Genügt es, eine Aufgabe zu finden, die niemand gelöst hat?
+
+Wieder nicht unbedingt. Alle könnten jeweils eine andere Aufgabe gelöst haben.
+
+Um die Behauptung zu widerlegen, brauchen wir etwas Bestimmteres.
+
+Wir müssen **eine Person finden, die überhaupt keine Aufgabe gelöst hat**.
+
+Machen wir den Unterschied sichtbar.
+
+<Interactive kind="dependence" preset="students" id="student-counterexample" />
+
+Anfangs hat Maria Aufgabe 1 und Noah Aufgabe 2 gelöst.
+
+Die Behauptung ist wahr. Obwohl keine einzelne Aufgabe von beiden gelöst wurde, hat jede Person mindestens eine gelöst.
+
+Fügen wir nun eine dritte Person hinzu: Lea hat keine der Aufgaben gelöst.
+
+Plötzlich ist die ursprüngliche Aussage falsch. Nicht weil *alle* gescheitert wären, sondern weil eine bestimmte Person die Bedingung überhaupt nicht erfüllt.
+
+Das ist die grundlegende Logik der Negation.
+
+Um eine Allaussage zu negieren, genügt ein Gegenbeispiel.
+
+Um die darin enthaltene Existenzaussage zu negieren, müssen wir zeigen, dass keine der möglichen Wahlen passt.
+
+Übersetzen wir diese Überlegung in Symbole.
+
+Wir beginnen mit der ursprünglichen Aussage:
+
+$$
+ \forall s\;\exists p\;S(s,p).
+$$
+
+Ihre Negation lautet
+
+$$
+ \neg(\forall s\;\exists p\;S(s,p)).
+$$
+
+Das Symbol $\neg$ bedeutet „Es ist nicht der Fall, dass“.
+
+„Nicht alle haben etwas gelöst“ bedeutet zunächst: Es gibt eine Person, für die die verbleibende Behauptung scheitert.
+
+$$
+ \exists s\;\neg(\exists p\;S(s,p)).
+$$
+
+„Es gibt keine Aufgabe, die diese Person gelöst hat“ bedeutet wiederum: Jede Aufgabe ist eine, die diese Person nicht gelöst hat.
+
+$$
+ \boxed{\exists s\;\forall p\;\neg S(s,p)}
+$$
+
+Das ist die endgültige Negation.
+
+<ReasoningFigure kind="quantifier-negation" />
+
+Allgemeiner gelten zwei wichtige Äquivalenzen:
+
+$$
+ \neg\forall x\\,P(x)\equiv\exists x\\,\neg P(x)
+$$
+
+$$
+ \neg\exists x\\,P(x)\equiv\forall x\\,\neg P(x).
+$$
+
+Die zweite Äquivalenz sagt: „Es gibt kein $x$, für das $P(x)$ wahr ist“ bedeutet, dass $P(x)$ für jedes $x$ falsch ist.
+
+Die erste sagt: „Nicht jedes $x$ erfüllt $P$“ bedeutet, dass mindestens ein $x$ scheitert.
+
+Das sind keine willkürlichen Regeln zum Umformen von Symbolen. Sie drücken genau das aus, was unsere Untersuchung des Gegenbeispiels bereits gezeigt hat.
+
+## 9. Bedeutet „es gibt“ genau eines?
+
+Vor dem Abschluss sollten wir noch einen Unterschied klären.
+
+Angenommen, ich sage dir:
+
+„Es gibt jemanden, den Alice kennt.“
+
+Vielleicht stellst du dir eine bestimmte Bekanntschaft vor. Mathematisch verlangt die Aussage aber nur mindestens eine.
+
+Sie verlangt nicht genau eine.
+
+Betrachten wir drei mögliche Situationen.
+
+<ReasoningFigure kind="existence-counts" />
+
+Kennt Alice niemanden, ist die Existenzaussage falsch.
+
+Kennt Alice Ben, ist sie wahr.
+
+Und kennt Alice sowohl Ben als auch Clara, ist sie weiterhin wahr.
+
+Das mathematische Symbol $\exists$ verlangt **einen oder mehrere Zeugen**, nicht genau einen.
+
+Wenn die Mathematik ausdrücken soll, dass genau ein Objekt eine Bedingung erfüllt, verwendet sie *eindeutige Existenz*, häufig mit dem Symbol $\exists!$. Diesen Unterschied werden wir in Episode 21 ausführlicher untersuchen.
+
+Merke dir vorerst: Ein zweiter Zeuge widerlegt eine Existenzaussage nicht. Er bietet lediglich eine weitere Möglichkeit, sie zu erfüllen.
+
+## 10. Kannst du selbst ein Gegenbeispiel bauen?
+
+Wir haben gesehen, wie man Aussagen mit zwei Quantoren liest, wie ihre vertauschte Reihenfolge die Bedeutung verändern kann und wie man verschachtelte Quantoren negiert.
+
+Jetzt prüfen wir, ob du diese Ideen auch ohne unser ursprüngliches Netz anwenden kannst.
+
+Stell dir eine Bibliothek mit mehreren Büchern und mehreren Quellen vor. Wir definieren
+
+$$
+ C(b,s)
+$$
+
+so: Buch $b$ zitiert Quelle $s$.
+
+Betrachte die folgende Aussage:
+
+$$
+ \forall b\;\exists s\;C(b,s).
+$$
+
+Versuche, sie in Alltagssprache zu übersetzen.
+
+Sie bedeutet: Jedes Buch zitiert mindestens eine Quelle.
+
+Ändere nun die Reihenfolge der Quantoren.
+
+$$
+ \exists s\;\forall b\;C(b,s).
+$$
+
+Was bedeutet das?
+
+Es gibt eine Quelle, die von jedem Buch zitiert wird.
+
+Kannst du dir eine Bibliothek vorstellen, in der die erste Aussage wahr, die zweite aber falsch ist?
+
+<Exercise>
+
+<ReasoningFigure kind="citation-witnesses" />
+
+Hier ist eine mögliche Antwort. Das erste Buch zitiert Quelle 1, das zweite Quelle 2 und das dritte Quelle 3.
+
+Jedes Buch hat einen Quellenverweis. Daher ist die erste Aussage wahr.
+
+Aber keine Quelle wird von allen drei Büchern zitiert. Die zweite Aussage ist also falsch.
+
+Es ist dieselbe logische Struktur wie bei Alice, Ben und Clara, nun auf eine andere Situation übertragen.
+
+</Exercise>
+
+Und noch eine letzte Frage:
+
+Was würde es bedeuten, wenn die erste Aussage falsch wäre?
+
+Nicht jedes Buch zitiert eine Quelle.
+
+Also muss es **mindestens ein Buch geben, das überhaupt keine Quelle zitiert**.
+
+In Symbolen:
+
+$$
+ \boxed{\exists b\;\forall s\;\neg C(b,s)}
+$$
+
+Wenn du diese Übersetzung erklären kannst und verstehst, warum unser kleines Netz die ersten beiden Aussagen trennt, hast du die zentrale Idee dieser Lektion verstanden.
+
+## 11. Was wir entdeckt haben
+
+Am Anfang fragten wir, ob daraus, dass jeder jemanden kennt, folgt, dass es jemanden gibt, den alle kennen.
+
+Die Antwort lautet nein.
+
+Die tiefere Entdeckung hatte aber nicht eigentlich mit Bekanntschaften zu tun.
+
+Es ging um die Reihenfolge unserer Entscheidungen.
+
+Wenn wir
+
+$$
+ \forall x\;\exists y,
+$$
+
+schreiben, dürfen wir für jedes $x$ ein passendes $y$ getrennt auswählen.
+
+Wenn wir dagegen
+
+$$
+ \exists y\;\forall x,
+$$
+
+schreiben, müssen wir ein einzelnes $y$ finden, das für jedes $x$ passt.
+
+Deshalb ist die Reihenfolge der Quantoren wichtig.
+
+Deshalb wird auch die Negation von „Jeder hat mindestens eines“ zu „Jemand hat keines“ und nicht zu „Alle haben keines“.
+
+Und deshalb kann ein einziges Gegenbeispiel ausreichen, um eine Allaussage zu widerlegen.
+
+Im Alltag übersieht man den Unterschied zwischen solchen Sätzen leicht. In der Mathematik kann schon eine winzige Strukturänderung eine wahre Aussage in eine falsche verwandeln.
+
+Wenn dir das nächste Mal eine Behauptung mit Wörtern wie *jeder*, *einige*, *mindestens eines* oder *keines* begegnet, frage dich:
+
+**Wer darf wählen, und muss diese Wahl für alle passen?**
+
+Manchmal beginnt das Verstehen einer Aussage damit, die Reihenfolge ihrer Fragen zu bemerken.
+
+## Weiterführende Literatur
+
+[forall x: An Introduction to Formal Logic](https://forallx.openlogicproject.org/html/) zu mehrfacher Quantifikation und Quantorenumwandlung sowie [Velleman — How to Prove It](https://www.cambridge.org/core/books/abs/how-to-prove-it/contents/D9098F367810400B8A7FFD6FFCC22695) zur Quantorenlogik.

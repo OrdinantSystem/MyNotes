@@ -1,0 +1,8 @@
+---
+import type {InductionFigure} from '../lib/interactive/induction-model';
+import {inductionFigure,inductionTitle} from '../lib/interactive/induction-render';
+import '../styles/counterexamples.css';import '../styles/discovery.css';import '../styles/cases.css';import '../styles/induction.css';
+interface Props{kind:InductionFigure}
+const {kind}=Astro.props,locale=Astro.locals.locale||'en';
+---
+<figure class="counter-lab induction-figure" data-induction-figure={kind}><h3>{inductionTitle(locale,kind)}</h3><div set:html={inductionFigure(locale,kind)}/></figure>

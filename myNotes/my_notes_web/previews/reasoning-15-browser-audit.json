@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-23",
+  "lesson": "equivalence-relations",
+  "languages": [
+    "en",
+    "de"
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "checks": [
+    "4 and 7 retain remainder class 1; 8 selects class 2",
+    "Enter selection and reset retain focus",
+    "distance counterexample exposes exactly the failed endpoint pair",
+    "correct and incorrect radio feedback; ArrowUp selects previous option; reset clears answers",
+    "reset does not change another activity",
+    "all eleven figures and three activities in gallery; second sorting instance independent",
+    "English equivalence search and German Äquivalenzklassen search link to prefixed lesson",
+    "prefix language switch and previous/next links",
+    "no page-wide overflow in tested language/theme/width combinations",
+    "latest German prefix proof includes nine rendered math runs; no console warnings/errors",
+    "normal root preview refreshed; latest English proof includes nine math runs; no console warnings/errors"
+  ],
+  "normalPreview": "http://127.0.0.1:4321/reasoning/lessons/equivalence-relations/",
+  "viewportRestored": true
+}

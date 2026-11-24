@@ -1,0 +1,52 @@
+---
+import MathText from '../MathText.astro';
+import {uniquenessPresets,initialUniquenessState,type UniquenessPreset} from '../../lib/interactive/uniqueness-model';
+import {machineMarkup,convergenceMarkup,inspectionReference} from '../../lib/interactive/uniqueness-render';
+import {uniquenessText} from '../../lib/reasoning/uniqueness-copy';
+import '../../styles/counterexamples.css';import '../../styles/discovery.css';import '../../styles/cases.css';import '../../styles/uniqueness.css';
+interface Props{preset:UniquenessPreset;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=uniquenessText(locale),s=initialUniquenessState();
+if(!(uniquenessPresets as readonly string[]).includes(preset))throw new Error('Unknown uniqueness preset');
+---
+<figure class="counter-lab unique-lab" id={id} data-unique-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='machine'?<>
+  <div class="cases-inputs"><label for={`${id}-number`}>{c.input}<input id={`${id}-number`} type="number" min="-5" max="10" step="0.5" value={s.x} data-unique-number aria-controls={`${id}-output`}/></label></div>
+  <label class="cases-range-label" for={`${id}-range`}>{c.input}<input id={`${id}-range`} type="range" min="-5" max="10" step="0.5" value={s.x} data-unique-range aria-controls={`${id}-output`}/></label>
+  <div id={`${id}-output`} data-unique-output set:html={machineMarkup(locale,s.x)}/><figcaption>{c.inputCaption}</figcaption>
+ </>:preset==='convergence'?<>
+  <div id={`${id}-output`} data-unique-output set:html={convergenceMarkup(locale,s.stage)}/>
+  <div class="unique-step-controls"><button type="button" data-unique-step="-1" disabled aria-controls={`${id}-output`}>{c.previous}</button><button type="button" data-unique-step="1" aria-controls={`${id}-output`}>{c.next}</button></div><figcaption>{c.convergenceCaption}</figcaption>
+ </>:<>
+  {c.arguments.map((argument,row)=><section class="unique-argument" data-unique-argument={row}>
+   <h4>{c.argument} {row+1}</h4><MathText text={`$${argument.equation}$`}/>
+   {argument.steps.map(step=><MathText text={`$${step}$`}/>)}{row===3&&<p>{c.falseConclusion}</p>}
+   <fieldset class="discovery-question"><legend>{c.titles.inspection}</legend>{c.options.map((option,choice)=><label><input type="radio" name={`${id}-argument-${row}`} data-unique-choice={choice} aria-controls={`${id}-feedback-${row}`}/><span>{option}</span></label>)}</fieldset>
+   <button type="button" data-unique-check aria-controls={`${id}-feedback-${row}`}>{c.check}</button><div id={`${id}-feedback-${row}`} data-unique-feedback/>
+  </section>)}
+  <details><summary>{c.reference}</summary>{c.arguments.map((_,row)=><section><h4>{c.argument} {row+1}</h4><div set:html={inspectionReference(locale,row)}/></section>)}</details>
+ </>}
+ <div class="counter-controls"><button type="button" data-unique-reset>{c.reset}</button></div><p class="visually-hidden" role="status" aria-live="polite" data-unique-status></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {initialUniquenessState,uniquenessInput,machineState,inspectionAnswer} from '../../lib/interactive/uniqueness-model';
+import {machineMarkup,convergenceMarkup,inspectionFeedback} from '../../lib/interactive/uniqueness-render';
+import {uniquenessText} from '../../lib/reasoning/uniqueness-copy';
+for(const root of document.querySelectorAll<HTMLElement>('[data-unique-lab]')){
+ const preset=root.dataset.uniqueLab!,locale=root.dataset.locale as Locale,c=uniquenessText(locale);let s=initialUniquenessState();
+ const output=root.querySelector<HTMLElement>('[data-unique-output]'),status=root.querySelector<HTMLElement>('[data-unique-status]')!,number=root.querySelector<HTMLInputElement>('[data-unique-number]'),range=root.querySelector<HTMLInputElement>('[data-unique-range]');
+ const draw=()=>{if(preset==='machine'){output!.innerHTML=machineMarkup(locale,s.x);number!.value=String(s.x);range!.value=String(s.x);}if(preset==='convergence'){output!.innerHTML=convergenceMarkup(locale,s.stage);root.querySelectorAll<HTMLButtonElement>('[data-unique-step]').forEach(b=>b.disabled=Number(b.dataset.uniqueStep)<0?s.stage===0:s.stage===4);}};
+ const announce=()=>{if(preset==='machine'){const t=machineState(s.x);status.textContent=`${c.input}: ${t.x}. ${c.output}: ${t.output}. ${t.works?c.works:c.fails}`;}else status.textContent=`${c.step} ${s.stage+1} ${c.of} 5: ${c.stages[s.stage]}. ${c.stageText[s.stage]}`;};
+ const commit=()=>{const next=uniquenessInput(number!.value);if(next===null){number!.value=String(s.x);status.textContent=c.invalid;}else{s.x=next;draw();announce();}};
+ number?.addEventListener('input',()=>{const next=uniquenessInput(number.value);if(next!==null){s.x=next;draw();announce();}});number?.addEventListener('blur',commit);number?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();commit();}});
+ range?.addEventListener('input',()=>{s.x=Number(range.value);draw();announce();});
+ root.querySelectorAll<HTMLButtonElement>('[data-unique-step]').forEach(b=>b.addEventListener('click',()=>{s.stage=Math.max(0,Math.min(4,s.stage+Number(b.dataset.uniqueStep)));draw();announce();}));
+ root.querySelectorAll<HTMLElement>('[data-unique-argument]').forEach(argument=>{
+  const row=Number(argument.dataset.uniqueArgument),feedback=argument.querySelector<HTMLElement>('[data-unique-feedback]')!;
+  argument.querySelectorAll<HTMLInputElement>('[data-unique-choice]').forEach(input=>input.addEventListener('change',()=>{if(input.checked){s.answers[row]=Number(input.dataset.uniqueChoice);feedback.innerHTML='';}}));
+  argument.querySelector('[data-unique-check]')!.addEventListener('click',()=>{feedback.innerHTML=inspectionFeedback(locale,row,s.answers[row]);const correct=inspectionAnswer(row,s.answers[row]);status.textContent=`${c.argument} ${row+1}: ${correct===null?c.choose:correct?c.correct:c.compare}`;});
+ });
+ root.querySelector('[data-unique-reset]')?.addEventListener('click',()=>{s=initialUniquenessState();root.querySelectorAll<HTMLInputElement>('[data-unique-choice]').forEach(input=>input.checked=false);root.querySelectorAll<HTMLElement>('[data-unique-feedback]').forEach(f=>f.innerHTML='');root.querySelectorAll('details').forEach(e=>e.open=false);draw();status.textContent=c.reset;});
+}
+</script>

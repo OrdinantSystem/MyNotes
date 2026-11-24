@@ -1,0 +1,9 @@
+---
+import type {UniquenessFigure} from '../lib/interactive/uniqueness-model';
+import {uniquenessFigure} from '../lib/interactive/uniqueness-render';
+import {uniquenessText} from '../lib/reasoning/uniqueness-copy';
+import '../styles/counterexamples.css';import '../styles/discovery.css';import '../styles/cases.css';import '../styles/uniqueness.css';
+interface Props{kind:UniquenessFigure}
+const {kind}=Astro.props,locale=Astro.locals.locale||'en',c=uniquenessText(locale),key=kind.slice(7) as keyof typeof c.figures;
+---
+<figure class="counter-lab unique-figure" data-unique-figure={kind}><h3>{c.figures[key]}</h3><div set:html={uniquenessFigure(locale,kind)}/></figure>

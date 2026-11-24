@@ -1,0 +1,384 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-27
+sourcePages: []
+sourceLocations: ["Complete episode script 00:00–16:00; conceptual framework; preparation sources"]
+title: "Wie du den fehlenden Zwischenschritt entwickelst"
+navTitle: "Ein Lemma entwickeln"
+description: "Eine Zwischenaussage entdecken und beweisen, indem ein hinreichendes Ziel mit dem aus den Voraussetzungen Beweisbaren verbunden wird."
+order: 27
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [changing-representations]
+thumbnail: reasoning-lemma
+---
+
+## 1. Der Schritt, dessen Entdeckung niemand erklärt
+
+Stell dir vor, du öffnest ein Mathematikbuch und findest einen Beweis dieser Art: Wir wissen, dass $A$ wahr ist. Daraus folgt $B$. Weil $B$ wahr ist, folgt $C$. Damit ist $C$ bewiesen.
+
+<ReasoningFigure kind="lemma-chain" />
+
+Jeder einzelne Schritt ergibt Sinn. Du verstehst, warum $A$ zu $B$ führt und warum aus $B$ wiederum $C$ folgt. Trotzdem bleibt eine Frage unbeantwortet: Warum ist überhaupt jemand auf $B$ gekommen?
+
+Hättest du diesen Zwischenschritt selbst gefunden, wenn dir nur die Voraussetzungen und das Ziel gegeben worden wären?
+
+Beim Mathematiklernen sehen wir häufig fertige Ergebnisse des Denkens, aber nicht die Entscheidungen, die sie ermöglicht haben. Es ist, als zeigte man dir eine fertige Brücke und erklärte, wie leicht man den Fluss überquert. Das ist leicht, weil jemand die Brücke bereits gebaut hat. Aber was tust du an einem Fluss ohne Brücke?
+
+<ReasoningFigure kind="lemma-gap" />
+
+Wir untersuchen, wie wir den fehlenden Schritt selbst entwickeln können. Dazu müssen wir nicht wahllos mathematische Aussagen ausprobieren. Wir können fragen, was eine hilfreiche Zwischenaussage leisten müsste.
+
+## 2. Ein überraschend schwieriges kleines Problem
+
+Beginnen wir mit einer scheinbar offensichtlichen Aussage: Ist eine ganze Zahl durch zwei und durch drei teilbar, dann ist sie durch sechs teilbar.
+
+Sechs, zwölf, achtzehn, vierundzwanzig und dreißig erfüllen diese Bedingung. Die Vielfachen von zwei und drei scheinen sich genau bei den Vielfachen von sechs zu treffen.
+
+<ReasoningFigure kind="lemma-multiples" />
+
+Ein Muster zu erkennen und zu erklären, warum es immer gelten muss, sind aber verschiedene Dinge. Versuchen wir einen Beweis.
+
+Die Schreibweise
+
+$$
+a\mid b
+$$
+
+bedeutet: $a$ teilt $b$. Es gibt also eine ganze Zahl, mit der multipliziert $a$ die Zahl $b$ ergibt. Unsere Aussage lautet:
+
+$$
+\forall n\in\mathbb Z,\qquad(2\mid n\land3\mid n)\Rightarrow6\mid n.
+$$
+
+Trennen wir das Gegebene vom Gesuchten.
+
+<ReasoningFigure kind="lemma-assumptions" />
+
+Aus $2\mid n$ erhalten wir $n=2a$ für eine ganze Zahl $a$. Aus $3\mid n$ erhalten wir $n=3k$ für eine ganze Zahl $k$. Gesucht ist dagegen eine ganze Zahl $m$ mit $n=6m$.
+
+Man könnte nun zwei und drei multiplizieren und meinen, damit sei alles bewiesen. Aber warum wäre dieses Vorgehen zulässig?
+
+Zwölf ist durch vier und sechs teilbar, aber nicht durch vierundzwanzig. Zwei Teiler einfach zu multiplizieren funktioniert also nicht allgemein. Eine Begründung fehlt. Genau diese fehlende Verbindung wollen wir finden.
+
+## 3. Was würde zum Abschluss genügen?
+
+Wenn wir vorwärts nicht weiterkommen, können wir in die andere Richtung suchen: rückwärts vom Ziel aus.
+
+Statt zu fragen, was aus den Voraussetzungen folgt, fragen wir vorübergehend: **Was würde genügen, um die Schlussfolgerung zu beweisen?**
+
+Wir möchten
+
+$$
+n=6m
+$$
+
+für eine ganze Zahl $m$ zeigen. Weil sechs das Produkt von drei und zwei ist, können wir das Ziel auch so schreiben:
+
+$$
+n=3(2m).
+$$
+
+Vergleichen wir es mit dem bereits Bekannten.
+
+<ReasoningFigure kind="lemma-match" />
+
+Der Faktor drei ist schon vorhanden. Was fehlt, ist ein Faktor zwei im übrigen ganzzahligen Faktor $k$.
+
+Wäre $k$ gerade, könnten wir $k=2m$ mit ganzzahligem $m$ schreiben. Dann wäre
+
+$$
+\begin{aligned}
+n&=3k\\
+&=3(2m)\\
+&=6m.
+\end{aligned}
+$$
+
+Das wäre genau unser Ziel. Wir haben damit aber noch nichts Neues bewiesen: Wir haben nur erkannt, welche weitere Aussage zum Abschluss genügen würde.
+
+Das ursprüngliche Problem betraf das Zusammenspiel der Teilbarkeit durch zwei, drei und sechs. Jetzt haben wir eine konkretere Frage: Ist $k$ gerade?
+
+Wir haben das ursprüngliche Ziel nicht aufgegeben, sondern unser unmittelbares Ziel verändert. Die neue Frage entstand aus der Struktur des gewünschten Ergebnisses. Eine Frage, die wir noch nicht beantworten können, wird durch eine Frage ersetzt, deren Antwort uns zur ursprünglichen Lösung führen würde.
+
+<Interactive kind="lemma" preset="bridge" id="lemma-bridge" />
+
+## 4. Die Zwischenaussage entwickeln
+
+Untersuchen wir den Zusammenhang zwischen $k$ und $3k$ und lassen die Teilbarkeit durch sechs kurz beiseite. Stelle dir $k$ als Anzahl von Objekten vor. Mit drei zu multiplizieren heißt dann, drei Kopien dieser Sammlung zu bilden.
+
+<Interactive kind="lemma" preset="parity" id="lemma-parity" />
+
+Ist $k$ gerade, lassen sich alle Objekte der ursprünglichen Sammlung paaren. Drei Kopien erhalten diese vollständige Paarbarkeit.
+
+Was passiert, wenn $k$ ungerade ist? Jede Kopie hat ein Restobjekt. Nach dem Kopieren bleiben drei solche Objekte. Zwei davon bilden ein weiteres Paar; eines bleibt übrig. Das Dreifache einer ungeraden Zahl ist also wieder ungerade.
+
+Bei fünf sehen wir
+
+$$
+5+5+5=15,
+$$
+
+bei sieben
+
+$$
+7+7+7=21.
+$$
+
+Die Paarbildung legt aber mehr als einzelne Beispiele nahe: Sie erklärt die Struktur für jede positive ungerade Anzahl. Algebraisch können wir die Begründung auf alle ganzen Zahlen ausdehnen, auch auf negative.
+
+Sei $k$ ungerade. Dann gibt es eine ganze Zahl $r$ mit
+
+$$
+k=2r+1.
+$$
+
+Multiplizieren mit drei ergibt
+
+$$
+\begin{aligned}
+3k&=3(2r+1)\\
+&=6r+3\\
+&=6r+2+1\\
+&=2(3r+1)+1.
+\end{aligned}
+$$
+
+Weil $3r+1$ ganzzahlig ist, hat $3k$ genau die Form einer ungeraden Zahl. Wir haben also gezeigt: Ist $k$ ungerade, dann ist auch $3k$ ungerade.
+
+Ein gerades $3k$ kann folglich nicht von einem ungeraden $k$ stammen. Jede ganze Zahl ist entweder gerade oder ungerade. Daher gilt
+
+$$
+3k\text{ ist gerade}\Rightarrow k\text{ ist gerade}.
+$$
+
+Das ist die Kontraposition der bewiesenen Implikation.
+
+<ReasoningFigure kind="lemma-contrapositive" />
+
+Im ursprünglichen Problem wissen wir $3k=n$. Weil $n$ gerade ist, ist $3k$ gerade. Also muss $k$ gerade sein. Damit haben wir den fehlenden Zwischenschritt gefunden und begründet.
+
+## 5. Was ist ein Lemma?
+
+Mathematikerinnen und Mathematiker fassen hilfreiche Zwischenergebnisse häufig als **Lemma** zusammen. Ein Lemma ist eine bewiesene mathematische Aussage, die beim Beweis eines anderen Ergebnisses hilft.
+
+Ein Lemma und ein Satz unterscheiden sich nicht hinsichtlich ihrer logischen Gültigkeit: Beide brauchen eine Begründung. Der Unterschied betrifft vor allem ihre Rolle innerhalb eines größeren Arguments.
+
+Das Lemma verbindet die verfügbaren Informationen mit dem gewünschten Schluss.
+
+<ReasoningFigure kind="lemma-definition" />
+
+Unser Lemma lässt sich unabhängig vom ursprünglichen Problem formulieren. Für jede ganze Zahl $k$ gilt
+
+$$
+2\mid3k\Rightarrow2\mid k.
+$$
+
+Wir haben diese Aussage bewiesen, ohne Teilbarkeit durch sechs vorauszusetzen. Jetzt können wir sie auch in anderen Problemen über die Parität eines Dreifachen verwenden.
+
+So lässt sich eine umfangreiche Begründung in kleinere, wiederverwendbare Teile zerlegen. Wenn eine bestimmte Beziehung in vielen Problemen auftaucht, müssen wir nicht jedes Mal denselben Beweis wiederholen: Wir können sie einmal beweisen, benennen und bei erfüllten Voraussetzungen erneut anwenden.
+
+Was einmal ein Problem war, wird zum Werkzeug für weitere Probleme. Aber selbst wenn wir unser Lemma nie wieder verwenden, war seine Entdeckung hilfreich. Aus einer unklaren Aufgabe wurden zwei kleinere Aufgaben mit klaren Zielen.
+
+## 6. Der fertige Beweis verbirgt seine Entstehung
+
+Setzen wir das ganze Argument zusammen.
+
+**Satz.** Sei $n\in\mathbb Z$. Aus $2\mid n$ und $3\mid n$ folgt $6\mid n$.
+
+**Beweis.** Es gelte $2\mid n$ und $3\mid n$. Wegen $3\mid n$ existiert eine ganze Zahl $k$ mit
+
+$$
+n=3k.
+$$
+
+Weil $n$ gerade ist, ist auch $3k$ gerade. Wäre $k$ ungerade, gäbe es eine ganze Zahl $r$ mit $k=2r+1$. Dann wäre
+
+$$
+3k=2(3r+1)+1
+$$
+
+ungerade. Das widerspricht der Geradheit von $3k$. Also ist $k$ gerade und lässt sich als $k=2m$ mit ganzzahligem $m$ schreiben. Folglich gilt
+
+$$
+n=3k=3(2m)=6m.
+$$
+
+Damit ist $6\mid n$ bewiesen. $\square$
+
+Das ist ein vollständiger Beweis. Hätten wir ihn zuerst gesehen, könnten wir jeden Schritt verstehen und trotzdem fragen, warum überhaupt jemand die Parität von $k$ untersucht hat.
+
+Im fertigen Text steht nicht mehr, dass wir zunächst den Schluss betrachteten, sechs in Faktoren zerlegten und den fehlenden Faktor zwei in $k$ bemerkten. Diese Erkundung ist aus der Darstellung verschwunden.
+
+<ReasoningFigure kind="lemma-order" />
+
+Rückwärts zu suchen bedeutet nicht, den gewünschten Schluss als wahr vorauszusetzen und als Beleg zu verwenden. Beim Entdecken untersuchen wir hinreichende Bedingungen. Bei der Prüfung müssen wir diese Bedingungen aus den ursprünglichen Voraussetzungen und bereits bewiesenen Tatsachen herleiten.
+
+Die Reihenfolge der Entdeckung muss nicht dieselbe sein wie die Reihenfolge der Rechtfertigung.
+
+## 7. Nicht jeder Zwischenschritt ist hilfreich
+
+Was macht eine Zwischenaussage hilfreich? Statt die Geradheit von $k$ zu untersuchen, könnten wir vorschlagen: „Es gibt eine ganze Zahl $m$ mit $n=6m$.“
+
+Das würde zum Abschluss genügen. Es hilft aber nicht bei der Lösung, denn es ist nur der ursprüngliche Schluss in anderer Schreibweise. Das Hindernis wurde umbenannt, ohne leichter zugänglich zu werden.
+
+Auch $12\mid n$ wäre hinreichend: Jedes Vielfache von zwölf ist ein Vielfaches von sechs. Diese Aussage folgt jedoch nicht aus unseren Voraussetzungen. Bereits $n=6$ ist ein Gegenbeispiel.
+
+Eine hilfreiche Zwischenaussage muss deshalb zwei verschiedene Anforderungen erfüllen.
+
+<ReasoningFigure kind="lemma-criteria" />
+
+Unsere Aussage „$k$ ist gerade“ ist besonders interessant. Unter der Bedingung $n=3k$ ist sie sogar zur ursprünglichen Schlussfolgerung gleichwertig. Trotzdem ist sie keine nutzlose Umbenennung: Sie zeigt eine Paritätsbeziehung, für die ein zugänglicher Beweis vorliegt.
+
+Ein gutes Teilproblem muss nicht logisch schwächer als das Ausgangsproblem sein. Es muss leichter bearbeitbar werden. Manchmal ermöglicht schon eine andere Formulierung derselben mathematischen Anforderung einen Beweis.
+
+## 8. Wo funktioniert die Begründung nicht mehr?
+
+Kehren wir zu vier und sechs zurück. Wenn eine ganze Zahl durch beide teilbar ist, muss sie dann durch vierundzwanzig teilbar sein?
+
+<ReasoningFigure kind="lemma-counterexample" />
+
+Wir wissen bereits, dass dies falsch ist. Untersuchen wir die genaue Stelle, an der der frühere Ansatz scheitert.
+
+Aus $6\mid n$ folgt
+
+$$
+n=6k.
+$$
+
+Um $24\mid n$ zu zeigen, würde $4\mid k$ genügen, denn dann wäre
+
+$$
+n=6(4m)=24m.
+$$
+
+Die potenzielle Zwischenaussage ist also gefunden. Können wir sie auch beweisen?
+
+Bei $n=12$ gilt
+
+$$
+12=6\cdot2.
+$$
+
+Die ursprüngliche Zahl ist durch vier teilbar, der verbleibende Faktor zwei aber nicht. Das benötigte Lemma
+
+$$
+4\mid6k\Rightarrow4\mid k
+$$
+
+ist daher falsch.
+
+<ReasoningFigure kind="lemma-compare" />
+
+Zwei und drei sind **teilerfremd**: Ihr einziger gemeinsamer positiver Teiler ist eins. Vier und sechs sind es nicht; sie haben den gemeinsamen Faktor zwei.
+
+Eine allgemeinere Theorie erklärt, wann solche Teilbarkeitsargumente funktionieren. Für uns ist hier entscheidend: Eine Zwischenaussage kann zum Ziel genügen und trotzdem nicht aus den Voraussetzungen beweisbar sein.
+
+Die Rückwärtssuche zeigt, was wir gern beweisen würden. Sie garantiert nicht, dass es sich beweisen lässt.
+
+## 9. Übung: Den Zwischenschritt selbst finden
+
+Sei $n$ eine ungerade ganze Zahl. Zeige, dass
+
+$$
+n^2-1
+$$
+
+durch acht teilbar ist. Suche zunächst eine hilfreiche Zwischenaussage, statt sofort den ganzen Beweis fertigzustellen.
+
+Aus der Ungeradheit folgt
+
+$$
+n=2k+1
+$$
+
+mit ganzzahligem $k$. Einsetzen ergibt
+
+$$
+\begin{aligned}
+n^2-1&=(2k+1)^2-1\\
+&=4k^2+4k\\
+&=4k(k+1).
+\end{aligned}
+$$
+
+Damit ist Teilbarkeit durch vier klar. Gesucht ist aber Teilbarkeit durch acht. Was würde zum Abschluss genügen?
+
+<Interactive kind="lemma" preset="practice" id="lemma-practice" />
+
+Im Produkt $k(k+1)$ fehlt noch ein Faktor zwei. Es würde also genügen zu beweisen, dass das Produkt zweier aufeinanderfolgender ganzer Zahlen gerade ist.
+
+Das lässt sich leicht begründen: Von zwei aufeinanderfolgenden ganzen Zahlen ist eine gerade und die andere ungerade. Das Produkt enthält deshalb einen geraden Faktor.
+
+<ReasoningFigure kind="lemma-consecutive" />
+
+Wir können also
+
+$$
+k(k+1)=2m
+$$
+
+mit einer ganzen Zahl $m$ schreiben. Damit gilt
+
+$$
+n^2-1=4k(k+1)=8m.
+$$
+
+Der Beweis ist vollständig. Der mathematische Inhalt unterscheidet sich vom ersten Problem, der Entdeckungsprozess ist aber ähnlich: Wir verglichen das Gesuchte mit dem Bekannten und bestimmten die genau fehlende Beziehung.
+
+## 10. Lernen, die Verbindung selbst herzustellen
+
+Wenn du bei einem Problem keinen Lösungsweg siehst, musst du nicht sofort die gesamte Lösung finden. Du kannst zwei kleinere Fragen stellen: Was würde zum Abschluss genügen? Und kann ich das aus meinem bereits verfügbaren Wissen beweisen?
+
+<ReasoningFigure kind="lemma-bridge" />
+
+Ist auch dieses Teilproblem zu schwierig, kannst du den Vorgang wiederholen und eine weitere Zwischenaussage suchen. So kann ein zunächst unerreichbares Ziel zu einer Folge verständlicher Schritte werden.
+
+Denken lernen heißt nicht nur, einem vorgegebenen Weg folgen zu können. Es heißt auch, diesen Weg selbst zu entwickeln.
+
+## Lernkompendium
+
+<ReasoningFigure kind="lemma-directions" />
+
+Beide Suchrichtungen gehören zum Entdecken. Der fertige Beweis muss eine gültige Folge von Implikationen von den Voraussetzungen zum Schluss herstellen.
+
+| Begriff | Was er bedeutet |
+| --- | --- |
+| Hilfsproblem | Eine verwandte Aufgabe, deren Lösung beim ursprünglichen Problem helfen kann. |
+| Lemma | Ein bewiesenes Ergebnis, das ein anderes mathematisches Ergebnis unterstützt. |
+| Vorwärts schließen | Untersuchen, was sich aus verfügbaren Informationen ableiten lässt. |
+| Rückwärts suchen | Bedingungen finden, die zum gewünschten Schluss genügen würden. |
+| Hinreichende Stärke | Prüfen, ob die Zwischenaussage den Abschluss ermöglicht. |
+| Zugänglichkeit | Prüfen, ob die Aussage aus dem verfügbaren Wissen beweisbar ist. |
+| Zerlegung | Ein schwieriges Ziel durch mehrere besser bearbeitbare Ziele ersetzen. |
+| Beweisentdeckung | Der erkundende Prozess, in dem ein Beweis entwickelt wird. |
+| Beweisprüfung | Begründen, dass jeder Schluss im fertigen Argument gültig ist. |
+
+### Verbindungen in Teil Vier
+
+| Lektion | Schritt der Untersuchung |
+| --- | --- |
+| 25 | Das Hindernis bestimmen, wenn keine Lösung sichtbar ist. |
+| 26 | Die Darstellung ändern, um hilfreiche Beziehungen zu erkennen. |
+| 27 | Ein hinreichendes und zugängliches Zwischenziel entwickeln. |
+
+Diese Wege zur Entdeckung eines Beweises ersetzen nicht die Prüfung jedes einzelnen Schlusses.
+
+## Vorbereitungsquellen
+
+[George Pólya — How to Solve It](https://people.math.harvard.edu/~knill/teaching/math21b2001/polya/index.html). Der bei Harvard bereitgestellte Auszug behandelt Hilfsprobleme, die Untersuchung des Unbekannten, das Zurückgehen auf Definitionen und Verbindungen zwischen Gegebenem und Gesuchtem. Das sind Anregungen zur Untersuchung, kein garantiertes Beweisverfahren.
+
+[Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/). Das Inhaltsverzeichnis des Autors nennt Kapitel 4 zum direkten Beweis, Kapitel 5 zur Kontraposition und Kapitel 6 zum Widerspruchsbeweis. Sie sind weiterführende Lektüre für die hier verwendeten Techniken; eine Prüfung des ganzen Lehrbuchs wird nicht behauptet.
+
+### Optionaler mathematischer Hintergrund
+
+Euklids Lemma und Teilerfremdheit erklären eine allgemeinere Teilbarkeitsaussage:
+
+$$
+\gcd(a,b)=1\ \land\ a\mid n\ \land\ b\mid n\quad\Rightarrow\quad ab\mid n,
+$$
+
+für positive ganze Zahlen $a,b$ und eine beliebige ganze Zahl $n$. Ihr formaler Beweis gehört nicht zu dieser Lektion. Das konkret verwendete Paritätslemma wurde dagegen vollständig bewiesen. Das Gegenbeispiel mit gemeinsamem Faktor zeigt, warum die Bedingung der Teilerfremdheit nicht entfallen darf.

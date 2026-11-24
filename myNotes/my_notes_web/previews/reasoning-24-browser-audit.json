@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-24",
+  "lesson": "understanding-and-independent-reasoning",
+  "languages": [
+    "en",
+    "de"
+  ],
+  "viewports": [
+    [
+      1440,
+      1000
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "lessonFigures": 17,
+  "activities": 3,
+  "exerciseDisclosures": 5,
+  "initial": {
+    "predictionFieldsBlank": true,
+    "outcomesUnselected": true,
+    "referencesClosed": true
+  },
+  "experiments": {
+    "emptyPredictionPrompt": true,
+    "recorded80Percent": true,
+    "predictionLocked": true,
+    "typedWorkLocalUngraded": true,
+    "referenceSolutionAndWarning": true,
+    "selfReportedIndependentOutcome": true,
+    "resetClearsOwnWorkPredictionReferenceAndOutcome": true,
+    "lateForecastAfterTypingRejected": true,
+    "lateForecastAfterReferenceRejected": true,
+    "rangeArrowIncrementsTo51": true,
+    "invalid101Restored51": true,
+    "germanRecorded70": true
+  },
+  "record": {
+    "initialPredicted": 84,
+    "initialObserved": 60,
+    "point": [
+      328.8,
+      158
+    ],
+    "firstPredictionZeroGives64": true,
+    "allResultsUnknownGivesNoRateOrPoint": true,
+    "invalid50Point5Restored100": true,
+    "resetRestoresSample": true
+  },
+  "exerciseSolutions": {
+    "fiveOpenedInGerman": true,
+    "addedAnswersLabeled": true,
+    "delayedProofPositiveDivisorAndIntegerWitness": true
+  },
+  "navigation": {
+    "previous23AndNext24": true,
+    "overviewLessonCards": 24
+  },
+  "search": {
+    "enQuery": "understanding independently",
+    "deQuery": "Erklärungen selbstständig begründen",
+    "exactTitleFoundBoth": true
+  },
+  "gallery": {
+    "figures": 18,
+    "activities": 4,
+    "duplicateIds": 0,
+    "firstRecordChangedTo64IndependentRemains84": true
+  },
+  "prefix": {
+    "base": "/MyNotes/",
+    "englishAndGerman": true,
+    "homeLinksCorrect": true,
+    "recordedZeroForecast": true,
+    "germanReferenceOpens": true,
+    "brokenImages": 0,
+    "mathErrors": 0
+  },
+  "noPageWideOverflow": true,
+  "compactTableScrollsLocally": true,
+  "browserErrorsAndWarnings": [],
+  "screenshots": [
+    "reasoning-24-desktop.jpg",
+    "reasoning-24-compact-de.jpg"
+  ],
+  "finalState": {
+    "cleanEnglishLesson": true,
+    "viewportOverrideReset": true
+  },
+  "reviewStatus": "unreviewed",
+  "limits": [
+    "No automated proof grading or mastery claim",
+    "Paper attempt timing is self-reported",
+    "No physical touch/pen or screen-reader audit",
+    "Small heterogeneous example cannot diagnose calibration"
+  ]
+}

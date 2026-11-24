@@ -1,0 +1,663 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-three
+sourceId: reasoning-episode-22
+sourcePages: []
+sourceLocations: ["Sections 1–10; End-of-episode learning material; Preparation sources; Course connections"]
+title: "How can one step prove infinitely many statements?"
+navTitle: "Mathematical induction"
+description: "Connect a verified base case to a general inductive step, and turn growing squares into a complete proof."
+order: 22
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [existence-and-uniqueness]
+thumbnail: reasoning-induction
+---
+
+## 1. The impossible task
+
+Imagine that I give you a mathematical statement and ask you to prove that it is true for every positive integer.
+
+Not just for the first ten numbers. Not for the first million. For every single one of them.
+
+You might begin by checking the first number, then the second, then the third. And perhaps, with the help of a sufficiently powerful computer, you could check a trillion numbers.
+
+<ReasoningFigure kind="induction-checked" />
+
+But regardless of how many numbers you check, something remains unchanged: there are still infinitely many that you haven't checked.
+
+This creates an interesting problem. Human beings have a finite amount of time. Mathematical proofs have a finite number of steps. Yet mathematics routinely establishes statements about infinitely many objects.
+
+How is that possible?
+
+Today, we're going to discover a method that allows us to prove infinitely many statements using two essential components.
+
+And the interesting part is that we aren't going to make the infinity disappear. We're going to change the nature of the problem.
+
+Instead of asking whether each individual statement is true, we're going to investigate how the statements are connected.
+
+## 2. A strange pattern hidden inside the odd numbers
+
+Consider the positive odd numbers:
+
+$$
+1,\quad 3,\quad 5,\quad 7,\quad 9,\quad 11,\ldots
+$$
+
+What happens if we begin adding them together, one at a time?
+
+Something curious appears. Every result seems to be a perfect square.
+
+<ReasoningFigure kind="induction-sums" />
+
+The first odd number gives us one squared. The first two odd numbers give us two squared. The first three give us three squared.
+
+Perhaps we have discovered a general relationship.
+
+$$
+\underbrace{1+3+5+\cdots+(2n-1)}_{n\text{ odd numbers}} =n^2
+$$
+
+But before we attempt to prove it, I want you to look at these numbers differently.
+
+Instead of representing the number one as a symbol, let's represent it as a small square.
+
+<ReasoningFigure kind="induction-growth" />
+
+Now we have a two-by-two square containing four tiles. If we add five more tiles around its edges, something similar happens. We obtain a three-by-three square.
+
+And seven additional tiles produce a four-by-four square.
+
+We haven't simply found a numerical pattern anymore. We've begun to see a geometric mechanism that might explain why the pattern exists.
+
+But notice that we've changed something important.
+
+Originally, we were examining each result independently. Now we're looking at how one result becomes the next.
+
+### Viewer experiment
+
+How many tiles must we add to turn this 4 × 4 square into a 5 × 5 square?
+
+<Interactive kind="induction" preset="tiles" id="induction-tiles" />
+
+Nine additional tiles. And if we look at their arrangement, we can already begin to understand something that is more general than any of the individual examples.
+
+What if, instead of studying a square of a particular size, we studied a square of any size?
+
+## 3. Discovering the mechanism
+
+Let's return to our square. But this time, we're going to remove its specific numerical dimensions.
+
+Instead of a four-by-four square, imagine that we have a square whose sides have length $k$, where $k$ is any positive integer.
+
+The square contains $k^2$ tiles.
+
+To transform it into a square of size $k+1$, we need to extend it in two directions.
+
+<ReasoningFigure kind="induction-regions" />
+
+We need a column containing $k$ tiles, a row containing another $k$ tiles, and one additional tile to complete the corner.
+
+So the total number of new tiles is
+
+$$
+\begin{aligned} k+k+1&=2k+1. \end{aligned}
+$$
+
+And $2k+1$ is precisely the next odd number after $2k-1$.
+
+This means that whenever we have successfully constructed a square of size $k$, adding the next odd number of tiles produces a square of size $k+1$.
+
+Algebraically, the same transformation looks like this:
+
+$$
+\underbrace{k^2}_{\text{Existing square}} +\underbrace{2k+1}_{\text{New tiles}} =\underbrace{(k+1)^2}_{\text{Next square}}
+$$
+
+We have just discovered something much more powerful than a collection of examples.
+
+We haven't merely demonstrated that a three-by-three square can become a four-by-four square. We have demonstrated that the same transformation works for an arbitrary positive integer $k$.
+
+<ReasoningFigure kind="induction-transitions" />
+
+However, there's still a problem. Knowing how to get from one square to the next doesn't, by itself, establish that we ever had a square in the first place.
+
+And that brings us to the two essential components of mathematical induction.
+
+## 4. The chain of implications
+
+Imagine a seemingly endless row of dominoes.
+
+Suppose we have arranged them in such a way that whenever one domino falls, it causes the next domino to fall.
+
+Would this guarantee that every domino eventually falls?
+
+<ReasoningFigure kind="induction-domino-standing" />
+
+No. Every domino could simply remain standing.
+
+The arrangement guarantees what happens **if** a domino falls. It doesn't guarantee that any of them actually fall.
+
+We need to do something else. We need to push the first domino.
+
+<ReasoningFigure kind="induction-domino-started" />
+
+Now the first domino causes the second to fall. The second causes the third. The third causes the fourth. And the same mechanism continues.
+
+Mathematical induction follows a similar logical structure.
+
+However, instead of dominoes, we have mathematical statements. Let's call these statements $P(1),P(2),P(3)$, and so on.
+
+The letter $P$ represents a predicate. For every positive integer that we insert, we obtain a particular proposition that is either true or false.
+
+In our example, we define
+
+$$
+P(n):\quad 1+3+\cdots+(2n-1)=n^2.
+$$
+
+So $P(3)$, for instance, is the statement that the first three positive odd numbers sum to nine.
+
+Now consider what happens if we establish two things.
+
+First, we establish that $P(1)$ is true.
+
+Second, we establish that whenever $P(k)$ is true, $P(k+1)$ must also be true, for every positive integer $k$.
+
+$$
+P(1),\qquad \forall k\geq1:\ P(k)\Rightarrow P(k+1)
+$$
+
+<ReasoningFigure kind="induction-chain" />
+
+These two ingredients are sufficient to conclude that $P(n)$ is true for every positive integer $n$.
+
+Why? Because no positive integer is unreachable from one through a finite succession of increments.
+
+Even if I choose the number one billion, you don't need to discover a new kind of argument. The same implication connects every preceding statement to the next one.
+
+Unlike an actual sequence of falling dominoes, the proof doesn't require us to wait for anything to happen. We are establishing the general logical relationship, not physically executing every transition.
+
+In standard mathematics, this reasoning is justified by the **principle of mathematical induction**, a fundamental property of the natural numbers.
+
+## 5. Building our first complete inductive proof
+
+Let's return to our original claim.
+
+We want to prove that
+
+$$
+1+3+5+\cdots+(2n-1)=n^2
+$$
+
+for every positive integer $n$.
+
+We now know that we don't need to examine every possible value individually. We need to establish a starting point and a general transition.
+
+### Step 1 — Define the statement
+
+First, we define precisely what we are trying to prove.
+
+$$
+P(n):\quad \sum_{i=1}^{n}(2i-1)=n^2.
+$$
+
+The summation symbol is simply a compact way of writing the sum of the first $n$ positive odd numbers. It allows us to represent the entire claim without relying on a long sequence of dots.
+
+### Step 2 — Establish the base case
+
+We begin with the first permitted integer, which in this case is $n=1$.
+
+$$
+1=1^2.
+$$
+
+This is true. Therefore, $P(1)$ is true.
+
+<ReasoningFigure kind="induction-base" />
+
+Our starting point has been established. Now we need to prove the relationship that connects it to every subsequent statement.
+
+### Step 3 — Introduce the induction hypothesis
+
+Let $k$ be an arbitrary positive integer.
+
+Temporarily assume that $P(k)$ is true. In other words, assume that
+
+$$
+1+3+\cdots+(2k-1)=k^2.
+$$
+
+This is called the **induction hypothesis**.
+
+Notice that we haven't specified whether $k$ is three, twenty, or a million. We want our reasoning to work independently of its particular value.
+
+Our goal is to demonstrate that, under this temporary assumption, $P(k+1)$ must also be true.
+
+<ReasoningFigure kind="induction-hypothesis" />
+
+### Step 4 — Prove the inductive step
+
+Let's begin with the expression that appears in $P(k+1)$.
+
+$$
+1+3+5+\cdots+(2k-1)+(2k+1).
+$$
+
+The first $k$ terms are exactly the expression that appears in our induction hypothesis.
+
+$$
+\underbrace{1+3+\cdots+(2k-1)}_{k^2} +(2k+1).
+$$
+
+By the induction hypothesis, we may replace the entire bracketed expression with $k^2$.
+
+Therefore,
+
+$$
+\begin{aligned} &1+3+\cdots+(2k-1)+(2k+1)\\[4pt] &=k^2+(2k+1)\\[4pt] &=k^2+2k+1\\[4pt] &=(k+1)^2. \end{aligned}
+$$
+
+And this is precisely what we needed to show.
+
+<ReasoningFigure kind="induction-geometry" />
+
+We have shown that for every positive integer $k$,
+
+$$
+P(k)\Rightarrow P(k+1).
+$$
+
+We already established that $P(1)$ is true. Therefore, by mathematical induction,
+
+$$
+\boxed{ 1+3+5+\cdots+(2n-1)=n^2 \quad\text{for all }n\geq1. }
+$$
+
+The proof is complete.
+
+We have established a statement about infinitely many integers using a finite mathematical argument.
+
+## 6. Aren't we assuming what we want to prove?
+
+There is something about mathematical induction that often makes people uncomfortable when they first encounter it.
+
+We wanted to prove that a certain statement is true. But somewhere in the middle of our proof, we simply assumed that it was true.
+
+Isn't that circular reasoning?
+
+It's an understandable objection. But there is an important distinction between what we assumed and what we proved.
+
+We did not assume that the statement was true for every positive integer.
+
+We temporarily assumed that it was true for a particular, but arbitrary, positive integer $k$, and demonstrated what necessarily follows from that assumption.
+
+<ReasoningFigure kind="induction-circular" />
+
+Remember our earlier episode about conditional statements.
+
+To prove an implication, we are allowed to temporarily assume its antecedent and investigate whether its consequent necessarily follows.
+
+That is exactly what we are doing here.
+
+We are proving the conditional statement
+
+$$
+P(k)\Rightarrow P(k+1).
+$$
+
+We haven't yet claimed that either statement is unconditionally true for this arbitrary $k$. We have established that the truth of one is sufficient for the truth of the next.
+
+Now watch what happens when we combine that relationship with our independently verified base case.
+
+<ReasoningFigure kind="induction-propagation" />
+
+The truth of $P(1)$ does not depend on any assumption about the entire theorem. We verified it directly.
+
+Because $P(1)$ is true and we proved that $P(1)$ implies $P(2)$, the second statement is true as well.
+
+The same reasoning applies to $P(3)$, then $P(4)$, and so on.
+
+Nothing here requires us to assume the conclusion. We have independently established the beginning and justified the mechanism through which truth propagates.
+
+<Interactive kind="induction" preset="chain" id="induction-chain" />
+
+## 7. Two arguments that look like induction but aren't
+
+To understand a proof method properly, it helps to examine what happens when we remove one of its essential ingredients.
+
+### Failure A — A perfect transition without a starting point
+
+Suppose someone claims that every positive integer is greater than or equal to two.
+
+$$
+P(n):\quad n\geq2.
+$$
+
+They propose the following argument:
+
+Assume that $k\geq2$. Then adding one to both sides gives us
+
+$$
+k+1\geq3.
+$$
+
+Consequently,
+
+$$
+k+1\geq2.
+$$
+
+Therefore, $P(k)$ implies $P(k+1)$.
+
+This inductive step is completely valid.
+
+And yet the theorem is false.
+
+Can you identify the problem?
+
+<ReasoningFigure kind="induction-false-base" />
+
+The base case is false because one is not greater than or equal to two.
+
+The argument correctly demonstrates how the property is preserved when moving from one integer to the next. But it never establishes the required starting point.
+
+It could establish the claim for all integers beginning at two, provided we verified $P(2)$. It cannot establish it beginning at one.
+
+This shows us why the starting point is part of the mathematical content of an inductive proof, not merely a formality.
+
+### Failure B — Many successful examples without a general transition
+
+Now consider the expression
+
+$$
+n^2+n+41.
+$$
+
+Let's calculate it for a few values of $n$.
+
+<ReasoningFigure kind="induction-prime-table" />
+
+Every one of these results is prime. In fact, the expression produces prime numbers for every integer from zero through thirty-nine.
+
+This is an extraordinarily convincing-looking pattern.
+
+But what happens when $n=40$?
+
+$$
+\begin{aligned} 40^2+40+41 &=1600+40+41\\ &=1681\\ &=41^2. \end{aligned}
+$$
+
+The result is not prime.
+
+Forty successful cases do not establish the forty-first.
+
+<ReasoningFigure kind="induction-prime-grid" />
+
+The missing ingredient was not additional examples. It was a justified relationship showing that the property must be preserved from one case to the next.
+
+Without that relationship, our collection of confirmations remains a collection of confirmations.
+
+This connects directly to our earlier discussion about why a single counterexample can defeat even thousands of successful observations.
+
+## 8. Mathematical induction is not empirical induction
+
+The word *induction* is also used outside mathematics.
+
+Suppose a researcher observes hundreds of objects and notices that they all behave in a similar way. The researcher might infer that other objects of the same kind will probably behave similarly.
+
+This is a form of empirical inductive reasoning. It moves from observations toward a generalization that may be well supported but remains open to revision.
+
+Mathematical induction works differently.
+
+<ReasoningFigure kind="induction-empirical" />
+
+Despite its name, mathematical induction is a form of **deductive reasoning**.
+
+Its conclusion is not considered true because it is statistically likely, because we've accumulated sufficient evidence, or because we haven't encountered a counterexample.
+
+It is established because the conclusion follows necessarily from the base case, the inductive step, and the principle of mathematical induction.
+
+## 9. Can you complete the proof?
+
+Before we finish, let's see whether you can apply this method yourself.
+
+Suppose we want to prove that
+
+$$
+1+2+3+\cdots+n=\frac{n(n+1)}{2}
+$$
+
+for every positive integer $n$.
+
+We've already checked the base case:
+
+$$
+1=\frac{1(1+1)}{2}.
+$$
+
+And our induction hypothesis is
+
+$$
+1+2+\cdots+k=\frac{k(k+1)}{2}.
+$$
+
+What should we do next?
+
+Complete the missing transition.
+
+$$
+\underbrace{1+2+\cdots+k}_{\text{Known from hypothesis}} +\boxed{\phantom{k+1}}
+$$
+
+Our target:
+
+$$
+\frac{(k+1)(k+2)}{2}
+$$
+
+<details>
+<summary>Reveal the missing term</summary>
+
+The next term is $k+1$. Add it to the entire sum covered by the hypothesis.
+
+</details>
+
+<details>
+<summary>Reveal the complete derivation</summary>
+
+**Added reference derivation.** Using the induction hypothesis,
+
+$$
+\begin{aligned}
+1+2+\cdots+k+(k+1)&=\frac{k(k+1)}2+(k+1)\\
+&=\frac{k(k+1)+2(k+1)}2\\
+&=\frac{(k+1)(k+2)}2.
+\end{aligned}
+$$
+
+The base case and the implication for every integer $k\geq1$ establish the formula for every integer $n\geq1$.
+
+</details>
+
+Notice how different this problem initially appears from our growing squares. Yet the underlying structure of the proof is identical.
+
+We establish the first statement, temporarily assume the $k$-th statement, and prove the next one.
+
+The mathematical expressions change. The reasoning method remains the same.
+
+## 10. Infinity was never the obstacle
+
+At the beginning of this episode, we faced a seemingly impossible task.
+
+How can a finite argument establish infinitely many statements?
+
+We discovered that we don't need to inspect every statement individually if we can prove the relationship connecting them.
+
+And perhaps this is one of the most beautiful ideas in mathematical reasoning.
+
+Sometimes, understanding an infinite collection of things doesn't require understanding each of them separately.
+
+It requires understanding the structure that connects them.
+
+<ReasoningFigure kind="induction-compression" />
+
+We haven't defeated infinity by counting faster.
+
+We've made counting unnecessary.
+
+**How Do You Know?**
+
+## Learning compendium
+
+### The complete architecture of induction
+
+<ReasoningFigure kind="induction-architecture" />
+
+### Understanding the starting domain
+
+An inductive proof does not necessarily need to begin at zero or one. It begins at the first integer belonging to the domain of the claim.
+
+Different base cases establish different ranges of integers.
+
+<ReasoningFigure kind="induction-domains" />
+
+| Base case  | Inductive step         | Conclusion                |
+| ---------- | ---------------------- | ------------------------- |
+| $P(0)$ | For every $k\geq0$ | All integers $n\geq0$ |
+| $P(1)$ | For every $k\geq1$ | All integers $n\geq1$ |
+| $P(3)$ | For every $k\geq3$ | All integers $n\geq3$ |
+| $P(5)$ | For every $k\geq5$ | All integers $n\geq5$ |
+
+An inductive step connects statements in the forward direction. It does not automatically establish statements preceding the base case.
+
+### Test your understanding
+
+<Interactive kind="induction" preset="checkpoint" id="induction-checkpoint" />
+
+### Additional worksheet exercises
+
+These problems progressively develop the ability to construct inductive proofs rather than merely recognize their structure.
+
+| Exercise                                                      | Difficulty | Skill developed                   |
+| ------------------------------------------------------------- | ---------- | --------------------------------- |
+| Prove $2+4+\cdots+2n=n(n+1)$.                             | Easy       | Recognizing the next term         |
+| Prove $2^n\geq n+1$ for $n\geq0$.                     | Easy       | Induction with inequalities       |
+| Prove that $3^n-1$ is even for $n\geq1$.              | Easy       | Using divisibility definitions    |
+| Prove that $6^n-1$ is divisible by five for $n\geq1$. | Medium     | Algebraic manipulation            |
+| Prove $2^n\geq n^2$ for $n\geq4$.                     | Medium     | Nonstandard base cases            |
+| Prove $\sum_{i=1}^{n}i^2=\frac{n(n+1)(2n+1)}6$.          | Medium     | Managing more complex expressions |
+
+### Reference solutions for the worksheet
+
+The tasks above come from the supplied worksheet. The following hints and complete reference proofs are additions.
+
+<Exercise question="Prove $2+4+\cdots+2n=n(n+1)$ for every integer $n\geq1$.">
+
+**Hint:** The next term is $2(k+1)$.
+
+For $n=1$, $2=1(2)$. If the identity holds at an arbitrary integer $k\geq1$, then
+
+$$
+2+4+\cdots+2k+2(k+1)=k(k+1)+2(k+1)=(k+1)(k+2).
+$$
+
+This is the identity at $k+1$. The base and general step complete the induction.
+
+</Exercise>
+
+<Exercise question="Prove $2^n\geq n+1$ for every integer $n\geq0$.">
+
+**Hint:** Multiply the assumed inequality by the positive number two.
+
+At zero, $2^0=1\geq1$. Assuming $2^k\geq k+1$ for an arbitrary integer $k\geq0$ gives
+
+$$
+2^{k+1}=2\cdot2^k\geq2(k+1)\geq k+2,
+$$
+
+because $2(k+1)-(k+2)=k\geq0$. This proves the next case and hence the claim for every $n\geq0$.
+
+</Exercise>
+
+<Exercise question="Prove that $3^n-1$ is even for every integer $n\geq1$.">
+
+**Hint:** Express the assumed even number as $2m$ and separate the next power.
+
+At one, $3-1=2$ is even. For an arbitrary $k\geq1$, suppose $3^k-1=2m$ for an integer $m$. Then
+
+$$
+3^{k+1}-1=3(3^k-1)+2=6m+2=2(3m+1).
+$$
+
+The witness $3m+1$ is an integer, so the next case is even. Induction completes the proof.
+
+</Exercise>
+
+<Exercise question="Prove $5\mid(6^n-1)$ for every integer $n\geq1$.">
+
+**Hint:** Rewrite the next expression as $6(6^k-1)+5$.
+
+At one, $6-1=5$. For an arbitrary $k\geq1$, suppose $6^k-1=5m$ with $m\in\mathbb Z$. Then
+
+$$
+6^{k+1}-1=6(6^k-1)+5=30m+5=5(6m+1).
+$$
+
+The integer witness $6m+1$ establishes divisibility at $k+1$. Together with the base, this proves the claim.
+
+</Exercise>
+
+<Exercise question="Prove $2^n\geq n^2$ for every integer $n\geq4$.">
+
+**Hint:** Start at four, and compare $2k^2$ with $(k+1)^2$.
+
+At four, $2^4=16=4^2$. Assume $2^k\geq k^2$ for an arbitrary integer $k\geq4$. Since
+
+$$
+2k^2-(k+1)^2=(k-1)^2-2\geq9-2=7>0,
+$$
+
+we obtain $2^{k+1}\geq2k^2\geq(k+1)^2$. Induction proves the result for every $n\geq4$, without asserting the earlier cases.
+
+</Exercise>
+
+<Exercise question="Prove $\sum_{i=1}^n i^2=\frac{n(n+1)(2n+1)}6$ for every integer $n\geq1$.">
+
+**Hint:** Add $(k+1)^2$, put both terms over six, and factor out $k+1$.
+
+At one, $1=1(2)(3)/6$. Assume the identity for an arbitrary integer $k\geq1$. Then
+
+$$
+\begin{aligned}
+\sum_{i=1}^{k+1}i^2&=\frac{k(k+1)(2k+1)}6+(k+1)^2\\
+&=\frac{(k+1)\bigl(k(2k+1)+6(k+1)\bigr)}6\\
+&=\frac{(k+1)(2k^2+7k+6)}6\\
+&=\frac{(k+1)(k+2)(2k+3)}6.
+\end{aligned}
+$$
+
+This is the required formula with $n=k+1$. The base and general step prove the claim.
+
+</Exercise>
+
+### Preparation sources
+
+| Source | Relevant material |
+| --- | --- |
+| [Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/) | Chapter 10: induction, its hypothesis, formal notation and examples. |
+| [MIT — Mathematics for Computer Science](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/) | Induction as a systematic proof method; connections to recursively defined structures and algorithms. |
+| Roger B. Nelsen — Proofs Without Words | A complementary visual reference for geometric identities and the connection between intuition and general proof. |
+
+### Connections with earlier lessons
+
+| Previous episode                | Application in AoR 22                                     |
+| ------------------------------- | --------------------------------------------------------- |
+| AoR 04 — Visual proofs          | Transforming a concrete picture into a general argument.  |
+| AoR 06 — Counterexamples        | Understanding why verified examples are insufficient.     |
+| AoR 11 — Conditional statements | Understanding the direction of the inductive implication. |
+| AoR 13 — Quantifiers            | Proving the transition for an arbitrary integer.          |
+| AoR 16 — What is a proof?       | Distinguishing assumptions from established conclusions.  |
+| AoR 17 — Finding the next step  | Using the induction hypothesis to reach the next goal.    |

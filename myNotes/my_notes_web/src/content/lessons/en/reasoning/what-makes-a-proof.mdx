@@ -1,0 +1,558 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-two
+sourceId: reasoning-episode-16
+sourcePages: []
+sourceLocations: ["Sections 1–8; Learning checkpoint; Preparation sources and further reading"]
+title: "What turns an explanation into a proof?"
+navTitle: "Explanations and proofs"
+description: "Repair a hidden restriction, connect assumptions to conclusions, and distinguish examples, intuition and proof."
+order: 16
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [equivalence-relations]
+thumbnail: reasoning-justification
+---
+
+## 1. A proof with a hidden problem
+
+I want to show you a mathematical proof.
+
+It's short. It uses ordinary algebra. And it arrives at a conclusion that we already have good reasons to believe is true.
+
+Here's the claim:
+
+**If you add any two odd integers, the result is even.**
+
+You can test it yourself. Three plus five is eight. Seven plus nine is sixteen. Eleven plus seventeen is twenty-eight.
+
+<ReasoningFigure kind="justification-examples" />
+
+Every example works. But we're not interested in proving this for three particular pairs of numbers. We want to establish that it works for *every* pair.
+
+So let's try something more mathematical.
+
+Take any two odd integers, $a$ and $b$. We know that an odd integer can be written as twice an integer plus one.
+
+We can therefore write:
+
+$$
+a=2k+1,\qquad b=2k+1.
+$$
+
+Now add them:
+
+$$
+\begin{aligned} a+b&=(2k+1)+(2k+1)\\ &=4k+2\\ &=2(2k+1). \end{aligned}
+$$
+
+And because we have expressed the sum as twice an integer, the result must be even.
+
+Therefore, the sum of any two odd integers is even.
+
+**Is this a valid proof?**
+
+<Interactive kind="justification" preset="opening" id="proof-investigation" />
+
+That's an interesting situation.
+
+We have a true mathematical conclusion. We used a correct definition, carried out the algebra correctly, and ended with an expression that really is even.
+
+Yet the proof doesn't work.
+
+Why?
+
+Because we quietly introduced a restriction that the original claim never gave us.
+
+We wanted to consider any two odd integers, but our argument only considered two copies of the same odd integer.
+
+And that's the central problem of this lesson.
+
+**A conclusion can be true even when the reasoning used to establish it is invalid.**
+
+So if the conclusion is not enough, and correct calculations aren't enough, what exactly makes an argument a proof?
+
+To answer that, we're going to repair our argument, understand every step that makes it work, and then examine what happens when one of those steps is missing.
+
+## 2. Finding the structure behind the numbers
+
+Let's temporarily forget about the algebra.
+
+Think about what it means for a positive integer to be odd.
+
+Three objects can be arranged as one pair with one object left over. Five objects can be arranged as two pairs with one left over. Seven can be arranged as three pairs with one left over.
+
+What matters isn't how many complete pairs we have. It's that there is always exactly one unmatched object.
+
+Now imagine combining two odd collections.
+
+Each one contributes some complete pairs, but each also contributes one unmatched object. And those two unmatched objects can be paired together.
+
+Suddenly, nothing is left unmatched.
+
+<Interactive kind="justification" preset="representations" id="proof-representations" />
+
+The interesting thing is that we can change the number of complete pairs as much as we want, but the underlying mechanism remains the same.
+
+The first collection contributes one leftover. The second collection contributes another. Those two leftovers form exactly one additional pair.
+
+And that explains why the pattern happens.
+
+But have we proved it yet?
+
+We're closer. We now have an idea that applies to collections of arbitrary positive odd sizes, not merely the three examples we started with.
+
+However, our original claim was about all odd integers.
+
+And integers also include negative numbers.
+
+What would it mean to draw negative five objects and pair them?
+
+We might be able to extend the visual reasoning, but the ordinary dot picture no longer directly represents our entire domain.
+
+This is a useful moment in mathematical reasoning. We have discovered an underlying structure, but we still need to express it in a way that covers every case in the claim.
+
+That's where abstraction becomes powerful.
+
+## 3. Repairing the proof
+
+Think about what our picture was actually showing.
+
+An odd number consists of some number of complete pairs, together with one extra unit.
+
+So instead of drawing those pairs, we can describe them mathematically.
+
+We say that an integer $n$ is odd when there exists an integer $k$ such that
+
+$$
+n=2k+1.
+$$
+
+And we say that an integer $n$ is even when there exists an integer $t$ such that
+
+$$
+n=2t.
+$$
+
+These are definitions.
+
+They give us precise criteria for deciding whether a number is odd or even.
+
+And unlike our collection of dots, they work for negative integers as well.
+
+For example:
+
+$$
+-5=2(-3)+1.
+$$
+
+So negative five is odd, using the very same definition.
+
+Now return to our original proof.
+
+We want to consider any two odd integers $a$ and $b$.
+
+The definition tells us that each one can be written as twice an integer plus one.
+
+But remember our earlier mistake.
+
+We cannot assume that both numbers are represented using the same integer.
+
+So this time, we write:
+
+$$
+\boxed{a=2k+1,\qquad b=2m+1}
+$$
+
+where $k,m\in\mathbb Z$.
+
+The symbol $\mathbb Z$ represents the set of integers, including negative integers, zero, and positive integers.
+
+And notice that $k$ and $m$ are independent. Nothing requires them to have the same value.
+
+For three and five, we can use $k=1$ and $m=2$.
+
+For negative five and seven, we can use $k=-3$ and $m=3$.
+
+For any pair of odd integers, the definition guarantees that suitable values exist.
+
+Now let's add the expressions.
+
+<ReasoningFigure kind="justification-repair" />
+
+Now we have something stronger than our original examples.
+
+We have demonstrated that any two odd integers must produce a sum of this form.
+
+And because $k$ and $m$ are integers, their sum plus one is also an integer.
+
+That last fact matters. We know from ordinary integer arithmetic that adding integers gives another integer.
+
+Therefore, $k+m+1$ is an integer, and the expression
+
+$$
+2(k+m+1)
+$$
+
+is exactly twice an integer.
+
+That is precisely our definition of even.
+
+So the sum must be even.
+
+We've now proved the claim for arbitrary odd integers, including negative ones.
+
+But what actually changed between our original invalid argument and this valid proof?
+
+The conclusion didn't change.
+
+Most of the algebra didn't change.
+
+What changed was the justification.
+
+In our first argument, we had no right to represent two arbitrary odd integers using the same $k$. In our repaired argument, we gave each integer its own representation, exactly as the definition permits.
+
+And every subsequent step followed from that starting point.
+
+There is a deeper idea here:
+
+**A proof must preserve what the assumptions allow, without silently adding restrictions or pretending that something has been established when it hasn't.**
+
+## 4. A proof is a network of justified connections
+
+Let's examine what we just constructed.
+
+We didn't start from nothing.
+
+We began with an assumption: our two integers are odd.
+
+We used a definition: an odd integer can be expressed as twice an integer plus one.
+
+We used algebraic rules to transform an expression.
+
+We relied on an established property of integers: the sum of integers is an integer.
+
+And finally, we used the definition of even to establish our conclusion.
+
+Each of those ingredients plays a different role.
+
+<ReasoningFigure kind="justification-dependencies" />
+
+Look at the arrows.
+
+Each arrow represents a transition that we must be able to justify.
+
+The first two boxes give us permission to represent $a$ and $b$ using $2k+1$ and $2m+1$.
+
+The algebraic rules let us transform that expression into a multiple of two.
+
+And the final conclusion follows because the factor multiplying two is an integer.
+
+Now imagine erasing one of those connections.
+
+Suppose we didn't know whether $k+m+1$ was an integer. Then writing our sum as twice that expression wouldn't yet establish that it was even.
+
+Or suppose we hadn't defined what odd means. Then the substitution $a=2k+1$ would have no stated justification.
+
+The important thing is that a proof does more than display true statements.
+
+It establishes **why the conclusion follows from the assumptions**.
+
+And this helps explain something that can initially seem strange about mathematics.
+
+Where do these starting assumptions and established properties come from?
+
+If every result needs justification, wouldn't we need another proof to justify each of those facts, and another proof to justify that proof, forever?
+
+Mathematics deals with this by working within explicit foundational systems.
+
+Some statements are accepted as starting points. These are called *axioms*. Other statements are established from the axioms, definitions, and previously proved results.
+
+An axiom is not simply something that feels obvious. It's a foundational assumption of the particular mathematical framework we're using.
+
+In ordinary arithmetic, we often work with familiar properties of integers without proving them every time. In a foundational treatment, those properties can themselves be developed from earlier principles.
+
+And this gives mathematical knowledge a very interesting structure.
+
+<ReasoningFigure kind="justification-foundations" />
+
+A simplified illustration: previously established results become building blocks for further proofs. A particular proof may also depend on additional hypotheses.
+
+Mathematics isn't just a collection of independent discoveries.
+
+It's a connected body of knowledge, where established results can support new ones.
+
+## 5. Why mathematicians use lemmas and theorems
+
+Let's see how that works using our original example.
+
+We've now established that the sum of two odd integers is even.
+
+Suppose I give you a new claim:
+
+**The sum of any three odd integers is odd.**
+
+We could start again with three expressions of the form $2k+1$, add them together, and prove the result directly.
+
+But maybe we don't need to.
+
+We've already proved that when we combine two odd integers, the result is even.
+
+So for three odd integers $a$, $b$, and $c$, we can group the first two:
+
+$$
+\underbrace{(a+b)}_{\text{even}}+c.
+$$
+
+Now our problem has changed.
+
+Instead of adding three odd integers, we're adding one even integer and one odd integer.
+
+And if we know that even plus odd is odd, we're finished.
+
+We can prove that supporting fact very quickly.
+
+Take any even integer $e$ and any odd integer $c$. Their definitions give us
+
+$$
+e=2r,\qquad c=2s+1
+$$
+
+for integers $r$ and $s$.
+
+Therefore,
+
+$$
+e+c=2(r+s)+1.
+$$
+
+Since $r+s$ is an integer, the result is odd.
+
+Now combine our two established results.
+
+<ReasoningFigure kind="justification-lemmas" />
+
+Notice what happened.
+
+We built a new proof by combining two results that had already been established.
+
+Each result became a supporting step in a larger argument.
+
+In mathematics, such a supporting result is often called a **lemma**.
+
+A lemma is not an unreliable theorem. It isn't a theorem that has somehow been proved less rigorously.
+
+It's simply a proved result being used to help establish another result.
+
+The term describes its role in a mathematical presentation, not its reliability.
+
+A theorem is a statement established by proof. A lemma is also a proved statement, typically presented because it helps us prove something else.
+
+And once we've established a theorem, we can use it again without rebuilding its entire proof every time.
+
+This is what makes sophisticated mathematics possible.
+
+Imagine trying to prove a complicated result while having to reestablish basic arithmetic, the properties of functions, and every previously used theorem from the beginning.
+
+Mathematics would become nearly impossible to navigate.
+
+Instead, we build on what has already been justified.
+
+But that also means we need to distinguish between something that's genuinely been established and something that merely sounds reasonable.
+
+## 6. Why a good explanation and a proof aren't necessarily the same
+
+Let's consider everything we've done so far.
+
+We began by testing several pairs of odd numbers.
+
+Then we represented odd numbers as collections of pairs with one leftover.
+
+Finally, we used the mathematical definition of an odd integer and constructed a general proof.
+
+All three approaches helped us understand the same claim, but they played different roles.
+
+<ReasoningFigure kind="justification-roles" />
+
+An illustration makes a statement concrete.
+
+An intuitive explanation helps us see a mechanism.
+
+A proof establishes that a conclusion follows from its assumptions within a specified mathematical framework.
+
+But these categories can overlap.
+
+A proof can be highly intuitive. And a visual argument can be a genuine proof if it establishes the result for the entire intended domain with all essential steps justified.
+
+Our pairing argument, for example, can be made rigorous for nonnegative odd integers by stating and justifying the general pairing rule.
+
+The algebraic version is especially useful because it handles negative integers directly and makes the assumptions explicit.
+
+And the reverse is equally important.
+
+**An argument doesn't become a proof merely because it uses mathematical notation.**
+
+Remember our opening mistake?
+
+Every symbol was perfectly ordinary. The equations were calculated correctly. And the conclusion was true.
+
+The problem was the reasoning.
+
+So let's develop a habit that will help us whenever we read or construct mathematical proofs.
+
+Instead of asking only whether the final answer seems correct, ask whether every transition is justified.
+
+And let's test that habit with one more example.
+
+## 7. Can you repair this argument?
+
+Suppose someone presents the following proof.
+
+Let $a$ and $b$ be arbitrary odd integers.
+
+By definition, there exist integers $k$ and $m$ such that
+
+$$
+a=2k+1,\qquad b=2m+1.
+$$
+
+Adding these expressions gives
+
+$$
+a+b=2(k+m+1).
+$$
+
+Therefore, $a+b$ is even.
+
+Now, unlike our opening attempt, this argument is correct. We've already established that.
+
+But imagine that a student is writing it for the first time. Their instructor asks them to explain why the last inference is justified.
+
+What would they need to say?
+
+<Interactive kind="justification" preset="challenge" id="proof-justification" />
+
+This exercise might seem almost too simple. After all, we're only identifying one missing sentence.
+
+But that's precisely why it's useful.
+
+In a short proof, a missing justification can be easy to repair. In a longer proof, the same kind of omission can be much harder to recognize.
+
+And sometimes the missing step cannot be repaired at all, because the statement we're trying to establish is false.
+
+Consider a slightly stronger claim:
+
+"The sum of any two odd integers is divisible by four."
+
+We can still reach the same expression,
+
+$$
+a+b=2(k+m+1),
+$$
+
+but now we need $k+m+1$ to be even, not merely an integer.
+
+And the definition of odd gives us no guarantee that this is true.
+
+We can actually disprove the new claim by finding a counterexample.
+
+Take one and five.
+
+$$
+1+5=6.
+$$
+
+Six is even, but it isn't divisible by four.
+
+<ReasoningFigure kind="justification-counterexample" />
+
+So the original conclusion was correct, while the stronger conclusion is false.
+
+This illustrates two different ways an argument can fail.
+
+An argument might contain an unsupported step even when its conclusion happens to be true, as in our opening proof.
+
+Or it might try to establish a false conclusion, in which case no valid proof from true premises can exist.
+
+Recognizing the difference is part of learning to reason mathematically.
+
+## 8. What makes a proof a proof?
+
+Let's return to where we started.
+
+We tried to prove that the sum of any two odd integers is even.
+
+Our first argument reached the correct conclusion, but it silently assumed that the two integers had to be equal.
+
+Then we examined the structure of odd numbers, first through paired objects and then through the expression $2k+1$.
+
+We repaired the argument by using independent variables and making sure that every step was justified.
+
+Finally, we discovered that the proof wasn't just a sequence of equations.
+
+It was a network of assumptions, definitions, established facts, and valid deductions.
+
+And this gives us a practical method we can use whenever we encounter a mathematical argument.
+
+**Four questions to ask of any proof**
+
+1. **What exactly are we trying to prove?**
+
+   The conclusion must be clearly stated, including the domain and any conditions.
+2. **What are we allowed to assume?**
+
+   Identify the hypotheses, definitions, axioms, and previously established results.
+3. **What justifies each step?**
+
+   Every essential deduction must follow from something we are entitled to use.
+4. **Does the final conclusion really follow?**
+
+   Check that no assumptions were silently added and that the proof covers the claim in its full generality.
+
+There is something important about this method that goes beyond mathematics.
+
+We often encounter explanations that feel convincing. They use examples, familiar language, persuasive comparisons, and sometimes impressive technical details.
+
+But the feeling of understanding an explanation doesn't guarantee that its conclusion follows.
+
+In mathematics, we have an unusually precise way to examine that difference.
+
+We can ask not merely whether a statement seems right, but exactly which assumptions support it, which rules connect them, and whether those connections are sufficient.
+
+And once we learn to do that, a proof becomes something much more interesting than a collection of equations.
+
+It becomes an argument whose logical structure we can inspect, test, and understand.
+
+**A proof doesn't just tell us that something is true. It establishes why, given the stated framework, the conclusion must be true.**
+
+And learning to construct those arguments is one of the most powerful skills mathematics can teach us.
+
+## Learning checkpoint
+
+1. Can a mathematical statement be true even if its proposed proof is invalid?
+
+2. What was the hidden restriction in our opening proof?
+
+3. What is the difference between a theorem and a lemma?
+
+4. Is a visual explanation ever sufficient to count as a proof?
+
+5. Which fact completes $a+b=2(k+m+1)$ as a proof that the sum is even?
+
+<Exercise>
+1. Yes. A true statement can be supported by an invalid proposed argument; its truth does not repair the inference.
+2. Reusing $k$ imposes $a=b$. Independent odd integers require independent witnesses $k$ and $m$; those witnesses may coincide, but need not.
+3. Both are proved statements. “Lemma” describes a supporting role, not a weaker standard of proof.
+4. Yes, if its justified reasoning covers the entire stated domain. The ordinary dot model here directly covers positive odd sizes; the algebra handles all odd integers.
+5. Since $k,m,1\in\mathbb Z$ and integers are closed under addition, $k+m+1\in\mathbb Z$. The sum is therefore twice an integer, which is the definition of even.
+</Exercise>
+
+## Preparation sources and further reading
+
+- **Kevin Houston — How to Think Like a Mathematician.** The distinction between definitions, mathematical statements and proofs, and the practice of reading and constructing arguments.
+- **Richard Hammack — Book of Proof.** Chapter 4, particularly the foundations of direct proof and how assumptions lead to conclusions. [Read the freely available textbook](https://richardhammack.github.io/BookOfProof/)
+- **Historical companion — [Lincoln's 1860 autobiographical sketch](https://hd.housedivided.dickinson.edu/node/40403).** Lincoln reported studying Euclid. This provides a historical illustration of interest in rigorous reasoning, but not evidence that his study of Euclid caused his later achievements.
+
+**Connection to the curriculum:** AoR 16 completes the transition from understanding logical statements to understanding the structure of mathematical proof. The next stage is learning how to construct proofs using direct reasoning, contraposition, contradiction, and other techniques.

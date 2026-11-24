@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-24",
+  "lesson": "what-makes-a-proof",
+  "languages": [
+    "en",
+    "de"
+  ],
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "checks": [
+    "Opening starts unanswered; true conclusion distinguished from invalid repeated witness",
+    "Independent slider/number inputs; keyboard Home/End; zero and maximum pair counts",
+    "Invalid 7 is rejected and previous valid value restored with status; focus stays on numeric field",
+    "Objects/symbols/proof structure switches preserve pair counts; reset restores 1 and 2",
+    "Challenge check disabled before selection; deliberate check; changing answer clears feedback; reset clears answer and disables check",
+    "Correct and incorrect localized feedback with rendered math",
+    "Desktop dependency nodes fit without clipping; compact node list and mathematical regions remain readable",
+    "No page-wide overflow in tested language/theme/width combinations after fieldset correction",
+    "All seven figures and three activities plus an independent representation instance in gallery",
+    "Gallery first pair count changed to 6 while second instance remained 1/2",
+    "Prefixed previous/next, EN/DE switching, English Euclid search and German Euklid search result links",
+    "Final exercise formula verified as two clean expressions without malformed TeX commands",
+    "Fresh normal and prefixed lesson pages have no console warnings/errors"
+  ],
+  "preview": "http://127.0.0.1:4321/reasoning/lessons/what-makes-a-proof/",
+  "viewportRestored": true
+}

@@ -1,0 +1,528 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-three
+sourceId: reasoning-episode-21
+sourcePages: []
+sourceLocations: ["Sections 1–10; Pedagogical synthesis; Connections with previous episodes; Preparation sources"]
+title: "Finding something is different from finding the only thing"
+navTitle: "Existence and uniqueness"
+description: "Verify a witness, prove that any two solutions coincide, and distinguish existence from at most one in the stated domain."
+order: 21
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [proof-by-contradiction]
+thumbnail: reasoning-uniqueness
+---
+
+## 1. The opening — Finding an answer is not the end of the investigation
+
+Imagine that you are standing in front of a locked door. On a table beside you are five different keys. You pick up one of them, put it inside the lock, turn it, and the door opens.
+
+<ReasoningFigure kind="unique-keys" />
+
+You have just discovered something. There is a key on this table that opens the door.
+
+But imagine that someone now asks you a slightly different question.
+
+Is this the **only** key that opens the door?
+
+You might look back at the key in your hand. You have already demonstrated that it works. You could put it inside the lock again. You could open the door a hundred times with it.
+
+But none of this would answer the new question.
+
+Because demonstrating that one key works tells us nothing, by itself, about whether the other keys work as well.
+
+<ReasoningFigure kind="unique-worlds" />
+
+Both of these worlds are compatible with what you have observed. In both of them, the key you selected opens the door. Yet only in the first world is that key unique.
+
+And this distinction is going to become surprisingly important in mathematics.
+
+Because sometimes, when we solve a problem, what we really want to establish is not merely that an answer exists. We want to establish that reality does not permit a different answer.
+
+Today, we are going to discover why these are two fundamentally different tasks, and how mathematicians prove each of them.
+
+## 2. Three different claims about the same world
+
+In previous episodes, we learned that mathematics allows us to describe a collection of objects using a property.
+
+Suppose that we have a domain $D$, containing all the objects we are allowed to consider, and a property $P$, which some of these objects may satisfy.
+
+We could visualize this by placing all possible objects inside a large region and highlighting those that satisfy our condition.
+
+<ReasoningFigure kind="unique-domain" />
+
+We can collect all the objects satisfying our condition into a set:
+
+$$
+S=\{x\in D:P(x)\}.
+$$
+
+This is our **solution set**.
+
+Now, instead of immediately asking what these solutions are, let us ask how many solutions the set contains.
+
+There are three fundamentally different possibilities.
+
+<ReasoningFigure kind="unique-cardinalities" />
+
+When we claim that a solution **exists**, we are saying that the first possibility cannot be true. The set is not empty.
+
+When we claim that there is **at most one** solution, we are eliminating the third possibility. There cannot be two distinct solutions.
+
+And when we claim that there is **exactly one** solution, we are eliminating both.
+
+<ReasoningFigure kind="unique-bounds" />
+
+This gives us the architecture of an existence and uniqueness proof.
+
+$$
+\underbrace{|S|\geq 1}_{\text{Existence}} \quad\land\quad \underbrace{|S|\leq 1}_{\text{At most one}}
+$$
+
+$$
+\Downarrow
+$$
+
+$$
+\boxed{|S|=1}
+$$
+
+Existence provides a lower bound on the number of solutions. Uniqueness, in the sense of the at-most-one condition, provides an upper bound.
+
+Together, they force the number of solutions to be exactly one.
+
+This is not just a convenient way of organizing a proof. It tells us precisely what information we need before we are entitled to claim that there is one and only one answer.
+
+## 3. Existence — Finding a witness
+
+Let us now move from keys and doors to a mathematical problem.
+
+Consider the equation
+
+$$
+2x+3=11,\qquad x\in\mathbb R.
+$$
+
+We want to prove that there is a real number satisfying this equation.
+
+From our earlier episodes about quantifiers, we already know how to express this statement:
+
+$$
+\exists x\in\mathbb R:\;2x+3=11.
+$$
+
+The existential quantifier tells us that our task is to find at least one object satisfying the specified condition.
+
+Let us imagine the equation as a machine. We can insert any real number into the machine, and the machine will multiply it by two and then add three.
+
+Our objective is to obtain the output eleven.
+
+<Interactive kind="uniqueness" preset="machine" id="unique-machine" />
+
+Perhaps after experimenting for a moment, or simply by rearranging the equation, we suspect that the correct number is four.
+
+But there is an important distinction between **proposing a candidate** and **establishing that it is a solution**.
+
+Suppose I simply announce that the answer is four. Have I proved anything yet?
+
+Not necessarily. I have told you which number I believe satisfies the condition. But now I have to demonstrate that it actually does.
+
+So let us check.
+
+$$
+\begin{aligned} 2(4)+3&=8+3\\ &=11. \end{aligned}
+$$
+
+And since $4\in\mathbb R$, it belongs to the domain of our problem.
+
+<ReasoningFigure kind="unique-witness" />
+
+We have now completed an existence proof.
+
+The number four is what mathematicians call a **witness**: a particular object that demonstrates the truth of an existential statement.
+
+Notice that we did not need to investigate every real number. We did not need to know whether another number also works. One verified example is enough to establish an existential claim.
+
+This is almost the mirror image of something we discovered in our episode about counterexamples.
+
+| To establish a universal claim is false        | To establish an existential claim is true      |
+| ---------------------------------------------- | ---------------------------------------------- |
+| Find one object for which the condition fails. | Find one object for which the condition holds. |
+| A counterexample                               | A witness                                      |
+| $\exists x:\neg P(x)$                      | $\exists x:P(x)$                           |
+
+In both situations, a single object can settle the question.
+
+But only because of the particular logical structure of the claim we are investigating.
+
+## 4. Uniqueness — What if there were another answer?
+
+At this point, we know that four satisfies our equation.
+
+But let us return to the question that motivated the episode.
+
+How do we know there is not another solution?
+
+We could try five. We could try three. We could try a million. But there are infinitely many real numbers. Checking them individually is not a viable mathematical strategy.
+
+So instead of attempting to inspect every possible alternative, we are going to do something much more powerful.
+
+We are going to describe an arbitrary pair of possible solutions.
+
+Suppose $x$ and $y$ are both real numbers satisfying our equation.
+
+We are not assuming that they are different. We are not assuming that either of them is four. We are simply allowing them to be any two numbers that meet the same condition.
+
+<ReasoningFigure kind="unique-candidates" />
+
+By assumption,
+
+$$
+2x+3=11
+$$
+
+and
+
+$$
+2y+3=11.
+$$
+
+Both expressions are equal to the same number.
+
+And from our earlier investigation into equality, we know that if two expressions are equal to the same thing, then they must also be equal to each other.
+
+Therefore,
+
+$$
+2x+3=2y+3.
+$$
+
+Subtracting three from both sides gives us
+
+$$
+2x=2y.
+$$
+
+And dividing both sides by two gives us
+
+$$
+\boxed{x=y}.
+$$
+
+Look carefully at what has just happened.
+
+We began with two entirely arbitrary candidates. We gave them different names and allowed them to represent potentially different numbers.
+
+But the condition they both satisfy forced them to be equal.
+
+<ReasoningFigure kind="unique-convergence" />
+
+This means that any two solutions must coincide.
+
+There cannot be a first solution here and a genuinely different second solution over there.
+
+<ReasoningFigure kind="unique-coincide" />
+
+And here is something particularly beautiful about this proof.
+
+We have just established that there is at most one solution without needing to know what the solution is.
+
+Our existence argument required us to find the number four. But our uniqueness argument never explicitly used the number four at all.
+
+One argument identifies an object. The other restricts the structure of the entire solution set.
+
+When we combine them, the conclusion becomes unavoidable.
+
+$$
+\boxed{\exists!x\in\mathbb R:\;2x+3=11}
+$$
+
+There exists exactly one real number satisfying the equation.
+
+And that number is four.
+
+<Interactive kind="uniqueness" preset="convergence" id="unique-convergence" />
+
+## 5. The architecture of an existence and uniqueness proof
+
+We can now take the particular equation away and keep only the reasoning that made the proof work.
+
+Suppose that $P(x)$ is any mathematical condition defined over a domain $D$.
+
+The symbol
+
+$$
+\exists!
+$$
+
+is read as *there exists exactly one*.
+
+So the statement
+
+$$
+\exists!x\in D:\;P(x)
+$$
+
+contains two separate logical requirements.
+
+<ReasoningFigure kind="unique-architecture" />
+
+The first statement is existential. The second statement is universal.
+
+This is worth noticing because we are not merely learning a new proof technique. We are combining two different logical structures into a more complex one.
+
+In full mathematical notation, the meaning of unique existence is
+
+$$
+\begin{aligned}
+\exists!x\in D:\;P(x)\quad\Longleftrightarrow\quad&
+(\exists a\in D:\;P(a))\\
+&{}\land(\forall x,y\in D:\;(P(x)\land P(y))\Rightarrow x=y).
+\end{aligned}
+$$
+
+We can also express it using a single distinguished object:
+
+$$
+\exists a\in D: \left(P(a)\land \forall x\in D\;(P(x)\Rightarrow x=a)\right).
+$$
+
+The first part says that the object $a$ satisfies the condition. The second says that every object satisfying the condition must be that very same object.
+
+Both expressions describe the same mathematical situation.
+
+And this is a general proof strategy that we will encounter repeatedly in mathematics, whether we are investigating equations, functions, limits, inverse operations or geometrical objects.
+
+## 6. When existence and uniqueness come apart
+
+So far, we have investigated a situation where existence and uniqueness were both true.
+
+But mathematics also contains situations where one is true and the other is false.
+
+Consider the equation
+
+$$
+x^2=4,\qquad x\in\mathbb R.
+$$
+
+We can immediately propose a witness:
+
+$$
+2^2=4.
+$$
+
+Therefore, a solution exists.
+
+But something interesting happens when we visualize the equation.
+
+<ReasoningFigure kind="unique-square-two" />
+
+There are two different numbers that satisfy the same condition.
+
+The numbers two and negative two are both witnesses for our existential statement. But together, because they are distinct, they also demonstrate that uniqueness is false.
+
+We can establish that these are precisely the two solutions by factoring:
+
+$$
+\begin{aligned} x^2&=4\\ x^2-4&=0\\ (x-2)(x+2)&=0. \end{aligned}
+$$
+
+A product of two real numbers can be zero only if at least one of its factors is zero.
+
+Therefore,
+
+$$
+x=2\quad\lor\quad x=-2.
+$$
+
+Existence is true. The at-most-one condition is false.
+
+Now let us change the equation again.
+
+$$
+x^2=-1,\qquad x\in\mathbb R.
+$$
+
+$$
+\forall x\in\mathbb R:\;x^2\geq 0
+$$
+
+<ReasoningFigure kind="unique-square-none" />
+
+Every real number has a nonnegative square. Consequently, no real number can have a square equal to negative one.
+
+The graph helps us understand the situation, but it is this mathematical property of real numbers that establishes our conclusion.
+
+Our solution set is empty.
+
+And now we encounter something that might initially sound strange.
+
+Although existence is false, the statement that there is **at most one** solution is still true.
+
+After all, zero is less than one. If there are no solutions, there certainly cannot be two distinct solutions.
+
+This is why proving that any two solutions must be equal is not sufficient to prove that a solution exists.
+
+<ReasoningFigure kind="unique-comparison" />
+
+We have now encountered all three possible configurations of a solution set.
+
+The important thing is that we can distinguish them not by intuition or by how familiar an equation looks, but by examining exactly what our arguments establish.
+
+## 7. Change the mathematical world, and the answer may change
+
+Let us investigate one more equation.
+
+$$
+2x=1.
+$$
+
+It seems reasonable to say that this equation has exactly one solution.
+
+But before accepting that statement, we should ask a question that we learned to ask in our episodes about quantifiers and sets.
+
+**A solution among which objects?**
+
+Suppose that we are working exclusively with integers.
+
+<ReasoningFigure kind="unique-rational" />
+
+In the first world, there is no solution. For every integer $x$, the number $2x$ is even, whereas one is odd.
+
+But in the second world, the number one-half is permitted, and
+
+$$
+2\left(\frac12\right)=1.
+$$
+
+Moreover, if two rational numbers $x$ and $y$ satisfy the equation, then
+
+$$
+2x=1=2y\quad\Rightarrow\quad x=y.
+$$
+
+So exactly one solution exists in the second world.
+
+We have not changed the equation. We have not changed the arithmetic operations. We have changed the collection of objects over which the statement is interpreted.
+
+And that alone has changed its truth.
+
+$$
+\mathbb Z\subseteq\mathbb Q\subseteq\mathbb R\subseteq\mathbb C
+$$
+
+<ReasoningFigure kind="unique-hierarchy" />
+
+Even our earlier equation $x^2=-1$, which had no solution among the real numbers, has two solutions among the complex numbers: $i$ and $-i$.
+
+The domain is not an insignificant detail that we append to a mathematical question. It is part of what gives the question its meaning.
+
+## 8. Can we prove that something exists without finding it?
+
+Until now, we have established existence by presenting a specific object and verifying that it satisfies our condition.
+
+This is a constructive way of establishing existence.
+
+But must an existence proof always explicitly exhibit the object?
+
+Imagine a room containing thirteen people.
+
+There are only twelve possible months in which someone can have been born.
+
+<ReasoningFigure kind="unique-pigeonhole" />
+
+Even without knowing anyone's birthday, we can establish that at least two people in that room were born in the same month.
+
+Because if every month contained at most one person's birthday, there could be at most twelve people.
+
+But there are thirteen.
+
+We have therefore established that a matching pair exists.
+
+Yet we have not identified which two people form that pair.
+
+Our argument proves existence without exhibiting a particular witness. This example illustrates the idea behind existence arguments that do not explicitly construct or identify the desired object, although a matching pair could readily be found if the birthdays were provided.
+
+Later in mathematics, we will encounter much more profound examples of this distinction.
+
+For now, remember that knowing something exists and knowing how to find it are not necessarily the same achievement.
+
+## 9. Your turn — What has actually been proved?
+
+I am going to show you four short arguments.
+
+Your task is not to solve their equations. Your task is to determine what the presented argument actually establishes.
+
+Does it establish existence? Does it establish at most one solution? Does it establish exactly one? Or does it establish none of these?
+
+<Interactive kind="uniqueness" preset="inspection" id="unique-inspection" />
+
+Notice that throughout this exercise, we have been evaluating the arguments rather than simply evaluating the equations.
+
+That distinction matters.
+
+A mathematical conclusion can be true while the argument presented for it is incomplete. And an argument may correctly establish a weaker statement than the one we originally wanted to prove.
+
+When evaluating a proof, we must learn to ask not only whether its conclusion is correct, but also whether the reasoning has earned that conclusion.
+
+## 10. Closing — The difference between finding and determining
+
+Let us return to our locked door.
+
+At the beginning of this episode, we found a key that opened it.
+
+We demonstrated that something worked. But we had not yet demonstrated that nothing else could work.
+
+We now understand that these are two different kinds of mathematical knowledge.
+
+<ReasoningFigure kind="unique-closing" />
+
+Existence tells us that the conditions permit something.
+
+Uniqueness, once existence has been established, tells us that the conditions determine that thing completely.
+
+The first reveals a possibility. The second eliminates every alternative.
+
+And whenever you encounter an explanation that claims to have found *the* answer to a problem, rather than merely *an* answer, there is a question you should learn to ask.
+
+*What prevents there from being another one?*
+
+Because finding an answer and proving that it is the only possible answer are very different accomplishments.
+
+## Learning compendium
+
+<ReasoningFigure kind="unique-obligations" />
+
+| Concept                | What it establishes                                                   |
+| ---------------------- | --------------------------------------------------------------------- |
+| Candidate              | An object proposed as a possible solution                             |
+| Witness                | An object verified to satisfy a condition                             |
+| Existence              | At least one solution                                                 |
+| At most one            | No two distinct solutions                                             |
+| Unique existence       | Exactly one solution                                                  |
+| Non-existence          | No object satisfies the condition                                     |
+| Constructive existence | Existence established by constructing or exhibiting a suitable object |
+| Domain                 | The collection of objects permitted in the statement                  |
+
+### Connections with previous episodes
+
+| Earlier lesson | Connection |
+| --- | --- |
+| 03 — Equality | Expressions equal to the same value are equal to one another |
+| 06 — Counterexamples | One witness proves existence; one counterexample refutes a universal claim |
+| 12 — AND, OR and NOT | Unique existence combines two requirements with AND |
+| 13 — Quantifiers | Existential and universal proof obligations |
+| 14 — Sets and mathematical worlds | Solution sets and the role of the domain |
+| 17 — Finding the next proof step | The target’s logical structure suggests the approach |
+| 20 — Contradiction | Existence without an exhibited witness; excluding distinct alternatives |
+| 21 — Existence and uniqueness | Combining individual reasoning tools into a complete proof |
+
+### Preparation sources
+
+| Source | Relevant material |
+| --- | --- |
+| [Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/) | Third edition, Chapter 7: §7.3 existence and uniqueness; §7.4 constructive and nonconstructive proofs. |
+| [Daniel J. Velleman — How to Prove It](https://www.cambridge.org/core/books/abs/how-to-prove-it/contents/D9098F367810400B8A7FFD6FFCC22695) | Third edition, Chapter 3, §3.6, beginning on p. 153 in the supplied reference: unique existence and existential/universal proof obligations. |

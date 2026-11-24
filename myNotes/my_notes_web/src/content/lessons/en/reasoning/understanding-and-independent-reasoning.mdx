@@ -1,0 +1,487 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-three
+sourceId: reasoning-episode-24
+sourcePages: []
+sourceLocations: ["Full script sections 1–9; Complementary and delayed exercises; Scientific foundations"]
+title: "Understanding explanations and reasoning independently"
+navTitle: "Understanding and independent reasoning"
+description: "Distinguish recognition, explanation, independent production and transfer; compare confidence with evidence from an attempt."
+order: 24
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [auditing-a-proof]
+thumbnail: reasoning-transfer
+---
+
+Understanding an argument when someone presents it to us is not necessarily the same ability as constructing that argument ourselves, or recognizing when its underlying reasoning can be applied somewhere else.
+
+## 1. The feeling of understanding
+
+Have you ever watched someone solve a difficult problem and thought: *Of course. That makes perfect sense.*
+
+Every step seems reasonable. The conclusion follows naturally. Perhaps you even wonder why you found the problem difficult in the first place.
+
+But then, sometime later, you encounter a similar problem on your own.
+
+And suddenly, you don't know where to begin.
+
+<ReasoningFigure kind="transfer-complete" />
+
+With the explanation visible, every step seems clear.
+
+Now imagine that we remove the intermediate steps.
+
+Without the explanation, can you construct the connections yourself?
+
+<ReasoningFigure kind="transfer-withheld" />
+
+The starting information is exactly the same. The conclusion hasn't changed. And yet, the task has become considerably different.
+
+Why?
+
+Because in the first situation, someone else was making decisions about what to do next. Your task was to understand those decisions.
+
+In the second situation, those decisions belong to you.
+
+Both require thinking. Both are valuable. But they are not identical.
+
+Today, we're going to investigate this difference.
+
+And rather than asking whether we understand an explanation, we're going to ask a slightly more difficult question:
+
+**What evidence do we have that we understand it well enough to use it?**
+
+## 2. Four different abilities
+
+Imagine someone learning to navigate through an unfamiliar city.
+
+The first time, they are walking with a friend who knows the way. At every intersection, their friend tells them where to turn.
+
+They can see the buildings, recognize the streets, and follow the journey from beginning to end.
+
+<ReasoningFigure kind="transfer-route" />
+
+But would they necessarily be able to repeat that journey alone? Could they explain why certain streets were chosen? Could they find an alternative route if one of the streets were closed?
+
+These are different abilities, even though they all involve the same city.
+
+Something similar happens when we learn to reason.
+
+For our purposes, we can distinguish four abilities.
+
+<ReasoningFigure kind="transfer-abilities" />
+
+These are not four rigid stages that everyone must pass through in precisely this order. They are four different ways of examining what someone has learned.
+
+You might be able to explain a proof perfectly while it is in front of you, but struggle to reproduce it independently.
+
+You might reproduce a familiar proof from memory without understanding how its reasoning applies to other situations.
+
+The problem arises when we successfully demonstrate one ability and automatically conclude that we possess the others.
+
+<ReasoningFigure kind="transfer-evidence" />
+
+Notice that we're not saying that the other abilities are absent.
+
+We're saying that we don't yet have sufficient evidence to determine whether they are present.
+
+That distinction is particularly important in a course about reasoning.
+
+## 3. An experiment with a mathematical proof
+
+Consider the following statement.
+
+> The sum of any two odd integers is even.
+
+We could begin by examining particular examples.
+
+$$
+3+5=8
+$$
+
+$$
+7+9=16
+$$
+
+$$
+11+13=24
+$$
+
+But as we already know, these examples do not establish that the statement is true for every pair of odd integers.
+
+Instead, let's look at what makes an integer odd.
+
+<ReasoningFigure kind="transfer-pairs" />
+
+Each odd number contains a certain number of pairs and one additional unit.
+
+When we combine two odd numbers, the two remaining units form another pair.
+
+There is nothing left over.
+
+This gives us a visual explanation of why their sum is even, at least for positive odd integers. To establish the complete statement, including negative odd integers, we can express the same structure algebraically.
+
+Let $x$ and $y$ be arbitrary odd integers.
+
+By the definition of oddness, there exist integers $a$ and $b$ such that
+
+$$
+x=2a+1
+$$
+
+and
+
+$$
+y=2b+1.
+$$
+
+Adding these expressions gives us
+
+$$
+\begin{aligned} x+y&=(2a+1)+(2b+1)\\[4pt] &=2a+2b+2\\[4pt] &=2(a+b+1). \end{aligned}
+$$
+
+Now, since $a$ and $b$ are integers, and integers are closed under addition,
+
+$$
+a+b+1\in\mathbb Z.
+$$
+
+Consequently, their sum has the form
+
+$$
+2k,\qquad k\in\mathbb Z.
+$$
+
+And this is precisely the definition of an even integer.
+
+<ReasoningFigure kind="transfer-form" />
+
+This completes our proof.
+
+Now, while the argument is still visible, ask yourself something.
+
+Do you understand it?
+
+If your answer is yes, that's perfectly reasonable. But before we conclude anything further, let's find out what that answer actually tells us.
+
+## 4. Removing the explanation
+
+Now try the same proof with its intermediate steps withheld.
+
+Before I do, make a prediction.
+
+How confident are you that you could reconstruct the missing reasoning without seeing the original explanation?
+
+<Interactive kind="transfer" preset="reconstruct" id="transfer-reconstruct" />
+
+Perhaps you reconstructed the reasoning immediately. Perhaps you remembered that we needed to factor out a two, but couldn't remember exactly how. Or perhaps the argument seemed obvious a moment ago, yet now you find yourself uncertain about what comes next.
+
+All three outcomes are informative.
+
+Notice that you don't actually need to remember the original proof word for word. If you understand the assumptions and the definition of evenness, you can reconstruct the argument from those pieces.
+
+The important thing is not that you remembered the arrangement of symbols.
+
+The important thing is whether you could recreate the reasoning.
+
+<ReasoningFigure kind="transfer-decisions" />
+
+When you originally watched the proof, these decisions were already made for you.
+
+When you reconstructed the proof, you had to make at least some of those decisions yourself.
+
+This is one reason why practicing independently can reveal difficulties that remain invisible while we are following an explanation.
+
+## 5. Why familiarity can be misleading
+
+When an explanation is well designed, it often makes a complicated sequence of reasoning feel simple.
+
+The information is organized. Irrelevant details have been removed. Important connections are emphasized. Each step appears at an appropriate moment.
+
+All of this helps us understand.
+
+But the ease with which we process that explanation can also influence how capable we believe we are of reproducing it.
+
+A finished proof conceals much of the work involved in discovering it.
+
+You don't see every unsuccessful attempt, every irrelevant possibility, or every moment of uncertainty that may have occurred before the proof was written.
+
+You see the selected route.
+
+And following that route may feel very different from finding it.
+
+<ReasoningFigure kind="transfer-search" />
+
+This brings us to a concept called **metacognition**.
+
+Cognition involves activities such as remembering, reasoning, and solving problems. Metacognition involves monitoring and regulating those activities, including evaluating what we know and deciding how we should continue learning.
+
+<ReasoningFigure kind="transfer-cognition" />
+
+But there is a difficulty.
+
+Our judgments about our own understanding can also be mistaken.
+
+The feeling of understanding is information about our experience. It is not automatically reliable evidence that we can perform every task associated with that understanding.
+
+The solution is not to ignore our confidence completely.
+
+It is to compare it with what we can actually do.
+
+## 6. Can you recognize the same reasoning somewhere else?
+
+Let's now consider another problem.
+
+This time, I won't give you the solution immediately.
+
+Suppose two integers both leave a remainder of two when divided by five.
+
+Prove that their difference is divisible by five.
+
+<ReasoningFigure kind="transfer-remainder" />
+
+For example, twelve and seven both leave a remainder of two when divided by five.
+
+Their difference is five.
+
+But once again, we want to prove this for arbitrary integers satisfying the conditions, rather than for one particular example.
+
+Here is all the additional information you need: an integer that leaves remainder two when divided by five can be written as
+
+$$
+5m+2,\qquad m\in\mathbb Z.
+$$
+
+An integer divisible by five can be written as
+
+$$
+5k,\qquad k\in\mathbb Z.
+$$
+
+Before attempting the problem, make another prediction.
+
+<Interactive kind="transfer" preset="apply" id="transfer-apply" />
+
+<ReasoningFigure kind="transfer-comparison" />
+
+The two problems look different. One involves addition and odd numbers. The other involves subtraction and division by five.
+
+But beneath those differences, there is a common structure.
+
+In both arguments, we translate the assumptions into mathematical expressions. We manipulate those expressions until they have the form required by the conclusion. Finally, we verify that the conditions of that form are satisfied.
+
+<ReasoningFigure kind="transfer-structure" />
+
+Recognizing this common structure and applying it to the second problem is an example of transfer.
+
+And transfer is particularly important because, outside carefully designed exercises, nobody necessarily tells us which reasoning technique a problem requires.
+
+We have to recognize that ourselves.
+
+## 7. Measuring what we actually know
+
+If you made predictions for the two experiments, you now have two forecasts about your own ability.
+
+Imagine continuing this experiment across several tasks over the next few weeks.
+
+For each problem, before attempting it, we record how likely we think we are to solve it completely and independently.
+
+Afterward, we record what happened.
+
+Suppose our observations look like this.
+
+<Interactive kind="transfer" preset="calibration" id="transfer-calibration" />
+
+We predicted a relatively high probability of success, but succeeded on only three of the five tasks.
+
+Does this prove that we are generally overconfident?
+
+No.
+
+Five observations, especially across different kinds of tasks, are not enough to draw such a broad conclusion. And failing a single task when we were ninety percent confident does not necessarily make our prediction unreasonable. A ninety percent probability still allows for failure.
+
+But these observations give us something worth investigating.
+
+Perhaps we're reasonably accurate when estimating our ability to follow explanations, but less accurate when estimating our ability to produce proofs independently.
+
+If this pattern repeatedly appears across comparable tasks, we have better evidence of a specific weakness in how we evaluate our learning.
+
+The opposite can happen as well. We may consistently underestimate our ability.
+
+The objective is not to become less confident.
+
+It is to become more accurately confident.
+
+The diagonal represents ideal calibration across sufficiently many comparable observations. The example record is illustrative, not a reliable diagnosis.
+
+This process is called confidence calibration.
+
+Instead of accepting our subjective impressions as definitive, we compare our predictions with evidence.
+
+In other words, we apply the same principles of reasoning that we have been studying throughout this course to our judgments about our own minds.
+
+## 8. How should we practice differently?
+
+So what should we do with this information?
+
+Should we stop watching explanations or reading worked solutions?
+
+Of course not.
+
+Worked examples are extremely useful, particularly when we are encountering unfamiliar concepts. They can show us methods that we would otherwise struggle to discover and help us understand the organization of an argument.
+
+The problem is not the presence of explanations. It is never removing them.
+
+One useful approach is to alternate between studying a solution and attempting something independently.
+
+<ReasoningFigure kind="transfer-practice" />
+
+When we try to retrieve information without looking at it, we are engaging in retrieval practice. When we spread practice across multiple occasions rather than concentrating it in one session, we are engaging in distributed practice.
+
+Dunlosky and colleagues’ 2013 review rated practice testing and distributed practice highly across a variety of learning tasks. [Research review](https://doi.org/10.1177/1529100612453266).
+
+But remembering information is only one part of learning to reason. We also need to explain connections, construct arguments, solve unfamiliar problems, and receive feedback when our reasoning fails.
+
+Different tasks require different forms of practice.
+
+The important thing is to make sure that the activity we use to evaluate our learning actually measures the ability we want to develop.
+
+If our goal is to construct proofs, at some point we must attempt to construct proofs.
+
+If our goal is to transfer reasoning to unfamiliar situations, at some point we must encounter unfamiliar situations.
+
+Watching someone else perform those activities is a valuable preparation for them, but it cannot entirely replace them.
+
+## 9. Conclusion — How do you know that you know?
+
+Throughout this course, we've repeatedly asked how we know whether a statement is true.
+
+We've examined evidence, assumptions, definitions, counterexamples, and logical arguments.
+
+But today, we've applied that question to something slightly different.
+
+Our own understanding.
+
+<ReasoningFigure kind="transfer-questions" />
+
+Understanding an explanation is a genuine achievement.
+
+But it is also an invitation to investigate further.
+
+Can I explain why this works? Can I reconstruct it without assistance? Can I recognize the same reasoning in a completely different situation?
+
+Each of these questions gives us another opportunity to discover what we have learned.
+
+And perhaps one of the most important habits of a good reasoner is learning to distinguish the feeling of knowing something from the evidence that they know it.
+
+**How do you know that you know?**
+
+## Complementary exercises
+
+Try these without returning to the worked examples first. The four reference solutions below are additions; compare your reasoning after an independent attempt.
+
+### 1. Recognition
+
+Identify which argument correctly establishes that the sum of two even integers is even, for integers $a,b$.
+
+$$
+(2a)+(2b)=2(a+b)
+$$
+
+$$
+2a+2b=4ab
+$$
+
+<Exercise>
+**Added reference solution.** The first identity is valid by distributivity. Since $a+b$ is an integer, the sum is even. The second identity is not valid for arbitrary $a,b$: for $a=b=1$, its two sides happen to agree, but for $a=1,b=2$ they are $6$ and $8$.
+</Exercise>
+
+### 2. Explanation
+
+Why is establishing that an expression has the form $2k$ insufficient unless $k$ is an integer?
+
+<Exercise>
+**Added reference solution.** Every real number $t$ can be written as $2(t/2)$. That alone does not establish evenness. For example, $3=2(3/2)$, but $3/2$ is not an integer. Evenness requires an integer witness $k$.
+</Exercise>
+
+### 3. Independent production
+
+Prove that the difference of two odd integers is even.
+
+<Exercise>
+**Added reference solution.** Let $x=2a+1$ and $y=2b+1$, with arbitrary integers $a,b$. Then
+
+$$
+x-y=(2a+1)-(2b+1)=2(a-b).
+$$
+
+Because $a-b\in\mathbb Z$, this is twice an integer. Negative differences and zero are included.
+</Exercise>
+
+### 4. Transfer
+
+Prove that the product of two odd integers is odd.
+
+<Exercise>
+**Added reference solution.** For arbitrary $a,b\in\mathbb Z$, write $x=2a+1$ and $y=2b+1$. Then
+
+$$
+xy=(2a+1)(2b+1)=4ab+2a+2b+1=2(2ab+a+b)+1.
+$$
+
+The witness $2ab+a+b$ is an integer, so the product is odd. The argument includes negative odd integers.
+</Exercise>
+
+### Return to this problem later
+
+Try this after a delay, without first reopening the worked examples or being told which method to use.
+
+> Suppose two integers leave the same remainder when divided by a positive integer $d$. Prove that their difference is divisible by $d$.
+
+<Exercise>
+The supplied general proof uses
+
+$$
+x=da+r,\qquad y=db+r,
+$$
+
+where $d$ is a positive integer, $a,b,r\in\mathbb Z$ and $0\leq r<d$. Therefore,
+
+$$
+x-y=d(a-b).
+$$
+
+Since $a-b\in\mathbb Z$,
+
+$$
+\boxed{d\mid(x-y)}.
+$$
+
+This generalizes the second proof: the common remainder cancels. It works for negative inputs, for equal inputs, and for $d=1$ as well.
+</Exercise>
+
+Recognize the common structure beneath the more abstract statement, rather than reproducing a recently displayed sequence of symbols.
+
+## Learning compendium
+
+<ReasoningFigure kind="transfer-fading" />
+
+Gradually remove supplied steps so that you take responsibility for finding and justifying the connections.
+
+## Scientific foundations and preparation sources
+
+[Dunlosky et al. (2013)](https://doi.org/10.1177/1529100612453266) reviews ten learning techniques; see also the [authors’ abstract](https://pubmed.ncbi.nlm.nih.gov/26173288/). Practice testing and distributed practice receive high utility ratings, self-explanation and interleaving moderate ratings. Read the sections on testing, spacing, self-explanation and rereading. These ratings do not establish that worked explanations are ineffective.
+
+The [Institute of Education Sciences practice guide](https://ies.ed.gov/ncee/wwc/PracticeGuide/1) recommends alternating worked examples and problems, connecting graphical and abstract representations, active retrieval and delayed review. Its evidence ratings vary, including for judgments about further study. Match the practice to the intended outcome and conditions.
+
+### Turning the question inward
+
+Until now, much of this course has examined the external structure of reasoning: valid arguments, proof construction, technique selection and error detection. We can apply the same scrutiny to our own understanding.
+
+<ReasoningFigure kind="transfer-course" />
+
+Following an explanation is an opportunity to learn. Reasoning successfully without it is a different achievement. Use the mathematical tasks to look for evidence of both.
