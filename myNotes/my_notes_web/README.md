@@ -28,6 +28,17 @@ ASTRO_TELEMETRY_DISABLED=1 npm exec -- astro preview stop
 
 On Jean's computer, the Codex bundled Node directory can be prepended to PATH: /Users/jean/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin. This is a local convenience, not a build dependency.
 
+## Open an offline copy
+
+From this directory with Node 24, run:
+
+```sh
+npm run build
+npm run export:local
+```
+
+Copy the whole `local-web/` folder and double-click its `index.html`. The export uses a built-in English and German text search. The `dist/` folder is the build for HTTP hosting.
+
 | Command | Purpose |
 | --- | --- |
 | npm ci | Install exact locked dependencies |

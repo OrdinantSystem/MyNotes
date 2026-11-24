@@ -40,7 +40,7 @@ Course navigation color is automatic: `src/lib/navigation-colors.ts` cycles blue
 
 Keep package.json and package-lock.json synchronized. npm ci reproduces the locked versions. The package is private; the interactive library is internal source, not a separately published npm package. Prefer no new dependency for an existing asset family. Keep Node/version upgrades deliberate and documented.
 
-Do not track dist/, node_modules/, .astro/, .sites-runtime/, or private references/source/. Do not duplicate the source PDF in public/. Never delete source material to make a build pass. When moving the package, stop its preview first and update documentation, workflow paths, package metadata, and verification together.
+Do not track dist/, local-web/, node_modules/, .astro/, .sites-runtime/, or private references/source/. Do not duplicate the source PDF in public/. Never delete source material to make a build pass. When moving the package, stop its preview first and update documentation, workflow paths, package metadata, and verification together.
 
 ## GitHub Pages
 
