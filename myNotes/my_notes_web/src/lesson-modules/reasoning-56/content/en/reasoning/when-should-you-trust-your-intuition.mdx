@@ -1,0 +1,231 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-seven
+sourceId: reasoning-episode-56
+sourcePages: []
+sourceLocations: ["Sections 1 and 3–10: intuition, environmental validity, feedback, mathematical proof and practical audit", "Sections 12–13: preparation sources and course synthesis"]
+title: "When Should You Trust Your Intuition?"
+navTitle: "When should you trust intuition?"
+description: "Distinguish learned recognition from convincing impressions by examining predictability, feedback, proof and demonstrated performance."
+order: 56
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [patterns-and-predictions, understanding-and-independent-reasoning]
+thumbnail: module:reasoning-56
+---
+
+Throughout this course, we have learned to question assumptions, examine evidence, identify cognitive biases and verify reasoning. Yet many exceptionally skilled people make excellent decisions without consciously working through every step.
+
+A chess master recognizes a promising move almost immediately. A mathematician suspects which substitution might simplify an equation. An experienced musician anticipates a chord before consciously identifying it. Should they distrust these intuitions because they cannot immediately articulate all their reasoning?
+
+The distinction we need is between **the experience of knowing and the conditions that make knowing possible.**
+
+<ReasoningFigure kind="module" module="reasoning-56" figure="foundations" />
+
+Two intuitions can feel equally convincing while having radically different foundations. Trust an intuition because of the conditions under which it developed and was tested, not merely because it feels convincing. The aim is to understand when intuition deserves weight and when additional verification is needed.
+
+## 1. Two identical feelings
+
+Consider two people. A practiced chess player examines a position and immediately sees a back-rank mating move. A coin-toss predictor examines previous outcomes and feels certain that the next independent, fair toss will be heads.
+
+Both decide quickly. Both feel confident. Neither initially explains every mental operation behind the judgment.
+
+<ReasoningFigure kind="module" module="reasoning-56" figure="opening" />
+
+**What information would you need to decide whose intuition deserves more trust?** Their emotional state, intelligence and sincerity do not settle it. The important difference is the relationship between their past experiences and this particular task.
+
+For the stipulated fair, independent coin, the previous tosses contain no predictive information about the next one:
+
+$$
+P(X_{t+1}=H\mid X_1=x_1,\ldots,X_t=x_t)=\frac12.
+$$
+
+Here $H$ denotes heads, $X_i$ is the outcome of toss $i$, and $x_i$ is its observed value. The conditioning symbols specify a history, not necessarily one consisting entirely of heads. The half-probability follows from the model’s fairness and independence assumptions. It is not inferred from a short displayed streak. A different physical process, such as a biased or dependent coin, would require a different model and evidence.
+
+The chessboard also deserves verification. All pieces are shown: White has king g1 and rook e1; Black has king g8 and pawns f7, g7 and h7. White can play Re8#. The rook’s path is clear, and from e8 it checks along the eighth rank. The black king cannot move to f8 or h8 because the rook attacks them; f7, g7 and h7 are occupied by its own pawns. No remaining black piece can capture the rook or block the checking line. The pattern suggests the move, and the complete position permits us to check it.
+
+## 2. Where intuition comes from
+
+An intuition is a judgment or impression that arrives without consciously reconstructing all the reasoning behind it. It can arise from learned patterns, associations, heuristics, emotional responses or biases. Experienced intuition can be knowledge whose use has become familiar enough to feel automatic.
+
+At first, a chess beginner must consciously examine pieces, their movements and the opponent’s available responses. With practice and correction, related features can become recognizable as meaningful units.
+
+<ReasoningFigure kind="module" module="reasoning-56" figure="recognition" />
+
+The expert is not necessarily performing every beginner’s calculation at extraordinary speed. They may instead have learned which features deserve attention and which candidate moves are promising. This helps explain why an intuition can be useful before its origin is fully articulated.
+
+But pattern recognition has a fundamental limit: **it is useful only to the extent that the recognized patterns reliably relate to reality.** Familiarity with a pattern does not establish that it predicts the target.
+
+## 3. Two different worlds
+
+Imagine artificial environments in which objects arrive and a learner predicts their destinations. In World A, shape reliably predicts the destination. In World B, the destination is randomly selected independently of shape.
+
+<ReasoningFigure kind="module" module="reasoning-56" figure="worlds" />
+
+After many observations, the first learner may acquire immediate recognition of the relationship. The second may acquire strong intuitions too, but those intuitions cannot reliably predict the random destination from shape alone. The fundamental difference is the existence of a learnable regularity, rather than simply the number of observations.
+
+An environment has predictive validity for a task when observable features contain reliable information about the outcome we are trying to anticipate. That does not require every outcome to be predictable.
+
+| Task | Potentially learnable regularities |
+| --- | --- |
+| Chess tactics | Rules and relationships between pieces |
+| Playing an instrument | Relationships between actions and sounds |
+| Poker | Probabilities and aspects of opponents’ behaviour |
+| Predicting the next independent fair coin toss from previous outcomes | No predictive information in that history |
+
+Poker contains genuine randomness, yet skill can improve decisions without guaranteeing a favourable result. The relevant question is whether the environment contains regularities that can improve **this judgment**.
+
+### Inspect the role of signal and feedback
+
+Use the artificial worlds below to separate a useful cue from an unsupported one. Predict a destination, then move to the next object. Change one feedback condition at a time; changing the environment or feedback starts a fresh run.
+
+<Interactive kind="module" module="reasoning-56" preset="worlds" id="intuition56-worlds" />
+
+World A’s rule is circle → left and square → right. In B, each destination is independently sampled before the prediction is recorded. A short run can contain accidental apparent patterns. Its results neither prove nor disprove the independence assumption built into the model. The activity illustrates learning conditions, not your overall ability to develop expertise.
+
+## 4. Why experience alone is not enough
+
+Return to a world that contains a stable rule. Without information about whether predictions were correct, a learner may fail to discover it. Misleading information, selective memory and long delays can also obstruct learning.
+
+<ReasoningFigure kind="module" module="reasoning-56" figure="feedback" />
+
+A complete feedback loop turns errors into information. Delayed outcomes make the link to the original decision harder to establish. Hidden failures create a systematically distorted record. Luck can reward a poor decision.
+
+Try the activity’s feedback modes. “Only successes” hides incorrect results rather than announcing them; “no results” supplies no corrective evidence. With a two-trial delay, an outcome becomes visible only after two later predictions have been recorded. At the twelve-trial endpoint, the latest two remain unavailable. The interface reports no hidden aggregate accuracy that would defeat these restrictions.
+
+### Decision quality and outcome quality
+
+<ReasoningFigure kind="module" module="reasoning-56" figure="outcomes" />
+
+A good decision can produce a bad outcome, and a bad decision can produce a good one. Assess a decision in relation to the information, alternatives and risks available when it was made, rather than judging its quality from the outcome alone.
+
+Suppose someone repeatedly drives through red traffic lights but has never had an accident. The absence of an accident does not show that those decisions were good. Their previous successes provide inadequate feedback for establishing safety.
+
+**Experience, success and competence are distinct.** Years of experience can provide learning opportunities. Years of repetition without meaningful correction can also consolidate mistakes.
+
+## 5. Conditions for intuitive expertise
+
+Daniel Kahneman and Gary Klein’s 2009 article, [*Conditions for Intuitive Expertise: A Failure to Disagree*](https://doi.org/10.1037/a0016755), brings together traditions studying systematic judgment errors and successful expert decisions in realistic settings.
+
+Their central distinction concerns the predictability of the task environment and the person’s opportunities to learn its regularities. Subjective experience alone is not a reliable indicator of accuracy. The [authors’ abstract](https://pubmed.ncbi.nlm.nih.gov/19739881/) states those boundary conditions.
+
+<ReasoningFigure kind="module" module="reasoning-56" figure="matrix" />
+
+This is a conceptual teaching adaptation, not a measured scale or a validated instrument. High-quality feedback in a task with useful signal allows skilled intuition to develop; it does not automatically establish that a particular person has acquired it.
+
+Improving training and feedback can move a learner upward in this diagram. Practice alone cannot make a genuinely uninformative cue predictive. An uncertain environment can still permit useful judgment if some features improve predictions; “low predictability” is always relative to the target and information being used.
+
+### Expertise is specific to a domain
+
+An excellent chess player is not necessarily an excellent financial forecaster. A mathematician who recognizes abstract structures is not automatically skilled at interpreting people’s intentions. Expertise belongs to particular tasks, environments and learned relationships; it is not a general property that transfers indiscriminately with the person.
+
+Ask for relevant experience and evidence about the task at hand. A whole profession can contain both highly learnable and poorly predictable judgments.
+
+## 6. Mathematical intuition: discovery and justification
+
+Intuition and proof are not opposing methods. Consider:
+
+$$
+\begin{aligned}
+1&=1,\\
+1+3&=4,\\
+1+3+5&=9,\\
+1+3+5+7&=16.
+\end{aligned}
+$$
+
+Someone familiar with mathematical patterns may suspect that the sum of the first $n$ positive odd numbers is always $n^2$. Where could that intuition come from?
+
+<ReasoningFigure kind="module" module="reasoning-56" figure="growing-squares" />
+
+Each new L-shaped layer adds the next odd number of cells. This suggests how the general relationship might be established. Recognizing the finite pattern alone does not prove the universal statement.
+
+<Interactive kind="module" module="reasoning-56" preset="squares" id="intuition56-squares" />
+
+The explorer’s side length is $n$: it shows $(n-1)^2$ existing cells and the next $2n-1$ cells. Equivalently, going from a square of side $n$ to one of side $n+1$ adds $2n+1$ cells.
+
+### A complete induction argument
+
+For every positive integer $n$, the conjecture is:
+
+$$
+\sum_{k=1}^{n}(2k-1)=n^2.
+$$
+
+The base case $n=1$ holds because the sum is $1=1^2$.
+
+Assume the identity holds for an arbitrary positive integer $n$. The next term is $2(n+1)-1=2n+1$. Therefore:
+
+$$
+\begin{aligned}
+\sum_{k=1}^{n+1}(2k-1)
+&=\sum_{k=1}^{n}(2k-1)+(2n+1)\\
+&=n^2+2n+1\\
+&=(n+1)^2.
+\end{aligned}
+$$
+
+The first equality separates the final term; the second uses the induction hypothesis; the third expands a square. The base and step prove the identity for every positive integer.
+
+The geometric change agrees with this reasoning:
+
+$$
+(n+1)^2-n^2=n^2+2n+1-n^2=2n+1.
+$$
+
+One can also count the new layer as $n$ cells along one edge, $n$ along the other, and one corner. These disjoint parts contain $2n+1$ cells. The intuition suggested the structure; the proof established its validity.
+
+<ReasoningFigure kind="module" module="reasoning-56" figure="pipeline" />
+
+This process is not always linear. A proof attempt can expose a counterexample, an unstated assumption or a mistaken conjecture. Intuition guides investigation; investigation corrects intuition. Proof is one mechanism through which mathematical intuition improves.
+
+## 7. Audit your own intuition
+
+Choose a specific skill or kind of judgment: recognizing programming errors, judging whether dough is ready, finding a useful substitution, or predicting a particular kind of event. Avoid treating an entire profession as one skill.
+
+Instead of asking how confident you feel, investigate how that confidence was acquired.
+
+<Interactive kind="module" module="reasoning-56" preset="audit" id="intuition56-audit" />
+
+The six questions identify possible weaknesses and suggest corrective action. They do not estimate an intuition’s probability of being right. Answering “yes” throughout is a self-report, not a certificate of expertise.
+
+| Identified weakness | Useful corrective action |
+| --- | --- |
+| Insufficient experience | Practice with representative cases and correction |
+| Misleading feedback | Establish objective evaluation criteria |
+| Selective memory | Record predictions before outcomes occur |
+| Changing environment | Test performance under current conditions |
+| Weak predictability | Use probabilities, base rates and uncertainty ranges |
+| Unverified competence | Compare with an independent benchmark |
+
+### Confidence and demonstrated performance
+
+Imagine two people making 100 comparable binary forecasts each. Both consistently give their chosen outcome 80% probability. Reveal the hypothetical histories:
+
+<Interactive kind="module" module="reasoning-56" preset="calibration" id="intuition56-calibration" />
+
+In this constructed example, A gets 80 of 100 chosen outcomes right and B gets 50 of 100 right. A’s expressed confidence matches the observed accuracy at this one confidence level; B appears overconfident. These numbers are illustrations, not empirical study results.
+
+Neither comparison is complete without considering task difficulty, available alternatives, benchmarks and whether future cases resemble previous ones. One confidence bin does not establish calibration across a full range of probabilities, and calibration alone does not establish how informative the forecasts are. Observable performance helps test competence, but the test itself needs scrutiny.
+
+## 8. How much trust is appropriate?
+
+Return to the chess player and the coin predictor, now with their learning histories in view.
+
+<ReasoningFigure kind="module" module="reasoning-56" figure="histories" />
+
+Appropriate trust depends on what supports an intuition, how well it has performed and what is at stake. For familiar decisions with small consequences, practiced intuition may suffice. For unfamiliar or consequential decisions, intuition can begin a more extensive investigation.
+
+Do not ask only how certain you feel. Ask what taught you to be certain, and whether it could teach you correctly.
+
+<ReasoningFigure kind="module" module="reasoning-56" figure="synthesis" />
+
+Good reasoning does not require consciously deducing everything from first principles. It requires understanding when different cognitive tools are appropriate, recognizing their limitations and keeping ways to correct our judgments. The goal is to know why, when and how much to trust intuition.
+
+## Further reading
+
+Kahneman and Klein’s [2009 article](https://doi.org/10.1037/a0016755) is the academic foundation. Kahneman’s *Thinking, Fast and Slow* (2011), chapter 22, develops the question of expert intuition. Robin M. Hogarth’s *Educating Intuition* (2001) examines learning conditions and feedback. George Pólya’s *How to Solve It* (1945) connects intuitive discovery, heuristics and examining a proposed solution.
+
+The chess position, artificial worlds, square construction, audit and forecast examples are teaching constructions. The expertise matrix adapts the research framework; it is not a reproduced research figure or a diagnostic scale. These illustrations do not establish an individual’s expertise.

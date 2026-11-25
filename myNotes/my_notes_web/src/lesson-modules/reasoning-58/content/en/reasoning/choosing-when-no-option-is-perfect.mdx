@@ -1,0 +1,261 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-eight
+sourceId: reasoning-episode-58
+sourcePages: []
+sourceLocations: ["Sections 1–4: decision quality, festival options, actions, states and decision table", "Sections 5–7: expectation, outcome distributions, utility and multiple values", "Sections 8–9: feasible actions, sensitivity and decision boundaries", "Sections 10–11 and 14: workshop, hindsight and synthesis"]
+title: "Choosing when no option is perfect"
+navTitle: "Choosing under uncertainty"
+description: "Compare uncertain options using consequences, probabilities, preferences, constraints and sensitivity analysis."
+order: 58
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+thumbnail: module:reasoning-58
+---
+
+Sometimes the problem is deciding what to do before knowing what will happen. Every option sacrifices something: money, reliability, space or flexibility. More information may help without removing uncertainty, and our preferences may conflict.
+
+Decision theory helps us make the comparison explicit. It does not establish what we ought to value or automatically produce a uniquely correct choice. A **good outcome** is something that happened. A **good decision** is a choice justified by the relevant information, constraints and preferences available when it was made. These can come apart.
+
+## A festival before the forecast
+
+Imagine organizing a community festival. You must reserve a venue before knowing the weather. Which would you initially choose, and what information would you need to justify that choice?
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="venues" />
+
+Outdoor space looks attractive because it is inexpensive and spacious. An indoor venue offers reliability. A covered venue offers a compromise. But these are options, each with several possible consequences. We are not choosing directly between three outcomes that are already known.
+
+We control the venue reservation; we do not control the weather. An **action** is a choice we make. A **state of the world** describes the relevant circumstances. The action and state together determine a **consequence** in our model.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="structure" />
+
+## Build the decision table
+
+Use the following fictional estimates. Upfront cost is paid regardless of the weather; revenue depends on attendance in the specified state. Ignore other expenses, refunds and weather conditions for this teaching example.
+
+| Venue | Upfront cost | Revenue if dry | Revenue if rainy |
+| --- | ---: | ---: | ---: |
+| A. Outdoor | €600 | €1,200 | €0 |
+| B. Covered | €780 | €1,200 | €720 |
+| C. Indoor | €960 | €1,200 | €1,200 |
+
+Subtract cost from revenue to obtain net profit or loss. For example, a rainy covered festival gives $720-780=-60$, a €60 loss. Upfront spending of €780 and a net loss of €60 are different quantities.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="payoffs" />
+
+Outdoor offers the highest potential profit and the largest potential loss. Indoor gives a modest profit in both states **within this simplified model**; this is not a guarantee about real indoor events. Covered lies between them.
+
+Change the weather and inspect the consequences. The numbers follow the assumed table; the visitors in the drawing are schematic.
+
+<Interactive kind="module" module="reasoning-58" preset="weather" id="aor58-weather" />
+
+The table still cannot tell us which venue has the greatest expected profit. We need probabilities.
+
+## Expected value combines probability and consequence
+
+Suppose a forecast gives a 20% probability of rain. This probability is another fictional assumption, not a current weather report. In an actual decision, we would examine the evidence and reliability behind the forecast.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="forecast" />
+
+The states are mutually exclusive and exhaustive in our model: exactly one occurs. If $p$ denotes the rain probability, the dry probability is $1-p$, with $0\leq p\leq1$.
+
+Imagine repeating the outdoor festival 100 times under comparable conditions with the same probabilities. A sequence with 80 dry and 20 rainy events illustrates the weighting:
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="hundred" />
+
+$$
+\frac{80(600)+20(-600)}{100}=\frac{48{,}000-12{,}000}{100}=360.
+$$
+
+We would not be guaranteed exactly 80 dry events in 100 trials. The example makes a theoretical average visible; we do not need to run the trials to calculate it. For a discrete random variable $X$ with possible values $x_i$ and associated probabilities $p_i$,
+
+$$
+\mathbb{E}[X]=\sum_{i=1}^{n}p_ix_i,\qquad \sum_{i=1}^{n}p_i=1.
+$$
+
+Each numerical outcome is weighted by its probability. The expectations for our three venues are:
+
+$$
+\begin{aligned}
+E_A&=0.8(600)+0.2(-600)=480-120=360,\\
+E_B&=0.8(420)+0.2(-60)=336-12=324,\\
+E_C&=0.8(240)+0.2(240)=240.
+\end{aligned}
+$$
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="expected" />
+
+Expected monetary value alone prefers outdoor. But the outdoor festival cannot actually produce €360 in this model. It produces either a €600 profit or a €600 loss. **Expected value is a probability-weighted average, not a prediction of the particular result we will receive.**
+
+## Look beyond the average
+
+Suppose a €600 loss would prevent the association from organizing next year's festival. A slightly larger expected return may then be insufficient justification for taking that risk.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="outcomes" />
+
+| Property at 20% rain probability | Outdoor | Covered | Indoor |
+| --- | ---: | ---: | ---: |
+| Expected profit | €360 | €324 | €240 |
+| Best modeled outcome | +€600 | +€420 | +€240 |
+| Worst modeled outcome | −€600 | −€60 | +€240 |
+| Probability of a loss | 20% | 20% | 0% |
+
+Outdoor and covered have the same probability of losing money, but their losses differ greatly in severity. A probability by itself does not describe the entire exposure to risk. Conversely, a worst case says nothing by itself about how likely that case is.
+
+Choosing covered rather than outdoor sacrifices $360-324=36$ euros in expected profit while reducing the worst modeled loss by $600-60=540$ euros.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="tradeoff" />
+
+This comparison identifies a trade-off. Whether the extra expected profit justifies the extra exposure depends on the organization's circumstances and preferences.
+
+## Utility represents a preference model
+
+A large organization might absorb a €600 loss easily. The same monetary loss could threaten a small association's continued existence. The financial amount is identical; its significance differs.
+
+**Utility** is a mathematical representation of preferences over outcomes. Expected utility compares uncertain options using their probabilities and modeled desirability. It is a framework for making assumptions inspectable, not an exhaustive or uncontested account of rationality.
+
+For comparison, consider two illustrative functions of the net financial change $x$:
+
+$$
+u_1(x)=x,\qquad
+u_2(x)=\begin{cases}x&x\geq0,\\3x&x<0.\end{cases}
+$$
+
+The first assigns equal value to each additional euro. The second gives losses three times the negative weight associated with equally sized gains. In particular, $u_2(-600)=-1800$ and $u_2(600)=600$.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="utility" />
+
+This piecewise function is a deliberately simplified model of preferences over financial changes relative to zero. It is not a universal psychological or ethical law. It does not claim that every organization values losses this way, or that all attitudes toward risk have this shape.
+
+Expected utility weights the utilities of outcomes:
+
+$$
+EU(a)=\sum_{i=1}^{n}p_i\,u(x_i(a)).
+$$
+
+Here $a$ is an action and $x_i(a)$ its outcome in state $i$. Applying $u_2$ at our original probabilities gives:
+
+$$
+\begin{aligned}
+EU_A&=0.8(600)+0.2(-1800)=120,\\
+EU_B&=0.8(420)+0.2(-180)=300,\\
+EU_C&=0.8(240)+0.2(240)=240.
+\end{aligned}
+$$
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="preferences" />
+
+Covered now has the greatest expected utility. We changed neither probabilities nor financial consequences; we changed their evaluation. The money column is measured in euros and the utility column in model units. Comparing 300 utility units directly with €360 would mix quantities.
+
+Explore loss weights from 1 to 5 while keeping the facts fixed. Weight 1 recovers the monetary ranking; weight 3 recovers the example above. These extra weights are exploratory assumptions, not measured preferences.
+
+<Interactive kind="module" module="reasoning-58" preset="utility" id="aor58-utility" />
+
+Money is not the only relevant consideration:
+
+| Consideration | Outdoor | Covered | Indoor |
+| --- | --- | --- | --- |
+| Financial return | Higher potential | Moderate potential | Lower potential |
+| Weather reliability | Low | Moderate | High |
+| Community atmosphere | Open-air | Partly open-air | Enclosed |
+| Setup complexity | Moderate | High | Low |
+| Accessibility | Depends on site | Depends on site | Depends on building |
+
+These are illustrative qualitative judgments, not a second validated dataset. Accessibility requires investigating the actual site or building. We cannot automatically convert every dimension to euros or combine them into a meaningful single score. Sometimes an explicit discussion of trade-offs is more useful than an invented total. Mathematics does not determine how much participation, accessibility, reliability or money ought to matter.
+
+## Constraints determine what is feasible
+
+A preference for spending less differs from an absolute spending limit. Suppose the association imposes both a maximum upfront budget of €800 and a maximum modeled net loss of €100.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="constraints" />
+
+Outdoor meets the budget but violates the loss cap. Indoor meets the loss cap but exceeds the budget. Covered satisfies both, so it is the only feasible option among these three. We do not need to decide which has the greatest utility to reach that conclusion.
+
+If $A$ is the available action set, and $C_1,C_2$ express the constraints, the feasible set is
+
+$$
+F=\{a\in A:C_1(a)\land C_2(a)\}.
+$$
+
+We compare actions in $F$. Here the loss cap is a conservative policy checking both modeled weather states, even if one is assigned probability zero. Moving a probability slider therefore does not relax that policy. A different policy based only on positive-probability outcomes would need to be specified separately.
+
+## Sensitivity: what would change the comparison?
+
+Forecast estimates can be uncertain. Let $p$ vary while holding the original payoff table fixed:
+
+$$
+\begin{aligned}
+E_A(p)&=600(1-p)-600p=600-1200p,\\
+E_B(p)&=420(1-p)-60p=420-480p,\\
+E_C(p)&=240(1-p)+240p=240.
+\end{aligned}
+$$
+
+Increase the rain probability and observe the expected values. Then apply the budget, loss cap or both. The reported optimum uses **expected monetary value among feasible options**; it does not settle all rational choices. Numeric input provides the same probability control as the slider.
+
+<Interactive kind="module" module="reasoning-58" preset="decision" id="aor58-decision" />
+
+### Find the decision boundaries
+
+Without additional constraints, outdoor and covered tie when
+
+$$
+600-1200p=420-480p\quad\Longrightarrow\quad180=720p\quad\Longrightarrow\quad p=0.25.
+$$
+
+Both have expected profit €300 at that point, above indoor's €240. Covered and indoor tie when
+
+$$
+420-480p=240\quad\Longrightarrow\quad p=0.375.
+$$
+
+Both have expected profit €240 there, above outdoor's €150. Thus outdoor wins below 25%, covered between 25% and 37.5%, and indoor above 37.5%; adjacent options tie at the boundaries.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="regions" />
+
+Outdoor and indoor also intersect, at $p=0.30$, with expected profit €240 each. This is **not an optimal decision boundary**: covered gives €276 there and exceeds both. A crossing matters for the optimum only when the intersecting options are best among the feasible alternatives.
+
+With a budget cap alone, indoor is excluded and the outdoor–covered boundary remains at 25%. With a loss cap alone, outdoor is excluded and covered–indoor tie at 37.5%. With both limits, covered remains the sole feasible option throughout the slider's range.
+
+### Robust relative to which assumptions?
+
+Suppose the current estimate is 20%, but any rain probability from 15% to 30% seems plausible. This range crosses the 25% boundary: the expected-money optimum changes from outdoor to covered. The initial ranking is sensitive to this uncertainty.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="robustness" />
+
+Over a plausible range of 5%–15%, outdoor stays optimal under the same criterion without additional constraints. That makes the choice robust relative to this range, not immune to every possible error. The ranges are stipulated possibilities, not statistical confidence intervals. Sensitivity analysis identifies which assumptions can reverse a conclusion and where better information could help.
+
+## Make and justify the choice
+
+Now assume **30% rain probability**, a budget of **€800**, and **no established loss cap**. Try the four questions before opening their reference answers.
+
+<Exercise question="Which venue is excluded by the budget?">
+Indoor costs €960, above €800. Outdoor (€600) and covered (€780) remain feasible under this budget alone. This says nothing yet about whether their downside is acceptable.
+</Exercise>
+
+<Exercise question="Which remaining venue has the highest expected monetary profit?">
+At $p=0.30$, outdoor gives $600-1200(0.30)=240$ euros; covered gives $420-480(0.30)=276$ euros. Covered has the larger expected profit among the two affordable venues. Indoor would give €240, but is excluded by the budget.
+</Exercise>
+
+<Exercise question="How far must the rain probability fall before outdoor is preferable by expected money?">
+It must fall below 25%, a drop of more than five percentage points from 30%. At exactly 25%, outdoor and covered tie at €300. This answer retains the budget-only scenario; a hard €100 loss cap would exclude outdoor regardless of the forecast.
+</Exercise>
+
+<Exercise question="At 10% rain probability, could choosing covered still be rational?">
+Yes. Outdoor has expected profit $600-1200(0.10)=480$ euros, versus covered's $420-480(0.10)=372$ euros. Outdoor wins by expected money, but that criterion is an assumption. The association might adopt a loss cap or place sufficient weight on avoiding severe losses. Under the earlier illustrative $u_2$ function, the expected utilities are $0.9(600)+0.1(-1800)=360$ and $0.9(420)+0.1(-180)=360$: the venues tie in utility. A preference for covered is not automatically irrational merely because it has lower expected money. Its justification must still state the relevant preferences, evidence and constraints.
+</Exercise>
+
+## Evaluate the decision using what was known then
+
+Suppose the association chooses covered after examining the probabilities and accounting for its limited reserves. The actual day turns out dry: covered makes €420, whereas outdoor would have made €600.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="quality" />
+
+The foregone profit does not by itself show that the original choice was unjustified. The organizer did not know the weather in advance. Judging the decision solely by its eventual result risks **outcome bias**; treating the result as if it had been foreseeable risks **hindsight bias**. A carefully justified choice can have a disappointing outcome, and a poorly justified choice can get lucky. Later evidence may help improve the model, without retroactively becoming information available at the time.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="transformation" />
+
+The useful question is: **Under which assumptions, constraints and preferences is this option best, and what would need to change for another to become preferable?** Reasoning well makes uncertainty explicit and clarifies what we can afford to risk. It does not give us control over the result.

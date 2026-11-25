@@ -1,0 +1,191 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-eight
+sourceId: reasoning-episode-60
+sourcePages: []
+sourceLocations: ["Sections 1–13: testing, proof, formalization and epistemic boundaries", "Sections 14–18 and supplied visuals 1–19: representations and course connections"]
+title: "Can a computer check a proof?"
+navTitle: "Computer-checked proofs"
+description: "Distinguish numerical tests, finite exhaustion and machine-checkable general reasoning."
+order: 60
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [truth-validity-and-soundness, quantifiers-and-dependence]
+thumbnail: "module:reasoning-60"
+---
+
+A computer can test more examples than we could inspect in a lifetime. It can also check a formal proof. These are different achievements: testing asks whether particular cases work; proof checking asks whether the stated conclusion follows from the accepted rules and assumptions.
+
+We will follow one theorem through examples, paired objects, algebra and Lean: **the sum of two even natural numbers is even**. Here $\mathbb N$ includes zero, as Lean’s `Nat` does.
+
+## 1. A million successful tests
+
+Start with a few additions. Every sum is even.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="examples" />
+
+Imagine a program generating pairs of even numbers. The calculations appear faster until all we see is a counter: a million cases, no counterexamples. This is evidence about the tested cases. Does it establish the statement for every possible pair?
+
+<Interactive kind="module" module="reasoning-60" preset="grid" id="aor60-grid" />
+
+The axes name the two even inputs. Each point is one ordered pair and one addition. The activity actually enumerates and checks the selected finite collection. Yet the domain extends beyond every finite screen and every finite run. Even ten million successes leave untested pairs.
+
+One genuine counterexample would refute the universal claim. Finding none in a sample does not by itself prove that none exists. This distinction concerns the scope of the checking procedure, not the speed or reliability of the computer.
+
+## 2. When exhaustive checking is a proof
+
+Now change the claim. Let $S=\{0,2,4,6\}$ and ask whether the sum is even for every ordered pair in $S\times S$. There are exactly $4\cdot4=16$ pairs. A pair and its reversal are separate entries when their coordinates differ.
+
+<Interactive kind="module" module="reasoning-60" preset="bounded" id="aor60-bounded" />
+
+This domain has a complete boundary. Correctly checking all its members establishes the restricted statement. There is no unexamined seventeenth pair inside $S\times S$.
+
+Three conditions matter: the domain must be precisely specified, the enumeration must cover it completely, and each check must be correct. Exhaustion is a legitimate proof method for an appropriately finite claim. It does not turn that claim into a theorem about all natural numbers.
+
+## 3. Why the general theorem holds
+
+For the unrestricted theorem we need a reason that applies to arbitrary inputs. An even natural number is twice another natural number:
+
+$$
+E(n)\iff\exists k\in\mathbb N:\ n=2k.
+$$
+
+The number $k$ is a **witness** to the existential claim. For example, six contains three complete pairs, while eight contains four.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="pairing" />
+
+Combining complete pairs leaves complete pairs. The operation does not depend on the particular pair counts being three and four. Replace them with arbitrary natural numbers $a$ and $b$.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="general" />
+
+Let $m,n\in\mathbb N$ be arbitrary even numbers. By the definition, there exist $a,b\in\mathbb N$ such that $m=2a$ and $n=2b$. Substitute these equalities and factor out two:
+
+$$
+m+n=2a+2b=2(a+b).
+$$
+
+Because $a+b\in\mathbb N$, it is a witness that $m+n$ is even. We made no additional restriction on the even inputs, so the argument establishes
+
+$$
+\forall m,n\in\mathbb N,\quad (E(m)\land E(n))\Rightarrow E(m+n).
+$$
+
+Zero causes no difficulty: an empty collection contributes zero pairs. The proof works with either or both inputs zero. The diagram illustrates the structure; the arbitrary-variable argument explains why every admissible pair is covered.
+
+## 4. Making the dependencies explicit
+
+A short handwritten proof can leave familiar rules unstated. Formalization requires precise meanings and justified transitions. Expand the proof to expose its dependencies.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="dependencies" />
+
+The last step uses both the displayed equality and closure of the natural numbers under addition. We are not simply recognizing that a result “looks even”; we provide the witness required by the definition.
+
+Humans need not manually write every elementary inference. Definitions, established library theorems and automation can supply details. The resulting formal proof must still satisfy the system’s rules.
+
+In Lean, propositions are represented as types and proofs as terms inhabiting those types. This gives proof checking a precise requirement: the proposed term must have the type expressing the proposition.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="types" />
+
+The fit analogy is conceptual. It does not represent Lean’s internal structures literally, and fitting a picture is not the checking algorithm. The important relationship is between the statement of a requirement and formal evidence meeting it.
+
+## 5. Representing the proof in Lean
+
+The mathematics is already in place. Lean gives it an explicit representation.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="notation" />
+
+`EvenN` is our definition for this demonstration. In the theorem, `m` and `n` are arbitrary natural numbers. The arguments `hm : EvenN m` and `hn : EvenN n` are proofs of the assumptions. The expression after the final colon states what we must prove.
+
+<Interactive kind="module" module="reasoning-60" preset="proof" id="aor60-proof" />
+
+`obtain` unpacks the existential assumptions: `a` and `b` are the witnesses; `ha` and `hb` are their defining equalities. `refine ⟨a + b, ?_⟩` supplies the new witness but leaves its equality as an explicit obligation. The hole `?_` must be filled by the rest of the proof.
+
+The `calc` block justifies both equalities. `rw [ha, hb]` substitutes equals. `Nat.mul_add 2 a b` states distributivity in the forward direction; `.symm` reverses it. The complete standalone code is:
+
+```lean
+def EvenN (n : Nat) : Prop :=
+  ∃ k : Nat, n = 2 * k
+
+theorem even_sum (m n : Nat)
+    (hm : EvenN m)
+    (hn : EvenN n) :
+    EvenN (m + n) := by
+  obtain ⟨a, ha⟩ := hm
+  obtain ⟨b, hb⟩ := hn
+  refine ⟨a + b, ?_⟩
+  calc
+    m + n = 2 * a + 2 * b := by rw [ha, hb]
+    _ = 2 * (a + b) := (Nat.mul_add 2 a b).symm
+
+#print axioms even_sum
+```
+
+The complete code was executed with Lean 4.36.0. Lean reported that `even_sum` does not depend on any axioms. The modified product-witness version left an unsolved goal; a separate `sorry` example produced a warning and depended on `sorryAx`. These are compiler checks of these snippets, not a live service on this page.
+
+The walkthrough is a teaching reconstruction, not an embedded Lean editor. It separates the current assumptions from the remaining goal. In particular, stating a theorem and proposing a witness do not themselves complete a proof.
+
+### A deliberately wrong witness
+
+Change only the witness line to `refine ⟨a * b, ?_⟩`. The requirement becomes $m+n=2ab$. The original calculation ends at $2(a+b)$ and therefore no longer establishes the required equality.
+
+<Interactive kind="module" module="reasoning-60" preset="witness" id="aor60-witness" />
+
+For $a=2,b=3$, the inputs are four and six. Their sum is ten, while $2ab=12$. This refutes the proposed general equality. The product witness nevertheless works accidentally when $a=b=2$; with our zero convention it also works when $a=b=0$. Those are successes of individual instances, not a justification for arbitrary variables.
+
+The theorem remains true. The modified proof fails. A correct conclusion can be supported by an incorrect argument.
+
+## 6. Construction, checking and search
+
+Lean elaborates definitions and proof instructions into formal representations. Tactics help construct proof terms. The **kernel** checks the resulting terms against the formal rules. These roles let complicated proof discovery be separated from a comparatively small trusted checking component. See the official [Lean reference on tactic proofs](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/).
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="kernel" />
+
+A search procedure may try transformations, choose library theorems and abandon unsuccessful strategies. Whether a mathematician, an algorithm or an AI constructs the candidate, it must meet the same formal requirements.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="search" />
+
+The branches are possible strategies. A dead end on one branch need not make the original proposition false. If search runs out of time, it may lack resources or a suitable strategy. Failure to find a proof establishes neither falsity nor unprovability. Checking a supplied completed proof is a different task from finding it.
+
+## 7. An AI draft still needs verification
+
+Imagine an AI gives this argument: suppose $m$ and $n$ are even, so $m=2a$ and $n=2b$. Then it claims the following equality, and concludes that the sum is even because it is divisible by two.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="ai" />
+
+The language is plausible and the conclusion correct, but $2a+2b=2ab$ is not a valid general identity. Believing the conclusion can make the error easier to overlook.
+
+An AI may suggest a strategy, explain mathematics or generate Lean code. Generation does not certify correctness. A natural-language draft must be translated into a faithful formal statement and a completed proof before formal checking can establish that statement. The process is: candidate construction → formal checking → acceptance or rejection under the chosen rules. A confident explanation is not an acceptance result.
+
+## 8. What formal checking leaves open
+
+Several distinct questions remain around a verified theorem.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="layers" />
+
+First, the formal statement must express the intended question. A proof about $n\in\{0,\ldots,100\}$ does not answer a question about every $n\in\mathbb N$. Correct inference cannot repair a mistranslation of the claim.
+
+Second, a proof establishes consequences of its assumptions. Consider the fictional delivery model below.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="delivery" />
+
+Adding loading time to both sides of the route bound gives the stated delivery bound. But measuring routes, checking omitted delays and judging the model’s applicability require evidence about the world. Formal correctness does not establish that every actual route takes at most thirty minutes.
+
+Third, the guarantee is relative to logical foundations, definitions, axioms and correctly implemented trusted checking components. The command `#print axioms even_sum` helps inspect a theorem’s axiom dependencies. Lean’s [discussion of axioms and computation](https://lean-lang.org/theorem_proving_in_lean4/Axioms-and-Computation/) explains why those dependencies matter.
+
+A declaration containing `sorry` can be accepted with a warning by relying on a placeholder axiom. That is not a finished proof. Inspect warnings, remaining obligations and axiom dependencies rather than treating the mere presence of a declaration as proof completion.
+
+Formal checking removes many opportunities for an unjustified inference. It does not settle meaning, empirical assumptions or the adequacy of an application by itself.
+
+## 9. What has actually been established?
+
+For each situation, identify the strongest conclusion warranted by the described procedure. The question concerns the scope of the evidence, not Lean syntax.
+
+<Interactive kind="module" module="reasoning-60" preset="challenge" id="aor60-challenge" />
+
+Return to the opening grid. Sample testing checked individual points. The general proof explains why all admissible points satisfy the property, using one argument for arbitrary inputs.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="closing" />
+
+A computer can check reasoning that makes infinitely many individual calculations unnecessary. We can delegate that part of verification while retaining responsibility for what the statement means, which assumptions we accept and whether the result answers the intended question.

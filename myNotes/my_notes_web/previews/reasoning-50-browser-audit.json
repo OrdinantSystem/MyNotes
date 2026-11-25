@@ -1,0 +1,103 @@
+{
+  "interactions": [
+    "EN: chain 1→4 bounded nodes; keyboard back; persistent rain identity in foundation/network; illusion equality; shared report reveal; complete classifications; qualified observation alternative; changed answer hides feedback",
+    "Prefix: equivalent EN→DE link preserves /MyNotes/; native opened menu Up/Return switches network→foundation with five persistent nodes; localized reveals",
+    "DE: native keyboard after real menu focus switches foundation→network; localized conditional observation feedback; reset clears answers and disables review without changing illusion state",
+    "Prefixed German Pagefind query Rechtfertigungsregress returns and navigates to the localized lesson",
+    "Gallery: 14 figures, 4 presets and independent architecture instance; changing/resetting first instance leaves independent one at initial state",
+    "Normal EN/DE Pagefind results navigate correctly for regress and Rechtfertigungsregress",
+    "Opened native reference discussion without page overflow; course overview includes lesson 50 and SVG thumbnail; desktop geometry and workshop map visually inspected",
+    "Compact wide diagrams: focusable local scroll region 560px within 303px viewport; native Right scrolls locally; source reset hides origin relationships"
+  ],
+  "layouts": [
+    {
+      "activities": 4,
+      "figures": 14,
+      "language": "en",
+      "localScrollRegions": 5,
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 1269,
+      "theme": "dark",
+      "width": 1280
+    },
+    {
+      "activities": 4,
+      "figures": 14,
+      "language": "en",
+      "localScrollRegions": 5,
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 1269,
+      "theme": "light",
+      "width": 1280
+    },
+    {
+      "activities": 4,
+      "figures": 14,
+      "language": "en",
+      "localScrollRegions": 5,
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 379,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "activities": 4,
+      "figures": 14,
+      "language": "en",
+      "localScrollRegions": 5,
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 379,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "activities": 4,
+      "figures": 14,
+      "language": "de",
+      "localScrollRegions": 5,
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 1269,
+      "theme": "dark",
+      "width": 1280
+    },
+    {
+      "activities": 4,
+      "figures": 14,
+      "language": "de",
+      "localScrollRegions": 5,
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 1269,
+      "theme": "light",
+      "width": 1280
+    },
+    {
+      "activities": 4,
+      "figures": 14,
+      "language": "de",
+      "localScrollRegions": 5,
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 379,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "activities": 4,
+      "figures": 14,
+      "language": "de",
+      "localScrollRegions": 5,
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 379,
+      "theme": "light",
+      "width": 390
+    }
+  ],
+  "console": []
+}

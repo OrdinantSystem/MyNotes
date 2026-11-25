@@ -1,0 +1,214 @@
+{
+  "checks": [
+    {
+      "name": "layers zero endpoint",
+      "passed": true
+    },
+    {
+      "name": "layers maximum",
+      "passed": true
+    },
+    {
+      "name": "layers reset",
+      "passed": true
+    },
+    {
+      "name": "examiner explanation 0",
+      "passed": true
+    },
+    {
+      "name": "examiner explanation 1",
+      "passed": true
+    },
+    {
+      "name": "examiner explanation 2",
+      "passed": true
+    },
+    {
+      "name": "examiner explanation 3",
+      "passed": true
+    },
+    {
+      "name": "changed assessment hides stale feedback",
+      "passed": true
+    },
+    {
+      "name": "alternative choice offers explanatory feedback",
+      "passed": true
+    },
+    {
+      "name": "examiner reset clears all selections",
+      "passed": true
+    },
+    {
+      "name": "reference proof disclosure",
+      "passed": true
+    },
+    {
+      "name": "even-square solution disclosure",
+      "passed": true
+    },
+    {
+      "name": "prefixed German language route",
+      "passed": true
+    },
+    {
+      "name": "German geometry zero endpoint",
+      "passed": true
+    },
+    {
+      "name": "German geometry keyboard pairing",
+      "passed": true
+    },
+    {
+      "name": "compact navigation shows current lesson",
+      "passed": true
+    },
+    {
+      "name": "German Pagefind result keeps prefix",
+      "passed": true
+    },
+    {
+      "name": "English Pagefind prefix",
+      "passed": true
+    },
+    {
+      "name": "gallery instances remain independent",
+      "passed": true
+    },
+    {
+      "name": "gallery reset is local",
+      "passed": true
+    },
+    {
+      "name": "gallery has all six activity types and extra instance",
+      "passed": true
+    },
+    {
+      "name": "reload does not persist drafts",
+      "passed": true
+    },
+    {
+      "name": "all inspected layouts fit",
+      "passed": true
+    },
+    {
+      "name": "no browser console errors",
+      "passed": true
+    },
+    {
+      "name": "own prefixed snapshot English lesson",
+      "passed": true
+    },
+    {
+      "name": "own prefixed snapshot six activities",
+      "passed": true
+    },
+    {
+      "name": "own prefixed snapshot German route",
+      "passed": true
+    },
+    {
+      "name": "own prefix German title",
+      "passed": true
+    },
+    {
+      "name": "restored normal preview lesson",
+      "passed": true
+    },
+    {
+      "name": "normal preview uses root links",
+      "passed": true
+    },
+    {
+      "name": "normal preview interaction",
+      "passed": true
+    }
+  ],
+  "layouts": [
+    {
+      "articleWidth": 900,
+      "scrollWidth": 1429,
+      "theme": "dark",
+      "url": "http://127.0.0.1:4463/MyNotes/reasoning/lessons/final-proof-workshop/",
+      "wide": [],
+      "width": 1440
+    },
+    {
+      "articleWidth": 900,
+      "scrollWidth": 1429,
+      "theme": "light",
+      "url": "http://127.0.0.1:4463/MyNotes/reasoning/lessons/final-proof-workshop/",
+      "wide": [],
+      "width": 1440
+    },
+    {
+      "articleWidth": 337,
+      "scrollWidth": 379,
+      "theme": "light",
+      "url": "http://127.0.0.1:4463/MyNotes/reasoning/lessons/final-proof-workshop/",
+      "wide": [],
+      "width": 390
+    },
+    {
+      "articleWidth": 337,
+      "scrollWidth": 379,
+      "theme": "dark",
+      "url": "http://127.0.0.1:4463/MyNotes/reasoning/lessons/final-proof-workshop/",
+      "wide": [],
+      "width": 390
+    },
+    {
+      "articleWidth": 337,
+      "scrollWidth": 379,
+      "theme": "dark",
+      "url": "http://127.0.0.1:4463/MyNotes/de/reasoning/lessons/final-proof-workshop/",
+      "wide": [],
+      "width": 390
+    },
+    {
+      "articleWidth": 337,
+      "scrollWidth": 379,
+      "theme": "dark",
+      "url": "http://127.0.0.1:4463/MyNotes/de/reasoning/lessons/final-proof-workshop/",
+      "wide": [],
+      "width": 390
+    },
+    {
+      "articleWidth": 337,
+      "scrollWidth": 379,
+      "theme": "light",
+      "url": "http://127.0.0.1:4463/MyNotes/de/reasoning/lessons/final-proof-workshop/",
+      "wide": [],
+      "width": 390
+    },
+    {
+      "articleWidth": 900,
+      "scrollWidth": 1429,
+      "theme": "light",
+      "url": "http://127.0.0.1:4463/MyNotes/de/reasoning/lessons/final-proof-workshop/",
+      "wide": [],
+      "width": 1440
+    },
+    {
+      "articleWidth": 900,
+      "scrollWidth": 1429,
+      "theme": "dark",
+      "url": "http://127.0.0.1:4463/MyNotes/de/reasoning/lessons/final-proof-workshop/",
+      "wide": [],
+      "width": 1440
+    }
+  ],
+  "priorChecks": [
+    "Signed odd numeric entry and slider endpoints",
+    "Explorer reset",
+    "Three progressive hints and disabled last hint",
+    "First draft preserved through revision",
+    "Clipboard text matches revised draft",
+    "Clear resets both drafts and checklist",
+    "Signed consecutive endpoints/reset",
+    "Geometry stages and 49 conserved tiles",
+    "Geometry k=0 single tile and k=6 endpoint"
+  ],
+  "consoleErrors": []
+}

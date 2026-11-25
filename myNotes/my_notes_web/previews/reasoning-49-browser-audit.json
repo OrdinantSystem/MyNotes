@@ -1,0 +1,195 @@
+{
+  "layouts": [
+    {
+      "duplicates": [],
+      "figures": 15,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 1429,
+      "smallTargets": 0,
+      "theme": "dark",
+      "url": "http://127.0.0.1:4649/MyNotes/de/reasoning/lessons/being-correct-having-reasons-and-knowing/",
+      "width": 1440
+    },
+    {
+      "duplicates": [],
+      "figures": 15,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 1429,
+      "smallTargets": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4649/MyNotes/de/reasoning/lessons/being-correct-having-reasons-and-knowing/",
+      "width": 1440
+    },
+    {
+      "duplicates": [],
+      "figures": 15,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 1429,
+      "smallTargets": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4649/MyNotes/reasoning/lessons/being-correct-having-reasons-and-knowing/",
+      "width": 1440
+    },
+    {
+      "duplicates": [],
+      "figures": 15,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 1429,
+      "smallTargets": 0,
+      "theme": "dark",
+      "url": "http://127.0.0.1:4649/MyNotes/reasoning/lessons/being-correct-having-reasons-and-knowing/",
+      "width": 1440
+    },
+    {
+      "duplicates": [],
+      "figures": 15,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 379,
+      "smallTargets": 0,
+      "theme": "dark",
+      "url": "http://127.0.0.1:4649/MyNotes/reasoning/lessons/being-correct-having-reasons-and-knowing/",
+      "width": 390
+    },
+    {
+      "duplicates": [],
+      "figures": 15,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 379,
+      "smallTargets": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4649/MyNotes/reasoning/lessons/being-correct-having-reasons-and-knowing/",
+      "width": 390
+    },
+    {
+      "duplicates": [],
+      "figures": 15,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 379,
+      "smallTargets": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4649/MyNotes/de/reasoning/lessons/being-correct-having-reasons-and-knowing/",
+      "width": 390
+    },
+    {
+      "duplicates": [],
+      "figures": 15,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 379,
+      "smallTargets": 0,
+      "theme": "dark",
+      "url": "http://127.0.0.1:4649/MyNotes/de/reasoning/lessons/being-correct-having-reasons-and-knowing/",
+      "width": 390
+    }
+  ],
+  "activities": [
+    "Layers: actual/accepted time and fixed P separate; reset passed. Tracking: keyboard Home/End/ArrowRight, numeric commit, fractional rejection and reset passed.",
+    {
+      "evidenceRuns": [
+        "Actual time\n16:30\nClock reading\n16:30\nClock mechanism\nStopped at 16:30\nAware of the malfunction\nNo\nBasis actually used\nClock\nAccepted time claim\n16:30\nDoes their accepted time match reality?\nYes\nGrounds for this belief\nPlausibly reasonable given the apparent reliability",
+        "Actual time\n16:31\nClock reading\n16:30\nClock mechanism\nStopped at 16:30\nAware of the malfunction\nNo\nBasis actually used\nClock\nAccepted time claim\n16:30\nDoes their accepted time match reality?\nNo\nGrounds for this belief\nPlausibly reasonable given the apparent reliability",
+        "Actual time\n16:30\nClock reading\n16:30\nClock mechanism\nFunctioning normally\nAware of the malfunction\nNo\nBasis actually used\nClock\nAccepted time claim\n16:30\nDoes their accepted time match reality?\nYes\nGrounds for this belief\nPlausibly reasonable given the apparent reliability",
+        "Actual time\n16:31\nClock reading\n16:31\nClock mechanism\nFunctioning normally\nAware of the malfunction\nNo\nBasis actually used\nClock\nAccepted time claim\n16:31\nDoes their accepted time match reality?\nYes\nGrounds for this belief\nPlausibly reasonable given the apparent reliability",
+        "Actual time\n16:30\nClock reading\n16:30\nClock mechanism\nStopped at 16:30\nAware of the malfunction\nYes\nBasis actually used\nClock\nAccepted time claim\n16:30\nDoes their accepted time match reality?\nYes\nGrounds for this belief\nUndermined by the known defect",
+        "Actual time\n16:31\nClock reading\n16:30\nClock mechanism\nStopped at 16:30\nAware of the malfunction\nYes\nBasis actually used\nClock\nAccepted time claim\n16:30\nDoes their accepted time match reality?\nNo\nGrounds for this belief\nUndermined by the known defect",
+        "Actual time\n16:30\nClock reading\n16:30\nClock mechanism\nStopped at 16:30\nAware of the malfunction\nYes\nIndependent functioning phone\n16:30 · Basis actually used\nBasis actually used\nIndependent functioning phone\nAccepted time claim\n16:30\nDoes their accepted time match reality?\nYes\nGrounds for this belief\nIndependent functioning source actually used",
+        "Actual time\n16:31\nClock reading\n16:30\nClock mechanism\nStopped at 16:30\nAware of the malfunction\nYes\nIndependent functioning phone\n16:31 · Basis actually used\nBasis actually used\nIndependent functioning phone\nAccepted time claim\n16:31\nDoes their accepted time match reality?\nYes\nGrounds for this belief\nIndependent functioning source actually used",
+        "Actual time\n16:30\nClock reading\n16:30\nClock mechanism\nStopped at 16:30\nAware of the malfunction\nYes\nIndependent functioning phone\n16:30 · Available but unused\nBasis actually used\nClock\nAccepted time claim\n16:30\nDoes their accepted time match reality?\nYes\nGrounds for this belief\nUndermined by the known defect",
+        "Actual time\n16:31\nClock reading\n16:30\nClock mechanism\nStopped at 16:30\nAware of the malfunction\nYes\nIndependent functioning phone\n16:31 · Available but unused\nBasis actually used\nClock\nAccepted time claim\n16:30\nDoes their accepted time match reality?\nNo\nGrounds for this belief\nUndermined by the known defect",
+        "Actual time\n16:30\nClock reading\n16:30\nClock mechanism\nStopped at 16:30\nAware of the malfunction\nYes\nCopies of the same defective source\n10\nBasis actually used\nCopies of the same defective source\nAccepted time claim\n16:30\nDoes their accepted time match reality?\nYes\nGrounds for this belief\nUndermined by the known defect",
+        "Actual time\n16:31\nClock reading\n16:30\nClock mechanism\nStopped at 16:30\nAware of the malfunction\nYes\nCopies of the same defective source\n10\nBasis actually used\nCopies of the same defective source\nAccepted time claim\n16:30\nDoes their accepted time match reality?\nNo\nGrounds for this belief\nUndermined by the known defect"
+      ]
+    },
+    {
+      "practiceRuns": [
+        {
+          "q": 0,
+          "answer": 0,
+          "hiddenBefore": true,
+          "feedback": "A lucky correct guess does not supply adequate grounds. Calling it knowledge would skip the problem the example is designed to expose."
+        },
+        {
+          "q": 0,
+          "answer": 1,
+          "hiddenBefore": true,
+          "feedback": "The belief is true, but the stated case supplies no evidence justifying it. Correctness alone does not establish knowledge."
+        },
+        {
+          "q": 0,
+          "answer": 2,
+          "hiddenBefore": true,
+          "feedback": "The belief is true, not false. Its missing ingredient in the stated case is adequate evidence."
+        },
+        {
+          "q": 1,
+          "answer": 0,
+          "hiddenBefore": true,
+          "feedback": "The accepted time is false. The hidden fault can leave the person with apparently reasonable grounds, so falsity does not by itself show that all justification is absent."
+        },
+        {
+          "q": 1,
+          "answer": 1,
+          "hiddenBefore": true,
+          "feedback": "The person still accepts the clock’s time. Belief is present; truth is missing."
+        },
+        {
+          "q": 1,
+          "answer": 2,
+          "hiddenBefore": true,
+          "feedback": "A reasonable reliance on a normally reliable clock may be fallibly justified despite an undetected fault. The case does not establish that all justification is missing."
+        },
+        {
+          "q": 2,
+          "answer": 0,
+          "hiddenBefore": true,
+          "feedback": "The proposition can be true at the moment of coincidence. The issue is whether the three proposed conditions suffice for knowledge."
+        },
+        {
+          "q": 2,
+          "answer": 1,
+          "hiddenBefore": true,
+          "feedback": "The case challenges the sufficiency of justified true belief. On a plausible reading, all three conditions hold while the truth depends problematically on luck."
+        },
+        {
+          "q": 2,
+          "answer": 2,
+          "hiddenBefore": true,
+          "feedback": "The person does believe the displayed time. Belief and truth are not what the example calls into question."
+        },
+        {
+          "q": 3,
+          "answer": 0,
+          "hiddenBefore": true,
+          "feedback": "A true conclusion does not make an invalid implication into a valid proof. The derivation has not established the conclusion."
+        },
+        {
+          "q": 3,
+          "answer": 1,
+          "hiddenBefore": true,
+          "feedback": "One successful instance cannot establish the reversed implication universally. Nine is a counterexample to odd implying prime."
+        },
+        {
+          "q": 3,
+          "answer": 2,
+          "hiddenBefore": true,
+          "feedback": "Neither follows through that argument. The conclusion may be true and supported by another proof, but this derivation has not established it."
+        }
+      ]
+    },
+    "Gallery: fifteen figures, four presets plus second layers instance, no duplicate IDs; bidirectional independent state passed. German compact feedback, Space/Enter and focusable local timeline scrolling passed.",
+    "Normal preview: pointer range selection, keyboard increment, German phone-used state at 16:31 and local reset passed."
+  ],
+  "navigation": [
+    "Prefixed EN/DE lesson, localized links and German Pagefind result passed",
+    "Normal preview 4321: EN/DE Pagefind, translation, overview thumbnail/card, previous 48 and next 50 round trips passed."
+  ],
+  "console": [],
+  "finalUrl": "http://127.0.0.1:4321/reasoning/lessons/being-correct-having-reasons-and-knowing/"
+}

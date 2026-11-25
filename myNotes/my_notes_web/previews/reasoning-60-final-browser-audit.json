@@ -1,0 +1,16 @@
+{
+  "page": {
+    "figures": 12,
+    "katexErrors": 0,
+    "labs": 5,
+    "languageLinks": [
+      "/de/reasoning/lessons/can-a-computer-check-a-proof/"
+    ],
+    "locale": "en",
+    "overflow": false,
+    "title": "Can a computer check a proof? · myNotes"
+  },
+  "enSearch": "/reasoning/lessons/can-a-computer-check-a-proof/",
+  "deSearch": "/de/reasoning/lessons/can-a-computer-check-a-proof/",
+  "console": []
+}

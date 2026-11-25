@@ -1,0 +1,16 @@
+---
+import './styles.css';
+import {text} from './copy';
+import {argumentMarkup,compositionMarkup,decisionTable} from './render';
+import type {Locale} from './model';
+interface Props{preset:'opening'|'argument'|'composition'|'decision'|'reflection';id:string}
+const {preset,id}=Astro.props,locale=(Astro.locals.locale||'en') as Locale,c=text(locale);
+---
+<figure class="decision-view" id={id} data-decision-lab={preset} data-locale={locale}>
+<h3>{c[preset]}</h3>
+{preset==='opening'?<><fieldset><legend>{locale==='de'?'Würdest du den Vorschlag genehmigen?':'Would you approve the proposal?'}</legend>{c.firstChoices.map((v,i)=><label class="decision-option"><input type="radio" name={`${id}-opening`} value={i} data-first/>{v}</label>)}</fieldset><div data-output></div></>:preset==='argument'?<><label for={`${id}-assumption`}>{c.argument}</label><select id={`${id}-assumption`} data-assumption>{c.assumptions.map((v,i)=><option value={i}>{v}</option>)}</select><div data-output set:html={argumentMarkup(locale)}/></>:preset==='composition'?<><p>{c.fixed}</p>{[c.userShare,c.otherShare].map((label,i)=><div class="decision-input"><label for={`${id}-share-${i}`}>{label}</label><input type="number" id={`${id}-share-${i}`} min="0" max="100" step="1" value={i?20:80} data-share={i}/><label class="decision-sr-only" for={`${id}-range-${i}`}>{label} · {locale==='de'?'Schieberegler':'slider'}</label><input type="range" id={`${id}-range-${i}`} min="0" max="100" step="1" value={i?20:80} data-range={i}/></div>)}<div class="decision-controls"><button type="button" data-apply>{c.apply}</button><button type="button" data-equal>{c.equal}</button></div><div data-output set:html={compositionMarkup(locale)}/></>:preset==='decision'?<><p>{c.local}</p><label for={`${id}-focus`}>{c.priority}</label><select id={`${id}-focus`} data-focus>{c.priorities.map((v,i)=><option value={i}>{v}</option>)}</select><div data-table set:html={decisionTable(locale)}/><label for={`${id}-choice`}>{c.choiceLabel}</label><select id={`${id}-choice`} data-choice>{c.choices.map((v,i)=><option value={i}>{v}</option>)}</select><label for={`${id}-confidence`}>{c.confidence}</label><input id={`${id}-confidence`} type="number" min="0" max="100" step="1" value="70" data-confidence/><p>{c.subjective}</p>{(['reason','unknown','reconsider'] as const).map(key=><><label for={`${id}-${key}`}>{c[key]}</label><textarea id={`${id}-${key}`} maxlength="3000" rows="4" data-field={key}></textarea></>)}<div class="decision-controls"><button type="button" data-capture>{c.capture}</button><button type="button" data-copy>{c.copy}</button></div><section data-initial hidden><h4>{c.initial}</h4><pre tabindex="0" data-snapshot></pre></section><section data-new hidden><div data-new-output></div></section><div data-fallback hidden><p>{c.fallback}</p><pre tabindex="0" data-export></pre></div></>:<><fieldset><legend>{c.reflection}</legend>{c.checks.map((v,i)=><label class="decision-option"><input type="checkbox" data-check={i}/>{v}</label>)}</fieldset><p data-output>{locale==='de'?'0 von 7 Reflexionen markiert.':'0 of 7 reflections marked.'}</p><p>{c.checkLimit}</p></>}
+<div class="decision-controls"><button type="button" data-reset>{c.reset}</button></div><p role="status" aria-live="polite" data-status class="decision-status"></p>
+</figure>
+<script>
+import './controller';
+</script>

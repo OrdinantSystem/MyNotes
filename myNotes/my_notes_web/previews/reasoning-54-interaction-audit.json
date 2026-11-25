@@ -1,0 +1,88 @@
+[
+  {
+    "value": "0",
+    "status": "Preferred timetable under this model: 8:00 · existing timetable. 90 / 55."
+  },
+  {
+    "value": "100",
+    "status": "Preferred timetable under this model: 9:00 · proposed timetable. 60 / 85."
+  },
+  {
+    "value": "58.3",
+    "status": "Preferred timetable under this model: 8:00 · existing timetable. 72.51 / 72.49."
+  },
+  {
+    "value": "58.4",
+    "status": "Preferred timetable under this model: 9:00 · proposed timetable. 72.48 / 72.52."
+  },
+  {
+    "value": "65",
+    "status": "Preferred timetable under this model: 9:00 · proposed timetable. 70.5 / 74.5."
+  },
+  {
+    "keyboard": "Preferred timetable under this model: 8:00 · existing timetable. 89.97 / 55.03."
+  },
+  {
+    "invalid": "Enter a percentage from 0 to 100 in steps of 0.1."
+  },
+  {
+    "question": 0,
+    "choice": 0,
+    "feedback": "Lower cost and better concentration concern different properties. They can coexist."
+  },
+  {
+    "question": 0,
+    "choice": 1,
+    "feedback": "Both could be true: the decision may concern which benefits matter more."
+  },
+  {
+    "question": 0,
+    "choice": 2,
+    "feedback": "Identity of the textbooks is not the test. A contradiction requires incompatible claims in the same respect."
+  },
+  {
+    "question": 1,
+    "choice": 0,
+    "feedback": "No disputed definition is specified here. The question concerns the connection to results."
+  },
+  {
+    "question": 1,
+    "choice": 1,
+    "feedback": "The price premise is shared; its connection to academic results is disputed and needs support."
+  },
+  {
+    "question": 1,
+    "choice": 2,
+    "feedback": "The price difference is accepted. More price data alone would not settle the connection to results."
+  },
+  {
+    "question": 2,
+    "choice": 0,
+    "feedback": "The factual claims are shared in this scenario."
+  },
+  {
+    "question": 2,
+    "choice": 1,
+    "feedback": "The remaining issue is how to weigh benefits and obligations. It calls for normative reasoning."
+  },
+  {
+    "question": 2,
+    "choice": 2,
+    "feedback": "Reasonable people can share evidence while differing about priorities. Irrationality has not been established."
+  },
+  {
+    "question": 3,
+    "choice": 0,
+    "feedback": "The reply attributes indifference that was not expressed."
+  },
+  {
+    "question": 3,
+    "choice": 1,
+    "feedback": "No relevant conclusion about the proposal follows from this accusation."
+  },
+  {
+    "question": 3,
+    "choice": 2,
+    "feedback": "The concentration concern was replaced by an unsupported claim about what B cares about."
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "id": "reasoning-52",
+  "course": "reasoning",
+  "chapter": "reasoning-part-seven",
+  "chapterDefinition": {
+    "id": "reasoning-part-seven",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Seven",
+      "de": "Teil Sieben"
+    },
+    "description": {
+      "en": "Knowledge, justification, and philosophical reasoning.",
+      "de": "Wissen, Rechtfertigung und philosophisches Denken."
+    }
+  },
+  "order": 52,
+  "key": "when-does-a-reason-stop-being-relevant",
+  "title": "Informal fallacies: when does a reason stop being relevant?",
+  "sourceId": "reasoning-episode-52",
+  "sourceTitle": "Informal Fallacies: When Does a Reason Stop Being Relevant?",
+  "figures": [
+    "dimensions",
+    "bridge",
+    "expert",
+    "formal",
+    "warrants",
+    "library",
+    "emotion-roles",
+    "criticism",
+    "method",
+    "headphones",
+    "fallacy",
+    "closing"
+  ],
+  "presets": [
+    "relevance",
+    "authority",
+    "persuasion",
+    "criticism",
+    "workshop"
+  ]
+}

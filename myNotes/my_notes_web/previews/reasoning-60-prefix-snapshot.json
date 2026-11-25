@@ -1,0 +1,13 @@
+{
+  "snapshot": "/tmp/aor60-prefix-observed/MyNotes",
+  "owner": {
+    "pid": 8243,
+    "token": "35d48907-748b-4356-8709-88215302bfbd",
+    "started": "2026-11-25T13:10:12.422Z"
+  },
+  "sameOwnerAfterCapture": true,
+  "normalizedArticleSha256": {
+    "en": "d8a3dbf5d77497f2ae02fa84b6f3b6a5d614298b780a8cfe8f2b70fae58e0bf1",
+    "de/": "24e82f19c63ace5f2fd42299510fba3cd8d94d1ccb5151854f648e413c4b7ff2"
+  }
+}

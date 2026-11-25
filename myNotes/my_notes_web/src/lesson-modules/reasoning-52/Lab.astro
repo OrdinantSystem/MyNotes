@@ -1,0 +1,43 @@
+---
+import {copy} from './copy';
+import {relevanceMarkup,authorityMarkup,persuasionMarkup,criticismMarkup,workshopMarkup} from './render';
+import '../../styles/counterexamples.css';
+import './styles.css';
+interface Props{preset:string;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale==='de'?'de':'en',c=copy(locale);
+if(!['relevance','authority','persuasion','criticism','workshop'].includes(preset))throw new Error('Unknown informal-fallacy activity');
+---
+<figure class="counter-lab aor52" id={id} data-aor52-lab={preset} data-locale={locale}>
+ <h3>{c.labTitles[preset as keyof typeof c.labTitles]}</h3>
+ {preset==='relevance'&&<><div class="counter-controls">{c.rainTabs.map((s,i)=><button type="button" data-relevance={i} aria-pressed={i===0?'true':'false'} aria-controls={`${id}-output`}>{s}</button>)}</div><div data-output id={`${id}-output`} set:html={relevanceMarkup(locale)}/></>}
+ {preset==='authority'&&<><p class="counter-help">{c.authorityHelp}</p><div data-output id={`${id}-output`} set:html={authorityMarkup(locale)}/></>}
+ {preset==='persuasion'&&<><p class="counter-help">{c.persuasionHelp}</p><label class="aor52-choice"><input type="checkbox" data-vivid aria-controls={`${id}-output`}/>{c.vivid}</label><label class="aor52-choice"><input type="checkbox" data-inspection aria-controls={`${id}-output`}/>{c.inspection}</label><div data-output id={`${id}-output`} set:html={persuasionMarkup(locale)}/></>}
+ {preset==='criticism'&&<><div class="counter-controls">{c.criticismNames.map((s,i)=><button type="button" data-criticism={i} aria-pressed={i===0?'true':'false'} aria-controls={`${id}-output`}>{s}</button>)}</div><div data-output id={`${id}-output`} set:html={criticismMarkup(locale)}/></>}
+ {preset==='workshop'&&<><p class="counter-help">{c.workshopHelp}</p><div data-output id={`${id}-output`} set:html={workshopMarkup(locale)}/><fieldset class="aor52-options"><legend>{c.labTitles.workshop}</legend>{c.answers.map((s,i)=><label class="aor52-choice"><input type="radio" name={`${id}-answer`} value={['relevant','irrelevant','false'][i]} data-answer/>{s}</label>)}</fieldset><div class="counter-controls"><button type="button" data-reference aria-controls={`${id}-output`}>{c.reference}</button></div></>}
+ {(preset==='authority'||preset==='workshop')&&<div class="counter-controls"><button type="button" data-previous disabled aria-controls={`${id}-output`}>{c.previous}</button><button type="button" data-next aria-controls={`${id}-output`}>{c.next}</button></div>}
+ <div class="counter-controls"><button type="button" data-reset>{c.reset}</button></div><p class="counter-help" data-status role="status" aria-live="polite"></p>
+</figure>
+<script>
+import {copy} from './copy';
+import {index,feedbackKind,type Answer} from './model';
+import {relevanceMarkup,authorityMarkup,persuasionMarkup,criticismMarkup,workshopMarkup} from './render';
+for(const root of document.querySelectorAll<HTMLElement>('[data-aor52-lab]')){
+ const locale=root.dataset.locale==='de'?'de':'en',c=copy(locale),preset=root.dataset.aor52Lab,output=root.querySelector<HTMLElement>('[data-output]')!,status=root.querySelector<HTMLElement>('[data-status]')!;
+ let choice=0,vivid=false,inspection=false,revealed=false,answers:(Answer|null)[]=Array(4).fill(null);
+ function draw(){
+  if(preset==='relevance')output.innerHTML=relevanceMarkup(locale,choice);
+  if(preset==='authority')output.innerHTML=authorityMarkup(locale,choice);
+  if(preset==='persuasion')output.innerHTML=persuasionMarkup(locale,vivid,inspection);
+  if(preset==='criticism')output.innerHTML=criticismMarkup(locale,choice);
+  if(preset==='workshop'){output.innerHTML=workshopMarkup(locale,choice,answers[choice],revealed);root.querySelectorAll<HTMLInputElement>('[data-answer]').forEach(input=>input.checked=input.value===answers[choice]);}
+  root.querySelectorAll<HTMLElement>('[data-relevance],[data-criticism]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.relevance??button.dataset.criticism)===choice)));
+  const previous=root.querySelector<HTMLButtonElement>('[data-previous]'),next=root.querySelector<HTMLButtonElement>('[data-next]');if(previous)previous.disabled=choice===0;if(next)next.disabled=choice===3;
+ }
+ root.querySelectorAll<HTMLElement>('[data-relevance],[data-criticism]').forEach(button=>button.addEventListener('click',()=>{choice=Number(button.dataset.relevance??button.dataset.criticism);draw();status.textContent=preset==='relevance'?c.rainReasons[choice]:c.criticismResults[choice];}));
+ for(const [name,delta] of [['previous',-1],['next',1]] as const)root.querySelector(`[data-${name}]`)?.addEventListener('click',()=>{choice=index(choice+delta,4);revealed=false;draw();status.textContent=`${c.case} ${choice+1} / 4. ${preset==='authority'?c.authorityNames[choice]:c.workshopQuestions[choice]}`;});
+ root.querySelectorAll<HTMLInputElement>('[data-vivid],[data-inspection]').forEach(input=>input.addEventListener('change',()=>{vivid=root.querySelector<HTMLInputElement>('[data-vivid]')!.checked;inspection=root.querySelector<HTMLInputElement>('[data-inspection]')!.checked;draw();status.textContent=`${vivid?c.emotive:c.plain}. ${inspection?c.present:c.absent}.`; }));
+ root.querySelectorAll<HTMLInputElement>('[data-answer]').forEach(input=>input.addEventListener('change',()=>{answers[choice]=input.value as Answer;revealed=false;draw();status.textContent='';}));
+ root.querySelector('[data-reference]')?.addEventListener('click',()=>{revealed=true;draw();const kind=feedbackKind(choice,answers[choice]);status.textContent=kind==='unanswered'?c.choose:kind==='matches'?c.matches:kind==='truth-confusion'?c.truthConfusion:c.reconsider;});
+ root.querySelector('[data-reset]')!.addEventListener('click',()=>{choice=0;vivid=false;inspection=false;revealed=false;answers=Array(4).fill(null);root.querySelectorAll<HTMLInputElement>('input').forEach(input=>input.checked=false);draw();status.textContent=c.resetStatus;});
+}
+</script>

@@ -1,0 +1,90 @@
+{
+  "observed": "2026-11-25",
+  "search": {
+    "counts": [
+      0,
+      4,
+      5,
+      1000000000
+    ],
+    "unspecified": "No finite count established unprovability",
+    "witnessBoundary": {
+      "4": "not found",
+      "5": "found"
+    },
+    "invalid": 1000000001,
+    "keyboard": "Home then ArrowRight produced numeric value 1; reset restored 1000"
+  },
+  "models": {
+    "original": "both models allowed",
+    "transitivity": "only Model 1 allowed",
+    "reset": "both models allowed"
+  },
+  "extensions": [
+    1,
+    2,
+    3,
+    0
+  ],
+  "diagonal": [
+    "loops prediction / halt behavior",
+    "halts prediction / loop behavior"
+  ],
+  "classificationCases": 15,
+  "classificationResetChecked": 0,
+  "referenceSolution": "opened",
+  "localSvgScroll": {
+    "region": 303,
+    "drawing": 640,
+    "keyboardScrollLeft": 40
+  },
+  "gallery": {
+    "first": {
+      "count": 5,
+      "mode": "witness",
+      "found": true
+    },
+    "independent": {
+      "count": 1000,
+      "mode": "unspecified",
+      "found": false
+    }
+  },
+  "searchResults": {
+    "en": "/reasoning/lessons/limits-of-proof/",
+    "de": "/de/reasoning/lessons/limits-of-proof/"
+  },
+  "browserErrors": [],
+  "germanControls": {
+    "keyboardSpace": "Transitivity excludes Model 2; reset restores both",
+    "diagonal": "Predicts nonhalting, D halts; reset restored first case",
+    "classification": "Question2 independence choice gave correct German soundness explanation; reset cleared answers",
+    "integerValidation": "1.5 rejected with German whole-number feedback",
+    "count": "1.000.000.000 displayed; no proof found and existence still undecided"
+  },
+  "prefix": {
+    "base": "/MyNotes/",
+    "mounted": true,
+    "modelTransitivity": "working",
+    "previous": "/MyNotes/reasoning/lessons/truth-models-and-logical-consequence/",
+    "enResult": "/MyNotes/reasoning/lessons/limits-of-proof/",
+    "deResult": "/MyNotes/de/reasoning/lessons/limits-of-proof/",
+    "languageLink": "/MyNotes/de/reasoning/lessons/limits-of-proof/",
+    "browserErrors": []
+  },
+  "finalNormal": {
+    "url": "http://127.0.0.1:5462/reasoning/lessons/limits-of-proof/",
+    "snapshot": ".preview-dist-aor62-final-8MRc8j",
+    "pages": 325,
+    "linksAssets": 52891,
+    "enHttp": 200,
+    "deHttp": 200,
+    "figures": 12,
+    "labs": 5,
+    "mounted": true,
+    "witnessAt5": "found; reset restored initial state",
+    "previous": "/reasoning/lessons/truth-models-and-logical-consequence/",
+    "desktopOverflow": false,
+    "browserErrors": []
+  }
+}

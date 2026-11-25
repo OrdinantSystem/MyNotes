@@ -1,0 +1,236 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-eight
+sourceId: reasoning-episode-61
+sourcePages: []
+sourceLocations: ["Episode script, Parts I–IX", "Mathematical precision and production boundaries, section 5"]
+title: "Truth in a world, consequence in every world"
+navTitle: "Truth, models and logical consequence"
+description: "Separate truth in a structure, semantic consequence and formal derivability using relations, countermodels and a quantified proof."
+order: 61
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+thumbnail: "module:reasoning-61"
+---
+
+## Two worlds, one proposed argument
+
+**Everyone knows someone. Therefore, there is someone whom everyone knows.**
+
+The same words appear in both statements, but their order changes what they require. Let $K(x,y)$ mean that $x$ knows $y$:
+
+$$
+P=\forall x\exists y\,K(x,y),\qquad Q=\exists y\forall x\,K(x,y).
+$$
+
+In $P$, the person known may depend on the person doing the knowing. In $Q$, one person must work for everyone. Does $P$ guarantee $Q$?
+
+Consider Alice, Ben and Clara. In the first world, all three know Ben, including Ben himself. Both statements are true. In the second, Alice knows Ben, Ben knows Clara, and Clara knows Alice. Everyone still knows someone, but nobody is known by all three.
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="two-worlds" />
+
+<Interactive kind="module" module="reasoning-61" preset="worlds" id="models-worlds" />
+
+These are deliberately specified mathematical examples. An arrow records a directed relationship; knowing someone does not automatically mean being known by them. Self-acquaintance is allowed when a loop is drawn, and is otherwise absent. No symmetry or reflexivity is assumed.
+
+The second world is a **countermodel** to the proposed inference: it makes the premise true and the conclusion false. The first world shows that the conclusion can be true alongside the premise. It does not show that the premise guarantees it.
+
+## What makes a picture a model?
+
+A first-order language supplies symbols and rules for building formulas. A **structure** gives its nonlogical symbols an interpretation over a nonempty domain. For our language with just the binary relation symbol $K$, we write
+
+$$
+\mathcal M=(D,K^{\mathcal M}),\qquad K^{\mathcal M}\subseteq D\times D.
+$$
+
+The domain contains the objects being discussed; the relation specifies which ordered pairs satisfy $K$. In the cycle world:
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="structure" />
+
+$A,B,C$ label domain objects in this representation. A pair $(A,B)$ belongs to $K^{\mathcal M}$ exactly when the arrow from Alice to Ben is present. The drawing and the set of pairs represent **one structure**, not two competing accounts.
+
+When comparing structures, keep the language, formulas and meaning of the logical symbols fixed. The domain and interpretations of nonlogical symbols may change. In a richer language, constants denote objects and function symbols denote functions of the appropriate arity. They too receive interpretations.
+
+A structure is a **model of a sentence** if that sentence is true in it. It is a model of a set of premises $\Gamma$ if every member of $\Gamma$ is true in it. “Model” always invites the question: a model of which sentences?
+
+## Truth inside a structure
+
+The notation
+
+$$
+\mathcal M\models\varphi
+$$
+
+means that the sentence $\varphi$ is true in $\mathcal M$. We use closed sentences such as $P$ and $Q$. Evaluating an open formula such as $K(x,y)$ also requires an assignment of objects to its free variables.
+
+A relation matrix makes the two quantified conditions systematic. The row is the person doing the knowing; the column is the person known. A $1$ means the ordered pair is in the relation, and a $0$ means it is absent.
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="matrices" />
+
+- $P$ requires **at least one $1$ in every row**. Each person has an outgoing witness, possibly a different one.
+- $Q$ requires **a column consisting entirely of $1$s**. One target works for every source.
+
+Thus $\mathcal M_1\models P$ and $\mathcal M_1\models Q$, whereas $\mathcal M_2\models P$ and $\mathcal M_2\not\models Q$. Truth is evaluated in a particular interpretation. A sentence may change truth value when that interpretation changes.
+
+## Consequence across compatible structures
+
+**Semantic consequence** asks what happens in every structure satisfying the premises:
+
+$$
+\Gamma\models\varphi\quad\Longleftrightarrow\quad
+\text{every model of }\Gamma\text{ is a model of }\varphi.
+$$
+
+The premises act as a filter. Structures that make any premise false are irrelevant to this test. Among the remaining structures, the conclusion must never be false. Equivalently,
+
+$$
+\Gamma\models\varphi\quad\Longleftrightarrow\quad
+\operatorname{Mod}(\Gamma)\subseteq\operatorname{Mod}(\varphi).
+$$
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="containment" />
+
+These are schematic model classes, not a finite inventory or a claim that all structures form an ordinary set. A countermodel belongs to the premise class and lies outside the conclusion class.
+
+For our particular sentences, **the reverse inference is valid**: if someone is known by everyone, everyone knows someone. The shared person supplies a witness for each individual. Hence
+
+$$
+Q\models P,\qquad P\not\models Q.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="models" />
+
+The $Q$-models lie entirely inside the $P$-models. There are no $Q$-true, $P$-false structures. The cycle lies in the $P$ class outside $Q$.
+
+A **logically valid sentence**, written $\models\varphi$, holds in every structure for its language, without premises. This differs from truth in one structure and from consequence under specified premises.
+
+<Interactive kind="module" module="reasoning-61" preset="filter" id="models-filter" />
+
+On the labeled three-object domain there are $2^9=512$ binary relations: nine independently present or absent ordered pairs. Of these, $343$ satisfy $P$, and $174$ satisfy $P$ while falsifying $Q$. These counts describe only this finite domain. A single countermodel settles nonconsequence; checking many successful cases, or finding no failure at one size, does not establish a claim about every finite and infinite structure.
+
+<Note title="Premises with no model">
+In classical semantics, if $\Gamma$ has no model, then $\Gamma\models\varphi$ for every sentence $\varphi$: there is no premise-satisfying countermodel. The filter’s contradictory premises illustrate this vacuous case. An empty class of models is different from an empty domain; domains here remain nonempty.
+</Note>
+
+## Construct a countermodel
+
+Start with no arrows. Both $P$ and $Q$ are false. This does **not** refute the inference: a countermodel must first satisfy the premise.
+
+<Interactive kind="module" module="reasoning-61" preset="countermodel" id="models-countermodel" />
+
+Give each row at least one $1$, while preventing any column from containing only $1$s. You may use the cycle, self-loops alone, or another relation meeting both requirements. All nine cells, including the diagonal, are available.
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="countermodel" />
+
+The graph, matrix and ordered pairs encode the same relation. The relation code is a numeric input alternative, not a truth value. What refutes the inference is the verified combination $P$ true and $Q$ false.
+
+## Formal derivation: a different investigation
+
+So far we have reasoned about interpretations. A **formal derivation** instead uses permitted symbolic rules in a chosen proof system. Its notation is
+
+$$
+\Gamma\vdash\varphi.
+$$
+
+To see the difference, derive the valid direction $Q\vdash P$ by natural deduction. Introduce a fresh temporary witness $b$ for the existential premise and let $a$ be arbitrary:
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="derivation" />
+
+Line 2 is a temporary witness assumption, not an extra permanent premise. From $\forall xK(x,b)$, universal elimination gives $K(a,b)$. Existential introduction then gives $\exists yK(a,y)$. Because $a$ was arbitrary, universal introduction gives $\forall x\exists yK(x,y)$. Existential elimination finally discharges the witness subproof, leaving the result dependent only on $Q$.
+
+The restrictions do real work. The parameter $a$ must not occur in an undischarged assumption that restricts it. The fresh $b$ must not occur in the final conclusion or the other undischarged premises. These proof parameters are not names for Alice or Ben. The displayed derivation uses distinct fresh parameters and ends outside the temporary scope.
+
+<Interactive kind="module" module="reasoning-61" preset="proof" id="models-proof" />
+
+Starting from $\forall x\exists yK(x,y)$ would not justify choosing one fixed $b$ for everyone. That would replace potentially different witnesses with a common witness, assuming exactly what needs proving.
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="turnstiles" />
+
+Semantic consequence ranges over structures; derivability concerns a finite sequence of rule-governed steps. The symbols $\models$ and $\vdash$ have different definitions even when metatheorems connect them. The activity reveals one explained proof; it is not a general proof checker.
+
+## Soundness and completeness connect the two
+
+For a fixed collection of premises, compare the derivable conclusions with the semantic consequences.
+
+**Soundness** says that derivability implies consequence:
+
+$$
+\Gamma\vdash\varphi\ \Longrightarrow\ \Gamma\models\varphi.
+$$
+
+A sound system cannot derive a conclusion that fails in a model of its premises. It does not make the premises true in the actual world. An unsound system permits at least one derivation without the semantic guarantee.
+
+**Completeness** says that every semantic consequence is derivable:
+
+$$
+\Gamma\models\varphi\ \Longrightarrow\ \Gamma\vdash\varphi.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="bridge" />
+
+In these diagrams, **purple represents semantic consequences and blue represents derivable conclusions**, for fixed $\Gamma$. These are classes of conclusions, whereas the earlier containment diagrams represented classes of models. Soundness places the blue class inside the purple class; completeness requires the opposite inclusion. The incomplete example depicts a sound but incomplete system. In general, a system can fail both properties.
+
+Standard natural-deduction systems for classical first-order logic are sound and complete. Their two classes coincide:
+
+$$
+\Gamma\vdash\varphi\quad\Longleftrightarrow\quad\Gamma\models\varphi.
+$$
+
+These are metatheorems about the proof system. Our example illustrates their meanings; it does not prove the general soundness or completeness theorems. Finite model enumeration would not prove them either.
+
+## Completeness does not decide every question
+
+Set $\Gamma=\{P\}$. The shared-contact structure satisfies both $\Gamma$ and $Q$; the cycle satisfies $\Gamma$ and $\neg Q$. Therefore neither $Q$ nor its negation follows from these premises.
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="underdetermined" />
+
+By soundness, neither statement is derivable from $\Gamma$. This is an underdetermined theory, not a failure of a complete proof system. A **complete theory** settles every sentence or its negation by derivation; completeness of a **proof system** guarantees derivations of all semantic consequences. These are different properties.
+
+Completeness also supplies no always-terminating decision procedure for first-order validity. A valid conclusion has a proof, but an unsuccessful proof search may simply not have found it yet. Failing to find a proof does not establish that none exists. Gödel’s completeness theorem for first-order logic and incompleteness results for sufficiently strong arithmetic theories address different questions.
+
+## Transfer: students and books
+
+Suppose **some student reads every book**. Must **every book be read by some student**?
+
+Use one domain with predicates $S(x)$ for student, $B(y)$ for book, and $R(x,y)$ for reads. The premise is
+
+$$
+T=\exists x\bigl(S(x)\land\forall y(B(y)\to R(x,y))\bigr).
+$$
+
+The proposed conclusion is
+
+$$
+U=\forall y\bigl(B(y)\to\exists x(S(x)\land R(x,y))\bigr).
+$$
+
+<Interactive kind="module" module="reasoning-61" preset="transfer" id="models-transfer" />
+
+Choose a witness $s$ for $T$. It is a student and reads every book. Now consider an arbitrary object $b$. If $b$ is a book, $R(s,b)$, so that same student witnesses $\exists x(S(x)\land R(x,b))$. Discharge the book assumption and generalize over $b$. Thus $T\models U$, regardless of the number of students or books.
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="books" />
+
+The picture uses three students and three books as an illustration, not as a restriction of the formulas. The argument also handles no books: $U$ is then vacuously true, while $T$ still requires a student. With books but no students, both are false. The overall domain remains nonempty even when one or both predicate extensions are empty.
+
+The converse fails. Different students may read different books, so every book has a reader although nobody reads them all. Preserve the direction of the inference when looking for a countermodel.
+
+## Keep the three questions separate
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="levels" />
+
+Truth describes a structure. Semantic consequence states what the premises guarantee across all compatible structures. A formal proof establishes a conclusion through the rules of a proof system. Soundness and completeness explain how the last two activities agree for standard classical first-order logic.
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="progression" />
+
+<Exercise question="Why does one cycle refute the proposed inference P ⊨ Q, while hundreds of successful structures cannot establish it? Why does the reverse direction allow one fixed witness? Which property connects a countermodel to non-derivability?">
+Consequence excludes every premise-true, conclusion-false structure, so one countermodel suffices. Successful examples leave other structures unchecked. The reverse premise already asserts a common witness. Soundness rules out a derivation when a semantic countermodel exists.
+</Exercise>
+
+## Further reading
+
+- [forall x: Calgary — rules for quantified proofs](https://forallx.openlogicproject.org/html/Ch36.html)
+- [forall x: Calgary — semantic and syntactic consequence](https://forallx.openlogicproject.org/html/Ch41.html)
+- [Stanford Encyclopedia of Philosophy — Classical Logic](https://plato.stanford.edu/entries/logic-classical/)

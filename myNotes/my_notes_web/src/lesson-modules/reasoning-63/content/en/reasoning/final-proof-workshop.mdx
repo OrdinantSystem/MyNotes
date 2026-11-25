@@ -1,0 +1,240 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-eight
+sourceId: reasoning-episode-63
+sourcePages: []
+sourceLocations: ["Sections 1–5: proof-building, odd squares, exploration and first draft", "Section 6: algebraic proof and integer witness", "Section 7: rectangle pairing, concentric layers and negative integers", "Sections 8–10: imaginary submissions, dependency diagram, self-review and comparison", "Sections 11–12: even-square transfer, residue classification and reflection", "Sections 13–15: visual references, preparation reading and editorial boundaries"]
+thumbnail: module:reasoning-63
+order: 63
+kind: worked-problem
+status: published
+reviewStatus: unreviewed
+prerequisites: [inventing-a-lemma, auditing-a-proof, changing-representations]
+title: "Final proof workshop: create, explain, and defend an argument"
+navTitle: "Final proof workshop"
+description: "Build, revise and defend algebraic and geometric proofs, then classify all square residues modulo eight."
+---
+
+Constructing a proof asks more of us than recognizing one. In this workshop, begin with your own argument, compare it with two general constructions, and revise it after examining its weak points. The mathematics is elementary; the work is connecting definitions, established results and justified deductions.
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="process" />
+
+## 1. The challenge: a pattern in odd squares
+
+Look at the squares of $1,3,5,7,9$. What do they have in common when divided by eight?
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="opening" />
+
+Each displayed square consists of complete groups of eight and one remaining unit. Our task is to prove the universal statement:
+
+$$
+\forall n\in\mathbb Z,\qquad n\text{ odd}\implies n^2\equiv1\pmod8.
+$$
+
+Every odd integer has a square that leaves remainder one when divided by eight. The question is whether this **must** happen for every odd integer, including negative ones.
+
+<Interactive kind="module" module="reasoning-63" preset="explore" id="a63-explore" />
+
+Testing another example can help us discover a pattern. Even a trillion successful checks would still leave infinitely many integers unchecked. A general proof must explain why the structure of an arbitrary odd integer forces the result.
+
+Before attempting that explanation, unpack the statement. An odd integer has the form $n=2k+1$ for some $k\in\mathbb Z$. To prove $n^2\equiv1\pmod8$, we need to show $n^2=8m+1$ for some **integer** $m$; equivalently, $8\mid(n^2-1)$.
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="goal" />
+
+The missing connection runs from information about $n$ to information about $n^2$.
+
+## 2. Write a first proof
+
+Try the problem before reading the construction below. Start with an arbitrary odd integer, name the relevant integer parameters, and justify the step that supplies a factor of eight. Use the hints one at a time if needed.
+
+The workspace is an implementation addition: it keeps a first and revised draft side by side in the page. Its checklist is unscored self-review, not an automatic proof checker. You can return to it after examining the reference arguments.
+
+<Interactive kind="module" module="reasoning-63" preset="draft" id="a63-draft" />
+
+## 3. Build the algebraic connection
+
+Let $n$ be an arbitrary odd integer. Then $n=2k+1$ for some integer $k$. Squaring and factoring gives
+
+$$
+\begin{aligned}
+n^2&=(2k+1)^2\\
+&=4k^2+4k+1\\
+&=4k(k+1)+1.
+\end{aligned}
+$$
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="factorization" />
+
+Factoring exposes consecutive integers. We have a factor of four and need a factor of eight, so the smaller problem is: **why must $k(k+1)$ be even?**
+
+Every integer is even or odd. Consecutive integers have opposite parity, so exactly one of $k$ and $k+1$ is even. Their product is therefore even.
+
+<Interactive kind="module" module="reasoning-63" preset="consecutive" id="a63-consecutive" />
+
+Thus $k(k+1)=2m$ for some integer $m$. This is a consequence of evenness, not an extra assumption. To make the witness explicit:
+
+- If $k=2r$, then $k(k+1)=2[r(k+1)]$, so take $m=r(k+1)\in\mathbb Z$.
+- If $k+1=2r$, then $k(k+1)=2[kr]$, so take $m=kr\in\mathbb Z$.
+
+Integers are closed under multiplication. In either case the required quotient is an integer. Substitution now completes the connection:
+
+$$
+n^2=4k(k+1)+1=4(2m)+1=8m+1.
+$$
+
+Therefore $8\mid(n^2-1)$, and $n^2\equiv1\pmod8$. Nothing in the argument assumed that $k$ or $n$ was positive.
+
+<details>
+<summary>Complete written proof</summary>
+
+**Theorem.** For every odd integer $n$, $n^2\equiv1\pmod8$.
+
+**Proof.** Let $n$ be an arbitrary odd integer. By definition, $n=2k+1$ for some $k\in\mathbb Z$. Hence
+
+$$
+n^2=(2k+1)^2=4k(k+1)+1.
+$$
+
+Since $k$ and $k+1$ are consecutive integers, one is even. Their product is even, so $k(k+1)=2m$ for some $m\in\mathbb Z$. Substituting gives
+
+$$
+n^2=4(2m)+1=8m+1.
+$$
+
+Thus $8\mid(n^2-1)$, so $n^2\equiv1\pmod8$. Since $n$ was arbitrary, the theorem holds for every odd integer. $\square$
+
+</details>
+
+## 4. See the same proof in tiles
+
+For now take $k\ge0$. A square of side $2k+1$ has a central tile. The remaining tiles form four congruent rectangles, each with dimensions $k$ by $k+1$, rotated around the center. No tile is lost or counted twice.
+
+<Interactive kind="module" module="reasoning-63" preset="geometry" id="a63-geometry" />
+
+The partition gives $(2k+1)^2=4k(k+1)+1$. Because the side lengths $k$ and $k+1$ are consecutive, one is even. Pair tiles horizontally when the width is even and vertically when the height is even. Each rectangle contains exactly $m=k(k+1)/2$ pairs.
+
+Take a corresponding pair from each of the four rectangles: $2+2+2+2=8$. The marked pairs ① show one such group. Repeat with the remaining corresponding pairs. All four rectangles are exhausted together, leaving only the central tile.
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="pairing" />
+
+The four rectangles contribute the factor four; pairing supplies the factor two. At $k=0$, the $1\times1$ square has no rectangle tiles and zero groups of eight, so the same identity still holds.
+
+### A second construction: concentric layers
+
+Build an odd square outward from its center. The center contributes one tile; successive layers contribute $8,16,24,\ldots$ tiles.
+
+<Interactive kind="module" module="reasoning-63" preset="layers" id="a63-layers" />
+
+The general count for layer $j\ge1$ is
+
+$$
+(2j+1)^2-(2j-1)^2=8j.
+$$
+
+Every layer adds a multiple of eight. Consequently, for any nonnegative integer $k$,
+
+$$
+(2k+1)^2=1+8\sum_{j=1}^{k}j.
+$$
+
+The sum is an integer; for $k=0$ it is the empty sum, zero. This construction proves the claim for all positive odd side lengths, not just the displayed square.
+
+### Extend the geometric proof to negative integers
+
+A square cannot have negative side length. For a negative odd integer $n$, however, $|n|$ is a positive odd integer and $n^2=|n|^2$. Applying the geometric argument to $|n|$ therefore proves the result for $n$ too. The picture alone does not supply this extension; the additional reasoning does.
+
+## 5. Examine four submissions
+
+A correct conclusion does not make every argument for it valid. Identify the main issue in each imaginary submission, and explain your choice before opening its feedback.
+
+<Interactive kind="module" module="reasoning-63" preset="examiner" id="a63-examiner" />
+
+Proof D is shorter than the full presentation, but it is sufficient when the evenness of consecutive products is established background. A proof need not rebuild every known fact from first principles. The appropriate detail depends on the intended audience and available results.
+
+## 6. Defend and revise the proof
+
+A written proof is a sequence of sentences, but its justifications form a network. Here two branches converge: algebra exposes $4k(k+1)+1$, and parity supplies the integer witness $k(k+1)=2m$. Neither branch alone reaches the conclusion.
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="dependency" />
+
+| Standard | Question | In this proof |
+| --- | --- | --- |
+| Validity | Does each conclusion follow? | Why is the product necessarily even? |
+| Completeness | Is an essential justification missing? | Why is $m$ an integer? |
+| Scope | Does the argument cover the stated domain? | Are negative odd integers included? |
+| Readability | Can another reader reconstruct it? | Is the origin of the factor eight clear? |
+
+Validity is essential. Completeness depends on the established background, scope checks whether we answered the actual question, and readability makes the dependencies accessible.
+
+Return to your first draft. Review it before changing it, preserve it, then write a revised version in the second field. The seven prompts cover arbitrary choice, definitions, algebra, the even product, divisibility, domain and communication. Checkmarks or points cannot certify a proof: a false essential inference invalidates it regardless of other strengths.
+
+## 7. Compare the two presentations
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="comparison" />
+
+The algebraic argument is compact and handles negative integers directly. The geometric argument makes the factor eight and remaining unit tangible, with a separate absolute-value argument to cover negative inputs. Both reveal the same structure.
+
+A picture can support a universal proof when the construction and counting argument work for arbitrary parameters. A single attractive example, without the general construction, is still only an illustration.
+
+## 8. Transfer: what happens to even squares?
+
+What are **all** the possible remainders when an even integer is squared and divided by eight?
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="even" />
+
+The examples suggest two possibilities, zero and four. Prove that no other remainder is possible, and show that both actually occur. Your task is
+
+$$
+n\in\mathbb Z,\quad n\text{ even}\implies n^2\equiv0\pmod8\ \text{or}\ n^2\equiv4\pmod8.
+$$
+
+<details>
+<summary>Hint</summary>
+
+Write $n=2k$, then consider the parity of $k$. You may use the odd-square theorem we have just proved.
+
+</details>
+
+<details>
+<summary>Reference solution: two exhaustive cases</summary>
+
+Let $n=2k$ with $k\in\mathbb Z$. Then $n^2=4k^2$.
+
+**Case 1: $k$ is even.** Write $k=2r$ for $r\in\mathbb Z$. Then
+
+$$
+n^2=16r^2=8(2r^2),
+$$
+
+so $n^2\equiv0\pmod8$.
+
+**Case 2: $k$ is odd.** By the proved theorem, $k^2=8m+1$ for an integer $m$. Hence
+
+$$
+n^2=4(8m+1)=8(4m)+4,
+$$
+
+so $n^2\equiv4\pmod8$.
+
+Every integer $k$ is even or odd, so the cases exhaust all possibilities, including zero and negative inputs. Both remainders occur: $4^2=16$ has remainder zero and $2^2=4$ has remainder four. $\square$
+
+</details>
+
+Together with the odd case, this classifies every integer square modulo eight:
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="classification" />
+
+No integer square has remainder $2,3,5,6$ or $7$. In particular, $x^2=8t+3$ has no solution with $x,t\in\mathbb Z$. The theorem has become a tool for ruling out infinitely many proposed squares.
+
+## 9. What changed?
+
+We began with $1,9,25,49,81,121,\ldots$. The numbers did not change. Our justification did: we can now name the definitions, the parity fact, the integer witness, the domain and the substitution that force the remainder.
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="reflection" />
+
+Explain why the factor eight is unavoidable, identify where a purported proof could fail, and use the result in the even-square problem. These are different demands from recognizing the pattern. The question remains: **How do you know?**
+
+## Further reading
+
+The workshop's preparation reading is Richard Hammack's [*Book of Proof*](https://richardhammack.github.io/BookOfProof/), Chapter 4 on direct proof, §5.2 on congruence and §5.3 on mathematical writing, and Kevin Houston's [*How to Think Like a Mathematician*](https://www.cambridge.org/core/books/how-to-think-like-a-mathematician/FB0813C3AEDDECD40BE58AF186370D52), especially Chapters 3–5, 15–18, 20–22 and Appendix C. These are reading directions, not a claim that completing this activity establishes proof-writing mastery.

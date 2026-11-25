@@ -1,0 +1,6 @@
+---
+import './styles.css';import {text} from './copy';import {figureMarkup,kinds} from './render';
+interface Props{figure:string}
+const {figure}=Astro.props,locale=Astro.locals.locale||'en';
+---
+<figure class="sc-view" data-correction-figure={figure}><h3>{text(locale).titles[kinds.indexOf(figure)]}</h3><div set:html={figureMarkup(locale,figure)}/></figure>

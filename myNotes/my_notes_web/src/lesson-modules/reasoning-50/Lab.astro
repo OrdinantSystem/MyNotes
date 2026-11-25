@@ -1,0 +1,27 @@
+---
+import './styles.css';
+import {copy} from './copy';
+import {architectureMarkup,illusionMarkup,sourcesMarkup,classificationMarkup} from './render';
+import {modes,roles,answers} from './model';
+interface Props {preset:string;id:string}
+const {preset,id}=Astro.props,l=Astro.locals.locale||'en',c=copy(l);
+if(!['architecture','illusion','sources','classification'].includes(preset))throw new Error('Unknown AoR 50 activity');
+const label=preset==='architecture'?c.architecture:preset==='illusion'?c.illusion:preset==='sources'?c.sources:c.classification;
+---
+<section class="r50 r50-lab" id={id} data-r50-lab={preset} data-locale={l} aria-label={label}>
+<h3>{label}</h3>
+{preset==='architecture'&&<>
+<label for={`${id}-mode`}>{c.mode}</label><select id={`${id}-mode`} data-mode>{modes.map((mode,i)=><option value={mode}>{c.modes[i]}</option>)}</select>
+<div class="r50-controls"><button type="button" data-back disabled>{c.back}</button><button type="button" data-why>{c.why}</button></div><div data-output set:html={architectureMarkup(l,'chain',1)}/>
+</>}
+{preset==='illusion'&&<><div data-output set:html={illusionMarkup(l)}/><button type="button" data-toggle aria-expanded="false">{c.showComparison}</button></>}
+{preset==='sources'&&<><div data-output set:html={sourcesMarkup(l)}/><button type="button" data-toggle aria-expanded="false">{c.investigate}</button></>}
+{preset==='classification'&&<>
+<p>{c.context}</p>
+{c.statements.map((statement,i)=><fieldset><legend>{i+1}. {statement}</legend><label for={`${id}-role-${i}`}>{l==='de'?'Rolle im Beispiel':'Role in this example'}</label><select id={`${id}-role-${i}`} data-role={i}><option value="">{l==='de'?'Bitte auswählen':'Choose a role'}</option>{roles.map((role,j)=><option value={role}>{c.roleNames[j]}</option>)}</select></fieldset>)}
+<p data-count>{l==='de'?'0 von 4 beantwortet':'0 of 4 answered'}</p><button type="button" data-review disabled aria-expanded="false">{c.review}</button><div data-output set:html={classificationMarkup(l,answers())}/>
+</>}
+<div class="r50-controls"><button type="button" data-reset>{c.reset}</button></div><p class="visually-hidden" role="status" data-status></p>
+<noscript><p>{l==='de'?'Die Ausgangsdarstellung und die Referenzdiskussion im Artikel bleiben ohne JavaScript lesbar.':'The initial display and reference discussion in the article remain readable without JavaScript.'}</p></noscript>
+</section>
+<script>import './controller';</script>

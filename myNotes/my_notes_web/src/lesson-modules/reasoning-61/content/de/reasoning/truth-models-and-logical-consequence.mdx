@@ -1,0 +1,236 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-eight
+sourceId: reasoning-episode-61
+sourcePages: []
+sourceLocations: ["Episode script, Parts I–IX", "Mathematical precision and production boundaries, section 5"]
+title: "Wahrheit in einer Welt, Folgerung in jeder Welt"
+navTitle: "Wahrheit, Modelle und logische Folgerung"
+description: "Wahrheit in einer Struktur, semantische Folgerung und formale Herleitbarkeit mit Relationen, Gegenmodellen und einem Quantorenbeweis unterscheiden."
+order: 61
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+thumbnail: "module:reasoning-61"
+---
+
+## Zwei Welten, ein behaupteter Schluss
+
+**Jede Person kennt jemanden. Also gibt es jemanden, den alle kennen.**
+
+Beide Aussagen verwenden dieselben Wörter. Ihre Anordnung verändert jedoch die Bedingung. $K(x,y)$ bedeute, dass $x$ die Person $y$ kennt:
+
+$$
+P=\forall x\exists y\,K(x,y),\qquad Q=\exists y\forall x\,K(x,y).
+$$
+
+Bei $P$ darf die gekannte Person davon abhängen, wer jemanden kennt. Bei $Q$ muss eine einzige Person für alle passen. Garantiert $P$ die Aussage $Q$?
+
+Betrachte Alice, Ben und Clara. In der ersten Welt kennen alle drei Ben, einschließlich Ben selbst. Beide Aussagen sind wahr. In der zweiten kennt Alice Ben, Ben kennt Clara und Clara kennt Alice. Weiterhin kennt jede Person jemanden, doch niemand wird von allen drei gekannt.
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="two-worlds" />
+
+<Interactive kind="module" module="reasoning-61" preset="worlds" id="models-worlds" />
+
+Dies sind ausdrücklich festgelegte mathematische Beispiele. Ein Pfeil zeigt eine gerichtete Beziehung: Wer jemanden kennt, muss nicht von dieser Person gekannt werden. Selbstbekanntschaft liegt genau dort vor, wo eine Schleife eingezeichnet ist. Weder Symmetrie noch Reflexivität wird vorausgesetzt.
+
+Die zweite Welt ist ein **Gegenmodell** zum behaupteten Schluss: Die Prämisse ist wahr, die Konklusion falsch. Die erste zeigt, dass beide Aussagen zusammen wahr sein können. Sie zeigt nicht, dass die Prämisse die Konklusion garantiert.
+
+## Was macht ein Bild zu einem Modell?
+
+Eine Sprache erster Stufe enthält Symbole und Regeln zum Aufbau von Formeln. Eine **Struktur** interpretiert die nichtlogischen Symbole auf einem nichtleeren Bereich. Für unsere Sprache mit dem zweistelligen Relationssymbol $K$ schreiben wir
+
+$$
+\mathcal M=(D,K^{\mathcal M}),\qquad K^{\mathcal M}\subseteq D\times D.
+$$
+
+Der Bereich enthält die betrachteten Objekte; die Relation legt fest, welche geordneten Paare $K$ erfüllen. Für die Welt mit dem Kreis gilt:
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="structure" />
+
+$A,B,C$ bezeichnen hier Bereichsobjekte. Das Paar $(A,B)$ gehört genau dann zu $K^{\mathcal M}$, wenn der Pfeil von Alice zu Ben vorhanden ist. Zeichnung und Paarmenge stellen **dieselbe Struktur** dar.
+
+Beim Vergleich von Strukturen bleiben Sprache, Formeln und Bedeutung der logischen Symbole fest. Bereich und Interpretation der nichtlogischen Symbole dürfen sich ändern. In einer reicheren Sprache bezeichnen Konstanten Objekte und Funktionssymbole Funktionen passender Stelligkeit; auch sie erhalten Interpretationen.
+
+Eine Struktur ist ein **Modell einer Aussage**, wenn diese Aussage darin wahr ist. Sie ist ein Modell einer Prämissenmenge $\Gamma$, wenn jedes Element von $\Gamma$ darin wahr ist. Bei „Modell“ sollte immer klar sein: Modell welcher Aussagen?
+
+## Wahrheit innerhalb einer Struktur
+
+Die Schreibweise
+
+$$
+\mathcal M\models\varphi
+$$
+
+besagt, dass die Aussage $\varphi$ in $\mathcal M$ wahr ist. Hier verwenden wir geschlossene Aussagen wie $P$ und $Q$. Bei einer offenen Formel wie $K(x,y)$ benötigt die Auswertung zusätzlich eine Belegung ihrer freien Variablen mit Objekten.
+
+Die Relationsmatrix macht die beiden Quantorenbedingungen systematisch prüfbar. Die Zeile bezeichnet die kennende, die Spalte die gekannte Person. Eine $1$ bedeutet, dass das geordnete Paar zur Relation gehört; eine $0$ bedeutet, dass es fehlt.
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="matrices" />
+
+- $P$ verlangt **mindestens eine $1$ in jeder Zeile**. Jede Person hat einen ausgehenden Zeugen; diese Zeugen dürfen verschieden sein.
+- $Q$ verlangt **eine Spalte, die vollständig aus $1$en besteht**. Ein gemeinsames Ziel passt für alle Ausgangspunkte.
+
+Also gelten $\mathcal M_1\models P$ und $\mathcal M_1\models Q$, aber $\mathcal M_2\models P$ und $\mathcal M_2\not\models Q$. Wahrheit wird in einer bestimmten Interpretation ausgewertet. Ändert sich die Interpretation, kann sich der Wahrheitswert ändern.
+
+## Folgerung über alle passenden Strukturen
+
+**Semantische Folgerung** fragt nach jeder Struktur, die die Prämissen erfüllt:
+
+$$
+\Gamma\models\varphi\quad\Longleftrightarrow\quad
+\text{Jedes Modell von }\Gamma\text{ ist ein Modell von }\varphi.
+$$
+
+Die Prämissen wirken als Filter. Strukturen, in denen eine Prämisse falsch ist, spielen für diese Prüfung keine Rolle. In allen verbleibenden Strukturen muss die Konklusion wahr sein. Gleichbedeutend ist
+
+$$
+\Gamma\models\varphi\quad\Longleftrightarrow\quad
+\operatorname{Mod}(\Gamma)\subseteq\operatorname{Mod}(\varphi).
+$$
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="containment" />
+
+Die Grafik zeigt schematische Modellklassen, keine endliche Aufzählung und keine Behauptung, dass alle Strukturen eine gewöhnliche Menge bilden. Ein Gegenmodell gehört zur Prämissenklasse und liegt außerhalb der Konklusionsklasse.
+
+Für unsere konkreten Aussagen gilt **die umgekehrte Folgerung**: Wenn alle dieselbe Person kennen, kennt jede Person jemanden. Die gemeinsame Person liefert für jedes Individuum einen Zeugen. Somit
+
+$$
+Q\models P,\qquad P\not\models Q.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="models" />
+
+Die $Q$-Modelle liegen vollständig innerhalb der $P$-Modelle. Es gibt keine Struktur mit wahrem $Q$ und falschem $P$. Der Kreis liegt in der $P$-Klasse außerhalb von $Q$.
+
+Eine **logisch gültige Aussage**, geschrieben $\models\varphi$, gilt ohne Prämissen in jeder Struktur ihrer Sprache. Das unterscheidet sich sowohl von Wahrheit in einer Struktur als auch von Folgerung unter bestimmten Prämissen.
+
+<Interactive kind="module" module="reasoning-61" preset="filter" id="models-filter" />
+
+Auf dem beschrifteten Bereich mit drei Objekten gibt es $2^9=512$ zweistellige Relationen: Jedes der neun geordneten Paare kann vorhanden sein oder fehlen. Davon erfüllen $343$ die Aussage $P$; $174$ erfüllen $P$ und widerlegen $Q$. Diese Zahlen betreffen nur diesen endlichen Bereich. Ein Gegenmodell entscheidet die Nichtfolgerung. Viele erfolgreiche Fälle oder eine erfolglose Gegenmodellsuche bei einer Bereichsgröße beweisen keine Folgerung für sämtliche endlichen und unendlichen Strukturen.
+
+<Note title="Prämissen ohne Modell">
+Hat $\Gamma$ in klassischer Semantik kein Modell, gilt $\Gamma\models\varphi$ für jede Aussage $\varphi$: Es gibt kein prämissenerfüllendes Gegenmodell. Die widersprüchlichen Prämissen im Filter zeigen diesen leeren Fall. Eine leere Modellklasse ist etwas anderes als ein leerer Bereich; die Bereiche bleiben hier nichtleer.
+</Note>
+
+## Ein Gegenmodell konstruieren
+
+Beginne ohne Pfeile. Dann sind $P$ und $Q$ falsch. Das widerlegt den Schluss **nicht**: Ein Gegenmodell muss zunächst die Prämisse erfüllen.
+
+<Interactive kind="module" module="reasoning-61" preset="countermodel" id="models-countermodel" />
+
+Gib jeder Zeile mindestens eine $1$, ohne dass eine Spalte vollständig aus $1$en besteht. Dafür eignen sich der Kreis, ausschließlich Selbstschleifen oder andere passende Relationen. Alle neun Zellen einschließlich der Diagonale stehen zur Verfügung.
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="countermodel" />
+
+Graph, Matrix und geordnete Paare kodieren dieselbe Relation. Der Relationscode ist eine numerische Eingabealternative, kein Wahrheitswert. Die geprüfte Kombination aus wahrem $P$ und falschem $Q$ widerlegt die Folgerung.
+
+## Formale Herleitung: eine andere Untersuchung
+
+Bisher haben wir über Interpretationen nachgedacht. Eine **formale Herleitung** verwendet dagegen erlaubte symbolische Regeln eines gewählten Beweissystems. Ihre Schreibweise ist
+
+$$
+\Gamma\vdash\varphi.
+$$
+
+Leite die gültige Richtung $Q\vdash P$ im natürlichen Schließen her. Führe einen frischen vorübergehenden Zeugen $b$ für die Existenzprämisse ein und betrachte ein beliebiges $a$:
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="derivation" />
+
+Zeile 2 ist eine vorübergehende Zeugenannahme, keine zusätzliche dauerhafte Prämisse. Aus $\forall xK(x,b)$ folgt durch Allquantor-Elimination $K(a,b)$. Existenzquantor-Einführung liefert $\exists yK(a,y)$. Weil $a$ beliebig war, ergibt Allquantor-Einführung $\forall x\exists yK(x,y)$. Die abschließende Existenzquantor-Elimination entlässt den Teilbeweis; das Ergebnis hängt nur noch von $Q$ ab.
+
+Die Nebenbedingungen sind entscheidend. Der Parameter $a$ darf in keiner offenen Annahme vorkommen, die ihn einschränkt. Das frische $b$ darf weder in der Endkonklusion noch in anderen offenen Prämissen vorkommen. Diese Beweisparameter sind keine Namen für Alice oder Ben. Die gezeigte Herleitung verwendet verschiedene frische Parameter und endet außerhalb des vorübergehenden Geltungsbereichs.
+
+<Interactive kind="module" module="reasoning-61" preset="proof" id="models-proof" />
+
+Aus $\forall x\exists yK(x,y)$ dürfte man nicht einen festen Zeugen $b$ für alle wählen. Dadurch würde man möglicherweise verschiedene Zeugen durch einen gemeinsamen ersetzen und genau die zu beweisende Behauptung voraussetzen.
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="turnstiles" />
+
+Semantische Folgerung betrifft Strukturen; Herleitbarkeit betrifft eine endliche Folge regelgerechter Schritte. $\models$ und $\vdash$ haben unterschiedliche Definitionen, auch wenn Metatheoreme sie verbinden. Die Aktivität zeigt einen erläuterten festen Beweis und ist kein allgemeiner Beweisprüfer.
+
+## Korrektheit und Vollständigkeit verbinden beides
+
+Vergleiche für eine feste Prämissenmenge die herleitbaren Konklusionen mit den semantischen Folgerungen.
+
+**Korrektheit** besagt, dass Herleitbarkeit Folgerung impliziert:
+
+$$
+\Gamma\vdash\varphi\ \Longrightarrow\ \Gamma\models\varphi.
+$$
+
+Ein korrektes System leitet keine Konklusion her, die in einem Modell der Prämissen falsch ist. Es macht die Prämissen nicht in der tatsächlichen Welt wahr. Ein nicht korrektes System erlaubt mindestens eine Herleitung ohne diese semantische Garantie.
+
+**Vollständigkeit** besagt, dass jede semantische Folgerung herleitbar ist:
+
+$$
+\Gamma\models\varphi\ \Longrightarrow\ \Gamma\vdash\varphi.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="bridge" />
+
+Hier steht **Violett für semantische Folgerungen und Blau für herleitbare Konklusionen**, jeweils bei festem $\Gamma$. Dies sind Klassen von Konklusionen; die früheren Diagramme zeigten Klassen von Modellen. Korrektheit verlangt, dass die blaue Klasse in der violetten liegt; Vollständigkeit verlangt die umgekehrte Inklusion. Das Beispiel für Unvollständigkeit zeigt ein korrektes, aber unvollständiges System. Allgemein kann ein System beide Eigenschaften verfehlen.
+
+Übliche Systeme des natürlichen Schließens für klassische Prädikatenlogik erster Stufe sind korrekt und vollständig. Ihre beiden Klassen stimmen überein:
+
+$$
+\Gamma\vdash\varphi\quad\Longleftrightarrow\quad\Gamma\models\varphi.
+$$
+
+Dies sind Metatheoreme über das Beweissystem. Das Beispiel erläutert ihre Bedeutung; es beweist nicht die allgemeinen Korrektheits- und Vollständigkeitssätze. Auch endliche Modellaufzählung könnte sie nicht beweisen.
+
+## Vollständigkeit entscheidet nicht jede Frage
+
+Setze $\Gamma=\{P\}$. Die Struktur mit gemeinsamem Kontakt erfüllt $\Gamma$ und $Q$; der Kreis erfüllt $\Gamma$ und $\neg Q$. Daher folgt aus diesen Prämissen weder $Q$ noch dessen Negation.
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="underdetermined" />
+
+Wegen Korrektheit ist keine der beiden Aussagen aus $\Gamma$ herleitbar. Die Theorie lässt die Frage offen; das ist kein Mangel eines vollständigen Beweissystems. Eine **vollständige Theorie** entscheidet jede Aussage oder deren Negation durch Herleitung. Vollständigkeit eines **Beweissystems** garantiert Herleitungen aller semantischen Folgerungen. Das sind verschiedene Eigenschaften.
+
+Vollständigkeit liefert auch kein stets terminierendes Entscheidungsverfahren für Gültigkeit erster Stufe. Für eine gültige Konklusion gibt es einen Beweis; eine bisher erfolglose Suche könnte ihn lediglich noch nicht gefunden haben. Keinen Beweis zu finden zeigt nicht, dass keiner existiert. Gödels Vollständigkeitssatz für Logik erster Stufe und Unvollständigkeitssätze für hinreichend starke arithmetische Theorien betreffen unterschiedliche Fragen.
+
+## Übertragung: Studierende und Bücher
+
+Angenommen, **eine studierende Person liest jedes Buch**. Muss dann **jedes Buch von einer studierenden Person gelesen werden**?
+
+Verwende einen Bereich mit $S(x)$ für „ist studierende Person“, $B(y)$ für „ist Buch“ und $R(x,y)$ für „liest“. Die Prämisse lautet
+
+$$
+T=\exists x\bigl(S(x)\land\forall y(B(y)\to R(x,y))\bigr).
+$$
+
+Die behauptete Konklusion lautet
+
+$$
+U=\forall y\bigl(B(y)\to\exists x(S(x)\land R(x,y))\bigr).
+$$
+
+<Interactive kind="module" module="reasoning-61" preset="transfer" id="models-transfer" />
+
+Wähle einen Zeugen $s$ für $T$. Diese Person ist studierend und liest jedes Buch. Betrachte nun ein beliebiges Objekt $b$. Falls $b$ ein Buch ist, gilt $R(s,b)$; dieselbe Person bezeugt also $\exists x(S(x)\land R(x,b))$. Entlasse die Buchannahme und verallgemeinere über $b$. Daher gilt $T\models U$, unabhängig von der Anzahl Studierender und Bücher.
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="books" />
+
+Das Bild verwendet drei Studierende und drei Bücher als Beispiel, nicht als Einschränkung der Formeln. Das Argument erfasst auch den Fall ohne Bücher: $U$ ist dann leer wahr, während $T$ weiterhin eine studierende Person verlangt. Gibt es Bücher, aber keine Studierenden, sind beide Aussagen falsch. Der gesamte Bereich bleibt nichtleer, auch wenn eine oder beide Prädikatserweiterungen leer sind.
+
+Die Umkehrung gilt nicht. Verschiedene Personen können verschiedene Bücher lesen. Dann hat jedes Buch eine lesende Person, obwohl niemand alle liest. Behalte bei der Gegenmodellsuche die Richtung des Schlusses bei.
+
+## Die drei Fragen auseinanderhalten
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="levels" />
+
+Wahrheit beschreibt eine Struktur. Semantische Folgerung beschreibt, was die Prämissen in allen passenden Strukturen garantieren. Ein formaler Beweis begründet eine Konklusion mit den Regeln eines Beweissystems. Korrektheit und Vollständigkeit erklären, wie die letzten beiden Tätigkeiten bei üblicher klassischer Logik erster Stufe übereinstimmen.
+
+<ReasoningFigure kind="module" module="reasoning-61" figure="progression" />
+
+<Exercise question="Warum widerlegt ein Kreis die behauptete Folgerung P ⊨ Q, während Hunderte erfolgreiche Strukturen sie nicht beweisen? Warum darf die umgekehrte Richtung einen festen Zeugen verwenden? Welche Eigenschaft verbindet ein Gegenmodell mit Nichtherleitbarkeit?">
+Folgerung schließt jede Struktur mit wahren Prämissen und falscher Konklusion aus; ein Gegenmodell genügt deshalb. Erfolgreiche Beispiele lassen andere Strukturen ungeprüft. Die umgekehrte Prämisse behauptet bereits einen gemeinsamen Zeugen. Korrektheit schließt bei einem semantischen Gegenmodell eine Herleitung aus.
+</Exercise>
+
+## Weiterlesen
+
+- [forall x: Calgary — Regeln für Quantorenbeweise, englisch](https://forallx.openlogicproject.org/html/Ch36.html)
+- [forall x: Calgary — semantische und syntaktische Folgerung, englisch](https://forallx.openlogicproject.org/html/Ch41.html)
+- [Stanford Encyclopedia of Philosophy — Classical Logic, englisch](https://plato.stanford.edu/entries/logic-classical/)

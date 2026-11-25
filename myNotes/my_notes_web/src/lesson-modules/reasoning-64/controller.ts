@@ -1,0 +1,31 @@
+import {composition,initialRecord,record,share,checklist,type Locale,type DecisionRecord} from './model';
+import {text} from './copy';
+import {argumentMarkup,compositionMarkup,decisionTable,exportRecord,workspace,figureMarkup} from './render';
+for(const root of document.querySelectorAll<HTMLElement>('[data-decision-lab]')){
+ if(root.dataset.bound)continue;root.dataset.bound='true';
+ const l=(root.dataset.locale||'en') as Locale,c=text(l),preset=root.dataset.decisionLab;
+ const q=<T extends HTMLElement>(selector:string)=>root.querySelector<T>(selector)!;
+ const all=<T extends HTMLElement>(selector:string)=>Array.from(root.querySelectorAll<T>(selector));
+ const status=(s:string)=>{q('[data-status]').textContent=s;};
+ let shares=[80,20],current=initialRecord(),initial:DecisionRecord|undefined;
+ const valid=(v:string)=>v.trim()!==''&&Number.isInteger(Number(v))&&Number(v)>=0&&Number(v)<=100;
+ const clearExport=()=>{const el=root.querySelector<HTMLElement>('[data-fallback]');if(el){el.hidden=true;q('[data-export]').textContent='';}};
+ const syncShares=()=>{composition(...shares as [number,number]);all<HTMLInputElement>('[data-share]').forEach((el,i)=>el.value=String(shares[i]));all<HTMLInputElement>('[data-range]').forEach((el,i)=>el.value=String(shares[i]));q('[data-output]').innerHTML=compositionMarkup(l,...shares as [number,number]);};
+ const announceShares=()=>{status(q('[data-output] .decision-result').textContent||'');};
+ const applyShares=(validate:boolean)=>{const values=all<HTMLInputElement>('[data-share]').map(el=>el.value);if(values.every(valid)){shares=values.map(Number);syncShares();announceShares();}else if(validate){syncShares();status(c.invalid);}};
+ const readRecord=()=>{const confidence=q<HTMLInputElement>('[data-confidence]');if(!valid(confidence.value)){confidence.value=String(current.confidence);status(c.invalid);}current=record({option:Number(q<HTMLSelectElement>('[data-choice]').value),confidence:share(Number(confidence.value)),reason:q<HTMLTextAreaElement>('[data-field=reason]').value,unknown:q<HTMLTextAreaElement>('[data-field=unknown]').value,reconsider:q<HTMLTextAreaElement>('[data-field=reconsider]').value});return current;};
+ all<HTMLInputElement>('[data-first]').forEach(el=>el.addEventListener('change',()=>{q('[data-output]').textContent=c.firstFeedback;}));
+ root.querySelector('[data-assumption]')?.addEventListener('change',()=>{q('[data-output]').innerHTML=argumentMarkup(l,Number(q<HTMLSelectElement>('[data-assumption]').value));});
+ all<HTMLInputElement>('[data-share]').forEach(el=>{el.addEventListener('input',()=>applyShares(false));el.addEventListener('change',()=>applyShares(true));el.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();applyShares(true);}});});
+ all<HTMLInputElement>('[data-range]').forEach((el,i)=>el.addEventListener('input',()=>{shares[i]=share(Number(el.value));syncShares();announceShares();}));
+ root.querySelector('[data-apply]')?.addEventListener('click',()=>applyShares(true));
+ root.querySelector('[data-equal]')?.addEventListener('click',()=>{shares=[50,50];syncShares();announceShares();});
+ root.querySelector('[data-focus]')?.addEventListener('change',()=>{q('[data-table]').innerHTML=decisionTable(l,!!initial,Number(q<HTMLSelectElement>('[data-focus]').value));});
+ all<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>('[data-choice],[data-confidence],[data-field]').forEach(el=>el.addEventListener('input',()=>{if(el.matches('[data-confidence]')&&valid(el.value))current.confidence=Number(el.value);clearExport();}));
+ root.querySelector('[data-confidence]')?.addEventListener('change',()=>readRecord());
+ root.querySelector('[data-confidence]')?.addEventListener('keydown',event=>{if((event as KeyboardEvent).key==='Enter'){event.preventDefault();readRecord();}});
+ root.querySelector('[data-capture]')?.addEventListener('click',()=>{initial=record(readRecord());q('[data-snapshot]').textContent=exportRecord(l,initial);q('[data-initial]').hidden=false;q('[data-new-output]').innerHTML=figureMarkup(l,'pilot')+figureMarkup(l,'revised')+workspace(l,true);q('[data-new]').hidden=false;q<HTMLButtonElement>('[data-capture]').disabled=true;q('[data-table]').innerHTML=decisionTable(l,true,Number(q<HTMLSelectElement>('[data-focus]').value));status(c.captured);clearExport();});
+ root.querySelector('[data-copy]')?.addEventListener('click',async()=>{const output=exportRecord(l,readRecord(),initial);try{await navigator.clipboard.writeText(output);status(c.copied);}catch{q('[data-export]').textContent=output;q('[data-fallback]').hidden=false;status(c.fallback);}});
+ all<HTMLInputElement>('[data-check]').forEach(el=>el.addEventListener('change',()=>{const n=checklist(all<HTMLInputElement>('[data-check]').map(x=>x.checked));q('[data-output]').textContent=l==='de'?`${n} von 7 Reflexionen markiert.`:`${n} of 7 reflections marked.`;}));
+ q('[data-reset]').addEventListener('click',()=>{if(preset==='opening'){all<HTMLInputElement>('[data-first]').forEach(el=>el.checked=false);q('[data-output]').textContent='';}else if(preset==='argument'){q<HTMLSelectElement>('[data-assumption]').value='0';q('[data-output]').innerHTML=argumentMarkup(l);}else if(preset==='composition'){shares=[80,20];syncShares();}else if(preset==='decision'){current=initialRecord();initial=undefined;q<HTMLSelectElement>('[data-focus]').value='0';q<HTMLSelectElement>('[data-choice]').value='0';q<HTMLInputElement>('[data-confidence]').value='70';all<HTMLTextAreaElement>('[data-field]').forEach(el=>el.value='');q('[data-table]').innerHTML=decisionTable(l);q('[data-initial]').hidden=true;q('[data-snapshot]').textContent='';q('[data-new]').hidden=true;q('[data-new-output]').innerHTML='';q<HTMLButtonElement>('[data-capture]').disabled=false;clearExport();}else{all<HTMLInputElement>('[data-check]').forEach(el=>el.checked=false);q('[data-output]').textContent=l==='de'?'0 von 7 Reflexionen markiert.':'0 of 7 reflections marked.';}status(c.resetDone);});
+}

@@ -1,0 +1,18 @@
+---
+import {initialState,atoms,choices} from './model';
+import {truthMarkup,proofMarkup,transferMarkup} from './render';
+import {text} from './copy';
+import MathText from '../../components/MathText.astro';
+import './styles.css';
+interface Props {preset:'countermodel'|'proof'|'transfer';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale),s=initialState();
+---
+<figure class="a55-lab" id={id} data-a55-lab={preset} data-locale={locale}>
+ <h3>{c.labs[preset]}</h3>
+ {preset==='countermodel'&&<><div class="a55-controls"><button type="button" data-a55-mode="same" aria-pressed="true">{c.same}</button><button type="button" data-a55-mode="different" aria-pressed="false">{c.different}</button></div><p data-a55-mode-note><MathText text={c.sameNote}/></p><div class="a55-inputs">{atoms.map(atom=><label hidden={atom==='ub'} data-a55-row={atom}><span data-a55-label={atom}><MathText text={atom==='ua'?c.singleU:c.atomLabels[atom]}/><MathText text={`$${{c:'C(x,y)',s:'S(x,y)',ua:'U(y,x)',ub:'U_B(y,x)'}[atom]}$`}/></span><select data-a55-atom={atom} aria-controls={`${id}-output`}><option value="true" selected={s[atom]}>{c.truth}</option><option value="false" selected={!s[atom]}>{c.falsehood}</option></select></label>)}</div><label class="a55-check" data-a55-bridge-row hidden><input type="checkbox" data-a55-bridge aria-controls={`${id}-output`}/><span><MathText text={c.bridgeControl}/></span></label><button type="button" data-a55-load>{c.load}</button></>}
+ {preset==='proof'&&<div class="a55-controls"><button type="button" data-a55-previous disabled aria-controls={`${id}-output`}>{c.previous}</button><button type="button" data-a55-next aria-controls={`${id}-output`}>{c.next}</button></div>}
+ {preset==='transfer'&&<><fieldset><legend>{c.transferPrompt}</legend>{choices.map((choice,i)=><label class="a55-check"><input type="radio" name={`${id}-choice`} value={choice} data-a55-choice aria-controls={`${id}-output`}/><span>{c.options[i]}</span></label>)}</fieldset><button type="button" data-a55-reveal disabled aria-expanded="false" aria-controls={`${id}-output`}>{c.reveal}</button></>}
+ <div id={`${id}-output`} data-a55-output set:html={preset==='countermodel'?truthMarkup(locale,s):preset==='proof'?proofMarkup(locale,0):transferMarkup(locale,null,false)}/>
+ <button type="button" data-a55-reset>{c.reset}</button><p class="a55-status" role="status" aria-live="polite" data-a55-status></p>
+</figure>
+<script>import './controller';</script>

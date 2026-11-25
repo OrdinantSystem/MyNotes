@@ -1,0 +1,273 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-eight
+sourceId: reasoning-episode-64
+sourcePages: []
+sourceLocations: ["Sections 1–3 and Parts I–III: purpose, dossier and argument reconstruction", "Parts IV–VI: numerical evidence, confounding and decision alternatives", "Parts VII–IX: decision record, randomized pilot, cost revision and reflection", "Part X and Sections 11–14: course conclusion, transfer exercise and preparation sources"]
+title: "Final Workshop: Think Clearly About a Real Decision"
+navTitle: "Final decision workshop"
+description: "Combine argument structure, numerical evidence, causal reasoning and values, then revise a decision when new information arrives."
+order: 64
+kind: worked-problem
+status: published
+reviewStatus: unreviewed
+prerequisites: [take-a-research-claim-apart, when-should-you-trust-your-intuition]
+thumbnail: module:reasoning-64
+---
+
+Some conclusions can be proved. Others must be estimated, depend on uncertain assumptions, or require us to decide what matters most. This final workshop combines those forms of reasoning around one decision.
+
+There is no single theorem to establish or predetermined recommendation to reproduce. Your task is to make a conclusion transparent, defensible and responsive to new evidence: **what does it depend on, how strongly is it supported, and what could make you reconsider?**
+
+## 1. A proposal and a first impression
+
+You are a committee member in a community education program serving 200 students. The program has a limited annual improvement budget. A company proposes a digital learning platform, LearnForward, and claims that it substantially improves student performance.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="proposal" />
+
+The large percentage and apparent affordability may create a favorable impression before you deliberately investigate. Record that impression before reading further.
+
+<Interactive kind="module" module="reasoning-64" preset="opening" id="decision-64-opening" />
+
+**Every document, student count, cost, forecast and threshold in the LearnForward case is fictional.** These are controlled teaching examples, not findings about real educational software. The initial choice is not graded.
+
+## 2. Open the decision dossier
+
+An advertisement is only one part of the available information.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="dossier" />
+
+Before deciding whether the proposal is good, distinguish the questions inside it.
+
+| Question | Reasoning needed |
+| --- | --- |
+| Is 72% really 50% higher than 48%? | Mathematical |
+| Did the platform users perform better in the study? | Empirical |
+| Did the platform cause the difference? | Causal |
+| Is adoption the best use of our resources? | Evaluative |
+
+Arithmetic can establish the relationship between the percentages, but cannot establish that a study was conducted properly. Empirical observations can establish a difference without identifying its cause. Causal evidence can help predict an intervention’s effects without determining whether those effects justify its cost. Evaluative reasoning must consider priorities, alternatives and trade-offs.
+
+These questions are related, but answering one does not settle the others.
+
+## 3. Reconstruct the argument
+
+The promotional argument compresses several claims into one step:
+
+> Platform users had a higher success rate. Therefore, our program should adopt the platform.
+
+Identify the missing bridges before inspecting the expanded argument.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="argument" />
+
+The causal premise concerns why the observed difference occurred. The transfer premise concerns whether a credible benefit would also occur here. The evaluative premise concerns whether it is preferable to the alternatives, given costs and constraints. Each needs its own support.
+
+<Interactive kind="module" module="reasoning-64" preset="argument" id="decision-64-argument" />
+
+The map does not prove that the company is wrong. The difference might be genuine, the platform might be effective, and adoption might be preferable. These are separate claims. Like a proof, a practical argument contains dependencies; unlike a mathematical proof, it may rest on uncertain empirical and evaluative premises. The arrows organize those dependencies rather than asserting deductive implications.
+
+## 4. What do the numbers establish?
+
+Begin with the observed students and their denominators.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="frequencies" />
+
+Let $L$ mean that a student uses the platform and $S$ that the student reaches the learning target. The observed proportions are
+
+$$
+\widehat P(S\mid L)=\frac{72}{100}=0.72,
+\qquad
+\widehat P(S\mid\neg L)=\frac{48}{100}=0.48.
+$$
+
+The hats indicate empirical proportions, not known probabilities for every possible student. Each conditional proportion uses its own group’s 100 students as denominator; 200 is the denominator for the whole study.
+
+The absolute and relative comparisons answer different questions:
+
+$$
+72\%-48\%=24\text{ percentage points},
+\qquad
+\frac{72-48}{48}=0.50=50\%.
+$$
+
+The relative calculation compares the difference with the non-user rate, not with 72% or with the full population.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="comparison" />
+
+The advertised 50% is **mathematically correct as a relative difference between observed rates**. A correct statistic can nevertheless carry an unsupported interpretation. “Users had a 50% higher observed success rate” describes the study; “introducing the platform will improve success by 50%” predicts an intervention. A few changed words change the claim.
+
+## 5. The causal problem
+
+The students **voluntarily chose** whether to use the platform. There was no random assignment. The groups may therefore have differed before the intervention.
+
+A student with higher prior motivation might be more likely to choose optional tools and more likely to succeed regardless of the tool. This is a possible confounding explanation: a pre-existing variable may influence both use and success.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="causal" />
+
+This diagram represents a hypothesis, not a discovered fact or proof of ineffectiveness. The original comparison alone cannot distinguish that explanation from a platform effect.
+
+### The same totals, a different explanation
+
+Now open a fictional appendix measuring motivation before the study.
+
+| Prior motivation | Platform users | Non-users |
+| --- | ---: | ---: |
+| Higher | 80 | 20 |
+| Lower | 20 | 80 |
+| Total | 100 | 100 |
+
+The groups have very different compositions. Within the categories, the success counts are:
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="subgroups" />
+
+The aggregate user rate is a weighted average of 80% success among its 80 higher-motivation students and 40% among its 20 lower-motivation students. For non-users, the category weights are reversed:
+
+$$
+0.8(0.8)+0.2(0.4)=0.72,
+\qquad
+0.2(0.8)+0.8(0.4)=0.48.
+$$
+
+The original totals have not changed. Our understanding of them has. Both categories have matching observed success rates, while the aggregate favors the group with more higher-motivation students.
+
+### Change composition while holding category rates fixed
+
+Let $h$ be a group’s higher-motivation share as a proportion between zero and one. In this constructed model its aggregate success rate is
+
+$$
+r(h)=0.8h+0.4(1-h)=0.4+0.4h.
+$$
+
+Try equal compositions, then reverse the original shares. Explain the result before changing another control.
+
+<Interactive kind="module" module="reasoning-64" preset="composition" id="decision-64-composition" />
+
+You can create a positive, zero or negative aggregate difference without changing success within either category. This aggregation phenomenon is associated with Simpson’s paradox; here the difference disappears within categories rather than reversing.
+
+The appendix does **not** prove that the true causal effect is zero. Other confounders, measurement problems and effects outside this simple categorization may remain. The justified update is that the aggregate difference alone is insufficient for the advertised causal interpretation. Replacing that interpretation with certainty that the platform cannot work would repeat the same overreach.
+
+## 6. Compare decisions, consequences and values
+
+Even after diagnosing weak evidence, the committee must act. Recover the alternatives rather than treating adoption and rejection as the only possibilities.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="options" />
+
+The question is whether a proposal is preferable to available alternatives, not merely whether it has potential benefits.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="budget" />
+
+The quoted full subscription consumes 80% of the €6,000 budget and leaves €1,200. That would prevent also funding the €3,000 tutoring proposal from the same budget. The opportunity cost is the valuable alternative you forgo, not simply the unspent balance. The trial preserves more funds, but also consumes staff time and delays any program-wide benefit. Continuing the current system preserves resources while potentially missing an improvement. Inaction has consequences too.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="decision" />
+
+The direct figures are quotations, not evidence that all implementation costs are included. The table separates forecasts from priorities. One member may emphasize educational improvement, another financial security, another the need for better evidence. Such disagreement may reflect different values, forecasts or tolerances for uncertainty rather than arithmetic errors.
+
+A strict privacy requirement may exclude an option that cannot satisfy it. That is different from giving the option a slightly lower score. We do not know that any option meets every requirement, and no arbitrary numerical weights turn the table into a mathematical winner.
+
+### Information can have practical value
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="information" />
+
+A pilot could be valuable even if it shows that expansion is unwise: learning before committing may prevent an expensive mistake. But that value must be weighed against money, time, delay and whether the study can actually inform the later choice. A pilot is one strategy for acting under uncertainty, not an automatic answer.
+
+## 7. Make and defend a recommendation
+
+Use the four views together. Ask what must be justified, what has been observed, what could explain it, and what should be prioritized.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="workspace" />
+
+Take time to write a defensible record before examining the next section. State a recommendation, confidence, reasons, remaining questions and conditions for reconsideration. Include priorities or non-negotiable constraints. Your confidence is a subjective judgment, not a calculated probability of choosing correctly.
+
+The activity can retain your initial record and show the new evidence beside it. You can revise the editable record and copy both versions. All later evidence also appears in the article without requiring the activity.
+
+<Interactive kind="module" module="reasoning-64" preset="decision" id="decision-64-record" />
+
+<details>
+<summary>One defensible recommendation, not an official solution</summary>
+
+The committee could fund a €600 controlled pilot in the current term before considering the following year’s €6,000 improvement budget. Randomly assign 120 consenting students: 60 receive platform access, and 60 continue with the existing approach.
+
+Before running it, specify the learning target, measurement period, privacy requirements, acceptable costs and expansion criteria. Suppose the committee considers a **genuine improvement of at least 10 percentage points** educationally worthwhile, provided privacy requirements are met and the cost is affordable. This is an explicitly chosen decision criterion, not a universal statistical standard. Even an observed improvement above it would need assessment for uncertainty and reliability.
+
+The recommendation assumes that the present evidence is insufficient for a larger commitment and that better evidence is worth its cost. It requires neither certainty that the platform works nor certainty that it fails.
+
+</details>
+
+## 8. New evidence arrives
+
+The fictional pilot is complete. All 120 students were randomly assigned, and every participant’s learning outcome was recorded.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="pilot" />
+
+Random assignment strengthens causal inference because prior motivation does not determine assignment. It balances pre-existing characteristics **in expectation**, not perfectly in every particular experiment. The pilot compares assignment to platform access with the existing approach; it does not isolate the effect of every student’s actual use.
+
+The observed difference is $36/60-33/60=0.05$, or five percentage points. It is not the known true effect. The sample is small, chance variation remains substantial, and participants may not represent the whole program. The result does not establish that the true improvement reaches the committee’s chosen ten-point threshold; it also does not prove that such a benefit is impossible or that the effect is zero.
+
+The new evidence is less supportive of the substantial benefit suggested by the promotional interpretation. Better evidence can reduce confidence in an attractive claim while improving our knowledge of the problem.
+
+### A separate feasibility update
+
+The pilot reveals additional equipment, technical support and accessibility requirements.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="revised" />
+
+The revised future annual cost is $4800+1800=6600$ euros. It exceeds the following year’s €6,000 budget by €600, independently of the **different €600 already spent on the previous term’s pilot**. That past expense is not an additional future cost of adoption and does not justify expansion to “recover” the money.
+
+Full adoption under the current terms is financially infeasible unless costs fall or more resources become available. The trial results affect beliefs about benefits; the updated quotation affects feasibility. Neither substitutes for the other.
+
+### Update all four views without erasing the past
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="updates" />
+
+The original observational study remains in the workspace beside the pilot. The causal benefit premise now needs revision, the causal diagram addresses self-selection through assignment, and the decision table changes the annual cost and benefit assessment. Randomization does not settle generalizability, measurement or uncertainty.
+
+One defensible revised recommendation is to postpone full adoption under these terms, investigate tutoring, negotiate a lower price, or consider a more informative follow-up study if its potential value warrants the cost. These alternatives also need evidence and attention to constraints.
+
+You can update appropriately while retaining the same final choice. An initial supporter may now postpone; an initial opponent may still oppose while acknowledging the pilot’s positive observed difference as some evidence consistent with possible benefit. **Rational revision requires updating relevant beliefs, not changing the final choice for its own sake.** Compare your initial and current records and say exactly what changed.
+
+## 9. Evaluate the reasoning
+
+A fortunate outcome would not, by itself, establish that your reasoning was good. An unfortunate outcome would not establish that a well-supported choice was irrational. Assess the process against the information available when you decided.
+
+<Interactive kind="module" module="reasoning-64" preset="reflection" id="decision-64-reflection" />
+
+The strongest response need not be the longest, most technical or most skeptical. It chooses appropriate methods, explains their limits and makes the conclusion proportionate to the evidence.
+
+## 10. Transfer the method
+
+Try this unfamiliar fictional case after a few days, without looking back at the workshop views.
+
+A public library proposes extending opening hours until 10 p.m. A nearby library introduced extended hours and subsequently reported a 30% rise in weekly attendance. The extension here would cost €18,000 annually out of a €25,000 improvement budget. Students support it; employees are concerned about staffing and working conditions. Additional study spaces and educational resources are alternatives. It is unclear whether the other library’s increase resulted from the hours, a new university campus nearby, or both.
+
+**What would you recommend, and how would you justify it?** Make a record before opening the new information. A percentage alone does not tell you the attendance counts or the value of an additional visit.
+
+<details>
+<summary>New information for your library recommendation</summary>
+
+The nearby library extended its hours immediately after the university campus opened. Local surveys suggest that demand here is concentrated during examination periods.
+
+Reconsider your recommendation. Identify which beliefs or constraints changed, which uncertainties remain, and whether your decision changes. There is no numerical winner supplied. For example, a seasonal trial might become worth investigating, but its staffing, cost and evidential value still need justification.
+
+This is a new application, not evidence that remembering the LearnForward example guarantees transfer.
+
+</details>
+
+## 11. A continuing practice
+
+At the beginning of the course, $1+1=2$ raised a seemingly obvious question: how do we know? The tools gradually widened from statements and proofs to evidence, causes, decisions and self-correction.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="course" />
+
+These tools investigate relationships between claims, assumptions, evidence and conclusions. They cannot all deliver the same kind of certainty. Learning to reason means understanding the uncertainty that remains, recognizing why you believe something, and identifying what could justify a different belief.
+
+**What do I know? How do I know it? What would change my mind?**
+
+### Further reading
+
+The case’s specific platform, counts, costs, ten-point criterion and experiment are instructional constructions. A real educational study would require a fuller treatment of measurement, sampling, ethics, implementation and statistical uncertainty. The following sources provide methodological background, not empirical support for LearnForward:
+
+- David Diez, Mine Çetinkaya-Rundel and Christopher Barr, [OpenIntro Statistics](https://www.openintro.org/book/os/): observational and experimental research, categorical data and inference.
+- Judea Pearl, Madelyn Glymour and Nicholas P. Jewell, [Causal Inference in Statistics: A Primer](https://bayes.cs.ucla.edu/PRIMER/): causal graphs, confounding, observation and intervention.
+- Matthew Knachel, [Fundamental Methods of Logic](https://open.umn.edu/opentextbooks/textbooks/fundamental-methods-of-logic): argument reconstruction and reasoning with causal and statistical evidence.
+- [Decision Theory, Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/decision-theory/): beliefs, preferences, uncertainty and sequential decisions.

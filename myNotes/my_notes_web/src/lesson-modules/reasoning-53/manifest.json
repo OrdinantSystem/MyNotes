@@ -1,0 +1,7 @@
+{
+ "id":"reasoning-53","course":"reasoning","chapter":"reasoning-part-seven",
+ "chapterDefinition":{"id":"reasoning-part-seven","course":"reasoning","title":{"en":"Part Seven","de":"Teil Sieben"},"description":{"en":"Knowledge, justification, and philosophical reasoning.","de":"Wissen, Rechtfertigung und philosophisches Denken."}},
+ "order":53,"key":"tracing-sources-and-independent-evidence","title":"Ten sources, or one source repeated ten times?","sourceId":"reasoning-episode-53","sourceTitle":"Ten Sources, or One Source Repeated Ten Times?",
+ "figures":["headline","provenance","mirror","convergence","comparison","shared-error","credibility","conflict","incentives","rooms","workshop","method","synthesis"],
+ "presets":["publications","independence","credibility","search","workshop"]
+}

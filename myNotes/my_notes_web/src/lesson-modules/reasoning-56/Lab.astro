@@ -1,0 +1,16 @@
+---
+import './styles.css';
+import {text} from './copy';
+import {squareMarkup,auditMarkup,calibrationMarkup,historyMarkup,shapeMarkup} from './render';
+import {initialAnswers,auditKeys,type Locale} from './model';
+interface Props{preset:'worlds'|'squares'|'audit'|'calibration';id:string}
+const {preset,id}=Astro.props,locale=(Astro.locals.locale||'en') as Locale,c=text(locale);
+---
+<figure class="intuition-view" id={id} data-intuition-lab={preset} data-locale={locale}>
+ <h3>{c[preset]}</h3>
+ {preset==='worlds'?<><label for={`${id}-world`}>{c.world}</label><select id={`${id}-world`} data-world><option value="A">{c.worldA}</option><option value="B">{c.worldB}</option></select><label for={`${id}-feedback`}>{c.feedback}</label><select id={`${id}-feedback`} data-feedback>{(['full','none','selective','delayed'] as const).map((f,i)=><option value={f}>{c.feedbackModes[i]}</option>)}</select><p data-trial>{c.trial} 1/12</p><div class="intuition-choice" data-shape set:html={shapeMarkup(locale,'circle')}/><p>{c.predict}</p><div class="intuition-controls"><button type="button" data-predict="left">{c.left}</button><button type="button" data-predict="right">{c.right}</button><button type="button" data-next disabled>{c.next}</button></div><div data-output set:html={historyMarkup(locale,[],'full')}/><p>{c.simulation}</p></>:preset==='squares'?<><label for={`${id}-n`}>{c.n}</label><input id={`${id}-n`} type="number" min="1" max="12" step="1" value="4" data-n/><div class="intuition-controls"><button type="button" data-apply>{c.apply}</button><button type="button" data-previous>{c.previous}</button><button type="button" data-next-square>{c.nextSquare}</button></div><div data-output set:html={squareMarkup(locale,4)}/><p>{c.displayLimit}</p></>:preset==='audit'?<><label for={`${id}-skill`}>{c.skill}</label><input id={`${id}-skill`} type="text" maxlength="160" placeholder={c.placeholder} data-skill/>{auditKeys.map((key,i)=><fieldset><legend>{i+1}. {c.labels[i]}</legend><p>{c.questions[i]}</p><div class="intuition-options">{(['yes','no','unsure'] as const).map((answer,j)=><label><input type="radio" name={`${id}-${key}`} data-audit={i} value={answer} checked={answer==='unsure'}/>{c.answers[j]}</label>)}</div></fieldset>)}<div data-output set:html={auditMarkup(locale,initialAnswers())}/><div class="intuition-controls"><button type="button" data-copy>{c.copy}</button></div><div data-fallback hidden><p>{c.fallback}</p><pre tabindex="0" data-export></pre></div></>:<><div data-output set:html={calibrationMarkup(locale,false)}/><div class="intuition-controls"><button type="button" data-reveal>{c.reveal}</button></div></>}
+ <div class="intuition-controls"><button type="button" data-reset>{c.reset}</button></div><p role="status" aria-live="polite" class="intuition-status" data-status></p>
+</figure>
+<script>
+import './controller';
+</script>

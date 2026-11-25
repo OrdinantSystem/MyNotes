@@ -1,0 +1,330 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-seven
+sourceId: reasoning-episode-55
+sourcePages: []
+sourceLocations: ["Sections 1–4: notation, interpretation, Spinoza and relations", "Section 5: proposed first-order reconstruction and proof", "Sections 6–8: readings, equivocation, countermodel and added bridge", "Sections 9–11: commonality, necessity, transfer and synthesis", "Preparation sources and teaching-construction boundaries"]
+thumbnail: module:reasoning-55
+title: Can mathematical notation make philosophy easier to follow?
+navTitle: Notation and philosophy
+description: Reconstruct a philosophical argument while keeping its meanings, source premises and interpretive additions visible.
+order: 55
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [implication-and-its-converse, proof-by-contraposition, map-an-argument-without-losing-its-meaning]
+---
+
+Can we make an argument more precise without changing what it actually means? Mathematics and philosophy can work together without one replacing the other. Mathematical problems often come with relatively precise definitions. In philosophy, the meaning of the concepts may itself be part of the problem.
+
+Reading an argument involves several tasks: understanding the author's claims, interpreting the terms, identifying dependencies, checking whether the conclusion follows, and asking whether the premises are justified. Notation can help us separate these tasks instead of trying to solve them simultaneously.
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="overview" />
+
+**Formalization should make our assumptions more visible, not make them disappear behind symbols.** We will develop one argument from Spinoza's *Ethics*, returning to its original wording whenever we make an interpretive choice.
+
+## 1. Why equations sometimes feel easier than paragraphs
+
+Consider this sentence:
+
+> If the occurrence of one phenomenon necessarily depends upon another, and that second phenomenon is absent, the first cannot occur.
+
+A familiar formal pattern is
+
+$$
+A\to B,\qquad \neg B\qquad\therefore\qquad\neg A.
+$$
+
+Under an appropriate interpretation, both express the same inference: modus tollens. Replacing repeated phrases by letters makes the structure easier to inspect. But what does “depends upon” mean? Physical dependence, logical dependence, causation? Does it hold necessarily, or only under certain conditions?
+
+The symbols do not answer these questions. They temporarily set some of them aside. In particular, a material implication by itself does not represent every aspect of the word “necessarily.” Notation can make an inference clearer while making its original meaning less visible.
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="layers" />
+
+Distinguish **the structure of an argument** from **its interpretation**. Formal logic isolates one layer; it does not automatically capture everything surrounding it. This continues the earlier lessons on words and meanings and on mapping an argument without losing its meaning.
+
+## 2. A real philosophical argument
+
+Baruch Spinoza (1632–1677) organized his *Ethics*, published in 1677, using definitions, axioms, propositions and demonstrations in a geometrical style. We will focus on one short argument rather than attempt to explain his whole philosophical system. [Spinoza: Ethics, Part I](https://en.wikisource.org/wiki/Ethics_(Spinoza)/Part_1)
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="source" />
+
+Part I, Proposition III, in R. H. M. Elwes's translation:
+
+> Things which have nothing in common cannot be one the cause of the other.
+
+Its demonstration refers to two earlier axioms. In paraphrase:
+
+- **Axiom IV:** Knowing an effect depends on and involves knowledge of its cause.
+- **Axiom V:** Things with nothing in common cannot be understood through one another; conceiving one does not involve conceiving the other.
+
+The demonstration passes from no commonality to no intelligibility through the other thing, then to no causation. The surrounding definitions concern substance, attributes and what is conceived through itself; that context matters when interpreting “commonality” and “understanding.” [Axioms and Proposition III](https://en.wikisource.org/wiki/Ethics_(Spinoza)/Part_1#Axioms)
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="question" />
+
+Why should having nothing in common prevent one thing from causing another? Before introducing symbols, pause over the relationship between **understanding**, **commonality** and **causation**. The difficulty of interpreting those concepts is part of the argument, not a nuisance that notation can remove.
+
+## 3. Separate the relations before introducing symbols
+
+Let the domain contain the things under consideration. We propose three binary predicates:
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="relations" />
+
+These express relations between objects, not merely names for topics. Once the variables receive objects from the domain, $C(x,y)$ says something specific: $x$ causes $y$. The letter $C$ alone does not supply a theory of causation.
+
+Here $S(x,y)$ represents the relevant commonality intended in the reconstruction. We have not settled which properties count as relevant. Likewise, $U(x,y)$ abbreviates a specified relationship of understanding; it is not yet a definition of understanding.
+
+### The argument order matters
+
+Suppose a falling stone breaks a window:
+
+$$
+C(\text{stone's impact},\text{window breaking}).
+$$
+
+This does not give us
+
+$$
+C(\text{window breaking},\text{stone's impact}).
+$$
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="direction" />
+
+Causation is directional in this example. If $x$ causes $y$, the relevant proposed understanding relation is $U(y,x)$: understanding the **effect** involves understanding the **cause**. It is not automatically $U(x,y)$. The notation forces us to keep track of an order that prose can obscure. Commonality and causation are not the same relation, and the diagram's arrows do not interchange them.
+
+## 4. Reconstruct the argument
+
+The following is a proposed first-order reconstruction, not Spinoza's notation. Each formula must be checked against the text and the interpretation we have chosen.
+
+**Axiom IV, reconstructed:** If $x$ causes $y$, understanding $y$ involves understanding $x$.
+
+$$
+\forall x\forall y\big(C(x,y)\to U(y,x)\big).
+$$
+
+**Axiom V, reconstructed:** If $x$ and $y$ have nothing relevant in common, the relevant direction of understanding does not hold.
+
+$$
+\forall x\forall y\big(\neg S(x,y)\to\neg U(y,x)\big).
+$$
+
+**Proposed conclusion:** If $x$ and $y$ have nothing relevant in common, $x$ does not cause $y$.
+
+$$
+\forall x\forall y\big(\neg S(x,y)\to\neg C(x,y)\big).
+$$
+
+The quantifiers say that this is a general claim about every pair in the chosen domain, not only one stone and one window. Whether that domain and these predicates faithfully capture the philosophical passage remains a separate question.
+
+### Does the conclusion follow?
+
+Take arbitrary $x$ and $y$. From the first premise, contraposition gives
+
+$$
+\neg U(y,x)\to\neg C(x,y).
+$$
+
+The second premise supplies the preceding link:
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="chain" />
+
+Thus the chain is
+
+$$
+\neg S(x,y)\to\neg U(y,x)\to\neg C(x,y).
+$$
+
+Assuming no relevant commonality therefore leads to no causation. The complete conditional derivation is:
+
+| Step | Expression | Justification |
+| --- | --- | --- |
+| 1 | $C(x,y)\to U(y,x)$ | Instantiate the reconstructed Axiom IV. |
+| 2 | $\neg S(x,y)\to\neg U(y,x)$ | Instantiate the reconstructed Axiom V. |
+| 3 | $\neg S(x,y)$ | Temporary assumption. |
+| 4 | $\neg U(y,x)$ | Modus ponens, 2 and 3. |
+| 5 | $\neg C(x,y)$ | Modus tollens, 1 and 4. |
+| 6 | $\neg S(x,y)\to\neg C(x,y)$ | Conditional introduction; discharge assumption 3. |
+
+Since $x$ and $y$ were arbitrary and the temporary assumption has been discharged, universally generalize to the proposed conclusion. This uses classical logic and one consistent interpretation of each predicate throughout.
+
+<Interactive kind="module" module="reasoning-55" preset="proof" id="a55-proof-steps" />
+
+We have demonstrated that the conclusion follows **under this reconstruction**. We have not established the truth of its premises, the historical adequacy of our reading, or everything conveyed by Spinoza's “cannot.” The formal tools are the same contraposition, conditional proof and quantifier reasoning used earlier in the course. [Open Logic Project: forall x, Calgary](https://forallx.openlogicproject.org/forallxyyc.html)
+
+## 5. The philosophical problem has not disappeared
+
+What does $U(y,x)$ mean? A smartphone user may know that pressing a button lights the screen without understanding the electronic circuitry, semiconductor physics or manufacturing process behind it.
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="phone" />
+
+Two pedagogical readings help expose the issue:
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="readings" />
+
+Reading A concerns what a person knows or understands. Reading B concerns what an adequate explanation requires, whether or not a particular observer possesses it. Someone can know that a window broke without knowing why. That challenges certain strong versions of Reading A, but does not automatically contradict Reading B.
+
+These are not two equally authoritative interpretations of Spinoza. The surrounding references to conception support taking conceptual or explanatory dependence seriously; the contrast is a teaching device, not a complete historical interpretation. In either reading, the simplified binary predicate suppresses further questions, such as whose understanding or what standard of adequacy is intended. [Ethics, Part I](https://en.wikisource.org/wiki/Ethics_(Spinoza)/Part_1)
+
+If either reading is substituted **consistently** into both premises, the logical pattern remains valid. The philosophical claims are nevertheless different. **A symbol is not a definition. It is a placeholder for a definition.**
+
+## 6. When notation hides equivocation
+
+Now deliberately construct an unsuccessful formalization. Read the understanding in Axiom IV as explanatory dependence but the understanding in Axiom V as ordinary knowledge:
+
+$$
+C(x,y)\to U_B(y,x),
+$$
+
+$$
+\neg S(x,y)\to\neg U_A(y,x).
+$$
+
+The conclusion does not follow from these two premises alone.
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="gap" />
+
+Erasing the subscripts would make the proof appear to work, while concealing the changed meaning. That is **equivocation**: treating an expression as constant while using it in different senses.
+
+### A countermodel identifies the failure
+
+For one pair of objects, set $C(x,y)$ true, $S(x,y)$ false, $U_A(y,x)$ false and $U_B(y,x)$ true.
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="counterexample" />
+
+The first premise is $T\to T$, so it is true. The second is also $T\to T$, so it is true. But the proposed conclusion $\neg S(x,y)\to\neg C(x,y)$ becomes $T\to F$, which is false. Both premises can hold while the conclusion fails.
+
+This is a logical countermodel to the **mixed reconstruction**, not an empirical counterexample to Spinoza. It isolates a missing inferential connection rather than proving his metaphysics false.
+
+<Interactive kind="module" module="reasoning-55" preset="countermodel" id="a55-break-argument" />
+
+With one fixed meaning of $U$, all eight truth assignments contain no true-premises/false-conclusion case. Allow separate $U_A$ and $U_B$ values, and one of the sixteen assignments is a countermodel. A single favorable assignment never proves validity; the activity reports the exhaustive check separately from its current assignment.
+
+## 7. Translation and interpretive reconstruction
+
+Translating what an author says differs from reconstructing an argument to make its inferential relationships explicit. A reconstruction may require a premise that was not stated. For the mixed reading, consider the added bridge
+
+$$
+\forall x\forall y\big(U_B(y,x)\to U_A(y,x)\big).
+$$
+
+Its contrapositive is
+
+$$
+\neg U_A(y,x)\to\neg U_B(y,x).
+$$
+
+That gives the missing connection:
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="bridge" />
+
+The resulting chain is $\neg S\to\neg U_A\to\neg U_B\to\neg C$ for the arbitrary pair. In the activity, include the bridge and load the former countermodel: the added premise is false there, so it no longer satisfies all the premises. No split-meaning assignment satisfies all three premises while falsifying the conclusion.
+
+But the bridge is a new philosophical commitment. Explanatory dependence does not automatically imply that a particular person has the relevant ordinary knowledge. The assumption may be highly questionable under the intended readings. It must not be silently attributed to Spinoza.
+
+Solid blue boxes identify source premises as reconstructed, dashed purple boxes identify interpreter additions, and teal identifies derived results **conditional on the reconstruction**. These styles do not certify the premises as true.
+
+The goal is not to insert assumptions until every argument becomes valid; sufficiently strong assumptions make that easy. Distinguish **what the author said, what the author may have meant, and what the interpreter added**. A good reconstruction stays accountable to the original text. [OpenStax: Reading Philosophy](https://openstax.org/books/introduction-philosophy/pages/2-5-reading-philosophy)
+
+## 8. What notation can and cannot establish
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="questions" />
+
+Once an interpretation has been chosen, formal reasoning can investigate whether the conclusion follows and whether an extra premise is required. It does not by itself decide which meanings or assumptions about reality we should accept.
+
+### A simple predicate can hide a large question
+
+What qualifies as having something in common? Two things may share a color, physical property, mathematical description or a more fundamental aspect of their nature.
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="commonality" />
+
+A square and a circle are both geometrical figures and can share a color. That alone does not tell us anything relevant about whether one can cause the other. Treating every shared property as Spinoza's intended commonality requires justification. The symbol $S$ compresses a philosophical question into one letter; it does not resolve it.
+
+### Truth is not necessity
+
+Spinoza's proposition says “cannot,” not merely “does not.” Our first-order reconstruction establishes a consequence of its premises in the chosen interpretation:
+
+$$
+\forall x\forall y\big(\neg S(x,y)\to\neg C(x,y)\big).
+$$
+
+A possible stronger modal statement would be
+
+$$
+\Box\forall x\forall y\big(\neg S(x,y)\to\neg C(x,y)\big),
+$$
+
+where $\Box$ represents necessity. We have not proved this stronger statement merely by writing the first one. An inference from premises does not make those premises necessary truths.
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="necessity" />
+
+The possible-worlds picture is a modern teaching device, not an account of Spinoza's metaphysics. It marks a limit of the language we chose: propositional and first-order logic do not automatically settle necessity, causation or explanation. Further modal assumptions and a justified interpretation would be needed.
+
+## 9. Formalize a new philosophical argument
+
+Consider this original teaching example:
+
+> A person can only be morally responsible for an action if they have control over that action. People have no control over involuntary actions. Therefore, people cannot be morally responsible for involuntary actions.
+
+Before looking at the notation, identify the three relations and the direction of “only if.” Let $p$ range over people and $a$ over actions:
+
+$$
+R(p,a):\ p\text{ is morally responsible for }a,
+$$
+
+$$
+K(p,a):\ p\text{ has control over }a,
+$$
+
+$$
+I(p,a):\ a\text{ is involuntary for }p.
+$$
+
+This uses typed domains for people and actions. In a single-domain language, corresponding person/action restrictions would need to be included. The proposed reconstruction is
+
+$$
+\forall p\forall a\big(R(p,a)\to K(p,a)\big),
+$$
+
+$$
+\forall p\forall a\big(I(p,a)\to\neg K(p,a)\big),
+$$
+
+and therefore
+
+$$
+\forall p\forall a\big(I(p,a)\to\neg R(p,a)\big).
+$$
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="transfer" />
+
+<Interactive kind="module" module="reasoning-55" preset="transfer" id="a55-responsibility-transfer" />
+
+<Exercise question="What can this formalization establish, and what remains open?">
+For arbitrary $p$ and $a$, assume $I(p,a)$. The second premise gives $\neg K(p,a)$. The first premise and modus tollens give $\neg R(p,a)$. Discharge the assumption and generalize. The conclusion follows if the premises are accepted under one consistent interpretation.
+
+The notation does not prove the premises true. A disputed concept such as responsibility does not make the logical form invalid by itself. Nor does the conditional derivation establish an unconditional moral verdict about every real case.
+</Exercise>
+
+Now ask what “control” means: immediate physical control, the ability to act differently, or control over earlier decisions leading to the event? In a hypothetical case, someone knowingly takes medication that may cause drowsiness and later chooses to drive. Lack of immediate control over falling asleep does not automatically settle responsibility for the earlier decisions.
+
+This distinction does not by itself refute the moral argument. It shows why we must specify the person, the action being evaluated, the domain and the sense of control. The subject has changed, but the problem of faithful interpretation remains.
+
+## 10. Mathematics as a microscope for reasoning
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="synthesis" />
+
+Mathematics does not make a philosophical argument true. Manipulating symbols does not decide what our words should mean or which assumptions about reality we should accept.
+
+It can show where assumptions enter, distinguish what we demonstrated from what we assumed, and reveal when apparently disagreeing people are reasoning about different things. The value of notation is not only saying more with fewer symbols; it is seeing more clearly what we have actually said.
+
+**Precision is not the same as truth.**
+
+## Further reading
+
+- [Spinoza: Ethics, Part I, Elwes translation](https://en.wikisource.org/wiki/Ethics_(Spinoza)/Part_1): Axioms IV and V, Proposition III and its demonstration; read the surrounding definitions and propositions too.
+- [forall x: Calgary, Open Logic Project](https://forallx.openlogicproject.org/forallxyyc.html): symbolization, relational predicates, quantifiers, natural deduction, countermodels and modal logic.
+- OpenStax, *Introduction to Philosophy*: [How Do Philosophers Arrive at Truth?](https://openstax.org/books/introduction-philosophy/pages/1-2-how-do-philosophers-arrive-at-truth), [Reading Philosophy](https://openstax.org/books/introduction-philosophy/pages/2-5-reading-philosophy) and [Arguments](https://openstax.org/books/introduction-philosophy/pages/5-3-arguments).
+- [Stanford Encyclopedia of Philosophy: Baruch Spinoza](https://plato.stanford.edu/entries/spinoza/) situates the passage within his broader system.
+
+The first-order formulas, contrasting readings, countermodel, optional bridge and moral exercise are teaching constructions. They simplify the historical argument, especially commonality, conceptual dependence and necessity; they are not additional claims quoted from Spinoza.

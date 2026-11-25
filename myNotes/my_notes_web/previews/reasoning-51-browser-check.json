@@ -1,0 +1,52 @@
+{
+  "lesson": "reasoning-51",
+  "normalPreview": "http://127.0.0.1:4451/",
+  "normalSnapshot": "/tmp/aor51-normal-review",
+  "prefixReviewed": "http://127.0.0.1:4551/MyNotes/",
+  "locales": [
+    "en",
+    "de"
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "viewports": [
+    "1280×720 desktop",
+    "390×844 compact"
+  ],
+  "figures": {
+    "variants": 14,
+    "placementsPerLesson": 11
+  },
+  "activities": 4,
+  "galleryInstances": 5,
+  "checks": [
+    "All premise-removal states, including keyboard Space",
+    "Ten source trace choices and five distortions",
+    "Reconstructed C1 and I identified without false quotation",
+    "Unavailable distortion disabled and cleared",
+    "Grant has no mitigating arrow outside trial scope; cost remains 1200",
+    "Garden reference readable; causal explanation distinguished",
+    "All four resets inspected together against their initial states",
+    "Independent gallery removal state unchanged",
+    "English and German search exact titles found",
+    "Prefix language switch, header links, activities and search in both languages",
+    "Correct final German Monday-to-Friday source and compact wording",
+    "No compact horizontal overflow; browser warning/error logs empty"
+  ],
+  "finalReset": {
+    "first": true,
+    "second": true,
+    "claim": "C",
+    "distorted": false,
+    "grant": true,
+    "scope": "trial",
+    "attempt": "",
+    "reference": false
+  },
+  "limitations": [
+    "No expert editorial or native-language certification",
+    "No screen-reader or physical-device certification"
+  ]
+}

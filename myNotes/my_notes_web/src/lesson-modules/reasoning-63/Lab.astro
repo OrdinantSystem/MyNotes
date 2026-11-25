@@ -1,0 +1,30 @@
+---
+import {limits,draftLimit,type NumericPreset} from './model';
+import {numericMarkup} from './render';
+import {text} from './copy';
+import MathText from '../../components/MathText.astro';
+import './styles.css';
+interface Props{preset:NumericPreset|'draft'|'examiner';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale),numeric=preset in limits,b=numeric?limits[preset as NumericPreset]:null;
+---
+<figure class="a63-lab" id={id} data-a63-lab={preset} data-locale={locale}>
+ <h3>{c.labs[preset]}</h3>
+ {b&&<>
+  <div class="a63-controls"><button type="button" data-a63-less aria-label={c.decrease}>−</button><label for={`${id}-number`}>{preset==='explore'?c.odd:c.parameter}</label><input id={`${id}-number`} data-a63-number type="number" min={b.min} max={b.max} step={b.step} value={b.initial} aria-controls={`${id}-output`}/><button type="button" data-a63-more aria-label={c.increase}>+</button></div>
+  <label class="a63-range" for={`${id}-range`}>{c.number}<input id={`${id}-range`} data-a63-range type="range" min={b.min} max={b.max} step={b.step} value={b.initial} aria-controls={`${id}-output`}/></label>
+  {preset==='geometry'&&<div class="a63-controls">{c.stages.map((label,i)=><button type="button" data-a63-stage={['square','rectangles','pairs'][i]} aria-pressed={i===0?'true':'false'} aria-controls={`${id}-output`}>{label}</button>)}</div>}
+  <div id={`${id}-output`} data-a63-output set:html={numericMarkup(locale,preset as NumericPreset,b.initial)}/>
+ </>}
+ {preset==='draft'&&<>
+  <p><MathText text="$n=2k+1,\ k\in\mathbb Z$. → $n^2=8m+1,\ m\in\mathbb Z$."/></p>
+  <p id={`${id}-local`}>{c.local}</p>
+  <label class="a63-draft-label" for={`${id}-first`}>{c.first}</label><textarea id={`${id}-first`} data-a63-first maxlength={draftLimit} rows="7" placeholder={c.placeholder} aria-describedby={`${id}-local`}/>
+  <button type="button" data-a63-hint aria-controls={`${id}-hints`}>{c.hint} (0/3)</button><ol id={`${id}-hints`} data-a63-hints></ol>
+  <fieldset class="a63-review"><legend>{c.review}</legend><p>{c.reviewNote}</p>{c.criteria.map(criterion=><label class="a63-check"><input type="checkbox" data-a63-criterion/><span>{criterion}</span></label>)}</fieldset>
+  <label class="a63-draft-label" for={`${id}-revision`}>{c.revision}</label><textarea id={`${id}-revision`} data-a63-revision maxlength={draftLimit} rows="7" aria-describedby={`${id}-local`}/>
+  <p id={`${id}-replace`}>{c.revisionNote}</p><div class="a63-controls"><button type="button" data-a63-revise disabled aria-describedby={`${id}-replace`}>{c.startRevision}</button><button type="button" data-a63-copy disabled>{c.copy}</button></div>
+ </>}
+ {preset==='examiner'&&<><p>{c.examNote}</p>{c.submissions.map((submission,i)=><section class="a63-box" data-a63-submission={i}><h4>{c.proof} {String.fromCharCode(65+i)}</h4><p>{submission}</p><label for={`${id}-choice-${i}`}>{c.choose}</label><select id={`${id}-choice-${i}`} data-a63-choice={i}><option value="">{c.choose}</option>{c.options[i].map((option,j)=><option value={j}>{option}</option>)}</select><button type="button" data-a63-inspect={i} disabled aria-expanded="false" aria-controls={`${id}-feedback-${i}`}>{c.inspect}</button><div id={`${id}-feedback-${i}`} data-a63-feedback={i} hidden/></section>)}</>}
+ <button type="button" data-a63-reset>{preset==='draft'?c.resetDraft:c.reset}</button><p class="a63-status" role="status" aria-live="polite" data-a63-status></p>
+</figure>
+<script>import './controller';</script>

@@ -1,0 +1,26 @@
+---
+import './styles.css';
+import {text} from './copy';
+import {removalMarkup,traceMarkup,objectionMarkup,gardenMarkup,options} from './render';
+interface Props{preset:'removal'|'trace'|'objections'|'garden';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale);
+---
+<figure class="am-view" id={id} data-argument-map-lab={preset} data-locale={locale}>
+ <h3>{preset==='removal'?c.titles.removal:preset==='trace'?c.fidelity:preset==='objections'?c.titles.objection:c.gardenTask}</h3>
+ {preset==='removal'?<><div class="am-controls"><label><input type="checkbox" data-am-first checked/>{c.first}</label><label><input type="checkbox" data-am-second checked/>{c.second}</label></div><div data-am-output id={`${id}-output`} set:html={removalMarkup(locale)}/></>:preset==='trace'?<><label for={`${id}-claim`}>{c.choose}</label><select id={`${id}-claim`} data-am-claim>{options(locale).map(o=><option value={o.id}>{o.label}</option>)}</select><label><input type="checkbox" data-am-distort/>{c.distort}</label><div data-am-output id={`${id}-output`} set:html={traceMarkup(locale)}/></>:preset==='objections'?<><label><input type="checkbox" data-am-grant checked/>{c.grant}</label><label for={`${id}-scope`}>{c.scope}</label><select id={`${id}-scope`} data-am-scope><option value="trial">{c.trial}</option><option value="permanent">{c.permanent}</option></select><div data-am-output id={`${id}-output`} set:html={objectionMarkup(locale)}/></>:<><label for={`${id}-attempt`}>{c.attempt}</label><textarea id={`${id}-attempt`} data-am-attempt maxlength="1800"></textarea><p>{c.local}</p><details data-am-reference><summary>{c.reference}</summary><div set:html={gardenMarkup(locale)}/></details></>}
+ <div class="am-controls"><button type="button" data-am-reset>{c.reset}</button></div><p class="am-status" role="status" aria-live="polite" data-am-status></p>
+</figure>
+<script>
+import {text} from './copy';
+import {removal,trace,distortions,type Locale,type ClaimId} from './model';
+import {removalMarkup,traceMarkup,objectionMarkup} from './render';
+for(const root of document.querySelectorAll<HTMLElement>('[data-argument-map-lab]')){
+ const locale=root.dataset.locale as Locale,c=text(locale),preset=root.dataset.argumentMapLab,output=root.querySelector<HTMLElement>('[data-am-output]'),status=root.querySelector<HTMLElement>('[data-am-status]')!;
+ const first=root.querySelector<HTMLInputElement>('[data-am-first]'),second=root.querySelector<HTMLInputElement>('[data-am-second]'),choose=root.querySelector<HTMLSelectElement>('[data-am-claim]'),distort=root.querySelector<HTMLInputElement>('[data-am-distort]'),grant=root.querySelector<HTMLInputElement>('[data-am-grant]'),scope=root.querySelector<HTMLSelectElement>('[data-am-scope]');
+ function update(){if(preset==='removal'){const a=first!.checked,b=second!.checked,s=removal(a,b);output!.innerHTML=removalMarkup(locale,a,b);status.textContent=`${c.independent}: ${s.independent} ${s.independent===1?c.path:c.paths}. ${c.linked}: ${s.linked?c.intact:c.broken}.`;}
+ if(preset==='trace'){const id=choose!.value as ClaimId;distort!.disabled=!(distortions as readonly string[]).includes(id);if(distort!.disabled)distort!.checked=false;const s=trace(id,distort!.checked);output!.innerHTML=traceMarkup(locale,id,distort!.checked);status.textContent=s.distorted?c.why[id as keyof typeof c.why]:s.reconstructed?c.reconstructed:c.faithful;}
+ if(preset==='objections'){const which=scope!.value as 'trial'|'permanent';output!.innerHTML=objectionMarkup(locale,grant!.checked,which);status.textContent=which==='permanent'?c.outside:grant!.checked?c.covered:c.uncovered;}}
+ for(const input of [first,second,choose,distort,grant,scope])input?.addEventListener('change',update);
+ root.querySelector('[data-am-reset]')!.addEventListener('click',()=>{if(first)first.checked=true;if(second)second.checked=true;if(choose)choose.value='C';if(distort){distort.checked=false;distort.disabled=false;}if(grant)grant.checked=true;if(scope)scope.value='trial';if(preset==='garden'){root.querySelector<HTMLTextAreaElement>('[data-am-attempt]')!.value='';root.querySelector<HTMLDetailsElement>('[data-am-reference]')!.open=false;}else update();status.textContent=c.reset;});
+}
+</script>

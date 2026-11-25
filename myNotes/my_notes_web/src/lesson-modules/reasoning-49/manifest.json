@@ -1,0 +1,45 @@
+{
+  "id": "reasoning-49",
+  "course": "reasoning",
+  "chapter": "reasoning-part-seven",
+  "chapterDefinition": {
+    "id": "reasoning-part-seven",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Seven",
+      "de": "Teil Sieben"
+    },
+    "description": {
+      "en": "Knowledge, justification, and philosophical reasoning.",
+      "de": "Wissen, Rechtfertigung und philosophisches Denken."
+    }
+  },
+  "order": 49,
+  "key": "being-correct-having-reasons-and-knowing",
+  "title": "Being correct, having reasons, and knowing",
+  "sourceId": "reasoning-episode-49",
+  "sourceTitle": "Being correct, having reasons, and knowing",
+  "figures": [
+    "architecture",
+    "opening",
+    "truth",
+    "evidence-path",
+    "contrast",
+    "jtb",
+    "luck",
+    "timeline",
+    "repair",
+    "defeater",
+    "independence",
+    "sets",
+    "method",
+    "proof",
+    "questions"
+  ],
+  "presets": [
+    "layers",
+    "tracking",
+    "evidence",
+    "practice"
+  ]
+}

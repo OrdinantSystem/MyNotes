@@ -1,0 +1,47 @@
+{
+  "id": "reasoning-64",
+  "course": "reasoning",
+  "chapter": "reasoning-part-eight",
+  "chapterDefinition": {
+    "id": "reasoning-part-eight",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Eight",
+      "de": "Teil Acht"
+    },
+    "description": {
+      "en": "Practical and ethical reasoning.",
+      "de": "Praktisches und ethisches Argumentieren."
+    }
+  },
+  "order": 64,
+  "key": "think-clearly-about-a-real-decision",
+  "title": "Final workshop: think clearly about a real decision",
+  "sourceId": "reasoning-episode-64",
+  "sourceTitle": "AoR 64 — Final Workshop: Think Clearly About a Real Decision",
+  "figures": [
+    "proposal",
+    "dossier",
+    "argument",
+    "frequencies",
+    "comparison",
+    "causal",
+    "subgroups",
+    "options",
+    "budget",
+    "decision",
+    "information",
+    "workspace",
+    "pilot",
+    "revised",
+    "updates",
+    "course"
+  ],
+  "presets": [
+    "opening",
+    "argument",
+    "composition",
+    "decision",
+    "reflection"
+  ]
+}

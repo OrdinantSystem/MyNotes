@@ -129,6 +129,22 @@ for(const m of lessonModules){
  if(chapter!.course!==m.course||chapters.some(c=>c.course===m.course&&c.groups.some(g=>g.orders.includes(m.order))))throw new Error(`Module navigation collision: ${m.id}`);
  chapter!.groups[0].orders.push(m.order);chapter!.groups[0].orders.sort((a,b)=>a-b);
 }
+// Course-wide display names are applied after module registration so concurrent
+// lesson manifests can keep their existing chapter definitions and stable IDs.
+const reasoningPartTitles: {id:string;title:Label}[] = [
+ {id:'reasoning-part-one',title:{en:'I - From Everyday Ideas to Mathematical Thinking',de:'I - Von Alltagsideen zum mathematischen Denken'}},
+ {id:'reasoning-part-two',title:{en:'II - The Hidden Structure of Logic',de:'II - Die verborgene Struktur der Logik'}},
+ {id:'reasoning-part-three',title:{en:'III - How to Build a Proof',de:'III - Wie man einen Beweis aufbaut'}},
+ {id:'reasoning-part-four',title:{en:'IV - How to Think When You’re Stuck',de:'IV - Wie man weiterdenkt, wenn man feststeckt'}},
+ {id:'reasoning-part-five',title:{en:'V - Reasoning in an Uncertain World',de:'V - Argumentieren in einer unsicheren Welt'}},
+ {id:'reasoning-part-six',title:{en:'VI - Finding Out What Causes What',de:'VI - Ursachen und Wirkungen erkennen'}},
+ {id:'reasoning-part-seven',title:{en:'VII - What Makes a Good Reason to Believe?',de:'VII - Was ist ein guter Grund, etwas zu glauben?'}},
+ {id:'reasoning-part-eight',title:{en:'VIII - Putting Clear Thinking into Practice',de:'VIII - Klares Denken in die Praxis umsetzen'}},
+];
+for(const part of reasoningPartTitles){
+ const chapter=chapters.find(c=>c.course==='reasoning'&&c.id===part.id);
+ if(chapter)chapter.title=part.title;
+}
 export function courseFor(id:CourseId){const c=courses.find(c=>c.id===id);if(!c)throw new Error(`Unknown course ${id}`);return c;}
 export function chapterFor(id:string){const c=chapters.find(c=>c.id===id);if(!c)throw new Error(`Unknown chapter ${id}`);return c;}
 export const chaptersFor=(course:CourseId)=>chapters.filter(c=>c.course===course);

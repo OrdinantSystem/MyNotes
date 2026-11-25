@@ -1,0 +1,220 @@
+{
+  "layouts": [
+    {
+      "height": 1000,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "height": 1000,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "height": 1000,
+      "locale": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "height": 1000,
+      "locale": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "height": 844,
+      "locale": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "height": 844,
+      "locale": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "height": 844,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "height": 844,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    }
+  ],
+  "checks": {
+    "firstWorld": "Every result can inform correction.\n\nTrial\tPrediction\tVisible outcome\n1 · Circle\tLeft\tLeft · Correct",
+    "predictionLocked": true,
+    "noFeedback": "No outcomes are shown; confidence cannot be checked here.\n\nTrial\tPrediction\tVisible outcome\n1 · Circle\tLeft\tNot shown",
+    "delayed": "The last two outcomes remain hidden. Later trials reveal earlier results.\n\nTrial\tPrediction\tVisible outcome\n1 · Circle\tLeft\tLeft · Correct\n2 · Circle\tLeft\tNot shown\n3 · Circle\tLeft\tNot shown",
+    "endpoint": {
+      "nextEnabled": false,
+      "status": "The twelve-trial demonstration is complete. Reset to start again.",
+      "rows": 12
+    },
+    "worldChange": {
+      "rows": 0,
+      "nextEnabled": false
+    },
+    "input:": "4",
+    "input:0": "4",
+    "input:13": "4",
+    "input:2.5": "4",
+    "square12": {
+      "cells": 16,
+      "nextEnabled": true,
+      "output": "9 + 7 = 16 = 42\n\nThe new L-shaped layer has 7 cells. A square of side 3 becomes a square of side 4."
+    },
+    "square1": {
+      "previousEnabled": true,
+      "output": "9 + 7 = 16 = 42\n\nThe new L-shaped layer has 7 cells. A square of side 3 becomes a square of side 4."
+    },
+    "selectiveWrong": "Only correct predictions are shown. Missing outcomes can create a distorted impression.\n\nTrial\tPrediction\tVisible outcome\n1 · Square\tLeft\tNot shown",
+    "selectiveCorrect": "Only correct predictions are shown. Missing outcomes can create a distorted impression.\n\nTrial\tPrediction\tVisible outcome\n1 · Square\tLeft\tNot shown\n2 · Circle\tLeft\tLeft · Correct",
+    "allYes": "Areas requiring additional checks\n\nYour answers describe favourable conditions to investigate. They do not establish accuracy or certify expertise.\n\nThis exercise identifies possible weaknesses. It does not calculate accuracy or certify expertise. Your responses are not submitted or saved.",
+    "singleWeakness": "Areas requiring additional checks\nFeedback quality · No\n\nUse objective evaluation criteria and record failures as well as successes.\n\nThis exercise identifies possible weaknesses. It does not calculate accuracy or certify expertise. Your responses are not submitted or saved.",
+    "copyStatus": "Assessment copied.",
+    "copyText": "The intuition audit\nSpecific skill or judgment: Recognizing programming errors <example>\nRelevant experience: Yes\nEnvironmental regularity: Yes\nFeedback quality: No\nFeedback speed: Yes\nIndependent evidence: Yes\nEnvironmental stability: Yes\nAreas requiring additional checks\nFeedback quality: Use objective evaluation criteria and record failures as well as successes.\nThis exercise identifies possible weaknesses. It does not calculate accuracy or certify expertise. Your responses are not submitted or saved.",
+    "auditReset": {
+      "skill": "",
+      "unsure": 6
+    },
+    "worldIsolated": 2,
+    "calibration": "Forecaster A\n\nStated confidence: 80%\n\nObserved accuracy: 80% (80/100)\n\nForecaster B\n\nStated confidence: 80%\n\nObserved accuracy: 50% (50/100)\n\nConstructed example: 100 comparable binary forecasts per person. These are not empirical study data.\n\nA matches 80% confidence at this one observed confidence level; B is 30 percentage points overconfident in this sample. This does not establish future calibration, discrimination or performance on harder tasks.",
+    "calibrationReset": "Forecaster A\n\nStated confidence: 80%\n\nObserved results not yet revealed.\n\nForecaster B\n\nStated confidence: 80%\n\nObserved results not yet revealed.\n\nConstructed example: 100 comparable binary forecasts per person. These are not empirical study data.",
+    "gallery": {
+      "instances": 5,
+      "figures": 12,
+      "independent": "A",
+      "duplicates": []
+    },
+    "searchPrefixDE": "/MyNotes/de/reasoning/lessons/when-should-you-trust-your-intuition/",
+    "prefixLanguage": {
+      "home": "/MyNotes/",
+      "url": "http://127.0.0.1:4656/MyNotes/reasoning/lessons/when-should-you-trust-your-intuition/"
+    },
+    "corrected12": {
+      "cells": 144,
+      "nextDisabled": true,
+      "output": "121 + 23 = 144 = 122The new L-shaped layer has 23 cells. A square of side 11 becomes a square of side 12.",
+      "value": "12"
+    },
+    "corrected1": {
+      "cells": 1,
+      "output": "0 + 1 = 1 = 12The new L-shaped layer has 1 cell. A square of side 0 becomes a square of side 1.",
+      "previousDisabled": true,
+      "value": "1"
+    },
+    "correctedBad:": {
+      "cells": 1,
+      "status": "Enter a whole number from 1 to 12; the previous valid value is restored.",
+      "value": "1"
+    },
+    "correctedBad:0": {
+      "cells": 1,
+      "status": "Enter a whole number from 1 to 12; the previous valid value is restored.",
+      "value": "1"
+    },
+    "correctedBad:13": {
+      "cells": 1,
+      "status": "Enter a whole number from 1 to 12; the previous valid value is restored.",
+      "value": "1"
+    },
+    "correctedBad:2.5": {
+      "cells": 1,
+      "status": "Enter a whole number from 1 to 12; the previous valid value is restored.",
+      "value": "1"
+    },
+    "enterApply": "16 + 9 = 25 = 52\n\nThe new L-shaped layer has 9 cells. A square of side 4 becomes a square of side 5.",
+    "germanSquares": "25 + 11 = 36 = 62\n\nDie neue L-Schicht hat 11 Zellen. Aus einem Quadrat mit Seite 5 wird eines mit Seite 6.",
+    "germanAudit": "Bereiche mit weiterem Prüfbedarf\nEinschlägige Erfahrung · Unsicher\n\nÜbe mit repräsentativen Fällen und Korrekturen.\n\nRegelmäßigkeit der Umgebung · Nein\n\nPrüfe, ob das Merkmal das Ziel vorhersagt; nutze bei schwachem Signal Wahrscheinlichkeiten, Basisraten und Unsicherheitsbereiche.\n\nQualität der Rückmeldung · Unsicher\n\nNutze objektive Bewertungskriterien und dokumentiere Misserfolge ebenso wie Erfolge.\n\nGeschwindigkeit der Rückmeldung · Unsicher\n\nHalte Vorhersage und Kontext fest, damit sich verspätete Ergebnisse zuordnen lassen.\n\nUnabhängige Evidenz · Unsicher\n\nVergleiche die Leistung mit einem unabhängigen Maßstab bei repräsentativen Aufgaben.\n\nStabilität der Umgebung · Unsicher\n\nPrüfe die Leistung unter heutigen Bedingungen und achte auf Veränderungen der Aufgabe.\n\nDiese Übung identifiziert mögliche Schwächen. Sie berechnet keine Genauigkeit und bescheinigt keine Expertise. Deine Antworten werden weder übertragen noch gespeichert.",
+    "germanWorld": "Jedes Ergebnis kann zur Korrektur beitragen.\n\nVersuch\tVorhersage\tSichtbares Ergebnis\n1 · Kreis\tLinks\tLinks · Richtig",
+    "compactStructure": {
+      "boards": [
+        {
+          "parent": 303,
+          "width": 303
+        },
+        {
+          "parent": 303,
+          "width": 303
+        },
+        {
+          "parent": 303,
+          "width": 303
+        }
+      ],
+      "mathErrors": 0,
+      "tables": [
+        {
+          "content": 340,
+          "width": 303
+        }
+      ]
+    },
+    "nativeNumericKey": {
+      "cells": 25,
+      "value": "5"
+    },
+    "rootNumeric": 144,
+    "finalGallery": {
+      "figures": 12,
+      "instances": 5,
+      "apply": 1,
+      "firstRows": 1,
+      "independentRows": 0
+    },
+    "searchRootEN": "/reasoning/lessons/when-should-you-trust-your-intuition/",
+    "searchRootDE": "/de/reasoning/lessons/when-should-you-trust-your-intuition/",
+    "searchCorrectedPrefixDE": "/MyNotes/de/reasoning/lessons/when-should-you-trust-your-intuition/",
+    "prefixNumeric": 64,
+    "final": {
+      "height": 720,
+      "home": "/",
+      "mathErrors": 0,
+      "overflow": false,
+      "title": "When Should You Trust Your Intuition?",
+      "url": "http://127.0.0.1:4956/reasoning/lessons/when-should-you-trust-your-intuition/",
+      "width": 1280
+    }
+  },
+  "logs": {
+    "finalLesson": [],
+    "gallery": [],
+    "normal": [],
+    "prefix": [],
+    "search": []
+  },
+  "evidence": [
+    "reasoning-56-desktop-en.jpg",
+    "reasoning-56-compact-de.jpg"
+  ],
+  "notes": [
+    "Initial numeric change-only behavior did not update in the browser; corrected input events, Enter and an explicit apply action were rechecked successfully.",
+    "A denied clipboard permission was not forced; normal copy succeeded and the plaintext fallback was inspected in source.",
+    "The model is illustrative. The audit does not estimate accuracy or certify expertise."
+  ]
+}

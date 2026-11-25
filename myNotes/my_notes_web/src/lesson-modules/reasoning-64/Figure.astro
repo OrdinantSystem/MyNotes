@@ -1,0 +1,9 @@
+---
+import './styles.css';
+import {figureMarkup} from './render';
+import {text} from './copy';
+import type {Locale} from './model';
+interface Props{figure:string}
+const {figure}=Astro.props,locale=(Astro.locals.locale||'en') as Locale;
+---
+<figure class="decision-view" data-decision-figure={figure}><h3>{text(locale).titles[figure]}</h3><div set:html={figureMarkup(locale,figure)}/></figure>

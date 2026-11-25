@@ -1,0 +1,21 @@
+{
+  "version": "Lean (version 4.36.0, arm64-apple-darwin24.6.0, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "release": "https://github.com/leanprover/lean4/releases/tag/v4.36.0",
+  "checks": {
+    "complete": {
+      "exitCode": 0,
+      "output": "'even_sum' does not depend on any axioms\n",
+      "sha256": "817d2ecbd260d4d09480bbe189df2697eda7f1a14f9a43c8fb7d317eb89bf9fb"
+    },
+    "incorrect": {
+      "exitCode": 1,
+      "output": "/tmp/aor60-incorrect.lean:7:21: error: unsolved goals\ncase calc.step\nm n a : Nat\nha : m = 2 * a\nb : Nat\nhb : n = 2 * b\n\u22a2 2 * (a + b) = 2 * (a * b)\n'even_sum' depends on axioms: [sorryAx]\n",
+      "sha256": "02eaa77eae79d2c7dc484ac682c39d3e0a9d3df5646b95c4c19c1b7ed89580bf"
+    },
+    "placeholder": {
+      "exitCode": 0,
+      "output": "/tmp/aor60-placeholder.lean:1:8: warning: declaration uses `sorry`\n'incomplete' depends on axioms: [sorryAx]\n",
+      "sha256": "c8885cb6331a3c32c426bb2f22d54c5a97c67a0425367bbd3da875a9cd9733c7"
+    }
+  }
+}

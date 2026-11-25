@@ -1,0 +1,261 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-eight
+sourceId: reasoning-episode-58
+sourcePages: []
+sourceLocations: ["Sections 1–4: decision quality, festival options, actions, states and decision table", "Sections 5–7: expectation, outcome distributions, utility and multiple values", "Sections 8–9: feasible actions, sensitivity and decision boundaries", "Sections 10–11 and 14: workshop, hindsight and synthesis"]
+title: "Entscheiden, wenn keine Option perfekt ist"
+navTitle: "Entscheiden unter Unsicherheit"
+description: "Unsichere Optionen anhand von Folgen, Wahrscheinlichkeiten, Präferenzen, Nebenbedingungen und Sensitivität vergleichen."
+order: 58
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+thumbnail: module:reasoning-58
+---
+
+Manchmal müssen wir entscheiden, was wir tun, bevor wir wissen, was geschehen wird. Jede Option verlangt einen Verzicht: auf Geld, Verlässlichkeit, Platz oder Flexibilität. Mehr Informationen können helfen, ohne die Unsicherheit zu beseitigen, und unsere Präferenzen können sich widersprechen.
+
+Entscheidungstheorie hilft, diesen Vergleich ausdrücklich darzustellen. Sie legt nicht fest, was wir wertschätzen sollen, und liefert nicht automatisch eine eindeutig richtige Wahl. Ein **gutes Ergebnis** ist etwas, das eingetreten ist. Eine **gute Entscheidung** ist eine Wahl, die durch die damals verfügbaren relevanten Informationen, Bedingungen und Präferenzen gerechtfertigt war. Beides kann auseinanderfallen.
+
+## Ein Fest vor der Wettervorhersage
+
+Stell dir vor, du organisierst ein Gemeindefest. Den Veranstaltungsort musst du reservieren, bevor das Wetter feststeht. Was würdest du zunächst wählen, und welche Informationen brauchst du, um diese Wahl zu begründen?
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="venues" />
+
+Ein Platz im Freien wirkt attraktiv, weil er günstig und geräumig ist. Ein Innenraum bietet Verlässlichkeit. Ein überdachter Platz bietet einen Kompromiss. Das sind jedoch Optionen mit jeweils mehreren möglichen Folgen. Wir wählen nicht unmittelbar zwischen drei bereits bekannten Ergebnissen.
+
+Wir bestimmen die Reservierung, aber nicht das Wetter. Eine **Handlung** ist eine Wahl, die wir treffen. Ein **Weltzustand** beschreibt die relevanten Umstände. Handlung und Zustand bestimmen zusammen eine **Folge** in unserem Modell.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="structure" />
+
+## Die Entscheidungstabelle aufstellen
+
+Wir verwenden die folgenden fiktiven Schätzwerte. Die Vorabkosten fallen unabhängig vom Wetter an; die Einnahmen hängen vom Besuch im jeweiligen Zustand ab. Weitere Ausgaben, Erstattungen und Wetterlagen lassen wir in diesem Lehrbeispiel außer Betracht.
+
+| Ort | Vorabkosten | Einnahmen bei Trockenheit | Einnahmen bei Regen |
+| --- | ---: | ---: | ---: |
+| A. Im Freien | 600 € | 1.200 € | 0 € |
+| B. Überdacht | 780 € | 1.200 € | 720 € |
+| C. Innenraum | 960 € | 1.200 € | 1.200 € |
+
+Einnahmen minus Kosten ergeben den Nettogewinn oder Nettoverlust. Ein verregnetes überdachtes Fest ergibt beispielsweise $720-780=-60$, also 60 € Verlust. Vorabausgaben von 780 € und ein Nettoverlust von 60 € sind verschiedene Größen.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="payoffs" />
+
+Im Freien sind der höchste Gewinn und der größte Verlust möglich. Der Innenraum liefert in beiden Zuständen einen mäßigen Gewinn **innerhalb dieses vereinfachten Modells**. Das ist keine Garantie für reale Veranstaltungen in Innenräumen. Die überdachte Option liegt dazwischen.
+
+Ändere das Wetter und untersuche die Folgen. Die Zahlen folgen der angenommenen Tabelle; die Besucher in der Zeichnung sind schematisch.
+
+<Interactive kind="module" module="reasoning-58" preset="weather" id="aor58-weather" />
+
+Aus der Tabelle allein geht noch nicht hervor, welcher Ort den höchsten erwarteten Gewinn liefert. Dazu brauchen wir Wahrscheinlichkeiten.
+
+## Der Erwartungswert verbindet Wahrscheinlichkeit und Folge
+
+Angenommen, eine Vorhersage nennt eine Regenwahrscheinlichkeit von 20 %. Auch diese Wahrscheinlichkeit ist eine fiktive Annahme und kein aktueller Wetterbericht. Bei einer tatsächlichen Entscheidung müssten wir die Belege und die Verlässlichkeit der Vorhersage prüfen.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="forecast" />
+
+Die Zustände schließen einander aus und sind in unserem Modell vollständig: Genau einer tritt ein. Bezeichnet $p$ die Regenwahrscheinlichkeit, beträgt die Trockenwahrscheinlichkeit $1-p$, mit $0\leq p\leq1$.
+
+Stell dir vor, das Fest im Freien würde unter vergleichbaren Bedingungen mit denselben Wahrscheinlichkeiten 100-mal stattfinden. Eine Folge mit 80 trockenen und 20 verregneten Festen veranschaulicht die Gewichtung:
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="hundred" />
+
+$$
+\frac{80(600)+20(-600)}{100}=\frac{48{,}000-12{,}000}{100}=360.
+$$
+
+Genau 80 trockene Feste in 100 Versuchen wären nicht garantiert. Das Beispiel macht einen theoretischen Mittelwert anschaulich; für seine Berechnung müssen wir die Versuche nicht durchführen. Für eine diskrete Zufallsvariable $X$ mit möglichen Werten $x_i$ und zugehörigen Wahrscheinlichkeiten $p_i$ gilt:
+
+$$
+\mathbb{E}[X]=\sum_{i=1}^{n}p_ix_i,\qquad \sum_{i=1}^{n}p_i=1.
+$$
+
+Jedes zahlenmäßige Ergebnis wird mit seiner Wahrscheinlichkeit gewichtet. Für die drei Orte ergeben sich:
+
+$$
+\begin{aligned}
+E_A&=0.8(600)+0.2(-600)=480-120=360,\\
+E_B&=0.8(420)+0.2(-60)=336-12=324,\\
+E_C&=0.8(240)+0.2(240)=240.
+\end{aligned}
+$$
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="expected" />
+
+Nach dem Gelderwartungswert allein ist das Fest im Freien vorzuziehen. Es kann in diesem Modell aber gar nicht 360 € Gewinn erzielen: Es bringt entweder 600 € Gewinn oder 600 € Verlust. **Der Erwartungswert ist ein mit Wahrscheinlichkeiten gewichteter Mittelwert, keine Vorhersage des konkreten Ergebnisses, das wir erhalten.**
+
+## Über den Mittelwert hinausblicken
+
+Angenommen, ein Verlust von 600 € würde verhindern, dass der Verein im nächsten Jahr erneut ein Fest veranstaltet. Ein etwas höherer erwarteter Ertrag könnte dann als Rechtfertigung für dieses Risiko unzureichend sein.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="outcomes" />
+
+| Eigenschaft bei 20 % Regenwahrscheinlichkeit | Im Freien | Überdacht | Innenraum |
+| --- | ---: | ---: | ---: |
+| Erwarteter Gewinn | 360 € | 324 € | 240 € |
+| Bestes modelliertes Ergebnis | +600 € | +420 € | +240 € |
+| Schlechtestes modelliertes Ergebnis | −600 € | −60 € | +240 € |
+| Verlustwahrscheinlichkeit | 20 % | 20 % | 0 % |
+
+Im Freien und überdacht ist die Wahrscheinlichkeit eines Geldverlusts gleich, seine Schwere unterscheidet sich jedoch stark. Eine Wahrscheinlichkeit allein beschreibt nicht das gesamte Risiko. Umgekehrt sagt ein schlechtester Fall für sich genommen nichts darüber, wie wahrscheinlich er ist.
+
+Wer überdacht statt im Freien wählt, verzichtet auf $360-324=36$ Euro erwarteten Gewinn und verringert den größten modellierten Verlust um $600-60=540$ Euro.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="tradeoff" />
+
+Dieser Vergleich benennt eine Abwägung. Ob der zusätzliche erwartete Gewinn das zusätzliche Verlustrisiko rechtfertigt, hängt von den Umständen und Präferenzen der Organisation ab.
+
+## Nutzen stellt ein Präferenzmodell dar
+
+Eine große Organisation könnte 600 € Verlust leicht verkraften. Derselbe Geldverlust könnte den Fortbestand eines kleinen Vereins gefährden. Der Geldbetrag ist identisch, seine Bedeutung unterscheidet sich.
+
+**Nutzen** ist eine mathematische Darstellung von Präferenzen über Ergebnisse. Der Erwartungsnutzen vergleicht unsichere Optionen anhand ihrer Wahrscheinlichkeiten und ihrer modellierten Wünschbarkeit. Er macht Annahmen überprüfbar, ist aber keine vollständige oder unumstrittene Theorie der Rationalität.
+
+Betrachten wir zwei beispielhafte Funktionen der finanziellen Nettoveränderung $x$:
+
+$$
+u_1(x)=x,\qquad
+u_2(x)=\begin{cases}x&x\geq0,\\3x&x<0.\end{cases}
+$$
+
+Die erste bewertet jeden zusätzlichen Euro gleich. Die zweite gibt Verlusten das Dreifache des negativen Gewichts, das gleich großen Gewinnen positiv zukommt. Insbesondere gilt $u_2(-600)=-1800$ und $u_2(600)=600$.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="utility" />
+
+Diese stückweise Funktion ist ein bewusst vereinfachtes Präferenzmodell für finanzielle Veränderungen relativ zu null. Sie ist kein allgemeines psychologisches oder ethisches Gesetz. Sie behauptet weder, dass jede Organisation Verluste so bewertet, noch, dass jede Risikoeinstellung diese Form hat.
+
+Der Erwartungsnutzen gewichtet die Nutzenwerte der Ergebnisse:
+
+$$
+EU(a)=\sum_{i=1}^{n}p_i\,u(x_i(a)).
+$$
+
+Dabei ist $a$ eine Handlung und $x_i(a)$ ihr Ergebnis im Zustand $i$. Mit $u_2$ und den ursprünglichen Wahrscheinlichkeiten folgt:
+
+$$
+\begin{aligned}
+EU_A&=0.8(600)+0.2(-1800)=120,\\
+EU_B&=0.8(420)+0.2(-180)=300,\\
+EU_C&=0.8(240)+0.2(240)=240.
+\end{aligned}
+$$
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="preferences" />
+
+Nun hat die überdachte Option den höchsten Erwartungsnutzen. Weder Wahrscheinlichkeiten noch finanzielle Folgen haben sich geändert, sondern deren Bewertung. Die Geldspalte ist in Euro gemessen, die Nutzenspalte in Modelleinheiten. Ein direkter Vergleich von 300 Nutzeneinheiten mit 360 € würde Größen vermischen.
+
+Untersuche Verlustgewichte von 1 bis 5 bei unveränderten Fakten. Gewicht 1 ergibt wieder die Geldrangfolge, Gewicht 3 das obige Beispiel. Die zusätzlichen Gewichte sind Erkundungsannahmen und keine gemessenen Präferenzen.
+
+<Interactive kind="module" module="reasoning-58" preset="utility" id="aor58-utility" />
+
+Geld ist außerdem nicht die einzige relevante Dimension:
+
+| Gesichtspunkt | Im Freien | Überdacht | Innenraum |
+| --- | --- | --- | --- |
+| Finanzieller Ertrag | Höheres Potenzial | Mittleres Potenzial | Geringeres Potenzial |
+| Wetterverlässlichkeit | Gering | Mittel | Hoch |
+| Gemeinschaftsatmosphäre | Unter freiem Himmel | Teilweise offen | Geschlossen |
+| Aufbauaufwand | Mittel | Hoch | Gering |
+| Barrierefreiheit | Vom Gelände abhängig | Vom Gelände abhängig | Vom Gebäude abhängig |
+
+Das sind beispielhafte qualitative Einschätzungen und kein zweiter validierter Datensatz. Barrierefreiheit verlangt eine Prüfung des tatsächlichen Geländes oder Gebäudes. Nicht jede Dimension lässt sich automatisch in Euro umrechnen oder sinnvoll zu einer einzigen Punktzahl verbinden. Manchmal ist eine ausdrückliche Diskussion der Abwägungen nützlicher als eine erfundene Gesamtsumme. Die Mathematik bestimmt nicht, welches Gewicht Teilhabe, Barrierefreiheit, Verlässlichkeit oder Geld haben sollen.
+
+## Nebenbedingungen bestimmen die Zulässigkeit
+
+Der Wunsch, weniger auszugeben, unterscheidet sich von einer absoluten Ausgabengrenze. Angenommen, der Verein legt sowohl höchstens 800 € Vorabkosten als auch höchstens 100 € modellierten Nettoverlust fest.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="constraints" />
+
+Im Freien wird das Budget eingehalten, die Verlustgrenze aber verletzt. Der Innenraum hält die Verlustgrenze ein, überschreitet aber das Budget. Überdacht sind beide Bedingungen erfüllt; diese Option ist damit unter den dreien die einzig zulässige. Um das festzustellen, müssen wir nicht bestimmen, welche den höchsten Nutzen hat.
+
+Ist $A$ die Menge verfügbarer Handlungen und drücken $C_1,C_2$ die Bedingungen aus, dann ist die zulässige Menge
+
+$$
+F=\{a\in A:C_1(a)\land C_2(a)\}.
+$$
+
+Wir vergleichen Handlungen aus $F$. Die Verlustgrenze ist hier eine konservative Regel, die beide modellierten Wetterlagen prüft, selbst wenn eine davon Wahrscheinlichkeit null erhält. Eine Änderung am Wahrscheinlichkeitsregler lockert diese Regel daher nicht. Eine andere Regel, die nur Ergebnisse mit positiver Wahrscheinlichkeit berücksichtigt, müsste gesondert festgelegt werden.
+
+## Sensitivität: Was würde den Vergleich verändern?
+
+Vorhersageschätzungen können unsicher sein. Wir variieren $p$ und halten die ursprüngliche Ergebnistabelle fest:
+
+$$
+\begin{aligned}
+E_A(p)&=600(1-p)-600p=600-1200p,\\
+E_B(p)&=420(1-p)-60p=420-480p,\\
+E_C(p)&=240(1-p)+240p=240.
+\end{aligned}
+$$
+
+Erhöhe die Regenwahrscheinlichkeit und beobachte die Erwartungswerte. Wende dann das Budget, die Verlustgrenze oder beide an. Das angegebene Optimum verwendet den **Gelderwartungswert unter den zulässigen Optionen**; es entscheidet nicht über alle rationalen Wahlmöglichkeiten. Die Zahleneingabe bietet dieselbe Wahrscheinlichkeitssteuerung wie der Regler.
+
+<Interactive kind="module" module="reasoning-58" preset="decision" id="aor58-decision" />
+
+### Die Entscheidungsgrenzen bestimmen
+
+Ohne zusätzliche Bedingungen sind im Freien und überdacht gleich gut, wenn
+
+$$
+600-1200p=420-480p\quad\Longrightarrow\quad180=720p\quad\Longrightarrow\quad p=0.25.
+$$
+
+Beide haben dann 300 € erwarteten Gewinn, mehr als die 240 € des Innenraums. Überdacht und Innenraum sind gleich gut, wenn
+
+$$
+420-480p=240\quad\Longrightarrow\quad p=0.375.
+$$
+
+Beide haben dort 240 € erwarteten Gewinn, mehr als die 150 € im Freien. Also gewinnt im Freien unter 25 %, überdacht zwischen 25 % und 37,5 % und der Innenraum über 37,5 %. An den Grenzen sind benachbarte Optionen gleich gut.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="regions" />
+
+Im Freien und Innenraum schneiden sich ebenfalls, bei $p=0.30$ mit jeweils 240 € erwartetem Gewinn. Das ist **keine optimale Entscheidungsgrenze**: Überdacht ergeben sich dort 276 €, also mehr als bei beiden anderen Optionen. Ein Schnittpunkt ist für das Optimum nur dann relevant, wenn die sich schneidenden Optionen unter den zulässigen Alternativen die besten sind.
+
+Mit dem Budget allein entfällt der Innenraum; die Grenze zwischen im Freien und überdacht bleibt bei 25 %. Mit der Verlustgrenze allein entfällt im Freien; überdacht und Innenraum sind bei 37,5 % gleich gut. Mit beiden Grenzen bleibt über den gesamten Reglerbereich nur überdacht zulässig.
+
+### Robust bezüglich welcher Annahmen?
+
+Angenommen, die aktuelle Schätzung beträgt 20 %, aber Regenwahrscheinlichkeiten von 15 % bis 30 % erscheinen plausibel. Dieser Bereich überschreitet die Grenze von 25 %: Das Optimum nach Gelderwartungswert wechselt von im Freien zu überdacht. Die ursprüngliche Rangfolge reagiert sensitiv auf diese Unsicherheit.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="robustness" />
+
+In einem plausiblen Bereich von 5 %–15 % bleibt im Freien nach demselben Kriterium ohne zusätzliche Bedingungen optimal. Das macht die Wahl robust bezüglich dieses Bereichs, aber nicht gegen jeden möglichen Fehler. Die Bereiche sind angenommene Möglichkeiten und keine statistischen Konfidenzintervalle. Sensitivitätsanalyse zeigt, welche Annahmen ein Urteil umkehren können und wo bessere Informationen helfen könnten.
+
+## Entscheiden und begründen
+
+Nun gelten **30 % Regenwahrscheinlichkeit**, **800 € Budget** und **noch keine festgelegte Verlustgrenze**. Versuche die vier Fragen zu beantworten, bevor du die Referenzlösungen öffnest.
+
+<Exercise question="Welcher Ort scheidet wegen des Budgets aus?">
+Der Innenraum kostet 960 € und liegt damit über 800 €. Im Freien (600 €) und überdacht (780 €) bleiben unter dieser Budgetbedingung zulässig. Damit ist noch nicht geklärt, ob ihr Verlustrisiko akzeptabel ist.
+</Exercise>
+
+<Exercise question="Welche verbleibende Option hat den höchsten erwarteten finanziellen Gewinn?">
+Bei $p=0.30$ ergeben sich im Freien $600-1200(0.30)=240$ Euro und überdacht $420-480(0.30)=276$ Euro. Überdacht ist der erwartete Gewinn unter den beiden bezahlbaren Orten höher. Der Innenraum ergäbe 240 €, scheidet aber wegen des Budgets aus.
+</Exercise>
+
+<Exercise question="Wie weit muss die Regenwahrscheinlichkeit sinken, damit im Freien nach Gelderwartungswert vorzuziehen ist?">
+Sie muss unter 25 % sinken, also von 30 % aus um mehr als fünf Prozentpunkte. Bei genau 25 % sind im Freien und überdacht mit 300 € gleich gut. Diese Antwort behält das Szenario mit ausschließlich einer Budgetgrenze bei; eine feste Verlustgrenze von 100 € würde im Freien unabhängig von der Vorhersage ausschließen.
+</Exercise>
+
+<Exercise question="Könnte bei 10 % Regenwahrscheinlichkeit die überdachte Wahl trotzdem rational sein?">
+Ja. Im Freien beträgt der erwartete Gewinn $600-1200(0.10)=480$ Euro, überdacht $420-480(0.10)=372$ Euro. Im Freien gewinnt nach dem Gelderwartungswert, aber dieses Kriterium ist eine Annahme. Der Verein könnte eine Verlustgrenze einführen oder der Vermeidung schwerer Verluste genügend Gewicht geben. Mit der früheren beispielhaften Funktion $u_2$ ergeben sich die Erwartungsnutzen $0.9(600)+0.1(-1800)=360$ und $0.9(420)+0.1(-180)=360$: Die Orte sind nach Nutzen gleich gut. Die überdachte Wahl ist nicht allein wegen ihres geringeren Gelderwartungswerts irrational. Ihre Begründung muss weiterhin die relevanten Präferenzen, Belege und Bedingungen nennen.
+</Exercise>
+
+## Die Entscheidung anhand des damaligen Wissens bewerten
+
+Angenommen, der Verein wählt nach Prüfung der Wahrscheinlichkeiten und seiner begrenzten Rücklagen den überdachten Ort. Tatsächlich bleibt der Tag trocken: Überdacht entstehen 420 € Gewinn, während es im Freien 600 € gewesen wären.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="quality" />
+
+Der entgangene Gewinn zeigt für sich genommen nicht, dass die ursprüngliche Wahl unbegründet war. Das Wetter war vorher nicht bekannt. Wer die Entscheidung allein nach ihrem späteren Ergebnis beurteilt, riskiert eine **Ergebnisverzerrung**; wer das Ergebnis behandelt, als sei es vorhersehbar gewesen, einen **Rückschaufehler**. Eine sorgfältig begründete Wahl kann enttäuschend ausgehen, und eine schlecht begründete Wahl kann Glück haben. Spätere Belege können das Modell verbessern, ohne rückwirkend zu damals verfügbaren Informationen zu werden.
+
+<ReasoningFigure kind="module" module="reasoning-58" figure="transformation" />
+
+Die nützliche Frage lautet: **Unter welchen Annahmen, Bedingungen und Präferenzen ist diese Option die beste, und was müsste sich ändern, damit eine andere vorzuziehen wäre?** Gutes Denken macht Unsicherheit ausdrücklich und klärt, welches Risiko wir verkraften können. Es gibt uns keine Kontrolle über das Ergebnis.

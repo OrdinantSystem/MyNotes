@@ -1,0 +1,46 @@
+{
+  "id": "reasoning-55",
+  "course": "reasoning",
+  "chapter": "reasoning-part-seven",
+  "chapterDefinition": {
+    "id": "reasoning-part-seven",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Seven",
+      "de": "Teil Sieben"
+    },
+    "description": {
+      "en": "Knowledge, justification, and philosophical reasoning.",
+      "de": "Wissen, Rechtfertigung und philosophisches Denken."
+    }
+  },
+  "order": 55,
+  "key": "mathematical-notation-and-philosophy",
+  "title": "Can mathematical notation make philosophy easier to follow?",
+  "sourceId": "reasoning-episode-55",
+  "sourceTitle": "Can mathematical notation make philosophy easier to follow?",
+  "figures": [
+    "overview",
+    "layers",
+    "source",
+    "question",
+    "relations",
+    "direction",
+    "chain",
+    "phone",
+    "readings",
+    "gap",
+    "counterexample",
+    "bridge",
+    "questions",
+    "commonality",
+    "necessity",
+    "transfer",
+    "synthesis"
+  ],
+  "presets": [
+    "countermodel",
+    "proof",
+    "transfer"
+  ]
+}

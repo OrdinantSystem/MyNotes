@@ -1,0 +1,90 @@
+[
+  {
+    "actualLabel": "Actual position",
+    "figures": 16,
+    "labs": 2,
+    "lang": "en",
+    "originalLabel": "Original issue",
+    "outside": [],
+    "overflow": false,
+    "theme": "dark",
+    "width": 1365
+  },
+  {
+    "actualLabel": "Actual position",
+    "figures": 16,
+    "labs": 2,
+    "lang": "en",
+    "originalLabel": "Original issue",
+    "outside": [],
+    "overflow": false,
+    "theme": "light",
+    "width": 1365
+  },
+  {
+    "actualLabel": "Actual position",
+    "figures": 16,
+    "labs": 2,
+    "lang": "en",
+    "originalLabel": "Original issue",
+    "outside": [],
+    "overflow": false,
+    "theme": "light",
+    "width": 390
+  },
+  {
+    "actualLabel": "Actual position",
+    "figures": 16,
+    "labs": 2,
+    "lang": "en",
+    "originalLabel": "Original issue",
+    "outside": [],
+    "overflow": false,
+    "theme": "dark",
+    "width": 390
+  },
+  {
+    "actualLabel": "Tatsächliche Position",
+    "figures": 16,
+    "labs": 2,
+    "lang": "de",
+    "originalLabel": "Ursprüngliche Streitfrage",
+    "outside": [],
+    "overflow": false,
+    "theme": "dark",
+    "width": 1365
+  },
+  {
+    "actualLabel": "Tatsächliche Position",
+    "figures": 16,
+    "labs": 2,
+    "lang": "de",
+    "originalLabel": "Ursprüngliche Streitfrage",
+    "outside": [],
+    "overflow": false,
+    "theme": "light",
+    "width": 1365
+  },
+  {
+    "actualLabel": "Tatsächliche Position",
+    "figures": 16,
+    "labs": 2,
+    "lang": "de",
+    "originalLabel": "Ursprüngliche Streitfrage",
+    "outside": [],
+    "overflow": false,
+    "theme": "light",
+    "width": 390
+  },
+  {
+    "actualLabel": "Tatsächliche Position",
+    "figures": 16,
+    "labs": 2,
+    "lang": "de",
+    "originalLabel": "Ursprüngliche Streitfrage",
+    "outside": [],
+    "overflow": false,
+    "theme": "dark",
+    "width": 390
+  }
+]

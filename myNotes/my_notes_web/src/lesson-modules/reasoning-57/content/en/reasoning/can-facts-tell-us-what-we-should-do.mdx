@@ -1,0 +1,162 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-eight
+sourceId: reasoning-episode-57
+sourcePages: []
+sourceLocations: ["1. The central idea", "3. Same facts, different conclusions", "4. Describing and evaluating the world", "5. The missing bridge: the is–ought problem", "6. Reconstructing a more reasonable argument", "7. Same reality, different decision principles", "8. What exactly are we disagreeing about?", "9. What about emotions?", "10. Viewer exercise: reconstruct the argument", "11. Closing synthesis", "12. The reusable reasoning method"]
+thumbnail: module:reasoning-57
+title: Can facts tell us what we should do?
+navTitle: Facts, values and decisions
+description: Separate facts, value premises and practical recommendations, and reconstruct an argument without overstating what it establishes.
+order: 57
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [truth-validity-and-soundness]
+---
+
+Two people can understand the same facts and still recommend different actions. Part Eight begins by asking which principles connect descriptions to decisions. **Describing the world and deciding how it should be are different, connected intellectual operations.** Facts and values are not artificial opposites: both can be indispensable to good practical reasoning.
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="architecture" />
+
+## 1. Same facts, different recommendations
+
+A fictional town is considering replacing its staffed public service with an automated digital system. Suppose a reliable investigation establishes the following hypothetical outcomes. Both systems are feasible and use comparable resources.
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="systems" />
+
+Automation processes more cases per day, while a smaller proportion of residents can use it independently. These are separate measures, not a probability calculation. Two decision-makers read the same report, accept both figures and understand both consequences.
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="decisions" />
+
+Neither person necessarily misunderstands the facts. Their disagreement may concern priorities, obligations, acceptable consequences or the distribution of burdens. **Where is the disagreement if the facts are identical?**
+
+## 2. What a statement is doing
+
+A **descriptive claim** says how the world is, was or might be. It can be accurate or inaccurate, supported or unsupported. An **evaluative claim** judges something valuable, fair, harmful or important. A **prescriptive claim** concerns what someone should do or what should be the case. Evaluative and prescriptive claims belong to the broader category of normative claims.
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="claims" />
+
+Facts can describe cost, speed, access, quality, safety and privacy. An evaluative framework considers which properties matter and why. But values do more than highlight facts: they may establish duties, prohibit actions or rule out a trade-off.
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="framework" />
+
+This distinction does not settle whether moral judgments can be objectively true. **It does not mean that facts are objective while values are arbitrary preferences.** Ethical principles can be examined for consistency, justification, implications and treatment of competing interests. Classify the statements by their role, rather than searching for words such as good, unfair or should.
+
+
+<Interactive kind="module" module="reasoning-57" preset="classification" id="practical-classification" />
+
+## 3. The missing bridge: from is to ought
+
+Consider: “This policy increases efficiency. Therefore, we should adopt it.” The conclusion need not be wrong, but the stated premise does not establish it. In *A Treatise of Human Nature* (1739–1740), Book III, Part I, Section I, David Hume drew attention to unexplained transitions from is-statements to ought-statements. This became known as the **is–ought problem**.
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="gap" />
+
+Let $E$ mean that efficiency increases and $O$ that we ought to adopt the policy. In ordinary propositional logic, treating them as independent propositions, $E$ alone does not entail $O$. A valuation with $E$ true and $O$ false is a counterexample to validity.
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="truth-table" />
+
+Imagine an administrative policy that improves throughput by excluding everyone whose application would take longer than average. The improvement could be real while the policy remains unacceptable under a plausible fairness principle. The wider philosophical debate has qualifications; the narrower demonstrable point here is that this $E$ does not entail this $O$ on its own.
+
+## 4. Make the assumption explicit
+
+Add the conditional $E\rightarrow O$. Now $E$ and $E\rightarrow O$ entail $O$ by modus ponens. We have made the inference valid, but have we made it sound? Soundness also requires true premises. The conditional now exposes the controversial assumption: should every efficiency improvement be sufficient for adoption, regardless of its other consequences?
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="bridge" />
+
+The deliberately strong bridge helps expose the gap. It need not be the principle a reasonable advocate actually accepts. A charitable reconstruction should distinguish valuing efficiency from treating it as overriding every other concern.
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="reason" />
+
+**A reason in favor is not necessarily a sufficient reason.** A cheaper train ticket gives a reason to buy it, but the train might arrive too late, take twice as long or require several transfers. The benefit remains relevant even if it is not decisive.
+
+
+<Interactive kind="module" module="reasoning-57" preset="bridge" id="practical-bridge" />
+
+## 5. Competing considerations
+
+Reconstruct the policy argument more carefully: higher efficiency, together with a principle favoring responsible use of resources, supplies a reason for adoption. Reduced access, together with a principle valuing inclusion, supplies a reason against it.
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="branches" />
+
+These branches are not logical contradictories. There can be reasons for and against the same action. An objection does not erase a benefit, and a benefit does not erase an objection. The intermediate conclusions belong inside a larger argument map; they do not establish everything downstream.
+The task is to examine how the considerations interact, whether duties constrain the choice, who bears the costs, and whether better alternatives have been omitted.
+
+## 6. Change the rule, not the facts
+
+Use the decision laboratory to choose between maximizing throughput, maximizing independent access, or maximizing throughput subject to an access requirement. The empirical values remain fixed. At a minimum of 80%, both systems qualify and B has higher throughput. Above 80% and up to 95%, only A qualifies. Above 95%, neither qualifies.
+A constraint differs from assigning a numerical weight to access. It determines which options may be considered at all. If no option meets a justified requirement, searching for a third policy may be more rational than silently lowering the requirement or automatically selecting the less undesirable option.
+Mathematics finds an optimum relative to an objective and constraints. **The calculation alone does not justify the objective.** This model omits uncertainty and many relevant interests; it does not reduce ethics to optimization.
+
+
+<Interactive kind="module" module="reasoning-57" preset="decision" id="practical-decision" />
+
+For the available actions $A=\{a_1,a_2\}$, let $e:A\to\mathbb R$ measure efficiency and $r:A\to[0,1]$ the proportion with access. Efficiency alone maximizes $e$ over $A$. With a threshold $c$, define:
+
+$$
+A_c=\{a\in A:r(a)\ge c\}.
+$$
+
+$$
+a^*\in\operatorname{arg\,max}_{a\in A_c}e(a).
+$$
+
+The second formula applies only if $A_c\ne\varnothing$. The diagram displays percentages; the formula uses proportions between zero and one.
+
+## 7. Locate the actual disagreement
+
+People can disagree about predicted outcomes, priorities, obligations or acceptable trade-offs. These questions call for different kinds of investigation, often in combination.
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="disagreements" />
+
+If both sides already accept the efficiency gain, three further studies confirming it may leave the disputed priority untouched. More evidence is not always more relevant evidence.
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="evidence" />
+
+This does not make evidence irrelevant to ethical disagreements. Learning who is affected, how severely, and whether alternatives exist can change the evaluation. Empirical investigation and ethical argument have distinguishable roles that interact.
+
+## 8. What about emotions?
+
+Someone sees an older resident struggling with a digital terminal and feels compassion. That response may reveal a neglected concern or motivate investigation. It does not establish how many residents face the problem. Nor does the presence of emotion invalidate the reasons subsequently offered.
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="emotion" />
+
+Distinguish emotions as signals of possible significance from emotions as sufficient justification. Rational scrutiny examines what the response helps us notice and what the evidence and argument actually establish.
+
+
+## 9. Transfer: recorded lectures
+
+A university considers replacing most in-person lectures with recordings. Someone argues: “Recorded lectures allow students to study at their own pace. Therefore universities should replace in-person lectures with recorded lectures.” Reconstruct the descriptive premise, a plausible value premise, the reach of the conclusion, and the remaining factual and normative questions before opening the explanations.
+A careful reconstruction preserves what is valuable in the argument without claiming too much.
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="reconstruction" />
+
+There is a reason to offer recordings. Replacement remains open; offering both formats may be a better solution. Reconstructing the argument can improve a decision, not merely criticize it.
+
+
+<Interactive kind="module" module="reasoning-57" preset="reconstruction" id="practical-reconstruction" />
+
+## 10. A method for practical reasoning
+
+Practical reasoning moves between reality, predicted consequences, values, deliberation and decision. Deliberation can reveal missing evidence, neglected values or alternatives and send us back to earlier questions.
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="cycle" />
+
+Making a normative premise explicit is an invitation to examine the argument, not an accusation of irrationality. As with an assumption in mathematics, we can ask what follows from it and what supports accepting it.
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="method" />
+
+Facts can challenge beliefs, constrain options and expose inconsistencies. When they support a recommendation, also examine the principles connecting them to action. Understanding the world tells us what we face; examining our values helps us determine what we have reason to do.
+
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="closing" />
+
+
+<ReasoningFigure kind="module" module="reasoning-57" figure="layers" />
+
+## Further reading
+
+- [OpenStax: The Fact-Value Distinction](https://openstax.org/books/introduction-philosophy/pages/8-1-the-fact-value-distinction)
+- [David Hume: A Treatise of Human Nature, Book III, Part I, Section I](https://www.gutenberg.org/ebooks/4705)
+- [Stanford Encyclopedia of Philosophy: Decision Theory](https://plato.stanford.edu/entries/decision-theory/)

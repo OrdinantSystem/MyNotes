@@ -11,3 +11,6 @@ local-web/
 
 lesson-work/
 .lesson-build.lock/
+
+# Generated copies of the built site, not verification evidence.
+previews/*-snapshot/

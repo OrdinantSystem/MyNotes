@@ -1,0 +1,44 @@
+{
+  "id": "reasoning-54",
+  "course": "reasoning",
+  "chapter": "reasoning-part-seven",
+  "chapterDefinition": {
+    "id": "reasoning-part-seven",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Seven",
+      "de": "Teil Sieben"
+    },
+    "description": {
+      "en": "Knowledge, justification, and philosophical reasoning.",
+      "de": "Wissen, Rechtfertigung und philosophisches Denken."
+    }
+  },
+  "order": 54,
+  "key": "disagree-about-the-actual-issue",
+  "title": "How to disagree about the actual issue",
+  "sourceId": "reasoning-episode-54",
+  "sourceTitle": "How to Disagree About the Actual Issue",
+  "figures": [
+    "opening",
+    "layers",
+    "definitions",
+    "predictions",
+    "inference",
+    "thresholds",
+    "map",
+    "straw",
+    "alternatives",
+    "diversion",
+    "displacement",
+    "charity",
+    "provenance",
+    "consequences",
+    "narrowing",
+    "method"
+  ],
+  "presets": [
+    "priorities",
+    "workshop"
+  ]
+}

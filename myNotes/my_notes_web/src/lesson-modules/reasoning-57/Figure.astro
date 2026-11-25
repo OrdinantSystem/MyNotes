@@ -1,0 +1,5 @@
+---
+import {figureMarkup} from './render';import {text} from './copy';import manifest from './manifest.json';import './styles.css';
+interface Props{figure:string}const {figure}=Astro.props,locale=Astro.locals.locale||'en';const index=manifest.figures.indexOf(figure);if(index<0)throw new Error('Unknown figure');
+---
+<figure class="v57-figure" data-v57-figure={figure}><h3>{text(locale).titles[index]}</h3><div set:html={figureMarkup(locale,figure)}/></figure>

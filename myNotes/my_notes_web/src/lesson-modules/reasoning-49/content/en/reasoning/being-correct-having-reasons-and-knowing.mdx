@@ -1,0 +1,202 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-seven
+sourceId: reasoning-episode-49
+sourcePages: []
+sourceLocations: ["1. The central idea", "2. Conceptual architecture", "Act I — Two people, one correct answer", "Act II — Separating belief from truth", "Act III — What does it mean to have a reason?", "Act IV — The three-part proposal for knowledge", "Act V — When being right depends on luck", "Act VI — Change one feature of the world", "Act VII — The same problem in mathematics", "Act VIII — What exactly have you established?", "4. Viewer practice", "6. Learning outcomes", "7. Preparation sources", "8. The lasting takeaway"]
+thumbnail: module:reasoning-49
+title: Being correct, having reasons, and knowing
+navTitle: Correctness, reasons, and knowledge
+description: Separate truth, belief and justification, investigate a stopped clock, and ask how luck can undermine an apparently good route to a correct answer.
+order: 49
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [implication-and-its-converse, truth-validity-and-soundness]
+---
+
+Two people can give the same correct answer with the same confidence while achieving very different things. One may have used a dependable source; the other may simply have been lucky. **Being correct, having good reasons, and knowing are related, but they are not interchangeable.**
+
+Part Seven turns to knowledge and its grounds. This lesson concerns *propositional knowledge*: knowing that something is the case. It develops a problem through one everyday example and then connects it to mathematical reasoning.
+
+<ReasoningFigure kind="module" module="reasoning-49" figure="architecture" />
+
+Keep three layers distinct: reality, the evidence available to a person, and the proposition the person accepts. Truth concerns the proposition’s agreement with reality. Justification concerns the grounds for accepting it. When do these relationships amount to knowledge?
+
+## 1. Two people, the same answer
+
+At 4:30 PM, Person A looks at a clock and says, “It is 4:30 PM.” Person B looks at another clock and reaches the same conclusion. Both are correct.
+
+<ReasoningFigure kind="module" module="reasoning-49" figure="opening" />
+
+Now look behind the identical clock faces. A’s clock is functioning normally. B’s battery died yesterday afternoon, leaving its hands fixed at 4:30. By coincidence, B consults it at exactly the right moment.
+
+The revelation changes neither the answer nor its truth. It changes our assessment of how the answer was obtained. A’s belief appears connected to the time through a functioning instrument; B’s belief agrees with it by accident. The stopped-clock example is associated with Bertrand Russell and predates Gettier’s 1963 challenge to a familiar analysis of knowledge.
+
+**Correctness alone does not tell us whether someone knows.** Confidence does not settle the matter either: both people could feel equally certain.
+
+## 2. Believing something does not make it true
+
+Consider the proposition $P$: “The current time is 16:30.” Whether it is true depends on the actual time, not on whether someone accepts it. Here, the times represent different modeled moments; we are not changing the truth of a dated claim about an earlier instant.
+
+Let the actual time advance to 16:35 while the person continues believing it is 16:30.
+
+<ReasoningFigure kind="module" module="reasoning-49" figure="truth" />
+
+The belief is now false even if the person’s confidence is unchanged. Reverse the experiment: hold reality fixed and change the accepted time. Changing the belief can change whether it agrees with reality; it does not change reality itself.
+
+<Interactive kind="module" module="reasoning-49" preset="layers" id="knowledge-layers" />
+
+The activity separates the truth of the fixed comparison $P$, whether the person accepts $P$, and whether their current accepted time matches reality. These are different questions.
+
+A person might also guess 16:30 without consulting anything and happen to be right. That is a **true belief**, but the case supplies no adequate evidence for it. We need to examine reasons as well as results.
+
+## 3. Good reasons can still lead to a false belief
+
+Suppose a person consults a normally reliable clock. It has kept the correct time, and nothing suggests a malfunction. Its reading provides a reason for believing that it is 16:30.
+
+<ReasoningFigure kind="module" module="reasoning-49" figure="evidence-path" />
+
+This introduces **justification**: having adequate grounds for accepting a belief. Such grounds can be fallible. Imagine that the clock has developed an undetected fault and is five minutes slow. The actual time is 16:35; it displays 16:30. The belief is false, yet trusting the clock can still be reasonable given the information available to the person.
+
+<ReasoningFigure kind="module" module="reasoning-49" figure="contrast" />
+
+A person can be right without good reasons and wrong despite good reasons. We should therefore evaluate the truth of the conclusion and the quality of the grounds separately. This does not make justification irrelevant: it prevents us from identifying it with success in a single case.
+
+## 4. A proposal: justified true belief
+
+An influential philosophical proposal analyzes knowledge as **justified true belief**, often abbreviated JTB. For a person $S$ and a proposition $P$, it combines three conditions:
+
+- $P$ is true.
+- $S$ believes $P$.
+- $S$ is justified in believing $P$.
+
+<ReasoningFigure kind="module" module="reasoning-49" figure="jtb" />
+
+Write $T(P)$ for truth, $B(S,P)$ for belief, $J(S,P)$ for justification, and $K(S,P)$ for knowledge. The proposed analysis is:
+
+$$
+K(S,P)\iff T(P)\land B(S,P)\land J(S,P).
+$$
+
+The biconditional matters. It says both that the three conditions are necessary and that, together, they are sufficient. A case satisfying all three while failing to constitute knowledge would challenge the sufficiency claim.
+
+This is a **proposal to examine, not a settled definition**. Philosophers disagree about the analysis of knowledge and about how justification should be understood. We will use a plausible fallible understanding of justification to investigate one difficulty, rather than pretend to settle the debate by a diagram.
+
+## 5. When a correct answer depends on luck
+
+Return to B’s stopped clock. Before consulting it, the person has a history of reasonable trust in it and no reason to suspect the fault. At 16:30, its display happens to be correct.
+
+<ReasoningFigure kind="module" module="reasoning-49" figure="luck" />
+
+On the fallible reading just described, justification is plausibly present. Belief and truth are present too. Nevertheless, we hesitate to call this knowledge: the correctness depends on an unfortunate kind of luck. The mechanism producing the belief is disconnected from the changing time.
+
+Gettier’s 1963 paper used counterexamples to challenge the sufficiency of justified true belief. This clock variation illustrates the same broad problem of **epistemic luck**; it is not one of the cases invented in that paper.
+
+Instead of inspecting only the successful instant, compare nearby moments.
+
+<ReasoningFigure kind="module" module="reasoning-49" figure="timeline" />
+
+A functioning clock changes with the time. The stopped clock keeps giving the same answer. Its momentary agreement does not show that it tracks reality.
+
+<Interactive kind="module" module="reasoning-49" preset="tracking" id="knowledge-tracking" />
+
+Move away from 16:30 and return to it. The activity represents fresh readings at different modeled times. It is not saying that a belief formed at 16:30 must remain true as an answer about every later moment.
+
+This comparison helps expose luck, but **reliability is not a complete definition of knowledge**. Nor does knowledge require an infallible source, absolute certainty, or a method that could never fail. The relevant issue is how the particular belief is connected to its truth.
+
+## 6. Change one relationship at a time
+
+The following variations let us distinguish what happens to reality, the mechanism, the available information, and the grounds actually used.
+
+### A. Repair the clock
+
+Hold the actual time at 16:30. Repair the clock so that it functions normally, and let the person use it normally. The display and accepted time remain 16:30.
+
+<ReasoningFigure kind="module" module="reasoning-49" figure="repair" />
+
+Truth and belief are unchanged; the route producing the reading has improved. Attributing knowledge now becomes more natural. A better relationship to reality can matter even when it produces the same answer.
+
+### B. Discover the malfunction
+
+Instead of repairing it, let the person learn that its battery died yesterday. The actual time can still be 16:30. If they persist in accepting the reading solely because of this clock, their grounds are undermined.
+
+<ReasoningFigure kind="module" module="reasoning-49" figure="defeater" />
+
+Such information is a **defeater**: it can undermine the justification of a belief. Discovering the defect does not make a true proposition false. It changes what the person is entitled to conclude from that source.
+
+### C. Use independent confirmation
+
+Keep the clock defective and the person aware of its defect. Introduce a functioning phone that obtains its time independently. Both devices display 16:30, but the person now bases the belief on the phone.
+
+<ReasoningFigure kind="module" module="reasoning-49" figure="independence" />
+
+The clock has not been repaired. The grounds supporting the belief have changed. **The new evidence must actually be used as a basis for the belief.** Its mere availability does not automatically improve the reasons for which the person believes something.
+
+Agreement alone is not enough to establish independence. Ten displays that copy the same defective clock do not supply ten independent confirmations.
+
+### D. Move beyond the coincidence
+
+Now let the actual time be 16:31. The stopped clock still displays 16:30. A person who continues relying on that clock gets the wrong time; a person consulting the functioning independent phone can update the belief appropriately.
+
+<Interactive kind="module" module="reasoning-49" preset="evidence" id="knowledge-evidence" />
+
+Compare the original clock, its repair, discovery of its fault, the phone used or unused, and the dependent copies. The controls display stipulated relationships; they do not calculate knowledge from a checklist. A philosophical judgment about knowledge remains to be argued for.
+
+## 7. The mathematical bridge: true conclusion, defective argument
+
+A student argues:
+
+> Every prime number greater than two is odd. Seven is odd. Therefore seven is prime.
+
+The conclusion is true, but the reasoning reverses the implication. The valid inclusion is from primes greater than two into odd positive integers, not from all odd positive integers into primes.
+
+<ReasoningFigure kind="module" module="reasoning-49" figure="sets" />
+
+For positive integers $n$:
+
+$$
+(n>2\land n\text{ is prime})\implies n\text{ is odd}.
+$$
+
+The converse fails. Nine is odd, but $9=3\cdot3$, so it is not prime. Applying the same reversed implication to nine exposes the defective method that happened to produce a true conclusion for seven.
+
+<ReasoningFigure kind="module" module="reasoning-49" figure="method" />
+
+This parallels the clock: one correct output does not validate the method that produced it. The analogy has limits. A mathematical proof establishes its conclusion deductively; ordinary empirical sources can provide knowledge while remaining fallible.
+
+We can replace the defective argument with a valid proof. If seven were composite, it would have an integer divisor $d$ satisfying
+
+$$
+2\le d\le\sqrt7.
+$$
+
+Why this bound? A composite number can be written as a product of two integers greater than one; if both factors exceeded its square root, their product would exceed the number itself. At least one factor must therefore be at most the square root.
+
+Since $2<\sqrt7<3$, the only possible integer divisor in that interval is two. But two does not divide seven. Thus seven is prime.
+
+<ReasoningFigure kind="module" module="reasoning-49" figure="proof" />
+
+The conclusion has not changed. Its justification has. **A true mathematical conclusion and a valid proof of that conclusion are different achievements.** The invalid argument did not establish primality, even though another argument can establish it.
+
+## 8. Three questions to carry forward
+
+The JTB proposal helps separate truth, belief and justification. The stopped clock shows why their relationship requires further investigation. Keep the question mark over knowledge rather than turning the three circles into an automatic certificate.
+
+<ReasoningFigure kind="module" module="reasoning-49" figure="questions" />
+
+The third question is a useful diagnostic for luck, not an infallible test for knowledge. A complete analysis would have to say more about which alternatives matter and how the belief is formed and sustained.
+
+Being right is valuable. Understanding why an answer is right, and whether one’s grounds connect it to reality, is a further achievement. **“How do you know?” asks about that path as well as the answer.**
+
+## 9. Practice distinguishing the cases
+
+Choose an answer before opening its explanation. You can reconsider each case independently.
+
+<Interactive kind="module" module="reasoning-49" preset="practice" id="knowledge-practice" />
+
+## Further reading
+
+- [OpenStax, Introduction to Philosophy: Knowledge](https://openstax.org/books/introduction-philosophy/pages/7-2-knowledge) discusses justification, Russell’s clock and Gettier-style problems.
+- [Stanford Encyclopedia of Philosophy: The Analysis of Knowledge](https://plato.stanford.edu/entries/knowledge-analysis/) develops the JTB proposal, counterexamples, and approaches to epistemic luck.

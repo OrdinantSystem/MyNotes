@@ -1,0 +1,10 @@
+---
+import {copy} from './copy';
+import {figureMarkup} from './render';
+import '../../styles/counterexamples.css';
+import './styles.css';
+interface Props {figure:string}
+const {figure}=Astro.props,locale=Astro.locals.locale==='de'?'de':'en',title=copy(locale).titles[figure as keyof ReturnType<typeof copy>['titles']];
+if(!title)throw new Error('Unknown proof-checking figure');
+---
+<figure class="counter-figure aor60" data-aor60-figure={figure}><h3>{title}</h3><div set:html={figureMarkup(locale,figure)}/></figure>

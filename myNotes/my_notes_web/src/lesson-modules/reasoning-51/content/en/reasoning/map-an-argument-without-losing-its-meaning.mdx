@@ -1,0 +1,189 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-seven
+sourceId: reasoning-episode-51
+sourcePages: []
+sourceLocations: ["Sections 1–11: library argument, inferential structure, fidelity and garden workshop; section 14: preparation sources; section 15: course connections"]
+title: "How to map an argument without losing its meaning"
+navTitle: "Mapping arguments"
+description: "Identify support, linked premises, assumptions and objections while preserving the source wording."
+order: 51
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [belief-and-logical-structure, does-a-connection-mean-a-cause]
+thumbnail: module:reasoning-51
+---
+
+When we encounter an argument in an article, a conversation, a scientific discussion or a political debate, we usually receive it as a sequence of sentences. But the underlying reasoning is not necessarily sequential. Some statements support the main conclusion directly. Others support another reason. Some only work when combined with additional premises. Others challenge the conclusion or respond to an objection.
+
+Argument mapping transforms the **linear presentation of language into the relational structure of reasoning**. Its purpose is to make complexity understandable while preserving what someone actually argues.
+
+<ReasoningFigure kind="module" module="reasoning-51" figure="linear" />
+
+Whenever we simplify an argument, we make interpretive decisions. We might strengthen a weak claim, omit a qualification, introduce an assumption or make an argument easier to attack than it originally was. Mapping therefore requires two skills together: extracting structure and preserving intellectual integrity.
+
+## 1. The argument inside the paragraph
+
+Consider this fictional proposal from a local library committee. Read it first without separating its parts.
+
+> The library should remain open until 9 p.m. on weekdays for a three-month trial. During the past month, 80 visitors requested later opening hours, suggesting that there is demand for an evening service. Longer hours would also give residents who work until 6 p.m. an opportunity to visit. Two trained employees are available for the additional shifts, and library regulations require two trained employees to be present during closing. The additional wages would cost €1,200, although a confirmed local grant would cover that amount during the trial.
+
+What is the author trying to establish? Which statements give reasons to accept that conclusion? Are those reasons doing the same work? Does the author acknowledge a reason against the proposal?
+
+Understanding each sentence is different from understanding how the sentences relate. First identify the proposal, the demand evidence, access, staffing, cost and the response to cost. Keep the original wording available before compressing anything.
+
+<ReasoningFigure kind="module" module="reasoning-51" figure="fragments" />
+
+We have identified components, but not yet mapped the argument. A collection of reasons does not itself represent their relationships. The maps below use stable labels: $P_5$ for the observation, $C_2$ for the demand inference, $P_2$ for access, $P_3$ and $P_4$ for staffing, $C_1$ for staffing feasibility, $I$ for a reconstructed principle, $O$ for the objection, $R$ for the response and $C$ for the main conclusion.
+
+## 2. A grammar for the map
+
+<ReasoningFigure kind="module" module="reasoning-51" figure="grammar" />
+
+An arrow represents an **inferential relationship**. It does not mean one statement physically causes another.
+
+$$
+P\xrightarrow{\text{supports}}C
+$$
+
+Accepting $P$ provides some reason to accept $C$. It need not guarantee $C$. An argument map can represent deductive reasoning, probabilistic reasoning and practical decisions. The strength of an inference must be evaluated separately from its structure. Color and shape help locate roles, but the labels and relationships carry the meaning.
+
+## 3. Independent reasons: separate paths
+
+The library proposal appeals both to demand and to access for residents working until 6 p.m. These are two distinct considerations supporting the same limited trial.
+
+<ReasoningFigure kind="module" module="reasoning-51" figure="independent" />
+
+If the request evidence turned out to be unreliable, would that automatically eliminate the access argument? No: residents who work late might still benefit. Conversely, if the access benefit were smaller than expected, the requests could still provide a reason to investigate later opening.
+
+These are **independent or convergent reasons**: each contributes some support without requiring the other reason to be accepted. The structural removal test asks whether one path can remain when another is withdrawn.
+
+Independence does not mean either reason is enough to justify the whole proposal by itself. It also does not mean the underlying evidence is statistically independent. It describes the reasons’ functions in this argument.
+
+## 4. Linked premises: reasons that need each other
+
+Now consider staffing:
+
+$$
+P_3:\quad\text{Two trained employees are available.}
+$$
+
+$$
+P_4:\quad\text{Two trained employees are required.}
+$$
+
+The intended intermediate conclusion is that the minimum staffing requirement can be met. Knowing only how many employees are available does not establish compliance without the requirement. Knowing only the requirement does not establish compliance without availability. The inference needs a comparison of both facts.
+
+<ReasoningFigure kind="module" module="reasoning-51" figure="linked" />
+
+These are **linked, joint or interdependent premises**. They form one inference rather than two independent inferences. The card $C_1$ is dashed because it is our reconstruction of the intended intermediate claim, not a sentence explicitly stated by the committee.
+
+Compare the two structures by retaining or removing either premise. The abstract $P_1$ and $P_2$ in this comparison are placeholders for the two structural positions, not new claims in the library passage.
+
+<Interactive kind="module" module="reasoning-51" preset="removal" id="argument-map-removal" />
+
+Removing a premise does not necessarily make the conclusion false. It changes the available justification. The truth of a conclusion and the quality of the reasoning offered for it remain distinct questions.
+
+## 5. Intermediate conclusions: arguments inside arguments
+
+Return to the sentence about demand:
+
+> During the past month, 80 visitors requested later opening hours, suggesting that there is demand for an evening service.
+
+There are two claims: an observation reports 80 requests, and an interpretation concludes there is demand. The author then uses that demand to support the proposal.
+
+<ReasoningFigure kind="module" module="reasoning-51" figure="chain" />
+
+$$
+P_5\longrightarrow C_2\longrightarrow C
+$$
+
+The middle statement is a conclusion of the first inference and a premise of the second. “Premise” and “conclusion” are roles within particular inferences, not permanent properties of sentences.
+
+Separating these steps locates disagreements. Someone might accept the 80 requests but question their representativeness. Another person might accept that demand exists while denying that meeting it is worth the expense. Those challenges concern different transitions. The simple chain identifies the two levels; the next map makes the second transition’s implicit practical principle visible.
+
+## 6. The premise nobody stated
+
+“There is demand” does not automatically yield “The library should try later hours.” Demand creates no automatic obligation. One plausible practical principle is:
+
+> Unmet demand for a public service provides a reason to test an extension of that service.
+
+<ReasoningFigure kind="module" module="reasoning-51" figure="implicit" />
+
+This **implicit premise** is sometimes discussed in connection with enthymemes: arguments with components not expressly stated. The purple dashed card is supplied by the analyst, so it stays distinguishable from explicit wording. It is a defeasible reason for a limited trial, not a guarantee that the trial is best.
+
+Suppose we supplied a stronger principle: “Every public service must satisfy every demand made by its users.” That creates an absolute obligation extending far beyond the passage. It is easier to criticize, but the original paragraph gives no reason to attribute it to the committee.
+
+<ReasoningFigure kind="module" module="reasoning-51" figure="charity" />
+
+The **principle of charity** asks us to reconstruct reasoning fairly and reasonably while remaining faithful to what was communicated. It does not mean repairing every defective argument until it becomes convincing. Even an apparently obvious addition must remain visible as an addition.
+
+## 7. Objections and responses
+
+The wage cost is a consideration against the proposal. The confirmed grant responds to that objection. These do different work from two more independent supporting reasons.
+
+<ReasoningFigure kind="module" module="reasoning-51" figure="objection" />
+
+The grant does not contradict the €1,200 cost claim. Instead, it weakens the objection’s financial force by covering that burden during the trial. Distinguish three targets of criticism:
+
+- A challenge to a premise asks whether that statement should be accepted.
+- A challenge to an inference asks whether the premise supports the intended conclusion.
+- Mitigating an objection addresses how much weight a consideration has against a conclusion.
+
+The grant has limited duration and covers additional wages. It does not establish permanent affordability or remove every operating cost. Compare the trial with the stronger, unsupported permanent proposal below. The cost card remains visible in every state.
+
+<Interactive kind="module" module="reasoning-51" preset="objections" id="argument-map-objections" />
+
+## 8. The complete map and the fidelity test
+
+<ReasoningFigure kind="module" module="reasoning-51" figure="complete" />
+
+There are three supporting branches: demand, access and staffing feasibility. The staffing comparison is joint; the demand branch includes a reconstructed practical principle. A financial objection counts against the main proposal, and the grant mitigates that objection.
+
+This structure does not establish that the library definitely should extend its hours. Evidence about operating costs, security, employee schedules or actual attendance may be missing. **Mapping an argument is not validating it.** Mapping makes evaluation possible.
+
+Now reverse the transformation: compare every map claim with its source wording. Reconstructed claims have no direct quotation, and the trace identifies them as such. For selected claims, compare a tempting simplification and examine what it changes.
+
+<Interactive kind="module" module="reasoning-51" preset="trace" id="argument-map-trace" />
+
+| Original scope | Unfaithful simplification | What is lost? |
+| --- | --- | --- |
+| 80 visitors requested later hours. | Most visitors want later hours. | A count becomes a majority without a denominator. |
+| There is demand. | There is overwhelming demand. | Strength is added. |
+| Minimum staffing can be met, reconstructed from two facts. | All staffing problems are solved. | A narrow inference becomes a broad assurance. |
+| The grant covers additional trial wages. | The extension has no costs. | Other costs and the time limit disappear. |
+| A three-month weekday trial. | Permanent extended opening hours. | Duration and weekday limits disappear. |
+
+Every change can matter. An elegant map that distorts the passage is a bad map. Keep the source beside the map and check counts, qualifications, scope, inferential roles and the origin of reconstructed claims.
+
+## 9. Workshop: argument or explanation?
+
+Consider another fictional passage:
+
+> The community garden flooded last weekend because its drainage channel was blocked by leaves. The council should install a protective grate over the drainage channel. Leaves are regularly carried into the channel by rainwater, and a suitable grate would prevent much of this debris from entering. The installation would be inexpensive, although the grate would need to be cleaned regularly.
+
+Identify the conclusion, supporting premises, linked premises, objection and explanatory component. Try a map before opening one possible reference reconstruction.
+
+<Interactive kind="module" module="reasoning-51" preset="garden" id="argument-map-garden" />
+
+The first sentence offers a causal explanation of flooding treated as established. That causal relationship differs from an inferential support arrow. It also supplies background for the practical argument: leaf-related blockage is a problem worth preventing.
+
+An **argument** offers reasons why we should accept a claim. An **explanation** accounts for something treated as established. The distinction depends on function in context. One passage can contain both, and an explanation can later function as a reason in a larger argument. The reconstructed intermediate garden claim is not an explicit quotation or a promise that a grate will prevent every flood.
+
+## 10. Locate the disagreement
+
+Sometimes we dispute a fact, reject an assumption, or accept premises while questioning an inference. We may agree with a conclusion while rejecting the reasoning offered for it. A map helps locate those differences and makes disagreement more productive.
+
+<ReasoningFigure kind="module" module="reasoning-51" figure="process" />
+
+The earlier questions about knowledge and the stopping points of justification become a practical method here: inspect how beliefs are supported. Apply it to a mathematical proof, research paper, newspaper article, philosophical essay or everyday disagreement. The aim is not to make reasoning simpler than it is, but to make its complexity understandable.
+
+## Further reading
+
+Matthew Knachel’s *Fundamental Methods of Logic*: [Recognizing and Explicating Arguments](https://human.libretexts.org/Bookshelves/Philosophy/Logic_and_Reasoning/Fundamental_Methods_of_Logic_(Knachel)/01%3A_The_Basics_of_Logical_Analysis/1.03%3A_Recognizing_and_Explicating_Arguments) and [Diagramming Arguments](https://human.libretexts.org/Bookshelves/Philosophy/Logic_and_Reasoning/Fundamental_Methods_of_Logic_(Knachel)/01%3A_The_Basics_of_Logical_Analysis/1.05%3A_Diagramming_Arguments) develop identification, paraphrase, tacit premises, linked and convergent support, and intermediate conclusions.
+
+The [Stanford Encyclopedia of Philosophy: Informal Logic](https://plato.stanford.edu/entries/logic-informal/) places standardization, diagramming, evaluation and dialogue in a wider framework. Stephen Toulmin’s *The Uses of Argument* (1958) is an extended companion on claims, grounds, warrants, backing, qualifiers and rebuttals; its full framework is beyond this lesson.
+
+The library and garden passages and numerical details are fictional teaching examples. The notation and reconstructed premises are pedagogical choices, not the only legitimate maps.

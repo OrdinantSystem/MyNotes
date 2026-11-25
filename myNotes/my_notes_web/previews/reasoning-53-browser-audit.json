@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-25",
+  "desktop": {
+    "width": 1440,
+    "height": 1000
+  },
+  "compact": {
+    "width": 390,
+    "height": 844
+  },
+  "checks": [
+    {
+      "test": "English desktop initial",
+      "activities": 5,
+      "figures": 13,
+      "lang": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "title": "Ten sources, or one source repeated ten times? · myNotes"
+    },
+    {
+      "test": "Publication keyboard/numeric bounds, stages/endpoints/reset; calibration retains3 origins, copied survey leaves2",
+      "passed": true
+    },
+    {
+      "test": "Credibility source/claim interpretation and search pointer/keyboard, valid/invalid inputs,100 cases, Bayes9.1% and impossible event",
+      "passed": true
+    },
+    {
+      "mathErrors": 0,
+      "overflow": false,
+      "test": "English desktop light",
+      "theme": "light"
+    },
+    {
+      "test": "Workshop unanswered/wrong/right feedback, C→M and F→M,U, reset hides answers",
+      "passed": true
+    },
+    {
+      "mathErrors": 0,
+      "overflow": false,
+      "test": "English compact light",
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "mathErrors": 0,
+      "overflow": false,
+      "test": "English compact dark",
+      "theme": "dark"
+    },
+    {
+      "lang": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "test": "German compact dark",
+      "theme": "dark"
+    },
+    {
+      "mathErrors": 0,
+      "overflow": false,
+      "test": "German compact light",
+      "theme": "light"
+    },
+    {
+      "mathErrors": 0,
+      "overflow": false,
+      "test": "German desktop light",
+      "theme": "light"
+    },
+    {
+      "mathErrors": 0,
+      "overflow": false,
+      "test": "German desktop dark",
+      "theme": "dark"
+    },
+    {
+      "test": "Gallery independent publication activities",
+      "first": "10",
+      "firstDependencies": false,
+      "independent": "5",
+      "independentDependencies": false
+    },
+    {
+      "test": "Gallery reveal via keyboard after layout update",
+      "firstDependencies": true,
+      "independentDependencies": false
+    },
+    {
+      "test": "English Pagefind provenance result navigation",
+      "title": "Ten sources, or one source repeated ten times? · myNotes",
+      "url": "http://127.0.0.1:4453/reasoning/lessons/tracing-sources-and-independent-evidence/"
+    },
+    {
+      "test": "Prefixed EN/DE routes, umlaut Pagefind Glaubwürdigkeit and German result navigation, localized links and activity",
+      "url": "http://127.0.0.1:8453/MyNotes/de/reasoning/lessons/tracing-sources-and-independent-evidence/",
+      "title": "Zehn Quellen oder eine Quelle, zehnmal wiederholt? · myNotes"
+    },
+    {
+      "mathErrors": 0,
+      "overflow": false,
+      "test": "Prefixed German compact"
+    },
+    {
+      "test": "German normal Pagefind Entdeckbarkeit result navigation",
+      "title": "Zehn Quellen oder eine Quelle, zehnmal wiederholt? · myNotes",
+      "url": "http://127.0.0.1:4453/de/reasoning/lessons/tracing-sources-and-independent-evidence/"
+    },
+    {
+      "test": "Final English delivery preview",
+      "title": "Ten sources, or one source repeated ten times? · myNotes",
+      "url": "http://127.0.0.1:4453/reasoning/lessons/tracing-sources-and-independent-evidence/#main",
+      "consoleErrors": []
+    }
+  ]
+}

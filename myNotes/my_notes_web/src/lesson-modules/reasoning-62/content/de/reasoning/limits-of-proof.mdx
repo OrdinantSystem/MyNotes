@@ -1,0 +1,280 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-eight
+sourceId: reasoning-episode-62
+sourceLocations: ["Sections 1–4, Parts I–IX", "Section 6: Mathematical and philosophical boundaries", "Section 7: Preparation sources"]
+sourcePages: []
+thumbnail: module:reasoning-62
+title: Gibt es Grenzen dessen, was Beweise klären können?
+navTitle: Grenzen des Beweisens
+description: Erfolglose Suche, Unabhängigkeit von Axiomen und algorithmische Unentscheidbarkeit unterscheiden und die Reichweite von Gödels Sätzen verstehen.
+order: 62
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+---
+
+## 1. Drei unbeantwortete Fragen
+
+„Keine Antwort gefunden.“ Diese Meldung kann drei ganz unterschiedliche Situationen beschreiben.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="opening" />
+
+**Ungelöst:** Wir haben noch keine Antwort entdeckt. Ein Beweis könnte morgen oder erst in Jahrhunderten gefunden werden.
+
+**Unabhängig von einer angegebenen Theorie:** Weder der Satz noch seine Negation ist aus diesen Axiomen mit den gewählten Beweisregeln ableitbar.
+
+**Algorithmisch unentscheidbar:** Kein allgemeiner Algorithmus entscheidet jede Instanz einer Problemklasse korrekt und terminiert dabei immer. Eine ungeklärte Instanz dieser Klasse muss deshalb nicht selbst unmöglich zu klären sein.
+
+Dasselbe sichtbare Scheitern verrät wenig über seine Ursache. Hier geht es um Grenzen unseres **Wissens**, einer **Theorie** beziehungsweise eines **allgemeinen Verfahrens**. Das sind keine drei einander ausschließenden Schubladen für alle mathematischen Probleme.
+
+Diese Lektion behandelt fortgeschrittene Grundlagen. Vertrautheit mit Axiomen, endlichen formalen Beweisen, Modellen und Algorithmen ist hilfreich. Wir wollen verstehen, was die Grenzen besagen und wie sie nachgewiesen werden können. Die Idee von Gödels Konstruktion wird erläutert, ihr vollständiger technischer Beweis jedoch nicht ausgeführt.
+
+## 2. Was eine formale Theorie enthält
+
+Ein formaler Rahmen legt eine Sprache, Axiome und Schlussregeln fest. Die Sprache bestimmt, was ausdrückbar ist; die Axiome sind die Ausgangsannahmen; die Regeln bestimmen zulässige Schritte. Bei festgehaltener Sprache und festem Kalkül bezeichne $T$ die durch die Axiome gegebene Theorie.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="formal-universe" />
+
+Ein **Theorem von $T$** besitzt eine endliche formale Herleitung aus seinen Axiomen. Insbesondere ist jedes Axiom selbst ableitbar. Die Schreibweise
+
+$$
+T\vdash\varphi
+$$
+
+besagt, dass eine solche Herleitung existiert. Dagegen behauptet
+
+$$
+T\nvdash\varphi,
+$$
+
+dass **in diesem System keine Herleitung existiert**. Das bedeutet nicht bloß, dass mehrere Beweisversuche erfolglos blieben. Diese stärkere Behauptung betrifft jeden möglichen gültigen Beweis aus $T$.
+
+Die Abbildung ordnet Sätze nach Ableitbarkeit ein. Außerhalb des Theorembereichs zu liegen bedeutet nicht, falsch zu sein. Wahrheit wird in einem Modell beurteilt, Ableitbarkeit relativ zu Axiomen und Beweisregeln.
+
+## 3. Suchen heißt nicht entscheiden
+
+Stelle dir ein faires Verfahren vor, das endliche Beweiskandidaten eines effektiven Beweissystems aufzählt und prüft. „Fair“ bedeutet: Jeder endliche Kandidat wird irgendwann untersucht. Das Verfahren verliert sich nicht in nur einem unbeschränkten Zweig.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="proof-found" />
+
+Existiert ein Beweis von $\varphi$, findet die vollständige Suche ihn irgendwann. Sie kann hoffnungslos ineffizient sein. Das ist jedoch eine praktische Frage, die sich von ihrer prinzipiellen Erfolgsmöglichkeit unterscheidet.
+
+Was folgt, wenn eine Million Kandidaten erfolglos geprüft wurden? Vielleicht enthält der nächste einen Beweis. Vielleicht existiert keiner und die Suche läuft unendlich weiter. Eine endliche erfolglose Suche allein unterscheidet diese Möglichkeiten nicht.
+
+Probiere beide schematischen Suchverläufe. Vergleiche im Verlauf mit Beleg die Anzahlen 4 und 5. Prüfe im anderen Verlauf auch die größte zulässige Anzahl.
+
+<Interactive kind="module" module="reasoning-62" preset="search" id="proof-limits-search" />
+
+**Ein gültiger Beweis zeigt Existenz. Kein endlicher Lauf dieser unbeschränkten Suche zeigt Nichtexistenz.** Ein eigenständiges strukturelles Argument kann Unbeweisbarkeit nachweisen; das nächste Beispiel zeigt es. Auch eine bekannte endliche Schranke könnte das Suchproblem verändern. Hier wird keine vorausgesetzt.
+
+<Note title="Was „effektiv“ verlangt">
+In einem üblichen Kalkül mit entscheidbarer Axiomzugehörigkeit und entscheidbaren Regeln ist die Prüfung endlicher Beweise mechanisch möglich. Sind die Axiome nur berechenbar aufzählbar, kann ein Kandidat zusätzlich endliche Belege dafür enthalten, wann jedes verwendete Axiom in der Aufzählung erschien. Solche Zertifikate lassen sich prüfen und fair aufzählen. Die bloße Aufzählbarkeit der Axiome liefert nicht automatisch einen terminierenden Zugehörigkeitstest für jedes vorgeschlagene Axiom.
+</Note>
+
+Die Beweissuche ist ein **Erkennungsverfahren**: Existiert ein Beweis, bestätigt sie irgendwann die Theoremeigenschaft; andernfalls muss sie nicht anhalten. Ein **Entscheidungsverfahren** muss bei jeder Eingabe mit der richtigen Ja-Nein-Antwort anhalten.
+
+## 4. Wenn die Axiome nicht entscheiden
+
+Betrachte eine Sprache mit einer zweistelligen Relation $R$ und drei benannten Objekten $A,B,C$. Interpretiere $R(x,y)$ als **gerichtete Kante**, nicht als logische Implikation oder Erreichbarkeit über einen Pfad. Unsere Theorie hat nur diese beiden nichtlogischen Axiome:
+
+$$
+T=\{R(A,B),\ R(B,C)\}.
+$$
+
+Entscheidet sie den Satz
+
+$$
+\varphi:=R(A,C)?
+$$
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="relation-question" />
+
+Ein Pfad führt von $A$ über $B$ nach $C$. Eine direkte Kante ist eine andere Tatsache. Die übliche Transitivität der logischen Implikation macht nicht jede interpretierte Relation transitiv. Wir haben nicht vorausgesetzt, dass
+
+$$
+\forall x\,\forall y\,\forall z\,
+\bigl((R(x,y)\land R(y,z))\to R(x,z)\bigr).
+$$
+
+Untersuche zwei Strukturen. Lass das Transitivitätsaxiom zunächst ausgeschaltet. Ergänze es dann und prüfe, welche Struktur ein Modell bleibt.
+
+<Interactive kind="module" module="reasoning-62" preset="models" id="proof-limits-models" />
+
+Für das ursprüngliche $T$ erfüllen beide Strukturen beide Axiome. In Modell 1 ist $\varphi$ wahr, in Modell 2 falsch. **Korrektheit** besagt: Jeder aus $T$ beweisbare Satz ist in jedem Modell von $T$ wahr. Daher gilt:
+
+- Ein Beweis von $\varphi$ widerspräche Modell 2, also $T\nvdash\varphi$.
+- Ein Beweis von $\neg\varphi$ widerspräche Modell 1, also $T\nvdash\neg\varphi$.
+
+Damit ist $\varphi$ **von $T$ unabhängig**. Wir haben Unbeweisbarkeit in beiden Richtungen nachgewiesen und nicht bloß erfolglos nach Beweisen gesucht. Ein Modell belegt bei einem korrekten Kalkül außerdem die Widerspruchsfreiheit der ursprünglichen Theorie.
+
+| Eigenschaft | Bedeutung in klassischer Logik |
+| --- | --- |
+| Widerspruchsfreie Theorie | Kein Satz ist zusammen mit seiner Negation ableitbar |
+| Vollständige Theorie | Für jeden Satz ist dieser Satz oder seine Negation ableitbar |
+
+Unsere kleine Theorie ist widerspruchsfrei und unvollständig. Das Ergänzen der Transitivität verändert die Prämissen und macht $R(A,C)$ ableitbar. Dieses elementare Beispiel erklärt Unabhängigkeit; es beweist nicht Gödels Satz.
+
+## 5. Gödels Entdeckung
+
+Könnte eine effektive arithmetische Theorie dieses Problem vermeiden und jeden Satz ihrer Sprache entscheiden? Gödels Arbeit von 1931 und Rossers Verstärkung zeigen eine Grenze für eine wichtige Klasse von Theorien.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="conditions" />
+
+**Erster Unvollständigkeitssatz, Fassung von Gödel–Rosser:** Jede widerspruchsfreie klassische Theorie erster Stufe, deren Axiome berechenbar aufzählbar sind und die Robinsons Arithmetik $Q$ erweitert, ist unvollständig. Die Erweiterung von $Q$ ist eine präzise hinreichende Bedeutung von „genügend elementare Arithmetik enthalten“. Der Satz betrifft nicht jedes formale System.
+
+Insbesondere gibt es einen Satz $G_T$ mit
+
+$$
+T\nvdash G_T\quad\land\quad T\nvdash\neg G_T.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="independent" />
+
+Der Index ist entscheidend: Der Satz ist **von dieser Theorie $T$** unabhängig. Er muss nicht in jeder möglichen Erweiterung unbeweisbar sein. Widerspruchsfreiheit besagt auch nicht, dass alle arithmetischen Behauptungen der Theorie in den intendierten natürlichen Zahlen wahr sind. Widerspruchsfreiheit und Korrektheit bezüglich eines intendierten Modells sind verschiedene Anforderungen.
+
+### Wie Arithmetik über Beweise sprechen kann
+
+Mathematische Ausdrücke und endliche Beweise lassen sich durch natürliche Zahlen codieren. Ein illustratives Symbolwörterbuch zeigt den ersten Schritt:
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="encoding" />
+
+Auch ganze Folgen brauchen eine eindeutige Codierung. Für eine Folge positiver Symbolcodes $(a_1,\ldots,a_k)$ ist ein mögliches illustratives Schema
+
+$$
+2^{a_1}3^{a_2}5^{a_3}\cdots p_k^{a_k},
+$$
+
+wobei $p_k$ die $k$te Primzahl ist. Die eindeutige Primfaktorzerlegung stellt die Codes und ihre Reihenfolge wieder her. Das veranschaulicht Codierung, nicht die Konstruktion eines Gödel-Satzes. Der angegebene Code für die schließende Klammer vervollständigt das kleine Beispielwörterbuch.
+
+Sobald Syntax Zahlencodes besitzt, können geeignete arithmetische Formeln die Beweisprüfungsrelation darstellen. Arithmetik kann so indirekt Aussagen über ihre eigenen formalen Herleitungen machen.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="self-reference" />
+
+Eine Diagonalisierungskonstruktion liefert einen Gödel-Satz mit der ungefähren intendierten Lesart: **„Dieser Satz besitzt keinen Beweis in $T$.“** Das ist eine präzise arithmetische Konstruktion, kein umgangssprachlicher Satz, der sich selbst für falsch erklärt. In der üblichen Konstruktion würde ein Beweis dieses Satzes mit der Widerspruchsfreiheit kollidieren.
+
+Das erklärt die Idee des Selbstbezugs, begründet aber für sich genommen noch nicht beide Unbeweisbarkeitsaussagen. Gödels ursprüngliches Argument verwendete eine stärkere Annahme, etwa $\omega$-Widerspruchsfreiheit, um einen Beweis der Negation auszuschließen. Rosser änderte die Konstruktion so, dass gewöhnliche Widerspruchsfreiheit für einen unabhängigen Satz genügt. Die praktische Bezeichnung $G_T$ oben meint einen unabhängigen Satz des modernen Theorems; sie muss nicht den ursprünglichen, unveränderten Gödel-Satz bezeichnen. Das [Open Logic Text](https://builds.openlogicproject.org/open-logic-complete.pdf#page=589), Abschnitte 37.3–37.5, behandelt den Unterschied und den Beweis.
+
+## 6. Warum nicht ein weiteres Axiom ergänzen?
+
+Ist $G_0$ von $T_0$ unabhängig, bilde
+
+$$
+T_1=T_0\cup\{G_0\}.
+$$
+
+Nun ist $G_0$ beweisbar, weil es ein Axiom ist. Diese Erweiterung erhält Widerspruchsfreiheit: Würde $T_0\cup\{G_0\}$ einen Widerspruch beweisen, ergäben das Deduktionstheorem und klassische Logik $T_0\vdash\neg G_0$, entgegen der Unabhängigkeit. Ebenso würde das Ergänzen von $\neg G_0$ Widerspruchsfreiheit erhalten. Diese syntaktische Tatsache allein entscheidet nicht, welche Erweiterung der intendierten arithmetischen Wahrheit entspricht.
+
+Die Grenze bleibt bestehen. Ist die erweiterte Theorie widerspruchsfrei, effektiv axiomatisiert und enthält sie genügend Arithmetik, besitzt sie einen weiteren unabhängigen Satz $G_1$.
+
+<Interactive kind="module" module="reasoning-62" preset="extensions" id="proof-limits-extensions" />
+
+Jede dargestellte endliche Erweiterung behält alle bisherigen Theoreme und entscheidet ihren ergänzten Satz. Für die deduktiven Abschlüsse gilt
+
+$$
+T_0\subsetneq T_1\subsetneq T_2\subsetneq T_3\subsetneq\cdots.
+$$
+
+Die Grenzen verschieben sich. Keine widerspruchsfreie, effektiv axiomatisierte Erweiterung hinreichender Arithmetik wird vollständig. Das schließt vollständige Theorien **nicht allgemein** aus: Alle in den üblichen natürlichen Zahlen wahren Sätze erster Stufe bilden eine vollständige Theorie. Diese Theorie ist jedoch nicht effektiv axiomatisierbar.
+
+### Der zweite Unvollständigkeitssatz
+
+Auch für den internen Nachweis von Widerspruchsfreiheit gibt es eine Grenze. Für eine widerspruchsfreie, effektiv axiomatisierte Theorie mit genügend Arithmetik, deren übliches Beweisbarkeitsprädikat die gebräuchlichen Ableitbarkeitsbedingungen erfüllt – etwa die Peano-Arithmetik, falls sie widerspruchsfrei ist – gilt
+
+$$
+T\nvdash\operatorname{Con}(T).
+$$
+
+Dabei ist $\operatorname{Con}(T)$ die übliche arithmetische Aussage, dass es keinen $T$-Beweis eines Widerspruchs wie $0=1$ gibt. Die Formulierung der Widerspruchsfreiheitsaussage und die technischen Voraussetzungen sind wesentlich. Eine stärkere Theorie kann die Widerspruchsfreiheit einer schwächeren beweisen. Das ist kein interner Beweis mit ausschließlich den Mitteln der schwächeren Theorie. Das [Open Logic Text](https://builds.openlogicproject.org/open-logic-complete.pdf#page=592), Abschnitte 37.6–37.7, nennt die formalen Bedingungen.
+
+## 7. Der Algorithmus, den es nicht geben kann
+
+Manche Programme terminieren offensichtlich. Bei anderen lässt sich beweisen, dass sie unendlich weiterlaufen. Die Analyse eines komplizierten Programms kann uns im Ungewissen lassen.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="programs" />
+
+Für ein idealisiertes Programm $P$ und eine Eingabe $x$ fragen wir, ob $P(x)$ jemals terminiert. Ein universeller Halteentscheider müsste für **jedes** solche Paar korrekt antworten und seine eigene Berechnung immer beenden.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="decider" />
+
+Nimm zum Widerspruch an, ein solcher Algorithmus $H$ existiere. Konstruiere folgendes Programm, wobei $p$ der Code eines Programms ist:
+
+```text
+D(p):
+    falls H(p, p) „hält an“ vorhersagt:
+        laufe unendlich weiter
+    sonst:
+        halte an
+```
+
+Das angenommene $H$ terminiert, also erreicht $D$ den gewählten Zweig. Gib nun $D$ seinen eigenen Code und betrachte $H(D,D)$.
+
+<Interactive kind="module" module="reasoning-62" preset="diagonal" id="proof-limits-diagonal" />
+
+Sagt $H$ Anhalten voraus, läuft $D(D)$ unendlich weiter. Sagt $H$ Nichtanhalten voraus, hält $D(D)$ an. Beide möglichen Antworten widersprechen der angenommenen Korrektheit von $H$. Also existiert **kein totaler, stets korrekter universeller Halteentscheider**. Das ist ein vollständiger Widerspruch durch zwei Fälle für den angenommenen Entscheider, unter der üblichen Voraussetzung effektiver Codierung und möglicher Selbsteingabe. David Dotys [Vorlesung an der UC Davis](https://www.cs.ucdavis.edu/~doty/ecs120slides/11c_DiagonalizationHalting-deck.html) entwickelt dieses Diagonalargument.
+
+Das Ergebnis betrifft Algorithmen über idealisierten unbeschränkten Berechnungen, nicht eine bestimmte Maschine mit endlichem Speicher. Mehr Geschwindigkeit oder Speicher liefert den ausgeschlossenen allgemeinen Algorithmus nicht. Erfolgreiche Analysen einzelner Programme oder eingeschränkter Programmklassen bleiben möglich.
+
+| Aufgabe | Allgemeiner Status |
+| --- | --- |
+| Ein endliches Zertifikat in einem üblichen effektiven Kalkül prüfen | Mechanisch möglich |
+| Mögliche Beweise fair aufzählen | Mechanisch möglich |
+| Entscheiden, ob ein beliebiger Satz ein Theorem der Peano-Arithmetik ist | Unentscheidbar, falls PA widerspruchsfrei ist |
+| Für beliebige Programm-Eingabe-Paare das Halten entscheiden | Unentscheidbar |
+
+Die PA-Annahme ist wesentlich: Eine widersprüchliche klassische Theorie beweist alles; ihre Theoremeigenschaft wäre trivial entscheidbar. **Unvollständigkeit ist für sich genommen kein Synonym für algorithmische Unentscheidbarkeit.** Die Eigenschaften sind verschieden, auch wenn die Arithmetik sie verbindet. Jeremy Avigads [*Incompleteness via the halting problem*](https://www.andrew.cmu.edu/user/avigad/Teaching/halting.pdf) untersucht den Zusammenhang.
+
+## 8. Ist Logik vollständig oder unvollständig?
+
+„Vollständig“ bezeichnet hier zwei verschiedene Eigenschaften.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="completeness" />
+
+**Semantische Vollständigkeit eines Beweiskalküls erster Stufe:** Jede semantische Folgerung aus Prämissen hat einen formalen Beweis aus diesen Prämissen:
+
+$$
+T\models\varphi\ \Longrightarrow\ T\vdash\varphi.
+$$
+
+**Syntaktische Vollständigkeit einer Theorie:** Für jeden Satz $\varphi$ ihrer Sprache gilt
+
+$$
+T\vdash\varphi\quad\text{oder}\quad T\vdash\neg\varphi.
+$$
+
+Die erste Eigenschaft besagt, dass die Beweisregeln alles herleiten können, was in jedem Modell der Prämissen gilt. Die zweite besagt, dass die Prämissen jeden Satz in einer Richtung entscheiden. Unsere beiden Netzwerkmodelle unterscheiden sich bei $R(A,C)$. Also ist weder dieser Satz noch seine Negation eine semantische Folgerung. Einem vollständigen Kalkül fehlt hier keine Herleitung.
+
+Ebenso ist Wahrheit in den **üblichen natürlichen Zahlen** nicht Wahrheit in **jedem Modell einer arithmetischen Theorie**. Unvollständigkeit lässt Modelle derselben Axiome zu, die sich unterscheiden; Nichtstandardmodelle spielen dabei eine Rolle. Semantische Vollständigkeit erster Stufe und arithmetische Unvollständigkeit passen somit zusammen.
+
+## 9. Die nachgewiesene Grenze erkennen
+
+<Interactive kind="module" module="reasoning-62" preset="classify" id="proof-limits-classify" />
+
+Jemand behauptet: „Gödel beweist, dass jede ungelöste Vermutung unabhängig ist. Deshalb ist die Suche nach Beweisen sinnlos.“ Benenne beide unbegründeten Schritte.
+
+<Exercise>
+Eine ungelöste Vermutung ist eine Lücke in unserem Wissen. Unabhängigkeit von einer angegebenen Theorie erfordert ein eigenes mathematisches Argument und folgt nicht aus langer erfolgloser Suche. Gödel–Rosser garantiert unabhängige Sätze für Theorien mit den Voraussetzungen, nicht die Unabhängigkeit jeder unbeantworteten Frage.
+
+Selbst wenn ein Satz von einer Theorie unabhängig ist, kann eine Erweiterung ihn entscheiden. Viele andere Sätze besitzen Beweise in der ursprünglichen Theorie; Beweissuche bleibt also wertvoll. Ein Satz, der eine Grenze nachweist, ist selbst ein Erfolg strengen Schließens.
+</Exercise>
+
+| Fehlinterpretation | Was das Ergebnis tatsächlich sagt |
+| --- | --- |
+| Mathematik ist widersprüchlich | Der erste Satz setzt Widerspruchsfreiheit voraus |
+| Manche Sätze sind in keinem System beweisbar | Unabhängigkeit bezieht sich auf eine Theorie |
+| Mathematik ist subjektiv | Wahrheit in einem Modell unterscheidet sich von Ableitbarkeit aus Axiomen |
+| Der menschliche Geist muss jeden Computer übertreffen | Das folgt nicht allein aus den Unvollständigkeitssätzen |
+| Jedes formale System ist unvollständig | Bestimmte Voraussetzungen sind nötig |
+| Mehr Rechenleistung löst das Halteproblem | Kein universeller Algorithmus erfüllt die genannten Anforderungen |
+| Jedes ungelöste Problem ist unabhängig | Unabhängigkeit erfordert einen eigenen Nachweis |
+| Der Logik erster Stufe fehlt ein vollständiger Kalkül | Ihre üblichen Kalküle sind semantisch vollständig |
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="levels" />
+
+Beweise können Grenzen des Beweisens nachweisen, Berechenbarkeitstheorie kann Grenzen von Algorithmen nachweisen. Diese Entdeckungen präzisieren, was Gewissheit bedeutet. Frage stets: **Welche Theorie, welches Modell, welches Verfahren und welche Behauptung wurden tatsächlich untersucht und nachgewiesen?**
+
+### Weiterlesen
+
+Zur Vorbereitung nennt die Vorlage [*forall x: Calgary*](https://forallx.openlogicproject.org/html/) zu Interpretationen, Beweisen und Semantik sowie die Stanford-Encyclopedia-Einträge über [Gödels Unvollständigkeitssätze](https://plato.stanford.edu/entries/goedel-incompleteness/), [Berechenbarkeit und Komplexität](https://plato.stanford.edu/entries/computability/) und [Kurt Gödel](https://plato.stanford.edu/entries/goedel/). Netzwerk, schematische Suche und wachsende Grenzen sind Lehrillustrationen; sie berechnen keine unabhängigen arithmetischen Sätze.

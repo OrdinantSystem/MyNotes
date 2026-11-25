@@ -1,0 +1,10 @@
+---
+import {copy} from './copy';
+import {figureMarkup} from './render';
+import '../../styles/counterexamples.css';
+import './styles.css';
+interface Props{figure:string}
+const {figure}=Astro.props,locale=Astro.locals.locale==='de'?'de':'en',c=copy(locale),title=c.titles[figure as keyof typeof c.titles];
+if(!title)throw new Error('Unknown informal-fallacy figure');
+---
+<figure class="counter-figure aor52" data-aor52-figure={figure}><h3>{title}</h3><div set:html={figureMarkup(locale,figure)}/></figure>

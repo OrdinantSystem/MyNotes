@@ -1,0 +1,42 @@
+{
+  "id": "reasoning-63",
+  "course": "reasoning",
+  "chapter": "reasoning-part-eight",
+  "chapterDefinition": {
+    "id": "reasoning-part-eight",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Eight",
+      "de": "Teil Acht"
+    },
+    "description": {
+      "en": "Practical and ethical reasoning.",
+      "de": "Praktisches und ethisches Argumentieren."
+    }
+  },
+  "order": 63,
+  "key": "final-proof-workshop",
+  "title": "Final proof workshop: create, explain, and defend an argument",
+  "sourceId": "reasoning-episode-63",
+  "sourceTitle": "AoR 63 \u2014 Final proof workshop: Create, explain, and defend an argument",
+  "figures": [
+    "process",
+    "opening",
+    "goal",
+    "factorization",
+    "pairing",
+    "dependency",
+    "comparison",
+    "even",
+    "classification",
+    "reflection"
+  ],
+  "presets": [
+    "explore",
+    "draft",
+    "consecutive",
+    "geometry",
+    "layers",
+    "examiner"
+  ]
+}

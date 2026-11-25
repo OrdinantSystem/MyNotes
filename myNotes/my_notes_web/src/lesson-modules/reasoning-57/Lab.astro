@@ -1,0 +1,11 @@
+---
+import {text} from './copy';import {rules,categories} from './model';import {table,decisionMarkup} from './render';import './styles.css';
+interface Props{preset:'classification'|'bridge'|'decision'|'reconstruction';id:string}const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale);const names=['classification','bridge','decision','reconstruction'];
+---
+<figure class="v57-lab" id={id} data-v57-lab={preset} data-locale={locale}><h3>{c.labs[names.indexOf(preset)]}</h3>
+ {preset==='classification'&&<><p>{c.select}</p>{c.statements.map((s,i)=><fieldset><legend>{i+1}. {s}</legend>{categories.map((k,j)=><label class="v57-radio"><input type="radio" name={`${id}-q${i}`} value={j} data-v57-answer={i}/><span>{c[k]}</span></label>)}<button type="button" data-v57-reveal={i} aria-expanded="false" aria-controls={`${id}-feedback-${i}`} disabled>{c.reveal}</button><p id={`${id}-feedback-${i}`} data-v57-feedback={i} hidden></p></fieldset>)}</>}
+ {preset==='bridge'&&<><label class="v57-radio"><input type="checkbox" data-v57-bridge aria-controls={`${id}-output`}/><span>{c.bridge}</span></label><div data-v57-output id={`${id}-output`} set:html={table(locale,false)}/></>}
+ {preset==='decision'&&<><p>{c.fiction}</p><label>{c.rule}<select data-v57-rule aria-controls={`${id}-output`}>{rules.map((v,i)=><option value={v} selected={v==='constraint'}>{c.rules[i]}</option>)}</select></label><label>{c.minimum}<input type="range" min="60" max="100" value="90" step="1" data-v57-range aria-controls={`${id}-output`}/><input type="number" min="60" max="100" value="90" step="1" data-v57-number aria-label={c.minimum} aria-controls={`${id}-output`}/></label><div data-v57-output id={`${id}-output`} set:html={decisionMarkup(locale,'constraint',90)}/></>}
+ {preset==='reconstruction'&&c.prompts.map((q,i)=><details><summary>{q}</summary><p>{c.answers[i]}</p></details>)}
+ <button type="button" data-v57-reset>{c.reset}</button><p data-v57-status role="status" aria-live="polite"></p>
+</figure><script>import './controller';</script>

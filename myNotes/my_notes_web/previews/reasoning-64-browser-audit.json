@@ -1,0 +1,311 @@
+{
+  "layouts": [
+    {
+      "height": 1000,
+      "lang": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "sliderLabelPositions": [
+        "absolute",
+        "absolute"
+      ],
+      "theme": "dark",
+      "tiles": [
+        {
+          "columns": 25,
+          "height": 87
+        },
+        {
+          "columns": 25,
+          "height": 87
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "height": 1000,
+      "lang": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "sliderLabelPositions": [
+        "absolute",
+        "absolute"
+      ],
+      "theme": "light",
+      "tiles": [
+        {
+          "columns": 25,
+          "height": 87
+        },
+        {
+          "columns": 25,
+          "height": 87
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "height": 844,
+      "lang": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "sliderLabelPositions": [
+        "absolute",
+        "absolute"
+      ],
+      "theme": "light",
+      "tiles": [
+        {
+          "columns": 10,
+          "height": 203
+        },
+        {
+          "columns": 10,
+          "height": 203
+        }
+      ],
+      "width": 390
+    },
+    {
+      "height": 844,
+      "lang": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "sliderLabelPositions": [
+        "absolute",
+        "absolute"
+      ],
+      "theme": "dark",
+      "tiles": [
+        {
+          "columns": 10,
+          "height": 203
+        },
+        {
+          "columns": 10,
+          "height": 203
+        }
+      ],
+      "width": 390
+    },
+    {
+      "height": 844,
+      "lang": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "sliderLabelPositions": [
+        "absolute",
+        "absolute"
+      ],
+      "theme": "dark",
+      "tiles": [
+        {
+          "columns": 10,
+          "height": 203
+        },
+        {
+          "columns": 10,
+          "height": 203
+        }
+      ],
+      "width": 390
+    },
+    {
+      "height": 844,
+      "lang": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "sliderLabelPositions": [
+        "absolute",
+        "absolute"
+      ],
+      "theme": "light",
+      "tiles": [
+        {
+          "columns": 10,
+          "height": 203
+        },
+        {
+          "columns": 10,
+          "height": 203
+        }
+      ],
+      "width": 390
+    },
+    {
+      "height": 1000,
+      "lang": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "sliderLabelPositions": [
+        "absolute",
+        "absolute"
+      ],
+      "theme": "light",
+      "tiles": [
+        {
+          "columns": 25,
+          "height": 87
+        },
+        {
+          "columns": 25,
+          "height": 87
+        }
+      ],
+      "width": 1440
+    },
+    {
+      "height": 1000,
+      "lang": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "sliderLabelPositions": [
+        "absolute",
+        "absolute"
+      ],
+      "theme": "dark",
+      "tiles": [
+        {
+          "columns": 25,
+          "height": 87
+        },
+        {
+          "columns": 25,
+          "height": 87
+        }
+      ],
+      "width": 1440
+    }
+  ],
+  "interactions": [
+    {
+      "composition": [
+        {
+          "key": "Home",
+          "text": "Overall difference (percentage points): -32"
+        },
+        {
+          "key": "End",
+          "text": "Overall difference (percentage points): +8"
+        },
+        {
+          "key": "ArrowLeft",
+          "text": "Overall difference (percentage points): +7.6"
+        },
+        {
+          "invalid": "",
+          "value": "99",
+          "status": "Use whole percentages from 0 to 100. The last valid values were restored."
+        },
+        {
+          "invalid": "101",
+          "value": "99",
+          "status": "Use whole percentages from 0 to 100. The last valid values were restored."
+        },
+        {
+          "invalid": "-1",
+          "value": "99",
+          "status": "Use whole percentages from 0 to 100. The last valid values were restored."
+        },
+        {
+          "invalid": "0.5",
+          "value": "99",
+          "status": "Use whole percentages from 0 to 100. The last valid values were restored."
+        },
+        {
+          "pointer": "50",
+          "result": "Overall difference (percentage points): -12"
+        },
+        {
+          "equal": "Overall difference (percentage points): 0"
+        },
+        {
+          "endpoints": "Overall difference (percentage points): +40"
+        }
+      ]
+    },
+    {
+      "record": {
+        "captureDisabled": true,
+        "fields": [
+          "Postpone full adoption: revised annual cost exceeds the budget and benefit is uncertain.",
+          "Local benefit, participation and full cost.",
+          "A credible benefit of ten percentage points with affordable costs."
+        ],
+        "initial": "Your decision record\n\nCurrent recommendation\n\nMy recommendation: Conduct a controlled pilot\n\nConfidence in my recommendation (%): 85%\n\nSubjective confidence, not a calculated statistical probability.\n\nWhy is this preferable to the alternatives? State your priorities and constraints.\nPilot first <test> & preserve funds. Privacy is required.\n\nWhat important questions remain unanswered?\nLocal benefit, participation and full cost.\n\nWhat evidence would change my decision?\nA credible benefit of ten percentage points with affordable costs.\n\nFictional teaching case; no real product or study is being evaluated.",
+        "newTables": 5,
+        "revised": "ConsiderationFull adoptionControlled pilotAdditional tutoringMaintain current systemDirect annual cost / trial cost€6,600€600 · already spent€3,000€0Learning benefit+5 pp observed; true benefit uncertainLimited-scale, uncertainUncertainNo new interventionNew local evidencePossibleExplicit objectivePossibleNone directlyFinancial commitmentHighLowModerateNonePrivacy concernsProgram-wideLimited exposureDifferent risksNo new platform riskReversibilityLowerHigherDepends on termsHighImplementation effortPotentially highLimited-scaleStaffing requiredMinimal additional effortPrivacy is a constraint, not an automatic score penalty. None of these options is certified compliant; check requirements before treating an option as available.Full adoption under the quoted terms is over budget. A lower price or extra funding would change feasibility, not establish effectiveness. The pilot column retains the completed trial; any follow-up needs a new cost estimate."
+      },
+      "exported": "Your decision record\n\nRetained initial record\n\nMy recommendation: Conduct a controlled pilot\n\nConfidence in my recommendation (%): 85%\n\nSubjective confidence, not a calculated statistical probability.\n\nWhy is this preferable to the alternatives? State your priorities and constraints.\nPilot first <test> & preserve funds. Privacy is required.\n\nWhat important questions remain unanswered?\nLocal benefit, participation and full cost.\n\nWhat evidence would change my decision?\nA credible benefit of ten percentage points with affordable costs.\n\nCurrent recommendation\n\nMy recommendation: Maintain the current system\n\nConfidence in my recommendation (%): 85%\n\nSubjective confidence, not a calculated statistical probability.\n\nWhy is this preferable to the alternatives? State your priorities and constraints.\nPostpone full adoption: revised annual cost exceeds the budget and benefit is uncertain.\n\nWhat important questions remain unanswered?\nLocal benefit, participation and full cost.\n\nWhat evidence would change my decision?\nA credible benefit of ten percentage points with affordable costs.\n\nFictional teaching case; no real product or study is being evaluated."
+    },
+    {
+      "gallery": {
+        "first": 1,
+        "firstFeedback": "Keep this initial impression in mind. The dossier will reveal what each recommendation depends on; this choice is not graded.",
+        "independent": 0,
+        "independentFeedback": ""
+      }
+    },
+    {
+      "englishSearch": "/reasoning/lessons/think-clearly-about-a-real-decision/"
+    },
+    {
+      "germanSearch": "/de/reasoning/lessons/think-clearly-about-a-real-decision/",
+      "languageSwitch": "http://127.0.0.1:4664/de/reasoning/lessons/think-clearly-about-a-real-decision/"
+    },
+    {
+      "germanConfidenceInput": "100",
+      "value": "100"
+    },
+    {
+      "germanConfidenceInput": "0",
+      "value": "0"
+    },
+    {
+      "germanConfidenceInput": "101",
+      "value": "0"
+    }
+  ],
+  "screenshots": [
+    "previews/reasoning-64-desktop-en.jpg",
+    "previews/reasoning-64-compact-de-dark.jpg"
+  ],
+  "logs": {
+    "main": [],
+    "gallery": [],
+    "search": []
+  },
+  "prefix": {
+    "search": "/MyNotes/de/reasoning/lessons/think-clearly-about-a-real-decision/",
+    "logs": [],
+    "germanControlGap": -8,
+    "home": "/MyNotes/de/"
+  },
+  "finalRoot": {
+    "url": "http://127.0.0.1:4964/reasoning/lessons/think-clearly-about-a-real-decision/",
+    "layout": {
+      "height": 720,
+      "lang": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "sliderLabelPositions": [
+        "absolute",
+        "absolute"
+      ],
+      "theme": "dark",
+      "tiles": [
+        {
+          "columns": 25,
+          "height": 73
+        },
+        {
+          "columns": 25,
+          "height": 73
+        }
+      ],
+      "width": 1280
+    },
+    "equal": "Overall difference (percentage points): 0",
+    "reset": "Overall difference (percentage points): +24"
+  }
+}

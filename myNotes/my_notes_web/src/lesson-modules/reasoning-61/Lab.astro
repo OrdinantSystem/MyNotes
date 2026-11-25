@@ -1,0 +1,18 @@
+---
+import {copy} from './copy';
+import {masks,letters} from './model';
+import {networkMarkup,matrixMarkup,truthMarkup,builderFeedback,filterMarkup,proofMarkup} from './render';
+import './styles.css';
+interface Props {preset:'worlds'|'countermodel'|'filter'|'proof'|'transfer';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=copy(locale);
+---
+<figure id={id} class="aor61-lab" data-aor61-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='worlds'&&<><div class="aor61-controls"><button type="button" data-world="shared" aria-pressed="true">{c.shared}</button><button type="button" data-world="cycle" aria-pressed="false">{c.cycle}</button></div><div data-world-output set:html={networkMarkup(locale,masks.shared)+matrixMarkup(locale,masks.shared)+truthMarkup(locale,masks.shared)}/></>}
+ {preset==='countermodel'&&<><p>{c.builderHelp}</p><div data-network-output set:html={networkMarkup(locale,0)}/><div class="aor61-matrix"><table><caption>{c.matrix}</caption><thead><tr><th scope="col">K</th>{letters.map(l=><th scope="col">{l}</th>)}</tr></thead><tbody>{letters.map((l,r)=><tr><th scope="row">{l}</th>{letters.map((target,col)=><td data-value="0"><button type="button" data-cell={`${r}-${col}`} aria-pressed="false" aria-label={`${l} ${c.knows} ${target}`}>0</button></td>)}</tr>)}</tbody></table></div><label for={`${id}-code`}>{c.input}</label><input id={`${id}-code`} type="number" min="0" max="511" step="1" value="0" data-mask/><p>{c.inputNote}</p><div data-truth-output set:html={truthMarkup(locale,0)}/><p data-feedback>{builderFeedback(locale,0)}</p><div class="aor61-controls"><button type="button" data-solution>{c.solution}</button><button type="button" data-identity>{c.identity}</button><button type="button" data-full>{c.full}</button></div></>}
+ {preset==='filter'&&<><label for={`${id}-domain`}>{c.domain}</label><select id={`${id}-domain`} data-domain>{[1,2,3].map(n=><option value={n} selected={n===3}>{n}</option>)}</select><label for={`${id}-premise`}>{c.premiseLabel}</label><select id={`${id}-premise`} data-premise>{['none','P','Q','contradiction'].map(p=><option value={p} selected={p==='P'}>{c.premises[p as keyof typeof c.premises]}</option>)}</select><label for={`${id}-conclusion`}>{c.conclusionLabel}</label><select id={`${id}-conclusion`} data-conclusion>{['P','Q','notQ'].map(q=><option value={q} selected={q==='Q'}>{c.conclusions[q as keyof typeof c.conclusions]}</option>)}</select><div data-filter-output set:html={filterMarkup(locale)}/></>}
+ {preset==='proof'&&<><div data-proof-output set:html={proofMarkup(locale)}/><div class="aor61-controls"><button type="button" data-previous disabled>{c.previous}</button><button type="button" data-next>{c.next}</button></div></>}
+ {preset==='transfer'&&<><fieldset><legend>{c.quiz}</legend>{c.options.map((option,i)=><label class="aor61-choice"><input type="radio" name={`${id}-answer`} value={i}/>{option}</label>)}</fieldset><div class="aor61-controls"><button type="button" data-check>{c.check}</button></div><div data-transfer-answer hidden><div data-reader-output/><div class="aor61-controls"><button type="button" data-reader="forward">{c.forward}</button><button type="button" data-reader="converse">{c.converse}</button></div></div><noscript><p>{c.correct}</p></noscript></>}
+ <div class="aor61-controls"><button type="button" data-reset>{c.reset}</button></div><p data-status role="status" aria-live="polite"></p><noscript><p>{c.offline}</p></noscript>
+</figure>
+<script>import './controller';</script>

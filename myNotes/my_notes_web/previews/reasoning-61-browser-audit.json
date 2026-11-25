@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-25",
+  "normalPreview": "http://127.0.0.1:4461",
+  "normalChecks": [
+    "EN/DE × desktop1440×1000/compact390×844 × light/dark: no page overflow, thirteen figures, five activities, no equation errors",
+    "World comparison and reset",
+    "Builder mouse/Space/Enter; focus retained; codes146/98/273/511; negative,512,fractional and blank rejected while preserving last valid state; reset",
+    "Filter counts512/343/174; size1:2/1/0, size2:16/9/2; reverse implication; contradictory premises; reset",
+    "Proof6lines and scopes, disabled endpoints and reset",
+    "Transfer unanswered/wrong/correct/converse feedback and reset",
+    "German controls and feedback for all5activities",
+    "Long formula keyboard scroll in labeled focusable region",
+    "Gallery6instances/13figures; first changed while duplicate stayed initial; reset confirmed after interruption",
+    "English countermodel and German Gegenmodell Pagefind results opened correct lesson"
+  ],
+  "prefix": {
+    "base": "/MyNotes/",
+    "checks": [
+      "EN/DE lesson links retain prefix",
+      "Native language menu opens equivalent German lesson",
+      "English world control and German countermodel work",
+      "German Vollständigkeit and English countermodel Pagefind results retain prefix and open correct lesson"
+    ],
+    "builds": "Prefix production build and normal restoration passed"
+  },
+  "humanReview": "unreviewed"
+}

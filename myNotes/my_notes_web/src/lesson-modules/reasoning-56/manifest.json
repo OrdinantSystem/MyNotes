@@ -1,0 +1,42 @@
+{
+  "id": "reasoning-56",
+  "course": "reasoning",
+  "chapter": "reasoning-part-seven",
+  "chapterDefinition": {
+    "id": "reasoning-part-seven",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Seven",
+      "de": "Teil Sieben"
+    },
+    "description": {
+      "en": "Knowledge, justification, and philosophical reasoning.",
+      "de": "Wissen, Rechtfertigung und philosophisches Denken."
+    }
+  },
+  "order": 56,
+  "key": "when-should-you-trust-your-intuition",
+  "title": "When should you trust your intuition?",
+  "sourceId": "reasoning-episode-56",
+  "sourceTitle": "AoR 56 — When should you trust your intuition?",
+  "figures": [
+    "foundations",
+    "opening",
+    "recognition",
+    "worlds",
+    "feedback",
+    "outcomes",
+    "matrix",
+    "growing-squares",
+    "pipeline",
+    "calibration",
+    "histories",
+    "synthesis"
+  ],
+  "presets": [
+    "worlds",
+    "squares",
+    "audit",
+    "calibration"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "reasoning-51",
+  "course": "reasoning",
+  "chapter": "reasoning-part-seven",
+  "chapterDefinition": {
+    "id": "reasoning-part-seven",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Seven",
+      "de": "Teil Sieben"
+    },
+    "description": {
+      "en": "Knowledge, justification, and philosophical reasoning.",
+      "de": "Wissen, Rechtfertigung und philosophisches Denken."
+    }
+  },
+  "order": 51,
+  "key": "map-an-argument-without-losing-its-meaning",
+  "title": "How to map an argument without losing its meaning",
+  "sourceId": "reasoning-episode-51",
+  "sourceTitle": "How to map an argument without losing its meaning \u00b7 argument mapping",
+  "figures": [
+    "linear",
+    "fragments",
+    "grammar",
+    "independent",
+    "linked",
+    "removal",
+    "chain",
+    "implicit",
+    "charity",
+    "objection",
+    "complete",
+    "garden",
+    "explanation",
+    "process"
+  ],
+  "presets": [
+    "removal",
+    "trace",
+    "objections",
+    "garden"
+  ]
+}

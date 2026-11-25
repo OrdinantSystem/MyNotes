@@ -1,0 +1,7 @@
+{
+ "id":"reasoning-61","course":"reasoning","chapter":"reasoning-part-eight",
+ "chapterDefinition":{"id":"reasoning-part-eight","course":"reasoning","title":{"en":"Part Eight","de":"Teil Acht"},"description":{"en":"Practical and ethical reasoning.","de":"Praktisches und ethisches Argumentieren."}},
+ "order":61,"key":"truth-models-and-logical-consequence","title":"Truth in a world, consequence in every world","sourceId":"reasoning-episode-61","sourceTitle":"Truth in a world, consequence in every world",
+ "figures":["two-worlds","structure","matrices","models","containment","countermodel","derivation","turnstiles","bridge","underdetermined","books","levels","progression"],
+ "presets":["worlds","countermodel","filter","proof","transfer"]
+}

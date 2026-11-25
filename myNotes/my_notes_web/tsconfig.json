@@ -9,6 +9,7 @@
     "local-web",
     "node_modules",
     ".preview-dist-*",
+    "previews/*-snapshot",
     "lesson-work",
     "src/lesson-modules/**/verify.mjs",
     "references/source"

@@ -1,0 +1,191 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-eight
+sourceId: reasoning-episode-60
+sourcePages: []
+sourceLocations: ["Sections 1–13: testing, proof, formalization and epistemic boundaries", "Sections 14–18 and supplied visuals 1–19: representations and course connections"]
+title: "Kann ein Computer einen Beweis prüfen?"
+navTitle: "Computergeprüfte Beweise"
+description: "Numerische Tests, vollständige endliche Prüfung und maschinell prüfbares allgemeines Schließen unterscheiden."
+order: 60
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [truth-validity-and-soundness, quantifiers-and-dependence]
+thumbnail: "module:reasoning-60"
+---
+
+Ein Computer kann mehr Beispiele prüfen, als wir in einem Menschenleben durchsehen könnten. Er kann auch einen formalen Beweis prüfen. Das sind verschiedene Leistungen: Tests untersuchen bestimmte Einzelfälle; die Beweisprüfung untersucht, ob die angegebene Schlussfolgerung aus den akzeptierten Regeln und Annahmen folgt.
+
+Wir verfolgen einen Satz von Beispielen über gepaarte Objekte und Algebra bis zu Lean: **Die Summe zweier gerader natürlicher Zahlen ist gerade.** Dabei enthält $\mathbb N$ die null, wie auch `Nat` in Lean.
+
+## 1. Eine Million erfolgreiche Tests
+
+Beginnen wir mit einigen Additionen. Jede Summe ist gerade.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="examples" />
+
+Stell dir ein Programm vor, das Paare gerader Zahlen erzeugt. Die Rechnungen erscheinen immer schneller, bis nur ein Zähler bleibt: eine Million Fälle, kein Gegenbeispiel. Das liefert Erkenntnisse über die geprüften Fälle. Weist es die Aussage für jedes mögliche Paar nach?
+
+<Interactive kind="module" module="reasoning-60" preset="grid" id="aor60-grid" />
+
+Die Achsen bezeichnen die beiden geraden Eingaben. Jeder Punkt steht für ein geordnetes Paar und eine Addition. Die Aktivität zählt die gewählte endliche Sammlung tatsächlich auf und prüft sie. Doch der Bereich reicht über jeden endlichen Bildschirm und jeden endlichen Programmlauf hinaus. Auch nach zehn Millionen Erfolgen bleiben ungeprüfte Paare.
+
+Ein einziges echtes Gegenbeispiel würde die allgemeine Behauptung widerlegen. Dass eine Stichprobe keines enthält, beweist für sich genommen nicht, dass keines existiert. Entscheidend ist der Geltungsbereich des Verfahrens, nicht die Geschwindigkeit oder Zuverlässigkeit des Computers.
+
+## 2. Wann vollständiges Prüfen ein Beweis ist
+
+Ändern wir die Behauptung. Sei $S=\{0,2,4,6\}$. Gefragt ist, ob die Summe für jedes geordnete Paar in $S\times S$ gerade ist. Es gibt genau $4\cdot4=16$ Paare. Ein Paar und seine Umkehrung sind verschiedene Einträge, sofern sich ihre Koordinaten unterscheiden.
+
+<Interactive kind="module" module="reasoning-60" preset="bounded" id="aor60-bounded" />
+
+Dieser Bereich ist vollständig abgegrenzt. Die korrekte Prüfung aller seiner Elemente weist die eingeschränkte Aussage nach. Innerhalb von $S\times S$ gibt es kein ungeprüftes siebzehntes Paar.
+
+Drei Bedingungen sind entscheidend: Der Bereich muss genau festgelegt sein, die Aufzählung muss ihn vollständig erfassen, und jede Prüfung muss korrekt sein. Vollständiges Durchprüfen ist für eine passende endliche Behauptung eine gültige Beweismethode. Dadurch wird die Behauptung aber nicht zu einem Satz über alle natürlichen Zahlen.
+
+## 3. Warum der allgemeine Satz gilt
+
+Für den uneingeschränkten Satz brauchen wir einen Grund, der auf beliebige Eingaben anwendbar ist. Eine gerade natürliche Zahl ist das Doppelte einer natürlichen Zahl:
+
+$$
+E(n)\iff\exists k\in\mathbb N:\ n=2k.
+$$
+
+Die Zahl $k$ ist ein **Zeuge** für die Existenzaussage. Beispielsweise enthält sechs drei vollständige Paare, während acht vier enthält.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="pairing" />
+
+Aus vollständigen Paaren werden beim Zusammenfügen wieder vollständige Paare. Dieser Vorgang hängt nicht davon ab, dass die Paaranzahlen gerade drei und vier sind. Ersetze sie durch beliebige natürliche Zahlen $a$ und $b$.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="general" />
+
+Seien $m,n\in\mathbb N$ beliebige gerade Zahlen. Nach Definition existieren $a,b\in\mathbb N$ mit $m=2a$ und $n=2b$. Setze diese Gleichheiten ein und klammere zwei aus:
+
+$$
+m+n=2a+2b=2(a+b).
+$$
+
+Da $a+b\in\mathbb N$, ist diese Zahl ein Zeuge dafür, dass $m+n$ gerade ist. Wir haben die geraden Eingaben nicht weiter eingeschränkt. Das Argument beweist deshalb
+
+$$
+\forall m,n\in\mathbb N,\quad (E(m)\land E(n))\Rightarrow E(m+n).
+$$
+
+Null verursacht kein Problem: Eine leere Sammlung trägt null Paare bei. Der Beweis gilt auch, wenn eine oder beide Eingaben null sind. Das Bild veranschaulicht die Struktur; das Argument mit beliebigen Variablen erklärt, warum jedes zulässige Paar erfasst wird.
+
+## 4. Die Abhängigkeiten sichtbar machen
+
+Ein kurzer handschriftlicher Beweis kann vertraute Regeln unausgesprochen lassen. Formalisierung verlangt genaue Bedeutungen und begründete Übergänge. Erweitern wir den Beweis so, dass seine Abhängigkeiten sichtbar werden.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="dependencies" />
+
+Der letzte Schritt verwendet sowohl die dargestellte Gleichheit als auch die Abgeschlossenheit der natürlichen Zahlen unter Addition. Wir erkennen nicht bloß, dass ein Ergebnis „gerade aussieht“, sondern geben den von der Definition verlangten Zeugen an.
+
+Menschen müssen nicht jede elementare Schlussregel von Hand ausschreiben. Definitionen, bewiesene Bibliothekssätze und Automatisierung können Einzelheiten liefern. Der resultierende formale Beweis muss trotzdem die Regeln des Systems erfüllen.
+
+In Lean werden Aussagen als Typen und Beweise als Terme aufgefasst, die diese Typen bewohnen. Damit erhält die Beweisprüfung eine genaue Anforderung: Der vorgeschlagene Term muss den Typ haben, der die Aussage ausdrückt.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="types" />
+
+Die Passform ist eine anschauliche Analogie. Sie stellt die internen Strukturen von Lean nicht wörtlich dar, und das Einpassen eines Bildes ist nicht der Prüfalgorithmus. Entscheidend ist das Verhältnis zwischen einer formulierten Anforderung und einem formalen Nachweis, der sie erfüllt.
+
+## 5. Den Beweis in Lean darstellen
+
+Die Mathematik steht bereits fest. Lean gibt ihr eine explizite Darstellung.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="notation" />
+
+`EvenN` ist unsere Definition für diese Demonstration. Im Satz sind `m` und `n` beliebige natürliche Zahlen. Die Argumente `hm : EvenN m` und `hn : EvenN n` sind Beweise der Annahmen. Der Ausdruck nach dem letzten Doppelpunkt gibt an, was zu beweisen ist.
+
+<Interactive kind="module" module="reasoning-60" preset="proof" id="aor60-proof" />
+
+`obtain` entpackt die Existenzaussagen: `a` und `b` sind die Zeugen; `ha` und `hb` ihre definierenden Gleichheiten. `refine ⟨a + b, ?_⟩` gibt den neuen Zeugen an, lässt dessen Gleichheit aber als ausdrückliche Beweispflicht offen. Die Lücke `?_` muss durch den restlichen Beweis geschlossen werden.
+
+Der `calc`-Block begründet beide Gleichheiten. `rw [ha, hb]` setzt gleiche Ausdrücke ein. `Nat.mul_add 2 a b` formuliert das Distributivgesetz in Vorwärtsrichtung; `.symm` kehrt die Gleichheit um. Der vollständige, eigenständig verwendbare Code lautet:
+
+```lean
+def EvenN (n : Nat) : Prop :=
+  ∃ k : Nat, n = 2 * k
+
+theorem even_sum (m n : Nat)
+    (hm : EvenN m)
+    (hn : EvenN n) :
+    EvenN (m + n) := by
+  obtain ⟨a, ha⟩ := hm
+  obtain ⟨b, hb⟩ := hn
+  refine ⟨a + b, ?_⟩
+  calc
+    m + n = 2 * a + 2 * b := by rw [ha, hb]
+    _ = 2 * (a + b) := (Nat.mul_add 2 a b).symm
+
+#print axioms even_sum
+```
+
+Der vollständige Code wurde mit Lean 4.36.0 ausgeführt. Lean meldete, dass `even_sum` von keinen Axiomen abhängt. Die veränderte Fassung mit Produktzeugen ließ ein Ziel offen; ein separates `sorry`-Beispiel erzeugte eine Warnung und hing von `sorryAx` ab. Dies sind Compilerprüfungen dieser Codebeispiele, kein laufender Dienst auf dieser Seite.
+
+Die Schrittfolge ist eine didaktische Rekonstruktion, kein eingebetteter Lean-Editor. Sie trennt die aktuellen Annahmen vom verbleibenden Ziel. Insbesondere schließen weder das Formulieren eines Satzes noch das Vorschlagen eines Zeugen den Beweis bereits ab.
+
+### Ein absichtlich falscher Zeuge
+
+Ändere nur die Zeugenzeile zu `refine ⟨a * b, ?_⟩`. Die Anforderung lautet nun $m+n=2ab$. Die ursprüngliche Rechnung endet bei $2(a+b)$ und weist die verlangte Gleichheit deshalb nicht mehr nach.
+
+<Interactive kind="module" module="reasoning-60" preset="witness" id="aor60-witness" />
+
+Für $a=2,b=3$ sind die Eingaben vier und sechs. Ihre Summe ist zehn, während $2ab=12$ gilt. Das widerlegt die vorgeschlagene allgemeine Gleichheit. Dennoch funktioniert der Produktzeuge zufällig bei $a=b=2$; mit unserer Nullkonvention auch bei $a=b=0$. Das sind erfolgreiche Einzelfälle, keine Begründung für beliebige Variablen.
+
+Der Satz bleibt wahr. Der veränderte Beweis scheitert. Eine richtige Schlussfolgerung kann durch ein fehlerhaftes Argument gestützt werden.
+
+## 6. Konstruktion, Prüfung und Suche
+
+Lean überführt Definitionen und Beweisanweisungen in formale Darstellungen. Taktiken helfen dabei, Beweisterme zu konstruieren. Der **Kernel** prüft die resultierenden Terme anhand der formalen Regeln. Dadurch lässt sich die komplizierte Beweissuche von einer vergleichsweise kleinen vertrauenswürdigen Prüfkomponente trennen. Siehe die offizielle [Lean-Referenz zu Taktikbeweisen](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/).
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="kernel" />
+
+Ein Suchverfahren kann Umformungen versuchen, Bibliothekssätze auswählen und erfolglose Strategien aufgeben. Ob ein Mensch, ein Algorithmus oder eine KI den Vorschlag konstruiert: Er muss dieselben formalen Anforderungen erfüllen.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="search" />
+
+Die Zweige sind mögliche Strategien. Eine Sackgasse muss die ursprüngliche Aussage nicht falsch machen. Läuft die Suchzeit ab, können Ressourcen oder eine passende Strategie fehlen. Dass kein Beweis gefunden wurde, weist weder Falschheit noch Unbeweisbarkeit nach. Einen vorliegenden vollständigen Beweis zu prüfen ist eine andere Aufgabe, als ihn zu finden.
+
+## 7. Auch ein KI-Entwurf braucht Prüfung
+
+Stell dir vor, eine KI argumentiert: Seien $m$ und $n$ gerade, also $m=2a$ und $n=2b$. Dann behauptet sie die folgende Gleichheit und schließt, dass die Summe gerade sei, weil sie durch zwei teilbar ist.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="ai" />
+
+Die Sprache klingt plausibel und die Schlussfolgerung ist richtig, doch $2a+2b=2ab$ ist keine allgemein gültige Identität. Wer die Schlussfolgerung bereits glaubt, kann den Fehler leichter übersehen.
+
+Eine KI kann eine Strategie vorschlagen, Mathematik erläutern oder Lean-Code erzeugen. Das Erzeugen garantiert keine Korrektheit. Ein natürlichsprachlicher Entwurf muss in eine getreue formale Aussage und einen vollständigen Beweis überführt werden, bevor formale Prüfung diese Aussage nachweisen kann. Der Ablauf lautet: Konstruktion eines Vorschlags → formale Prüfung → Akzeptanz oder Zurückweisung unter den gewählten Regeln. Eine selbstsichere Erklärung ist kein positives Prüfergebnis.
+
+## 8. Was formale Prüfung offenlässt
+
+Rund um einen geprüften Satz bleiben mehrere unterschiedliche Fragen bestehen.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="layers" />
+
+Erstens muss die formale Aussage die gemeinte Frage ausdrücken. Ein Beweis über $n\in\{0,\ldots,100\}$ beantwortet keine Frage über alle $n\in\mathbb N$. Korrektes Schließen kann eine falsche Übersetzung der Behauptung nicht reparieren.
+
+Zweitens beweist ein Beweis Konsequenzen seiner Annahmen. Betrachte das folgende fiktive Liefermodell.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="delivery" />
+
+Addiert man die Ladezeit auf beiden Seiten der Fahrzeitschranke, erhält man die angegebene Schranke für die Lieferzeit. Routen zu messen, ausgelassene Verzögerungen zu prüfen und die Anwendbarkeit des Modells zu beurteilen verlangt jedoch empirische Belege. Formale Korrektheit weist nicht nach, dass jede tatsächliche Route höchstens dreißig Minuten dauert.
+
+Drittens gilt die Garantie relativ zu logischen Grundlagen, Definitionen, Axiomen und korrekt implementierten vertrauenswürdigen Prüfkomponenten. Mit `#print axioms even_sum` lassen sich die Axiomabhängigkeiten des Satzes untersuchen. Leans [Erläuterung zu Axiomen und Berechnung](https://lean-lang.org/theorem_proving_in_lean4/Axioms-and-Computation/) erklärt deren Bedeutung.
+
+Eine Deklaration mit `sorry` kann unter Verwendung eines Platzhalteraxioms mit einer Warnung akzeptiert werden. Das ist kein abgeschlossener Beweis. Prüfe Warnungen, verbleibende Beweispflichten und Axiomabhängigkeiten, statt die bloße Existenz einer Deklaration als Beweisabschluss zu behandeln.
+
+Formale Prüfung beseitigt viele Möglichkeiten für unbegründete Schlüsse. Bedeutung, empirische Annahmen und die Eignung einer Anwendung klärt sie nicht allein.
+
+## 9. Was wurde tatsächlich nachgewiesen?
+
+Wähle für jede Situation die stärkste Schlussfolgerung, die das beschriebene Verfahren rechtfertigt. Es geht um den Geltungsbereich des Nachweises, nicht um Lean-Syntax.
+
+<Interactive kind="module" module="reasoning-60" preset="challenge" id="aor60-challenge" />
+
+Kehren wir zum Anfangsgitter zurück. Stichprobentests prüften einzelne Punkte. Der allgemeine Beweis erklärt mit einem Argument für beliebige Eingaben, warum alle zulässigen Punkte die Eigenschaft erfüllen.
+
+<ReasoningFigure kind="module" module="reasoning-60" figure="closing" />
+
+Ein Computer kann Schlussfolgerungen prüfen, die unendlich viele einzelne Rechnungen überflüssig machen. Diesen Teil der Prüfung können wir delegieren. Verantwortlich bleiben wir dafür, was die Aussage bedeutet, welche Annahmen wir akzeptieren und ob das Ergebnis die gemeinte Frage beantwortet.

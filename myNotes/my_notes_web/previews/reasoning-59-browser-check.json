@@ -1,0 +1,26 @@
+{
+  "locales": [
+    "en",
+    "de"
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "compactWidth": 390,
+  "overflow": false,
+  "figures": 16,
+  "activities": 3,
+  "checks": [
+    "14/15 threshold",
+    "disruption OR",
+    "zero denominator",
+    "cost outside bound",
+    "reset",
+    "export copied and invalidated on edit",
+    "gallery isolation",
+    "EN/DE search",
+    "prefix routes and German search"
+  ],
+  "browserErrors": []
+}

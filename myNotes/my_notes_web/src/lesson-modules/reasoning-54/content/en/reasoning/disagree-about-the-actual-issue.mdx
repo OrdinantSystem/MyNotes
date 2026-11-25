@@ -1,0 +1,237 @@
+---
+course: reasoning
+chapter: reasoning-part-seven
+sourceId: reasoning-episode-54
+sourceLocations: ["Sections 1–9", "Preparation sources"]
+sourcePages: []
+thumbnail: module:reasoning-54
+locale: en
+title: How to disagree about the actual issue
+navTitle: Disagree about the actual issue
+description: Separate meanings, facts, inference, evidence standards and values to identify what a disagreement actually concerns.
+order: 54
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+---
+
+## 1. Are we disagreeing about the same thing?
+
+Two people discuss moving a school's start from 8:00 to 9:00. A expects better concentration and learning. B expects difficulties for students relying on public transport or their parents' work schedules.
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="opening" />
+
+Write their factual claims separately:
+
+$$
+P:\ \text{Starting later improves learning.}
+$$
+
+$$
+Q:\ \text{Starting later complicates travel.}
+$$
+
+B has not asserted $\neg P$. Both $P$ and $Q$ could be true, so $P\land Q$ is a possibility. The proposal could improve learning **and** make travel harder. These are fictional predictions, not established findings about school schedules.
+
+Opposing recommendations need not come from contradictory factual beliefs. The dispute may concern what to do about a situation rather than what the situation is. Understanding B's reasoning does not require accepting B's conclusion.
+
+**Before trying to resolve a disagreement, identify what would actually need resolving.** Responding to each other's sentences is not enough if one person questions a fact while another defends a principle, or one discusses what is possible while another discusses what is desirable.
+
+## 2. Five layers inside a disagreement
+
+A disagreement can contain several connected questions. Each may call for a different method.
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="layers" />
+
+These five layers are practical diagnostic categories developed for this lesson. They are **neither exhaustive nor mutually exclusive**. A dispute about measurement, for instance, can involve both meaning and evidence.
+
+### Definitions: what do the words mean?
+
+Suppose both people want better school performance. A emphasizes concentration, retention and academic achievement. B includes attendance, punctuality and access to education. The same word can hide different criteria.
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="definitions" />
+
+First clarify what “performance” means and how it will be measured. Explicit definitions and agreed measurement criteria can reveal whether the speakers are addressing the same question.
+
+### Facts: what is actually the case?
+
+Now suppose both agree on the meaning of academic performance. A predicts more sleep after a later start. B predicts that students will simply go to bed later.
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="predictions" />
+
+These predictions can be investigated by measuring bedtime, waking time and changes in sleep duration after a timetable change. Caring deeply about education cannot itself establish which prediction is correct. The method must fit an empirical question: observation, measurement and relevant research.
+
+### Inference: what do the facts establish?
+
+Suppose both now accept that students will sleep longer. A expects better academic results. B questions whether the concentration improvement would be large enough to produce a meaningful change in those results.
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="inference" />
+
+The disputed part is the **connection**, rather than the initial observation. These arrows express proposed causal relationships, not deductive implications. Examine the causal assumptions, alternative explanations, effect size and limitations. Accepting a premise does not require accepting everything someone infers from it.
+
+### Evidence standards: enough support for what?
+
+Both read the same report and accept that it offers some support for a later start. A considers it enough for a reversible trial. B wants more before a permanent change.
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="thresholds" />
+
+They may not yet disagree about the same decision: a limited trial and a permanent policy have different commitments. Clarify the decision, risks, reversibility and what would count as enough support. A stronger threshold for a costly, lasting change can be reasonable; a trial is not automatically low risk either.
+
+Distinguish **evidence for believing a claim** from **evidence sufficient to justify acting**. Accepting the same report does not settle either threshold without further reasoning.
+
+### Values: which outcomes should matter most?
+
+Suppose both accept the relevant empirical consequences: better learning, harder travel and additional costs for some families. A can still support the proposal while B opposes it because they weigh the benefits and burdens differently.
+
+More performance data might refine the discussion, but cannot by itself establish which outcome deserves priority. Ethical reasoning must examine trade-offs, obligations, affected people and alternatives. Values are not automatically arbitrary or immune to criticism: ask whether they are consistently applied, neglect relevant people or depend on unjustified factual assumptions.
+
+| Layer | What is disputed? | What might help? |
+| --- | --- | --- |
+| Definitions | Meaning | Clarification and measurement criteria |
+| Facts | What is the case | Observation and evidence |
+| Inference | What the premises establish | Evaluating the reasoning |
+| Evidence standards | Sufficient support | Justifying a decision-specific threshold |
+| Values | Priorities and obligations | Normative reasoning |
+
+## 3. Shared facts, different decisions
+
+Separate the premises of the two arguments. For this stage of the fictional example, assume both accept the learning benefit and the travel difficulty. Only their evaluation of the trade-off differs.
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="map" />
+
+What first looked like disagreement about everything is now a narrower dispute about whether the benefit justifies the burden. Mapping an argument helps identify the premise or connection that remains contested.
+
+We can illustrate the difference with two hypothetical criteria: learning $L$ and accessibility $A$. Both use a common 0–100 scoring scale, with higher values more desirable. Let $w\in[0,1]$ give the relative weight of learning:
+
+$$
+S=wL+(1-w)A.
+$$
+
+Keep the scores fixed and change only the priorities. Try a learning weight below and above 60%.
+
+<Interactive kind="module" module="reasoning-54" preset="priorities" id="disagreement-priorities" />
+
+For these scores, the two weighted totals are:
+
+$$
+S_{8:00}=60w+90(1-w)=90-30w,
+$$
+
+$$
+S_{9:00}=85w+55(1-w)=55+30w.
+$$
+
+The proposal leads precisely when
+
+$$
+55+30w>90-30w
+\quad\Longleftrightarrow\quad
+w>\frac{35}{60}=\frac{7}{12}.
+$$
+
+At equality both score 72.5. The decimal approximation 58.3% is slightly below the exact tie, not the tie itself. Identical descriptive inputs can therefore produce different recommendations under different evaluative assumptions.
+
+<Note title="A model is not an ethical verdict">
+The scoring scale and additive formula assume that gains in one criterion can compensate for losses in the other. Real decisions may include obligations that function as constraints. “No student should lose access to education” is a different decision principle, not just a different slider setting. The model illustrates a distinction; it does not establish the right weights or reduce every ethical question to arithmetic.
+</Note>
+
+## 4. Three ways the actual issue disappears
+
+An argument can be displaced by replacing the position, restricting the alternatives or changing the subject. The names matter less than identifying the transformation and explaining why it fails.
+
+### Straw man: replace the position
+
+B says that travel difficulties must be considered. A responds: “So you think bus schedules are more important than children's education?”
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="straw" />
+
+A stronger, less defensible position has been attributed to B. Refuting that substitute would not show that B's original concern is mistaken. The original argument remains unanswered. This is the defect of a **straw man**, rather than merely an objection to an impolite tone.
+
+### False dilemma: remove alternatives
+
+A says: “Either we change the timetable, or we accept that students will continue struggling.”
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="alternatives" />
+
+The additional options are candidates to investigate; none is automatically feasible or preferable. The logical defect is assuming that the offered choices exhaust the possibilities without establishing that they do.
+
+In classical logic, $P\lor\neg P$ is exhaustive. But
+
+$$
+\text{Adopt this proposal}\ \lor\ \text{Ignore the problem}
+$$
+
+is not automatically exhaustive. Rejecting one proposed solution need not mean ignoring the problem it addresses.
+
+### Red herring: change the subject
+
+B asks whether the learning benefits justify the travel costs. A discusses the school's outdated computers instead.
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="diversion" />
+
+The computers may really need replacing. That does not answer the timetable question unless a relevant connection is established. Introducing a new topic is not itself a fallacy; **treating an irrelevant diversion as if it resolved the original issue** is the problem. A discussion can contain reasonable, true statements and still miss its question.
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="displacement" />
+
+Knachel's [discussion of distraction](https://human.libretexts.org/Bookshelves/Philosophy/Logic_and_Reasoning/Fundamental_Methods_of_Logic_(Knachel)/02%3A_Informal_Logical_Fallacies/2.02%3A_Fallacies_of_Distraction) examines straw man and red herring; the [chapter on illicit presumption](https://human.libretexts.org/Bookshelves/Philosophy/Logic_and_Reasoning/Fundamental_Methods_of_Logic_(Knachel)/02%3A_Informal_Logical_Fallacies/2.04%3A_Fallacies_of_Illicit_Presumption) discusses false choice.
+
+## 5. Charitable reconstruction without invention
+
+B says: “I don't think changing the timetable makes sense. Some students won't be able to get to school as easily.” How should we reconstruct that argument?
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="charity" />
+
+A charitable interpretation preserves the position and its apparent reasoning while resolving ambiguity reasonably. It does not add whichever facts would make the strongest imaginable argument. The third reconstruction could be worth investigating, but it has not thereby become **B's** argument.
+
+Keep three kinds of material separate:
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="provenance" />
+
+Ask for confirmation: “Are you saying that starting later could improve learning, but that you do not consider the improvement sufficient to justify the travel difficulties?” B may agree, reject the interpretation or clarify a different concern.
+
+We are establishing which argument to evaluate, not assuming that every argument is good. **Charity comes before criticism, not instead of criticism.** The [Stanford Encyclopedia's discussion of standardizing arguments](https://plato.stanford.edu/entries/logic-informal/#StanArgu) explains why implicit premises and charitable interpretation matter.
+
+## 6. Reasonable people may still disagree
+
+Careful reasoning does not guarantee consensus. In this fictional exercise, stipulate that a thorough investigation has made the expected consequences sufficiently clear:
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="consequences" />
+
+A judges that the educational benefits justify the costs. B judges the extra burden on a minority disproportionate. Neither necessarily misunderstands the evidence or commits a fallacy. The remaining question is normative:
+
+**When is it acceptable to impose a burden on some people for the benefit of others?**
+
+Fairness, equality, responsibility, proportionality and compensation need examination. Another timetable might retain some benefits while reducing travel difficulties. A genuine disagreement may nevertheless remain. This does not imply that every view is equally justified; each argument still needs evaluation.
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="narrowing" />
+
+Shared understanding can grow without eliminating every difference. The conversation has made progress when both people know what they agree on and what still needs discussion.
+
+## 7. Workshop: diagnose the actual issue
+
+A university considers replacing printed textbooks with digital ones. A expects lower study costs. B expects better concentration with print. Treat these as fictional claims to examine, rather than research results.
+
+<Interactive kind="module" module="reasoning-54" preset="workshop" id="disagreement-workshop" />
+
+Now reconstruct B's argument in a form B could recognize, identify one genuine disagreement and propose something that would help investigate it. Mark any unstated premise as a question for confirmation.
+
+<Exercise>
+A possible reconstruction is: “You think print supports concentration, and you think this benefit is a reason to retain printed books. Is that what you mean?” The first premise was stated; the evaluative connection to retaining print needs confirmation. This does not attribute indifference to affordability or add a demonstrated inequality effect.
+
+One genuine empirical dispute could concern whether concentration differs by format under comparable reading conditions. A suitable comparison would define concentration, use comparable materials and consider familiarity, accessibility needs and relevant confounders. A price study would not directly settle that question.
+
+If both already accept the relevant cost and concentration effects, what remains may be the trade-off. Then discuss priorities, equal access and alternatives such as print loans or a choice of format; do not assume these are feasible without checking. This is one reference response, not the only defensible reconstruction.
+</Exercise>
+
+## 8. A practical method
+
+<ReasoningFigure kind="module" module="reasoning-54" figure="method" />
+
+The aim is to make a disagreement intelligible and examinable. Neither person must change their mind for the vague personal conflict to become a precise question. Before deciding who is right, establish what would count as either position being mistaken.
+
+**What exactly do we disagree about?**
+
+### Further reading
+
+The [Stanford Encyclopedia of Philosophy: Informal Logic](https://plato.stanford.edu/entries/logic-informal/), especially Sections 3–5, covers argument reconstruction, diagrams, evaluation and context. Matthew Knachel's [*Fundamental Methods of Logic*](https://open.umn.edu/opentextbooks/textbooks/fundamental-methods-of-logic), Chapters 1–2, introduces reconstruction and informal fallacies. The five-layer diagnostic framework, numerical scores and school scenarios here are teaching devices from the supplied lesson, not classifications or empirical findings taken from these readings.

@@ -1,0 +1,18 @@
+---
+import {copy} from './copy';
+import {publicationMarkup,investigationMarkup,credibilityMarkup,searchMarkup,posteriorMarkup} from './render';
+import {sources,questions} from './model';
+import './styles.css';
+interface Props {preset:'publications'|'independence'|'credibility'|'search'|'workshop';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=copy(locale);
+---
+<figure id={id} class="aor53-lab" data-aor53-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='publications'&&<><div class="aor53-control-row"><label for={`${id}-count-range`}>{c.countInput}<input id={`${id}-count-range`} type="range" min="1" max="10" step="1" value="5" data-range="count"/></label><label for={`${id}-count-number`}>{c.count}<input id={`${id}-count-number`} type="number" min="1" max="10" step="1" value="5" data-number="count"/></label></div><div data-publications-output set:html={publicationMarkup(locale)}/><div class="aor53-controls"><button type="button" data-back disabled>{c.back}</button><button type="button" data-next>{c.next}</button></div></>}
+ {preset==='independence'&&<><div class="aor53-controls">{['separate','calibration','copied'].map((value,i)=><button type="button" data-scenario={value} aria-pressed={i===0?'true':'false'}>{c[value as 'separate'|'calibration'|'copied']}</button>)}</div><div data-independence-output set:html={investigationMarkup(locale)}/></>}
+ {preset==='credibility'&&<><label for={`${id}-question`}>{c.questionLabel}</label><select id={`${id}-question`} data-question>{questions.map(q=><option value={q}>{c.questionNames[q]}</option>)}</select><div class="aor53-controls">{sources.map((s,i)=><button type="button" data-source={s} aria-pressed={i===0?'true':'false'}>{c.sourceNames[s]}</button>)}</div><div data-credibility-output set:html={credibilityMarkup(locale)}/></>}
+ {preset==='search'&&<><div class="aor53-control-row"><label for={`${id}-sensitivity-range`}>{c.sensitivity}<input id={`${id}-sensitivity-range`} type="range" min="0" max="100" step="1" value="90" data-range="sensitivity"/></label><label for={`${id}-sensitivity-number`}>%<input id={`${id}-sensitivity-number`} aria-label={c.sensitivity} type="number" min="0" max="100" step="1" value="90" data-number="sensitivity"/></label></div><div data-search-output set:html={searchMarkup(locale)}/><button type="button" data-bayes aria-expanded="false">{c.showBayes}</button><div class="aor53-bayes" data-bayes-panel hidden><label for={`${id}-prior`}>{c.prior}</label><input id={`${id}-prior`} type="number" min="0" max="100" step="1" value="50" data-prior/><div data-posterior-output set:html={posteriorMarkup(locale)}/></div></>}
+ {preset==='workshop'&&<><fieldset><legend>{c.quiz}</legend>{c.options.map((option,i)=><label class="aor53-choice"><input type="radio" name={`${id}-answer`} value={i}/>{option}</label>)}</fieldset><div class="aor53-controls"><button type="button" data-reveal>{c.reveal}</button></div><div data-workshop-answer hidden><label for={`${id}-trace`}>{c.traceLabel}</label><select id={`${id}-trace`} data-trace>{['A','B','C','D','E','F','G'].map(letter=><option value={letter} selected={letter==='F'}>{c.workshopNames[letter as 'A'|'B'|'C'|'D'|'E'|'F'|'G']}</option>)}</select><div data-workshop-output/></div><noscript><p>{c.workshopReason}</p></noscript></>}
+ <div class="aor53-controls"><button type="button" data-reset>{c.reset}</button></div><p data-status role="status" aria-live="polite"></p><noscript><p>{c.offline}</p></noscript>
+</figure>
+<script>import './controller';</script>

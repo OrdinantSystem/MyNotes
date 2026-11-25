@@ -1,0 +1,19 @@
+# Episode 53 — tracing sources and independent evidence
+
+Owns reasoning-53 only. Bilingual Part Seven module, 13 figures and five local native activities. Public Interactive/ReasoningFigure entry points and the approved shell remain unchanged. No framework, dependency, service or shared API was added.
+
+Preserves the source argument: fictional lake headline; ten reports and one origin; claim/report/evidence distinction; candle reflection metaphor; three investigations; common calibration/copying; probability multiplication rules; expert consensus; testimony and four context-sensitive credibility dimensions; conflicts as scrutiny rather than refutation; negative-search detectability and reversed conditionals; seven-report workshop; six-step tracing method and evidence-quality synthesis. Source production timing, image/palette proposals, suggested filming and course-planning notes remain private.
+
+## Model and controls
+
+- Publications: count 1–10, initial5, range/keyboard/number equivalents. Four deliberate provenance stages retain publication identities while revealing intermediary, press release and measurement. Previous/next endpoints disable appropriately; reset restores initial state. Origin count remains unknown in the visible presentation until revealed.
+- Investigation comparison: separate routes, possible common calibration, copied survey data. Origin nodes and methodological dependencies have different types. A shared calibration reference does not reduce three observations to one; copied survey data reduces distinct origins to two. Citation reachability never certifies independence or truth.
+- Credibility: four fictional profiles, three claim contexts, qualitative established/uncertain/concerning indicators. Context changes the interpretation, not an invented aggregate score. Unspecified incentives/records remain unknown. Real-person photos from the supplied production references are not reused as purported identities or conflict evidence.
+- Search: sensitivity0–100, initial90. Exactly100 illustrative conditional search cases preserve their identities. The optional Bayesian panel adds an explicit no-false-detection assumption and prior0–100, initial50. No detection impossible at prior=sensitivity=100 yields undefined, not a numeric posterior. Priors are teaching assumptions, not credibility ratings.
+- Workshop: seven report labels and three measurement origins. Local response followed by reveal; tracing each report deduplicates origins, notably F→M,U. Repeated checks and independent gallery instances remain local. No storage, submission, timer or mastery scoring.
+
+## Editorial clarifications and additions
+
+The source’s conditional inequality is rendered as “not a general identity” rather than claiming that reversed conditionals can never coincide. Added the P(A)>0 condition, conditional independence under competing hypotheses, uncertainty/time/reference qualifications for roughly matching readings, and an explicit optional Bayes calculation to demonstrate prior dependence. The source’s discussion of independence is preserved as independence from relevant error mechanisms; three graph roots alone do not prove it. All numerical examples and source profiles are fictional. The source’s amber is replaced with canonical coral and semantic token colors; labels and arrow direction carry meaning alongside color.
+
+The local graph model is justified by typed report/origin/method distinctions and deduplicated provenance, which the vector families do not express. Native HTML nodes retain readable labels at compact widths, with explicit arrows and textual dependencies. Figures are static initially; central explanations are readable without JavaScript. Both languages retain identical mathematical content and unreviewed status. Module VERIFICATION.md carries actual build/browser evidence. No commit, push or deployment is authorized by content integration.

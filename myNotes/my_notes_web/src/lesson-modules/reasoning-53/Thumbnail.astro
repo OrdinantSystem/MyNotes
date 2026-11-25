@@ -1,0 +1,5 @@
+---
+interface Props {locale?:'en'|'de'}
+const {locale='en'}=Astro.props;
+---
+<svg viewBox="0 0 220 130" role="img" aria-label={locale==='de'?'Viele Berichte führen auf eine Messung zurück':'Many reports trace to one measurement'}>{[25,65,105,145,185].map(x=><><path d={`M${x} 40L110 100`} stroke="var(--axis)"/><rect x={x-12} y="20" width="24" height="22" rx="3" fill="var(--blue-tint)" stroke="var(--blue)"/></>)}<circle cx="110" cy="100" r="16" fill="var(--coral-tint)" stroke="var(--coral)"/></svg>

@@ -1,0 +1,27 @@
+---
+import './styles.css';
+import {text} from './copy';
+import {timetables} from './model';
+import {prioritiesMarkup} from './render';
+interface Props {preset:string;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale);
+const title=preset==='priorities'?c.prioritiesTitle:c.workshopTitle;
+---
+<section class="p54-lab" id={id} data-p54-lab data-preset={preset} data-locale={locale} aria-label={title}>
+ <h3>{title}</h3>
+ {preset==='priorities'&&<>
+  <div class="p54-table-scroll" role="region" aria-label={c.score} tabindex="0"><table><thead><tr><th scope="col"/><th scope="col">{c.existing}</th><th scope="col">{c.proposed}</th></tr></thead><tbody>{(['learning','accessibility'] as const).map(key=><tr><th scope="row">{c[key]}</th><td>{timetables.existing[key]}</td><td>{timetables.proposed[key]}</td></tr>)}</tbody></table></div>
+  <div class="p54-controls"><label for={`${id}-range`}>{c.weight} · 0–100%<input id={`${id}-range`} data-weight type="range" min="0" max="100" step="0.1" value="65"/></label><label for={`${id}-number`}>{c.numeric}<input id={`${id}-number`} data-weight aria-label={`${c.weight} · ${c.numeric}`} type="number" min="0" max="100" step="0.1" value="65"/></label></div>
+  <div data-output set:html={prioritiesMarkup(locale)}/><p>{c.threshold}</p><p>{c.modelNote}</p><p data-status role="status"/>
+ </>}
+ {preset==='workshop'&&<>
+  <p>{c.workshopPrompt}</p>
+  {c.questions.map((question,i)=><fieldset><legend>{i+1}. {question.question}</legend>{question.options.map((option,j)=><label class="p54-radio"><input type="radio" name={`${id}-question-${i}`} value={j} data-question={i}/>{option}</label>)}<p role="status" data-feedback={i}>{c.choose}</p></fieldset>)}
+ </>}
+ <button type="button" data-reset>{c.reset}</button>
+ <noscript><p>{locale==='de'?'Die Ausgangsdarstellung und die Erklärungen bleiben lesbar. Die Bedienelemente benötigen JavaScript.':'The initial display and explanations remain readable. Controls require JavaScript.'}</p></noscript>
+</section>
+<script>
+ import {mountDisagreementLabs} from './controller';
+ mountDisagreementLabs();
+</script>

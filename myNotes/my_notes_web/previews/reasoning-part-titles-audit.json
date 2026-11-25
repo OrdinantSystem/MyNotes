@@ -1,0 +1,409 @@
+{
+  "layouts": [
+    {
+      "headings": [
+        "I - From Everyday Ideas to Mathematical Thinking8 lessons",
+        "II - The Hidden Structure of Logic8 lessons",
+        "III - How to Build a Proof8 lessons",
+        "IV - How to Think When You’re Stuck8 lessons",
+        "V - Reasoning in an Uncertain World8 lessons",
+        "VI - Finding Out What Causes What8 lessons",
+        "VII - What Makes a Good Reason to Believe?8 lessons",
+        "VIII - Putting Clear Thinking into Practice7 lessons"
+      ],
+      "pageWidth": 1429,
+      "sidebar": [
+        {
+          "overflow": false,
+          "text": "›I - From Everyday Ideas to Mathematical Thinking"
+        },
+        {
+          "overflow": false,
+          "text": "›II - The Hidden Structure of Logic"
+        },
+        {
+          "overflow": false,
+          "text": "›III - How to Build a Proof"
+        },
+        {
+          "overflow": false,
+          "text": "›IV - How to Think When You’re Stuck"
+        },
+        {
+          "overflow": false,
+          "text": "›V - Reasoning in an Uncertain World"
+        },
+        {
+          "overflow": false,
+          "text": "›VI - Finding Out What Causes What"
+        },
+        {
+          "overflow": false,
+          "text": "›VII - What Makes a Good Reason to Believe?"
+        },
+        {
+          "overflow": false,
+          "text": "›VIII - Putting Clear Thinking into Practice"
+        }
+      ],
+      "theme": "dark",
+      "url": "http://127.0.0.1:4777/MyNotes/reasoning/",
+      "width": 1440
+    },
+    {
+      "headings": [
+        "I - From Everyday Ideas to Mathematical Thinking8 lessons",
+        "II - The Hidden Structure of Logic8 lessons",
+        "III - How to Build a Proof8 lessons",
+        "IV - How to Think When You’re Stuck8 lessons",
+        "V - Reasoning in an Uncertain World8 lessons",
+        "VI - Finding Out What Causes What8 lessons",
+        "VII - What Makes a Good Reason to Believe?8 lessons",
+        "VIII - Putting Clear Thinking into Practice7 lessons"
+      ],
+      "pageWidth": 1429,
+      "sidebar": [
+        {
+          "overflow": false,
+          "text": "›I - From Everyday Ideas to Mathematical Thinking"
+        },
+        {
+          "overflow": false,
+          "text": "›II - The Hidden Structure of Logic"
+        },
+        {
+          "overflow": false,
+          "text": "›III - How to Build a Proof"
+        },
+        {
+          "overflow": false,
+          "text": "›IV - How to Think When You’re Stuck"
+        },
+        {
+          "overflow": false,
+          "text": "›V - Reasoning in an Uncertain World"
+        },
+        {
+          "overflow": false,
+          "text": "›VI - Finding Out What Causes What"
+        },
+        {
+          "overflow": false,
+          "text": "›VII - What Makes a Good Reason to Believe?"
+        },
+        {
+          "overflow": false,
+          "text": "›VIII - Putting Clear Thinking into Practice"
+        }
+      ],
+      "theme": "light",
+      "url": "http://127.0.0.1:4777/MyNotes/reasoning/",
+      "width": 1440
+    },
+    {
+      "headings": [
+        "I - Von Alltagsideen zum mathematischen Denken8 Lektionen",
+        "II - Die verborgene Struktur der Logik8 Lektionen",
+        "III - Wie man einen Beweis aufbaut8 Lektionen",
+        "IV - Wie man weiterdenkt, wenn man feststeckt8 Lektionen",
+        "V - Argumentieren in einer unsicheren Welt8 Lektionen",
+        "VI - Ursachen und Wirkungen erkennen8 Lektionen",
+        "VII - Was ist ein guter Grund, etwas zu glauben?8 Lektionen",
+        "VIII - Klares Denken in die Praxis umsetzen7 Lektionen"
+      ],
+      "pageWidth": 1429,
+      "sidebar": [
+        {
+          "overflow": false,
+          "text": "›I - Von Alltagsideen zum mathematischen Denken"
+        },
+        {
+          "overflow": false,
+          "text": "›II - Die verborgene Struktur der Logik"
+        },
+        {
+          "overflow": false,
+          "text": "›III - Wie man einen Beweis aufbaut"
+        },
+        {
+          "overflow": false,
+          "text": "›IV - Wie man weiterdenkt, wenn man feststeckt"
+        },
+        {
+          "overflow": false,
+          "text": "›V - Argumentieren in einer unsicheren Welt"
+        },
+        {
+          "overflow": false,
+          "text": "›VI - Ursachen und Wirkungen erkennen"
+        },
+        {
+          "overflow": false,
+          "text": "›VII - Was ist ein guter Grund, etwas zu glauben?"
+        },
+        {
+          "overflow": false,
+          "text": "›VIII - Klares Denken in die Praxis umsetzen"
+        }
+      ],
+      "theme": "light",
+      "url": "http://127.0.0.1:4777/MyNotes/de/reasoning/",
+      "width": 1440
+    },
+    {
+      "headings": [
+        "I - Von Alltagsideen zum mathematischen Denken8 Lektionen",
+        "II - Die verborgene Struktur der Logik8 Lektionen",
+        "III - Wie man einen Beweis aufbaut8 Lektionen",
+        "IV - Wie man weiterdenkt, wenn man feststeckt8 Lektionen",
+        "V - Argumentieren in einer unsicheren Welt8 Lektionen",
+        "VI - Ursachen und Wirkungen erkennen8 Lektionen",
+        "VII - Was ist ein guter Grund, etwas zu glauben?8 Lektionen",
+        "VIII - Klares Denken in die Praxis umsetzen7 Lektionen"
+      ],
+      "pageWidth": 1429,
+      "sidebar": [
+        {
+          "overflow": false,
+          "text": "›I - Von Alltagsideen zum mathematischen Denken"
+        },
+        {
+          "overflow": false,
+          "text": "›II - Die verborgene Struktur der Logik"
+        },
+        {
+          "overflow": false,
+          "text": "›III - Wie man einen Beweis aufbaut"
+        },
+        {
+          "overflow": false,
+          "text": "›IV - Wie man weiterdenkt, wenn man feststeckt"
+        },
+        {
+          "overflow": false,
+          "text": "›V - Argumentieren in einer unsicheren Welt"
+        },
+        {
+          "overflow": false,
+          "text": "›VI - Ursachen und Wirkungen erkennen"
+        },
+        {
+          "overflow": false,
+          "text": "›VII - Was ist ein guter Grund, etwas zu glauben?"
+        },
+        {
+          "overflow": false,
+          "text": "›VIII - Klares Denken in die Praxis umsetzen"
+        }
+      ],
+      "theme": "dark",
+      "url": "http://127.0.0.1:4777/MyNotes/de/reasoning/",
+      "width": 1440
+    },
+    {
+      "headings": [
+        "I - Von Alltagsideen zum mathematischen Denken8 Lektionen",
+        "II - Die verborgene Struktur der Logik8 Lektionen",
+        "III - Wie man einen Beweis aufbaut8 Lektionen",
+        "IV - Wie man weiterdenkt, wenn man feststeckt8 Lektionen",
+        "V - Argumentieren in einer unsicheren Welt8 Lektionen",
+        "VI - Ursachen und Wirkungen erkennen8 Lektionen",
+        "VII - Was ist ein guter Grund, etwas zu glauben?8 Lektionen",
+        "VIII - Klares Denken in die Praxis umsetzen7 Lektionen"
+      ],
+      "pageWidth": 379,
+      "sidebar": [
+        {
+          "overflow": false,
+          "text": "›I - Von Alltagsideen zum mathematischen Denken"
+        },
+        {
+          "overflow": false,
+          "text": "›II - Die verborgene Struktur der Logik"
+        },
+        {
+          "overflow": false,
+          "text": "›III - Wie man einen Beweis aufbaut"
+        },
+        {
+          "overflow": false,
+          "text": "›IV - Wie man weiterdenkt, wenn man feststeckt"
+        },
+        {
+          "overflow": false,
+          "text": "›V - Argumentieren in einer unsicheren Welt"
+        },
+        {
+          "overflow": false,
+          "text": "›VI - Ursachen und Wirkungen erkennen"
+        },
+        {
+          "overflow": false,
+          "text": "›VII - Was ist ein guter Grund, etwas zu glauben?"
+        },
+        {
+          "overflow": false,
+          "text": "›VIII - Klares Denken in die Praxis umsetzen"
+        }
+      ],
+      "theme": "dark",
+      "url": "http://127.0.0.1:4777/MyNotes/de/reasoning/",
+      "width": 390
+    },
+    {
+      "headings": [
+        "I - Von Alltagsideen zum mathematischen Denken8 Lektionen",
+        "II - Die verborgene Struktur der Logik8 Lektionen",
+        "III - Wie man einen Beweis aufbaut8 Lektionen",
+        "IV - Wie man weiterdenkt, wenn man feststeckt8 Lektionen",
+        "V - Argumentieren in einer unsicheren Welt8 Lektionen",
+        "VI - Ursachen und Wirkungen erkennen8 Lektionen",
+        "VII - Was ist ein guter Grund, etwas zu glauben?8 Lektionen",
+        "VIII - Klares Denken in die Praxis umsetzen7 Lektionen"
+      ],
+      "pageWidth": 379,
+      "sidebar": [
+        {
+          "overflow": false,
+          "text": "›I - Von Alltagsideen zum mathematischen Denken"
+        },
+        {
+          "overflow": false,
+          "text": "›II - Die verborgene Struktur der Logik"
+        },
+        {
+          "overflow": false,
+          "text": "›III - Wie man einen Beweis aufbaut"
+        },
+        {
+          "overflow": false,
+          "text": "›IV - Wie man weiterdenkt, wenn man feststeckt"
+        },
+        {
+          "overflow": false,
+          "text": "›V - Argumentieren in einer unsicheren Welt"
+        },
+        {
+          "overflow": false,
+          "text": "›VI - Ursachen und Wirkungen erkennen"
+        },
+        {
+          "overflow": false,
+          "text": "›VII - Was ist ein guter Grund, etwas zu glauben?"
+        },
+        {
+          "overflow": false,
+          "text": "›VIII - Klares Denken in die Praxis umsetzen"
+        }
+      ],
+      "theme": "light",
+      "url": "http://127.0.0.1:4777/MyNotes/de/reasoning/",
+      "width": 390
+    },
+    {
+      "headings": [
+        "I - From Everyday Ideas to Mathematical Thinking8 lessons",
+        "II - The Hidden Structure of Logic8 lessons",
+        "III - How to Build a Proof8 lessons",
+        "IV - How to Think When You’re Stuck8 lessons",
+        "V - Reasoning in an Uncertain World8 lessons",
+        "VI - Finding Out What Causes What8 lessons",
+        "VII - What Makes a Good Reason to Believe?8 lessons",
+        "VIII - Putting Clear Thinking into Practice7 lessons"
+      ],
+      "pageWidth": 379,
+      "sidebar": [
+        {
+          "overflow": false,
+          "text": "›I - From Everyday Ideas to Mathematical Thinking"
+        },
+        {
+          "overflow": false,
+          "text": "›II - The Hidden Structure of Logic"
+        },
+        {
+          "overflow": false,
+          "text": "›III - How to Build a Proof"
+        },
+        {
+          "overflow": false,
+          "text": "›IV - How to Think When You’re Stuck"
+        },
+        {
+          "overflow": false,
+          "text": "›V - Reasoning in an Uncertain World"
+        },
+        {
+          "overflow": false,
+          "text": "›VI - Finding Out What Causes What"
+        },
+        {
+          "overflow": false,
+          "text": "›VII - What Makes a Good Reason to Believe?"
+        },
+        {
+          "overflow": false,
+          "text": "›VIII - Putting Clear Thinking into Practice"
+        }
+      ],
+      "theme": "light",
+      "url": "http://127.0.0.1:4777/MyNotes/reasoning/",
+      "width": 390
+    },
+    {
+      "headings": [
+        "I - From Everyday Ideas to Mathematical Thinking8 lessons",
+        "II - The Hidden Structure of Logic8 lessons",
+        "III - How to Build a Proof8 lessons",
+        "IV - How to Think When You’re Stuck8 lessons",
+        "V - Reasoning in an Uncertain World8 lessons",
+        "VI - Finding Out What Causes What8 lessons",
+        "VII - What Makes a Good Reason to Believe?8 lessons",
+        "VIII - Putting Clear Thinking into Practice7 lessons"
+      ],
+      "pageWidth": 379,
+      "sidebar": [
+        {
+          "overflow": false,
+          "text": "›I - From Everyday Ideas to Mathematical Thinking"
+        },
+        {
+          "overflow": false,
+          "text": "›II - The Hidden Structure of Logic"
+        },
+        {
+          "overflow": false,
+          "text": "›III - How to Build a Proof"
+        },
+        {
+          "overflow": false,
+          "text": "›IV - How to Think When You’re Stuck"
+        },
+        {
+          "overflow": false,
+          "text": "›V - Reasoning in an Uncertain World"
+        },
+        {
+          "overflow": false,
+          "text": "›VI - Finding Out What Causes What"
+        },
+        {
+          "overflow": false,
+          "text": "›VII - What Makes a Good Reason to Believe?"
+        },
+        {
+          "overflow": false,
+          "text": "›VIII - Putting Clear Thinking into Practice"
+        }
+      ],
+      "theme": "dark",
+      "url": "http://127.0.0.1:4777/MyNotes/reasoning/",
+      "width": 390
+    }
+  ],
+  "checks": [
+    "Prefixed course jump to original #reasoning-part-three anchor; keyboard sidebar disclosure; stable lesson URL and renamed breadcrumb; English Pagefind navigation passed.",
+    "Restored normal EN/DE course overview shows all eight renamed parts at unchanged routes."
+  ],
+  "console": []
+}

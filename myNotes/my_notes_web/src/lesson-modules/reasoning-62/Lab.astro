@@ -1,0 +1,34 @@
+---
+import './styles.css';
+import {text} from './copy';
+import {searchMaximum} from './model';
+import {searchMarkup,modelsMarkup,extensionsMarkup,diagonalMarkup} from './render';
+interface Props {preset:string;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale);
+const titles={search:c.searchTitle,models:c.modelsTitle,extensions:c.extensionsTitle,diagonal:c.diagonalTitle,classify:c.classifyTitle};
+---
+<section class="p62-lab" id={id} data-p62-lab data-preset={preset} data-locale={locale} aria-label={titles[preset as keyof typeof titles]}>
+ <h3>{titles[preset as keyof typeof titles]}</h3>
+ {preset==='search'&&<>
+  <p>{c.searchPrompt}</p><label for={`${id}-mode`}>{c.searchMode}<select id={`${id}-mode`} data-mode><option value="unspecified">{c.unspecified}</option><option value="witness">{c.witness}</option></select></label>
+  <div class="p62-controls"><label for={`${id}-range`}>{c.count}<input id={`${id}-range`} data-count type="range" min="0" max={searchMaximum} step="1" value="1000"/></label><label for={`${id}-number`}>{c.numeric}<input id={`${id}-number`} data-count type="number" min="0" max={searchMaximum} step="1" value="1000"/></label></div>
+  <div data-output aria-live="polite" set:html={searchMarkup(locale)}/><p class="p62-caption">{c.searchLimit}</p><p data-status role="status"/>
+ </>}
+ {preset==='models'&&<>
+  <p>{c.modelsPrompt}</p><label class="p62-choice"><input data-transitivity type="checkbox"/>{c.transitivity}</label><div data-output aria-live="polite" set:html={modelsMarkup(locale)}/>
+ </>}
+ {preset==='extensions'&&<>
+  <p>{c.extensionsPrompt}</p><div class="p62-buttons" role="group" aria-label={c.theory}>{[0,1,2,3].map(n=><button type="button" data-stage={n} aria-pressed={n===0}>{c.theory} T{['₀','₁','₂','₃'][n]}</button>)}</div><div data-output aria-live="polite" set:html={extensionsMarkup(locale)}/><p class="p62-caption">{c.extensionNote}</p>
+ </>}
+ {preset==='diagonal'&&<>
+  <p>{c.diagonalPrompt}</p><fieldset><legend>{c.predict}</legend>{(['halts','loops'] as const).map((value,i)=><label class="p62-choice"><input type="radio" name={`${id}-prediction`} data-prediction value={value} checked={i===0}/>{c[value]}</label>)}</fieldset><div data-output aria-live="polite" set:html={diagonalMarkup(locale)}/><p class="p62-caption">{c.diagonalNote}</p>
+ </>}
+ {preset==='classify'&&<>
+  <p>{c.classifyPrompt}</p>{c.questions.map((question,i)=><fieldset><legend>{i+1}. {question.question}</legend>{c.options.map((option,j)=><label class="p62-choice"><input type="radio" name={`${id}-question-${i}`} value={j} data-question={i}/>{option}</label>)}<p role="status" data-feedback={i}>{c.choose}</p></fieldset>)}
+ </>}
+ <button type="button" data-reset>{c.reset}</button><noscript><p>{c.noScript}</p></noscript>
+</section>
+<script>
+ import {mountProofLimits} from './controller';
+ mountProofLimits();
+</script>

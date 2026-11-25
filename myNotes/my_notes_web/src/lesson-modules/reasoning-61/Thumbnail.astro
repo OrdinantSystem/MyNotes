@@ -1,0 +1,5 @@
+---
+interface Props {locale?:'en'|'de'}
+const {locale='en'}=Astro.props;
+---
+<svg viewBox="0 0 220 130" role="img" aria-label={locale==='de'?'Eine wahre Prämisse garantiert nicht die Konklusion':'A true premise need not guarantee the conclusion'}><ellipse cx="110" cy="65" rx="95" ry="53" fill="var(--blue-tint)" stroke="var(--blue)"/><ellipse cx="140" cy="65" rx="45" ry="32" fill="var(--purple-tint)" stroke="var(--purple)"/><circle cx="65" cy="65" r="7" fill="var(--coral)"/><circle cx="140" cy="65" r="7" fill="var(--accent)"/></svg>

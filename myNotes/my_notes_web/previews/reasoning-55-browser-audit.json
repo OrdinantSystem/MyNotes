@@ -1,0 +1,120 @@
+{
+  "layouts": [
+    {
+      "clipped": [],
+      "figures": 17,
+      "labs": 3,
+      "locale": "en",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "figures": 17,
+      "labs": 3,
+      "locale": "en",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "figures": 17,
+      "labs": 3,
+      "locale": "en",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "figures": 17,
+      "labs": 3,
+      "locale": "en",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "figures": 17,
+      "labs": 3,
+      "locale": "de",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "figures": 17,
+      "labs": 3,
+      "locale": "de",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "figures": 17,
+      "labs": 3,
+      "locale": "de",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "figures": 17,
+      "labs": 3,
+      "locale": "de",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "dark",
+      "width": 390
+    }
+  ],
+  "interactions": {
+    "proof": "Disabled initial previous; five forward steps; disabled final next; Enter backward; reset to first step.",
+    "transfer": "Starts unanswered/reveal disabled; pointer selection and Enter reveal; Space changes answer and hides feedback; reset clears.",
+    "bridge": "Final build: Enter loads split assignment; adding the bridge and loading again preserves the checked bridge, reports false added premise, zero exhaustive countermodels.",
+    "gallery": "First gallery instance loaded split C=true,S=false,UA=false,UB=true; independent instance stayed in same mode with U=true."
+  },
+  "prefix": {
+    "englishSearch": true,
+    "germanSearch": true,
+    "languageSwitch": true,
+    "finalVersion": true
+  },
+  "rootSearchEnglish": true,
+  "rootSearchGerman": true,
+  "normal": {
+    "url": "http://127.0.0.1:4321/reasoning/lessons/mathematical-notation-and-philosophy/",
+    "figures": 17,
+    "labs": 3,
+    "activeNavigation": true,
+    "noOverflow": true,
+    "noKatexErrors": true,
+    "sourceAdditionBorder": "dashed"
+  },
+  "notes": [
+    "Final normal/prefix snapshots verified under the cooperative lock.",
+    "The initial bridge-reload issue was corrected and retested on the final build.",
+    "No expert historical/philosophical, mathematical or native-language review claimed."
+  ]
+}

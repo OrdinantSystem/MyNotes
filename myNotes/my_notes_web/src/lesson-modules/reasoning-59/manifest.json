@@ -1,0 +1,45 @@
+{
+  "id": "reasoning-59",
+  "course": "reasoning",
+  "chapter": "reasoning-part-eight",
+  "chapterDefinition": {
+    "id": "reasoning-part-eight",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Eight",
+      "de": "Teil Acht"
+    },
+    "description": {
+      "en": "Practical and ethical reasoning.",
+      "de": "Praktisches und ethisches Argumentieren."
+    }
+  },
+  "order": 59,
+  "key": "build-a-system-for-correcting-yourself",
+  "title": "How to build a system for correcting yourself",
+  "sourceId": "reasoning-episode-59",
+  "sourceTitle": "How to build a system for correcting yourself",
+  "figures": [
+    "loop",
+    "opening",
+    "quadrants",
+    "probabilities",
+    "hindsight",
+    "snapshot",
+    "options",
+    "record",
+    "estimates",
+    "alternatives",
+    "effort",
+    "observations",
+    "diagnosis",
+    "history",
+    "versions",
+    "levels"
+  ],
+  "presets": [
+    "thresholds",
+    "review",
+    "journal"
+  ]
+}

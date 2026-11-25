@@ -1,0 +1,44 @@
+{
+  "id": "reasoning-50",
+  "course": "reasoning",
+  "chapter": "reasoning-part-seven",
+  "chapterDefinition": {
+    "id": "reasoning-part-seven",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Seven",
+      "de": "Teil Sieben"
+    },
+    "description": {
+      "en": "Knowledge, justification, and philosophical reasoning.",
+      "de": "Wissen, Rechtfertigung und philosophisches Denken."
+    }
+  },
+  "order": 50,
+  "key": "where-do-reasons-stop",
+  "title": "Where do reasons stop?",
+  "sourceId": "reasoning-episode-50",
+  "sourceTitle": "AoR 50 — Where Do Reasons Stop?",
+  "figures": [
+    "chain",
+    "rain",
+    "regress",
+    "structures",
+    "foundation",
+    "network",
+    "consistency",
+    "circle",
+    "isolation",
+    "starting-points",
+    "geometry",
+    "workshop-map",
+    "synthesis",
+    "questions"
+  ],
+  "presets": [
+    "architecture",
+    "illusion",
+    "sources",
+    "classification"
+  ]
+}

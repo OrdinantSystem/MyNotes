@@ -1,0 +1,240 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-eight
+sourceId: reasoning-episode-63
+sourcePages: []
+sourceLocations: ["Sections 1–5: proof-building, odd squares, exploration and first draft", "Section 6: algebraic proof and integer witness", "Section 7: rectangle pairing, concentric layers and negative integers", "Sections 8–10: imaginary submissions, dependency diagram, self-review and comparison", "Sections 11–12: even-square transfer, residue classification and reflection", "Sections 13–15: visual references, preparation reading and editorial boundaries"]
+thumbnail: module:reasoning-63
+order: 63
+kind: worked-problem
+status: published
+reviewStatus: unreviewed
+prerequisites: [inventing-a-lemma, auditing-a-proof, changing-representations]
+title: "Abschließende Beweiswerkstatt: ein Argument entwickeln, erklären und verteidigen"
+navTitle: "Abschließende Beweiswerkstatt"
+description: "Algebraische und geometrische Beweise entwickeln, überarbeiten und verteidigen sowie alle quadratischen Reste modulo acht bestimmen."
+---
+
+Einen Beweis zu entwickeln verlangt mehr, als einen vorgelegten Beweis wiederzuerkennen. Beginne in dieser Werkstatt mit deinem eigenen Argument, vergleiche es mit zwei allgemeinen Konstruktionen und überarbeite es nach der Prüfung seiner Schwachstellen. Die Mathematik ist elementar; die Arbeit besteht darin, Definitionen, bekannte Ergebnisse und begründete Schlüsse zu verbinden.
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="process" />
+
+## 1. Die Aufgabe: ein Muster bei ungeraden Quadraten
+
+Betrachte die Quadrate von $1,3,5,7,9$. Was haben sie bei der Division durch acht gemeinsam?
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="opening" />
+
+Jedes dargestellte Quadrat besteht aus vollständigen Achtergruppen und einer verbleibenden Einheit. Zu beweisen ist die allgemeine Aussage:
+
+$$
+\forall n\in\mathbb Z,\qquad n\text{ ungerade}\implies n^2\equiv1\pmod8.
+$$
+
+Das Quadrat jeder ungeraden ganzen Zahl hat bei Division durch acht den Rest eins. Die Frage ist, ob dies für jede ungerade ganze Zahl gelten **muss**, auch für negative.
+
+<Interactive kind="module" module="reasoning-63" preset="explore" id="a63-explore" />
+
+Ein weiteres Beispiel kann helfen, ein Muster zu entdecken. Selbst nach einer Billion erfolgreicher Prüfungen blieben unendlich viele ganze Zahlen ungeprüft. Ein allgemeiner Beweis muss erklären, warum die Struktur einer beliebigen ungeraden Zahl das Ergebnis erzwingt.
+
+Entfalte zunächst die Aussage. Eine ungerade ganze Zahl hat die Form $n=2k+1$ mit einem $k\in\mathbb Z$. Für $n^2\equiv1\pmod8$ müssen wir $n^2=8m+1$ mit einer **ganzen Zahl** $m$ nachweisen; gleichbedeutend ist $8\mid(n^2-1)$.
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="goal" />
+
+Der fehlende Zusammenhang führt von einer Information über $n$ zu einer Information über $n^2$.
+
+## 2. Einen ersten Beweis schreiben
+
+Versuche die Aufgabe, bevor du die folgende Konstruktion liest. Beginne mit einer beliebigen ungeraden ganzen Zahl, benenne die ganzzahligen Parameter und begründe den Schritt, der den Faktor acht liefert. Nutze die Hinweise bei Bedarf nacheinander.
+
+Der Arbeitsbereich ist eine Ergänzung für diese Umsetzung: Er hält einen ersten und einen überarbeiteten Entwurf auf derselben Seite fest. Die Checkliste dient der Selbstprüfung ohne Punktzahl und ist kein automatischer Beweisprüfer. Kehre nach der Untersuchung der Referenzargumente hierher zurück.
+
+<Interactive kind="module" module="reasoning-63" preset="draft" id="a63-draft" />
+
+## 3. Den algebraischen Zusammenhang aufbauen
+
+Sei $n$ eine beliebige ungerade ganze Zahl. Dann ist $n=2k+1$ für eine ganze Zahl $k$. Quadrieren und Ausklammern ergibt
+
+$$
+\begin{aligned}
+n^2&=(2k+1)^2\\
+&=4k^2+4k+1\\
+&=4k(k+1)+1.
+\end{aligned}
+$$
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="factorization" />
+
+Das Ausklammern legt aufeinanderfolgende ganze Zahlen frei. Wir haben einen Faktor vier und benötigen einen Faktor acht. Das kleinere Problem lautet daher: **Warum muss $k(k+1)$ gerade sein?**
+
+Jede ganze Zahl ist gerade oder ungerade. Aufeinanderfolgende ganze Zahlen haben entgegengesetzte Parität; genau eine von $k$ und $k+1$ ist also gerade. Ihr Produkt ist deshalb gerade.
+
+<Interactive kind="module" module="reasoning-63" preset="consecutive" id="a63-consecutive" />
+
+Somit gilt $k(k+1)=2m$ für eine ganze Zahl $m$. Das folgt aus der Geradheit und ist keine zusätzliche Annahme. Der Zeuge lässt sich ausdrücklich angeben:
+
+- Ist $k=2r$, dann gilt $k(k+1)=2[r(k+1)]$; wähle also $m=r(k+1)\in\mathbb Z$.
+- Ist $k+1=2r$, dann gilt $k(k+1)=2[kr]$; wähle also $m=kr\in\mathbb Z$.
+
+Ganze Zahlen sind unter Multiplikation abgeschlossen. In beiden Fällen ist der benötigte Quotient ganzzahlig. Einsetzen schließt die Verbindung:
+
+$$
+n^2=4k(k+1)+1=4(2m)+1=8m+1.
+$$
+
+Daher ist $8\mid(n^2-1)$ und somit $n^2\equiv1\pmod8$. Kein Schritt setzte voraus, dass $k$ oder $n$ positiv ist.
+
+<details>
+<summary>Der vollständige schriftliche Beweis</summary>
+
+**Satz.** Für jede ungerade ganze Zahl $n$ gilt $n^2\equiv1\pmod8$.
+
+**Beweis.** Sei $n$ eine beliebige ungerade ganze Zahl. Nach Definition ist $n=2k+1$ für ein $k\in\mathbb Z$. Also gilt
+
+$$
+n^2=(2k+1)^2=4k(k+1)+1.
+$$
+
+Weil $k$ und $k+1$ aufeinanderfolgende ganze Zahlen sind, ist eine davon gerade. Ihr Produkt ist gerade, also $k(k+1)=2m$ für ein $m\in\mathbb Z$. Einsetzen ergibt
+
+$$
+n^2=4(2m)+1=8m+1.
+$$
+
+Damit gilt $8\mid(n^2-1)$, folglich $n^2\equiv1\pmod8$. Da $n$ beliebig war, gilt der Satz für jede ungerade ganze Zahl. $\square$
+
+</details>
+
+## 4. Denselben Beweis in Kacheln sehen
+
+Nimm zunächst $k\ge0$ an. Ein Quadrat mit Seitenlänge $2k+1$ hat eine mittlere Kachel. Die übrigen Kacheln bilden vier kongruente Rechtecke mit Seitenlängen $k$ und $k+1$, die um die Mitte gedreht angeordnet sind. Keine Kachel geht verloren oder wird doppelt gezählt.
+
+<Interactive kind="module" module="reasoning-63" preset="geometry" id="a63-geometry" />
+
+Die Zerlegung liefert $(2k+1)^2=4k(k+1)+1$. Da $k$ und $k+1$ aufeinanderfolgen, ist eine Seitenlänge gerade. Bei gerader Breite werden Kacheln waagerecht gepaart, bei gerader Höhe senkrecht. Jedes Rechteck enthält genau $m=k(k+1)/2$ Paare.
+
+Nimm aus jedem Rechteck ein entsprechendes Paar: $2+2+2+2=8$. Die markierten Paare ① zeigen eine solche Gruppe. Wiederhole dies mit den übrigen entsprechenden Paaren. Alle vier Rechtecke sind gleichzeitig aufgebraucht; nur die mittlere Kachel bleibt.
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="pairing" />
+
+Die vier Rechtecke liefern den Faktor vier, das Paaren den Faktor zwei. Bei $k=0$ hat das $1\times1$-Quadrat keine Rechteckkacheln und null Achtergruppen. Die Identität gilt weiterhin.
+
+### Eine zweite Konstruktion: konzentrische Schichten
+
+Baue ein ungerades Quadrat von seiner Mitte aus auf. Die Mitte liefert eine Kachel, die folgenden Schichten liefern $8,16,24,\ldots$ Kacheln.
+
+<Interactive kind="module" module="reasoning-63" preset="layers" id="a63-layers" />
+
+Die allgemeine Anzahl für Schicht $j\ge1$ lautet
+
+$$
+(2j+1)^2-(2j-1)^2=8j.
+$$
+
+Jede Schicht fügt ein Vielfaches von acht hinzu. Für jede nichtnegative ganze Zahl $k$ folgt daher
+
+$$
+(2k+1)^2=1+8\sum_{j=1}^{k}j.
+$$
+
+Die Summe ist ganzzahlig; für $k=0$ ist sie als leere Summe null. Diese Konstruktion beweist die Aussage für alle positiven ungeraden Seitenlängen, nicht nur für das dargestellte Quadrat.
+
+### Den geometrischen Beweis auf negative Zahlen erweitern
+
+Ein Quadrat kann keine negative Seitenlänge haben. Für eine negative ungerade ganze Zahl $n$ ist jedoch $|n|$ eine positive ungerade ganze Zahl, und es gilt $n^2=|n|^2$. Das geometrische Argument für $|n|$ beweist daher auch das Ergebnis für $n$. Diese Erweiterung liefert erst die zusätzliche Begründung, nicht das Bild allein.
+
+## 5. Vier Einreichungen untersuchen
+
+Eine richtige Schlussfolgerung macht nicht jedes Argument dafür gültig. Bestimme das Hauptproblem jeder erfundenen Einreichung und begründe deine Wahl, bevor du die Erklärung öffnest.
+
+<Interactive kind="module" module="reasoning-63" preset="examiner" id="a63-examiner" />
+
+Beweis D ist kürzer als die ausführliche Darstellung, genügt aber, wenn die Geradheit aufeinanderfolgender Produkte bekannt ist. Ein Beweis muss nicht jede bekannte Tatsache von Grund auf herleiten. Der angemessene Detailgrad hängt von der Zielgruppe und den verfügbaren Ergebnissen ab.
+
+## 6. Den Beweis verteidigen und überarbeiten
+
+Ein geschriebener Beweis ist eine Satzfolge, seine Begründungen bilden jedoch ein Netz. Hier laufen zwei Zweige zusammen: Die Algebra legt $4k(k+1)+1$ frei, und die Parität liefert den ganzzahligen Zeugen $k(k+1)=2m$. Keiner der Zweige erreicht die Schlussfolgerung allein.
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="dependency" />
+
+| Maßstab | Frage | In diesem Beweis |
+| --- | --- | --- |
+| Gültigkeit | Folgt jeder Schluss aus seinen Voraussetzungen? | Warum ist das Produkt notwendig gerade? |
+| Vollständigkeit | Fehlt eine wesentliche Begründung? | Warum ist $m$ eine ganze Zahl? |
+| Geltungsbereich | Umfasst das Argument die behauptete Menge? | Sind negative ungerade Zahlen eingeschlossen? |
+| Lesbarkeit | Kann eine andere Person das Argument nachvollziehen? | Ist die Herkunft des Faktors acht klar? |
+
+Gültigkeit ist unverzichtbar. Vollständigkeit hängt vom bekannten Hintergrund ab; der Geltungsbereich zeigt, ob die tatsächliche Frage beantwortet wurde, und Lesbarkeit macht die Abhängigkeiten zugänglich.
+
+Kehre zu deinem ersten Entwurf zurück. Prüfe ihn vor jeder Änderung, bewahre ihn auf und schreibe eine überarbeitete Fassung im zweiten Feld. Die sieben Fragen betreffen die beliebige Wahl, Definitionen, Algebra, das gerade Produkt, Teilbarkeit, Geltungsbereich und Verständlichkeit. Häkchen oder Punkte bestätigen keinen Beweis: Ein falscher wesentlicher Schluss macht ihn unabhängig von anderen Stärken ungültig.
+
+## 7. Die beiden Darstellungen vergleichen
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="comparison" />
+
+Das algebraische Argument ist kompakt und erfasst negative ganze Zahlen unmittelbar. Das geometrische Argument macht den Faktor acht und die verbleibende Einheit anschaulich; für negative Eingaben kommt das Betragsargument hinzu. Beide legen dieselbe Struktur frei.
+
+Ein Bild kann einen allgemeinen Beweis unterstützen, wenn Konstruktion und Zählargument für beliebige Parameter funktionieren. Ein einzelnes ansprechendes Beispiel ohne die allgemeine Konstruktion bleibt eine Illustration.
+
+## 8. Übertragen: Was geschieht bei geraden Quadraten?
+
+Welche Reste sind **insgesamt** möglich, wenn eine gerade ganze Zahl quadriert und durch acht geteilt wird?
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="even" />
+
+Die Beispiele legen zwei Möglichkeiten nahe: null und vier. Beweise, dass kein anderer Rest möglich ist und dass beide tatsächlich vorkommen. Die Aufgabe lautet
+
+$$
+n\in\mathbb Z,\quad n\text{ gerade}\implies n^2\equiv0\pmod8\ \text{oder}\ n^2\equiv4\pmod8.
+$$
+
+<details>
+<summary>Hinweis</summary>
+
+Schreibe $n=2k$ und untersuche die Parität von $k$. Du darfst den gerade bewiesenen Satz über ungerade Quadrate verwenden.
+
+</details>
+
+<details>
+<summary>Referenzlösung: zwei erschöpfende Fälle</summary>
+
+Sei $n=2k$ mit $k\in\mathbb Z$. Dann ist $n^2=4k^2$.
+
+**Fall 1: $k$ ist gerade.** Schreibe $k=2r$ mit $r\in\mathbb Z$. Dann gilt
+
+$$
+n^2=16r^2=8(2r^2),
+$$
+
+also $n^2\equiv0\pmod8$.
+
+**Fall 2: $k$ ist ungerade.** Nach dem bewiesenen Satz gilt $k^2=8m+1$ für eine ganze Zahl $m$. Somit ist
+
+$$
+n^2=4(8m+1)=8(4m)+4,
+$$
+
+also $n^2\equiv4\pmod8$.
+
+Jede ganze Zahl $k$ ist gerade oder ungerade; die Fälle umfassen daher alle Möglichkeiten, auch null und negative Eingaben. Beide Reste treten auf: $4^2=16$ hat Rest null, $2^2=4$ hat Rest vier. $\square$
+
+</details>
+
+Zusammen mit dem ungeraden Fall sind damit alle ganzzahligen Quadrate modulo acht klassifiziert:
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="classification" />
+
+Kein ganzzahliges Quadrat hat den Rest $2,3,5,6$ oder $7$. Insbesondere besitzt $x^2=8t+3$ keine Lösung mit $x,t\in\mathbb Z$. Der Satz wird zum Werkzeug, mit dem wir unendlich viele vorgeschlagene Quadratzahlen ausschließen können.
+
+## 9. Was hat sich verändert?
+
+Am Anfang standen $1,9,25,49,81,121,\ldots$. Die Zahlen haben sich nicht verändert. Unsere Begründung schon: Wir können nun die Definitionen, die Paritätseigenschaft, den ganzzahligen Zeugen, den Geltungsbereich und das Einsetzen benennen, die den Rest erzwingen.
+
+<ReasoningFigure kind="module" module="reasoning-63" figure="reflection" />
+
+Erkläre, warum der Faktor acht unvermeidbar ist, benenne mögliche Fehler in einem vermeintlichen Beweis und verwende das Ergebnis für gerade Quadrate. Das stellt andere Anforderungen als das Wiedererkennen eines Musters. Die Frage bleibt: **Woher weißt du das?**
+
+## Weiterlesen
+
+Als vorbereitende Lektüre nennt die Werkstatt Richard Hammacks [*Book of Proof*](https://richardhammack.github.io/BookOfProof/), Kapitel 4 über direkte Beweise, §5.2 über Kongruenz und §5.3 über mathematisches Schreiben, sowie Kevin Houstons [*How to Think Like a Mathematician*](https://www.cambridge.org/core/books/how-to-think-like-a-mathematician/FB0813C3AEDDECD40BE58AF186370D52), insbesondere Kapitel 3–5, 15–18, 20–22 und Anhang C. Dies sind Lektürehinweise, keine Behauptung, dass das Bearbeiten dieser Aktivität die Beherrschung des Beweisens nachweist.

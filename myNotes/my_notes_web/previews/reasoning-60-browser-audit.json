@@ -1,0 +1,117 @@
+{
+  "layouts": [
+    {
+      "figures": 12,
+      "height": 1000,
+      "katexErrors": 0,
+      "labs": 5,
+      "locale": "en",
+      "overflow": false,
+      "theme": "dark",
+      "wideFigures": 0,
+      "width": 1440
+    },
+    {
+      "figures": 12,
+      "height": 1000,
+      "katexErrors": 0,
+      "labs": 5,
+      "locale": "en",
+      "overflow": false,
+      "theme": "light",
+      "wideFigures": 0,
+      "width": 1440
+    },
+    {
+      "figures": 12,
+      "height": 844,
+      "katexErrors": 0,
+      "labs": 5,
+      "locale": "en",
+      "overflow": false,
+      "theme": "light",
+      "wideFigures": 0,
+      "width": 390
+    },
+    {
+      "figures": 12,
+      "height": 844,
+      "katexErrors": 0,
+      "labs": 5,
+      "locale": "en",
+      "overflow": false,
+      "theme": "dark",
+      "wideFigures": 0,
+      "width": 390
+    },
+    {
+      "figures": 12,
+      "height": 844,
+      "katexErrors": 0,
+      "labs": 5,
+      "locale": "de",
+      "overflow": false,
+      "theme": "dark",
+      "wideFigures": 0,
+      "width": 390
+    },
+    {
+      "figures": 12,
+      "height": 844,
+      "katexErrors": 0,
+      "labs": 5,
+      "locale": "de",
+      "overflow": false,
+      "theme": "light",
+      "wideFigures": 0,
+      "width": 390
+    },
+    {
+      "figures": 12,
+      "height": 1000,
+      "katexErrors": 0,
+      "labs": 5,
+      "locale": "de",
+      "overflow": false,
+      "theme": "light",
+      "wideFigures": 0,
+      "width": 1440
+    },
+    {
+      "figures": 12,
+      "height": 1000,
+      "katexErrors": 0,
+      "labs": 5,
+      "locale": "de",
+      "overflow": false,
+      "theme": "dark",
+      "wideFigures": 0,
+      "width": 1440
+    }
+  ],
+  "activities": [
+    "grid 120 checks and reset",
+    "finite 16-case exhaustion and reset",
+    "five proof steps, endpoints, reset",
+    "sum/product witnesses, 0/0 and 2/2, 2/3 failure, 6/6 upper bounds",
+    "typed zero, 7, fraction and empty restore",
+    "range ArrowRight and keyboard Enter/Space",
+    "all five challenge references, wrong choice, saved choice and reset"
+  ],
+  "germanActivities": "All five presets produced localized expected output.",
+  "germanSearch": "/de/reasoning/lessons/can-a-computer-check-a-proof/",
+  "englishSearch": "/reasoning/lessons/can-a-computer-check-a-proof/",
+  "independence": {
+    "changed": "120 tests · Sum ≡ 0 (mod 2)",
+    "ids": [
+      "library-reasoning-60-grid",
+      "library-reasoning-60-bounded",
+      "library-reasoning-60-proof",
+      "library-reasoning-60-witness",
+      "library-reasoning-60-challenge",
+      "library-reasoning-60-independent"
+    ],
+    "independent": "12 tests · Sum ≡ 0 (mod 2)"
+  },
+  "console": []
+}

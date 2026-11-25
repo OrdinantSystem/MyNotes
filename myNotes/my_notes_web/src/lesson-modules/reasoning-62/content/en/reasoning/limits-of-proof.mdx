@@ -1,0 +1,280 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-eight
+sourceId: reasoning-episode-62
+sourceLocations: ["Sections 1–4, Parts I–IX", "Section 6: Mathematical and philosophical boundaries", "Section 7: Preparation sources"]
+sourcePages: []
+thumbnail: module:reasoning-62
+title: Are there limits to what proof can settle?
+navTitle: Limits of proof
+description: Distinguish unsuccessful search, independence from axioms and algorithmic undecidability, and understand the scope of Gödel’s theorems.
+order: 62
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+---
+
+## 1. Three unanswered questions
+
+“No answer has been found.” That message could describe three quite different situations.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="opening" />
+
+**Unsolved:** we have not discovered an answer. A proof might be found tomorrow or centuries from now.
+
+**Independent of a specified theory:** neither the statement nor its negation can be derived from those axioms, using the chosen proof rules.
+
+**Algorithmically undecidable:** no general algorithm correctly decides every instance of a problem class and always finishes. An unanswered instance of that class need not itself be impossible to settle.
+
+The same visible failure tells us very little about its cause. These are limits on our **knowledge**, on a **theory**, and on a **general procedure**, respectively. They are not three mutually exclusive boxes for all mathematical problems.
+
+This is an advanced foundations lesson. Familiarity with axioms, finite formal proofs, models and algorithms will help. The aim is to understand what the limitations say and how they can be established; we will explain the idea of Gödel’s construction without attempting its full technical proof.
+
+## 2. What a formal theory contains
+
+A formal framework specifies a language, axioms and inference rules. The language determines what can be expressed; the axioms are the starting assumptions; the rules determine permitted steps. With the language and calculus fixed, write $T$ for the theory given by the axioms.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="formal-universe" />
+
+A **theorem of $T$** has a finite formal derivation from its axioms. In particular, each axiom is itself derivable. The notation
+
+$$
+T\vdash\varphi
+$$
+
+says that such a derivation exists. In contrast,
+
+$$
+T\nvdash\varphi
+$$
+
+asserts that **no derivation exists in this system**. It does not mean that we tried several arguments unsuccessfully. That stronger claim concerns every possible valid proof from $T$.
+
+The diagram locates sentences by derivability. Being outside the theorem region does not mean being false. Truth must be evaluated in a model; derivability must be evaluated relative to axioms and proof rules.
+
+## 3. Searching is not deciding
+
+Imagine a fair procedure enumerating finite candidate proofs in an effective proof system and checking them. “Fair” means that every finite candidate is eventually examined: the procedure does not become trapped examining only one unbounded branch.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="proof-found" />
+
+If a proof of $\varphi$ exists, exhaustive search eventually finds it. The search might be hopelessly inefficient, but that is a practical issue distinct from whether it succeeds in principle.
+
+What if it has checked a million candidates without success? Perhaps the next candidate contains a proof. Perhaps no proof exists and the search will continue forever. A finite unsuccessful search alone does not distinguish these possibilities.
+
+Try the two schematic search settings. In the witness setting, compare counts 4 and 5. In the other setting, inspect even the largest allowed count.
+
+<Interactive kind="module" module="reasoning-62" preset="search" id="proof-limits-search" />
+
+**One valid proof establishes existence. No finite run of this unrestricted search establishes nonexistence.** A separate structural argument can establish unprovability, as the next example shows. A known finite bound could also change the search problem; none is assumed here.
+
+<Note title="What “effective” requires">
+For a standard calculus with decidable axiom membership and rules, finite proof checking is mechanical. If the axioms are only computably enumerable, a candidate can also include finite evidence of when each used axiom appeared in the enumeration. Such certificates can be checked and fairly enumerated. Merely enumerating axioms does not automatically give a terminating membership test for every proposed axiom.
+</Note>
+
+Proof search is a **recognition procedure**: it eventually confirms theoremhood when a proof exists, but need not halt otherwise. A **decision procedure** must halt with the correct yes/no answer on every input.
+
+## 4. When the axioms do not decide
+
+Consider a language with a binary relation $R$ and three named objects $A,B,C$. Interpret $R(x,y)$ as a **directed edge**, not as logical implication or reachability by a path. Our theory has only these two nonlogical axioms:
+
+$$
+T=\{R(A,B),\ R(B,C)\}.
+$$
+
+Does it settle the sentence
+
+$$
+\varphi:=R(A,C)?
+$$
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="relation-question" />
+
+There is a path from $A$ through $B$ to $C$. A direct edge is a separate fact. The usual transitivity of logical implication does not make every interpreted relation transitive. We have not assumed
+
+$$
+\forall x\,\forall y\,\forall z\,
+\bigl((R(x,y)\land R(y,z))\to R(x,z)\bigr).
+$$
+
+Inspect two structures. Initially leave the transitivity axiom off; then add it and see which structure remains a model.
+
+<Interactive kind="module" module="reasoning-62" preset="models" id="proof-limits-models" />
+
+For the original $T$, both structures satisfy both axioms. In Model 1, $\varphi$ is true; in Model 2, it is false. **Soundness** says that every sentence provable from $T$ is true in every model of $T$. Therefore:
+
+- A proof of $\varphi$ would contradict Model 2, so $T\nvdash\varphi$.
+- A proof of $\neg\varphi$ would contradict Model 1, so $T\nvdash\neg\varphi$.
+
+Thus $\varphi$ is **independent of $T$**. We have established unprovability in both directions, not merely failed to find proofs. A model also witnesses that the original theory is consistent, given the sound calculus.
+
+| Property | Meaning in classical logic |
+| --- | --- |
+| Consistent theory | No sentence and its negation are both derivable |
+| Complete theory | For each sentence, that sentence or its negation is derivable |
+
+Our small theory is consistent and incomplete. Adding transitivity changes the premises and makes $R(A,C)$ derivable. This elementary example explains independence; it is not a proof of Gödel’s theorem.
+
+## 5. Gödel’s discovery
+
+Could an effective theory of arithmetic avoid this problem and settle every sentence of its language? Gödel’s 1931 work, strengthened by Rosser, establishes a limitation for an important class of theories.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="conditions" />
+
+**First incompleteness theorem, Gödel–Rosser form:** every consistent, computably enumerable axiomatized classical first-order theory extending Robinson arithmetic $Q$ is incomplete. Extending $Q$ is one precise sufficient meaning of “containing enough elementary arithmetic”; this is not a theorem about every formal system.
+
+In particular, there is a sentence $G_T$ such that
+
+$$
+T\nvdash G_T\quad\land\quad T\nvdash\neg G_T.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="independent" />
+
+The subscript matters: the sentence is independent **of this theory $T$**. This does not say that it is unprovable in every possible extension. Nor does consistency say that all the theory’s arithmetic assertions are true in the intended natural numbers; consistency and soundness are different requirements.
+
+### How arithmetic can speak about proofs
+
+Mathematical expressions and finite proofs can be encoded as natural numbers. A toy symbol dictionary illustrates the first step:
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="encoding" />
+
+Whole sequences need an unambiguous encoding too. For a sequence of positive symbol codes $(a_1,\ldots,a_k)$, one possible toy scheme is
+
+$$
+2^{a_1}3^{a_2}5^{a_3}\cdots p_k^{a_k},
+$$
+
+where $p_k$ is the $k$th prime. Unique prime factorization recovers the codes and their order. This illustrates coding, not the construction of a Gödel sentence. The displayed closing-parenthesis code completes the small illustrative dictionary.
+
+Once syntax has numerical codes, suitable arithmetic formulas can represent the proof-checking relation. Arithmetic can indirectly make statements about its own formal derivations.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="self-reference" />
+
+A diagonalization construction yields a Gödel sentence whose intended reading is roughly: **“There is no proof of this sentence in $T$.”** This is a precise arithmetic construction, not an ordinary sentence declaring itself false. In the standard construction, a proof of that sentence would conflict with consistency.
+
+This explains the self-reference idea, but does not establish both unprovability claims by itself. Gödel’s original argument used a stronger assumption, such as $\omega$-consistency, to rule out a proof of the negation. Rosser modified the construction so that ordinary consistency suffices for an independent sentence. The convenient label $G_T$ above denotes an independent sentence supplied by the modern theorem; it need not be the original, unmodified Gödel sentence. See the [Open Logic Text](https://builds.openlogicproject.org/open-logic-complete.pdf#page=589), Sections 37.3–37.5, for the distinction and proof.
+
+## 6. Why not add another axiom?
+
+If $G_0$ is independent of $T_0$, form
+
+$$
+T_1=T_0\cup\{G_0\}.
+$$
+
+Now $G_0$ is provable because it is an axiom. This extension preserves consistency: if $T_0\cup\{G_0\}$ proved a contradiction, the deduction theorem and classical logic would give $T_0\vdash\neg G_0$, contrary to independence. Likewise, adding $\neg G_0$ would preserve consistency; this syntactic fact alone does not decide which extension reflects intended arithmetic truth.
+
+The limitation remains. If the expanded theory is consistent, effectively axiomatized and contains enough arithmetic, it has another independent sentence $G_1$.
+
+<Interactive kind="module" module="reasoning-62" preset="extensions" id="proof-limits-extensions" />
+
+Each displayed finite extension keeps all old theorems and settles its added sentence. In terms of their deductive closures,
+
+$$
+T_0\subsetneq T_1\subsetneq T_2\subsetneq T_3\subsetneq\cdots.
+$$
+
+The boundaries move. No consistent, effectively axiomatized extension of sufficient arithmetic becomes complete. This does **not** rule out complete theories altogether: all first-order sentences true in the standard natural numbers form a complete theory, but that theory is not effectively axiomatizable.
+
+### The second incompleteness theorem
+
+There is also a limitation on proving consistency internally. For a consistent, effectively axiomatized theory of sufficient arithmetic whose standard provability predicate satisfies the usual derivability conditions—for example, Peano arithmetic if it is consistent—
+
+$$
+T\nvdash\operatorname{Con}(T).
+$$
+
+Here $\operatorname{Con}(T)$ is the standard arithmetical assertion that there is no $T$-proof of a contradiction, such as $0=1$. The formulation of the consistency assertion and the technical hypotheses matter. A stronger theory can prove the consistency of a weaker one; that is not an internal consistency proof using only the weaker theory. The [Open Logic Text](https://builds.openlogicproject.org/open-logic-complete.pdf#page=592), Sections 37.6–37.7, gives the formal conditions.
+
+## 7. The algorithm that cannot exist
+
+Some programs clearly terminate. Others can be proved to run forever. Analyzing a complicated program may leave us uncertain.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="programs" />
+
+For an idealized program $P$ and input $x$, ask whether $P(x)$ ever terminates. A universal halting decider would answer correctly for **every** such pair and always finish its own computation.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="decider" />
+
+Assume for contradiction that such an algorithm $H$ exists. Construct the following program, where $p$ is a program’s code:
+
+```text
+D(p):
+    if H(p, p) predicts "halts":
+        loop forever
+    else:
+        halt
+```
+
+The assumed $H$ terminates, so $D$ reaches the chosen branch. Now supply $D$ with its own code and consider $H(D,D)$.
+
+<Interactive kind="module" module="reasoning-62" preset="diagonal" id="proof-limits-diagonal" />
+
+If $H$ predicts halting, $D(D)$ runs forever. If $H$ predicts nonhalting, $D(D)$ halts. Both possible answers contradict the assumed correctness of $H$. Thus **no total, always-correct universal halting decider exists**. This is a complete two-case contradiction for the hypothetical decider, with the usual effective encoding and self-input available. David Doty’s [UC Davis lecture](https://www.cs.ucdavis.edu/~doty/ecs120slides/11c_DiagonalizationHalting-deck.html) develops this diagonal argument.
+
+The result concerns algorithms on idealized unbounded computations, rather than a particular finite-memory machine. More speed or memory cannot supply the forbidden general algorithm. It does not prevent successful analysis of individual programs or restricted program classes.
+
+| Task | General status |
+| --- | --- |
+| Check a finite certificate in a standard effective calculus | Mechanically possible |
+| Fairly enumerate possible proofs | Mechanically possible |
+| Decide whether an arbitrary sentence is a theorem of Peano arithmetic | Undecidable, assuming PA is consistent |
+| Decide halting for arbitrary program/input pairs | Undecidable |
+
+The PA assumption matters: an inconsistent classical theory proves everything, making theoremhood trivially decidable. **Incompleteness alone is not a synonym for algorithmic undecidability**; these are distinct properties, although arithmetic connects them. Jeremy Avigad’s [*Incompleteness via the halting problem*](https://www.andrew.cmu.edu/user/avigad/Teaching/halting.pdf) explores the connection.
+
+## 8. Is logic complete or incomplete?
+
+“Complete” describes two different properties here.
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="completeness" />
+
+**Semantic completeness of a first-order proof calculus:** every semantic consequence of premises has a formal proof from those premises:
+
+$$
+T\models\varphi\ \Longrightarrow\ T\vdash\varphi.
+$$
+
+**Syntactic completeness of a theory:** for every sentence $\varphi$ of its language,
+
+$$
+T\vdash\varphi\quad\text{or}\quad T\vdash\neg\varphi.
+$$
+
+The first says that the proof rules can derive whatever holds in every model of the premises. The second says that the premises determine each sentence one way or the other. Our two network models disagree about $R(A,C)$, so neither it nor its negation is a semantic consequence. A complete calculus has nothing missing to derive here.
+
+Likewise, truth in the **standard natural numbers** is not truth in **every model of an arithmetic theory**. Incompleteness permits models of the same axioms that disagree; nonstandard models matter. First-order semantic completeness and arithmetic incompleteness therefore fit together.
+
+## 9. Identify the established limitation
+
+<Interactive kind="module" module="reasoning-62" preset="classify" id="proof-limits-classify" />
+
+Suppose someone says: “Gödel proves that any unsolved conjecture is independent, so searching for proofs is pointless.” Identify both unsupported steps.
+
+<Exercise>
+An unsolved conjecture is a gap in our knowledge. Independence from a specified theory needs a separate mathematical argument; it does not follow from a long unsuccessful search. Gödel–Rosser guarantees that qualifying theories have independent sentences, not that every unanswered question is one of them.
+
+Even when a sentence is independent of one theory, an extension may settle it. Many other sentences have proofs in the original theory, so proof search remains valuable. A theorem establishing a limitation is itself a success of rigorous reasoning.
+</Exercise>
+
+| Misreading | What the result actually says |
+| --- | --- |
+| Mathematics is contradictory | The first theorem assumes consistency |
+| Some statements cannot be proved in any system | Independence is relative to a theory |
+| Mathematics is subjective | Truth in a model differs from derivability from axioms |
+| Human minds must transcend every computer | This does not follow from the incompleteness theorems alone |
+| Every formal system is incomplete | Specific hypotheses are required |
+| More computing power solves the halting problem | No universal algorithm meets the stated requirements |
+| Every unsolved problem is independent | Independence requires a separate demonstration |
+| First-order logic lacks a complete calculus | Its standard calculi are semantically complete |
+
+<ReasoningFigure kind="module" module="reasoning-62" figure="levels" />
+
+Proof can establish limits on proof, and computation theory can establish limits on algorithms. These discoveries refine what certainty means: always ask **which theory, which model, which procedure and which claim has actually been established?**
+
+### Further reading
+
+The supplied preparation references are [*forall x: Calgary*](https://forallx.openlogicproject.org/html/) for interpretations, proofs and semantics, and the Stanford Encyclopedia entries on [Gödel’s incompleteness theorems](https://plato.stanford.edu/entries/goedel-incompleteness/), [computability and complexity](https://plato.stanford.edu/entries/computability/) and [Kurt Gödel](https://plato.stanford.edu/entries/goedel/). The network, schematic search and expanding boundaries are teaching illustrations; they do not compute independent arithmetic sentences.

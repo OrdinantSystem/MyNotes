@@ -1,0 +1,5 @@
+---
+interface Props{locale?:'en'|'de'}
+const {locale='en'}=Astro.props;
+---
+<svg viewBox="0 0 220 130" role="img" aria-label={locale==='de'?'Eine Uhr liefert Evidenz für eine Überzeugung; Wissen bleibt die Frage':'A clock provides evidence for a belief; knowledge remains the question'}><circle cx="65" cy="60" r="38" fill="var(--surface)" stroke="var(--axis)" stroke-width="2"/><path d="M65 60V86m0-26 20 20" fill="none" stroke="var(--blue)" stroke-width="4" stroke-linecap="round"/><path d="M110 60h26m-7-7 7 7-7 7" fill="none" stroke="var(--blue)" stroke-width="2"/><rect x="145" y="30" width="55" height="60" rx="6" fill="var(--purple-tint)" stroke="var(--purple)"/><text x="173" y="70" text-anchor="middle" fill="var(--text)" font-size="24">?</text></svg>

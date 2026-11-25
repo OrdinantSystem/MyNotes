@@ -1,0 +1,208 @@
+{
+  "layouts": [
+    {
+      "duplicates": [],
+      "figures": 18,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 1429,
+      "smallTargets": 0,
+      "theme": "dark",
+      "url": "http://127.0.0.1:4657/MyNotes/reasoning/lessons/can-facts-tell-us-what-we-should-do/",
+      "width": 1440
+    },
+    {
+      "duplicates": [],
+      "figures": 18,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 1429,
+      "smallTargets": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4657/MyNotes/reasoning/lessons/can-facts-tell-us-what-we-should-do/",
+      "width": 1440
+    },
+    {
+      "duplicates": [],
+      "figures": 18,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 1429,
+      "smallTargets": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4657/MyNotes/de/reasoning/lessons/can-facts-tell-us-what-we-should-do/",
+      "width": 1440
+    },
+    {
+      "duplicates": [],
+      "figures": 18,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 1429,
+      "smallTargets": 0,
+      "theme": "dark",
+      "url": "http://127.0.0.1:4657/MyNotes/de/reasoning/lessons/can-facts-tell-us-what-we-should-do/",
+      "width": 1440
+    },
+    {
+      "duplicates": [],
+      "figures": 18,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 379,
+      "smallTargets": 0,
+      "theme": "dark",
+      "url": "http://127.0.0.1:4657/MyNotes/de/reasoning/lessons/can-facts-tell-us-what-we-should-do/",
+      "width": 390
+    },
+    {
+      "duplicates": [],
+      "figures": 18,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 379,
+      "smallTargets": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4657/MyNotes/de/reasoning/lessons/can-facts-tell-us-what-we-should-do/",
+      "width": 390
+    },
+    {
+      "duplicates": [],
+      "figures": 18,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 379,
+      "smallTargets": 0,
+      "theme": "light",
+      "url": "http://127.0.0.1:4657/MyNotes/reasoning/lessons/can-facts-tell-us-what-we-should-do/",
+      "width": 390
+    },
+    {
+      "duplicates": [],
+      "figures": 18,
+      "labs": 4,
+      "mathErrors": 0,
+      "pageWidth": 379,
+      "smallTargets": 0,
+      "theme": "dark",
+      "url": "http://127.0.0.1:4657/MyNotes/reasoning/lessons/can-facts-tell-us-what-we-should-do/",
+      "width": 390
+    }
+  ],
+  "checks": [
+    [
+      {
+        "n": "80",
+        "text": "Admissible options\nA, B\nRecommended under this rule\nB · Automated service"
+      },
+      {
+        "n": "81",
+        "text": "Admissible options\nA\nRecommended under this rule\nA · Staffed service"
+      },
+      {
+        "n": "95",
+        "text": "Admissible options\nA\nRecommended under this rule\nA · Staffed service"
+      },
+      {
+        "n": "96",
+        "text": "Admissible options\n∅\nRecommended under this rule\nNeither option qualifies. Seek alternatives or examine the requirement; do not silently relax it."
+      },
+      {
+        "rule": "efficiency",
+        "text": "Admissible options\nA, B\nRecommended under this rule\nB · Automated service",
+        "enabled": false
+      },
+      {
+        "rule": "access",
+        "text": "Admissible options\nA, B\nRecommended under this rule\nA · Staffed service",
+        "enabled": false
+      },
+      {
+        "rule": "constraint",
+        "text": "Admissible options\n∅\nRecommended under this rule\nNeither option qualifies. Seek alternatives or examine the requirement; do not silently relax it.",
+        "enabled": true
+      }
+    ],
+    {
+      "practicalChoices": [
+        {
+          "q": 0,
+          "answer": 0,
+          "hidden": true,
+          "explanation": "Selected classification: Descriptive. This describes a measurable feature. It could be true or false; being descriptive does not guarantee accuracy."
+        },
+        {
+          "q": 0,
+          "answer": 1,
+          "hidden": true,
+          "explanation": "Selected classification: Evaluative. This describes a measurable feature. It could be true or false; being descriptive does not guarantee accuracy."
+        },
+        {
+          "q": 0,
+          "answer": 2,
+          "hidden": true,
+          "explanation": "Selected classification: Prescriptive. This describes a measurable feature. It could be true or false; being descriptive does not guarantee accuracy."
+        },
+        {
+          "q": 1,
+          "answer": 0,
+          "hidden": true,
+          "explanation": "Selected classification: Descriptive. This endorses an entitlement, rather than reporting what people believe. It is a normative principle: evaluative in its judgment of what people deserve, with prescriptive implications about provision. Both normative readings are defensible; the categories need not be exclusive."
+        },
+        {
+          "q": 1,
+          "answer": 1,
+          "hidden": true,
+          "explanation": "Selected classification: Evaluative. This endorses an entitlement, rather than reporting what people believe. It is a normative principle: evaluative in its judgment of what people deserve, with prescriptive implications about provision. Both normative readings are defensible; the categories need not be exclusive."
+        },
+        {
+          "q": 1,
+          "answer": 2,
+          "hidden": true,
+          "explanation": "Selected classification: Prescriptive. This endorses an entitlement, rather than reporting what people believe. It is a normative principle: evaluative in its judgment of what people deserve, with prescriptive implications about provision. Both normative readings are defensible; the categories need not be exclusive."
+        },
+        {
+          "q": 2,
+          "answer": 0,
+          "hidden": true,
+          "explanation": "Selected classification: Descriptive. This recommends an action. It is prescriptive; its justification requires examining the relevant facts and normative principles."
+        },
+        {
+          "q": 2,
+          "answer": 1,
+          "hidden": true,
+          "explanation": "Selected classification: Evaluative. This recommends an action. It is prescriptive; its justification requires examining the relevant facts and normative principles."
+        },
+        {
+          "q": 2,
+          "answer": 2,
+          "hidden": true,
+          "explanation": "Selected classification: Prescriptive. This recommends an action. It is prescriptive; its justification requires examining the relevant facts and normative principles."
+        },
+        {
+          "q": 3,
+          "answer": 0,
+          "hidden": true,
+          "explanation": "Selected classification: Descriptive. This reports residents’ beliefs. The word unfair occurs inside the reported attitude; the speaker need not endorse that assessment. Surveys could investigate this descriptive claim."
+        },
+        {
+          "q": 3,
+          "answer": 1,
+          "hidden": true,
+          "explanation": "Selected classification: Evaluative. This reports residents’ beliefs. The word unfair occurs inside the reported attitude; the speaker need not endorse that assessment. Surveys could investigate this descriptive claim."
+        },
+        {
+          "q": 3,
+          "answer": 2,
+          "hidden": true,
+          "explanation": "Selected classification: Prescriptive. This reports residents’ beliefs. The word unfair occurs inside the reported attitude; the speaker need not endorse that assessment. Surveys could investigate this descriptive claim."
+        }
+      ]
+    },
+    "Prefix EN/DE Pagefind and translation passed; eight locale/theme/width combinations fit without page overflow.",
+    "Gallery has nineteen variants, four presets and a second independent classification. Both directions of instance isolation passed.",
+    "Normal preview: course thumbnail, 56↔57 navigation, EN/DE translation and Pagefind passed. No next lesson existed in this snapshot.",
+    "German keyboard checkbox/disclosure Space and range pointer/ArrowRight work. Final English activity states fresh after translation."
+  ],
+  "console": []
+}

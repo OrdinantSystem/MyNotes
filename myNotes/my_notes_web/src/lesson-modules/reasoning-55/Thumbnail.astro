@@ -1,0 +1,10 @@
+---
+interface Props{locale?:'en'|'de'}
+const {locale='en'}=Astro.props;
+---
+<svg viewBox="0 0 220 130" role="img" aria-label={locale==='de'?'Quellenprämissen, eine ergänzte Brücke und eine hergeleitete Konklusion':'Source premises, an added bridge and a derived conclusion'}>
+ <rect x="20" y="12" width="180" height="20" rx="4" fill="var(--blue-tint)" stroke="var(--blue)"/>
+ <path d="M110 32V49m0 28v20" stroke="var(--axis)"/>
+ <rect x="40" y="49" width="140" height="28" rx="4" fill="var(--purple-tint)" stroke="var(--purple)" stroke-dasharray="4 3"/>
+ <rect x="20" y="97" width="180" height="20" rx="4" fill="var(--accent-tint)" stroke="var(--accent)"/>
+</svg>

@@ -1,0 +1,273 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-eight
+sourceId: reasoning-episode-64
+sourcePages: []
+sourceLocations: ["Sections 1–3 and Parts I–III: purpose, dossier and argument reconstruction", "Parts IV–VI: numerical evidence, confounding and decision alternatives", "Parts VII–IX: decision record, randomized pilot, cost revision and reflection", "Part X and Sections 11–14: course conclusion, transfer exercise and preparation sources"]
+title: "Abschlussworkshop: Eine reale Entscheidung klar durchdenken"
+navTitle: "Abschließender Entscheidungsworkshop"
+description: "Argumentstruktur, Zahlen, kausales Denken und Werte verbinden und eine Entscheidung bei neuen Informationen überdenken."
+order: 64
+kind: worked-problem
+status: published
+reviewStatus: unreviewed
+prerequisites: [take-a-research-claim-apart, when-should-you-trust-your-intuition]
+thumbnail: module:reasoning-64
+---
+
+Manche Schlüsse lassen sich beweisen. Andere müssen geschätzt werden, hängen von unsicheren Annahmen ab oder verlangen eine Entscheidung darüber, was uns wichtig ist. Dieser Abschlussworkshop verbindet diese Denkweisen anhand einer Entscheidung.
+
+Es gibt keinen einzelnen Satz zu beweisen und keine vorgegebene Empfehlung nachzubilden. Deine Aufgabe ist, einen Schluss nachvollziehbar, begründbar und offen für neue Informationen zu machen: **Wovon hängt er ab, wie gut ist er gestützt, und was könnte dich umstimmen?**
+
+## 1. Ein Vorschlag und ein erster Eindruck
+
+Du gehörst zum Ausschuss eines gemeinnützigen Bildungsprogramms für 200 Lernende. Für Verbesserungen steht jährlich ein begrenztes Budget zur Verfügung. Ein Unternehmen schlägt die digitale Lernplattform LearnForward vor und behauptet, sie verbessere die Leistungen erheblich.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="proposal" />
+
+Die große Prozentzahl und der scheinbar bezahlbare Preis können einen günstigen Eindruck erzeugen, bevor du die Sache bewusst untersuchst. Halte diesen Eindruck vor dem Weiterlesen fest.
+
+<Interactive kind="module" module="reasoning-64" preset="opening" id="decision-64-opening" />
+
+**Alle Unterlagen, Lernendenzahlen, Kosten, Prognosen und Schwellenwerte dieses LearnForward-Falls sind fiktiv.** Sie dienen als kontrollierte Lernbeispiele und sind keine Befunde über reale Bildungssoftware. Die erste Auswahl wird nicht bewertet.
+
+## 2. Die Entscheidungsunterlagen öffnen
+
+Eine Werbung ist nur ein Teil der verfügbaren Informationen.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="dossier" />
+
+Bevor du den Vorschlag bewertest, unterscheide die darin enthaltenen Fragen.
+
+| Frage | Benötigte Denkweise |
+| --- | --- |
+| Sind 72 % tatsächlich 50 % höher als 48 %? | Mathematisch |
+| Waren die Plattformnutzenden in der Studie erfolgreicher? | Empirisch |
+| Hat die Plattform den Unterschied verursacht? | Kausal |
+| Ist die Einführung die beste Verwendung unserer Mittel? | Bewertend |
+
+Rechnen klärt das Verhältnis der Prozentzahlen, belegt aber nicht die ordnungsgemäße Durchführung einer Studie. Empirische Beobachtungen können einen Unterschied feststellen, ohne seine Ursache zu bestimmen. Kausale Daten können helfen, Folgen einer Maßnahme vorherzusagen, entscheiden aber nicht, ob diese Folgen ihre Kosten rechtfertigen. Bewertendes Denken muss Prioritäten, Alternativen und Zielkonflikte berücksichtigen.
+
+Die Fragen hängen zusammen. Die Antwort auf eine entscheidet jedoch nicht über die anderen.
+
+## 3. Das Argument rekonstruieren
+
+Das Werbeargument verdichtet mehrere Behauptungen zu einem Schritt:
+
+> Plattformnutzende hatten eine höhere Erfolgsrate. Deshalb sollte unser Programm die Plattform einführen.
+
+Suche zunächst selbst die fehlenden Verbindungen und betrachte dann das erweiterte Argument.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="argument" />
+
+Die Kausalprämisse betrifft die Ursache des beobachteten Unterschieds. Die Übertragungsprämisse betrifft die Frage, ob ein glaubwürdiger Nutzen auch hier eintreten würde. Die Bewertungsprämisse betrifft die Vorzugswürdigkeit gegenüber Alternativen unter den gegebenen Kosten und Bedingungen. Jede braucht eine eigene Begründung.
+
+<Interactive kind="module" module="reasoning-64" preset="argument" id="decision-64-argument" />
+
+Die Karte beweist nicht, dass das Unternehmen irrt. Der Unterschied könnte echt sein, die Plattform könnte wirken und die Einführung könnte vorzuziehen sein. Das sind getrennte Behauptungen. Wie ein Beweis enthält ein praktisches Argument Abhängigkeiten; anders als ein mathematischer Beweis kann es auf unsicheren empirischen und bewertenden Prämissen beruhen. Die Pfeile ordnen diese Abhängigkeiten und behaupten keine deduktiven Folgerungen.
+
+## 4. Was belegen die Zahlen?
+
+Beginne mit den beobachteten Lernenden und den jeweiligen Bezugsgrößen.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="frequencies" />
+
+Sei $L$ die Nutzung der Plattform durch eine Person und $S$ das Erreichen des Lernziels. Die beobachteten Anteile sind
+
+$$
+\widehat P(S\mid L)=\frac{72}{100}=0.72,
+\qquad
+\widehat P(S\mid\neg L)=\frac{48}{100}=0.48.
+$$
+
+Die Dächer kennzeichnen empirische Anteile, keine bekannten Wahrscheinlichkeiten für alle möglichen Lernenden. Jeder bedingte Anteil bezieht sich auf die 100 Personen seiner eigenen Gruppe; 200 ist die Bezugsgröße für die gesamte Studie.
+
+Absoluter und relativer Vergleich beantworten verschiedene Fragen:
+
+$$
+72\%-48\%=24\text{ Prozentpunkte},
+\qquad
+\frac{72-48}{48}=0.50=50\%.
+$$
+
+Die relative Rechnung setzt den Unterschied ins Verhältnis zur Rate der Nichtnutzenden, nicht zu 72 % oder zur gesamten Population.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="comparison" />
+
+Die beworbenen 50 % sind **als relativer Unterschied zwischen den beobachteten Raten mathematisch richtig**. Eine richtige Kennzahl kann dennoch mit einer unbelegten Deutung verbunden sein. „Nutzende hatten eine um 50 % höhere beobachtete Erfolgsrate“ beschreibt die Studie; „die Einführung steigert den Erfolg um 50 %“ sagt die Wirkung eines Eingriffs voraus. Wenige geänderte Wörter verändern die Behauptung.
+
+## 5. Das Kausalproblem
+
+Die Lernenden haben **freiwillig gewählt**, ob sie die Plattform nutzen. Es gab keine Zufallszuweisung. Die Gruppen könnten sich daher schon vor der Maßnahme unterschieden haben.
+
+Eine vorher stärker motivierte Person könnte eher zusätzliche Lernwerkzeuge wählen und unabhängig vom Werkzeug eher erfolgreich sein. Das ist eine mögliche Erklärung durch einen Störfaktor: Eine schon vorher bestehende Variable beeinflusst möglicherweise sowohl Nutzung als auch Erfolg.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="causal" />
+
+Das Diagramm stellt eine Hypothese dar, keine entdeckte Tatsache und keinen Beweis der Unwirksamkeit. Der ursprüngliche Vergleich allein kann diese Erklärung nicht von einer Plattformwirkung unterscheiden.
+
+### Dieselben Summen, eine andere Erklärung
+
+Ein fiktiver Anhang enthält nun die vor Studienbeginn gemessene Motivation.
+
+| Vorherige Motivation | Plattformnutzende | Nichtnutzende |
+| --- | ---: | ---: |
+| Höher | 80 | 20 |
+| Niedriger | 20 | 80 |
+| Gesamt | 100 | 100 |
+
+Die Gruppen sind sehr unterschiedlich zusammengesetzt. Innerhalb der Kategorien ergeben sich folgende Erfolgszahlen:
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="subgroups" />
+
+Die Gesamtrate der Nutzenden ist ein gewichteter Mittelwert: 80 % Erfolg bei den 80 höher Motivierten und 40 % bei den 20 niedriger Motivierten. Bei den Nichtnutzenden sind die Gewichte vertauscht:
+
+$$
+0.8(0.8)+0.2(0.4)=0.72,
+\qquad
+0.2(0.8)+0.8(0.4)=0.48.
+$$
+
+Die ursprünglichen Summen sind unverändert. Unser Verständnis hat sich verändert. Beide Kategorien haben jeweils dieselben beobachteten Erfolgsraten; insgesamt liegt aber die Gruppe mit mehr höher Motivierten vorn.
+
+### Zusammensetzung ändern, Raten innerhalb der Kategorien festhalten
+
+Sei $h$ der Anteil höher Motivierter in einer Gruppe, als Zahl zwischen null und eins. In diesem konstruierten Modell beträgt ihre gesamte Erfolgsrate
+
+$$
+r(h)=0.8h+0.4(1-h)=0.4+0.4h.
+$$
+
+Probiere gleiche Zusammensetzungen aus und vertausche dann die ursprünglichen Anteile. Erkläre das Ergebnis, bevor du einen weiteren Wert änderst.
+
+<Interactive kind="module" module="reasoning-64" preset="composition" id="decision-64-composition" />
+
+Du kannst einen positiven, fehlenden oder negativen Gesamtunterschied erzeugen, ohne den Erfolg innerhalb einer Kategorie zu verändern. Dieses Aggregationsphänomen gehört zum Umfeld des Simpson-Paradoxons; hier verschwindet der Unterschied innerhalb der Kategorien, statt sich umzukehren.
+
+Der Anhang beweist **nicht**, dass die tatsächliche Kausalwirkung null ist. Weitere Störfaktoren, Messprobleme und Effekte außerhalb dieser einfachen Einteilung können bleiben. Die begründete Aktualisierung lautet: Der Gesamtunterschied allein reicht für die beworbene kausale Deutung nicht aus. Daraus die Gewissheit abzuleiten, die Plattform könne nicht wirken, wäre dieselbe Überschreitung in die andere Richtung.
+
+## 6. Entscheidungen, Folgen und Werte vergleichen
+
+Auch nach der Diagnose schwacher Evidenz muss der Ausschuss handeln. Mache die Alternativen sichtbar, statt nur Einführung und Ablehnung zu betrachten.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="options" />
+
+Die Frage lautet, ob ein Vorschlag den verfügbaren Alternativen vorzuziehen ist, nicht nur, ob er mögliche Vorteile hat.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="budget" />
+
+Der genannte vollständige Plattformvertrag verbraucht 80 % des Budgets von 6.000 € und lässt 1.200 € übrig. Damit wäre der Förderunterricht für 3.000 € aus demselben Budget nicht zusätzlich finanzierbar. Opportunitätskosten sind die wertvolle Alternative, auf die du verzichtest, nicht einfach der ungenutzte Restbetrag. Der Versuch erhält mehr Mittel, kostet aber Personalzeit und verzögert einen möglichen programmweiten Nutzen. Das bisherige System beizubehalten erhält Ressourcen, kann aber eine Verbesserung versäumen. Auch Nichthandeln hat Folgen.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="decision" />
+
+Die direkten Beträge sind Preisangaben und belegen nicht, dass sämtliche Umsetzungskosten enthalten sind. Die Tabelle trennt Prognosen und Prioritäten. Ein Mitglied betont vielleicht den Lernerfolg, ein anderes die finanzielle Sicherheit, ein drittes bessere Evidenz. Solche Unterschiede können aus Werten, Prognosen oder der Bereitschaft zum Umgang mit Ungewissheit entstehen, ohne dass ein Rechenfehler vorliegt.
+
+Eine verbindliche Datenschutzanforderung kann eine Option ausschließen, die sie nicht erfüllt. Das ist etwas anderes als ein kleiner Punktabzug. Wir wissen nicht, ob jede Option alle Anforderungen erfüllt. Willkürliche Zahlengewichte machen aus der Tabelle keinen mathematischen Sieger.
+
+### Information kann praktischen Wert haben
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="information" />
+
+Eine Pilotstudie kann auch dann wertvoll sein, wenn sie gegen eine Ausweitung spricht: Lernen vor der Bindung kann einen teuren Fehler verhindern. Dieser Wert ist aber gegen Geld, Zeit, Aufschub und die Frage abzuwägen, ob die Studie die spätere Entscheidung tatsächlich verbessern kann. Eine Pilotstudie ist eine Strategie zum Handeln unter Ungewissheit, keine automatische Antwort.
+
+## 7. Eine Empfehlung geben und begründen
+
+Nutze die vier Ansichten gemeinsam. Frage, was begründet werden muss, was beobachtet wurde, was es erklären könnte und was Vorrang haben soll.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="workspace" />
+
+Nimm dir vor dem nächsten Abschnitt Zeit für ein begründbares Protokoll. Halte Empfehlung, Zuversicht, Gründe, offene Fragen und Bedingungen für ein Überdenken fest. Nenne Prioritäten oder unverhandelbare Anforderungen. Deine Zuversicht ist ein subjektives Urteil, keine berechnete Wahrscheinlichkeit einer richtigen Wahl.
+
+Die Aktivität kann dein erstes Protokoll aufbewahren und die neuen Informationen daneben zeigen. Du kannst das bearbeitbare Protokoll überarbeiten und beide Fassungen kopieren. Alle späteren Informationen stehen auch ohne Nutzung der Aktivität im Artikel.
+
+<Interactive kind="module" module="reasoning-64" preset="decision" id="decision-64-record" />
+
+<details>
+<summary>Eine begründbare Empfehlung, keine offizielle Lösung</summary>
+
+Der Ausschuss könnte im laufenden Zeitraum eine kontrollierte Pilotstudie für 600 € finanzieren und erst danach über das Verbesserungsbudget von 6.000 € für das Folgejahr entscheiden. 120 einwilligende Lernende werden zufällig aufgeteilt: 60 erhalten Plattformzugang, 60 lernen mit dem bisherigen Ansatz weiter.
+
+Lege vor Beginn Lernziel, Messzeitraum, Datenschutzanforderungen, zulässige Kosten und Ausweitungskriterien fest. Angenommen, der Ausschuss hält eine **tatsächliche Verbesserung um mindestens zehn Prozentpunkte** für pädagogisch lohnend, sofern der Datenschutz gesichert und die Maßnahme bezahlbar ist. Das ist ein ausdrücklich gewähltes Entscheidungskriterium, kein universeller statistischer Standard. Auch ein beobachteter Unterschied oberhalb dieser Schwelle müsste auf Ungewissheit und Verlässlichkeit geprüft werden.
+
+Die Empfehlung setzt voraus, dass die bisherigen Daten keine größere Bindung rechtfertigen und bessere Daten ihre Kosten wert sind. Sie verlangt weder Gewissheit über Wirksamkeit noch Gewissheit über Unwirksamkeit.
+
+</details>
+
+## 8. Neue Informationen treffen ein
+
+Die fiktive Pilotstudie ist abgeschlossen. Alle 120 Lernenden wurden zufällig zugewiesen, und für jede teilnehmende Person wurde das Lernergebnis erfasst.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="pilot" />
+
+Zufallszuweisung stärkt kausale Schlüsse, weil vorherige Motivation die Zuweisung nicht bestimmt. Sie gleicht bestehende Merkmale **im Erwartungswert** aus, nicht vollkommen in jedem einzelnen Experiment. Die Pilotstudie vergleicht die Zuweisung zum Plattformzugang mit dem bisherigen Ansatz; sie isoliert nicht die Wirkung der tatsächlichen Nutzung durch jede Person.
+
+Der beobachtete Unterschied ist $36/60-33/60=0.05$, also fünf Prozentpunkte. Er ist nicht die bekannte tatsächliche Wirkung. Die Stichprobe ist klein, Zufallsschwankungen bleiben erheblich und die Teilnehmenden vertreten möglicherweise nicht das ganze Programm. Das Ergebnis belegt nicht, dass die tatsächliche Verbesserung die gewählte Zehn-Punkte-Schwelle erreicht. Es beweist aber auch nicht, dass ein solcher Nutzen unmöglich oder die Wirkung null ist.
+
+Die neuen Daten stützen den erheblichen Nutzen der Werbedeutung weniger stark. Bessere Daten können das Vertrauen in eine attraktive Behauptung verringern und zugleich unser Wissen über das Problem verbessern.
+
+### Eine getrennte Änderung der Finanzierbarkeit
+
+Die Pilotstudie zeigt zusätzlichen Bedarf an Ausstattung, technischer Unterstützung und Barrierefreiheit.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="revised" />
+
+Die korrigierten künftigen Jahreskosten betragen $4800+1800=6600$ Euro. Sie überschreiten das Budget des Folgejahres von 6.000 € um 600 €, unabhängig von den **anderen 600 €, die im vorigen Zeitraum bereits für die Pilotstudie ausgegeben wurden**. Diese vergangene Ausgabe ist kein zusätzlicher künftiger Einführungspreis und rechtfertigt keine Ausweitung, um das Geld „wieder hereinzuholen“.
+
+Eine vollständige Einführung zu den aktuellen Bedingungen ist nicht finanzierbar, solange die Kosten nicht sinken oder mehr Mittel verfügbar werden. Die Versuchsergebnisse verändern Überzeugungen über den Nutzen; die Preisänderung betrifft die Finanzierbarkeit. Das eine ersetzt das andere nicht.
+
+### Alle vier Ansichten aktualisieren und das Frühere erhalten
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="updates" />
+
+Die ursprüngliche Beobachtungsstudie bleibt neben der Pilotstudie sichtbar. Die Prämisse des kausalen Nutzens muss überarbeitet werden, das Kausaldiagramm behandelt die Selbstselektion durch die Zuweisung, und die Entscheidungstabelle aktualisiert Jahreskosten und Nutzenbewertung. Zufallszuweisung klärt weder Übertragbarkeit noch Messung und Ungewissheit vollständig.
+
+Eine begründbare neue Empfehlung wäre, die vollständige Einführung zu diesen Bedingungen aufzuschieben, Förderunterricht genauer zu untersuchen, einen niedrigeren Preis auszuhandeln oder bei hinreichendem Wert eine aussagekräftigere Folgestudie zu erwägen. Auch diese Alternativen brauchen Evidenz und eine Prüfung der Bedingungen.
+
+Eine angemessene Aktualisierung kann dieselbe endgültige Wahl ergeben. Wer zunächst dafür war, kann nun aufschieben; wer zunächst dagegen war, kann dabei bleiben und trotzdem den positiven beobachteten Pilotunterschied als gewisse Evidenz anerkennen, die mit einem möglichen Nutzen vereinbar ist. **Rationale Revision verlangt eine Aktualisierung der betroffenen Überzeugungen, keinen Wechsel der Wahl um seiner selbst willen.** Vergleiche dein erstes und dein aktuelles Protokoll und benenne die Änderungen genau.
+
+## 9. Die Qualität des Denkens prüfen
+
+Ein glücklicher Ausgang belegt allein kein gutes Denken. Ein unglücklicher Ausgang macht eine gut begründete Wahl nicht irrational. Beurteile den Prozess anhand der Informationen, die zum Entscheidungszeitpunkt verfügbar waren.
+
+<Interactive kind="module" module="reasoning-64" preset="reflection" id="decision-64-reflection" />
+
+Die stärkste Antwort muss weder die längste noch die technischste oder skeptischste sein. Sie wählt passende Methoden, erklärt deren Grenzen und passt die Stärke des Schlusses an die Evidenz an.
+
+## 10. Die Methode übertragen
+
+Versuche diesen neuen fiktiven Fall nach einigen Tagen, ohne die Workshopansichten nachzuschlagen.
+
+Eine öffentliche Bibliothek erwägt Öffnungszeiten bis 22 Uhr. Eine nahe gelegene Bibliothek verlängerte ihre Öffnungszeiten und meldete danach 30 % mehr wöchentliche Besuche. Die Verlängerung hier würde jährlich 18.000 € von einem Verbesserungsbudget von 25.000 € kosten. Studierende befürworten sie; Beschäftigte sorgen sich um Personalbesetzung und Arbeitsbedingungen. Zusätzliche Lernplätze und Bildungsressourcen sind Alternativen. Es ist unklar, ob die andere Bibliothek wegen der längeren Öffnung, eines neuen Hochschulcampus in der Nähe oder wegen beider Veränderungen mehr Besuche hatte.
+
+**Was würdest du empfehlen, und wie würdest du es begründen?** Schreibe ein Protokoll, bevor du die neue Information öffnest. Eine Prozentzahl allein verrät weder die Besuchszahlen noch den Wert eines zusätzlichen Besuchs.
+
+<details>
+<summary>Neue Informationen für deine Bibliotheksempfehlung</summary>
+
+Die andere Bibliothek verlängerte ihre Öffnungszeiten unmittelbar nach Eröffnung des Hochschulcampus. Lokale Umfragen deuten darauf hin, dass die Nachfrage hier vor allem in Prüfungszeiten besteht.
+
+Überdenke deine Empfehlung. Benenne geänderte Überzeugungen oder Bedingungen, verbleibende Ungewissheiten und eine mögliche Änderung deiner Wahl. Es gibt keinen vorgegebenen rechnerischen Sieger. Zum Beispiel könnte ein zeitlich begrenzter Versuch in Prüfungszeiten eine Untersuchung wert sein; Personal, Kosten und Erkenntniswert brauchen aber weiterhin eine Begründung.
+
+Das ist eine neue Anwendung und kein Beleg, dass das Erinnern an LearnForward den Transfer garantiert.
+
+</details>
+
+## 11. Eine fortlaufende Praxis
+
+Zu Beginn des Kurses warf $1+1=2$ eine scheinbar offensichtliche Frage auf: Woher wissen wir das? Die Werkzeuge erweiterten sich von Aussagen und Beweisen zu Daten, Ursachen, Entscheidungen und Selbstkorrektur.
+
+<ReasoningFigure kind="module" module="reasoning-64" figure="course" />
+
+Diese Werkzeuge untersuchen Beziehungen zwischen Behauptungen, Annahmen, Evidenz und Schlüssen. Sie können nicht alle dieselbe Art von Gewissheit liefern. Denken zu lernen bedeutet, die verbleibende Ungewissheit zu verstehen, die Gründe eigener Überzeugungen zu erkennen und mögliche Rechtfertigungen für andere Überzeugungen zu benennen.
+
+**Was weiß ich? Woher weiß ich es? Was würde mich umstimmen?**
+
+### Weiterführende Literatur
+
+Plattform, Zahlen, Kosten, Zehn-Punkte-Kriterium und Experiment sind didaktische Konstruktionen. Eine reale Bildungsstudie müsste Messung, Stichprobenziehung, Ethik, Umsetzung und statistische Ungewissheit ausführlicher behandeln. Die folgenden Quellen liefern methodischen Hintergrund, keine empirischen Belege für LearnForward:
+
+- David Diez, Mine Çetinkaya-Rundel und Christopher Barr, [OpenIntro Statistics](https://www.openintro.org/book/os/): Beobachtungsstudien und Experimente, kategoriale Daten und statistische Schlüsse.
+- Judea Pearl, Madelyn Glymour und Nicholas P. Jewell, [Causal Inference in Statistics: A Primer](https://bayes.cs.ucla.edu/PRIMER/): Kausalgraphen, Störfaktoren, Beobachtung und Eingriff.
+- Matthew Knachel, [Fundamental Methods of Logic](https://open.umn.edu/opentextbooks/textbooks/fundamental-methods-of-logic): Argumentrekonstruktion und Denken mit kausaler sowie statistischer Evidenz.
+- [Decision Theory, Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/decision-theory/): Überzeugungen, Präferenzen, Ungewissheit und aufeinanderfolgende Entscheidungen.

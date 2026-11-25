@@ -1,0 +1,124 @@
+{
+  "matrix": [
+    {
+      "figures": 15,
+      "labs": 3,
+      "lang": "en",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 1269,
+      "theme": "dark",
+      "viewport": 1280
+    },
+    {
+      "figures": 15,
+      "labs": 3,
+      "lang": "en",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 1269,
+      "theme": "light",
+      "viewport": 1280
+    },
+    {
+      "figures": 15,
+      "labs": 3,
+      "lang": "en",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 379,
+      "theme": "light",
+      "viewport": 390
+    },
+    {
+      "figures": 15,
+      "labs": 3,
+      "lang": "en",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 379,
+      "theme": "dark",
+      "viewport": 390
+    },
+    {
+      "figures": 15,
+      "labs": 3,
+      "lang": "de",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 379,
+      "theme": "dark",
+      "viewport": 390
+    },
+    {
+      "figures": 15,
+      "labs": 3,
+      "lang": "de",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 379,
+      "theme": "light",
+      "viewport": 390
+    },
+    {
+      "figures": 15,
+      "labs": 3,
+      "lang": "de",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 1269,
+      "theme": "light",
+      "viewport": 1280
+    },
+    {
+      "figures": 15,
+      "labs": 3,
+      "lang": "de",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 1269,
+      "theme": "dark",
+      "viewport": 1280
+    }
+  ],
+  "prefix": {
+    "url": "http://127.0.0.1:4558/MyNotes/de/reasoning/lessons/choosing-when-no-option-is-perfect/",
+    "h1": "Entscheiden, wenn keine Option perfekt ist",
+    "searchEn": "http://127.0.0.1:4558/MyNotes/reasoning/lessons/choosing-when-no-option-is-perfect/",
+    "searchDe": "http://127.0.0.1:4558/MyNotes/de/reasoning/lessons/choosing-when-no-option-is-perfect/"
+  },
+  "tie25": "Equal best values\n\nA. Outdoor / B. Covered\n\n€300",
+  "crossing30": "Highest expected monetary profit among feasible options\n\nB. Covered\n\n€276",
+  "both": "Highest expected monetary profit among feasible options\n\nB. Covered\n\n€276",
+  "endpointsBoth": "Highest expected monetary profit among feasible options\n\nB. Covered\n\n−€60",
+  "invalid": "Enter a finite number within the stated bounds. The last valid display is retained.",
+  "utilityReset": "Venue\tExpected money (€)\tExpected utility (model units)\nA. Outdoor\t€360\t120\nB. Covered\t€324\t300\nC. Indoor\t€240\t240",
+  "weatherKeyboard": "A. Outdoor\n\nCheap and spacious; exposed to rain.\n\nNet consequence: −€600\n\nB. Covered\n\nModerate cost; partial weather protection.\n\nNet consequence: −€60\n\nC. Indoor\n\nHigher cost; modeled revenue unchanged by rain.\n\nNet consequence: +€240\n\nSchematic venues and visitors; the fictional revenues are assumptions, not measurements inferred from the drawing.",
+  "localScroll": {
+    "before": {
+      "left": 0,
+      "total": 640,
+      "width": 303
+    },
+    "after": {
+      "left": 40,
+      "total": 640,
+      "width": 303
+    }
+  },
+  "workshop": "Lösung ansehen\n+\n\nJa. Im Freien beträgt der erwartete Gewinn \n600\n−\n1200\n(\n0.10\n)\n=\n480\n600−1200(0.10)=480 Euro, überdacht \n420\n−\n480\n(\n0.10\n)\n=\n372\n420−480(0.10)=372 Euro. Im Freien gewinnt nach dem Gelderwartungswert, aber dieses Kriterium ist eine Annahme. Der Verein könnte eine Verlustgrenze einführen oder der Vermeidung schwerer Verluste genügend Gewicht geben. Mit der früheren beispielhaften Funktion \n𝑢\n2\nu\n2\n\t​\n\n ergeben sich die Erwartungsnutzen \n0.9\n(\n600\n)\n+\n0.1\n(\n−\n1800\n)\n=\n360\n0.9(600)+0.1(−1800)=360 und \n0.9\n(\n420\n)\n+\n0.1\n(\n−\n180\n)\n=\n360\n0.9(420)+0.1(−180)=360: Die Orte sind nach Nutzen gleich gut. Die überdachte Wahl ist nicht allein wegen ihres geringeren Gelderwartungswerts irrational. Ihre Begründung muss weiterhin die relevanten Präferenzen, Belege und Bedingungen nennen.",
+  "gallery": {
+    "first": "A. Outdoor\n\nCheap and spacious; exposed to rain.\n\nNet consequence: −€600\n\nB. Covered\n\nModerate cost; partial weather protection.\n\nNet consequence: −€60\n\nC. Indoor\n\nHigher cost; modeled revenue unchanged by rain.\n\nNet consequence: +€240\n\nSchematic venues and visitors; the fictional revenues are assumptions, not measurements inferred from the drawing.",
+    "independent": "A. Outdoor\n\nCheap and spacious; exposed to rain.\n\nNet consequence: +€600\n\nB. Covered\n\nModerate cost; partial weather protection.\n\nNet consequence: +€420\n\nC. Indoor\n\nHigher cost; modeled revenue unchanged by rain.\n\nNet consequence: +€240\n\nSchematic venues and visitors; the fictional revenues are assumptions, not measurements inferred from the drawing."
+  },
+  "overview": [
+    {
+      "href": "/reasoning/lessons/choosing-when-no-option-is-perfect/",
+      "svg": 1,
+      "text": "58Choosing when no option is perfect↗"
+    }
+  ],
+  "searchEn": "http://127.0.0.1:4558/reasoning/lessons/choosing-when-no-option-is-perfect/",
+  "searchDe": "http://127.0.0.1:4558/de/reasoning/lessons/choosing-when-no-option-is-perfect/",
+  "consoleErrors": []
+}

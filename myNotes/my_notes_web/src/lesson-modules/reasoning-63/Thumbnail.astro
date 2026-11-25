@@ -1,0 +1,7 @@
+---
+interface Props{locale?:'en'|'de'}
+const {locale='en'}=Astro.props;
+---
+<svg viewBox="0 0 220 130" role="img" aria-label={locale==='de'?'Ein ungerades Quadrat: vier Rechtecke und eine mittlere Einheit':'An odd square: four rectangles and one central unit'}>
+ <rect x="63" y="16" width="56" height="42" rx="3" fill="var(--blue-tint)" stroke="var(--blue)"/><rect x="119" y="16" width="42" height="56" rx="3" fill="var(--purple-tint)" stroke="var(--purple)"/><rect x="105" y="72" width="56" height="42" rx="3" fill="var(--accent-tint)" stroke="var(--accent)"/><rect x="63" y="58" width="42" height="56" rx="3" fill="var(--coral-tint)" stroke="var(--coral)"/><rect x="105" y="58" width="14" height="14" fill="var(--surface)" stroke="var(--accent)"/><text x="112" y="69" text-anchor="middle" font-size="11" fill="var(--text)">1</text>
+</svg>

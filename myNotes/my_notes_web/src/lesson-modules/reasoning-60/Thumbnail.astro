@@ -1,0 +1,4 @@
+---
+const locale=Astro.props.locale||Astro.locals.locale||'en';
+---
+<svg viewBox="0 0 160 88" role="img" aria-label={locale==='de'?'Allgemeiner Beweis und formale Prüfung':'General proof and formal checking'}><rect x="8" y="15" width="94" height="58" rx="4" fill="var(--purple-tint)" stroke="var(--purple)"/><text x="55" y="39" text-anchor="middle" font-size="12" fill="var(--text)">2a + 2b</text><text x="55" y="58" text-anchor="middle" font-size="12" fill="var(--text)">= 2(a + b)</text><path d="M108 44h13m-4-4 4 4-4 4M128 44l8 8 16-20" fill="none" stroke="var(--accent)" stroke-width="3"/></svg>

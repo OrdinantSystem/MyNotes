@@ -1,0 +1,44 @@
+{
+  "id": "reasoning-58",
+  "course": "reasoning",
+  "chapter": "reasoning-part-eight",
+  "chapterDefinition": {
+    "id": "reasoning-part-eight",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Eight",
+      "de": "Teil Acht"
+    },
+    "description": {
+      "en": "Practical and ethical reasoning.",
+      "de": "Praktisches und ethisches Argumentieren."
+    }
+  },
+  "order": 58,
+  "key": "choosing-when-no-option-is-perfect",
+  "title": "Choosing when no option is perfect",
+  "sourceId": "reasoning-episode-58",
+  "sourceTitle": "AoR 58 \u2014 Choosing when no option is perfect",
+  "figures": [
+    "venues",
+    "structure",
+    "payoffs",
+    "forecast",
+    "hundred",
+    "expected",
+    "outcomes",
+    "tradeoff",
+    "utility",
+    "preferences",
+    "constraints",
+    "regions",
+    "robustness",
+    "quality",
+    "transformation"
+  ],
+  "presets": [
+    "weather",
+    "utility",
+    "decision"
+  ]
+}

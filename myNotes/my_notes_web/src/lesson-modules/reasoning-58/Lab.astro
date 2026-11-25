@@ -1,0 +1,24 @@
+---
+import './styles.css';
+import {copy} from './copy';
+import {constraintModes} from './model';
+import {weatherMarkup,utilityMarkup,decisionMarkup} from './render';
+interface Props{preset:string;id:string}
+const {preset,id}=Astro.props,l=Astro.locals.locale||'en',c=copy(l);
+if(!['weather','utility','decision'].includes(preset))throw new Error('Unknown AoR 58 activity');
+const title=preset==='weather'?c.weather:preset==='utility'?c.utility:c.decision;
+---
+<section id={id} class="r58 r58-lab" data-r58-lab={preset} data-locale={l} aria-label={title}>
+<h3>{title}</h3>
+{preset==='weather'?<><label for={`${id}-weather`}>{c.weather}</label><select id={`${id}-weather`} data-weather><option value="dry">{c.dry}</option><option value="rain">{c.rain}</option></select></>:<>
+<label for={`${id}-range`}>{preset==='utility'?c.k:c.p} <output data-value>{preset==='utility'?'3':'20%'}</output></label>
+<input id={`${id}-range`} data-range type="range" min={preset==='utility'?1:0} max={preset==='utility'?5:100} step="0.5" value={preset==='utility'?3:20}/>
+<label for={`${id}-number`}>{preset==='utility'?c.kn:c.pn}</label><input id={`${id}-number`} data-number type="number" min={preset==='utility'?1:0} max={preset==='utility'?5:100} step="any" value={preset==='utility'?3:20} aria-describedby={`${id}-error`}/>
+<p id={`${id}-error`} data-error class="r58-error" role="alert"></p>
+{preset==='decision'&&<><label for={`${id}-constraint`}>{c.constraints}</label><select id={`${id}-constraint`} data-constraint>{constraintModes.map((mode,i)=><option value={mode}>{c.modes[i]}</option>)}</select></>}
+</>}
+<div data-output set:html={preset==='weather'?weatherMarkup(l):preset==='utility'?utilityMarkup(l):decisionMarkup(l)}/>
+<button type="button" data-reset>{c.reset}</button><p class="visually-hidden" data-status role="status"></p>
+<noscript><p>{l==='de'?'Die Ausgangsdarstellung und alle Erklärungen bleiben ohne JavaScript lesbar.':'The initial display and all explanations remain readable without JavaScript.'}</p></noscript>
+</section>
+<script>import './controller';</script>

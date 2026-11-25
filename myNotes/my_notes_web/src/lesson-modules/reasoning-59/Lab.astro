@@ -1,0 +1,18 @@
+---
+import './styles.css';import {text} from './copy';import {reviewMarkup,thresholdMarkup} from './render';
+interface Props{preset:'thresholds'|'review'|'journal';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale);
+---
+<figure class="sc-view" id={id} data-correction-lab={preset} data-locale={locale}><h3>{preset==='journal'?c.journal:preset==='review'?c.titles[11]:c.recordLabels[7]}</h3>
+{preset==='thresholds'?<><label>{c.registration}<input type="number" min="0" max="60" step="1" value="24" data-sc-count/></label><label><input type="checkbox" data-sc-disruption/>{c.disruption}</label><div data-sc-output set:html={thresholdMarkup(locale)}/></>:preset==='review'?<>{[c.attendance,c.passed,c.cost].map((s,i)=><label>{s}<input type="number" min="0" max={i===2?200:i===1?12:60} step="1" value={[12,10,100][i]} data-sc-observation={i}/></label>)}<div data-sc-output set:html={reviewMarkup(locale)}/></>:<><p>{c.privacy}</p>{c.fields.map((s,i)=><label for={`${id}-${i}`}>{s}<textarea id={`${id}-${i}`} maxlength="1500" data-sc-field={i}/></label>)}<button type="button" data-sc-prepare>{c.prepare}</button><button type="button" data-sc-copy disabled>{c.copy}</button><div class="sc-export" data-sc-export>{c.empty}</div></>}
+<button type="button" data-sc-reset>{c.reset}</button><p role="status" aria-live="polite" class="sc-status" data-sc-status></p></figure>
+<script>
+import {text,type Locale} from './copy';import {exportRecord} from './model';import {reviewMarkup,thresholdMarkup} from './render';
+for(const root of document.querySelectorAll<HTMLElement>('[data-correction-lab]')){const c=text(root.dataset.locale as Locale),l=root.dataset.locale as Locale,preset=root.dataset.correctionLab,status=root.querySelector<HTMLElement>('[data-sc-status]')!,output=root.querySelector<HTMLElement>('[data-sc-output]');const count=root.querySelector<HTMLInputElement>('[data-sc-count]'),disruption=root.querySelector<HTMLInputElement>('[data-sc-disruption]'),inputs=[...root.querySelectorAll<HTMLInputElement>('[data-sc-observation]')],fields=[...root.querySelectorAll<HTMLTextAreaElement>('[data-sc-field]')],preview=root.querySelector<HTMLElement>('[data-sc-export]'),copy=root.querySelector<HTMLButtonElement>('[data-sc-copy]');
+function update(){try{if(preset==='thresholds'){if(!count!.value.trim())throw Error();output!.innerHTML=thresholdMarkup(l,count!.valueAsNumber,disruption!.checked);}if(preset==='review'){if(inputs.some(x=>!x.value.trim()))throw Error();inputs[1].max=inputs[0].value;output!.innerHTML=reviewMarkup(l,inputs[0].valueAsNumber,inputs[1].valueAsNumber,inputs[2].valueAsNumber);}status.textContent='';}catch{status.textContent=c.invalid;}}
+for(const input of [count,disruption,...inputs])input?.addEventListener('change',update);
+for(const field of fields)field.addEventListener('input',()=>{copy!.disabled=true;preview!.textContent=c.empty;});
+root.querySelector('[data-sc-prepare]')?.addEventListener('click',()=>{preview!.textContent=exportRecord(c.fields,fields.map(x=>x.value));copy!.disabled=false;});
+copy?.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(preview!.textContent||'');status.textContent=c.copied;}catch{status.textContent=c.fallback;}});
+root.querySelector('[data-sc-reset]')!.addEventListener('click',()=>{if(count)count.value='24';if(disruption)disruption.checked=false;inputs.forEach((x,i)=>x.value=String([12,10,100][i]));fields.forEach(x=>x.value='');if(preview)preview.textContent=c.empty;if(copy)copy.disabled=true;update();status.textContent=c.reset;});}
+</script>

@@ -1,0 +1,330 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-seven
+sourceId: reasoning-episode-55
+sourcePages: []
+sourceLocations: ["Sections 1–4: notation, interpretation, Spinoza and relations", "Section 5: proposed first-order reconstruction and proof", "Sections 6–8: readings, equivocation, countermodel and added bridge", "Sections 9–11: commonality, necessity, transfer and synthesis", "Preparation sources and teaching-construction boundaries"]
+thumbnail: module:reasoning-55
+title: Kann mathematische Notation Philosophie verständlicher machen?
+navTitle: Notation und Philosophie
+description: Ein philosophisches Argument rekonstruieren, ohne Bedeutungen, Quellenprämissen und ergänzte Annahmen zu verbergen.
+order: 55
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [implication-and-its-converse, proof-by-contraposition, map-an-argument-without-losing-its-meaning]
+---
+
+Können wir ein Argument präziser machen, ohne seine Bedeutung zu verändern? Mathematik und Philosophie können zusammenarbeiten, ohne einander zu ersetzen. Mathematische Aufgaben beginnen häufig mit relativ genauen Definitionen. In der Philosophie kann die Bedeutung der Begriffe selbst zum Problem gehören.
+
+Beim Lesen eines Arguments müssen wir die Behauptungen der Autorin oder des Autors verstehen, Begriffe deuten, Abhängigkeiten erkennen, das Folgern prüfen und die Rechtfertigung der Prämissen beurteilen. Notation kann helfen, diese Aufgaben zu trennen, statt sie alle gleichzeitig lösen zu wollen.
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="overview" />
+
+**Formalisierung soll unsere Annahmen sichtbarer machen, statt sie hinter Symbolen verschwinden zu lassen.** Wir entwickeln ein Argument aus Spinozas *Ethik* und kehren bei jeder Deutungsentscheidung zum ursprünglichen Wortlaut zurück.
+
+## 1. Warum Gleichungen manchmal leichter wirken als Absätze
+
+Betrachte diesen Satz:
+
+> Wenn das Auftreten eines Phänomens notwendig von einem anderen abhängt und dieses zweite Phänomen fehlt, kann das erste nicht auftreten.
+
+Ein bekanntes formales Muster lautet
+
+$$
+A\to B,\qquad \neg B\qquad\therefore\qquad\neg A.
+$$
+
+Bei geeigneter Deutung drücken beide denselben Schluss aus: Modus tollens. Wiederholte Wendungen durch Buchstaben zu ersetzen macht die Struktur leichter überprüfbar. Doch was bedeutet „abhängen“? Physische Abhängigkeit, logische Abhängigkeit oder Verursachung? Besteht sie notwendig oder nur unter bestimmten Bedingungen?
+
+Die Symbole beantworten diese Fragen nicht, sondern stellen einige davon vorübergehend zurück. Insbesondere bildet eine materiale Implikation nicht von selbst alles ab, was „notwendig“ besagt. Notation kann einen Schluss verdeutlichen und zugleich seine ursprüngliche Bedeutung weniger sichtbar machen.
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="layers" />
+
+Unterscheide **die Struktur eines Arguments** von **seiner Deutung**. Formale Logik isoliert eine Ebene; sie erfasst nicht automatisch alles, was diese umgibt. Hier setzen wir die früheren Lektionen über Bedeutung und über das sinngetreue Abbilden von Argumenten fort.
+
+## 2. Ein echtes philosophisches Argument
+
+Baruch Spinoza (1632–1677) ordnete seine 1677 veröffentlichte *Ethik* nach Definitionen, Axiomen, Lehrsätzen und Beweisen in geometrischem Stil. Wir betrachten ein kurzes Argument, statt sein gesamtes philosophisches System erklären zu wollen. [Spinoza: Ethik, Teil I, englische Übersetzung](https://en.wikisource.org/wiki/Ethics_(Spinoza)/Part_1)
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="source" />
+
+Teil I, Lehrsatz III, hier auf Grundlage der englischen Übersetzung von R. H. M. Elwes ins Deutsche übertragen:
+
+> Dinge, die nichts miteinander gemeinsam haben, können nicht eines die Ursache des anderen sein.
+
+Der Beweis verweist auf zwei frühere Axiome. Sinngemäß lauten sie:
+
+- **Axiom IV:** Die Erkenntnis einer Wirkung hängt von der Erkenntnis ihrer Ursache ab und schließt sie ein.
+- **Axiom V:** Dinge ohne Gemeinsamkeit können nicht durcheinander verstanden werden; der Begriff des einen schließt den Begriff des anderen nicht ein.
+
+Der Beweis führt von fehlender Gemeinsamkeit zur fehlenden Verstehbarkeit durch das andere Ding und dann zur fehlenden Verursachung. Die umgebenden Definitionen betreffen Substanz, Attribute und das durch sich selbst Begriffene. Dieser Kontext ist für die Deutung von „Gemeinsamkeit“ und „Verstehen“ wichtig. [Axiome und Lehrsatz III](https://en.wikisource.org/wiki/Ethics_(Spinoza)/Part_1#Axioms)
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="question" />
+
+Warum sollte fehlende Gemeinsamkeit verhindern, dass ein Ding das andere verursacht? Halte vor der Symbolisierung bei der Beziehung zwischen **Verstehen**, **Gemeinsamkeit** und **Verursachung** inne. Die Schwierigkeit, diese Begriffe zu deuten, gehört zum Argument; Notation kann sie nicht einfach beseitigen.
+
+## 3. Zuerst die Relationen unterscheiden
+
+Der Gegenstandsbereich enthalte die Dinge, um die es im Argument geht. Wir schlagen drei zweistellige Prädikate vor:
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="relations" />
+
+Sie drücken Relationen zwischen Gegenständen aus, nicht bloß Themenbezeichnungen. Sobald den Variablen Gegenstände zugeordnet werden, sagt $C(x,y)$ etwas Bestimmtes: $x$ verursacht $y$. Der Buchstabe $C$ allein liefert keine Theorie der Verursachung.
+
+Hier steht $S(x,y)$ für die in der Rekonstruktion gemeinte relevante Gemeinsamkeit. Welche Eigenschaften dafür zählen, haben wir noch nicht entschieden. Ebenso kürzt $U(x,y)$ eine festzulegende Verstehensrelation ab; es ist noch keine Definition des Verstehens.
+
+### Die Reihenfolge der Argumente zählt
+
+Angenommen, ein fallender Stein zerbricht ein Fenster:
+
+$$
+C(\text{Aufprall des Steins},\text{Zerbrechen des Fensters}).
+$$
+
+Daraus folgt nicht
+
+$$
+C(\text{Zerbrechen des Fensters},\text{Aufprall des Steins}).
+$$
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="direction" />
+
+Die Verursachung ist in diesem Beispiel gerichtet. Wenn $x$ die Ursache von $y$ ist, lautet die vorgeschlagene Verstehensrelation $U(y,x)$: Das Verstehen der **Wirkung** schließt das Verstehen der **Ursache** ein. Es gilt nicht automatisch $U(x,y)$. Die Notation hält eine Reihenfolge fest, die Prosa leicht verdecken kann. Gemeinsamkeit und Verursachung sind verschiedene Relationen; die Pfeile setzen sie nicht gleich.
+
+## 4. Das Argument rekonstruieren
+
+Es folgt eine vorgeschlagene Rekonstruktion in Prädikatenlogik erster Stufe, nicht Spinozas eigene Notation. Jede Formel muss am Text und an unserer gewählten Deutung geprüft werden.
+
+**Axiom IV, rekonstruiert:** Wenn $x$ die Ursache von $y$ ist, schließt das Verstehen von $y$ das Verstehen von $x$ ein.
+
+$$
+\forall x\forall y\big(C(x,y)\to U(y,x)\big).
+$$
+
+**Axiom V, rekonstruiert:** Wenn $x$ und $y$ nichts Relevantes gemeinsam haben, besteht die relevante Verstehensrelation nicht.
+
+$$
+\forall x\forall y\big(\neg S(x,y)\to\neg U(y,x)\big).
+$$
+
+**Vorgeschlagene Konklusion:** Wenn $x$ und $y$ nichts Relevantes gemeinsam haben, verursacht $x$ nicht $y$.
+
+$$
+\forall x\forall y\big(\neg S(x,y)\to\neg C(x,y)\big).
+$$
+
+Die Quantoren besagen, dass die Behauptung jedes Paar im gewählten Gegenstandsbereich betrifft, nicht nur einen Stein und ein Fenster. Ob dieser Bereich und die Prädikate die philosophische Passage angemessen erfassen, bleibt eine eigene Frage.
+
+### Folgt die Konklusion?
+
+Seien $x$ und $y$ beliebig. Durch Kontraposition der ersten Prämisse erhalten wir
+
+$$
+\neg U(y,x)\to\neg C(x,y).
+$$
+
+Die zweite Prämisse liefert das vorhergehende Bindeglied:
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="chain" />
+
+Damit lautet die Kette
+
+$$
+\neg S(x,y)\to\neg U(y,x)\to\neg C(x,y).
+$$
+
+Unter der Annahme fehlender relevanter Gemeinsamkeit folgt also fehlende Verursachung. Die vollständige bedingte Herleitung ist:
+
+| Schritt | Ausdruck | Begründung |
+| --- | --- | --- |
+| 1 | $C(x,y)\to U(y,x)$ | Rekonstruiertes Axiom IV instanziieren. |
+| 2 | $\neg S(x,y)\to\neg U(y,x)$ | Rekonstruiertes Axiom V instanziieren. |
+| 3 | $\neg S(x,y)$ | Vorübergehende Annahme. |
+| 4 | $\neg U(y,x)$ | Modus ponens, 2 und 3. |
+| 5 | $\neg C(x,y)$ | Modus tollens, 1 und 4. |
+| 6 | $\neg S(x,y)\to\neg C(x,y)$ | Implikationseinführung; Annahme 3 entlassen. |
+
+Da $x$ und $y$ beliebig waren und die vorübergehende Annahme entlassen ist, dürfen wir zur vorgeschlagenen universellen Konklusion verallgemeinern. Dabei verwenden wir klassische Logik und durchgehend dieselbe Deutung jedes Prädikats.
+
+<Interactive kind="module" module="reasoning-55" preset="proof" id="a55-proof-steps" />
+
+Wir haben gezeigt, dass die Konklusion **unter dieser Rekonstruktion** folgt. Damit haben wir weder die Wahrheit ihrer Prämissen noch die historische Angemessenheit unserer Lesart oder alles begründet, was Spinozas „können nicht“ ausdrückt. Die Werkzeuge sind dieselbe Kontraposition, bedingte Beweisführung und Quantorenlogik wie in früheren Lektionen. [Open Logic Project: forall x, Calgary](https://forallx.openlogicproject.org/forallxyyc.html)
+
+## 5. Das philosophische Problem bleibt bestehen
+
+Was bedeutet $U(y,x)$? Wer ein Smartphone benutzt, kann wissen, dass ein Tastendruck den Bildschirm beleuchtet, ohne elektronische Schaltung, Halbleiterphysik oder Herstellungsverfahren zu verstehen.
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="phone" />
+
+Zwei didaktische Lesarten verdeutlichen das Problem:
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="readings" />
+
+Lesart A betrifft das Wissen oder Verstehen einer Person. Lesart B betrifft die Anforderungen an eine angemessene Erklärung, unabhängig davon, ob ein bestimmter Beobachter über sie verfügt. Jemand kann wissen, dass ein Fenster zerbrochen ist, ohne zu wissen, warum. Das stellt bestimmte starke Fassungen von Lesart A infrage, widerspricht aber nicht automatisch Lesart B.
+
+Dies sind keine zwei gleichrangigen Deutungen Spinozas. Die umgebenden Verweise auf das Begreifen legen nahe, begriffliche oder erklärende Abhängigkeit ernst zu nehmen. Der Vergleich dient der Lehre und ist keine vollständige historische Interpretation. In beiden Lesarten lässt das vereinfachte zweistellige Prädikat weitere Fragen offen, etwa nach der verstehenden Person oder dem Maßstab einer angemessenen Erklärung. [Ethik, Teil I](https://en.wikisource.org/wiki/Ethics_(Spinoza)/Part_1)
+
+Wird eine Lesart **einheitlich** in beide Prämissen eingesetzt, bleibt das logische Muster gültig. Die philosophischen Behauptungen sind dennoch verschieden. **Ein Symbol ist keine Definition. Es ist ein Platzhalter für eine Definition.**
+
+## 6. Wenn Notation einen Bedeutungswechsel verbirgt
+
+Konstruieren wir nun absichtlich eine misslungene Formalisierung. Deute das Verstehen in Axiom IV als Erklärungsabhängigkeit, das Verstehen in Axiom V aber als gewöhnliches Wissen:
+
+$$
+C(x,y)\to U_B(y,x),
+$$
+
+$$
+\neg S(x,y)\to\neg U_A(y,x).
+$$
+
+Aus diesen beiden Prämissen allein folgt die Konklusion nicht.
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="gap" />
+
+Das Entfernen der Indizes ließe den Beweis richtig erscheinen und würde dabei den Bedeutungswechsel verbergen. Das ist **Äquivokation**: Ein Ausdruck wird als gleichbleibend behandelt, obwohl er in verschiedenen Bedeutungen verwendet wird.
+
+### Ein Gegenmodell zeigt den Fehler
+
+Setze für ein Paar von Gegenständen $C(x,y)$ wahr, $S(x,y)$ falsch, $U_A(y,x)$ falsch und $U_B(y,x)$ wahr.
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="counterexample" />
+
+Die erste Prämisse lautet dann $W\to W$ und ist wahr. Die zweite lautet ebenfalls $W\to W$ und ist wahr. Doch die vorgeschlagene Konklusion $\neg S(x,y)\to\neg C(x,y)$ wird zu $W\to F$ und ist falsch. Beide Prämissen können gelten, während die Konklusion scheitert.
+
+Das ist ein logisches Gegenmodell zur **gemischten Rekonstruktion**, kein empirisches Gegenbeispiel zu Spinoza. Es zeigt eine fehlende Schlussverbindung, statt die Falschheit seiner Metaphysik zu beweisen.
+
+<Interactive kind="module" module="reasoning-55" preset="countermodel" id="a55-break-argument" />
+
+Bei einer festen Bedeutung von $U$ gibt es unter den acht Wahrheitsbelegungen keinen Fall mit wahren Prämissen und falscher Konklusion. Werden $U_A$ und $U_B$ getrennt belegt, ist eine der sechzehn Belegungen ein Gegenmodell. Eine einzelne günstige Belegung beweist niemals Gültigkeit; die Aktivität zeigt die vollständige Prüfung getrennt von der aktuellen Belegung an.
+
+## 7. Übersetzung und deutende Rekonstruktion
+
+Die Aussagen eines Autors zu übersetzen ist etwas anderes, als ein Argument so zu rekonstruieren, dass seine Schlussbeziehungen ausdrücklich werden. Eine Rekonstruktion kann eine nicht genannte Prämisse benötigen. Betrachte für die gemischte Lesart die zusätzliche Brücke
+
+$$
+\forall x\forall y\big(U_B(y,x)\to U_A(y,x)\big).
+$$
+
+Ihre Kontraposition lautet
+
+$$
+\neg U_A(y,x)\to\neg U_B(y,x).
+$$
+
+Damit erhalten wir die fehlende Verbindung:
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="bridge" />
+
+Für das beliebige Paar entsteht die Kette $\neg S\to\neg U_A\to\neg U_B\to\neg C$. Beziehe in der Aktivität die Brücke ein und lade das frühere Gegenmodell: Die zusätzliche Prämisse ist dort falsch; es erfüllt also nicht mehr alle Prämissen. Keine Belegung mit getrennten Bedeutungen erfüllt alle drei Prämissen und macht zugleich die Konklusion falsch.
+
+Die Brücke ist jedoch eine neue philosophische Festlegung. Aus Erklärungsabhängigkeit folgt nicht automatisch, dass eine bestimmte Person über das betreffende gewöhnliche Wissen verfügt. Unter den beabsichtigten Lesarten kann diese Annahme höchst fragwürdig sein. Sie darf Spinoza nicht stillschweigend zugeschrieben werden.
+
+Durchgezogene blaue Rahmen kennzeichnen rekonstruierte Quellenprämissen, gestrichelte violette Rahmen Ergänzungen der interpretierenden Person und Türkis hergeleitete Ergebnisse **unter der Rekonstruktion**. Diese Stile bestätigen keine Wahrheit der Prämissen.
+
+Das Ziel besteht nicht darin, Annahmen einzusetzen, bis jedes Argument gültig wird; mit hinreichend starken Annahmen wäre das leicht. Unterscheide **was der Autor sagte, was er gemeint haben könnte und was die interpretierende Person ergänzt hat**. Eine gute Rekonstruktion bleibt am ursprünglichen Text überprüfbar. [OpenStax: Philosophische Texte lesen](https://openstax.org/books/introduction-philosophy/pages/2-5-reading-philosophy)
+
+## 8. Was Notation zeigen kann und was nicht
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="questions" />
+
+Ist eine Deutung gewählt, lässt sich formal untersuchen, ob die Konklusion folgt und ob eine weitere Prämisse benötigt wird. Formales Denken entscheidet nicht von sich aus, welche Bedeutungen oder Annahmen über die Wirklichkeit wir akzeptieren sollten.
+
+### Ein einfaches Prädikat kann eine große Frage verbergen
+
+Was zählt als Gemeinsamkeit? Zwei Dinge können Farbe, physische Eigenschaften, eine mathematische Beschreibung oder einen grundlegenderen Aspekt ihrer Natur teilen.
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="commonality" />
+
+Ein Quadrat und ein Kreis sind geometrische Figuren und können dieselbe Farbe haben. Das allein sagt noch nichts Relevantes darüber aus, ob eines das andere verursachen kann. Jede gemeinsame Eigenschaft als Spinozas gemeinte Gemeinsamkeit zu behandeln verlangt Rechtfertigung. Das Symbol $S$ verdichtet eine philosophische Frage auf einen Buchstaben; es beantwortet sie nicht.
+
+### Wahrheit ist nicht Notwendigkeit
+
+Spinozas Lehrsatz sagt „können nicht“, nicht bloß „tun es nicht“. Unsere Rekonstruktion erster Stufe begründet eine Folge ihrer Prämissen unter der gewählten Deutung:
+
+$$
+\forall x\forall y\big(\neg S(x,y)\to\neg C(x,y)\big).
+$$
+
+Eine mögliche stärkere modale Aussage wäre
+
+$$
+\Box\forall x\forall y\big(\neg S(x,y)\to\neg C(x,y)\big),
+$$
+
+wobei $\Box$ für Notwendigkeit steht. Diese stärkere Aussage ist nicht allein dadurch bewiesen, dass wir die erste hinschreiben. Ein Schluss aus Prämissen macht diese Prämissen nicht zu notwendigen Wahrheiten.
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="necessity" />
+
+Das Bild möglicher Welten ist ein modernes Lehrmittel, keine Darstellung von Spinozas Metaphysik. Es markiert eine Grenze der gewählten Sprache: Aussagenlogik und Prädikatenlogik erster Stufe entscheiden nicht automatisch über Notwendigkeit, Verursachung oder Erklärung. Dafür wären weitere modale Annahmen und eine begründete Deutung erforderlich.
+
+## 9. Ein neues philosophisches Argument formalisieren
+
+Betrachte dieses eigens für die Lehre formulierte Beispiel:
+
+> Eine Person kann für eine Handlung nur dann moralisch verantwortlich sein, wenn sie Kontrolle über diese Handlung hat. Über unwillkürliche Handlungen haben Menschen keine Kontrolle. Daher können Menschen für unwillkürliche Handlungen nicht moralisch verantwortlich sein.
+
+Identifiziere vor der Notation die drei Relationen und die Richtung von „nur dann, wenn“. Dabei durchlaufe $p$ Personen und $a$ Handlungen:
+
+$$
+R(p,a):\ p\text{ ist für }a\text{ moralisch verantwortlich},
+$$
+
+$$
+K(p,a):\ p\text{ hat Kontrolle über }a,
+$$
+
+$$
+I(p,a):\ a\text{ ist für }p\text{ unwillkürlich}.
+$$
+
+Wir verwenden getrennte Bereiche für Personen und Handlungen. In einer Sprache mit nur einem Gegenstandsbereich müssten entsprechende Personen- und Handlungsbeschränkungen ergänzt werden. Die vorgeschlagene Rekonstruktion lautet
+
+$$
+\forall p\forall a\big(R(p,a)\to K(p,a)\big),
+$$
+
+$$
+\forall p\forall a\big(I(p,a)\to\neg K(p,a)\big),
+$$
+
+und daher
+
+$$
+\forall p\forall a\big(I(p,a)\to\neg R(p,a)\big).
+$$
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="transfer" />
+
+<Interactive kind="module" module="reasoning-55" preset="transfer" id="a55-responsibility-transfer" />
+
+<Exercise question="Was zeigt diese Formalisierung, und was bleibt offen?">
+Seien $p$ und $a$ beliebig und gelte vorübergehend $I(p,a)$. Aus der zweiten Prämisse folgt $\neg K(p,a)$. Die erste Prämisse und Modus tollens liefern $\neg R(p,a)$. Entlasse die Annahme und verallgemeinere. Die Konklusion folgt, wenn die Prämissen unter einer einheitlichen Deutung angenommen werden.
+
+Die Notation beweist nicht die Wahrheit der Prämissen. Ein umstrittener Begriff wie Verantwortung macht die logische Form nicht schon ungültig. Ebenso begründet die bedingte Herleitung kein uneingeschränktes moralisches Urteil über jeden wirklichen Fall.
+</Exercise>
+
+Frage nun, was „Kontrolle“ bedeutet: unmittelbare körperliche Kontrolle, die Fähigkeit, anders zu handeln, oder Kontrolle über frühere Entscheidungen, die zum Ereignis geführt haben? In einem hypothetischen Fall nimmt jemand wissentlich ein möglicherweise schläfrig machendes Medikament und entscheidet sich später zu fahren. Fehlende unmittelbare Kontrolle über das Einschlafen entscheidet nicht automatisch über die Verantwortung für frühere Entscheidungen.
+
+Diese Unterscheidung widerlegt das moralische Argument nicht von sich aus. Sie zeigt, warum Person, betrachtete Handlung, Gegenstandsbereich und Kontrollbegriff festgelegt werden müssen. Das Thema hat gewechselt, doch das Problem sinngetreuer Deutung bleibt.
+
+## 10. Mathematik als Mikroskop des Denkens
+
+<ReasoningFigure kind="module" module="reasoning-55" figure="synthesis" />
+
+Mathematik macht ein philosophisches Argument nicht wahr. Das Umformen von Symbolen entscheidet nicht darüber, was unsere Wörter bedeuten oder welche Annahmen über die Wirklichkeit wir akzeptieren sollten.
+
+Es kann zeigen, wo Annahmen eingehen, Hergeleitetes von bloß Angenommenem trennen und sichtbar machen, wenn scheinbar widersprechende Personen über verschiedene Dinge nachdenken. Der Wert der Notation besteht nicht nur darin, mit weniger Symbolen mehr zu sagen, sondern klarer zu sehen, was wir tatsächlich gesagt haben.
+
+**Präzision ist nicht dasselbe wie Wahrheit.**
+
+## Weiterführende Lektüre
+
+- [Spinoza: Ethik, Teil I, englische Elwes-Übersetzung](https://en.wikisource.org/wiki/Ethics_(Spinoza)/Part_1): Axiome IV und V, Lehrsatz III und sein Beweis; lies auch die umgebenden Definitionen und Lehrsätze.
+- [forall x: Calgary, Open Logic Project](https://forallx.openlogicproject.org/forallxyyc.html): Symbolisierung, Relationsprädikate, Quantoren, natürliches Schließen, Gegenmodelle und Modallogik.
+- OpenStax, *Introduction to Philosophy*: [Wie gelangen Philosophinnen und Philosophen zur Wahrheit?](https://openstax.org/books/introduction-philosophy/pages/1-2-how-do-philosophers-arrive-at-truth), [Philosophische Texte lesen](https://openstax.org/books/introduction-philosophy/pages/2-5-reading-philosophy) und [Argumente](https://openstax.org/books/introduction-philosophy/pages/5-3-arguments).
+- [Stanford Encyclopedia of Philosophy: Baruch Spinoza](https://plato.stanford.edu/entries/spinoza/) ordnet die Passage in sein weiteres System ein.
+
+Die Formeln erster Stufe, die gegenübergestellten Lesarten, das Gegenmodell, die optionale Brücke und die moralische Aufgabe sind didaktische Konstruktionen. Sie vereinfachen das historische Argument, besonders Gemeinsamkeit, begriffliche Abhängigkeit und Notwendigkeit; sie sind keine zusätzlichen Zitate Spinozas.

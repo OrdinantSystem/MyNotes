@@ -1,0 +1,91 @@
+{
+  "layouts": [
+    {
+      "figures": 12,
+      "height": 1000,
+      "katexErrors": 0,
+      "labs": 5,
+      "locale": "en",
+      "overflow": false,
+      "theme": "dark",
+      "url": "http://127.0.0.1:18752/reasoning/lessons/when-does-a-reason-stop-being-relevant/",
+      "width": 1440
+    },
+    {
+      "locale": "en",
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "locale": "en",
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "locale": "en",
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "figures": 12,
+      "katexErrors": 0,
+      "labs": 5,
+      "locale": "de",
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "locale": "de",
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "locale": "de",
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "locale": "de",
+      "overflow": false,
+      "theme": "dark",
+      "width": 1440
+    }
+  ],
+  "normalSearch": [
+    "fallacies",
+    "Fehlschlüsse"
+  ],
+  "controls": [
+    "relevance all three states and reset",
+    "authority all four cases with disabled endpoints and reset",
+    "vivid presentation vs inspection evidence independently",
+    "four criticism targets",
+    "reference feedback including false-conclusion confusion",
+    "remembered per-case choice and reset",
+    "native radio Space/ArrowDown and reference Enter"
+  ],
+  "gallery": {
+    "independentUnchanged": true,
+    "duplicateIds": 0
+  },
+  "prefix": {
+    "base": "/MyNotes",
+    "compactOverflow": false,
+    "scriptAndLanguageLinks": true,
+    "deSearch": "Fehlschlüsse",
+    "enSearch": "fallacies",
+    "localizedControls": true,
+    "articleBodyIdenticalAfterBaseNormalization": {
+      "en": "f7df381d2c9a88a91f03610698eaf5ffa323e3fdb3732c582e09e2c79933387c",
+      "de": "8df710bccab342186d0db54bf1314e9323d60afe709efce06e6a1ed7b54796dc"
+    },
+    "snapshotValidatedPages": 311
+  },
+  "consoleErrorsAndWarnings": []
+}

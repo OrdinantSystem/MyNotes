@@ -1,0 +1,48 @@
+---
+import {copy} from './copy';
+import {counts} from './model';
+import {gridMarkup,boundedMarkup,proofMarkup,witnessMarkup,challengeMarkup} from './render';
+import '../../styles/counterexamples.css';
+import './styles.css';
+interface Props{preset:string;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale==='de'?'de':'en',c=copy(locale);
+if(!['grid','bounded','proof','witness','challenge'].includes(preset))throw new Error('Unknown proof-checking activity');
+---
+<figure class="counter-lab aor60" id={id} data-aor60-lab={preset} data-locale={locale}>
+<h3>{c.labTitles[preset as keyof typeof c.labTitles]}</h3>
+{preset==='grid'&&<><p class="counter-help">{c.gridHelp}</p><div class="counter-controls">{counts.map((n,i)=><button type="button" data-count={i} aria-pressed={i===0?'true':'false'} aria-controls={`${id}-output`}>{n} {c.tests}</button>)}</div><div data-output id={`${id}-output`} set:html={gridMarkup(locale)}/></>}
+{preset==='bounded'&&<><p class="counter-help">{c.finiteHelp}</p><div class="counter-controls"><button type="button" data-check aria-controls={`${id}-output`}>{c.checkAll}</button></div><div data-output id={`${id}-output`} set:html={boundedMarkup(locale)}/></>}
+{preset==='proof'&&<><p class="counter-help">{c.proofHelp}</p><div data-output id={`${id}-output`} set:html={proofMarkup(locale)}/></>}
+{preset==='witness'&&<><p class="counter-help">{c.witnessHelp}</p><div class="counter-controls">{['a + b','a × b'].map((s,i)=><button type="button" data-product={i} aria-pressed={i===0?'true':'false'} aria-controls={`${id}-output`}>{s}</button>)}</div>{(['a','b'] as const).map((name,i)=><div class="aor60-input"><label for={`${id}-${name}-range`}>{name}</label><input id={`${id}-${name}-range`} type="range" min="0" max="6" step="1" value={i+2} data-range={name} aria-controls={`${id}-output`}/><label class="aor60-number-label" for={`${id}-${name}-number`}>{name} ({c.number})</label><input id={`${id}-${name}-number`} aria-controls={`${id}-output`} type="number" min="0" max="6" step="1" value={i+2} data-number={name}/></div>)}<div data-output id={`${id}-output`} set:html={witnessMarkup(locale)}/></>}
+{preset==='challenge'&&<><p class="counter-help">{c.challengeHelp}</p><div data-output id={`${id}-output`} set:html={challengeMarkup(locale)}/><fieldset class="aor60-options"><legend>{c.labTitles.challenge}</legend>{c.options[0].map((s,i)=><label><input type="radio" name={`${id}-answer`} value={i} data-answer/><span data-option={i}>{s}</span></label>)}</fieldset><div class="counter-controls"><button type="button" data-reference aria-controls={`${id}-output`}>{c.reference}</button></div></>}
+{(preset==='proof'||preset==='challenge')&&<div class="counter-controls"><button type="button" data-previous disabled aria-controls={`${id}-output`}>{c.previous}</button><button type="button" data-next aria-controls={`${id}-output`}>{c.next}</button></div>}
+<div class="counter-controls"><button type="button" data-reset>{c.reset}</button></div><p class="counter-help" data-status role="status" aria-live="polite"></p>
+</figure>
+<script>
+import {copy} from './copy';
+import {index,natural,answers} from './model';
+import {gridMarkup,boundedMarkup,proofMarkup,witnessMarkup,challengeMarkup} from './render';
+for(const root of document.querySelectorAll<HTMLElement>('[data-aor60-lab]')){
+ const locale=root.dataset.locale==='de'?'de':'en',c=copy(locale),preset=root.dataset.aor60Lab,output=root.querySelector<HTMLElement>('[data-output]')!,status=root.querySelector<HTMLElement>('[data-status]')!;
+ let choice=0,a=2,b=3,product=false,checked=false,revealed=false,selections:(number|null)[]=Array(5).fill(null);
+ function draw(){
+  if(preset==='grid')output.innerHTML=gridMarkup(locale,choice);
+  if(preset==='bounded'){output.innerHTML=boundedMarkup(locale,checked);root.querySelector<HTMLButtonElement>('[data-check]')!.disabled=checked;}
+  if(preset==='proof')output.innerHTML=proofMarkup(locale,choice);
+  if(preset==='witness')output.innerHTML=witnessMarkup(locale,a,b,product);
+  if(preset==='challenge'){output.innerHTML=challengeMarkup(locale,choice,selections[choice],revealed);root.querySelectorAll<HTMLInputElement>('[data-answer]').forEach(input=>input.checked=Number(input.value)===selections[choice]);root.querySelectorAll<HTMLElement>('[data-option]').forEach(span=>span.textContent=c.options[choice][Number(span.dataset.option)]);}
+  root.querySelectorAll<HTMLElement>('[data-count]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.count)===choice)));
+  root.querySelectorAll<HTMLElement>('[data-product]').forEach(button=>button.setAttribute('aria-pressed',String(Boolean(Number(button.dataset.product))===product)));
+  root.querySelectorAll<HTMLInputElement>('[data-range],[data-number]').forEach(input=>input.value=String((input.dataset.range??input.dataset.number)==='a'?a:b));
+  const previous=root.querySelector<HTMLButtonElement>('[data-previous]'),next=root.querySelector<HTMLButtonElement>('[data-next]');if(previous)previous.disabled=choice===0;if(next)next.disabled=choice===4;
+ }
+ root.querySelectorAll<HTMLElement>('[data-count]').forEach(button=>button.addEventListener('click',()=>{choice=Number(button.dataset.count);draw();status.textContent=c.gridCaption;}));
+ root.querySelector('[data-check]')?.addEventListener('click',()=>{checked=true;draw();status.textContent=c.finiteDone;});
+ root.querySelectorAll<HTMLElement>('[data-product]').forEach(button=>button.addEventListener('click',()=>{product=Boolean(Number(button.dataset.product));draw();status.textContent=c.witnessHelp;}));
+ root.querySelectorAll<HTMLInputElement>('[data-range],[data-number]').forEach(input=>input.addEventListener(input.dataset.range?'input':'change',()=>{try{if(input.value.trim()==='')throw new RangeError();const value=natural(Number(input.value));if((input.dataset.range??input.dataset.number)==='a')a=value;else b=value;draw();status.textContent=`a = ${a}, b = ${b}.`;}catch{draw();status.textContent=c.invalid;}}));
+ for(const [name,delta] of [['previous',-1],['next',1]] as const)root.querySelector(`[data-${name}]`)?.addEventListener('click',()=>{choice=index(choice+delta,5);revealed=false;draw();status.textContent=preset==='proof'?c.proofMeanings[choice]:`${c.case} ${choice+1} / 5. ${c.questions[choice]}`;});
+ root.querySelectorAll<HTMLInputElement>('[data-answer]').forEach(input=>input.addEventListener('change',()=>{selections[choice]=Number(input.value);revealed=false;draw();status.textContent='';}));
+ root.querySelector('[data-reference]')?.addEventListener('click',()=>{revealed=true;draw();status.textContent=selections[choice]===null?c.choose:selections[choice]===answers[choice]?c.matches:c.reconsider;});
+ root.querySelector('[data-reset]')!.addEventListener('click',()=>{choice=0;a=2;b=3;product=false;checked=false;revealed=false;selections=Array(5).fill(null);draw();status.textContent=c.resetStatus;});
+}
+</script>

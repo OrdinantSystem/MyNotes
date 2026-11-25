@@ -1,0 +1,18 @@
+---
+import {initialState,timeChoices,formatTime,cases} from './model';
+import {layersMarkup,trackingMarkup,evidenceMarkup} from './render';
+import {text} from './copy';
+import './styles.css';
+interface Props{preset:'layers'|'tracking'|'evidence'|'practice';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale),s=initialState();
+---
+<figure class="k49-lab" id={id} data-k49-lab={preset} data-locale={locale}>
+ <h3>{c.labs[preset]}</h3>
+ {preset==='layers'&&<div class="k49-controls">{(['actual','belief'] as const).map(key=><label>{c[key]}<select data-k49-layer={key} aria-controls={`${id}-output`}>{timeChoices.map(n=><option value={n} selected={n===990}>{formatTime(n)}</option>)}</select></label>)}</div>}
+ {preset==='tracking'&&<><label>{c.actual}<input type="range" min="985" max="995" step="1" value="990" data-k49-range aria-controls={`${id}-output`}/></label><label>{c.timeOffset}<input type="number" min="0" max="10" step="1" value="5" data-k49-number aria-controls={`${id}-output`}/></label></>}
+ {preset==='evidence'&&<><div class="k49-controls"><label>{c.caseLabel}<select data-k49-case aria-controls={`${id}-output`}>{cases.map((v,i)=><option value={v}>{c.caseTitles[i]}</option>)}</select></label><label>{c.comparisonTime}<select data-k49-comparison aria-controls={`${id}-output`}>{[990,991].map(n=><option value={n}>{formatTime(n)}</option>)}</select></label></div><p>{c.caseLimit}</p></>}
+ {preset==='practice'?<>{c.practiceQuestions.map((q,i)=><fieldset data-k49-question={i}><legend>{i+1}. {q}</legend>{c.options[i].map((v,j)=><label class="k49-radio"><input type="radio" name={`${id}-question-${i}`} value={j} data-k49-answer={i}/><span>{v}</span></label>)}<button type="button" data-k49-reveal={i} aria-controls={`${id}-feedback-${i}`} aria-expanded="false" disabled>{c.reveal}</button><div id={`${id}-feedback-${i}`} data-k49-feedback={i} hidden></div></fieldset>)}</>:<div id={`${id}-output`} data-k49-output set:html={preset==='layers'?layersMarkup(locale,s.actual,s.belief):preset==='tracking'?trackingMarkup(locale,s.actual):evidenceMarkup(locale,s.evidenceCase,s.comparisonTime)}/>}
+ <button type="button" data-k49-reset>{preset==='tracking'?c.returnCoincidence:preset==='practice'?c.resetPractice:c.reset}</button>
+ <p class="k49-status" data-k49-status role="status" aria-live="polite"></p>
+</figure>
+<script>import './controller';</script>
