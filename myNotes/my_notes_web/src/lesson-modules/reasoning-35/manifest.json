@@ -1,0 +1,47 @@
+{
+  "id": "reasoning-35",
+  "course": "reasoning",
+  "chapter": "reasoning-part-five",
+  "order": 35,
+  "key": "sampling-and-selection",
+  "title": "When can a few observations tell us about many?",
+  "sourceId": "reasoning-episode-35",
+  "sourceTitle": "When can a few observations tell us about many? · sampling and selection",
+  "presets": [
+    "sampling",
+    "selection",
+    "probability",
+    "designs"
+  ],
+  "figures": [
+    "overview",
+    "hidden",
+    "proportions",
+    "mechanism",
+    "repeated",
+    "spread",
+    "audience",
+    "funnel",
+    "poll-result",
+    "targets",
+    "outcomes",
+    "complement",
+    "induction",
+    "population",
+    "synthesis",
+    "everyday",
+    "continuity"
+  ],
+  "chapterDefinition": {
+    "id": "reasoning-part-five",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Five",
+      "de": "Teil Fünf"
+    },
+    "description": {
+      "en": "Observation, evidence, and cognitive reasoning.",
+      "de": "Beobachtung, Evidenz und kognitives Schlussfolgern."
+    }
+  }
+}

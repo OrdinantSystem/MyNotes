@@ -1,0 +1,25 @@
+---
+import {copy} from './copy';
+import {sceneMarkup,worksheetMarkup,inspectionNote} from './render';
+import './styles.css';
+interface Props {preset:'experiment'|'attention'|'inspection'|'claims';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=copy(locale);
+---
+<figure class="aor33-lab" id={id} data-aor33-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='experiment'&&<>
+  <p>{c.countTask}</p><div data-scene set:html={sceneMarkup(locale)}/>
+  <div class="aor33-controls"><button type="button" data-start>{c.start}</button><button type="button" data-pause disabled>{c.pause}</button></div>
+  <div data-count hidden><label for={`${id}-count`}>{c.answer}</label><input id={`${id}-count`} type="number" min="0" max="100" step="1" data-count-input/><button type="button" data-commit>{c.commit}</button></div>
+  <div data-question hidden><p><strong>{c.unexpected}</strong></p><label for={`${id}-report`}>{c.report}</label><textarea id={`${id}-report`} rows="2" maxlength="1000"/><button type="button" data-replay>{c.replay}</button></div>
+  <p data-reveal hidden></p>
+  <details data-inspector><summary>{c.inspect}</summary><p>{c.untimed}</p><label for={`${id}-time`}>{c.frame}: <output data-time>0</output></label><input id={`${id}-time`} type="range" min="0" max="20" step="0.1" value="0" data-frame/><label for={`${id}-time-number`}>{c.frame}</label><input id={`${id}-time-number`} type="number" min="0" max="20" step="0.1" value="0" data-frame-number/><p data-frame-note>{c.noDiamond}</p></details>
+  <noscript><p>{c.offline}</p></noscript>
+ </>}
+ {preset==='attention'&&<><div data-scene set:html={sceneMarkup(locale,10)}/><div class="aor33-controls">{[c.entire,c.counting,c.find].map((label,i)=><button type="button" data-attention={i} aria-pressed={i===0?'true':'false'}>{label}</button>)}</div><p data-note role="status" aria-live="polite">{c.attentionNotes[0]}</p><p>{c.metaphor}</p></>}
+ {preset==='inspection'&&<><p>{c.worksheet}</p><div data-worksheet set:html={worksheetMarkup(locale)}/><div class="aor33-controls">{[c.original,c.ids,c.totals].map((label,i)=><button type="button" data-inspection={i} aria-pressed={i===0?'true':'false'}>{label}</button>)}</div><p data-note role="status" aria-live="polite">{inspectionNote(locale,0)}</p></>}
+ {preset==='claims'&&<>{c.claims.map((claim,i)=><fieldset><legend>{i+1}. {claim}</legend>{c.types.map((label,j)=><label class="aor33-choice"><input type="radio" name={`${id}-claim-${i}`} value={j} data-claim={i}/>{label}</label>)}<p data-reason={i} hidden></p></fieldset>)}<button type="button" data-check>{c.check}</button><noscript><ol>{c.reasons.map(reason=><li>{reason}</li>)}</ol></noscript></>}
+ <div class="aor33-controls"><button type="button" data-reset>{c.reset}</button></div>
+ <p role="status" aria-live="polite" data-status>{preset==='experiment'?c.ready:preset==='claims'?c.remaining:''}</p>
+</figure>
+<script>import './controller';</script>

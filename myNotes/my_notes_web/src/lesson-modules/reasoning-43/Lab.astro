@@ -1,0 +1,26 @@
+---
+import './styles.css';
+import {text} from './copy';
+import {subgroupMarkup,interventionMarkup,selectionMarkup,causalGraph} from './render';
+interface Props{preset:'subgroups'|'intervention'|'fire-workshop'|'selection';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale);
+---
+<figure class="causal-view" id={id} data-causal-lab={preset} data-locale={locale}>
+ <h3>{preset==='subgroups'?c.subgroups:preset==='intervention'?c.titles.cut:preset==='selection'?c.selection:c.fireTask}</h3>
+ {preset==='subgroups'?<><div class="causal-controls">{(['all','well','poor'] as const).map((group,i)=><button type="button" data-causal-group={group} aria-pressed={i===0} aria-controls={`${id}-output`}>{c[group]}</button>)}</div><div data-causal-output id={`${id}-output`} set:html={subgroupMarkup(locale,'all')}/></>:preset==='intervention'?<><div class="causal-controls"><button type="button" data-causal-observe aria-pressed="true" aria-controls={`${id}-output`}>{c.before}</button><button type="button" data-causal-intervene aria-pressed="false" aria-controls={`${id}-output`}>{c.set}</button></div><div data-causal-output id={`${id}-output`} set:html={interventionMarkup(locale,false)}/></>:preset==='selection'?<><label><input type="checkbox" data-causal-select aria-controls={`${id}-output`}/>{c.filter}</label><div data-causal-output id={`${id}-output`} set:html={selectionMarkup(locale,false)}/></>:<><label for={`${id}-attempt`}>{c.attempt}</label><textarea id={`${id}-attempt`} data-causal-attempt maxlength="1500"></textarea><p>{c.local}</p><details data-causal-reference><summary>{c.reference}</summary><div data-causal-output id={`${id}-output`} set:html={causalGraph(locale,'fire')}/><p>{c.fireAnswer}</p></details></>}
+ <div class="causal-controls"><button type="button" data-causal-reset>{c.reset}</button></div><p class="causal-status" role="status" aria-live="polite" data-causal-status></p>
+</figure>
+<script>
+import {text,type Locale} from './copy';
+import {subgroupMarkup,interventionMarkup,selectionMarkup} from './render';
+import {comparison,type Group} from './model';
+for(const root of document.querySelectorAll<HTMLElement>('[data-causal-lab]')){
+ const locale=root.dataset.locale as Locale,c=text(locale),preset=root.dataset.causalLab,output=root.querySelector<HTMLElement>('[data-causal-output]')!,status=root.querySelector<HTMLElement>('[data-causal-status]')!;
+ const groups=root.querySelectorAll<HTMLButtonElement>('[data-causal-group]');
+ groups.forEach(b=>b.addEventListener('click',()=>{const group=b.dataset.causalGroup as Group;output.innerHTML=subgroupMarkup(locale,group);groups.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));const difference=comparison(group).difference;status.textContent=`${c[group]} · ${c.difference}: ${difference>0?'+':''}${difference} ${c.points}.`;}));
+ function intervene(after:boolean){output.innerHTML=interventionMarkup(locale,after);root.querySelector('[data-causal-observe]')!.setAttribute('aria-pressed',String(!after));root.querySelector('[data-causal-intervene]')!.setAttribute('aria-pressed',String(after));status.textContent=after?c.changed:c.unchanged;}
+ root.querySelector('[data-causal-observe]')?.addEventListener('click',()=>intervene(false));root.querySelector('[data-causal-intervene]')?.addEventListener('click',()=>intervene(true));
+ root.querySelector<HTMLInputElement>('[data-causal-select]')?.addEventListener('change',e=>{const selected=(e.target as HTMLInputElement).checked;output.innerHTML=selectionMarkup(locale,selected);status.textContent=selected?c.dependent:c.independent;});
+ root.querySelector('[data-causal-reset]')!.addEventListener('click',()=>{if(preset==='subgroups'){output.innerHTML=subgroupMarkup(locale,'all');groups.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.causalGroup==='all')));}if(preset==='intervention')intervene(false);if(preset==='selection'){root.querySelector<HTMLInputElement>('[data-causal-select]')!.checked=false;output.innerHTML=selectionMarkup(locale,false);}if(preset==='fire-workshop'){root.querySelector<HTMLTextAreaElement>('[data-causal-attempt]')!.value='';root.querySelector<HTMLDetailsElement>('[data-causal-reference]')!.open=false;}status.textContent=c.reset;});
+}
+</script>

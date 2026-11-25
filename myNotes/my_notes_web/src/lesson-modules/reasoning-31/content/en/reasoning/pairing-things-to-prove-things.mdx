@@ -1,0 +1,610 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-31
+sourcePages: []
+sourceLocations: ["Complete episode script 00:00–17:00; mathematical reference and misconception notes"]
+title: "Pairing things to prove things"
+navTitle: "Pairing things to prove things"
+description: "Use injective, surjective and bijective functions to compare finite sets and prove equalities by correspondence."
+order: 31
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [sets-and-mathematical-worlds, proof-by-contraposition]
+thumbnail: module:reasoning-31
+---
+
+## 1. You don't always need to count
+
+Imagine that someone places two collections of objects in front of you and asks whether they contain exactly the same number of things: blue stones on one side and coins on the other.
+
+How would you find out?
+
+The most obvious solution is to count the objects in the first collection, count the objects in the second collection, and compare the two numbers.
+
+But there is another possibility.
+
+Instead of counting either collection, we could simply pair their elements.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="opening" />
+
+If every stone has exactly one coin, every coin has exactly one stone, and nothing is left over, then the two collections must contain the same number of objects.
+
+We don't even need to know what that number is.
+
+Notice what happened here. We answered a question about quantity by establishing a relationship.
+
+Rather than finding two numbers and comparing them, we constructed something that made their equality unavoidable.
+
+This is a deceptively powerful idea. It allows us to compare collections, establish mathematical identities, prove impossibility, and eventually reason about collections that cannot even be counted in the ordinary way.
+
+But for this method to work, we need to understand precisely what makes a pairing valid.
+
+And that begins with one of the most important objects in mathematics: a function.
+
+## 2. What a function really is
+
+Imagine a school where every student must be assigned a locker.
+
+We have four students: Anna, Ben, Clara and David. And we have four lockers, numbered from one to four.
+
+We could represent an assignment like this.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="assignment" />
+
+A function assigns each student exactly one locker.
+
+Each student receives a locker, and the arrows tell us which locker belongs to which student.
+
+In mathematics, we would call this assignment a function.
+
+We have a collection of possible inputs, which we call the domain, and a collection of possible outputs, which we call the codomain.
+
+We write:
+
+$$
+f:A\longrightarrow B
+$$
+
+The letter $f$ names our function. The arrow tells us that it takes elements from $A$ and assigns them elements of $B$.
+
+For example,
+
+$$
+f(\text{Anna})=1.
+$$
+
+This simply means that the output associated with Anna is locker number one.
+
+Now, there is one fundamental rule that every function must satisfy.
+
+**Every element of the domain must be assigned exactly one element of the codomain.**
+
+If Anna receives no locker at all, we no longer have a function from the entire collection of students to the collection of lockers.
+
+If Anna receives two different lockers, we also no longer have a function under our stated definition. The same input cannot produce two different outputs.
+
+But something interesting happens if two different students receive the same locker.
+
+This might be a terrible organizational decision for the school. But mathematically, it is still a function.
+
+Anna has exactly one output. Ben has exactly one output. The basic rule has not been violated.
+
+The requirement is not that every output belongs to exactly one input. The requirement is that every input has exactly one output.
+
+Those sound similar, but they are fundamentally different statements.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="function-rule" />
+
+To understand what makes a function useful for pairing and comparing collections, we must look at what happens on this other side.
+
+## 3. Collisions, empty targets and perfect matches
+
+### Injectivity: avoiding collisions
+
+Suppose Anna and Ben have both received locker one. Two different students have received the same locker.
+
+We could call this a collision. Two distinct inputs have arrived at the same output.
+
+A function that never allows this to happen is called **injective**, or one-to-one.
+
+In an injective function, different inputs always produce different outputs.
+
+$$
+a\neq b \quad\Longrightarrow\quad f(a)\neq f(b).
+$$
+
+Equivalently, if two outputs are equal, their corresponding inputs must have been equal.
+
+$$
+f(a)=f(b) \quad\Longrightarrow\quad a=b.
+$$
+
+These are two ways of expressing the same property. The first describes what injectivity prevents. The second gives us a particularly useful way to prove it.
+
+But notice that injectivity does not require us to use every locker.
+
+For example, give each of the four students a distinct locker while leaving two additional lockers unused. This function is perfectly injective. Nobody is sharing a locker. The fact that some lockers are empty is irrelevant.
+
+### Surjectivity: reaching every target
+
+Now suppose the school has a different requirement. Instead of preventing students from sharing lockers, it insists that every locker must be used.
+
+This is a different mathematical property, called **surjectivity**, or being onto.
+
+A function is surjective if every element of its codomain is the output of at least one element of its domain.
+
+Formally, we write:
+
+$$
+\forall b\in B,\quad \exists a\in A:\ f(a)=b.
+$$
+
+For every locker, there exists at least one student assigned to it.
+
+We are not saying there is exactly one such student. We are simply saying that there is at least one.
+
+So a surjective function is allowed to have collisions. What it cannot have is an unreachable target.
+
+### Bijectivity: achieving both
+
+What happens if we satisfy both requirements simultaneously?
+
+No two students share a locker, and no locker remains unused.
+
+A function that is both injective and surjective is called **bijective**.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="properties" />
+
+These three concepts answer three different questions.
+
+Injectivity asks whether different inputs can collide.
+
+Surjectivity asks whether every target can be reached.
+
+Bijectivity asks whether we have established a perfect one-to-one correspondence.
+
+And it is this final property that gives us a remarkably powerful way of proving that two finite collections have the same size.
+
+## 4. What a function reveals about size
+
+Suppose we have two finite sets, $A$ and $B$.
+
+We don't necessarily know how many elements either set contains. But suppose someone manages to construct an injective function from $A$ to $B$.
+
+What can we conclude?
+
+Because the function is injective, every element of $A$ requires its own distinct element in $B$.
+
+There must therefore be at least as many elements in $B$ as there are in $A$.
+
+We write:
+
+$$
+|A|\leq |B|.
+$$
+
+The vertical bars around a set represent its cardinality: the number of elements it contains, in this finite setting.
+
+Now imagine that instead of an injection, someone constructs a surjection.
+
+Every element of $B$ must receive at least one arrow. Since each element of $A$ can produce only one output, we must have enough elements in $A$ to reach every element in $B$.
+
+Therefore,
+
+$$
+|A|\geq |B|.
+$$
+
+And if the function satisfies both conditions?
+
+$$
+|A|\leq |B| \qquad |A|\geq |B|
+$$
+
+Then neither collection can be larger than the other.
+
+$$
+\boxed{|A|=|B|}
+$$
+
+We have proved that the collections contain the same number of elements without necessarily discovering what that number is.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="sizes" />
+
+For finite sets, the structure of a function places constraints on their relative sizes.
+
+This also gives us a way to prove that certain assignments are impossible.
+
+Suppose we have five students and only four lockers. Can we construct an injective assignment?
+
+No. Each student would need a distinct locker, and there simply aren't enough lockers.
+
+This is precisely the obstruction described by the pigeonhole principle.
+
+The important difference is that we can now express that obstruction using the language of functions.
+
+We don't need to investigate every possible assignment. We already know that every valid function must violate injectivity.
+
+Understanding the structure of a problem can eliminate the need to search through its possibilities.
+
+## 5. How do you actually prove that a function is injective?
+
+So far, we have been looking at small diagrams where we can immediately see whether two arrows collide.
+
+But what happens when our function has thousands of possible inputs? Or infinitely many?
+
+Consider the function
+
+$$
+f:\mathbb Z\longrightarrow\mathbb Z
+$$
+
+defined by
+
+$$
+f(n)=2n+1.
+$$
+
+It takes an integer, doubles it, and adds one.
+
+$$
+\begin{aligned} f(-2)&=-3,\\ f(-1)&=-1,\\ f(0)&=1,\\ f(1)&=3,\\ f(2)&=5. \end{aligned}
+$$
+
+Looking at these examples, we might suspect that different inputs always produce different outputs.
+
+But checking five examples does not establish that this happens for every integer.
+
+Instead, we need to reason about what a collision would imply.
+
+Remember the second formulation of injectivity:
+
+$$
+f(a)=f(b)\Longrightarrow a=b.
+$$
+
+We want to show that whenever two inputs produce the same output, those inputs must actually be the same.
+
+So let $a$ and $b$ be arbitrary integers, and suppose that
+
+$$
+f(a)=f(b).
+$$
+
+Using the definition of our function, this means
+
+$$
+2a+1=2b+1.
+$$
+
+Subtracting one from both sides gives us
+
+$$
+2a=2b.
+$$
+
+Dividing both sides by two gives us
+
+$$
+a=b.
+$$
+
+And we are finished.
+
+An assumed collision forces the two inputs to be identical.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="collision-proof" />
+
+Notice how little we needed to know about the inputs themselves.
+
+We didn't need to know whether they were positive, negative, large or small. We didn't even need to assign numerical values to them.
+
+The proof works because the assumption that their outputs are equal necessarily leads to the conclusion that their inputs are equal.
+
+That is what makes this a general proof rather than a collection of observations.
+
+But is our function also surjective?
+
+Consider the integer zero.
+
+Is there an integer $n$ such that
+
+$$
+2n+1=0?
+$$
+
+Solving this equation gives
+
+$$
+n=-\frac12.
+$$
+
+But negative one-half is not an integer. It does not belong to our domain.
+
+Zero belongs to our codomain, but nothing in our domain maps to it.
+
+And because surjectivity requires every element of the codomain to be reached, this single counterexample is sufficient.
+
+Our function is injective, but not surjective.
+
+Now watch what happens if we change one thing.
+
+Instead of defining the codomain as all integers, let us define it as the set of odd integers.
+
+$$
+O=\{2k+1:k\in\mathbb Z\}.
+$$
+
+Our function is now
+
+$$
+f:\mathbb Z\longrightarrow O, \qquad f(n)=2n+1.
+$$
+
+The formula has not changed. Every input still produces exactly the same output as before.
+
+But the collection of designated targets has changed.
+
+To prove surjectivity, take an arbitrary element $y\in O$.
+
+Because $y$ is odd, there exists an integer $k$ such that
+
+$$
+y=2k+1.
+$$
+
+But this means that
+
+$$
+f(k)=y.
+$$
+
+So every element of our new codomain has an input that produces it.
+
+The function is now surjective. And because it remains injective, it is also bijective.
+
+The same formula, with different codomains.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="codomain" />
+
+<Interactive kind="module" module="reasoning-31" preset="codomain" id="pairing-codomain" />
+
+This reveals something important about what a function actually is.
+
+A function is not merely an algebraic formula. Its domain, codomain and assignment rule all matter.
+
+The collection of outputs that it actually produces is called its image.
+
+A function is surjective precisely when its image equals its codomain.
+
+We cannot determine whether every target has been reached unless we first establish what the targets are.
+
+## 6. Proving something by constructing a correspondence
+
+Now that we understand what a bijection is, let us use one to prove something that would otherwise require a counting argument.
+
+Suppose we have a collection containing three objects: a red triangle, a blue circle and a golden square.
+
+$$
+S=\{r,b,g\}.
+$$
+
+We can construct different subsets of this collection by deciding which objects to include and which objects to leave out.
+
+Some subsets contain the golden square. Others do not.
+
+Here is our question:
+
+**Are there always exactly as many subsets containing the golden square as subsets not containing it?**
+
+For this small collection, we could simply count them.
+
+But rather than counting, look at what happens when we take any subset that does not contain the golden square and add the golden square to it.
+
+Every subset on the left has exactly one partner on the right.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="subset-pairs" />
+
+The empty set becomes the set containing only the golden square.
+
+The set containing the red triangle becomes the set containing the red triangle and the golden square.
+
+The set containing the blue circle becomes the set containing the blue circle and the golden square.
+
+And so on.
+
+We have constructed a function from subsets without the golden square to subsets with it.
+
+Let us call the first collection $A$ and the second collection $B$.
+
+Our function is
+
+$$
+f:A\longrightarrow B
+$$
+
+defined by
+
+$$
+f(X)=X\cup\{g\}.
+$$
+
+Now we have to establish that this function really is a bijection.
+
+First, can two different subsets become identical when we add the same golden square to both?
+
+No. Adding the golden square does not erase any existing differences between the subsets.
+
+More formally, suppose that
+
+$$
+X\cup\{g\}=Y\cup\{g\}.
+$$
+
+Because neither $X$ nor $Y$ originally contains $g$, removing $g$ from both sides gives us
+
+$$
+X=Y.
+$$
+
+Therefore, the function is injective.
+
+But does every subset containing the golden square have a partner?
+
+Take any subset $Z$ that contains the golden square. Remove the golden square, and we obtain
+
+$$
+X=Z\setminus\{g\}.
+$$
+
+This subset belongs to $A$. And adding the golden square back gives
+
+$$
+f(X)=Z.
+$$
+
+Therefore, every element of $B$ can be reached. The function is surjective.
+
+We have established a bijection.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="inverse" />
+
+<Interactive kind="module" module="reasoning-31" preset="subsets" id="pairing-subsets" />
+
+$$
+|A|=|B|.
+$$
+
+And here is the remarkable part.
+
+Nothing in our reasoning depended on there being exactly three objects.
+
+There could have been ten objects, a hundred objects or a million objects.
+
+As long as we have a finite set containing one designated object, exactly half of its subsets contain that object.
+
+We proved this without calculating how many subsets there actually are.
+
+Instead, we discovered a transformation that pairs them perfectly.
+
+This is the deeper idea behind a proof by correspondence.
+
+Sometimes the easiest way to establish that two quantities are equal is not to calculate either quantity, but to construct a bijection between the objects they count.
+
+## 7. Can you repair the matching?
+
+Before we finish, I want you to examine three different assignments.
+
+In each situation, we will ask whether the function can be repaired to become bijective.
+
+You are allowed to change the assignments, but you cannot add or remove students or lockers within a situation. Use the selector to switch between the three situations.
+
+### Situation one
+
+<Interactive kind="module" module="reasoning-31" preset="lockers" id="pairing-lockers" />
+
+Two students have been assigned the same locker, and another locker remains empty.
+
+Can we repair this function by changing just one assignment?
+
+Yes. We can take one of the students involved in the collision and assign that student to the unused locker.
+
+With a single change, we eliminate both problems.
+
+The function becomes injective and surjective simultaneously.
+
+### Situation two
+
+Suppose we have five students and four lockers.
+
+Could we somehow rearrange the assignments until the function becomes bijective?
+
+The answer is no.
+
+Even if we are allowed to change every assignment, the problem cannot be repaired under the stated rules.
+
+The difficulty is not the particular function we chose. It is the relative sizes of its domain and codomain.
+
+No injective function can exist from a five-element set to a four-element set.
+
+### Situation three
+
+Now suppose we have three students and four lockers.
+
+Can we construct an injective assignment?
+
+Yes. Each student can receive a different locker.
+
+Can we construct a surjective assignment?
+
+No. With only three students, each producing exactly one output, there must be at least one unreachable locker.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="possibilities" />
+
+These examples illustrate an important distinction in mathematical reasoning.
+
+Sometimes a particular construction fails, but a better construction could succeed.
+
+Other times, the conditions of the problem make success impossible, regardless of which construction we choose.
+
+The first is a problem of finding a solution.
+
+The second is a problem of proving that no solution exists.
+
+Understanding the difference can save us from spending an enormous amount of time searching for something that cannot be found.
+
+## 8. The deeper idea
+
+At the beginning of this episode, we were trying to compare two collections of objects.
+
+Instead of counting them, we paired them.
+
+What initially appeared to be a simple alternative to counting turned out to contain an entire mathematical language.
+
+Injectivity tells us that we have avoided collisions. Surjectivity tells us that we have reached every target. Bijectivity tells us that we have established a perfect correspondence.
+
+Together, these ideas allow us to reason about the sizes of finite collections, establish equalities and prove that certain arrangements are impossible.
+
+And eventually, something even stranger will happen when we apply these same ideas to infinite collections.
+
+Because although we cannot finish counting infinitely many objects, we can sometimes establish a correspondence between them.
+
+But that is a question for another episode.
+
+For now, remember this:
+
+**Sometimes, to understand how many things there are, you don't need to count them. You need to understand how they correspond.**
+
+
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="process" />
+
+## Reference and common pitfalls
+
+For a function $f:A\to B$, the direction of existence and uniqueness matters:
+
+| Property | Requirement |
+| --- | --- |
+| Function | $\forall a\in A,\ \exists!b\in B:\ f(a)=b$ |
+| Injective | $\forall a_1,a_2\in A,\ f(a_1)=f(a_2)\Rightarrow a_1=a_2$ |
+| Surjective | $\forall b\in B,\ \exists a\in A:\ f(a)=b$ |
+| Bijective | $\forall b\in B,\ \exists!a\in A:\ f(a)=b$ |
+
+Here $\exists!$ means “there exists exactly one.” A function requires one output for each input. A bijection additionally requires one input for each designated output.
+
+For finite sets of equal size, injectivity implies surjectivity and conversely. Equal size alone does not make an arbitrary assignment bijective: the initial four-student collision is a counterexample. Different-sized sets make a bijection impossible under the stated rules.
+
+Checking several inputs does not prove injectivity. One unreachable codomain element does disprove surjectivity. A failed attempt does not establish impossibility; a structural obstruction must rule out every allowed attempt.
+
+The injectivity formulations are contrapositives. The affine example uses a direct proof, and zero supplies a counterexample to surjectivity. The subset proof changes representations, replacing numerical counting with a reversible relationship. The size obstruction restates the pigeonhole principle in the language of functions.
+
+## Further reading
+
+[Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/), Chapter 12 on functions.
+
+[Daniel J. Velleman — How to Prove It](https://www.cambridge.org/core/books/abs/how-to-prove-it/contents/D9098F367810400B8A7FFD6FFCC22695), for the logical structure of function proofs.
+
+[MIT — Mathematics for Computer Science](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/), for counting, correspondences and the pigeonhole principle.

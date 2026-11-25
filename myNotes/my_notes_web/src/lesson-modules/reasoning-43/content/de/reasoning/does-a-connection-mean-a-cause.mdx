@@ -1,0 +1,390 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-six
+sourceId: reasoning-episode-43
+sourcePages: []
+sourceLocations: ["Sections 1, 3–12 and 15: causal reasoning, Simpson example, intervention and collider supplement; section 14: preparation sources"]
+title: "Bedeutet ein Zusammenhang auch eine Ursache?"
+navTitle: "Zusammenhang und Kausalität"
+description: "Kausale Erklärungen vergleichen, Simpsons Paradoxon untersuchen und Beobachtung, Intervention und Auswahl unterscheiden."
+order: 43
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [accurate-detectors-and-doubtful-results, testing-competing-explanations]
+thumbnail: module:reasoning-43
+---
+
+Eine wichtige Unterscheidung beim Schlussfolgern ist die zwischen einem beobachteten Zusammenhang und dem Mechanismus, der ihn hervorbringt. Wenn zwei Dinge gemeinsam auftreten, haben wir etwas über die Welt erfahren. Wir wissen damit aber noch nicht unbedingt, warum sie gemeinsam auftreten.
+
+Frage deshalb über „Hängen diese Dinge zusammen?“ hinaus: **Welche kausalen Strukturen könnten den Zusammenhang erzeugen, und wie könnte ich sie unterscheiden?**
+
+## 1. Wenn die Daten die falsche Geschichte nahelegen
+
+Betrachte eine fiktive Universität, die untersuchen will, wie sich Lernzeit auf Prüfungsergebnisse auswirkt.
+
+Die Forschenden beobachten zwanzig Studierende. Zehn lernen eine Stunde, die anderen zehn drei Stunden. Nach der Prüfung berechnen sie folgende Mittelwerte:
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="opening" />
+
+Wer länger gelernt hat, erzielt im Durchschnitt ein schlechteres Ergebnis. Dafür kommen mindestens drei Erklärungen infrage:
+
+- Längeres Lernen verschlechtert tatsächlich die Prüfungsleistung.
+- Studierende, die bereits Schwierigkeiten haben, lernen eher länger.
+- Eine weitere Größe beeinflusst sowohl Lernzeit als auch Prüfungsleistung.
+
+Welche Erklärung stimmt? Überlege zunächst selbst.
+
+Die gezeigten Zahlen müssen keineswegs falsch sein. Die Mittelwerte können korrekt berechnet und die Beobachtungen zuverlässig sein. Der Fehler wäre, den beobachteten Zusammenhang bereits als nachgewiesene Ursache-Wirkungs-Beziehung zu interpretieren.
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="association" />
+
+Wir kennen einen Zusammenhang. Was ihn hervorbringt, wissen wir noch nicht.
+
+## 2. Beobachtung und Intervention
+
+Was fragt eine kausale Aussage eigentlich?
+
+**Beobachtungsfrage:** Wie schneiden Studierende ab, die drei Stunden lernen?
+
+**Kausale Frage:** Wie würden Studierende abschneiden, wenn ihre Lernzeit von einer auf drei Stunden gesetzt würde?
+
+Das klingt ähnlich, beschreibt aber verschiedene Untersuchungen.
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="observation" />
+
+Wenn wir Menschen beobachten, die freiwillig drei Stunden lernen, beobachten wir neben ihrer Lernzeit auch die Umstände, die zu dieser Entscheidung geführt haben. Vielleicht waren sie weniger vorbereitet, hatten Angst durchzufallen oder verfügten über mehr freie Zeit.
+
+Bei einer Intervention versuchen wir dagegen, die untersuchte Variable zu verändern, ohne diese anderen Umstände systematisch mitzuverändern.
+
+### Die mathematische Unterscheidung
+
+Mit der Notation für bedingte Wahrscheinlichkeiten beschreibt
+
+$$
+P(Y\mid S=3)
+$$
+
+die Verteilung der Prüfungsergebnisse unter den Studierenden, die drei Stunden gelernt haben. Dabei bezeichnet $S$ die Lernzeit und $Y$ das Prüfungsergebnis.
+
+Pearls Interventionsnotation
+
+$$
+P(Y\mid\operatorname{do}(S=3))
+$$
+
+beschreibt dagegen die Ergebnisverteilung unter einem Eingriff, der die Lernzeit auf drei Stunden festsetzt.
+
+Die Ausdrücke beantworten verschiedene Fragen über die Welt:
+
+$$
+P(Y\mid S=3)\not\equiv P(Y\mid\operatorname{do}(S=3)).
+$$
+
+Sie sind im Allgemeinen nicht austauschbar, können aber unter geeigneten kausalen Annahmen übereinstimmen.
+
+Menschen mit einer bereits getroffenen Entscheidung zu beobachten ist etwas anderes, als zu untersuchen, was bei einer Veränderung dieser Entscheidung geschehen würde.
+
+## 3. Drei mögliche Welten
+
+Kehren wir zum beobachteten Zusammenhang zwischen Lernzeit und Prüfungsleistung zurück. Verschiedene Strukturen könnten ihn erklären.
+
+### Welt A: direkter kausaler Einfluss
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="direct" />
+
+In dieser Welt beeinflusst die Lernzeit die Prüfungsleistung. Lernen könnte Verständnis, Erinnerungsvermögen oder Problemlösefähigkeiten verbessern. Übermäßiges Lernen könnte unter bestimmten Bedingungen aber auch die Ermüdung erhöhen.
+
+Der Pfeil sagt deshalb nicht, ob ein Effekt positiv oder negativ ist. Er schlägt lediglich einen kausalen Einfluss vor.
+
+### Welt B: die umgekehrte Erklärung
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="reverse" />
+
+Vielleicht sind die Ergebnisse nicht deshalb schlecht, weil die Studierenden länger lernen. Vielleicht lernen sie länger, weil sie schon zuvor Schwierigkeiten hatten.
+
+Hier ist die zeitliche Unterscheidung entscheidend: Ein späteres Prüfungsergebnis kann gewöhnlich kein Lernen verursachen, das vor dieser Prüfung stattgefunden hat. Frühere Leistungen, wahrgenommene Schwierigkeiten oder erwartetes Scheitern können dagegen die Lernentscheidung beeinflussen.
+
+### Welt C: eine gemeinsame Ursache
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="common" />
+
+Gut vorbereitete Studierende benötigen möglicherweise weniger zusätzliches Lernen und erzielen trotzdem höhere Ergebnisse. Wenig vorbereitete Studierende lernen möglicherweise länger und schneiden dennoch schlechter ab.
+
+In dieser Welt beeinflusst die vorherige Vorbereitung beide Größen. Ein Zusammenhang wäre dann sogar möglich, wenn das zusätzliche Lernen selbst gar keinen kausalen Effekt hätte.
+
+### Mehrere Mechanismen zugleich
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="combined" />
+
+Diese Erklärungen schließen einander nicht aus. Lernen könnte die Prüfungsleistung tatsächlich verbessern, während die vorherige Vorbereitung gleichzeitig einen beobachteten Zusammenhang in die entgegengesetzte Richtung erzeugt.
+
+Kausales Denken verlangt deshalb nicht immer die Wahl zwischen einer vollständig richtigen und einer vollständig falschen Erklärung. Mehrere Mechanismen können gleichzeitig wirken.
+
+## 4. Confounding: die verborgene Variable
+
+Betrachte erneut dieselben zwanzig Studierenden. Bisher haben wir nur Lernzeit und Prüfungsergebnis betrachtet. Nun berücksichtigen wir ihre Vorbereitung vor dem zusätzlichen Lernen.
+
+Zehn waren bereits gut vorbereitet, zehn wenig vorbereitet. Die folgenden fiktiven Daten ergeben genau die anfänglichen Mittelwerte.
+
+<Interactive kind="module" module="reasoning-43" preset="subgroups" id="causal-subgroups" />
+
+Insgesamt geht längeres Lernen mit niedrigeren Ergebnissen einher. Trennen wir die Studierenden nach ihrer vorherigen Vorbereitung, kehrt sich der Zusammenhang um.
+
+### Die zugrunde liegenden Daten
+
+| Vorherige Vorbereitung | Lernzeit | Studierende | Mittleres Ergebnis |
+| --- | --- | --- | --- |
+| Gut vorbereitet | 1 Stunde | 8 | 80 % |
+| Gut vorbereitet | 3 Stunden | 2 | 90 % |
+| Wenig vorbereitet | 1 Stunde | 2 | 50 % |
+| Wenig vorbereitet | 3 Stunden | 8 | 60 % |
+
+Innerhalb beider Vorbereitungsgruppen liegt das Ergebnis bei längerer Lernzeit um zehn Prozentpunkte höher. Die beiden Lernzeitgruppen haben jedoch sehr unterschiedliche Zusammensetzungen.
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="composition" />
+
+Die Ein-Stunden-Gruppe besteht überwiegend aus gut vorbereiteten Studierenden. Die Drei-Stunden-Gruppe besteht überwiegend aus wenig vorbereiteten. Das verändert den Gesamtvergleich.
+
+### Den scheinbaren Widerspruch berechnen
+
+Für eine Stunde erhalten wir
+
+$$
+\frac{8(80)+2(50)}{10}=74.
+$$
+
+Für drei Stunden gilt
+
+$$
+\frac{2(90)+8(60)}{10}=66.
+$$
+
+Der Gesamtvergleich ergibt also
+
+$$
+66-74=-8.
+$$
+
+Innerhalb jeder Vorbereitungsgruppe gilt dagegen
+
+$$
+90-80=+10,\qquad60-50=+10.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="reversal" />
+
+Das ist ein Beispiel für **Simpsons Paradoxon**: Ein Zusammenhang innerhalb von Gruppen kehrt sich um, wenn wir die Gruppen zusammenfassen.
+
+Es liegt kein mathematischer Widerspruch vor. Alle drei Rechnungen sind richtig. Sie vergleichen unterschiedlich zusammengesetzte Gruppen.
+
+### Die Zahlen mit dem Kausalmodell verbinden
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="combined" />
+
+**Confounding** bezeichnet hier die Verzerrung des Vergleichs zwischen einer vermuteten Ursache und einem Ergebnis durch gemeinsame kausale Einflüsse.
+
+Die Aufteilung nach Vorbereitung beweist aber nicht automatisch, dass längeres Lernen einen Gewinn von zehn Punkten verursacht. Diese kausale Interpretation erfordert Annahmen darüber, welche anderen relevanten Unterschiede zwischen den Studierenden bestehen.
+
+Der angepasste Vergleich ist möglicherweise informativer, aber nicht automatisch kausal. Wir dürfen eine unbegründete Schlussfolgerung nicht durch eine neue ersetzen.
+
+## 5. Kausale Diagramme lesen
+
+Unsere Variablen sind
+
+$$
+S=\text{Lernzeit},\quad P=\text{vorherige Vorbereitung},\quad Y=\text{Prüfungsleistung}.
+$$
+
+Die vorgeschlagene Struktur lautet
+
+$$
+P\rightarrow S\rightarrow Y,\qquad P\rightarrow Y.
+$$
+
+Jeder Pfeil steht für einen angenommenen direkten kausalen Einfluss relativ zu den Variablen, die das Diagramm enthält. Er steht weder für logische Implikation oder Äquivalenz noch notwendigerweise für einen positiven Zusammenhang.
+
+### Verschiedene Arten von Beziehungen
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="arrows" />
+
+Das sind vier verschiedene mathematische und begriffliche Beziehungen. Ein kausaler Einfluss verlangt nicht, dass jede einzelne Person durch längeres Lernen eine höhere Note erhält. Ursachen können Wahrscheinlichkeiten und Verteilungen verändern, ohne jedes einzelne Ergebnis festzulegen.
+
+### Das Diagramm als Hypothese
+
+Ein **gerichteter azyklischer Graph**, kurz DAG, macht die Struktur sichtbar. Ein Graph besteht aus Knoten und Verbindungen. Gerichtet bedeutet, dass die Verbindungen eine Richtung besitzen. Azyklisch bedeutet, dass kein gerichteter Weg zum eigenen Ausgangspunkt zurückführt.
+
+In der Wirklichkeit sind Rückkopplungen möglich. Oft können wir sie darstellen, indem wir Variablen zu verschiedenen Zeitpunkten unterscheiden.
+
+Frühere Leistung kann späteres Lernen beeinflussen, das wiederum ein noch späteres Ergebnis beeinflusst. Frühere Leistung kann zudem über andere Mechanismen mit späterer Leistung verbunden sein.
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="time" />
+
+Die zeitliche Aufteilung verhindert mehrdeutige Rückkopplungspfeile und die Vorstellung, zukünftige Ereignisse verursachten vergangene Entscheidungen.
+
+Die wichtigste Eigenschaft des Diagramms ist, dass es unsere Annahmen sichtbar macht. Mit jedem Pfeil behaupten wir etwas über die Welt. Lassen wir einen möglichen Pfeil weg, vereinfachen oder beschränken wir das Modell.
+
+Das Diagramm beweist nicht, dass diese Annahmen stimmen. Es zeigt die Annahmen, die unsere Untersuchung prüfen muss.
+
+## 6. Kausale Erklärungen unterscheiden
+
+Konkurrierende Erklärungen lassen sich durch Vorhersagen untersuchen, in denen sie sich unterscheiden. Welche Daten könnten unsere Modelle auseinanderhalten?
+
+Tausende weitere Beobachtungen zu Lernzeit und Prüfungsergebnissen könnten den Zusammenhang genauer schätzen, ohne die kausale Mehrdeutigkeit aufzulösen. Wir brauchen möglicherweise andere Informationen, nicht lediglich mehr Informationen.
+
+### Untersuchung A: zeitliche Reihenfolge
+
+Miss die Leistung, bevor die Studierenden mit dem Lernen beginnen. Sagen frühere Schwierigkeiten längere spätere Lernzeiten voraus, stützt das die Möglichkeit, dass Personen wegen ihrer Schwierigkeiten mehr lernen. Ein diagnostischer Test vor der Lernphase könnte diese Information liefern.
+
+### Untersuchung B: vorherige Vorbereitung
+
+Vergleiche Studierende mit ähnlicher Ausgangsvorbereitung. Verändert sich der Zusammenhang dabei deutlich, zeigt das, dass die Zusammensetzung der Gruppen wichtig ist. Andere relevante Unterschiede können trotzdem unberücksichtigt bleiben.
+
+### Untersuchung C: randomisierter Eingriff
+
+Stell dir ein kontrolliertes Experiment mit einer deutlich größeren Gruppe vor. Die Studierenden werden zufällig einer oder drei Stunden Lernzeit zugewiesen, erhalten vergleichbares Material und schreiben dieselbe Prüfung.
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="randomization" />
+
+Die Zuweisung macht die Lernzeit im Zuweisungsmechanismus unabhängig von den Ausgangsmerkmalen. Diese Merkmale bestimmen dann nicht mehr selbst, wer welcher Gruppe angehört.
+
+Eine zufällige Zuweisung garantiert keine identischen Gruppen in jedem endlichen Experiment. Die ausgewogene Zeichnung ist eine Illustration. Im Erwartungswert erzeugt Randomisierung Balance; unter geeigneten Versuchsbedingungen unterstützt sie kausale Vergleiche.
+
+### Einen Pfeil unterbrechen
+
+<Interactive kind="module" module="reasoning-43" preset="intervention" id="causal-intervention" />
+
+Bei gewöhnlicher Beobachtung kann Vorbereitung die gewählte Lernzeit beeinflussen. Bei einem idealen Eingriff, der die Lernzeit extern festsetzt, wird genau dieser Einfluss unterbrochen.
+
+Eine Intervention ersetzt den Mechanismus, der eine Variable bestimmt. Sie verändert nicht zwangsläufig alle anderen Mechanismen. Vorbereitung kann weiterhin das Prüfungsergebnis beeinflussen.
+
+Das Diagramm hilft damit zu verstehen, was das Experiment erreichen soll.
+
+## 7. Warum nicht einfach alles kontrollieren?
+
+Aus dem Confounding-Problem könnte man schließen, möglichst jede Variable zu messen und für alle zu kontrollieren. Das ist keine allgemeingültige Lösung.
+
+Ob eine Variable berücksichtigt werden sollte, hängt von ihrer Rolle in der kausalen Struktur und dem gesuchten Effekt ab.
+
+### Die Gabel: gemeinsame Ursache
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="fork" />
+
+$$
+S\leftarrow P\rightarrow Y.
+$$
+
+Vorbereitung kann den Vergleich zwischen Lernzeit und Ergebnis verzerren. Eine geeignete Anpassung kann helfen, dieses Confounding zu entfernen.
+
+### Die Kette: vermittelnde Variable
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="chain" />
+
+$$
+S\rightarrow U\rightarrow Y.
+$$
+
+Im vorgeschlagenen Modell verbessert Lernen das Verständnis, das wiederum die Leistung verbessert. Halten wir Verständnis fest, können wir gerade den Mechanismus ausblenden, durch den Lernen hilft. Eine solche Anpassung kann den Gesamteffekt verdecken.
+
+### Der Collider: gemeinsame Wirkung
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="collider" />
+
+$$
+S\rightarrow A\leftarrow Y.
+$$
+
+Eine fiktive Auszeichnung wird entweder für außergewöhnlichen Lerneinsatz oder außergewöhnliche Prüfungsleistungen vergeben. Betrachten wir nur Ausgezeichnete, kann dadurch ein irreführender Zusammenhang zwischen Einsatz und Leistung entstehen.
+
+Die Auswahl nach einer gemeinsamen Wirkung kann einen zuvor nicht vorhandenen Zusammenhang erzeugen. Gemeinsame Ursachen, Mediatoren und gemeinsame Wirkungen sind deshalb keine austauschbaren Kontrollvariablen.
+
+## 8. Eine kausale Erklärung selbst entwickeln
+
+In einer fiktiven Stadt stellen Forschende fest, dass Orte mit mehr Einsatzkräften der Feuerwehr tendenziell größere Brandschäden aufweisen.
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="fire" />
+
+Bedeutet das, dass mehr Feuerwehr größere Schäden verursacht?
+
+<Interactive kind="module" module="reasoning-43" preset="fire-workshop" id="causal-fire-workshop" />
+
+Der Kontext unterscheidet sich vom Studienbeispiel, die abstrakte Struktur einer möglichen gemeinsamen Ursache bleibt jedoch dieselbe:
+
+$$
+X\leftarrow Z\rightarrow Y.
+$$
+
+Es geht darum, die gleiche Struktur in unterschiedlichen Situationen zu erkennen.
+
+## 9. Die Struktur hinter den Daten sehen
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="network" />
+
+Was zunächst wie eine einfache Beziehung zweier Größen erschien, kann Teil eines komplexeren Systems sein. Die Zeichnung ist ein mögliches Modell und keine nachgewiesene Landkarte der Wirklichkeit.
+
+Zusammenhänge bleiben wertvolle Hinweise. Sie können Vorhersagen ermöglichen, Hypothesen anregen und interessante Muster sichtbar machen. Vorhersage und Erklärung sind dennoch verschiedene Leistungen.
+
+Ein Zusammenhang sagt uns, dass Dinge in unseren Beobachtungen verbunden sind. Eine kausale Erklärung versucht zu beschreiben, wie diese Verbindung entsteht. Eine Intervention fragt, was geschehen würde, wenn wir das System verändern.
+
+Das sind drei verschiedene Arten, etwas über die Welt zu erfahren.
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="process" />
+
+## 10. Optionale Vertiefung: Auswahl und Collider-Bias
+
+Dieser Zusatz macht den Auswahlmechanismus mathematisch sichtbar.
+
+Die unabhängigen Variablen $X$ und $Y$ nehmen jeweils mit gleicher Wahrscheinlichkeit die Werte null oder eins an. Definiere
+
+$$
+Z=\begin{cases}
+1&\text{falls }X=1\text{ oder }Y=1,\\
+0&\text{sonst}.
+\end{cases}
+$$
+
+Die kausale Struktur ist
+
+$$
+X\rightarrow Z\leftarrow Y.
+$$
+
+Anfangs verrät der Wert von $X$ nichts über $Y$. Was passiert aber, wenn wir nur Fälle mit $Z=1$ betrachten?
+
+<Interactive kind="module" module="reasoning-43" preset="selection" id="causal-selection" />
+
+Ursprünglich gilt
+
+$$
+P(Y=1\mid X=0)=\frac12.
+$$
+
+Nach der Auswahl gilt dagegen
+
+$$
+P(Y=1\mid X=0,Z=1)=1.
+$$
+
+Wenn $Z=1$ gelten muss und $X=0$ ist, muss $Y=1$ sein. Bei $X=1$ bleiben dagegen beide Werte von $Y$ möglich. Die Auswahl selbst hat eine statistische Abhängigkeit erzeugt.
+
+Das kleine System verbindet bedingte Wahrscheinlichkeit, logische Disjunktion, statistische Abhängigkeit und kausales Denken.
+
+## Ein Vorgehen zur Prüfung kausaler Aussagen
+
+1. Bestimme den beobachteten Zusammenhang.
+2. Benenne die vorgeschlagene kausale Aussage.
+3. Betrachte andere Einflussrichtungen und gemeinsame Ursachen.
+4. Stelle konkurrierende Erklärungen grafisch dar.
+5. Suche nach Daten oder Eingriffen, die sie unterscheiden könnten.
+6. Benenne die weiterhin unsicheren kausalen Annahmen.
+
+## Weiterführende Literatur
+
+[Judea Pearl, Madelyn Glymour und Nicholas P. Jewell — Causal Inference in Statistics: A Primer](https://bayes.cs.ucla.edu/PRIMER/). Graphische Modelle und Interventionen bilden die theoretische Vorbereitung.
+
+[OpenIntro Statistics](https://www.openintro.org/book/os/). Beobachtungsstudien, Versuchsplanung, Randomisierung und Confounding.
+
+[Miguel Hernán und James Robins — Causal Inference: What If](https://miguelhernan.org/whatifbook). Die Autoren stellen das Buch über diese Downloadseite frei zur Verfügung.
+
+[Judea Pearl und Dana Mackenzie — The Book of Why](https://bayes.cs.ucla.edu/WHY/). Eine begriffliche Ergänzung zu Zusammenhang, Intervention und kontrafaktischen Fragen.

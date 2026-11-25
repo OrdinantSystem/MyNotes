@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {conditions,duration,comparison,framing,reconstructedInterval,reported,initialAnswers,classify,checklistCount,pairedOutcomes,categories} from './model.ts';
+import {figureMarkup,framingMarkup,comparisonMarkup,effectsMarkup,timingMarkup} from './render.ts';
+assert.deepEqual(conditions.map((_,i)=>duration(i)),[5,20,30,30]);
+assert.equal(conditions.reduce((s,g)=>s+g.n,0),80);
+assert.equal(comparison('matched').matched,true);assert.equal(comparison('once').matched,false);
+assert.equal(comparison('matched').difference,22);assert.equal(comparison('once').difference,40);
+assert.equal(framing('absolute').difference,22);assert(Math.abs(framing('relative').relative-48.88888888888889)<1e-10);
+for(const bad of [-1,4,1.5,NaN,Infinity])assert.throws(()=>duration(bad));
+assert.throws(()=>comparison('bad'));assert.throws(()=>framing('bad'));
+const ci=reconstructedInterval();assert(Math.abs(ci.low-12.423925)<1e-4);assert(Math.abs(ci.high-31.576075)<1e-4);assert(Math.abs((ci.difference/ci.standardError)**2-reported.f)<1e-10);assert.equal(ci.low.toFixed(1),'12.4');assert.equal(ci.high.toFixed(1),'31.6');
+assert.equal(reported.df,38);assert.equal(reported.d,1.5);assert.deepEqual(reported.experimentTwoEffects,[1.07,1.01]);
+const outcomes=pairedOutcomes();assert.equal(outcomes.length,120);assert.equal(new Set(outcomes.map(x=>x.id)).size,120);for(const [key,count] of Object.entries(reported.paired))assert.equal(outcomes.filter(x=>x.key===key).length,count);
+let patterns=0;for(const a of [null,...categories])for(const b of [null,...categories])for(const c of [null,...categories])for(const d of [null,...categories]){const result=classify([a,b,c,d]);assert.deepEqual(result.map(x=>x.correct),[a==='descriptive',b==='associative',c==='causal',d==='application']);patterns++;}assert.equal(patterns,625);
+for(let mask=0;mask<256;mask++){const state=Array.from({length:8},(_,i)=>Boolean(mask>>i&1));assert.equal(checklistCount(state),mask.toString(2).split('1').length-1);}assert.throws(()=>checklistCount([true]));assert.throws(()=>classify(['bad',null,null,null]));const first=initialAnswers();first[0]='causal';assert.deepEqual(initialAnswers(),[null,null,null,null]);
+const manifest=JSON.parse(readFileSync(new URL('./manifest.json',import.meta.url)));
+for(const locale of ['en','de']){for(const f of manifest.figures){const html=figureMarkup(locale,f);assert(html.length>80);assert(!/undefined|NaN|katex-error|\bid=/.test(html),`${locale}/${f}`);}for(const html of [framingMarkup(locale,'absolute'),framingMarkup(locale,'relative'),comparisonMarkup(locale,'matched'),comparisonMarkup(locale,'once'),effectsMarkup(locale),timingMarkup(locale)])assert(!/undefined|NaN|katex-error/.test(html));const mdx=readFileSync(new URL(`./content/${locale}/reasoning/${manifest.key}.mdx`,import.meta.url),'utf8');assert(mdx.includes('reviewStatus: unreviewed'));assert(!/\/Users\/|references\/source|utm_source|favicons/.test(mdx));for(const preset of manifest.presets)assert(mdx.includes(`preset="${preset}"`));assert(mdx.includes('31.6'));assert(mdx.includes('24'));}
+assert.throws(()=>figureMarkup('en','missing'));
+console.log(`AoR 48: four exact procedure timelines, matched/unmatched comparisons, absolute/relative framing, F-based approximate interval, 120 reported paired outcomes, ${patterns} classification states, 256 checklist states and 23 EN/DE figure renders verified. No raw-data reanalysis or universal learning claim.`);

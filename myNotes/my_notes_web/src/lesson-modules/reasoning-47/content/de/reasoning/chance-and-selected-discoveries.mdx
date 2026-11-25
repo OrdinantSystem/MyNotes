@@ -1,0 +1,226 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-six
+sourceId: reasoning-episode-47
+sourcePages: []
+sourceLocations: ["1. The central idea of the episode", "2–5. Coin experiment, null model, p-values and repeated testing", "6–8. Selection, exploration and safeguards", "9–10. Reasoning exercise and conclusion", "12–14. Preparation sources, learning goals and model boundaries"]
+thumbnail: module:reasoning-47
+title: Wie kann Zufall eine eindrucksvolle Entdeckung hervorbringen?
+navTitle: Zufall und ausgewählte Entdeckungen
+description: Ungewöhnliche Beobachtungen im Zusammenhang mit der Suche beurteilen, durch die sie ausgewählt wurden.
+order: 47
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [testing-competing-explanations, implication-and-its-converse]
+---
+
+Eine Beobachtung kann echt, korrekt gemessen und mathematisch ungewöhnlich sein – und dennoch viel schwächere Evidenz liefern, als es zunächst scheint.
+
+Das Problem muss kein Rechenfehler, keine Datenmanipulation und keine Lüge sein. Vielleicht beurteilen wir die Entdeckung, ohne den Prozess zu kennen, der sie hervorgebracht hat. Frage deshalb nicht nur: „Wie unwahrscheinlich ist dieses Ergebnis?“, sondern **„Wie unwahrscheinlich ist es, dass die gesamte Untersuchung ein mindestens ebenso eindrucksvolles Ergebnis hervorbringt?“**
+
+Das sind verschiedene Fragen. Zufall besitzt selbst eine mathematische Struktur: Einzelne Ergebnisse sind ungewiss, doch das gemeinsame Verhalten vieler zufälliger Ergebnisse kann erstaunlich vorhersehbar sein. Unser Weg führt von zufälligen Schwankungen über eine ungewöhnliche Beobachtung, wiederholte Tests und selektive Berichterstattung zu wissenschaftlichen Schutzmechanismen.
+
+## 1. Eine außergewöhnliche Entdeckung
+
+Eine Münze wurde 100-mal geworfen: 61-mal Kopf, 39-mal Zahl.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="coins" />
+
+Ist das Evidenz für eine verzerrte Münze? Wenn die Münze fair ist und ihre Würfe unabhängig sind, beträgt die Wahrscheinlichkeit eines mindestens so großen Ungleichgewichts in einer der beiden Richtungen ungefähr **3,52 %**. Das erscheint ungewöhnlich genug für eine Untersuchung.
+
+Eine Schlagzeile könnte lauten: „Experiment zeigt statistisch signifikante Abweichung von Fairness.“ Doch dieser Versuch ist nur einer von zwanzig Versuchen mit simulierten fairen Münzen. Wie finden wir scheinbare Evidenz für eine Verzerrung in einem System, das wir absichtlich ohne Verzerrung konstruiert haben? Rekonstruieren wir die Untersuchung von Anfang an.
+
+## 2. Zufall bedeutet keine perfekte Ausgeglichenheit
+
+Bei einer fairen Münze erwarten wir nach 100 Würfen ungefähr 50-mal Kopf und 50-mal Zahl. Diese Vorstellung wird irreführend, sobald wir 50 als zwingendes Ergebnis behandeln. Eine faire Münze ist durch die Wahrscheinlichkeiten ihrer möglichen Ausgänge definiert, nicht durch die Forderung, dass jede Folge diese Wahrscheinlichkeiten exakt widerspiegelt:
+
+$$
+P(H)=P(T)=\frac12.
+$$
+
+Dabei steht $H$ für Kopf und $T$ für Zahl. Sei $X$ die Anzahl Kopf bei 100 unabhängigen Würfen. Dann ist $X$ binomialverteilt, und
+
+$$
+\mathbb E[X]=100\cdot\frac12=50.
+$$
+
+Ein Erwartungswert ist keine garantierte Beobachtung. Mal liegt Kopf vorn, mal Zahl. Auch nach 100 Würfen ist die Bilanz meistens nicht vollkommen ausgeglichen. Wiederholen wir den Versuch oft und notieren jeweils die Anzahl Kopf, sammeln sich die Ergebnisse zu einer Verteilung.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="distribution" />
+
+Die Randbereiche dieser Verteilung sind keine Orte, an denen der Zufall nicht mehr funktioniert. Sie gehören zum Zufall selbst. Dasselbe Modell, das gewöhnliche Ergebnisse vorhersagt, sagt auch gelegentliche außergewöhnliche Ergebnisse voraus.
+
+Ersetze die Münze durch zwei Gruppen von Lernenden mit identischem Unterricht. Ihre durchschnittlichen Prüfungsergebnisse werden sich wahrscheinlich unterscheiden, weil verschiedene Menschen unterschiedliche Beobachtungen hervorbringen. Ein Unterschied zwischen beobachteten Ergebnissen bedeutet nicht zwingend einen Unterschied im zugrunde liegenden Effekt.
+
+Hier kommt die **Nullhypothese** $H_0$ ins Spiel. In vielen Experimenten besagt sie, dass ein bestimmter Effekt oder Unterschied fehlt. Zusammen mit weiteren statistischen Annahmen liefert sie ein Modell zur Beurteilung der Beobachtungen. Unser vollständiges Modell legt unabhängige Würfe mit Kopfwahrscheinlichkeit $1/2$ fest.
+
+## 3. Wie ungewöhnlich ist dieses Ergebnis?
+
+Zurück zu 61-mal Kopf. Als Maß für Extremheit verwenden wir den Abstand zu 50. Zweiundsechzig- oder dreiundsechzigmal Kopf wären mindestens ebenso extrem. Doch auch neununddreißigmal Kopf entspricht demselben Ungleichgewicht. Beide Randbereiche zählen.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="tails" />
+
+Im Modell der fairen Münze lautet der exakte Ausdruck
+
+$$
+p=P(X\leq39\text{ oder }X\geq61\mid H_0)
+ =2\sum_{k=61}^{100}\binom{100}{k}2^{-100}
+ \approx0{,}0352002.
+$$
+
+Jeder Randbereich hat ungefähr 1,76 % Wahrscheinlichkeit; zusammen ergeben sie ungefähr 3,52 %. Das ist ein zweiseitiger **p-Wert**: unter einem festgelegten statistischen Modell die Wahrscheinlichkeit einer mindestens ebenso extremen Teststatistik wie der beobachteten. Was „extrem“ bedeutet, gehört zum Testverfahren; hier ist es der absolute Abstand zu 50.
+
+<Interactive kind="module" module="reasoning-47" preset="tails" id="a47-coin-tails" />
+
+Probiere 50, 61, 39 und eine weiter entfernte Anzahl aus. Eine ausgeglichene Beobachtung hat bei dieser Regel den p-Wert 1. Die Spiegelung an 50 verändert den p-Wert nicht. Die Berechnung berücksichtigt alle Ergebnisse von 0 bis 100, obwohl das Diagramm nur den mittleren Bereich 30–70 zeigt.
+
+### Die Bedingung nicht umkehren
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="conditionals" />
+
+Diese Wahrscheinlichkeiten beantworten unterschiedliche Fragen. Ein p-Wert von 0,0352 bedeutet **nicht**, dass die Münze mit 3,52 % Wahrscheinlichkeit fair ist. Er misst auch nicht die Bedeutung oder Größe des Effekts, die Wahrscheinlichkeit, dass „Zufall das Ergebnis verursacht hat“, oder die Wahrscheinlichkeit einer wahren Entdeckung. Hier begegnet uns erneut der Unterschied zwischen einer Implikation und ihrer Umkehrung.
+
+Die gebräuchliche Signifikanzschwelle von 5 % ist eine Entscheidungsregel; sie verwandelt Ungewissheit nicht in Wissen. Wissenschaftliches Denken benötigt neben Berechnungen auch Studiendesign, Effektschätzungen, Unsicherheit und Kontext. [ASA-Erklärung zu p-Werten](https://www.amstat.org/asa/files/pdfs/P-ValueStatement.pdf)
+
+## 4. Was geschieht, wenn wir weitersuchen?
+
+Betrachte zwanzig getrennte Versuche mit jeweils 100 unabhängigen Würfen einer fairen Münze. Verfahren und zugrunde liegende Wahrscheinlichkeit sind identisch. Keine Münze wurde verändert. Trotzdem unterscheiden sich die beobachteten Ergebnisse.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="experiments" />
+
+Versuch 20 mit 61-mal Kopf ist das extremste Ergebnis dieser illustrativen Folge. Die Folge wurde aus einer reproduzierbaren Simulation gezielt für die Lehre ausgewählt; sie ist keine zufällig ausgewählte Vorführung. Sie zeigt, was möglich ist. Die folgende Rechnung zeigt, wie häufig eine gesamte Suche ein extremes Ergebnis hervorbringt.
+
+### Die Wahrscheinlichkeit mindestens eines Treffers
+
+Jeder Test habe die Falsch-Positiv-Wahrscheinlichkeit $\alpha$, alle Nullhypothesen seien wahr, und die Tests seien unabhängig. **Falsch positiv** bedeutet: Das Verfahren meldet einen Effekt, obwohl seine Nullhypothese wahr ist. Ein einzelner Test vermeidet mit Wahrscheinlichkeit $1-\alpha$ ein falsch positives Ergebnis. Wegen der Unabhängigkeit dürfen wir multiplizieren:
+
+$$
+P(\text{kein falsch positives Ergebnis bei }m\text{ Tests})=(1-\alpha)^m.
+$$
+
+„Mindestens eines“ ist das Gegenereignis zu „keines“. Deshalb gilt
+
+$$
+P(\text{mindestens ein falsch positives Ergebnis})=1-(1-\alpha)^m.
+$$
+
+Für zwanzig unabhängige Tests mit jeweils exakt 5 % Falsch-Positiv-Wahrscheinlichkeit erhalten wir
+
+$$
+1-(1-0{,}05)^{20}\approx0{,}6415=64{,}15\%.
+$$
+
+| Anzahl unabhängiger Tests | Wahrscheinlichkeit mindestens eines falsch positiven Ergebnisses |
+| --- | --- |
+| 1 | 5,0 % |
+| 5 | 22,6 % |
+| 10 | 40,1 % |
+| 20 | 64,2 % |
+| 50 | 92,3 % |
+| 100 | 99,4 % |
+
+<Interactive kind="module" module="reasoning-47" preset="search" id="a47-repeated-tests" />
+
+Unterscheide das allgemeine Beispiel vom Münzbeispiel. Für die konkrete Schwelle 61 zu 39 oder extremer beträgt die Wahrscheinlichkeit je Versuch ungefähr 3,52 %, nicht 5 %. Bei zwanzig unabhängigen Münzversuchen gilt
+
+$$
+1-(1-0{,}0352002\ldots)^{20}\approx0{,}51164=51{,}16\%.
+$$
+
+Die Aktivität bietet beide Beispiele an. Die Münzrechnung verwendet die ungerundete Binomialwahrscheinlichkeit. Weil die Anzahl diskret ist, hat ein Test, der bei einem zweiseitigen p-Wert bis 0,05 verwirft, tatsächlich ungefähr 3,52 % Falsch-Positiv-Wahrscheinlichkeit und nicht exakt 5 %.
+
+Die Produktformel setzt unabhängige Tests mit den angegebenen Wahrscheinlichkeiten voraus. Wissenschaftliche Analysen teilen häufig Daten und sind abhängig; die Rechnung wird dann komplizierter. Mehrfachtests bleiben relevant, doch die Anzahl der Vergleiche allein bestimmt ihre gemeinsame Falsch-Positiv-Wahrscheinlichkeit nicht.
+
+## 5. Die Entdeckung, die den Filter passiert
+
+Stelle dir vor, alle zwanzig Versuche bewegen sich auf einen Veröffentlichungsfilter zu. Neunzehn gewöhnliche Ergebnisse verschwinden aus dem Blick. Das ungewöhnlichste Ergebnis passiert den Filter und wird zum veröffentlichten Befund.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="filter" />
+
+Keine Messung wurde erfunden. Keine Rechnung muss falsch gewesen sein. Im berichteten Versuch fiel tatsächlich 61-mal Kopf. Trotzdem erhält das Publikum ein unvollständiges Bild der Evidenz: Es sieht das Ergebnis, aber möglicherweise nicht die Gelegenheiten, die es hervorgebracht haben.
+
+### Von Münzen zur Forschung
+
+Eine Untersuchung soll zeigen, ob eine neue Lerntechnik die Leistung verbessert. Forschende könnten unmittelbare und verzögerte Erinnerung, Lesetempo, Prüfungsergebnisse, Aufmerksamkeit, Motivation und Zuversicht messen. Sie könnten Altersgruppen, Vorwissen und Lerndauer vergleichen. Jeder zusätzliche Vergleich kann eine weitere Gelegenheit für einen auffälligen Befund schaffen.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="branches" />
+
+| Begriff | Bedeutung |
+| --- | --- |
+| Mehrfachtests | Zahlreiche Hypothesen oder Vergleiche prüfen. |
+| Selektive Berichterstattung | Nur eine anhand ihrer Ergebnisse ausgewählte Teilmenge berichten. |
+| P-Hacking | Ergebnisabhängige Analyseentscheidungen nutzen, um statistisch signifikante Befunde zu erhalten. |
+| Publikationsbias | Eine allgemeinere Tendenz, bestimmte Arten von Befunden eher zu veröffentlichen. |
+
+Diese Phänomene sind verwandt, aber nicht identisch. Mehrfachtests sind nicht grundsätzlich schlecht, und mehrere Hypothesen zu erkunden ist legitime Wissenschaft. Problematisch wird es, wenn die Auswahl bei der Beurteilung der Evidenz ignoriert wird. Nicht jeder Fall beruht auf absichtlicher Täuschung: Einzeln vernünftige Entscheidungen können unabsichtlich einen irreführenden Gesamtprozess erzeugen.
+
+## 6. Eine Möglichkeit entdecken und sie prüfen
+
+Wissenschaft wäre unnötig eingeschränkt, wenn Forschende unerwartete Muster nie untersuchen dürften. Interessante Fragen entstehen oft gerade durch unvorhergesehene Beobachtungen. Ein Muster zu bemerken und unabhängig zu prüfen, ob es bestehen bleibt, sind jedoch verschiedene Tätigkeiten.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="exploration" />
+
+In explorativer Forschung können die Beobachtungen die Hypothese bestimmen. In konfirmatorischer Forschung begrenzen Hypothese und Testverfahren, wie die Evidenz ausgewertet wird. Beide Tätigkeiten sind notwendig und erfüllen verschiedene Zwecke. Das Diagramm beschreibt ihre logischen Rollen, kein universelles lineares Rezept für Wissenschaft. [UC Berkeley: Wie Wissenschaft funktioniert](https://undsci.berkeley.edu/understanding-science-101/how-science-works/)
+
+Das verbindet die früheren Themen Gegenbeispiele und Bestätigungen, Prüfen statt Verteidigen einer Idee sowie richtige Schlussfolgerungen aus falschen Gründen. Eine durch ein unzuverlässiges Verfahren entdeckte Hypothese könnte dennoch wahr sein. Ihre mögliche Wahrheit darf nicht mit ihrer hinreichenden Begründung verwechselt werden.
+
+## 7. Wie Wissenschaft sich vor zufälligen Entdeckungen schützt
+
+### Präregistrierung
+
+Ein Forschungsteam hält Hypothese, primäre Zielgrößen, Erhebungsregeln und Analyse fest, bevor es die relevanten Ergebnisse betrachtet.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="preregistration" />
+
+Lesende können vorher getroffene Entscheidungen von solchen unterscheiden, die durch Ergebnisse beeinflusst wurden. Präregistrierung verbietet keine weitere Erkundung und garantiert keinen sinnvollen Plan. Abweichungen können berechtigt sein, wenn sie begründet und transparent berichtet werden. [Center for Open Science: Präregistrierung](https://www.cos.io/initiatives/prereg)
+
+### Transparente Berichterstattung
+
+Mache den Veröffentlichungsfilter durchsichtig: Alle zwanzig Versuche bleiben sichtbar, auch gewöhnliche Ergebnisse. Die Entdeckung verschwindet nicht; Lesende können beurteilen, wie sie ausgewählt wurde. Transparenz korrigiert eine fehlerhafte Analyse nicht automatisch, macht Probleme aber leichter erkennbar.
+
+### Unabhängige Replikation
+
+Das ungewöhnliche Ergebnis erzeugt eine Hypothese: Vielleicht ist die ausgewählte Münze verzerrt. Formuliere eine konkrete Vorhersage und prüfe diese Münze erneut mit neuen unabhängigen Würfen. Durchsuche nicht die anderen neunzehn Münzen nach einem weiteren Gewinner.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="replication" />
+
+Eine erfolgreiche Replikation kann unter geeigneten Bedingungen die Evidenz stärken. Eine gescheiterte Replikation verlangt nach Untersuchung, beweist aber nicht automatisch die Falschheit der ursprünglichen Behauptung. Messunterschiede, zu kleine Stichproben und veränderte Versuchsbedingungen können eine Replikation ebenfalls beeinflussen. Diese Schutzmechanismen betreffen verschiedene Schwächen; keiner garantiert Wahrheit.
+
+## 8. Einen berichteten Befund beurteilen
+
+Eine fiktive Studie behauptet, eine bestimmte Hintergrundfarbe verbessere das Lernen.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="study" />
+
+Reichen diese Informationen aus, um die Entdeckung zu beurteilen? Punktzahlen und p-Wert sind vorgegeben. Ohne Stichprobengrößen, Streuung und Testverfahren können wir den p-Wert nicht aus den beiden Mittelwerten berechnen.
+
+<Interactive kind="module" module="reasoning-47" preset="study" id="a47-study-questions" />
+
+<Exercise question="Was solltest du fragen, bevor du diesen Befund als starke Evidenz behandelst?">
+Frage nach der Anzahl versuchter Vergleiche, einer vorher festgelegten Hypothese, den anderen Ergebnissen, unabhängigen Daten sowie Größe und Unsicherheit des geschätzten Effekts. Die verborgene Untersuchung betrachtete fünf Farben, vier Lernergebnisse und drei Altersgruppen: $5\cdot4\cdot3=60$ Vergleiche. Nur einer wurde hervorgehoben. Gemeinsame Teilnehmende und Zielgrößen können die Vergleiche abhängig machen; die Formel für unabhängige Tests darf daher nicht einfach vorausgesetzt werden.
+
+Die richtige Schlussfolgerung lautet: Der berichtete Befund allein reicht nicht aus, um die Stärke der Evidenz festzustellen. Er bedeutet nicht, dass grüne Hintergründe mit Sicherheit wirkungslos sind. Ästhetische Vorlieben allein lösen das Schlussfolgerungsproblem nicht.
+</Exercise>
+
+## 9. Zur Evidenz gehört die Suche
+
+Kehre zu den zwanzig Versuchen zurück. Hebe das ungewöhnlichste Ergebnis hervor, aber rahme die gesamte Sammlung ein.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="whole-search" />
+
+Ein außergewöhnliches Ergebnis könnte der Anfang einer außergewöhnlichen Entdeckung sein. Es könnte aber auch das außergewöhnlichste Ergebnis unter vielen gewöhnlichen Versuchen sein. Um das zu unterscheiden, müssen wir nicht nur wissen, was gefunden wurde, sondern auch, wie es gefunden wurde.
+
+**Evidenz ist nicht nur ein Ergebnis. Zu ihr gehört auch der Prozess, der es hervorgebracht hat.**
+
+Du solltest nun zufällige Schwankungen unter einem Modell ohne Effekt erklären, einen p-Wert ohne Umkehrung seiner Bedingung interpretieren, Mehrfachtests und selektive Berichterstattung erkennen, Exploration von Bestätigung unterscheiden und erklären können, warum Planung, Transparenz und unabhängige Replikation wissenschaftliches Denken verbessern.
+
+## Weiterführende Lektüre
+
+- [OpenIntro Statistics](https://www.openintro.org/book/os/) führt in Nullmodelle, Stichprobenverteilungen, Hypothesentests und Fehler erster und zweiter Art ein.
+- [Wasserstein und Lazar: Die ASA-Erklärung zu p-Werten](https://doi.org/10.1080/00031305.2016.1154108) behandelt Kontext, Berichterstattung und Grenzen von Schwellenwerten.
+- [Simmons, Nelson und Simonsohn: False-Positive Psychology](https://doi.org/10.1177/0956797611417632) untersucht Flexibilität bei Datenerhebung, Analyse und Berichterstattung.
+- [Ioannidis: Why Most Published Research Findings Are False](https://doi.org/10.1371/journal.pmed.0020124) untersucht unter bestimmten Annahmen, wie Teststärke, vorherige Plausibilität und Verzerrung die Zuverlässigkeit beeinflussen. Der Titel ist keine uneingeschränkte mathematische Aussage über jede Forschung.
+
+Bonferroni-Korrektur und Kontrolle der Falschentdeckungsrate sind weiterführende Themen; für die hier entwickelte Gegenereignisrechnung werden sie nicht benötigt.

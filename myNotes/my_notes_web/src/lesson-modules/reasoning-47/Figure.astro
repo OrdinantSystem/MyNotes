@@ -1,0 +1,9 @@
+---
+import {figureMarkup} from './render';
+import {text} from './copy';
+import './styles.css';
+interface Props{figure:string}
+const {figure}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale);
+if(!(figure in c.figures))throw new Error('Unknown chance figure');
+---
+<figure class="a47-figure" data-a47-figure={figure}><h3>{c.figures[figure as keyof typeof c.figures]}</h3><div set:html={figureMarkup(locale,figure)}/></figure>

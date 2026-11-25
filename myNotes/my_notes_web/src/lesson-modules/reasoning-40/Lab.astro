@@ -1,0 +1,27 @@
+---
+import './styles.css';
+import {text,num} from './copy';
+import {reference} from './model';
+import {openingMarkup,attendanceMarkup,boundaryMarkup,journeyMarkup} from './render';
+interface Props {preset:string;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale);
+const controls=[{key:'groups',label:c.groups,min:80,max:100,step:1,value:90},{key:'size',label:c.size,min:2.5,max:3,step:0.01,value:2.8},{key:'capacity',label:c.capacity,min:0,max:400,step:1,value:260}];
+---
+<section class="p40-lab" id={id} data-p40-lab data-preset={preset} data-locale={locale} aria-label={preset==='opening'?c.opening:preset==='attendance'?c.attendance:c.journeyTitle}>
+{preset==='opening'&&<>
+ <h3>{c.opening}</h3><div set:html={openingMarkup(locale)}/><div class="p40-controls"><button type="button" data-reveal>{c.reveal}</button><button type="button" data-reset>{c.reset}</button></div><p data-evidence hidden>{c.evidence}</p><noscript><p>{c.evidence}</p></noscript>
+</>}
+{preset==='attendance'&&<>
+ <h3>{c.attendance}</h3>
+ {controls.map(control=><div class="p40-control"><label for={`${id}-${control.key}-range`}>{control.label} · {num(locale,control.min)}–{num(locale,control.max)}<input id={`${id}-${control.key}-range`} type="range" data-control={control.key} min={control.min} max={control.max} step={control.step} value={control.value}/></label><label for={`${id}-${control.key}-number`}>{c.number}<input id={`${id}-${control.key}-number`} type="number" data-control={control.key} aria-label={`${control.label} · ${c.number}`} min={control.min} max={control.max} step={control.step} value={control.value}/></label></div>)}
+ <div class="p40-controls"><button type="button" data-reset>{c.reset}</button></div><p role="status" data-status/>
+ <div data-output set:html={attendanceMarkup(locale,reference())}/><div data-boundary set:html={boundaryMarkup(locale)}/>
+</>}
+{preset==='journey'&&<>
+ <h3>{c.journeyTitle}</h3><label>{c.information}<select data-information>{['original','distance','speed'].map((mode,i)=><option value={mode}>{c.modes[i]}</option>)}</select></label><div class="p40-controls"><button type="button" data-reset>{c.reset}</button></div><div data-journey-output set:html={journeyMarkup(locale,'original')}/><p class="p40-caption">{c.travelNote}</p>
+</>}
+</section>
+<script>
+ import {mountPrecisionLabs} from './controller';
+ mountPrecisionLabs();
+</script>

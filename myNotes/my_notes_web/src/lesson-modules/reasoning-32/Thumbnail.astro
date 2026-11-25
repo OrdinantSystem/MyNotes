@@ -1,0 +1,10 @@
+---
+interface Props{locale?:'en'|'de'}
+const locale=Astro.props.locale||Astro.locals.locale||'en';
+---
+<svg viewBox="0 0 160 88" role="img" aria-label={locale==='de'?'Von der Vermutung zum bewiesenen Satz':'From conjecture to established theorem'}>
+<rect x="8" y="12" width="62" height="64" rx="5" fill="var(--cyan-tint)" stroke="var(--cyan)" stroke-dasharray="4 3"/>
+<rect x="90" y="12" width="62" height="64" rx="5" fill="var(--tint)" stroke="var(--accent)"/>
+<text x="39" y="51" fill="var(--text)" font-size="24" text-anchor="middle">?</text><path d="M74 44h12m-5-5 5 5-5 5" fill="none" stroke="var(--blue)" stroke-width="2"/>
+<text x="121" y="51" fill="var(--accent)" font-size="24" text-anchor="middle">✓</text>
+</svg>

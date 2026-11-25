@@ -229,3 +229,10 @@ Episode 26 adds `Interactive kind="reframe" preset="construction|rows|handshakes
 
 
 Episode 27 adds `Interactive kind="lemma" preset="parity|bridge|practice" id="unique-id"` and fourteen `ReasoningFigure kind="lemma-…"` variants. Native bounded choices show three-copy parity with conserved regrouped leftovers; six proof-planning stages distinguish an unproved candidate, proved lemma and established conclusion; initially unanswered radios give deliberate ungraded feedback. Signed remainder, consecutive products and square witnesses reuse existing pure models. The gallery includes a second independent bridge. See [reasoning-lemmas.md](reasoning-lemmas.md).
+
+
+Episode 28 adds `Interactive kind="strong" preset="scope|tree|least" id="unique-id"` and eighteen `ReasoningFigure kind="strong-…"` variants. Existing primality/factor arithmetic, ordinary-induction dominoes, semantic panels and MathText are reused. A factor-pair inspector keeps a conditional hypothesis separate from its target; finite source trees preserve frontier product through depth steps; symbolic minimality stages assert no actual counterexample. All run in the gallery with a second independent tree. See [reasoning-strong-induction.md](reasoning-strong-induction.md) for bounds, scopes, local scrolling and source additions.
+
+## Lesson-owned registrations
+
+From Reasoning episode 29, `Interactive kind="module" module="reasoning-N" preset="…" id="unique-id"` and `ReasoningFigure kind="module" module="reasoning-N" figure="…"` dispatch validated, manifest-listed views. Their gallery examples and focused verify.mjs run automatically; an independent activity instance checks state separation. Modules retain the existing public MDX entry points, palette, static initial content and model/controller separation. Unknown module/preset/figure names fail. See [parallel-lessons.md](parallel-lessons.md). The episode 29 module README specifies its finite states and source boundaries.

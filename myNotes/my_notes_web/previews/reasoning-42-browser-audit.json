@@ -1,0 +1,102 @@
+{
+  "interactions": [
+    "EN: transfer ranking B/C/A; order failure; missing duplicate; keyboard inspection; empty plan disabled; contextual feedback; all-selected not validated; stale evaluation cleared; local reset",
+    "DE: recall ranks C/B/A; passing sort feedback retains universal limit; checkbox Space and evaluation Enter; localized contextual feedback",
+    "Gallery: 16 figures, 3 presets and independent first preset; changing first rankings leaves independent instance at completion; reset restores A/C tie",
+    "Prefix: /MyNotes/ EN→DE equivalent language link and German Pagefind query Konstruktunterrepräsentation navigate to lesson",
+    "Native macOS keyboard: focused select Space → Up/Down → Return changes metric and ranking; closed select arrows alone do not commit a change",
+    "Normal build: English Pagefind construct underrepresentation result navigates to new lesson; German parity disclosure opens without page overflow",
+    "Normal German Pagefind result navigates correctly; course overview includes lesson 42 with native SVG thumbnail; sorting reset does not change ranking state"
+  ],
+  "layouts": [
+    {
+      "activities": 3,
+      "connectors": 1,
+      "figures": 16,
+      "language": "en",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 1269,
+      "theme": "dark",
+      "width": 1280
+    },
+    {
+      "activities": 3,
+      "connectors": 1,
+      "figures": 16,
+      "language": "en",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 1269,
+      "theme": "light",
+      "width": 1280
+    },
+    {
+      "activities": 3,
+      "connectors": 1,
+      "figures": 16,
+      "language": "en",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 379,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "activities": 3,
+      "connectors": 1,
+      "figures": 16,
+      "language": "en",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 379,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "activities": 3,
+      "connectors": 1,
+      "figures": 16,
+      "language": "de",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 1269,
+      "theme": "dark",
+      "width": 1280
+    },
+    {
+      "activities": 3,
+      "connectors": 1,
+      "figures": 16,
+      "language": "de",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 1269,
+      "theme": "light",
+      "width": 1280
+    },
+    {
+      "activities": 3,
+      "connectors": 1,
+      "figures": 16,
+      "language": "de",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 379,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "activities": 3,
+      "connectors": 1,
+      "figures": 16,
+      "language": "de",
+      "mathErrors": 0,
+      "minButtonHeight": 47.59375,
+      "pageWidth": 379,
+      "theme": "light",
+      "width": 390
+    }
+  ],
+  "console": []
+}

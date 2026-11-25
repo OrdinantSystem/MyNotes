@@ -1,0 +1,66 @@
+[
+  {
+    "height": 1000,
+    "katexErrors": 0,
+    "locale": "en",
+    "overflow": false,
+    "theme": "dark",
+    "width": 1440
+  },
+  {
+    "height": 1000,
+    "katexErrors": 0,
+    "locale": "en",
+    "overflow": false,
+    "theme": "light",
+    "width": 1440
+  },
+  {
+    "height": 844,
+    "katexErrors": 0,
+    "locale": "en",
+    "overflow": false,
+    "theme": "light",
+    "width": 390
+  },
+  {
+    "height": 844,
+    "katexErrors": 0,
+    "locale": "en",
+    "overflow": false,
+    "theme": "dark",
+    "width": 390
+  },
+  {
+    "height": 844,
+    "katexErrors": 0,
+    "locale": "de",
+    "overflow": false,
+    "theme": "dark",
+    "width": 390
+  },
+  {
+    "height": 844,
+    "katexErrors": 0,
+    "locale": "de",
+    "overflow": false,
+    "theme": "light",
+    "width": 390
+  },
+  {
+    "height": 1000,
+    "katexErrors": 0,
+    "locale": "de",
+    "overflow": false,
+    "theme": "light",
+    "width": 1440
+  },
+  {
+    "height": 1000,
+    "katexErrors": 0,
+    "locale": "de",
+    "overflow": false,
+    "theme": "dark",
+    "width": 1440
+  }
+]

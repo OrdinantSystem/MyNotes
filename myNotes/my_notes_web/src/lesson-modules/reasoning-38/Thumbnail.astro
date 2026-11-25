@@ -1,0 +1,4 @@
+---
+const locale=Astro.props.locale||Astro.locals.locale||'en';
+---
+<svg viewBox="0 0 160 88" role="img" aria-label={locale==='de'?'Ausgangsverteilung und aktualisierte Verteilung':'Prior and posterior distribution'}><rect x="10" y="18" width="105" height="18" rx="3" fill="var(--blue)"/><rect x="115" y="18" width="35" height="18" rx="3" fill="var(--purple)"/><path d="M80 40v12m-5-5 5 5 5-5" stroke="var(--axis)" fill="none" stroke-width="2"/><rect x="10" y="58" width="47" height="18" rx="3" fill="var(--blue)"/><rect x="57" y="58" width="93" height="18" rx="3" fill="var(--purple)"/></svg>

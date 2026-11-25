@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-25",
+  "matrix": [
+    {
+      "activities": 4,
+      "figures": 12,
+      "locale": "de",
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "activities": 4,
+      "figures": 12,
+      "locale": "de",
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "activities": 4,
+      "figures": 12,
+      "locale": "de",
+      "overflow": false,
+      "theme": "light",
+      "width": 1365
+    },
+    {
+      "activities": 4,
+      "figures": 12,
+      "locale": "de",
+      "overflow": false,
+      "theme": "dark",
+      "width": 1365
+    },
+    {
+      "activities": 4,
+      "figures": 12,
+      "locale": "en",
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "activities": 4,
+      "figures": 12,
+      "locale": "en",
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "activities": 4,
+      "figures": 12,
+      "locale": "en",
+      "overflow": false,
+      "theme": "light",
+      "width": 1365
+    },
+    {
+      "activities": 4,
+      "figures": 12,
+      "locale": "en",
+      "overflow": false,
+      "theme": "dark",
+      "width": 1365
+    }
+  ],
+  "interactionChecks": [
+    "play/pause/resume/finish",
+    "four neutral answer fields",
+    "reset",
+    "untimed text and keyboard slider",
+    "reconstruction reveal and origin toggle",
+    "source feedback",
+    "worksheet edit/add/remove/reset/max12/copy",
+    "EN Pagefind memory",
+    "DE prefixed Pagefind Gedächtnis",
+    "independent gallery scene instances"
+  ],
+  "prefix": "/MyNotes",
+  "layout": "no viewport overflow; wide charts scroll locally"
+}

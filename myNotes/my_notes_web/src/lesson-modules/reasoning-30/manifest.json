@@ -1,0 +1,6 @@
+{
+ "id":"reasoning-30","course":"reasoning","order":30,"key":"proving-by-counting","chapter":"reasoning-part-four",
+ "sourceId":"reasoning-episode-30","sourceTitle":"AoR 30 — Proving by counting the same thing differently","title":"Counting and incidence",
+ "figures":["strangers","pigeonhole","parity","network","degrees","totals","split","regroup","worlds","lemma","seven","unpaired","odd","audit","multiplicity","complete","matrix","synthesis"],
+ "presets":["months","regroup","distribution"]
+}

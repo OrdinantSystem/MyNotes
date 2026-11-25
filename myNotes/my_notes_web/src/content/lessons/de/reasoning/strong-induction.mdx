@@ -1,0 +1,562 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-28
+sourcePages: []
+sourceLocations: ["Complete episode script 00:00–17:00; preparation and production notes"]
+title: "Was, wenn der nächste Schritt alle früheren Schritte braucht?"
+navTitle: "Starke Induktion"
+description: "Mit kleineren Fällen, strengem Abstieg und einem kleinsten hypothetischen Gegenbeispiel die Existenz von Primfaktorzerlegungen beweisen."
+order: 28
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [mathematical-induction, inventing-a-lemma]
+thumbnail: reasoning-strong
+---
+
+## 1. Wenn der vorherige Schritt nicht genügt
+
+Stell dir vor, du sollst jede ganze Zahl größer als eins in Primzahlen zerlegen. Nicht nur zehn, hundert oder eine Million, sondern jede solche Zahl.
+
+<ReasoningFigure kind="strong-branch" />
+
+Bei sechzig scheint das einfach. Wir zerlegen sechzig in sechs und zehn, sechs in zwei mal drei und zehn in zwei mal fünf. Schließlich erreichen wir Zahlen, die sich nicht weiter in kleinere positive ganzzahlige Faktoren größer als eins zerlegen lassen.
+
+$$
+60=2\cdot3\cdot2\cdot5
+$$
+
+Aber woher wissen wir, dass dies für jede ganze Zahl größer als eins möglich ist? Könnte die Zerlegung bei einer riesigen Zahl scheitern?
+
+Wir können nicht alle Zahlen überprüfen. Es gibt unendlich viele.
+
+In einer früheren Lektion haben wir eine Methode kennengelernt, um unendlich viele Aussagen zu beweisen: die vollständige Induktion.
+
+<ReasoningFigure kind="induction-domino-started" />
+
+Wir haben einen Anfang nachgewiesen und gezeigt: Wenn eine Aussage gilt, muss auch die nächste gelten.
+
+Doch bei sechzig brauchten wir keine Information über neunundfünfzig. Wir brauchten Informationen über sechs und zehn.
+
+Die natürliche Struktur dieses Problems ist keine gerade Linie, sondern ein verzweigter Baum.
+
+Was geschieht, wenn der nächste Schritt nicht vom unmittelbaren Vorgänger abhängt, sondern von mehreren früheren Aussagen?
+
+Eine kleine Änderung im Aufbau des Induktionsbeweises ermöglicht es uns, solche komplizierteren Abhängigkeiten zu behandeln.
+
+Dabei entdecken wir noch eine weitere Methode. Sie beginnt mit einer ungewöhnlichen Frage:
+
+Wenn etwas falsch wäre, an welcher kleinsten Stelle könnte es scheitern?
+
+## 2. Ändern, was wir voraussetzen dürfen
+
+Erinnern wir uns an die gewöhnliche vollständige Induktion.
+
+Sei $P(n)$ eine Aussage über die positive ganze Zahl $n$.
+
+Um sie für jede positive ganze Zahl zu beweisen, zeigen wir zuerst $P(1)$. Anschließend beweisen wir für jede positive ganze Zahl $k$:
+
+$$
+P(k)\implies P(k+1).
+$$
+
+Sind beide Aufgaben erfüllt, erzwingt die erste Aussage die zweite, die zweite die dritte und so weiter.
+
+Beachte aber, welche Informationen unterwegs zur Verfügung stehen.
+
+Wenn wir die fünfte Aussage erreichen, ist nicht nur die vierte begründet. Auch die erste, zweite und dritte sind bereits begründet.
+
+<ReasoningFigure kind="strong-comparison" />
+
+Warum sollten wir nur die vierte verwenden?
+
+Statt den nächsten Fall allein aus seinem unmittelbaren Vorgänger abzuleiten, könnten wir auf jeden früheren Fall zurückgreifen.
+
+Vielleicht benötigt der fünfte Fall den zweiten und dritten. Vielleicht braucht der sechste nur den dritten. Vielleicht hängt der siebte von fast allen früheren Fällen ab.
+
+Gewöhnliche Induktion verwendet in ihrer Induktionsannahme den unmittelbaren Vorgänger. Starke Induktion stellt alle früheren Fälle bereit.
+
+Das ist die Idee der **starken vollständigen Induktion**.
+
+Im Induktionsschritt nehmen wir nicht nur $P(k)$ vorübergehend an, sondern sämtliche Aussagen von $P(1)$ bis $P(k)$.
+
+Aus dieser Annahme müssen wir $P(k+1)$ herleiten:
+
+$$
+\bigl(P(1)\land P(2)\land\cdots\land P(k)\bigr)\implies P(k+1).
+$$
+
+Das Konjunktionszeichen bedeutet, dass wir jede Aussage auf der linken Seite annehmen.
+
+Wir setzen dabei nicht den gesamten Satz voraus. Wir nehmen nur Aussagen über kleinere ganze Zahlen an, um die Aussage über die nächste Zahl zu beweisen.
+
+Das Ziel bleibt außerhalb unserer Annahmen.
+
+<ReasoningFigure kind="strong-scope" />
+
+Wir benötigen weiterhin einen Anfang. Ebenso müssen wir begründen, warum die Annahmen für den nächsten Fall genügen.
+
+Trotz ihres Namens ist starke Induktion logisch nicht mächtiger als gewöhnliche Induktion. Über den natürlichen Zahlen können beide dieselben Aussagen beweisen.
+
+Geändert wird die Organisation des Arguments. Wenn ein Problem von früheren Ergebnissen abhängt, macht starke Induktion diese leichter zugänglich.
+
+Sie liefert keine andere Art von Gewissheit, sondern einen anderen Aufbau des Weges dorthin.
+
+## 3. Die Struktur der Primfaktorzerlegung entdecken
+
+Sehen wir uns an, warum diese Änderung hilft.
+
+Bevor wir einen Beweis versuchen, müssen die Gegenstände und die genaue Behauptung klar sein.
+
+Eine Primzahl ist eine ganze Zahl größer als eins, deren einzige positive Teiler eins und sie selbst sind.
+
+Sieben ist beispielsweise prim. Zwölf ist nicht prim, denn zwölf lässt sich als drei mal vier schreiben.
+
+Jede ganze Zahl größer als eins ist entweder prim oder zusammengesetzt.
+
+Wir betrachten die Behauptung:
+
+$$
+\boxed{\text{Jede ganze Zahl }n>1\text{ ist ein Produkt von Primzahlen.}}
+$$
+
+Ein solches Produkt darf auch aus einer einzigen Primzahl bestehen. Sieben erfüllt die Aussage bereits, ohne weiter zerlegt zu werden.
+
+Untersuchen wir zunächst einige Zahlen.
+
+<ReasoningFigure kind="strong-examples" />
+
+Bisher funktioniert alles. Diese Beispiele beweisen aber noch nicht, dass die Aussage für jede Zahl gilt.
+
+Wir suchen einen Grund, warum eine neue Zahl nicht scheitern kann, wenn alle kleineren Zahlen die Aussage erfüllen.
+
+Betrachten wir zwölf. Angenommen, wir wissen bereits, dass jede ganze Zahl von zwei bis elf ein Primzahlprodukt besitzt.
+
+Es gilt:
+
+$$
+12=3\cdot4.
+$$
+
+Drei und vier gehören zu den Zahlen, für die uns die benötigte Information zur Verfügung steht.
+
+Drei ist prim; vier lässt sich als zwei mal zwei schreiben. Durch Einsetzen folgt:
+
+$$
+12=3\cdot(2\cdot2).
+$$
+
+Wir mussten aber nicht einmal berechnen, welche Primfaktoren vier besitzt. Es genügte zu wissen, dass eine solche Darstellung existiert.
+
+Ist drei ein Primzahlprodukt und vier ebenfalls, ergibt die Multiplikation beider Produkte wieder ein Primzahlprodukt.
+
+<ReasoningFigure kind="strong-combine" />
+
+Wir können also über die Existenz einer Zerlegung argumentieren, ohne sie tatsächlich auszurechnen.
+
+Genau eine solche Beziehung benötigen wir für einen Induktionsbeweis.
+
+Nun müssen wir klären, ob die Überlegung für jede zusammengesetzte ganze Zahl funktioniert.
+
+<Interactive kind="strong" preset="scope" id="strong-scope" />
+
+## 4. Den Beweis aufbauen
+
+Formulieren wir die Behauptung genau.
+
+Für jede ganze Zahl $n\geq2$ sei $P(n)$ die Aussage, dass $n$ als endliches Produkt von Primzahlen geschrieben werden kann:
+
+$$
+P(n):\quad n=p_1p_2\cdots p_r,
+$$
+
+für eine geeignete Anzahl $r\geq1$ und geeignete Primzahlen $p_1,\ldots,p_r$.
+
+<ReasoningFigure kind="strong-statement" />
+
+Die Anzahl der Faktoren ist nicht festgelegt. Verschiedene Zahlen können unterschiedlich viele Primfaktoren benötigen.
+
+Wir fragen auch noch nicht nach Eindeutigkeit. Behauptet wird lediglich, dass mindestens eine solche Darstellung existiert.
+
+### Der Anfang
+
+Unser Bereich beginnt bei zwei, nicht bei eins. Daher ist $P(2)$ der erste zu beweisende Fall.
+
+Zwei ist selbst prim und damit ein Produkt aus der einzigen Primzahl zwei.
+
+Der Induktionsanfang ist nachgewiesen.
+
+<ReasoningFigure kind="strong-base" />
+
+### Die Induktionsannahme
+
+Sei nun $k\geq2$ eine beliebige ganze Zahl.
+
+Für den Induktionsschritt nehmen wir an, dass
+
+$$
+P(2),P(3),\ldots,P(k)
+$$
+
+sämtlich gelten. Jede ganze Zahl von zwei bis $k$ lässt sich also als Primzahlprodukt schreiben.
+
+Wir müssen $P(k+1)$ beweisen.
+
+Nennen wir die nächste Zahl zur Vereinfachung $n$, also
+
+$$
+n=k+1.
+$$
+
+Unsere Annahme besagt dann, dass jede ganze Zahl $m$ mit
+
+$$
+2\leq m<n
+$$
+
+eine Primfaktorzerlegung besitzt.
+
+Können wir daraus eine solche Darstellung für $n$ gewinnen?
+
+<ReasoningFigure kind="strong-hypothesis" />
+
+### Erste Möglichkeit: $n$ ist prim
+
+Ist $n$ prim, ist fast nichts mehr zu tun.
+
+Die Zahl $n$ selbst ist bereits ein Produkt aus einer einzigen Primzahl. Also gilt $P(n)$.
+
+### Zweite Möglichkeit: $n$ ist zusammengesetzt
+
+Dann gibt es positive ganze Zahlen $a,b>1$ mit
+
+$$
+n=ab.
+$$
+
+An einer kleinen Einzelheit hängt nun der gesamte Beweis: Beide Faktoren müssen kleiner als $n$ sein.
+
+Warum? Andernfalls dürften wir die Induktionsannahme nicht auf sie anwenden.
+
+Weil $b\geq2$ gilt, ist $ab$ strikt größer als $a$. Weil $a\geq2$ gilt, ist $ab$ auch strikt größer als $b$.
+
+Folglich gilt:
+
+$$
+2\leq a<n,\qquad2\leq b<n.
+$$
+
+<ReasoningFigure kind="strong-factors" />
+
+Entscheidend ist die Zugehörigkeit beider Faktoren zum Bereich der kleineren ganzen Zahlen, nicht eine bestimmte Position in einer Zeichnung.
+
+Nun dürfen wir die vorübergehend angenommene Information verwenden.
+
+Da $a$ in diesem Bereich liegt, besitzt es ein endliches Primzahlprodukt:
+
+$$
+a=p_1p_2\cdots p_r.
+$$
+
+Für $b$ gilt ebenso:
+
+$$
+b=q_1q_2\cdots q_s.
+$$
+
+Sämtliche $p_i$ und $q_i$ sind Primzahlen.
+
+Einsetzen in $n=ab$ ergibt:
+
+$$
+\begin{aligned}
+n&=ab\\
+&=(p_1p_2\cdots p_r)(q_1q_2\cdots q_s)\\
+&=p_1p_2\cdots p_rq_1q_2\cdots q_s.
+\end{aligned}
+$$
+
+<ReasoningFigure kind="strong-product" />
+
+Damit haben wir ein endliches Produkt von Primzahlen erhalten. Auch im zusammengesetzten Fall gilt $P(n)$.
+
+Jede ganze Zahl größer als eins ist prim oder zusammengesetzt; die beiden Fälle decken daher alle Möglichkeiten ab.
+
+Der Induktionsschritt ist vollständig. Zusammen mit dem Anfang folgt durch starke Induktion:
+
+$$
+\boxed{\forall n\in\mathbb Z,\ n\geq2\implies P(n)}
+$$
+
+Warum hat dieser Beweis funktioniert?
+
+Nicht allein deshalb, weil eine zusammengesetzte Zahl in Faktoren zerfällt. Entscheidend ist, dass beide Faktoren strikt kleinere ganze Zahlen sind.
+
+Ohne diese Beziehung hätten wir die Induktionsannahme nicht verwenden dürfen.
+
+## 5. Warum endet die Zerlegung überhaupt?
+
+Dieselbe Überlegung lässt sich als Prozess verstehen.
+
+Wir beginnen mit einer Zahl. Jeden zusammengesetzten Faktor zerlegen wir in zwei kleinere ganzzahlige Faktoren größer als eins.
+
+Versuchen wir das mit zweiundsiebzig.
+
+<Interactive kind="strong" preset="tree" id="strong-tree" />
+
+Entlang jedes Zweigs werden die Zahlen strikt kleiner. Ein Beispiel ist:
+
+$$
+72>8>4>2.
+$$
+
+<ReasoningFigure kind="strong-descent" />
+
+Jede Zahl im Baum ist eine ganze Zahl und mindestens zwei.
+
+Kann eine solche Folge unendlich lange absteigen?
+
+Nein. Ausgehend von zweiundsiebzig sinkt sie bei jedem Schritt um mindestens eins und kann nicht unter zwei fallen.
+
+Jeder Zweig endet daher nach endlich vielen Schritten. Weil jede Zerlegung nur zwei Nachfolger erzeugt und die Tiefe beschränkt ist, ist auch der gesamte Baum endlich.
+
+Lässt sich ein Faktor nicht mehr in zwei ganze Zahlen größer als eins zerlegen, muss er prim sein.
+
+Das ist mehr als die Beobachtung, dass einige Faktorenbäume zufällig enden. Wir haben einen strukturellen Grund für ihr Ende angegeben.
+
+Dieser Grund gilt für zweiundsiebzig ebenso wie für eine ganze Zahl mit einer Million Ziffern.
+
+Bei mathematischen Prozessen, die wiederholt eine positive ganze Zahl verkleinern, sollten wir auf diese Eigenschaft achten. Sie begründet häufig, warum der Prozess nicht unbegrenzt weiterlaufen kann.
+
+Damit gelangen wir zu einer weiteren Beweismethode.
+
+## 6. Die kleinste Stelle suchen, an der etwas scheitert
+
+Statt den Satz direkt zu beweisen, gehen wir nun von der entgegengesetzten Seite aus.
+
+Angenommen, der Satz ist falsch. Dann existiert mindestens eine ganze Zahl größer als eins, die kein Primzahlprodukt besitzt.
+
+Wir wissen nicht, welche Zahlen das wären, wie viele es wären oder ob es eine größte darunter gäbe.
+
+Eines wissen wir jedoch: Wenn es mindestens eine gibt, muss es eine kleinste geben.
+
+Dies folgt aus dem **Wohlordnungsprinzip**:
+
+$$
+\boxed{\begin{gathered}\text{Jede nichtleere Teilmenge von }\mathbb N\\\text{besitzt ein kleinstes Element.}\end{gathered}}
+$$
+
+Die Teilmenge muss weder endlich sein noch aufeinanderfolgende Zahlen enthalten. Sie kann kompliziert sein. Entscheidend ist, dass sie nicht leer ist und aus natürlichen Zahlen besteht.
+
+Nennen wir das kleinste Gegenbeispiel $c$.
+
+Formal definieren wir:
+
+$$
+C=\{n\in\mathbb N:n\geq2\land\neg P(n)\}.
+$$
+
+Unter der Annahme, der Satz sei falsch, gilt
+
+$$
+C\neq\varnothing.
+$$
+
+Nach dem Wohlordnungsprinzip dürfen wir also wählen:
+
+$$
+c=\min C.
+$$
+
+<ReasoningFigure kind="strong-least" />
+
+Was haben wir damit gewonnen?
+
+Wir haben nicht irgendein Gegenbeispiel gewählt, sondern das kleinste. Daher muss jede ganze Zahl von zwei bis $c-1$ den Satz erfüllen. Andernfalls wäre $c$ nicht das kleinste Gegenbeispiel.
+
+Diese Information entspricht genau derjenigen, die wir im starken Induktionsschritt benutzt haben.
+
+Könnte $c$ prim sein?
+
+Nein. Eine Primzahl wäre schon ein Produkt aus einer Primzahl und damit kein Gegenbeispiel.
+
+Also ist $c$ zusammengesetzt. Es gibt daher eine Zerlegung
+
+$$
+c=ab,\qquad2\leq a,b<c.
+$$
+
+Wegen der Minimalität von $c$ kann weder $a$ noch $b$ ein Gegenbeispiel sein. Beide besitzen Primfaktorzerlegungen.
+
+Durch Multiplikation dieser beiden Darstellungen entsteht eine Primfaktorzerlegung von $c$.
+
+<ReasoningFigure kind="strong-contradiction" />
+
+Damit besitzt $c$ eine Primfaktorzerlegung und soll nach unserer Annahme zugleich keine besitzen. Das ist ein Widerspruch.
+
+Die Annahme, ein Gegenbeispiel existiere, ist also falsch.
+
+Diese Methode heißt **Beweis durch kleinstes Gegenbeispiel**.
+
+Der Vorteil liegt in der besonderen Wahl: Jeder kleinere erlaubte Wert muss die Behauptung erfüllen.
+
+Bei vielen Problemen zeigt man, dass ein kleinstes Gegenbeispiel sogar ein noch kleineres erzeugen müsste.
+
+Auch hier: Hätte $c=ab$ kein Primzahlprodukt, müsste mindestens einer seiner Faktoren ebenfalls keines besitzen. Sonst könnten wir die beiden Primzahlprodukte zu einem für $c$ verbinden.
+
+Beide Faktoren sind jedoch kleiner als $c$. Das kleinste Gegenbeispiel würde ein kleineres Gegenbeispiel erzeugen. Das ist unmöglich.
+
+<Interactive kind="strong" preset="least" id="strong-least" />
+
+### Eine wichtige Grenze
+
+Wo ist diese Schlussweise erlaubt?
+
+Betrachte alle strikt positiven reellen Zahlen:
+
+$$
+S=\{x\in\mathbb R:x>0\}.
+$$
+
+Besitzt diese Menge ein kleinstes Element?
+
+<ReasoningFigure kind="strong-reals" />
+
+Zu jeder gewählten positiven reellen Zahl $x$ gibt es eine kleinere positive reelle Zahl:
+
+$$
+0<\frac{x}{2}<x.
+$$
+
+Null ist eine untere Schranke, gehört aber nicht zu $S$. Eine kleinste positive reelle Zahl gibt es nicht.
+
+Eine Ordnung oder eine untere Schranke allein garantiert somit noch kein kleinstes Element.
+
+Das Wohlordnungsprinzip rechtfertigt unsere Auswahl bei den natürlichen Zahlen.
+
+Frage bei jedem Beweis durch kleinstes Gegenbeispiel, warum ein solches kleinstes Gegenbeispiel existieren müsste.
+
+## 7. Drei Argumente, dieselbe Grundstruktur
+
+Wir haben drei eng verwandte Formen des Schließens kennengelernt.
+
+Gewöhnliche Induktion begründet einen Anfang und verbindet jede Aussage mit der nächsten.
+
+Starke Induktion begründet einen Anfang und verwendet beliebige kleinere Fälle für den nächsten.
+
+Die Methode des kleinsten Gegenbeispiels nimmt ein Scheitern an und zeigt, dass dessen erste mögliche Stelle gar nicht existieren kann.
+
+<ReasoningFigure kind="strong-methods" />
+
+Wir schließen vom Vorgänger, von kleineren Fällen oder gegen eine hypothetische erste Ausnahme.
+
+Über den natürlichen Zahlen sind dies äquivalente Prinzipien.
+
+Starke Induktion lässt sich etwa aus gewöhnlicher Induktion gewinnen. Definiere:
+
+$$
+Q(k)=P(2)\land P(3)\land\cdots\land P(k).
+$$
+
+Die neue Aussage hält nicht nur einen Fall fest, sondern sämtliche Fälle bis zu dieser Stelle.
+
+Gewöhnliche Induktion über $Q(k)$ liefert dadurch die kumulative Struktur der starken Induktion.
+
+<ReasoningFigure kind="strong-cumulative" />
+
+Du musst also nicht drei völlig voneinander unabhängige Methoden auswendig lernen. Dieselbe mathematische Struktur lässt sich je nach Problem anders organisieren.
+
+## 8. Kannst du die fehlenden Schritte begründen?
+
+Untersuche drei kurze Fragen. Versuche, die Gründe selbst zu rekonstruieren, statt nur den fertigen Beweis zu erinnern.
+
+### 1. Welche früheren Aussagen werden benötigt?
+
+Angenommen, $45=5\times9$. Welche früheren Aussagen erlauben es, mit starker Induktion $P(45)$ zu beweisen?
+
+<details>
+<summary>Ergänzter Hinweis</summary>
+
+Welche beiden Faktoren liegen im Bereich von zwei bis vierundvierzig?
+
+</details>
+
+<Exercise>
+
+**Ergänzte Begründung.** Die Annahme stellt $P(5)$ und $P(9)$ bereit, weil $2\leq5,9<45$ gilt. Ein endliches Primzahlprodukt für fünf und eines für neun ergeben zusammen ein endliches Primzahlprodukt für fünfundvierzig. $P(44)$ allein liefert diese beiden Darstellungen nicht; $P(45)$ darf in diesem Schritt nicht vorausgesetzt werden.
+
+</Exercise>
+
+### 2. Zusätzliche Übung: Warum eins als Faktor ausschließen?
+
+Warum wäre $n=1\cdot n$ keine zulässige Anwendung der starken Induktionsannahme im zusammengesetzten Fall?
+
+<details>
+<summary>Ergänzter Hinweis</summary>
+
+Prüfe für jeden Faktor den erlaubten Bereich.
+
+</details>
+
+<Exercise>
+
+**Ergänzte Begründung.** Eins liegt außerhalb des Bereichs $m\geq2$. Der andere Faktor ist $n$ selbst und liegt daher nicht im kleineren Bereich $m<n$. Mit $P(n)$ wiederum $P(n)$ zu beweisen wäre zirkulär. Nichttriviale Faktoren $a,b\geq2$ garantieren dagegen $2\leq a,b<n$.
+
+</Exercise>
+
+### 3. Zusätzliche Übung: Existenz oder Eindeutigkeit?
+
+Zwei Faktorenbäume für sechzig ergeben dieselben Primfaktoren. Beweist unser Existenzbeweis, dass je zwei Primfaktorzerlegungen jeder ganzen Zahl bis auf die Reihenfolge übereinstimmen?
+
+<details>
+<summary>Ergänzter Hinweis</summary>
+
+Was verlangt die Existenzaussage $P(n)$? Was müsste für Eindeutigkeit zusätzlich gezeigt werden?
+
+</details>
+
+<Exercise>
+
+**Ergänzte Begründung.** Nein. Das Argument liefert für jede ganze Zahl $n\geq2$ mindestens ein endliches Primzahlprodukt. Es vergleicht nicht beliebige Darstellungen derselben Zahl. Eindeutigkeit bis auf die Reihenfolge benötigt einen eigenen allgemeinen Beweis. Die Übereinstimmung bei sechzig ist nur ein Beispiel.
+
+</Exercise>
+
+Diese letzte Unterscheidung ist besonders wichtig.
+
+Wir haben bewiesen, dass jede ganze Zahl größer als eins eine Primfaktorzerlegung besitzt. Noch nicht bewiesen ist, dass verschiedene Zerlegungswege stets dieselbe Sammlung von Primfaktoren ergeben.
+
+<ReasoningFigure kind="strong-uniqueness" />
+
+In diesem Beispiel stimmen sie überein. Die Übereinstimmung in einem Beispiel ist jedoch kein allgemeiner Beweis.
+
+Existenz und Eindeutigkeit sind zwei verschiedene Beweisaufgaben. Die erste haben wir erfüllt. Die zweite ist ein weiteres mathematisches Problem.
+
+## 9. Der tiefere Gedanke
+
+Wenn du bei einem schwierigen Problem mit ganzen Zahlen feststeckst, frage dich, ob du dafür kleinere Versionen desselben Problems lösen musst.
+
+Und frage dann, ob diese kleineren Probleme bereits genügen könnten.
+
+<ReasoningFigure kind="strong-dependencies" />
+
+Starke Induktion macht daraus einen strengen Beweis.
+
+Entscheidend ist nicht, wie viele frühere Aussagen wir verwenden, sondern in welche Richtung die Abhängigkeiten führen.
+
+Jeder andere Fall, auf den wir uns in diesem Argument stützen, muss kleiner sein.
+
+So lässt sich ein unendlicher Geltungsbereich durch Abhängigkeiten begründen, die jeweils endlich sind und zu einem Anfang führen.
+
+Manchmal genügt der unmittelbar vorherige Schritt nicht. Manchmal brauchen wir Zugriff auf alles, was bereits begründet wurde.
+
+**Was würde möglich, wenn du alles verwenden könntest, was du schon bewiesen hast?**
+
+## Weiterführende Quellen
+
+[Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/). Das Inhaltsverzeichnis des Autors ordnet starke Induktion, kleinste Gegenbeispiele und Primfaktorzerlegung den Abschnitten 10.2–10.4 zu. Sie dienen zur Vertiefung; das gesamte Buch wurde hier nicht unabhängig geprüft.
+
+[MIT — Mathematics for Computer Science](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/). Die Leseliste behandelt gewöhnliche und starke Induktion in der ersten Einheit über Beweise. Das verlinkte Lehrbuch bietet andere Formulierungen und Aufgaben; der vollständige Text wurde hier nicht überprüft.
+
+[George Pólya — How to Solve It](https://people.math.harvard.edu/~knill/teaching/math21b2001/polya/index.html). Der in Harvard bereitgestellte Auszug regt verwandte, einfachere und unterstützende Probleme an. Das verbindet die Abhängigkeitsstruktur dieser Lektion mit den Problemlösefragen der vorangegangenen Lektionen; der Auszug dient nicht als formaler Beweis der starken Induktion.

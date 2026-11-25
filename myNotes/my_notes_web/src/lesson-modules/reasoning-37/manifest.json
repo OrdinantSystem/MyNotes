@@ -1,0 +1,43 @@
+{
+  "id": "reasoning-37",
+  "course": "reasoning",
+  "chapter": "reasoning-part-five",
+  "chapterDefinition": {
+    "id": "reasoning-part-five",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Five",
+      "de": "Teil F\u00fcnf"
+    },
+    "description": {
+      "en": "Observation, evidence, and cognitive reasoning.",
+      "de": "Beobachtung, Evidenz und kognitives Schlussfolgern."
+    }
+  },
+  "order": 37,
+  "key": "accurate-detectors-and-doubtful-results",
+  "title": "Why an accurate detector can still produce doubtful results",
+  "sourceId": "reasoning-episode-37",
+  "sourceTitle": "Why an accurate detector can still produce doubtful results \u00b7 conditional probability and base rates",
+  "figures": [
+    "direction",
+    "detector",
+    "population",
+    "sensitivity",
+    "false-positives",
+    "counts",
+    "flagged",
+    "restriction",
+    "denominators",
+    "tree",
+    "curve",
+    "update",
+    "summary"
+  ],
+  "presets": [
+    "opening",
+    "regroup",
+    "base-rate",
+    "workshop"
+  ]
+}

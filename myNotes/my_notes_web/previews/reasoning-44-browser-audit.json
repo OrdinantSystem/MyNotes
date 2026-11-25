@@ -1,0 +1,85 @@
+{
+  "layout": [
+    {
+      "figures": 15,
+      "height": 1000,
+      "katexErrors": 0,
+      "labs": 4,
+      "locale": "en",
+      "overflow": false,
+      "theme": "dark",
+      "url": "http://127.0.0.1:18644/reasoning/lessons/what-makes-an-experiment-a-useful-test/",
+      "width": 1440
+    },
+    {
+      "locale": "en",
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "locale": "en",
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "locale": "en",
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "figures": 15,
+      "katexErrors": 0,
+      "labs": 4,
+      "locale": "de",
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "locale": "de",
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "locale": "de",
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "locale": "de",
+      "overflow": false,
+      "theme": "dark",
+      "width": 1440
+    }
+  ],
+  "normalSearch": [
+    "experiment",
+    "Zuweisung"
+  ],
+  "controls": [
+    "random assignment pointer and Enter",
+    "repeat",
+    "self-selection/reset",
+    "partial and full protocol repair EN/DE",
+    "missing checkbox/reset:70 to82.5",
+    "workshop individual/reveal all6/close/reset"
+  ],
+  "gallery": {
+    "independentUnchanged": true,
+    "duplicateModuleIds": 0
+  },
+  "prefix": {
+    "base": "/MyNotes",
+    "deScriptAndLanguageLinks": true,
+    "deSearch": "Zuweisung",
+    "enSearch": "experiment",
+    "localizedControls": true,
+    "compactOverflow": false
+  },
+  "consoleErrorsAndWarnings": []
+}

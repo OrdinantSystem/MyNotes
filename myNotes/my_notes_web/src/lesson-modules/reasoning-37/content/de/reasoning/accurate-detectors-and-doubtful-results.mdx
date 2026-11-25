@@ -1,0 +1,290 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-five
+sourceId: reasoning-episode-37
+sourcePages: []
+sourceLocations: ["Sections 1–11: detector, conditional probabilities, Bayes derivation and workshop; sections 12–14: model and preparation notes"]
+title: "Warum ein guter Detektor trotzdem zweifelhafte Ergebnisse liefern kann"
+navTitle: "Detektoren und Basisraten"
+description: "Den Satz von Bayes durch Umgruppieren einer Grundgesamtheit und Nachverfolgen der jeweiligen Bezugsgruppe rekonstruieren."
+order: 37
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [implication-and-its-converse, sets-and-mathematical-worlds]
+thumbnail: module:reasoning-37
+---
+
+## 1. Die zentrale Idee
+
+Ein Gerät kann sehr gut erkennen, ob etwas vorliegt, und trotzdem können die meisten seiner positiven Meldungen Fehlalarme sein.
+
+Das klingt widersprüchlich. Der scheinbare Widerspruch entsteht, wenn wir zwei ähnlich klingende Fragen verwechseln:
+
+- Wenn ein Bauteil defekt ist, wie wahrscheinlich markiert der Detektor es?
+- Wenn der Detektor ein Bauteil markiert, wie wahrscheinlich ist es defekt?
+
+Diese Fragen beziehen sich auf verschiedene Gruppen, verschiedene Nenner und damit verschiedene Wahrscheinlichkeiten.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="direction" />
+
+Drehen wir die Bedingung um, ändert sich die Frage. Es gibt keine allgemeine Regel, mit der wir die Wahrscheinlichkeit einfach umkehren dürfen.
+
+## 2. Die verdächtige Fabrikmaschine
+
+Stell dir eine fiktive Fabrik vor, die kleine mechanische Bauteile herstellt. Jedes Bauteil fährt auf einem Förderband durch eine automatische Prüfmaschine.
+
+Einige Bauteile haben einen inneren Defekt, den man von außen nicht sehen kann.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="detector" />
+
+Der Hersteller nennt zwei Eigenschaften des Detektors: Er erkennt 90 % der defekten Bauteile. Gleichzeitig markiert er irrtümlich 10 % der intakten Bauteile.
+
+Ein Bauteil durchläuft die Prüfung, und die Warnleuchte geht an. Wie wahrscheinlich ist dieses Bauteil tatsächlich defekt?
+
+Welche Wahrscheinlichkeit würdest du zunächst angeben?
+
+<Interactive kind="module" module="reasoning-37" preset="opening" id="detector-opening" />
+
+## 3. Die Grundgesamtheit vor dem Test
+
+Angenommen, die Fabrik produziert genau 1.000 Bauteile. Davon sind zehn defekt und 990 intakt.
+
+Für das Gedankenexperiment kennen wir etwas, das der Prüfer nicht weiß: Wir können sehen, welche Bauteile tatsächlich defekt sind. Jedes Symbol im Diagramm steht für ein Bauteil.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="population" />
+
+Der Anteil defekter Bauteile beträgt
+
+$$
+\frac{10}{1000}=1\%.
+$$
+
+Das ist unsere **Basisrate**: der Anteil der Grundgesamtheit, der die gesuchte Eigenschaft besitzt, bevor wir das Testergebnis erhalten.
+
+Das Ereignis $D$ bedeutet, dass ein zufällig ausgewähltes Bauteil defekt ist:
+
+$$
+P(D)=0.01.
+$$
+
+Das Gegenereignis $D^c$ bedeutet, dass es nicht defekt ist:
+
+$$
+P(D^c)=0.99.
+$$
+
+Behalte die gesamte Grundgesamtheit im Blick. Zehn defekte Bauteile mögen für sich genommen viel erscheinen. Zwischen tausend Bauteilen wird dagegen deutlich, wie selten Defekte sind.
+
+Dieses anfängliche Ungleichgewicht führt später zum überraschenden Ergebnis.
+
+## 4. Zwei Gruppen durchlaufen den Detektor
+
+Statt alle 1.000 Bauteile gemeinsam zu betrachten, teilen wir sie nach ihrem tatsächlichen Zustand auf.
+
+### Die defekten Bauteile
+
+Von zehn defekten Bauteilen erkennt der Detektor neun. Eines übersieht er.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="sensitivity" />
+
+Mit $+$ bezeichnen wir das Ereignis, dass der Detektor ein Bauteil markiert. Die **Sensitivität**, auch Richtig-Positiv-Rate genannt, ist:
+
+$$
+P(+\mid D)=90\%.
+$$
+
+Der senkrechte Strich bedeutet „unter der Bedingung, dass“. Für das Vorgehen lesen wir die Formel von rechts nach links: Zuerst beschränken wir uns auf die defekten Bauteile. Innerhalb dieser Gruppe fragen wir, welcher Anteil eine positive Meldung erhält.
+
+### Die intakten Bauteile
+
+Nun betrachten wir die 990 intakten Bauteile. Der Detektor markiert irrtümlich 10 % davon:
+
+$$
+990\cdot0.10=99.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="false-positives" />
+
+Das ist die **Falsch-Positiv-Rate**:
+
+$$
+P(+\mid D^c)=10\%.
+$$
+
+Der Detektor macht innerhalb der intakten Gruppe anteilig weniger Fehler, als er innerhalb der defekten Gruppe richtige Treffer erzielt. Die intakte Gruppe ist jedoch viel größer und bietet entsprechend mehr Gelegenheiten für Fehlalarme.
+
+Ein kleiner Anteil einer großen Gruppe kann erheblich größer sein als ein großer Anteil einer kleinen Gruppe.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="counts" />
+
+## 5. Die Bezugsgruppe wechseln
+
+Bisher haben wir die Bauteile nach ihrem tatsächlichen Zustand geordnet: defekt oder intakt. Der Prüfer kennt diesen Zustand aber nicht. Er weiß nur, ob der Detektor das Bauteil markiert hat.
+
+Deshalb ordnen wir genau dieselbe Grundgesamtheit jetzt nach einer anderen Eigenschaft. Es wird kein Bauteil hinzugefügt, entfernt oder verändert. Nur die Gruppierung ändert sich.
+
+<Interactive kind="module" module="reasoning-37" preset="regroup" id="detector-regroup" />
+
+Beschränken wir unsere Aufmerksamkeit auf die positiven Meldungen, bleiben 108 markierte Bauteile in der Bezugsgruppe: neun defekte und 99 intakte.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="flagged" />
+
+Jetzt können wir die Anfangsfrage beantworten. Wenn ein Bauteil markiert ist, wie wahrscheinlich ist es tatsächlich defekt?
+
+$$
+\boxed{P(D\mid+)=\frac{9}{108}\approx8.3\%}
+$$
+
+Obwohl der Detektor 90 % der defekten Bauteile erkennt, sind in dieser Fabrik ungefähr 92 % seiner positiven Meldungen Fehlalarme.
+
+Das ist kein Widerspruch: Die beiden Prozentsätze beziehen sich auf unterschiedliche Gruppen.
+
+## 6. Bedingte Wahrscheinlichkeit als Einschränkung
+
+Wenn wir erfahren, dass ein Ereignis eingetreten ist, beschränken wir uns auf die Ergebnisse, die mit dieser Information vereinbar sind.
+
+$$
+P(D\mid+)=\frac{P(D\cap+)}{P(+)}.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="restriction" />
+
+Der Schnitt $D\cap+$ umfasst die Bauteile, die zugleich defekt und markiert sind. Der Nenner umfasst alle markierten Bauteile, unabhängig von ihrem tatsächlichen Zustand. Die bedingte Wahrscheinlichkeit setzt voraus, dass das bedingende Ereignis positive Wahrscheinlichkeit hat: $P(+)>0$.
+
+Denselben Schnitt haben wir bei der Sensitivität betrachtet. Geändert hat sich aber der Nenner.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="denominators" />
+
+Der Zähler bleibt beim Umgruppieren neun. Der Nenner ändert die Bedeutung der Wahrscheinlichkeit.
+
+Das verbindet diese Lektion mit den bedingten Aussagen: Aus $A\implies B$ folgt im Allgemeinen nicht $B\implies A$. Ebenso bestimmt die Kenntnis von $P(B\mid A)$ nicht automatisch $P(A\mid B)$.
+
+Die logische und die probabilistische Situation sind verschieden. Bei beiden müssen wir jedoch auf die Richtung der Beziehung achten.
+
+## 7. Den Satz von Bayes entdecken
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="tree" />
+
+Eine positive Meldung kann auf genau zwei Wegen entstehen: Ein defektes Bauteil wird richtig erkannt, oder ein intaktes Bauteil wird fälschlich markiert.
+
+Die Wahrscheinlichkeit des ersten Weges ist
+
+$$
+P(D\cap+)=P(D)P(+\mid D).
+$$
+
+Für den zweiten Weg gilt
+
+$$
+P(D^c\cap+)=P(D^c)P(+\mid D^c).
+$$
+
+Diese beiden Ereignisse schließen einander aus und umfassen zusammen alle positiven Meldungen. Deshalb dürfen wir ihre Wahrscheinlichkeiten addieren:
+
+$$
+P(+)=P(D)P(+\mid D)+P(D^c)P(+\mid D^c).
+$$
+
+Setzen wir diese Ausdrücke in die Definition der bedingten Wahrscheinlichkeit ein, erhalten wir den **Satz von Bayes**:
+
+$$
+P(D\mid+)=\frac{P(+\mid D)P(D)}{P(+)}.
+$$
+
+Schreiben wir im Nenner beide Wege aus, ergibt sich
+
+$$
+P(D\mid+)=\frac{P(+\mid D)P(D)}{P(+\mid D)P(D)+P(+\mid D^c)P(D^c)}.
+$$
+
+Für unsere Fabrik bedeutet das:
+
+$$
+\begin{aligned}
+P(D\mid+)&=\frac{0.9\cdot0.01}{0.9\cdot0.01+0.1\cdot0.99}\\
+&=\frac{0.009}{0.009+0.099}=\frac{9}{108}\\
+&\approx0.0833.
+\end{aligned}
+$$
+
+Die Formel beschreibt kompakt einen Vorgang, den wir bereits verstanden haben: Wir haben die Grundgesamtheit aufgeteilt, zwei Wege verfolgt, die markierten Bauteile wieder zusammengeführt und ihren jeweiligen Anteil bestimmt.
+
+## 8. Was passiert, wenn sich die Welt ändert, aber der Detektor gleich bleibt?
+
+Kehren wir zur Fabrik zurück. Angenommen, durch ein Herstellungsproblem treten Defekte häufiger auf.
+
+Am Detektor ändert sich nichts: Seine Sensitivität bleibt bei 90 %, seine Falsch-Positiv-Rate bei 10 %. Nur die Zusammensetzung der Grundgesamtheit verändert sich.
+
+Sage zunächst voraus: Steigt, sinkt oder bleibt die Wahrscheinlichkeit gleich, dass ein markiertes Bauteil defekt ist?
+
+<Interactive kind="module" module="reasoning-37" preset="base-rate" id="detector-base-rate" />
+
+Die Ergebnisse zeigen, wie stark die Basisrate das Ergebnis beeinflusst:
+
+| Basisrate der Defekte | Richtige Treffer | Fehlalarme | Defekt unter den markierten Bauteilen |
+| --- | --- | --- | --- |
+| 1 % | 9 | 99 | 8,3 % |
+| 5 % | 45 | 95 | 32,1 % |
+| 10 % | 90 | 90 | 50 % |
+| 20 % | 180 | 80 | 69,2 % |
+| 50 % | 450 | 50 | 90 % |
+
+Derselbe Detektor kann in einer Fabrik überwiegend falsche und in einer anderen überwiegend richtige positive Meldungen liefern.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="curve" />
+
+Die Bedeutung eines Hinweises hängt also sowohl von dem Verfahren ab, das ihn hervorgebracht hat, als auch von der Umgebung, in der dieses Verfahren eingesetzt wird.
+
+Ein Testergebnis lässt sich nicht immer unabhängig von seinem Kontext interpretieren.
+
+## 9. Zweifelhafte Hinweise sind nicht wertlos
+
+Wenn nur ungefähr 8,3 % der markierten Bauteile defekt sind, ist der Detektor dann nutzlos?
+
+Nicht unbedingt. Vor der Prüfung betrug die Defektwahrscheinlichkeit eines zufällig ausgewählten Bauteils nur 1 %. Nach einer positiven Meldung beträgt sie ungefähr 8,3 %.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="update" />
+
+Das Ergebnis liefert also Information. Ein markiertes Bauteil ist deutlich verdächtiger als ein zufällig ausgewähltes.
+
+Wahrscheinlicher zu werden bedeutet aber nicht automatisch, wahrscheinlich zu sein. Ein Hinweis kann unsere begründete Zuversicht erhöhen, ohne die Schlussfolgerung als wahr oder auch nur als wahrscheinlicher als ihre Alternative nachzuweisen.
+
+Der Detektor könnte deshalb als erste Auswahlstufe nützlich sein, auf die eine genauere Prüfung folgt. Ob sich das lohnt, hängt von den Kosten der Nachprüfung, übersehener Defekte und falscher Meldungen ab.
+
+## 10. Das Argument selbst rekonstruieren
+
+Betrachte eine andere fiktive Fabrik. Sie produziert 2.000 Bauteile, von denen 5 % defekt sind. Ihr Detektor erkennt 80 % der defekten Bauteile und markiert irrtümlich 5 % der intakten.
+
+Berechne die Wahrscheinlichkeit, dass ein markiertes Bauteil tatsächlich defekt ist.
+
+<Interactive kind="module" module="reasoning-37" preset="workshop" id="detector-workshop" />
+
+Bei dieser Aufgabe kommt es darauf an, die richtige Bezugsgruppe zu rekonstruieren. Wer Kreise zeichnet und auszählt, kann die wesentliche Idee ebenso gut verstanden haben wie jemand, der direkt die Formel einsetzt.
+
+## 11. Jede Wahrscheinlichkeit hat eine Bezugsgruppe
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="summary" />
+
+Alle drei Aussagen sind gleichzeitig wahr. Keine widerspricht den anderen.
+
+Wenn jemand eine Wahrscheinlichkeit, eine Genauigkeit oder eine Erfolgsquote nennt, gehört deshalb eine einfache Frage zu den wichtigsten:
+
+**Ein Prozentsatz wovon?**
+
+Betrachte noch einmal den Nenner im letzten Bruch:
+
+$$
+\frac{9}{\boxed{108}}.
+$$
+
+## Modellannahmen und weiterführende Literatur
+
+Die Raten und Anzahlen sind exakte Annahmen fiktiver Fabrikmodelle. Beobachtete Häufigkeiten können schwanken, und die Eigenschaften eines Detektors können sich zwischen Einsatzgebieten unterscheiden. Unser Basisratenvergleich hält beide Detektorraten bewusst fest. Die Beispiele liefern keine Leistungsdaten eines realen Detektors.
+
+[OpenIntro Statistics](https://www.openintro.org/book/os/) bietet weitere Erklärungen zu bedingten Wahrscheinlichkeiten und Baumdiagrammen.
+
+[Matthew Knachel — Fundamental Methods of Logic](https://open.umn.edu/opentextbooks/textbooks/fundamental-methods-of-logic), Kapitel 6, verbindet Wahrscheinlichkeit und Schlussfolgern.
+
+[Gerd Gigerenzer und Ulrich Hoffrage (1995), How to Improve Bayesian Reasoning Without Instruction: Frequency Formats](https://doi.org/10.1037/0033-295X.102.4.684) ist die mitgelieferte weiterführende Lektüre zu natürlichen Häufigkeiten. Der Einstieg über Anzahlen stellt keine gemessene Lernwirkung dieser Lektion fest.

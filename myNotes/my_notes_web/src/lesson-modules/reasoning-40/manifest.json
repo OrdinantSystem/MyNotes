@@ -1,0 +1,7 @@
+{
+ "id":"reasoning-40","course":"reasoning","chapter":"reasoning-part-five",
+ "chapterDefinition":{"id":"reasoning-part-five","course":"reasoning","title":{"en":"Part Five","de":"Teil Fünf"},"description":{"en":"Observation, evidence, and cognitive reasoning.","de":"Beobachtung, Evidenz und kognitives Schlussfolgern."}},
+ "order":40,"key":"how-precise-should-your-answer-be","title":"How precise should your answer be?","sourceId":"reasoning-episode-40","sourceTitle":"How precise should your answer be?",
+ "figures":["targets","scale","uncertainty","more-data","bounds","premises","sensitivity","capacities","boundary","intervals","coverage","journey","information","conclusion","framework"],
+ "presets":["opening","attendance","journey"]
+}

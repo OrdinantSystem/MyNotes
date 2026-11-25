@@ -1,0 +1,226 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-six
+sourceId: reasoning-episode-41
+sourcePages: []
+sourceLocations: ["Purpose and conceptual structure", "Episode development: the stopped machine through final synthesis", "Additional practice exercise", "Preparation sources and model limits"]
+thumbnail: module:reasoning-41
+title: Why the best story is not automatically the best explanation
+navTitle: Stories and supported explanations
+description: Generate explanations, compare their predictions with evidence, and recognize when the true explanation is missing from the candidates.
+order: 41
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [implication-and-its-converse, testing-competing-explanations, changing-your-mind-mathematically]
+---
+
+We often begin with something that has already happened and try to discover what might explain it. We do this when diagnosing a problem, interpreting someone's behavior, investigating history or developing a scientific theory.
+
+Our ability to construct convincing explanations can exceed our ability to establish whether they are true. **A possible explanation, a plausible explanation and an explanation well supported by evidence are different things.**
+
+Part Six brings earlier reasoning tools together to investigate an uncertain world. The task is no longer only to evaluate someone else's argument, but to decide what we should investigate ourselves.
+
+## 1. Something happened. But why?
+
+Imagine boxes moving along a factory conveyor. Suddenly the machine stops. The sound disappears and the boxes remain stationary.
+
+<ReasoningFigure kind="module" module="reasoning-41" figure="machine" />
+
+Three explanations come to mind:
+
+<ReasoningFigure kind="module" module="reasoning-41" figure="hypotheses" />
+
+Each could account for the stopped conveyor. We have not yet obtained evidence that distinguishes them. **Being able to explain something does not mean that we have discovered its explanation.** The stopped conveyor is an observation; the proposed causes are hypotheses.
+
+Throughout this lesson, blue marks observations, purple marks candidate explanations and their predictions, teal marks agreement with a particular observation, coral marks conflict, and grey marks untested or unavailable information. A hypothesis remains a candidate even when several predictions agree with what we find.
+
+## 2. Reasoning in the opposite direction
+
+Compare three kinds of reasoning using the same machine.
+
+**Deduction.** Suppose we know the machine cannot operate without electricity. If we establish that its power supply has failed, the known design lets us deduce that it cannot move under those conditions:
+
+$$
+\text{No power}\implies\text{No movement}.
+$$
+
+**Empirical induction.** Suppose we investigate hundreds of similar machines and find that many unexpected stoppages are caused by power failures. Those observations may support an estimate of how often power failures occur in similar circumstances. Generalizing depends on which machines and circumstances were observed.
+
+**Abduction.** If all we know is that this machine has stopped, we can propose power loss as a possible explanation:
+
+$$
+\text{No movement}\quad\leadsto\quad\text{Possible power failure}.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-41" figure="directions" />
+
+The wavy explanatory arrow deliberately differs from an implication. It proposes a candidate; it does not establish a necessary conclusion. If $H\implies E$ and we observe $E$, we cannot deduce $H$. A failed motor or Pause mode could produce the same observation. Treating $H$ as logically established would be **affirming the consequent**.
+
+Considering $H$ and investigating it further is legitimate. Abduction is not a logical fallacy renamed: it is explanatory reasoning whose conclusions can be revised when further evidence arrives.
+
+The term is used both for generating explanatory hypotheses and, in a common modern sense, for inferring which explanation is best supported. The relationship and justification of these activities remain debated. We will distinguish proposing candidates from evaluating them. [Stanford Encyclopedia of Philosophy: Abduction](https://plato.stanford.edu/entries/abduction/)
+
+## 3. Discovery is different from justification
+
+<ReasoningFigure kind="module" module="reasoning-41" figure="generation" />
+
+Generating explanations draws on creativity, imagination and possible mechanisms. At this stage, an unconventional idea should not be discarded merely because it initially seems unlikely. When we evaluate the idea, the standards change: evidence, comparison and observable predictions matter.
+
+Someone can be creative at inventing explanations and poor at evaluating them. Another person can test candidates well but fail to consider the right one. Both abilities matter. A hypothesis's imaginative origin does not decide whether it will eventually prove useful.
+
+Scientific inquiry likewise involves exploration, testing, reconsideration and revision. It does not follow one rigid, linear recipe. The diagrams here organize the reasoning; they are not a universal timetable for doing science. [UC Berkeley: How science works](https://undsci.berkeley.edu/understanding-science-101/how-science-works/)
+
+## 4. What makes an explanation good?
+
+Begin with the machine and progressively ask more of an explanation.
+
+### Explanatory fit
+
+Does it account for what we observed? Complete power loss would explain a stopped conveyor, but so would a motor fault. Fitting that observation is necessary for an explanation of it; fit alone does not select the correct candidate.
+
+### Explanatory scope
+
+How much of the relevant evidence does it explain? Suppose the conveyor is still, yet the display remains illuminated and the control system still responds. Under our simplified design, complete power loss no longer accounts for everything. An explanation must account for what continues to work as well as what failed.
+
+### Simplicity and independent support
+
+Suppose we keep adding assumptions to protect the power-failure story: hidden backup power, another unobserved fault, then an additional exception.
+
+<ReasoningFigure kind="module" module="reasoning-41" figure="patches" />
+
+A simpler explanation is not necessarily true. Reality can be complicated, and independent evidence can justify additional assumptions. The problem is introducing complications solely to preserve a preferred explanation while obtaining no independent support for them.
+
+### Discriminating predictions
+
+A useful candidate tells us what else to expect if it is correct. Candidates are especially useful to compare when they predict different observations:
+
+$$
+H_1\implies E_1,\qquad H_2\implies E_2.
+$$
+
+If $E_1$ and $E_2$ are incompatible under the relevant assumptions, finding one rather than the other can distinguish those candidates. We are using an explanation to guide the discovery of new evidence, not just to make the past sound coherent.
+
+<ReasoningFigure kind="module" module="reasoning-41" figure="criteria" />
+
+## 5. Build a hypothesis matrix
+
+Make the original candidates precise:
+
+$$
+\begin{aligned}
+H_1&=\text{Complete power failure}\\
+H_2&=\text{Motor drive failure}\\
+H_3&=\text{Pause mode selected}.
+\end{aligned}
+$$
+
+For this **fictional machine**, each original candidate is considered as the **sole fault** and the control system follows a known design. In particular, a failed motor drive does not prevent the functioning controller from authorizing a run. A complete power failure makes its display and controller information unavailable. These are stipulated model assumptions, not claims about every real machine.
+
+The matrix puts candidates beside what each predicts. All three predict a stopped conveyor. Inspect the remaining observations one at a time; go back or restart to compare earlier states.
+
+<Interactive kind="module" module="reasoning-41" preset="investigation" id="explanation-investigation" />
+
+The investigation has six inspectable steps: the stopped conveyor, the display, run authorization, the selected mode, the guard and a simulated restoration. The first four reproduce the comparison of the original three candidates. The later steps expand the candidate set and test the new explanation.
+
+**A checkmark means agreement with one observation, not proof that the hypothesis is true.** The purple candidate cards therefore do not turn into a green declaration of truth.
+
+The observed sequence is: the conveyor is stopped; the display is on; the controller has not authorized a run; the selected mode is Run. The matrix retains all earlier findings. A candidate must fit the entire record, not merely the latest observation.
+
+Repeatedly checking that the conveyor is still stationary provides little separation among these candidates: they all predict it. The important question is **what would look different depending on which explanation were true**. The display and run authorization provide such comparisons. More observations and more informative observations are different things.
+
+## 6. Choose the next observation
+
+<ReasoningFigure kind="module" module="reasoning-41" figure="tests" />
+
+Rechecking the conveyor puts all three candidates in the same group. Inspecting the display separates complete power loss from motor failure and Pause. This makes the display useful for the current comparison.
+
+<Interactive kind="module" module="reasoning-41" preset="tests" id="explanation-tests" />
+
+In a real investigation, reliability, cost, accessibility and safety also matter. The observation that most sharply separates candidates is not necessarily the most practical first test. Repeated measurements can address reliability even when a repeated result does not discriminate these particular candidates.
+
+### Connect the matrix to Bayesian reasoning
+
+For two candidates, condition on the same background information and earlier evidence. If an observation has equal, positive likelihood under both,
+
+$$
+P(E\mid H_1)=P(E\mid H_2)>0,
+$$
+
+it leaves their relative odds unchanged. If instead
+
+$$
+P(E\mid H_1)\gg P(E\mid H_2)>0,
+$$
+
+the observation shifts their relative odds toward $H_1$. This does not necessarily make $H_1$ more probable overall: its prior odds and the other available evidence still matter. If both likelihoods are zero, that observation is incompatible with both models; the equal-positive-likelihood rule does not apply.
+
+The hypothesis matrix is a qualitative comparison of what different explanations lead us to expect. We do not need a new numerical exercise to recognize the connection.
+
+## 7. The best of a bad collection
+
+After finding power present but no run authorization, Pause appears to be the best of our original three candidates. It is still only compatible with the record so far. Now inspect the mode: **Run is already selected**. Pause conflicts with this observation too.
+
+All three original explanations conflict with at least one finding. The answer is not to declare the least damaged story true. We need to expand the investigation.
+
+<ReasoningFigure kind="module" module="reasoning-41" figure="expanded" />
+
+The machine has a safety interlock that prevents operation while its protective guard is open. Inspection finds the guard open. This new candidate accounts for the whole record:
+
+<ReasoningFigure kind="module" module="reasoning-41" figure="interlock" />
+
+In the simulation, restoring the guard to its normal closed position lets the controller authorize a run and the conveyor move. That intervention supplies additional support for the explanation. The earlier matrix remains a record of the machine **before** restoration; the changed observations are shown separately.
+
+Even perfect comparison of every candidate we imagined could miss the truth if we never imagined the correct explanation. This is the **bad lot objection** to inference to the best explanation: a comparative winner need not be a good explanation in an absolute sense. [Stanford Encyclopedia of Philosophy: Abduction, §2](https://plato.stanford.edu/entries/abduction/#ExpAbd)
+
+$$
+H_{\text{best among considered}}\quad\text{need not be}\quad H_{\text{true}}.
+$$
+
+Optimizing over an incomplete collection does not ensure that the correct answer belongs to it. Real investigations also involve measurement error, interacting causes and uncertain mechanisms. Contradiction can call for checking the observations or background assumptions as well as adding candidates. Our deterministic single-fault model makes the basic structure easy to inspect; it does not remove those real complications.
+
+## 8. The explanation that explains everything
+
+Imagine a mysterious mechanism that behaves differently whenever we investigate it. If the machine works, it wanted that. If the machine stops, it wanted that too. Evidence was produced by the mechanism; missing evidence was concealed by it.
+
+<ReasoningFigure kind="module" module="reasoning-41" figure="stories" />
+
+At first, this story may seem powerful because it can accommodate everything. Yet it gives almost no guidance about what we should expect next.
+
+Distinguish successfully predicting many phenomena from **retroactively adjusting a story to fit any result**. The former can be an impressive achievement; the latter can have very little evidential content. Ask:
+
+**What would I expect to observe differently if this explanation were false?**
+
+An informative hypothesis need not predict deterministically. Probabilistic predictions can also be tested when outcomes have meaningfully different expected probabilities. An unexpected result need not make such a hypothesis logically impossible, but it can change how strongly the evidence supports it.
+
+## 9. From a story to an investigation
+
+The machine is operating again. The investigation has gradually built a structure that can be reused elsewhere:
+
+<ReasoningFigure kind="module" module="reasoning-41" figure="framework" />
+
+<ReasoningFigure kind="module" module="reasoning-41" figure="cycle" />
+
+Observe what is actually known, generate candidates, derive predictions, compare them with evidence and revise. Revisit earlier steps whenever the findings or the candidate set require it. Conditional reasoning, counterexamples, belief revision, probability and uncertainty work together here.
+
+**A convincing explanation is the beginning of an investigation, not necessarily its conclusion.** The goal is to discover which explanations deserve our belief and to recognize when we have not yet found one.
+
+## 10. Practice: why did the plant wilt?
+
+<ReasoningFigure kind="module" module="reasoning-41" figure="plant" />
+
+<Interactive kind="module" module="reasoning-41" preset="plant" id="explanation-plant" />
+
+<Exercise>
+Soil moisture and drainage can help distinguish insufficient water from excessive watering. Wilting alone is compatible with both. Further observations are needed to evaluate insufficient light and other possible causes. Selecting a useful first observation is not the same as identifying the cause.
+</Exercise>
+
+## Further reading
+
+- [Stanford Encyclopedia of Philosophy: Abduction](https://plato.stanford.edu/entries/abduction/), especially §§1–4: explanatory reasoning, incomplete candidate sets, objections and Bayesian confirmation. The distinctions and objections remain philosophically debated.
+- [UC Berkeley: Understanding Science — How science works](https://undsci.berkeley.edu/understanding-science-101/how-science-works/): creative, iterative investigation and testing ideas against evidence.
+- Peter Lipton, *Inference to the Best Explanation* (2004): supplementary philosophical reading on explanatory attractiveness and truth.
+- Bas van Fraassen, *The Scientific Image* (1980): supplementary critical perspective on explanation and scientific belief.
+
+The two linked online pages were inspected for this adaptation; the two books are supplementary reading, not newly reviewed full texts. The machine and plant are fictional teaching examples. Passing software checks does not establish independent philosophical or translation review.

@@ -1,0 +1,505 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-six
+sourceId: reasoning-episode-43
+sourcePages: []
+sourceLocations: ["Sections 1, 3–12 and 15: causal reasoning, Simpson example, intervention and collider supplement; section 14: preparation sources"]
+title: "Does a connection mean a cause?"
+navTitle: "Association and causation"
+description: "Compare causal explanations, inspect Simpson’s paradox, and distinguish observation from intervention and selection."
+order: 43
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [accurate-detectors-and-doubtful-results, testing-competing-explanations]
+thumbnail: module:reasoning-43
+---
+
+One of the most important distinctions in reasoning is the difference between observing a relationship and understanding the mechanism that produces it. If two things happen together, we have learned something about the world, but not necessarily why they happen together.
+
+Instead of stopping at “Are these things connected?”, ask: **What causal structures could produce this connection, and how could I distinguish them?**
+
+## 1. When the evidence tells the wrong story
+
+Consider a fictional university that wants to understand how study time affects examination performance.
+
+The researchers observe 20 students. Ten study for one hour, while the other ten study for three hours.
+
+After the examination, they calculate the following averages:
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="opening" />
+
+Students who studied more performed worse.
+
+Consider three possible interpretations:
+
+- Studying more actually decreases examination performance.
+- Students who are already struggling tend to study more.
+- Something else influences both study time and examination performance.
+
+Which interpretation is correct?
+
+Pause to consider the alternatives before continuing.
+
+The important point is that none of the numbers displayed is necessarily incorrect. The averages were calculated correctly. The observations may be perfectly reliable. The mistake would be interpreting the observed relationship as a demonstrated causal relationship.
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="association" />
+
+We know that there is an observed relationship. We do not yet know what produces it.
+
+## 2. Observation versus intervention
+
+What is a causal claim asking?
+
+Consider the difference between these two questions:
+
+**Observational question:** How well do students who study three hours perform?
+
+**Causal question:** How well would students perform if they were made to study three hours instead of one?
+
+These sound almost identical, but they describe fundamentally different investigations.
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="observation" />
+
+When we observe students who voluntarily study for three hours, we are observing not only their study duration but also the circumstances that led them to study for that duration.
+
+Perhaps they were less prepared. Perhaps they were worried about failing. Perhaps they had more free time.
+
+When we intervene, we attempt to change the variable of interest without systematically changing those other circumstances.
+
+### Introducing the mathematical distinction
+
+Using conditional-probability notation, write:
+
+$$
+P(Y\mid S=3)
+$$
+
+This describes the distribution of examination scores among students who studied for three hours.
+
+Contrast it with Pearl's intervention notation:
+
+$$
+P(Y\mid \operatorname{do}(S=3))
+$$
+
+This describes the distribution of examination scores under an intervention setting study time to three hours.
+
+The distinction is not merely mathematical decoration. These expressions represent different questions about the world.
+
+$$
+P(Y\mid S=3) \not\equiv P(Y\mid \operatorname{do}(S=3))
+$$
+
+They are not generally interchangeable, although they may coincide under appropriate causal assumptions.
+
+
+
+**Central takeaway:** Observing people who made a particular choice is different from investigating what would happen if that choice were changed.
+
+## 3. Three possible worlds
+
+Return to the observed connection between study time and examination performance.
+
+Several different structures could explain an association.
+
+### World A — Direct causation
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="direct" />
+
+In this world, changing study duration influences examination performance.
+
+Studying may improve understanding, help students recall information or develop problem-solving skills. Alternatively, excessive studying under particular conditions might increase fatigue.
+
+Notice that the arrow does not tell us whether the effect is positive or negative. It only proposes that a causal influence exists.
+
+### World B — Reverse causal explanation
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="reverse" />
+
+Perhaps students do not perform poorly because they study more. Perhaps they study more because they have already been performing poorly.
+
+The direction of influence is different from the one we initially imagined.
+
+There is an important temporal distinction here: the final examination score cannot ordinarily cause studying that occurred before the examination. It is earlier performance, perceived difficulty or anticipated failure that can influence study behaviour.
+
+
+
+### World C — A common cause
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="common" />
+
+Students who are already well prepared may need less additional study while still achieving higher examination scores.
+
+Students who lack preparation may need to study longer but nevertheless achieve lower scores.
+
+In this world, prior preparation affects both variables.
+
+We could therefore observe an association between study time and examination performance even if additional studying had no causal effect.
+
+### Combining the worlds
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="combined" />
+
+The most interesting possibility is that these explanations are not mutually exclusive.
+
+A genuine benefit of studying can coexist with a misleading observed association.
+
+Studying might genuinely improve examination performance while prior preparation simultaneously produces an association in the opposite direction.
+
+This is what makes causal reasoning particularly challenging. We are not always choosing between a completely true explanation and a completely false one. Multiple mechanisms may operate simultaneously.
+
+## 4. Confounding and the hidden variable
+
+Return to the original 20 students, initially described only by study time and examination score.
+
+Consider a third variable: their level of preparation before the additional studying began.
+
+Suppose ten students were already well prepared and ten were poorly prepared.
+
+The following fictional data produce exactly the averages from the beginning of the episode.
+
+<Interactive kind="module" module="reasoning-43" preset="subgroups" id="causal-subgroups" />
+
+When the students are examined together, longer study time is associated with lower scores.
+
+When we separate them according to prior preparation, the relationship reverses.
+
+### The underlying data
+
+| Prior preparation | Study time | Students | Average score |
+| ----------------- | ---------- | -------- | ------------- |
+| Well prepared     | 1 hour     | 8        | 80%           |
+| Well prepared     | 3 hours    | 2        | 90%           |
+| Poorly prepared   | 1 hour     | 2        | 50%           |
+| Poorly prepared   | 3 hours    | 8        | 60%           |
+
+Within both groups, students who studied longer scored ten percentage points higher.
+
+However, the two study-duration groups contain very different types of students.
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="composition" />
+
+The one-hour group contains mostly well-prepared students, whereas the three-hour group contains mostly poorly prepared students.
+
+This changes the overall comparison.
+
+### Calculating the apparent contradiction
+
+For students studying one hour:
+
+$$
+\frac{8(80)+2(50)}{10}=74
+$$
+
+For students studying three hours:
+
+$$
+\frac{2(90)+8(60)}{10}=66
+$$
+
+Therefore, the aggregate comparison gives us:
+
+$$
+66-74=-8
+$$
+
+But within each preparation group:
+
+$$
+90-80=+10
+$$
+
+$$
+60-50=+10
+$$
+
+The direction of the association reverses when the data are aggregated.
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="reversal" />
+
+This is an example of **Simpson's paradox**, where a relationship observed within groups reverses when those groups are combined.
+
+The paradox is not a contradiction in mathematics. All three calculations are correct. They are comparisons of differently composed populations.
+
+### Connecting the numbers to the causal diagram
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="combined" />
+
+This is **confounding**: a situation in which the comparison between a supposed cause and an outcome is distorted by shared causal influences.
+
+The important qualification is that separating students by prior preparation does not automatically prove that studying produces a ten-point improvement. That causal interpretation requires assumptions about what other relevant differences exist between students.
+
+The adjusted comparison is potentially more informative, but it is not automatically causal.
+
+This distinction prevents the viewer from replacing one unjustified conclusion with another.
+
+## 5. Reading causal diagrams
+
+We can now state the formal meaning of the diagrams.
+
+Define our variables:
+
+$$
+S=\text{study duration}
+$$
+
+$$
+P=\text{prior preparation}
+$$
+
+$$
+Y=\text{examination performance}
+$$
+
+The proposed structure can be written as:
+
+$$
+P\rightarrow S\rightarrow Y
+$$
+
+$$
+P\rightarrow Y
+$$
+
+Each arrow represents an assumed direct causal influence relative to the variables included in the diagram.
+
+It does not represent logical implication, equivalence or necessarily a positive relationship.
+
+### Distinguishing the different kinds of arrows
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="arrows" />
+
+These are four distinct mathematical and conceptual relationships.
+
+A causal relationship does not require that every student who studies longer receives a higher examination score. Causes can influence probabilities and distributions without determining every individual outcome.
+
+### The diagram as a hypothesis
+
+A **directed acyclic graph**, or DAG, makes this structure explicit.
+
+A graph consists of nodes and connections. A directed graph gives its connections a direction. An acyclic graph does not contain a directed path that eventually returns to its starting node.
+
+Real-world feedback is possible, but it can often be represented by distinguishing variables at different times.
+
+Earlier performance can influence subsequent study behaviour, which can influence later performance. Earlier performance can also predict and potentially influence later performance through other mechanisms.
+
+
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="time" />
+
+By distinguishing these variables in time, we avoid drawing ambiguous feedback loops or suggesting that future events cause past decisions.
+
+The most important property of a causal diagram, however, is not its visual elegance.
+
+It makes our assumptions visible.
+
+Every time we draw an arrow, we are making a claim about the world. Every time we omit a possible arrow, we are simplifying or restricting the proposed model.
+
+The diagram is not evidence that those assumptions are correct. It is a representation of the assumptions that our investigation must examine.
+
+## 6. Distinguishing causal explanations
+
+Competing explanations can be investigated through predictions that distinguish them.
+
+We now have several causal models. The question is what evidence could help us discriminate between them.
+
+Simply collecting thousands of additional observations of study time and examination scores might give us a much more precise estimate of their association without resolving the underlying causal ambiguity.
+
+We need different kinds of information, not necessarily just more information.
+
+### Investigation A — Establish temporal order
+
+Measure students' performance before they begin studying.
+
+If earlier difficulties predict longer subsequent study durations, this provides evidence for the possibility that struggling students deliberately study more.
+
+A diagnostic examination before the study period could supply this information.
+
+### Investigation B — Measure prior preparation
+
+Compare students with similar initial levels of preparation.
+
+This is the investigation performed in our previous numerical example. If the association changes substantially after accounting for preparation, we have learned that group composition matters.
+
+However, other differences may remain unaccounted for.
+
+### Investigation C — Randomized intervention
+
+Imagine a controlled experiment involving a much larger group of students.
+
+Randomly assign students to study for either one or three hours, using comparable learning materials, before taking the same examination.
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="randomization" />
+
+Random assignment makes study duration independent of the students' initial characteristics by design, rather than allowing those characteristics to determine which group they enter.
+
+This does not guarantee perfectly identical groups in a finite experiment. The diagram illustrates balanced groups for clarity. Randomization produces balance in expectation and supports causal comparisons under appropriate experimental conditions.
+
+### Cutting an arrow
+
+Return to the causal diagram.
+
+<Interactive kind="module" module="reasoning-43" preset="intervention" id="causal-intervention" />
+
+Under ordinary observation, prior preparation influences how long students choose to study.
+
+Under an ideal intervention that sets study duration, that particular causal influence is interrupted.
+
+An intervention changes the mechanism that determines a variable.
+
+It does not necessarily change every other mechanism in the system. Prior preparation can still influence examination performance.
+
+The diagram has become more than a representation of a possible explanation. It now helps us understand what an experiment attempts to accomplish.
+
+## 7. Why controlling for everything is not the solution
+
+We might reasonably conclude that the solution to confounding is simply to measure every possible variable and control for all of them.
+
+This is another tempting but incorrect general rule.
+
+Whether we should adjust for a variable depends on its position in the causal structure and the causal effect we want to estimate.
+
+Consider three fundamental graphical patterns.
+
+### The fork — Common cause
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="fork" />
+
+$$
+S\leftarrow P\rightarrow Y
+$$
+
+Prior preparation can distort the relationship between study time and performance.
+
+Adjustment can help remove confounding.
+
+### The chain — Mediator
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="chain" />
+
+$$
+S\rightarrow U\rightarrow Y
+$$
+
+Studying improves understanding, which then improves examination performance.
+
+If we hold understanding fixed, we may remove the very mechanism through which studying helps.
+
+Adjustment can obscure the total causal effect.
+
+### The collider — Common effect
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="collider" />
+
+$$
+S\rightarrow A\leftarrow Y
+$$
+
+Suppose a fictional award is granted to students who demonstrate either exceptional study effort or exceptional examination performance.
+
+Examining only award recipients could create a misleading relationship between effort and performance.
+
+Adjustment can introduce an association that did not previously exist.
+
+These three structures are foundational to graphical causal inference. Common causes, mediators and common effects cannot be treated as interchangeable adjustment variables.
+
+## 8. Reconstructing a causal explanation
+
+Consider a fictional city in which researchers discover that places with more firefighters present tend to suffer greater fire damage.
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="fire" />
+
+Does this mean that sending firefighters causes more damage?
+
+<Interactive kind="module" module="reasoning-43" preset="fire-workshop" id="causal-fire-workshop" />
+
+This example deliberately mirrors the student example.
+
+The context changes completely, but the underlying mathematical structure remains the same.
+
+$$
+X\leftarrow Z\rightarrow Y
+$$
+
+Recognizing the same abstract structure across different situations is the aim.
+
+## 9. Seeing the structure behind the data
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="network" />
+
+What originally appeared to be a simple relationship between two quantities is revealed to be part of a more complex system.
+
+Associations are useful. Associations are valuable evidence. They can help us predict outcomes, generate hypotheses and identify patterns worth investigating.
+
+But prediction and explanation are not identical achievements.
+
+
+
+> An association tells us that two things are connected in our observations. A causal explanation attempts to tell us how that connection is produced. And an intervention asks what would happen if we changed the system.
+>
+> These are three different ways of knowing something about the world.
+
+<ReasoningFigure kind="module" module="reasoning-43" figure="process" />
+
+## 10. Optional extension: selection and collider bias
+
+This optional extension makes the selection mechanism explicit.
+
+Suppose we have two independent variables, $X$ and $Y$. Each can take the value 0 or 1 with equal probability.
+
+Define a third variable:
+
+$$
+Z= \begin{cases} 1 & \text{if }X=1\text{ or }Y=1,\\ 0 & \text{otherwise}. \end{cases}
+$$
+
+The causal structure is:
+
+$$
+X\rightarrow Z\leftarrow Y
+$$
+
+Initially, knowing the value of $X$ tells us nothing about $Y$.
+
+But what happens when we examine only observations where $Z=1$?
+
+<Interactive kind="module" module="reasoning-43" preset="selection" id="causal-selection" />
+
+Originally:
+
+$$
+P(Y=1\mid X=0)=\frac12
+$$
+
+After conditioning on $Z=1$:
+
+$$
+P(Y=1\mid X=0,Z=1)=1
+$$
+
+If $Z$ must equal 1 and $X$ equals 0, then $Y$ necessarily equals 1.
+
+We have generated a statistical dependency through the selection process itself.
+
+This example connects conditional probability, logical disjunction, statistical dependence and causal reasoning within one small mathematical system.
+
+## A procedure for evaluating causal claims
+
+1. Identify the observed relationship.
+2. State the causal claim being proposed.
+3. Consider alternative directions and common causes.
+4. Represent competing explanations graphically.
+5. Identify evidence or interventions that could distinguish them.
+6. State which causal assumptions remain uncertain.
+
+## Further reading
+
+[Judea Pearl, Madelyn Glymour and Nicholas P. Jewell — Causal Inference in Statistics: A Primer](https://bayes.cs.ucla.edu/PRIMER/). Graphical models and interventions provide the theoretical preparation for the lesson.
+
+[OpenIntro Statistics](https://www.openintro.org/book/os/). Observational studies, experimental design, randomization and confounding.
+
+[Miguel Hernán and James Robins — Causal Inference: What If](https://miguelhernan.org/whatifbook). The authors make the book freely available through this download page.
+
+[Judea Pearl and Dana Mackenzie — The Book of Why](https://bayes.cs.ucla.edu/WHY/). A conceptual companion on association, intervention and counterfactual questions.

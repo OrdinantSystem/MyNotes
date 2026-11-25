@@ -1,0 +1,62 @@
+[
+  {
+    "value": "65",
+    "status": "Implied causal effect: +20 points. Under this assumption, active recall improved the score."
+  },
+  {
+    "value": "85",
+    "status": "Implied causal effect: 0 points. Under this assumption, the two methods produced the same score."
+  },
+  {
+    "value": "95",
+    "status": "Implied causal effect: −10 points. Under this assumption, active recall lowered the score."
+  },
+  {
+    "value": "0",
+    "status": "Implied causal effect: +85 points. Under this assumption, active recall improved the score."
+  },
+  {
+    "value": "100",
+    "status": "Implied causal effect: −15 points. Under this assumption, active recall lowered the score."
+  },
+  {
+    "keyboard": "Implied causal effect: +84 points. Under this assumption, active recall improved the score."
+  },
+  {
+    "invalid": "Enter a whole-number score from 0 to 100."
+  },
+  {
+    "reset": "Implied causal effect: +15 points. Under this assumption, active recall improved the score."
+  },
+  {
+    "trend": "stable",
+    "status": "Observed change: +25; Implied causal effect: +25 points. Hypothetical alternative."
+  },
+  {
+    "trend": "decline",
+    "status": "Observed change: +25; Implied causal effect: +45 points. Hypothetical alternative."
+  },
+  {
+    "trend": "growth",
+    "status": "Observed change: +25; Implied causal effect: +5 points. Hypothetical alternative."
+  },
+  {
+    "exposure": "Solid lines show the assigned water sources in this illustration. The distant home at the lower right uses Pump A; proximity alone would misclassify it."
+  },
+  {
+    "choice": 0,
+    "status": "Another year can differ in pupils, exams and outside conditions. It does not isolate the programme’s effect."
+  },
+  {
+    "choice": 1,
+    "status": "Enjoyment can inform acceptability, but selected interviews do not estimate the missing comparison score."
+  },
+  {
+    "choice": 2,
+    "status": "Random assignment during the same period creates a credible comparison in expectation. Check adherence, missing outcomes and uncertainty too."
+  },
+  {
+    "choice": 3,
+    "status": "Selecting the best results changes the group being compared and cannot establish the average programme effect."
+  }
+]

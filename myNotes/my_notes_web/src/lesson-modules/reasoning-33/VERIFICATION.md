@@ -1,0 +1,25 @@
+# Episode 33 verification — 25 November 2026
+
+Added `observation-and-inference` in EN/DE as order 33 in Part Five / Teil Fünf. Nine native figure variants and four local activities use the existing module registration. The original script, fifteen image references, checksums and all 228 source blocks remain in private provenance. Production notes/evaluation ratings stay private. Source amber becomes canonical coral; additional checkpoint/reference answers and diagnostic/accessibility qualifications are identified in the source contract. Editorial, mathematical and translation review remain unreviewed.
+
+## Executed checks
+
+- Node 24.22.1 locked integration and update production builds pass. Final build: zero errors, zero warnings, six existing hints; 267 static pages, 30,452 local links/assets, 11,914 generated TeX annotations, 180 Pagefind lesson pages across two languages. Counts include concurrently integrated modules, not only this lesson.
+- `/MyNotes` prefix build and immutable snapshot validation passed; normal build restored. Prefix checks cover localized archive and translation links, CSS, KaTeX, the t=10 numeric activity, German Pagefind results with a prefixed href, and keyboard navigation from the result to the German lesson. The final subsequent changes only removed duplicate feedback and adjusted ARIA/title copy; a final normal production build passed after them.
+- Pure checks independently scan 20,000 frames and find exactly twelve left-to-right center crossings. Compare numerical events with the event schedule; deterministic state is identical on replay. Five blue/seven neutral circles remain bounded. The diamond occupies t=8–13, is fully within the viewport for over four seconds, is opaque and drawn after the circles. Nonfinite input rejection, bounded time/count inputs, all four transactions, unique arithmetic error, six classification keys and both non-detection countermodels pass. Boolean enumeration verifies modus tollens under the detection premise.
+- Browser checks: EN/DE at 1440×1000 and 390×844 in both themes; no page-wide overflow or KaTeX errors. Wide Markdown tables scroll locally. Part Five and order 33 appear in the existing sidebar. English and German Pagefind searches both find the lesson. The automatic module gallery contains all nine figures and all four activities; editing one frame inspector leaves the independent instance at t=0 with its reveal hidden.
+- Browser experiment: start, pause/resume, actual sequence completion at t=20, count-before-question visibility, empty count rejection, local count commitment, optional text, replay explanation and reset. Numeric input t=10 renders the diamond; ArrowRight yields 10.1; 99 clamps to 20 on commit; empty numeric input restores the last valid value. Inspection deliberately disables the first-view start until reset. Reset clears count/text, closes the inspector and restores the initial scene.
+- Browser evidence activities: keyboard and pointer emphasis selection; IDs-only scope; total 002 correctly shows 9 ≠ 8; all six expected classifications and their reasons; a deliberately wrong German absence classification receives the scope explanation. Reset clears radio choices, feedback and worksheet emphasis. Final inspection feedback appears once in a polite live region.
+- Final lesson browser console: no warnings/errors. `git diff --check` passes. No dependency installation/change was needed. No commit, push or publication was performed.
+
+## Parallel-work compatibility
+
+The first Part Five activation revealed historical four-part assumptions in verify-triangle, verify-reframe, verify-lemma and verify-strong. The candidate was rolled back and the preceding build restored. A narrow shared-lock update now excludes chapters with no orders 1–28 before comparing exact historical Parts I–IV membership. All original expected orders and mathematical/content tests remain. No earlier lesson content or other worker's module was edited. Subsequent production checks passed together with the other active lesson modules.
+
+Builds and immutable previews used the project-owned lock. Only this session's preview processes were restarted. The temporary prefix server was stopped. The final isolated normal preview is available at `http://127.0.0.1:4433/reasoning/lessons/observation-and-inference/`; the existing shared port-4321 preview was left in place.
+
+Evidence: `previews/reasoning-33-browser-audit.json`, `previews/reasoning-33-desktop-dark.jpg`, `previews/reasoning-33-compact-de-dark.jpg`.
+
+## Limits
+
+This animation has not been piloted with unfamiliar viewers and is not a replication or validated psychological instrument. The reduced-motion branch was reviewed in source; the browser's operating-system motion preference was not changed. No physical touch/pen device, screen-reader audit, independent mathematical certification or native-language review is claimed. Checks establish the implemented trajectory/state and route behavior, not human noticing rates or overall mastery.

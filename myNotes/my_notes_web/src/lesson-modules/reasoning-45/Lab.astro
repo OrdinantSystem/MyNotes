@@ -1,0 +1,19 @@
+---
+import {copy} from './copy';
+import {ratesMarkup,comparisonMarkup,peopleMarkup,balanceMarkup,compositionMarkup,intervalsMarkup,causalMarkup,observationsMarkup,leadMarkup} from './render';
+import './styles.css';
+interface Props {preset:'opening'|'averages'|'weights'|'causal'|'challenge'|'compression';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=copy(locale);
+---
+<figure id={id} class="aor45-lab" data-aor45-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='opening'&&<><div set:html={ratesMarkup(locale)}/><p>39/110 · A; 82/110 · B</p><p>{c.predict}</p><div class="aor45-controls">{['A','B'].map(m=><button type="button" data-predict={m} aria-pressed="false">{c.method} {m}</button>)}</div><button type="button" data-reveal>{c.reveal}</button><div data-revealed hidden set:html={comparisonMarkup(locale)}/></>}
+ {preset==='averages'&&<><p>{c.sizeNote}</p><div class="aor45-control-row">{[c.n1,c.n2].map((label,i)=><label for={`${id}-n${i+1}`}>{label}<input id={`${id}-n${i+1}`} type="number" min="1" max="20" step="1" value={i===0?2:8} data-people={i}/></label>)}</div><div data-people-output set:html={peopleMarkup(locale)+balanceMarkup(locale)}/></>}
+ {preset==='weights'&&<><p>{c.fixed}</p><p>{c.weightNote}</p>{['A','B'].map((m,i)=><div class="aor45-control-row"><label for={`${id}-range-${m}`}>{c.method} {m} — {c.share}<input id={`${id}-range-${m}`} type="range" min="0" max="110" step="1" value={i===0?10:100} data-range={m}/></label><label for={`${id}-number-${m}`}>{c.units}<input id={`${id}-number-${m}`} type="number" min="0" max="110" step="1" value={i===0?10:100} data-number={m}/></label></div>)}<div class="aor45-controls">{['equal','original','allEasy','allDifficult'].map(v=><button type="button" data-weights={v}>{c[v as 'equal'|'original'|'allEasy'|'allDifficult']}</button>)}</div><div data-weights-output set:html={compositionMarkup(locale)+ratesMarkup(locale)+intervalsMarkup(locale)}/><p data-lead>{leadMarkup(locale,10,100)}</p></>}
+ {preset==='causal'&&<><div class="aor45-controls"><button type="button" data-world="confounder" aria-pressed="true">{c.confounder}</button><button type="button" data-world="mediator" aria-pressed="false">{c.mediator}</button></div><div data-causal-output set:html={causalMarkup(locale,'confounder')}/></>}
+ {preset==='challenge'&&<><fieldset><legend>{c.quiz}</legend>{c.options.map((option,i)=><label class="aor45-choice"><input type="radio" name={`${id}-answer`} value={i}/>{option}</label>)}</fieldset><div class="aor45-controls"><button type="button" data-check>{c.check}</button></div><div data-answer hidden><p>{c.quizReason}</p><div set:html={ratesMarkup(locale,28/110,71/110,[`${c.program} X`,`${c.program} Y`])}/><p>X: 28/110; Y: 71/110.</p></div><noscript><p>{c.quizReason}</p></noscript></>}
+ {preset==='compression'&&<><p>{c.compressionNote}</p><div class="aor45-controls"><button type="button" data-compress="yes" aria-pressed="false">{c.compressed}</button><button type="button" data-compress="no" aria-pressed="true">{c.grouped}</button></div><div data-compression-output set:html={observationsMarkup(locale)}/></>}
+ <div class="aor45-controls"><button type="button" data-reset>{c.reset}</button></div>
+ <p data-status role="status" aria-live="polite"></p><noscript><p>{c.offline}</p></noscript>
+</figure>
+<script>import './controller';</script>

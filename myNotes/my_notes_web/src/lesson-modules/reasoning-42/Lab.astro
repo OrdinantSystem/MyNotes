@@ -1,0 +1,18 @@
+---
+import './styles.css';
+import {copy} from './copy';
+import {rankingMarkup,sortingMarkup,planMarkup} from './render';
+import {metrics,indicators} from './model';
+interface Props {preset:string;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=copy(locale);
+if(!['rankings','sorting','plan'].includes(preset))throw new Error('Unknown AoR 42 activity');
+---
+<section class="a42 a42-lab" id={id} data-a42-lab={preset} data-locale={locale} aria-label={preset==='rankings'?c.ranking:preset==='sorting'?c.sorting:c.plan}>
+<h3>{preset==='rankings'?c.ranking:preset==='sorting'?c.sorting:c.plan}</h3>
+{preset==='rankings'&&<><label for={`${id}-metric`}>{c.metric}</label><select id={`${id}-metric`} data-metric>{metrics.map((m,i)=><option value={m}>{c.metricNames[i]}</option>)}</select><div data-output set:html={rankingMarkup(locale,'completion')}/></>}
+{preset==='sorting'&&<><label for={`${id}-case`}>{c.caseLabel}</label><select id={`${id}-case`} data-case>{c.cases.map((s,i)=><option value={i}>{s}</option>)}</select><div data-output set:html={sortingMarkup(locale)}/><button type="button" data-inspect aria-expanded="false">{c.inspect}</button></>}
+{preset==='plan'&&<><label for={`${id}-context`}>{c.context}</label><select id={`${id}-context`} data-context>{c.contexts.map((s,i)=><option value={i===0?'repair':'support'}>{s}</option>)}</select><fieldset><legend>{c.selected}</legend>{indicators.map((key,i)=><label class="a42-check"><input type="checkbox" data-indicator={key}/><span>{c.indicatorNames[i]}</span></label>)}</fieldset><button type="button" data-evaluate disabled aria-expanded="false">{c.evaluate}</button><div data-output set:html={planMarkup(locale,'repair',[])}/></>}
+<div class="a42-controls"><button type="button" data-reset>{c.reset}</button></div><p class="visually-hidden" role="status" data-status></p>
+<noscript><p>{locale==='de'?'Die Ausgangsdarstellung bleibt lesbar. Vergleichstabelle und Referenzantworten stehen im Artikel.':'The initial display remains readable. The comparison table and reference answers are in the article.'}</p></noscript>
+</section>
+<script>import './controller';</script>

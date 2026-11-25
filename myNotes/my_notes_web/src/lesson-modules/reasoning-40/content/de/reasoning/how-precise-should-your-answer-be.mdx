@@ -1,0 +1,262 @@
+---
+course: reasoning
+chapter: reasoning-part-five
+sourceId: reasoning-episode-40
+sourceLocations: ["Sections 1–10", "The conceptual framework of the episode", "Preparation sources"]
+sourcePages: []
+thumbnail: module:reasoning-40
+locale: de
+title: Wie präzise sollte deine Antwort sein?
+navTitle: Präzision und Unsicherheit
+description: Passe die Bestimmtheit einer Antwort an ihre Belege an, rechne Unsicherheit weiter und prüfe ihre Bedeutung für Entscheidungen.
+order: 40
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+---
+
+## 1. Wer weiß mehr?
+
+Wie viele Menschen kommen morgen zur Veranstaltung? Betrachte zwei Antworten, bevor du aufdeckst, welche Informationen dahinterstehen.
+
+<Interactive kind="module" module="reasoning-40" preset="opening" id="precision-opening" />
+
+Es gibt einige Anmeldungen, mehrere noch unbestätigte Gruppen und keine verlässlichen Erfahrungswerte ähnlicher Veranstaltungen. Beide Personen besitzen dieselben Informationen. Person A drückt sich jedoch bestimmter aus, als es die vorhandenen Belege rechtfertigen.
+
+Wir sollten auch nicht sofort schließen, dass Person B recht hat. Ihr Bereich braucht ebenfalls eine Begründung. Entscheidend ist die Unterscheidung zwischen **einer Schätzung und der Mitteilung ihrer Grenzen**.
+
+Die Qualität einer Antwort hängt nicht von ihrer Stellenzahl ab. Sie hängt davon ab, wie getreu sie wiedergibt, was wir wissen, was wir annehmen und was unsicher bleibt. Unsicherheit angemessen auszudrücken ist selbst eine Form geistiger Sorgfalt.
+
+## 2. Genauigkeit und Präzision unterscheiden
+
+Stelle dir vier Personen vor, die wiederholt auf die Mitte einer Zielscheibe zielen. Jeder Versuch erzeugt einen kleinen Punkt, der einen Messwert darstellt.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="targets" />
+
+Genauigkeit betrifft die Nähe eines Messwerts zum tatsächlichen Wert. Präzision betrifft die Übereinstimmung wiederholter Messungen unter festgelegten Bedingungen. „Im Mittel richtig“ beschreibt die Mitte der gestreuten Gruppe, nicht die Genauigkeit jedes einzelnen Messwerts.
+
+Die zweite Zielscheibe ist besonders wichtig: Alle Messwerte stimmen sehr gut überein, sind aber systematisch vom wahren Wert verschoben.
+
+### Ein Zahlenbeispiel
+
+Eine Waage zeigt ungefähr zwei Kilogramm mehr als die tatsächliche Masse eines Gegenstands an.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="scale" />
+
+Tausend weitere Messungen mit derselben fehlerhaften Waage könnten helfen, ihren mittleren Anzeigewert äußerst präzise zu bestimmen. Sie würden aber nicht automatisch die tatsächliche Masse offenlegen.
+
+Hier knüpfen wir an die Lektion über Stichproben an: **Mehr Informationen aus einem fehlerhaften Verfahren beheben nicht unbedingt den Fehler dieses Verfahrens**.
+
+Ein verwandtes, aber anderes Problem ist eine übermäßige Stellenzahl. Das Ergebnis 12,013847 kg ist numerisch sehr bestimmt. Die zusätzlichen Stellen belegen jedoch weder Genauigkeit noch Messpräzision.
+
+## 3. Woher kommt Unsicherheit?
+
+Unsicherheit kann an verschiedenen Stellen bei der Herleitung einer Antwort entstehen.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="uncertainty" />
+
+**Messunsicherheit.** Ein automatischer Sensor zählt Menschen am Eingang eines Saals. Zwei gleichzeitig eintretende Personen könnten als eine gezählt werden. Die Unsicherheit entsteht im Messverfahren selbst.
+
+**Stichprobenunsicherheit.** Wir fragen 20 angemeldete Personen, wie viele Gäste sie mitbringen möchten. Auch bei vollkommen richtigen Antworten können sich diese 20 vom Rest unterscheiden. Wir beobachten nur einen Teil der Grundgesamtheit.
+
+**Modellunsicherheit.** Wir nehmen an, dass alle Angemeldeten tatsächlich kommen. Selbst bei exakt bekannter Zahl der Anmeldungen kann der Zusammenhang zwischen Anmeldung und Teilnahme anders sein. Die Unsicherheit liegt in unserer Darstellung der Wirklichkeit.
+
+**Unvollständiges Wissen.** Eine weitere Gruppe plant vielleicht zu kommen, ohne sich bei der Organisation gemeldet zu haben. Diese relevante Information fehlt vollständig in unseren Daten.
+
+### Mehr Beobachtungen beheben nicht jedes Problem
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="more-data" />
+
+Weitere Beobachtungen können bestimmte Formen der Unsicherheit verringern. Wenn wir aber dieselbe Art von Informationen unter denselben falschen Annahmen sammeln, können andere Unsicherheiten bestehen bleiben.
+
+Die vier Kategorien sind weder vollständig unabhängig noch überschneidungsfrei. Sie helfen uns zu erkennen, welcher Teil des Denkprozesses verbessert werden muss. Messunsicherheit selbst kann zufällige und systematische Komponenten enthalten. [NIST, Measurement Uncertainty](https://www.nist.gov/itl/sed/topic-areas/measurement-uncertainty)
+
+Die hilfreiche Frage lautet deshalb nicht nur „Wie erhalten wir mehr Informationen?“, sondern **„Welche Informationen fehlen uns?“**
+
+## 4. Eine Schätzung herleiten
+
+Wir sind dafür verantwortlich, die Stühle im Saal vorzubereiten. Noch haben nicht alle Gruppen zugesagt, und wir kennen ihre jeweilige Personenzahl nicht.
+
+$G$ sei die Zahl der teilnehmenden Gruppen und $S$ die durchschnittliche Personenzahl je Gruppe. Dann gilt für die Teilnahmezahl $N$:
+
+$$
+N=G\cdot S.
+$$
+
+Benötigt jede Person einen Stuhl, bestimmt die Teilnahmezahl auch den Stuhlbedarf. Beschreiben die Eingaben die tatsächlich kommenden Gruppen und deren tatsächliche Durchschnittsgröße, ist der Zusammenhang exakt. **Unsicher sind die Eingaben.**
+
+### Die Annahmen sichtbar machen
+
+Vorläufige Anmeldungen und Gespräche mit der Organisation legen folgende Arbeitsannahmen nahe:
+
+$$
+80\leq G\leq100,\qquad 2.5\leq S\leq3.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="bounds" />
+
+Beide Eingaben sind positiv. Das Produkt wächst deshalb mit jeder der beiden Eingaben. Folglich gilt
+
+$$
+80\cdot2.5\leq G\cdot S\leq100\cdot3,
+$$
+
+also
+
+$$
+\boxed{200\leq N\leq300}.
+$$
+
+Die Rechnung ist **unter den getroffenen Annahmen** streng begründet. Die Mathematik stellt nicht unabhängig fest, ob diese Annahmen stimmen. Kommen mehr als 100 Gruppen oder liegt ihre Durchschnittsgröße über drei Personen, kann die tatsächliche Teilnahmezahl außerhalb des Bereichs liegen.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="premises" />
+
+Ein mathematisch gültiges Argument kann die Wirklichkeit schlecht beschreiben, wenn seine Ausgangsannahmen falsch sind. So verbindet sich alltägliches Schätzen mit formaler Logik und Beweisen.
+
+## 5. Sensitivität: Annahmen verändern
+
+Beginne mit 90 Gruppen und durchschnittlich 2,8 Personen je Gruppe: 252 Personen, also acht freie Plätze bei 260 verfügbaren Stühlen. Halte eine Eingabe fest und verändere die andere.
+
+<Interactive kind="module" module="reasoning-40" preset="attendance" id="precision-attendance" />
+
+Die Regler stellen Planungsszenarien dar. Ein modellierter Durchschnitt kann eine nicht ganzzahlige Projektion ergeben. Aufrunden liefert eine ganze Zahl benötigter Stühle. Daraus folgt nicht, dass eine tatsächlich beobachtete Menschenmenge einen Bruchteil einer Person enthält.
+
+### Die Kombinationen gemeinsam betrachten
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="sensitivity" />
+
+Das ist **Sensitivitätsanalyse**: systematisch untersuchen, wie sich ein Ergebnis ändert, wenn sich seine Eingaben oder Annahmen ändern.
+
+Bleibt die Durchschnittsgröße bei 2,8, erhöht eine zusätzliche Gruppe die modellierte Teilnahmezahl um 2,8. Bei 90 Gruppen erhöht eine um 0,1 größere Durchschnittsgröße die Teilnahmezahl um neun:
+
+$$
+\Delta N=90\cdot0.1=9.
+$$
+
+Verschiedene Unsicherheiten wirken sich unterschiedlich aus. Der Vergleich einer zusätzlichen Gruppe mit einer Änderung um 0,1 Personen zeigt für sich genommen noch nicht, welche Eingabe wichtiger ist. Berücksichtige auch das plausible Ausmaß jeder Unsicherheit und die verglichenen Einheiten.
+
+Ziel ist zu verstehen, welche Unsicherheiten das Ergebnis wesentlich beeinflussen.
+
+## 6. Robustheit: Brauchen wir eine genauere Antwort?
+
+Bisher wollten wir bestimmen, wie viele Menschen kommen. Unser praktisches Ziel ist jedoch, dass alle einen Stuhl haben. Das sind zwei verschiedene Probleme.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="capacities" />
+
+Bei 180 Stühlen würde die genaue Teilnahmezahl nichts daran ändern, dass wir weitere Stühle benötigen. Auch bei 320 Stühlen können wir entscheiden, ohne die genaue Teilnahmezahl zu kennen, sofern der angenommene Bereich von 200–300 gilt.
+
+Bei 260 Stühlen überschreitet die Unsicherheit eine Entscheidungsgrenze. Zusätzliche Informationen könnten unsere Entscheidung verändern.
+
+Eine Entscheidung ist **robust bezüglich eines festgelegten Unsicherheitsbereichs**, wenn sie das relevante Ziel weiterhin erfüllt, während sich die unsicheren Eingaben innerhalb dieses Bereichs ändern.
+
+Eine robuste Entscheidung muss nicht die günstigste oder optimale sein. Mit 400 Stühlen könnten wir in allen betrachteten Szenarien einen Mangel vermeiden, aber unnötige Kosten verursachen. Entscheidungen hängen von unsicheren Ergebnissen und davon ab, wie wir ihre Folgen bewerten. [Stanford Encyclopedia of Philosophy, Decision Theory](https://plato.stanford.edu/entries/decision-theory/)
+
+### Die Entscheidungsgrenze
+
+Bei 260 Stühlen reicht die Kapazität genau dann, wenn
+
+$$
+G\cdot S\leq260.
+$$
+
+Wegen $G>0$ ist das gleichbedeutend mit
+
+$$
+S\leq\frac{260}{G}.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="boundary" />
+
+Jeder Punkt steht für ein mögliches Szenario. Die gestrichelte Kurve bezeichnet genau 260 Personen. Auf der Kurve reichen die Stühle aus; oberhalb entsteht ein Mangel. Gruppenzahlen sind ganzzahlig, die glatte Darstellung veranschaulicht den Zusammenhang dazwischen.
+
+Wenn 40 weitere Stühle einsatzbereit gelagert werden können, lässt sich der gesamte angenommene Bereich abdecken, ohne sofort alle 300 aufzustellen. Das setzt voraus, dass die Reservestühle rechtzeitig nutzbar sind.
+
+**Manchmal können wir eine Entscheidung treffen, ohne die dahinterliegende Unsicherheit aufzulösen.** Robustheit bezieht sich immer auf den angegebenen Bereich und das Ziel, nicht auf jedes denkbare Ergebnis.
+
+## 7. Nicht alle Bereiche bedeuten dasselbe
+
+Drei ähnlich aussehende Intervalle können sehr unterschiedliche Dinge ausdrücken.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="intervals" />
+
+Unser Teilnahmeintervall von 200–300 ist ein annahmenbasierter Szenarienbereich. Wir haben keine Wahrscheinlichkeitsverteilung für die möglichen Eingaben begründet. Deshalb dürfen wir nicht behaupten, dass die Teilnahmezahl mit einer Wahrscheinlichkeit von 95 % darin liegt.
+
+### Die Grundidee von Konfidenzintervallen
+
+Stelle dir einen festen Parameter einer Grundgesamtheit vor. Ziehe wiederholt Stichproben und konstruiere aus jeder Stichprobe ein Intervall.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="coverage" />
+
+Unter den Voraussetzungen eines üblichen frequentistischen Verfahrens erzeugt ein Verfahren für nominale 95%-Konfidenzintervalle bei wiederholter Stichprobenziehung Intervalle, die den wahren Parameter ungefähr in 95 % der Fälle enthalten. **Der Parameter bleibt fest. Die Intervalle wechseln.**
+
+Das bedeutet nicht automatisch, dass ein bestimmtes bereits beobachtetes Intervall den festen Parameter mit 95 % Wahrscheinlichkeit enthält. Bayessche Glaubwürdigkeitsintervalle haben eine andere Interpretation und beruhen auf eigenen Modellannahmen. [OpenIntro Statistics, Kapitel 5](https://www.openintro.org/book/os/)
+
+Die zehn gezeichneten Intervalle sind eine schematische Veranschaulichung, keine Simulation zum Nachweis einer Überdeckungsrate. Hier unterscheiden wir Bedeutungen, statt die Berechnung von Konfidenzintervallen zu lehren.
+
+**Die Form eines Intervalls verrät nicht seine Bedeutung. Entscheidend ist das Verfahren, mit dem es konstruiert wurde.**
+
+## 8. Übung: Eine bestimmte Antwort durch eine bessere ersetzen
+
+Jemand plant eine Fahrt, kennt die ungefähre Strecke und ist über die Durchschnittsgeschwindigkeit unsicher. Die Person behauptet:
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="journey" />
+
+Bekannt ist:
+
+$$
+180\leq d\leq210\text{ km},\qquad70\leq v\leq90\text{ km/h}.
+$$
+
+Bestimme einen plausiblen Bereich der Fahrzeit ohne Pausen. Welche Kombination ergibt die kürzeste Fahrt, welche die längste? Versuche es, bevor du die Lösung aufdeckst.
+
+<Exercise>
+Bei positiver Geschwindigkeit wächst $t=d/v$ mit der Strecke und fällt mit der Geschwindigkeit. Daher gilt
+
+$$
+\frac{180}{90}\leq t\leq\frac{210}{70},\qquad \boxed{2\leq t\leq3\text{ h}}.
+$$
+
+Die kürzeste Fahrt verbindet die kleinste Strecke mit der höchsten Geschwindigkeit, die längste die größte Strecke mit der niedrigsten Geschwindigkeit. Anders als beim Produkt ergibt die Kombination beider kleinsten Eingaben nicht das kleinste Ergebnis. Eine angemessenere Antwort lautet: „Unter diesen Annahmen zwischen zwei und drei Stunden, ohne Pausen.“
+</Exercise>
+
+### Welche Information wäre als Nächstes besonders nützlich?
+
+Angenommen, wir könnten die exakte Strecke als 195 km oder die exakte Durchschnittsgeschwindigkeit als 80 km/h feststellen. Vergleiche die verbleibende Unsicherheit:
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="information" />
+
+Bei exakter Strecke liegt die Fahrzeit zwischen $195/90$ und $195/70$ Stunden. Der Bereich ist ungefähr 37,14 Minuten breit. Bei exakter Geschwindigkeit reicht er von $180/80$ bis $210/80$ Stunden und ist 22,5 Minuten breit. Der ursprüngliche Bereich ist 60 Minuten breit.
+
+<Interactive kind="module" module="reasoning-40" preset="journey" id="precision-journey" />
+
+In diesem Beispiel verkleinert die Auflösung der Geschwindigkeitsunsicherheit den Bereich stärker. Die zukünftige Durchschnittsgeschwindigkeit lässt sich möglicherweise aber schwerer bestimmen als die Strecke. Vergleiche den Nutzen einer Information mit Kosten und Machbarkeit. Ein engerer Bereich ist nur insoweit nützlich, wie er der Frage oder Entscheidung hilft.
+
+## 9. Das angemessene Maß an Sicherheit
+
+Kehre zum Saal zurück: Gehe von einer unbegründeten Zahl zu einem offengelegten Bereich über, zeige dessen Annahmen und bestimme dann die Entscheidungsgrenze.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="conclusion" />
+
+Wir sollten exakte Antworten nicht immer durch Bereiche ersetzen. Manchmal ist eine exakte Antwort gerechtfertigt. Manchmal ist eine Wahrscheinlichkeitsverteilung aufschlussreicher. Manchmal ist unser Wissen so unvollständig, dass selbst ein Zahlenbereich irreführen würde.
+
+Die passende Form einer Antwort hängt von den verfügbaren Informationen und ihrem Verwendungszweck ab.
+
+**Der Zweck des Schlussfolgerns ist nicht, sicher zu wirken. Er ist zu verstehen, wie sicher wir begründet sein können.**
+
+## 10. Eine wiederverwendbare Methode
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="framework" />
+
+Bestimme die Unsicherheit, lege Annahmen offen, rechne ihre Folgen weiter, prüfe die Sensitivität und prüfe die Robustheit. Diese Schritte helfen in Forschung, Technik, Projektplanung und alltäglichen Entscheidungen. Sie liefern eine Methode zum Denken unter Unsicherheit, die über eine allgemeine Warnung vor übermäßiger Sicherheit hinausgeht.
+
+Manchmal **wissen wir bereits genug für eine gute Entscheidung, obwohl wir die genaue Antwort nicht kennen**.
+
+### Weiterführende Literatur
+
+- [OpenIntro Statistics](https://www.openintro.org/book/os/), §§5.1–5.2: Stichprobenstreuung, Punktschätzer und Konfidenzintervalle.
+- [NIST: Measurement Uncertainty](https://www.nist.gov/itl/sed/topic-areas/measurement-uncertainty): quantitatives Denken über Messqualität.
+- [NIST: Measurement Uncertainty, Glossar](https://www.nist.gov/glossary-term/39291): Begriffe und Komponenten der Unsicherheit.
+- [Stanford Encyclopedia of Philosophy: Decision Theory](https://plato.stanford.edu/entries/decision-theory/), §§1 und 3: Präferenzen, mögliche Ergebnisse und Entscheidungen unter Unsicherheit.
+
+Die Teilnahme- und Fahrtbeispiele sowie ihre Zahlenannahmen sind eigens für diese Lektion entworfene Lehrbeispiele, keine empirischen Befunde aus diesen Quellen. Die Behandlung statistischer Intervalle ist einführend.

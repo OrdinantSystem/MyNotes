@@ -1,0 +1,106 @@
+[
+  {
+    "figures": 13,
+    "labs": 4,
+    "lang": "en",
+    "outside": [],
+    "overflow": false,
+    "polylineFills": [
+      "none",
+      "none"
+    ],
+    "theme": "light",
+    "width": 1365
+  },
+  {
+    "figures": 13,
+    "labs": 4,
+    "lang": "en",
+    "outside": [],
+    "overflow": false,
+    "polylineFills": [
+      "none",
+      "none"
+    ],
+    "theme": "dark",
+    "width": 1365
+  },
+  {
+    "figures": 13,
+    "labs": 4,
+    "lang": "en",
+    "outside": [],
+    "overflow": false,
+    "polylineFills": [
+      "none",
+      "none"
+    ],
+    "theme": "dark",
+    "width": 390
+  },
+  {
+    "figures": 13,
+    "labs": 4,
+    "lang": "en",
+    "outside": [],
+    "overflow": false,
+    "polylineFills": [
+      "none",
+      "none"
+    ],
+    "theme": "light",
+    "width": 390
+  },
+  {
+    "figures": 13,
+    "labs": 4,
+    "lang": "de",
+    "outside": [],
+    "overflow": false,
+    "polylineFills": [
+      "none",
+      "none"
+    ],
+    "theme": "light",
+    "width": 1365
+  },
+  {
+    "figures": 13,
+    "labs": 4,
+    "lang": "de",
+    "outside": [],
+    "overflow": false,
+    "polylineFills": [
+      "none",
+      "none"
+    ],
+    "theme": "dark",
+    "width": 1365
+  },
+  {
+    "figures": 13,
+    "labs": 4,
+    "lang": "de",
+    "outside": [],
+    "overflow": false,
+    "polylineFills": [
+      "none",
+      "none"
+    ],
+    "theme": "dark",
+    "width": 390
+  },
+  {
+    "figures": 13,
+    "labs": 4,
+    "lang": "de",
+    "outside": [],
+    "overflow": false,
+    "polylineFills": [
+      "none",
+      "none"
+    ],
+    "theme": "light",
+    "width": 390
+  }
+]

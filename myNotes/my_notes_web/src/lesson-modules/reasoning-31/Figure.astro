@@ -1,0 +1,10 @@
+---
+import './pairing.css';
+import Flow from '../../components/Flow.astro';
+import {text} from './copy';
+import {figureMarkup} from './render';
+interface Props{figure:string}
+const {figure}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale);
+const nodes=[{label:c.compare,tex:"|A|\\;?\\;|B|",detail:c.avoid},{label:c.construct,tex:"f:A\\to B",detail:c.one},{label:c.examine,tex:"f(a)=f(b)\\Rightarrow a=b",detail:c.obstructions},{label:c.establish,tex:"f^{-1}:B\\to A",detail:c.reversible},{label:c.equality,tex:"|A|=|B|",detail:c.argument}];
+---
+<figure class="pairing-view" data-pair-figure={figure}><h3>{c.titles[figure as keyof typeof c.titles]}</h3>{figure==='process'?<Flow nodes={nodes} caption={c.equal}/>:<div set:html={figureMarkup(locale,figure)}/>}</figure>

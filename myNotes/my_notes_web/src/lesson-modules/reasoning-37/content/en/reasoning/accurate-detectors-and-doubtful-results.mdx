@@ -1,0 +1,332 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-five
+sourceId: reasoning-episode-37
+sourcePages: []
+sourceLocations: ["Sections 1–11: detector, conditional probabilities, Bayes derivation and workshop; sections 12–14: model and preparation notes"]
+title: "Why an accurate detector can still produce doubtful results"
+navTitle: "Detectors and base rates"
+description: "Reconstruct Bayes’ theorem by regrouping one population and tracking the denominator of each conditional probability."
+order: 37
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [implication-and-its-converse, sets-and-mathematical-worlds]
+thumbnail: module:reasoning-37
+---
+
+## 1. The central idea
+
+An instrument can be remarkably good at detecting something when it is present, yet most of its positive results can be false alarms.
+
+This sounds contradictory. It is not.
+
+The problem emerges when we confuse two questions that sound almost identical:
+
+- If something is defective, how likely is the detector to flag it?
+- If the detector flags something, how likely is it to be defective?
+
+These questions concern different populations, different denominators and, consequently, different probabilities.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="direction" />
+
+Reversing the condition changes the question. There is no general rule allowing us to reverse the probability.
+
+## 2. The suspicious factory machine
+
+Imagine a fictional factory that produces small mechanical components. Every component travels along a conveyor belt and passes through an automated inspection machine.
+
+Some components contain an internal defect that cannot be seen from the outside.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="detector" />
+
+The manufacturer tells us two things about the detector. It correctly identifies 90% of defective components, and it mistakenly flags only 10% of healthy components.
+
+A component passes through the detector. The warning light turns on.
+
+How likely is it that this component is actually defective?
+
+What probability would you initially assign?
+
+<Interactive kind="module" module="reasoning-37" preset="opening" id="detector-opening" />
+
+## 3. Establishing the world before introducing the detector
+
+Imagine the factory produces exactly 1,000 components. Of these, 10 are defective and 990 are healthy.
+
+We can temporarily give ourselves knowledge that the factory inspector does not possess: we can see which components are actually defective.
+
+Each dot in the diagram represents one component.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="population" />
+
+The proportion of defective components is:
+
+$$
+\frac{10}{1000}=1\%.
+$$
+
+This is our **base rate**: the proportion of the population that possesses the property we are interested in, before we receive the detector's result.
+
+Let the event $D$ mean that a randomly selected component is defective.
+
+$$
+P(D)=0.01
+$$
+
+The complementary event, denoted $D^c$, means that the component is not defective.
+
+$$
+P(D^c)=0.99
+$$
+
+Keep the entire population in mind. Ten defective components may sound significant in isolation, but when positioned among one thousand components, their rarity becomes immediately apparent.
+
+This initial imbalance is what will eventually produce the surprising result.
+
+## 4. Two populations pass through the detector
+
+Instead of applying the detector to all 1,000 components at once, separate the population into two groups.
+
+### The defective components
+
+There are ten defective components. The detector successfully identifies nine of them and misses one.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="sensitivity" />
+
+Write $+$ for the event that the detector flags a component. This is called the detector's sensitivity, or true-positive rate.
+
+$$
+P(+\mid D)=90\%.
+$$
+
+The vertical bar means *given that*.
+
+Read the expression from right to left in terms of the reasoning procedure: we first restrict our attention to defective components, and then ask how many receive a positive detector result.
+
+### The healthy components
+
+Now consider the 990 healthy components.
+
+The machine mistakenly flags 10% of them.
+
+$$
+990\cdot0.10=99
+$$
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="false-positives" />
+
+This is the false-positive rate.
+
+$$
+P(+\mid D^c)=10\%.
+$$
+
+Notice what has happened. The detector makes proportionally fewer mistakes than correct detections, but it has far more opportunities to make mistakes among the healthy components.
+
+A small fraction of a large group can be much larger than a large fraction of a small group.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="counts" />
+
+## 5. Changing the reference group
+
+Until now, we have organized the components according to their actual condition: defective or healthy. But the factory inspector does not know their actual condition. The inspector only knows whether the detector flagged them.
+
+We must therefore reorganize exactly the same population according to a different property.
+
+No components are added, removed or modified. Only their grouping changes.
+
+<Interactive kind="module" module="reasoning-37" preset="regroup" id="detector-regroup" />
+
+We are left with 108 flagged components.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="flagged" />
+
+Now we can finally answer the question from the beginning.
+
+If a component is flagged, what is the probability that it is actually defective?
+
+$$
+\boxed{P(D\mid +)=\frac{9}{108}\approx8.3\%}
+$$
+
+Despite the detector correctly identifying 90% of defective components, approximately 92% of its positive results are false alarms in this particular factory population.
+
+There is no contradiction.
+
+The two percentages describe different reference groups.
+
+## 6. Conditional probability as a restriction of the world
+
+When we learn that an event has occurred, we restrict our attention to the outcomes compatible with that information.
+
+$$
+P(D\mid +)=\frac{P(D\cap +)}{P(+)}
+$$
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="restriction" />
+
+The intersection $D\cap+$ represents all components that are simultaneously defective and flagged.
+
+The denominator represents all components that are flagged, regardless of their actual condition. Conditional probability requires this conditioning event to have positive probability: $P(+)>0$.
+
+This is the same intersection we considered when calculating the detector's sensitivity. However, the denominator has changed.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="denominators" />
+
+The numerator has remained nine throughout the regrouping.
+
+It is the denominator that changes everything.
+
+This connects with the earlier lesson on conditional statements. Just as $A\implies B$ does not generally establish $B\implies A$, knowing $P(B\mid A)$ does not automatically establish $P(A\mid B)$.
+
+The logical and probabilistic situations are different, but both require us to pay attention to the direction of a relationship.
+
+## 7. Discovering Bayes' theorem rather than memorizing it
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="tree" />
+
+There are only two possible ways for a component to receive a positive result. It can be defective and correctly flagged, or healthy and incorrectly flagged.
+
+The probability of the first path is:
+
+$$
+P(D\cap+)=P(D)P(+\mid D).
+$$
+
+The probability of the second path is:
+
+$$
+P(D^c\cap+)=P(D^c)P(+\mid D^c).
+$$
+
+Because these two events are mutually exclusive and together include every positive result, their probabilities can be added.
+
+$$
+P(+)=P(D)P(+\mid D)+P(D^c)P(+\mid D^c).
+$$
+
+Substitute these expressions into the definition of conditional probability.
+
+### Bayes' theorem
+
+$$
+\displaystyle P(D\mid+)=\frac{P(+\mid D)P(D)}{P(+)}
+$$
+
+Expanding the denominator into both possible paths
+
+$$
+\displaystyle P(D\mid+)=\frac{P(+\mid D)P(D)}{P(+\mid D)P(D)+P(+\mid D^c)P(D^c)}
+$$
+
+The factory example becomes:
+
+$$
+P(D\mid+)= \frac{0.9\cdot0.01} {0.9\cdot0.01+0.1\cdot0.99}.
+$$
+
+$$
+=\frac{0.009}{0.009+0.099} =\frac{9}{108}.
+$$
+
+$$
+\boxed{P(D\mid+)\approx0.0833}
+$$
+
+The formula is not a new fact disconnected from everything we have done before. It is simply a compact mathematical description of the process that we have already seen.
+
+We separated the population, followed two paths, reunited the flagged components, and calculated their relative proportions.
+
+## 8. What happens when we change the world, but not the detector?
+
+Now return to the factory. Imagine that a manufacturing problem causes defective components to become more common.
+
+Nothing about the detector has changed. Its sensitivity remains 90%, and its false-positive rate remains 10%.
+
+Only the composition of the population changes.
+
+Before changing the base rate, predict whether the probability that a flagged component is defective will increase, decrease or remain constant.
+
+<Interactive kind="module" module="reasoning-37" preset="base-rate" id="detector-base-rate" />
+
+The results are quite remarkable.
+
+| Base rate of defects | Correct detections | False alarms | Probability of defect if flagged |
+| -------------------- | ------------------ | ------------ | -------------------------------- |
+| 1%                   | 9                  | 99           | 8.3%                             |
+| 5%                   | 45                 | 95           | 32.1%                            |
+| 10%                  | 90                 | 90           | 50%                              |
+| 20%                  | 180                | 80           | 69.2%                            |
+| 50%                  | 450                | 50           | 90%                              |
+
+The very same detector can produce mostly false alarms in one factory and mostly correct positive results in another.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="curve" />
+
+This reveals a deeper insight: the meaning of evidence depends not only on the mechanism that produced it, but also on the world in which that mechanism operates.
+
+A detector result cannot always be interpreted independently of its context.
+
+## 9. Doubtful evidence is not worthless evidence
+
+If only 8.3% of flagged components are defective, does that mean the detector is useless?
+
+Not necessarily.
+
+Before using the detector, the probability that a randomly selected component was defective was only 1%.
+
+After receiving a positive result, that probability increased to approximately 8.3%.
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="update" />
+
+The result provides genuine information. A flagged component is substantially more suspicious than a randomly selected component.
+
+But becoming more likely is not the same thing as becoming likely.
+
+This distinction is particularly valuable for the broader course. Evidence can rationally increase our confidence in a conclusion without establishing that conclusion as true or even more probable than its alternative.
+
+The detector may therefore be useful as an initial screening mechanism, followed by a more precise inspection procedure.
+
+Whether that is worthwhile depends on the costs of inspection, missed defects and false alarms.
+
+## 10. Reconstructing the reasoning
+
+Consider a different fictional factory.
+
+This factory produces 2,000 components. Of these, 5% are defective. Its detector identifies 80% of defective components and mistakenly flags 5% of healthy ones.
+
+Calculate the probability that a flagged component is actually defective.
+
+<Interactive kind="module" module="reasoning-37" preset="workshop" id="detector-workshop" />
+
+The purpose of this exercise is not to test whether you remember Bayes' theorem. It is to determine whether you can reconstruct the necessary reference group.
+
+Someone who solves this problem by drawing circles and counting them has understood the essential concept just as well as someone who uses the formula.
+
+## 11. Every probability has a reference group
+
+<ReasoningFigure kind="module" module="reasoning-37" figure="summary" />
+
+All three statements are true simultaneously. None contradicts the others.
+
+Whenever someone presents a probability, an accuracy percentage or a success rate, one of the most important questions we can ask is deceptively simple:
+
+**A percentage of what?**
+
+Look once more at the denominator of the final fraction.
+
+$$
+\frac{9}{\boxed{108}}
+$$
+
+## Model assumptions and further reading
+
+The rates and counts here are exact assumptions of fictional factory models. In observed populations, frequencies can fluctuate, and detector performance need not stay constant across settings. The base-rate comparison deliberately holds both detector rates fixed. None of these examples supplies performance data for a real detector.
+
+[OpenIntro Statistics](https://www.openintro.org/book/os/) provides further reading on conditional probability and probability trees.
+
+[Matthew Knachel — Fundamental Methods of Logic](https://open.umn.edu/opentextbooks/textbooks/fundamental-methods-of-logic), Chapter 6, connects probability with reasoning.
+
+[Gerd Gigerenzer and Ulrich Hoffrage (1995), How to Improve Bayesian Reasoning Without Instruction: Frequency Formats](https://doi.org/10.1037/0033-295X.102.4.684) is the supplied companion reading on natural-frequency representations. The counts-first approach here does not assert a measured learning outcome for this lesson.

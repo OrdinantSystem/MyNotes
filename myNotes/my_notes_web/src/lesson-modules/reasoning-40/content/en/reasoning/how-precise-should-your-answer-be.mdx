@@ -1,0 +1,262 @@
+---
+course: reasoning
+chapter: reasoning-part-five
+sourceId: reasoning-episode-40
+sourceLocations: ["Sections 1–10", "The conceptual framework of the episode", "Preparation sources"]
+sourcePages: []
+thumbnail: module:reasoning-40
+locale: en
+title: How precise should your answer be?
+navTitle: Precision and uncertainty
+description: Match the specificity of an answer to its evidence, propagate uncertainty, and test whether it changes a decision.
+order: 40
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+---
+
+## 1. Which person knows more?
+
+How many people will attend tomorrow's event? Consider two answers before revealing what information supports them.
+
+<Interactive kind="module" module="reasoning-40" preset="opening" id="precision-opening" />
+
+There are some registrations, several groups that have not confirmed their attendance and no reliable historical record of similar events. Both people possess the same information. But Person A expresses a level of numerical specificity that the available evidence does not support.
+
+We should not immediately conclude that Person B is correct either. Their range also requires justification. The distinction is between **making an estimate and communicating the limitations of that estimate**.
+
+The quality of an answer does not depend on how many digits it contains, but on how faithfully it represents what we know, what we assume and what remains uncertain. Properly representing uncertainty is itself a form of intellectual rigor.
+
+## 2. Accuracy and precision are different
+
+Imagine four people repeatedly attempting to hit the center of a target. Every attempt produces a small dot representing a measurement.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="targets" />
+
+Accuracy concerns how close a measurement is to the actual value. Precision concerns how closely repeated measurements agree with one another under specified conditions. “Accurate on average” describes the center of the scattered group, not the accuracy of every individual measurement.
+
+The second target matters: all measurements are extremely consistent, yet systematically displaced from the truth.
+
+### A numerical example
+
+Imagine a weighing scale that adds approximately two kilograms to the actual mass of an object.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="scale" />
+
+Taking a thousand additional measurements using the same faulty scale might help us determine its average reading extremely precisely. However, it would not automatically reveal the true mass.
+
+This continues the lesson on sampling: **collecting more information through a flawed process does not necessarily correct the flaw in that process**.
+
+There is also a related but distinct problem: reporting too many digits. A result expressed as 12.013847 kg is numerically specific, but those additional digits do not establish either accuracy or measurement precision.
+
+## 3. Where does uncertainty come from?
+
+Uncertainty can enter at different points in constructing an answer.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="uncertainty" />
+
+**Measurement uncertainty.** An automatic sensor counts people entering an auditorium. Two people entering simultaneously might be counted as one. The uncertainty originates in the measurement procedure itself.
+
+**Sampling uncertainty.** We ask 20 registered participants how many guests they intend to bring. Even with perfectly accurate responses, those 20 participants may differ from the rest. We observe only part of the population.
+
+**Model uncertainty.** We assume everyone who registers will actually attend. Even if we know the exact number of registrations, the relationship between registration and attendance may differ from our assumption. The uncertainty lies in how we represent reality.
+
+**Incomplete knowledge.** Another group may be planning to attend without having contacted the organizers. Relevant information is missing from our data entirely.
+
+### More observations do not repair every problem
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="more-data" />
+
+Collecting more observations can reduce certain forms of uncertainty. But if we continue collecting the same kind of information, using the same flawed assumptions, some uncertainties may remain.
+
+The four categories are not entirely independent or mutually exclusive. Their purpose is to identify which part of our reasoning needs improvement. Measurement uncertainty itself can include random and systematic components. [NIST, Measurement Uncertainty](https://www.nist.gov/itl/sed/topic-areas/measurement-uncertainty)
+
+The useful question is not simply “How can we obtain more information?” but **“Which information are we missing?”**
+
+## 4. Construct an estimate
+
+We are responsible for preparing the auditorium's chairs. Not all groups have confirmed, and we do not know how many people each group will bring.
+
+Let $G$ be the number of attending groups and $S$ the average number of people per group. Then attendance $N$ satisfies
+
+$$
+N=G\cdot S.
+$$
+
+Assuming everyone needs one chair, attendance also determines the number of chairs needed. If the inputs describe the actual attending groups and their actual average size, this relationship is exact. **The uncertainty lies in the inputs.**
+
+### Make the assumptions visible
+
+Provisional registrations and conversations with the organizers suggest these working assumptions:
+
+$$
+80\leq G\leq100,\qquad 2.5\leq S\leq3.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="bounds" />
+
+Both inputs are positive, so multiplication increases with either input. Therefore,
+
+$$
+80\cdot2.5\leq G\cdot S\leq100\cdot3,
+$$
+
+and hence
+
+$$
+\boxed{200\leq N\leq300}.
+$$
+
+The calculation is rigorous **conditional on the assumptions**. Mathematics cannot independently establish that the assumptions are correct. If more than 100 groups arrive, or the average group size exceeds three, actual attendance could fall outside the estimate.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="premises" />
+
+A mathematically valid argument can still describe reality poorly if its starting assumptions are false. This reconnects everyday estimation with formal logic and proof.
+
+## 5. Sensitivity: change the assumptions
+
+Start with 90 groups and 2.8 people per group: 252 attendees, leaving eight of the 260 available chairs spare. Hold one input constant while changing the other.
+
+<Interactive kind="module" module="reasoning-40" preset="attendance" id="precision-attendance" />
+
+The controls represent planning scenarios. A modeled average can produce a fractional projection; rounding up gives a whole number of chairs. It does not imply that an actual observed crowd contains a fraction of a person.
+
+### See the combinations together
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="sensitivity" />
+
+This is **sensitivity analysis**: systematically examining how a result changes when its inputs or assumptions change.
+
+If average group size remains 2.8, increasing attendance by one group increases projected attendance by 2.8. If 90 groups attend, increasing average group size by 0.1 increases projected attendance by nine:
+
+$$
+\Delta N=90\cdot0.1=9.
+$$
+
+Different uncertainties affect the answer in different ways. Comparing a one-group change with a 0.1-person change does not, by itself, show which input is more important: also consider the plausible size of each uncertainty and the units being compared.
+
+The objective is to understand which uncertainties materially influence the result.
+
+## 6. Robustness: do we need a more precise answer?
+
+Until now, we have tried to determine how many people will attend. But our practical objective is to ensure everyone has a chair. These are two different problems.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="capacities" />
+
+With 180 chairs, knowing exact attendance would not change the need for more chairs. With 320 chairs, we can also make a decision without knowing exact attendance, provided the assumed 200–300 range holds.
+
+With 260 chairs, uncertainty crosses a decision threshold. More information could change what we decide to do.
+
+A decision is **robust with respect to a specified range of uncertainty** when it continues to satisfy the relevant objective as uncertain inputs vary within that range.
+
+A robust decision is not necessarily the cheapest or optimal decision. Obtaining 400 chairs could prevent shortages throughout these scenarios, but be unnecessarily expensive. Decisions depend on uncertain outcomes and how we value their consequences. [Stanford Encyclopedia of Philosophy, Decision Theory](https://plato.stanford.edu/entries/decision-theory/)
+
+### The decision boundary
+
+With 260 chairs, sufficiency means
+
+$$
+G\cdot S\leq260,
+$$
+
+or, since $G>0$,
+
+$$
+S\leq\frac{260}{G}.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="boundary" />
+
+Each point represents a possible scenario. The dashed curve represents exactly 260 attendees. On the curve there are enough chairs; crossing into the region above it creates a shortage. Group counts are whole numbers; the smooth plot illustrates the relationship between them.
+
+If 40 additional chairs can be kept in storage, ready to deploy when necessary, we can prepare for the whole assumed range without setting up all 300 immediately. This plan depends on those reserves being usable in time.
+
+**We can sometimes resolve a decision without resolving the uncertainty behind it.** Robustness always refers to the stated range and objective, not every conceivable outcome.
+
+## 7. Not all ranges mean the same thing
+
+Three visually similar intervals can express very different things.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="intervals" />
+
+Our 200–300 attendance interval is an assumption-based scenario range. We have not established a probability distribution over possible inputs. Consequently, we cannot legitimately claim a 95% probability that attendance will fall inside it.
+
+### The intuition behind confidence intervals
+
+Imagine a fixed population parameter. Repeatedly draw samples and construct an interval from each sample.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="coverage" />
+
+Under the assumptions of a conventional frequentist procedure, a nominal 95% confidence-interval method produces intervals containing the true parameter approximately 95% of the time over repeated sampling. **The parameter remains fixed. The intervals change.**
+
+This does not automatically mean that a particular observed interval has a 95% probability of containing that fixed parameter. Bayesian credible intervals have a different interpretation and depend on their own modeling assumptions. [OpenIntro Statistics, Chapter 5](https://www.openintro.org/book/os/)
+
+The ten drawn intervals are a schematic illustration, not a simulation establishing a coverage rate. We are distinguishing interpretations here, rather than teaching confidence-interval calculations.
+
+**The shape of an interval does not tell us what it means. The procedure used to construct it does.**
+
+## 8. Practice: replace a precise answer with a better one
+
+Someone planning a journey knows the approximate distance and is uncertain about average traveling speed. They claim:
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="journey" />
+
+The available information is
+
+$$
+180\leq d\leq210\text{ km},\qquad70\leq v\leq90\text{ km/h}.
+$$
+
+Find a plausible journey duration, excluding stops. Which combination gives the shortest journey? Which gives the longest? Try before revealing the solution.
+
+<Exercise>
+For positive speed, $t=d/v$ increases with distance and decreases with speed. Thus,
+
+$$
+\frac{180}{90}\leq t\leq\frac{210}{70},\qquad \boxed{2\leq t\leq3\text{ h}}.
+$$
+
+The shortest journey combines the smallest distance with the largest speed; the longest combines the largest distance with the smallest speed. Unlike the multiplication example, combining both smallest inputs does not give the smallest result. A more faithful answer is “between two and three hours, excluding stops, under these assumptions.”
+</Exercise>
+
+### Which information would be most useful next?
+
+Suppose we could establish the exact distance as 195 km, or the exact average speed as 80 km/h. Compare the remaining uncertainty:
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="information" />
+
+With exact distance, the time range is $195/90$ to $195/70$ hours, a width of approximately 37.14 minutes. With exact speed, it is $180/80$ to $210/80$ hours, a width of 22.5 minutes. The original range is 60 minutes wide.
+
+<Interactive kind="module" module="reasoning-40" preset="journey" id="precision-journey" />
+
+In this example, resolving average-speed uncertainty narrows the range more. Future average speed may, however, be harder to determine than distance. Compare the usefulness of information with its cost and feasibility. A narrower range is useful only insofar as it helps the question or decision at hand.
+
+## 9. The right amount of certainty
+
+Return to the auditorium: move from an unsupported number to an explicit range, show its assumptions, then identify the decision threshold.
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="conclusion" />
+
+We should not always replace exact answers with ranges. Sometimes an exact answer is justified. Sometimes a probability distribution is more informative. Sometimes knowledge is so incomplete that even a numerical range would mislead.
+
+The appropriate form of an answer depends on the information available and the purpose for which it will be used.
+
+**The purpose of reasoning is not to appear certain. It is to understand how certain we have reason to be.**
+
+## 10. A reusable method
+
+<ReasoningFigure kind="module" module="reasoning-40" figure="framework" />
+
+Identify uncertainty, state assumptions, propagate their consequences, test sensitivity and test robustness. These steps apply to scientific research, engineering, project planning and ordinary decisions. They give us a way to reason under uncertainty, beyond a general warning against overconfidence.
+
+Sometimes **we already know enough to make a good decision, even when we do not know the exact answer**.
+
+### Further reading
+
+- [OpenIntro Statistics](https://www.openintro.org/book/os/), §§5.1–5.2: sampling variability, point estimates and confidence intervals.
+- [NIST: Measurement Uncertainty](https://www.nist.gov/itl/sed/topic-areas/measurement-uncertainty): quantitative reasoning about measurement quality.
+- [NIST: Measurement Uncertainty glossary](https://www.nist.gov/glossary-term/39291): terminology and components of uncertainty.
+- [Stanford Encyclopedia of Philosophy: Decision Theory](https://plato.stanford.edu/entries/decision-theory/), §§1 and 3: preferences, prospects and decisions under uncertainty.
+
+The attendance and journey examples and their numerical assumptions are original teaching examples for this lesson, not empirical findings from these sources. The treatment of statistical intervals is introductory.

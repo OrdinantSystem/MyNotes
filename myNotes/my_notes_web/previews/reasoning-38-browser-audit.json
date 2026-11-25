@@ -1,0 +1,124 @@
+{
+  "date": "2026-11-25",
+  "module": "reasoning-38",
+  "key": "changing-your-mind-mathematically",
+  "build": {
+    "node": "24.22.1",
+    "production": true,
+    "prefix": "/MyNotes",
+    "prefixBrowser": true,
+    "normalRestored": true,
+    "pages": 279,
+    "linksAndAssets": 34389,
+    "texAnnotations": 12367,
+    "searchPages": 192,
+    "errors": 0,
+    "warnings": 0,
+    "existingHints": 6
+  },
+  "layouts": [
+    {
+      "height": 1000,
+      "katexErrors": 0,
+      "locale": "en",
+      "overflow": false,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "height": 1000,
+      "katexErrors": 0,
+      "locale": "en",
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "height": 844,
+      "katexErrors": 0,
+      "locale": "en",
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "height": 844,
+      "katexErrors": 0,
+      "locale": "en",
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "height": 844,
+      "katexErrors": 0,
+      "locale": "de",
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "height": 844,
+      "katexErrors": 0,
+      "locale": "de",
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "height": 1000,
+      "katexErrors": 0,
+      "locale": "de",
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "height": 1000,
+      "katexErrors": 0,
+      "locale": "de",
+      "overflow": false,
+      "theme": "dark",
+      "width": 1440
+    }
+  ],
+  "mathematicalConfigurationsChecked": 1030301,
+  "figures": 12,
+  "activities": 5,
+  "galleryInstances": 6,
+  "duplicateGalleryIds": 0,
+  "checks": [
+    "neutral and informative evidence",
+    "zero evidence and zero priors",
+    "invalid numeric input and keyboard range increment",
+    "percentage-point feedback",
+    "initially unanswered prediction and cleared stale answers",
+    "copied versus independent reports",
+    "sensitivity endpoints and all source table rows",
+    "investigation stage bounds",
+    "reset and independent instances",
+    "EN/DE production search",
+    "prefixed localized controls, links, assets and search"
+  ],
+  "sourceHashes": {
+    "Lab.astro": "8b30d06c35ea22e466ac5867668428aa5114f77f7c1d523a79a58198fd0beeab",
+    "styles.css": "a46f44136e334717c722d8afa582579bb44b5b711b49b4e9437840071e307f5d",
+    "Thumbnail.astro": "cf70bc2fddf018c5792dc50c64b1eca16999cb78d9a52c364942b22bc0effc64",
+    "model.ts": "ddc2976c1c724a7a8667dbe7d6d00716a7b6ef020b3c3080780d74d5f7f1e3a0",
+    "verify.mjs": "0865a2cf4ba01f108b10e7b6aece651f201441df3c1c1cd3532a0ed86b45e20c",
+    "copy.ts": "d804649cd0ebf8225373d3f4d64ceca50b78316d6ad99209f6a0e0e020c05397",
+    "manifest.json": "bf69fee15f465fffadef3e18b63ff12e232006992cd991569467b1a1d20e9b2a",
+    "Figure.astro": "db45173b93c031e7e73cc5420c9f4aa1aa8a00a048811fa5451cc2773fba98fc",
+    "render.ts": "602db502d784acd8b0b65d971db98e4da95f98faea9919fde03c62c6ec8b1776",
+    "content/de/reasoning/changing-your-mind-mathematically.mdx": "2b8d12ed1b49c2b583c053a3888e602024fe1b0ccff726b55928ad9dd2b80cdb",
+    "content/en/reasoning/changing-your-mind-mathematically.mdx": "482e6ac66b8dbfbafec8ee3708e3f28307db99d953fd730e4a2c8f35e06706ea"
+  },
+  "preview": "http://127.0.0.1:18548/reasoning/lessons/changing-your-mind-mathematically/",
+  "reviewStatus": "unreviewed",
+  "limitations": [
+    "No independent mathematical or native-language certification",
+    "No screen-reader or physical touch/pen audit",
+    "Preparation bibliography not independently checked"
+  ],
+  "committedOrPublished": false
+}

@@ -1,0 +1,39 @@
+{
+  "lesson": "reasoning-43",
+  "normalPreview": "http://127.0.0.1:4443/",
+  "locales": [
+    "en",
+    "de"
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "viewports": [
+    "default desktop",
+    "390x844"
+  ],
+  "counts": {
+    "figures": 19,
+    "activities": 4,
+    "galleryActivities": 5
+  },
+  "checks": [
+    "74/66 and -8 overall; 80/90 and 50/60 with +10",
+    "keyboard and pointer subgroup actions; concise localized status",
+    "intervention removes P→S and retains P→Y and S→Y",
+    "selection 50/50 to100/50; excluded00 remains identified",
+    "fire attempt and disclosure reset clears/closes",
+    "all activity resets",
+    "independent gallery subgroup unchanged",
+    "English and German search result found",
+    "prefix English to German language switch, assets and activity",
+    "no compact horizontal overflow",
+    "no browser warnings/errors"
+  ],
+  "prefix": "http://127.0.0.1:4543/MyNotes/",
+  "limitations": [
+    "No screen-reader or physical-device certification",
+    "No expert editorial or causal-model review"
+  ]
+}

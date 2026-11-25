@@ -1,0 +1,251 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-five
+sourceId: reasoning-episode-33
+sourcePages: []
+sourceLocations: ["Episode script, sections 1–9", "Visual relationships in section 10; preparation references in section 12"]
+title: "Did you observe it—or infer it?"
+navTitle: "Observation and inference"
+description: "Distinguish observation, interpretation, and absence claims by examining the procedure that produced the evidence."
+order: 33
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+thumbnail: "module:reasoning-33"
+---
+
+## What did you see?
+
+<Interactive kind="module" module="reasoning-33" preset="experiment" id="observation-experiment" />
+
+Commit to a count before considering the second question. The replay contains precisely the same visual information. Nothing changes except what you know to look for.
+
+This is a demonstration, not a diagnostic test. Its trajectories and crossing count are checked, but this particular animation has not been piloted as a psychological experiment. Pausing or inspecting frames changes the task. Continue reading whenever you are ready; completing the activity is not required.
+
+## The same reality, two different experiences
+
+The most interesting part of this demonstration is not whether someone missed the diamond. It is that two people can watch exactly the same event and come away with different accounts of what happened.
+
+<ReasoningFigure kind="module" module="reasoning-33" figure="event" />
+
+A coral diamond enters the scene, travels diagonally across it and disappears. It is drawn in front of the circles and remains in the sequence for five seconds.
+
+<ReasoningFigure kind="module" module="reasoning-33" figure="viewers" />
+
+Neither viewer necessarily lies. Neither necessarily has worse eyesight. Their reports can differ because their attention and awareness differed.
+
+This introduces **selective attention**: the allocation of our attentional resources toward particular aspects of our environment rather than others.
+
+When an unexpected, visible object goes unnoticed while someone concentrates on another task, this is known as **inattentional blindness**. Simons and Chabris investigated this phenomenon in their [1999 study involving a basketball-passing task and an unexpected gorilla](https://pubmed.ncbi.nlm.nih.gov/10694957/). The geometric activity above is an illustration, not a replication of that study or a measurement of its reported effects.
+
+<Interactive kind="module" module="reasoning-33" preset="attention" id="observation-attention" />
+
+This is an explanatory metaphor, not a reconstruction of what someone literally sees. The objects do not physically become darker when someone ignores them.
+
+Attention is not simply a defect in our reasoning. It is also what makes concentration possible. Without prioritizing information, even relatively simple tasks would become difficult.
+
+The problem arises when we confuse the portion of reality we noticed with reality in its entirety.
+
+The objective is not to demonstrate that human perception is unreliable. It is to demonstrate that there is a difference between what happened, what we noticed, what we remember, and what we conclude.
+
+<ReasoningFigure kind="module" module="reasoning-33" figure="pipeline" />
+
+The episode revolves around three fundamental distinctions:
+
+- Something being visible does not guarantee that it will be noticed.
+- Something being observed does not automatically establish its explanation.
+- Something not being noticed does not automatically establish its absence.
+
+The third distinction is particularly important because it connects cognitive psychology with formal reasoning.
+
+## Observation, interpretation and unsupported additions
+
+Now that the viewer has experienced the difference between an event and their awareness of it, we introduce a second distinction.
+
+Even when we successfully observe something, we can still make unjustified claims about what it means.
+
+Imagine watching a red indicator illuminate on a machine.
+
+<ReasoningFigure kind="module" module="reasoning-33" figure="machine" />
+
+What can we legitimately conclude from this image? Consider three possible statements.
+
+| Kind | Statement | Relationship to the evidence |
+| --- | --- | --- |
+| Observation | “A red light is illuminated.” | A report of a directly visible feature. |
+| Interpretation | “The machine might be reporting a malfunction.” | A possible explanation requiring additional knowledge. |
+| Unsupported addition | “Someone damaged the machine yesterday.” | A specific causal story that the available evidence does not establish. |
+
+Notice that all three statements might be true. The distinction is not necessarily about truth or falsity. It is about the relationship between the statement and its supporting evidence.
+
+The red light could indicate a malfunction. But it could also indicate that the machine is charging, recording, undergoing maintenance, or functioning normally.
+
+<ReasoningFigure kind="module" module="reasoning-33" figure="interpretations" />
+
+One observation can be compatible with multiple explanations.
+
+To distinguish between these explanations, we might inspect the machine's manual, examine its diagnostic information, or perform another test.
+
+The aim is not to eliminate interpretation. Interpretation is indispensable to reasoning. The aim is to recognize when we have moved from observing something to explaining it.
+
+Strictly speaking, even identifying a red light involves perceptual processing. For this lesson, observation means a relatively direct, checkable report, while inference means a conclusion extending beyond that report.
+
+## I didn't see it, therefore it wasn't there
+
+Return to the opening animation and consider two statements:
+
+> I did not see a diamond.
+
+> There was no diamond.
+
+These statements appear similar in ordinary conversation, but their logical contents are fundamentally different.
+
+The first is a statement about the observer. The second is a statement about the external world.
+
+<ReasoningFigure kind="module" module="reasoning-33" figure="worlds" />
+
+Two different realities can produce the same observation report. The observation alone cannot distinguish between these two possibilities.
+
+This gives us an opportunity to reconnect with formal logic.
+
+Let $E$ mean “The object exists” and $D$ mean “The object was detected.” Here “exists” refers to its presence in the situation being investigated.
+
+The observer knows:
+
+$$
+\neg D
+$$
+
+But wants to conclude:
+
+$$
+\neg E
+$$
+
+When would that conclusion be justified?
+
+It would follow deductively if we could establish:
+
+$$
+E\implies D
+$$
+
+In other words, if the object existed, our observation procedure would necessarily detect it.
+
+| Unjustified inference | Valid inference |
+| --- | --- |
+| $\neg D\quad\therefore\neg E$ | $E\implies D,\quad\neg D\quad\therefore\neg E$ |
+| The connection between existence and detection is missing. | Modus tollens, provided the detection premise is true. |
+
+In mathematics, establishing an implication allows us to reason deductively.
+
+In empirical investigations, however, our detection methods are rarely perfect. We can often establish only that something would probably have been detected if it were present.
+
+This makes our conclusion evidence-based rather than logically certain.
+
+### Absence of evidence versus evidence of absence
+
+The expression *absence of evidence is not evidence of absence* is useful, but incomplete.
+
+Imagine searching for an elephant in two different places.
+
+<ReasoningFigure kind="module" module="reasoning-33" figure="search" />
+
+Both investigations might result in the same statement: “I didn't see an elephant.”
+
+But the evidential strength of that statement is different.
+
+The question is not merely whether we looked. It is whether we looked in a way that would have been likely to reveal what we were searching for.
+
+<Exercise question="What extra premise would make non-detection a deductive proof of absence?">
+
+We need the premise $E\implies D$: the specified procedure would necessarily detect the object if it were present. Together with $\neg D$, modus tollens yields $\neg E$. A method that is merely likely to detect the object supports a qualified empirical conclusion, not deductive certainty.
+
+</Exercise>
+
+## A practical example — There were no errors
+
+Someone receives a spreadsheet and is asked to inspect it. After looking through it, they report that there are no errors.
+
+Instead of immediately accepting or rejecting that conclusion, we investigate the observation procedure.
+
+<Interactive kind="module" module="reasoning-33" preset="inspection" id="observation-inspection" />
+
+During the first inspection, the observer checks whether the identification numbers are consecutive.
+
+They perform this task correctly. There are no missing numbers.
+
+But this procedure does not examine the arithmetic.
+
+During the second inspection, the observer deliberately recalculates every total and discovers an error.
+
+The important discovery here is that the first observer did not necessarily inspect the spreadsheet badly. They inspected it for a particular property.
+
+The problem was that their conclusion was broader than their inspection.
+
+| Observation procedure | Justified report |
+| --- | --- |
+| Check identification numbers | No numbering errors were detected. |
+| Recalculate all totals | One arithmetic error was detected. |
+| Briefly glance at the document | No obvious problems were noticed. |
+| Validate against all specified requirements | Report whether those requirements were satisfied. |
+
+This introduces a useful principle that extends far beyond perception:
+
+> The scope of a conclusion should not exceed the scope of the evidence supporting it.
+
+## Designing better observations
+
+So far, we have demonstrated limitations. But the purpose of this course is not merely to identify mistakes. It is to develop better methods of reasoning.
+
+We return once more to the opening animation.
+
+Instead of asking whether someone is observant, we ask how the observation procedure could be improved.
+
+<ReasoningFigure kind="module" module="reasoning-33" figure="methods" />
+
+Each of these mechanisms addresses a different limitation. None guarantees that every relevant event will be detected.
+
+This is how good scientific and professional procedures compensate for ordinary human limitations. Rather than expecting people to be perfectly attentive, we construct methods that make important information harder to miss and easier to verify.
+
+Reasoning becomes partly a matter of designing the conditions under which evidence is collected.
+
+## What kind of statement is this?
+
+A security camera records a room for thirty minutes. An observer watches the recording while counting how many people enter through the main door.
+
+Classify six statements according to what kind of information they contain. Judge each statement relative to the evidence described, rather than treating its wording as a guarantee of truth. For the first two, assume the count and bag were reported from the footage.
+
+<Interactive kind="module" module="reasoning-33" preset="claims" id="observation-claims" />
+
+The final challenge is to redesign the investigation so that the observer could make a stronger claim about all entrances to the room.
+
+This requires examining camera coverage, possible blind spots, recording continuity, alternative entrances, and how the footage is inspected.
+
+The viewer moves from evaluating a conclusion to improving the process that produces the evidence.
+
+<Exercise question="Design a procedure supporting a stronger claim about all entrances.">
+
+**Added reference answer.** Identify every possible entrance; check whether the cameras cover each entrance and whether a person could pass through a blind spot. Verify that the recording covers the entire thirty-minute interval without gaps. Inspect the footage specifically for entries at each entrance, preserve timestamps, and use a second independent inspection when useful. Report the interval and coverage actually checked. If any entrance or interval remains unobserved, state that limitation rather than claiming that nobody entered anywhere.
+
+</Exercise>
+
+## The boundaries of what we know
+
+<ReasoningFigure kind="module" module="reasoning-33" figure="boundaries" />
+
+Our observations give us access to reality, but they are not necessarily a complete representation of it. Our interpretations allow us to go beyond observations, but they introduce additional assumptions.
+
+Knowing the difference is one of the fundamental skills of careful reasoning.
+
+- What did I actually observe?
+- What did I infer from it?
+- What might my method have missed?
+
+**How do you know?**
+
+### Further reading
+
+[Simons & Chabris (1999), *Gorillas in Our Midst*](https://pubmed.ncbi.nlm.nih.gov/10694957/) is the primary study behind the discussion of inattentional blindness. [OpenStax, *Psychology 2e*, section 5.1](https://openstax.org/books/psychology-2e/pages/5-1-sensation-versus-perception) introduces sensation, perception and attention. The logical non-detection argument and inspection examples are the lesson's applications; the geometric animation has no measured audience-performance claim.

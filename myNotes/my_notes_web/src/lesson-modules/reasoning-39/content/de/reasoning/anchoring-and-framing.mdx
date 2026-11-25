@@ -1,0 +1,307 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-five
+sourceId: reasoning-episode-39
+sourcePages: []
+sourceLocations: ["Episode script sections 1 and 3–11", "Visual relationships in section 12; preparation sources in section 13"]
+title: "Wie eine Zahl oder ein Rahmen dein Urteil lenken kann"
+navTitle: "Ankereffekt und Framing"
+description: "Unterscheide Evidenz und Darstellung anhand von Ankern, festen Ergebnissen, riskanten Entscheidungen und Informationsinvarianz."
+order: 39
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+thumbnail: "module:reasoning-39"
+---
+
+## Änderungen der Evidenz und Änderungen der Darstellung
+
+Zwei Menschen können dieselben relevanten Informationen erhalten und allein aufgrund der Darstellung zu unterschiedlichen Urteilen gelangen.
+
+Eine Zahl, die vor einer Schätzung genannt wird, kann beeinflussen, wo unser Denken ansetzt. Eine Beschreibung kann die positiven oder negativen Aspekte einer ansonsten identischen Situation betonen. Beides muss die zugrunde liegende Evidenz nicht verändern und kann dennoch unsere Schlüsse oder Präferenzen beeinflussen.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="mechanisms" />
+
+Das Ziel ist nicht nur, die Namen zweier kognitiver Verzerrungen zu lernen. Es geht darum, **Änderungen der Evidenz von Änderungen ihrer Darstellung** zu unterscheiden.
+
+Wann sollten Informationen unsere Überzeugungen verändern? Hier untersuchen wir, was geschieht, wenn sich unsere Urteile ohne entsprechende Informationsänderung verschieben.
+
+## Zwei Beschreibungen, eine Wirklichkeit
+
+Stell dir eine erfundene Maschine vor, die elektronische Bauteile herstellt. Du überlegst, ob sie für einen Kauf zuverlässig genug ist.
+
+<Interactive kind="module" module="reasoning-39" preset="opening" id="framing-opening" />
+
+Die Maschine hat sich nicht verändert. Die Bauteile haben sich nicht verändert. Es gab kein weiteres Experiment. Nur die Beschreibung hat sich geändert.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="same-outcomes" />
+
+Das ist die erste begriffliche Einsicht: **Eine Beschreibung der Wirklichkeit ist nicht die Wirklichkeit selbst**.
+
+Diese Reflexion zeigt eine Möglichkeit auf. Sie diagnostiziert keine individuelle Verzerrung und behauptet nicht, dass alle Menschen unterschiedlich reagieren. Die Aufzeichnung allein belegt auch nicht, ob die Maschine eine bestimmte Kaufanforderung erfüllt oder unter künftigen Bedingungen ebenso arbeitet.
+
+## Ankereffekt — Wo beginnt deine Schätzung?
+
+Bevor wir Framing genauer untersuchen, betrachten wir einen anderen Einfluss der Darstellung auf unser Urteil.
+
+<Interactive kind="module" module="reasoning-39" preset="estimate" id="framing-estimate" />
+
+Entscheidend ist nicht, ob die zweite Schätzung besser oder schlechter ist. Entscheidend ist, warum du deine Schätzung geändert hast.
+
+Hast du etwas an der Punkteverteilung bemerkt? Hast du einen Fehler in deiner ursprünglichen Schätzmethode entdeckt? Hast du erfahren, dass die andere Person die Punkte gezählt hatte?
+
+Oder wurde die Zahl einfach zu einem neuen Bezugspunkt?
+
+### Zwei mögliche Ausgangspunkte
+
+Betrachte einen hypothetischen Vergleich zweier Gruppen. Beide sehen genau dieselbe Punkteanordnung. Eine Gruppe begegnet jedoch vor der Schätzung einer niedrigen Zahl, die andere einer hohen.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="anchors" />
+
+Der niedrige Anker kann Schätzungen nach unten ziehen, der hohe nach oben. Die Formen veranschaulichen einen möglichen Einfluss. Sie sind weder bei Lernenden erhobene Ergebnisse noch Messungen aus den zitierten Studien.
+
+**Ankereffekt:** die Tendenz, dass ein zuerst wahrgenommener Wert ein späteres Urteil beeinflusst, manchmal stärker, als seine Informationsrelevanz rechtfertigt.
+
+### Die ursprüngliche Forschung
+
+In ihrer [Arbeit von 1974, *Judgment under Uncertainty: Heuristics and Biases*](https://doi.org/10.1126/science.185.4157.1124), beschrieben Amos Tversky und Daniel Kahneman ein Experiment: Die Teilnehmenden sahen eine von einem Rad erzeugte Zahl, bevor sie den Anteil afrikanischer Staaten unter den Mitgliedern der Vereinten Nationen schätzten. Unterschiedliche beliebige Ausgangszahlen beeinflussten die Schätzungen.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="wheel" />
+
+Die Markierung hat keinen Informationszusammenhang mit der beantworteten Frage. Gerade dieser fehlende Zusammenhang macht das Beispiel wichtig. Die Punkteaufgabe ist ein erfundenes Lehrbeispiel, keine Replikation dieses Experiments.
+
+## Wann ein Anker tatsächlich nützlich ist
+
+Bei einer bereits bekannten Zahl anzusetzen, ist nicht grundsätzlich irrational. Häufig ist es sogar eine effiziente Art zu denken.
+
+Stell dir vor, du schätzt den aktuellen Wert einer erfundenen Wohnung. Du erhältst zwei mögliche Ausgangspunkte.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="relevance" />
+
+Numerisch sind beide Ausgangspunkte gleich. Hinsichtlich ihrer Beweiskraft unterscheiden sie sich vollständig.
+
+Der erste könnte nützliche Informationen über den Wohnungsmarkt enthalten. Unterschiede in Lage, Zustand und Größe bleiben jedoch zu berücksichtigen. Der zweite enthält keine vergleichbaren Belege.
+
+### Verbindung zum bayesschen Schlussfolgern
+
+$H$ sei eine Hypothese über den Wohnungswert, $E$ die erhaltene Information. Für die folgende Herleitung über bedingte Wahrscheinlichkeiten nehmen wir $0<P(H)<1$ und $P(E)>0$ an.
+
+Ist $E$ von $H$ unabhängig, dann gilt:
+
+$$
+P(E\mid H)=P(E).
+$$
+
+Nach dem Satz von Bayes:
+
+$$
+P(H\mid E)=\frac{P(E\mid H)P(H)}{P(E)}.
+$$
+
+Daher:
+
+$$
+\boxed{P(H\mid E)=P(H)}.
+$$
+
+Diese Information sollte die Überzeugung unverändert lassen.
+
+Die mathematische Verbindung verknüpft ein psychologisches Phänomen mit formalem Schlussfolgern: Eine unabhängige, irrelevante Zahl rechtfertigt keine Aktualisierung der Überzeugung. Es genügt nicht, eine Zahl irrelevant zu nennen. Die Unabhängigkeitsannahme muss zum tatsächlichen Entstehungsprozess passen. Ein vergleichbarer Verkaufspreis und ein Zufallsergebnis stehen nicht in derselben Beziehung zum Wohnungswert.
+
+- Ein informativer Ausgangspunkt kann das Denken effizienter machen.
+- Ein irrelevanter Ausgangspunkt kann das Denken beeinflussen, ohne es zu verbessern.
+- Ein schwach informativer Ausgangspunkt verdient nur das Gewicht, das seine Evidenz rechtfertigt.
+
+Das Ziel ist nicht, Ausgangspunkte abzuschaffen, sondern ihre Relevanz zu beurteilen.
+
+## Framing — Die Beschreibung ändern, ohne die Fakten zu ändern
+
+Kehren wir zur Maschine vom Anfang zurück. Diesmal rekonstruieren wir die Informationen mathematisch.
+
+$U$ sei die Menge aller 100 Herstellungsversuche, $S$ die Menge der erfolgreichen Versuche und $F$ die Menge der fehlgeschlagenen.
+
+Wir nehmen an, dass jeder Versuch genau einem dieser beiden Ergebnisse zugeordnet wird.
+
+$$
+|U|=100
+$$
+
+$$
+|S|=90,\qquad |F|=10
+$$
+
+Da Erfolg und Misserfolg einander ausschließen und sämtliche Möglichkeiten abdecken, gilt:
+
+$$
+F=U\setminus S.
+$$
+
+Daraus folgt:
+
+$$
+P(F)=1-P(S).
+$$
+
+Hier lässt sich Wahrscheinlichkeit als gleichverteilte zufällige Auswahl eines Versuchs aus der Aufzeichnung verstehen.
+
+$$
+P(F)=1-0.9=0.1.
+$$
+
+Die Misserfolgsquote ist daher keine unabhängige Zusatzinformation. Unter den genannten Annahmen ist sie bereits durch die Erfolgsquote festgelegt.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="complements" />
+
+### Die Betonung ändern, die Objekte erhalten
+
+<Interactive kind="module" module="reasoning-39" preset="frames" id="framing-outcomes" />
+
+Die einzelnen Bauteile bewegen sich nicht, verschwinden nicht und wechseln ihre Einordnung nicht. Nur ihre Betonung und die Beschreibung ändern sich. Die Darstellung macht die Gleichwertigkeit sichtbar.
+
+Wenn die Erfolge betont werden, kann sich unsere Aufmerksamkeit auf Zuverlässigkeit und Chancen richten. Wenn die Misserfolge betont werden, stehen möglicherweise Risiken und Verluste im Vordergrund.
+
+Das kann beeinflussen, wie wir eine ansonsten unveränderte Situation bewerten.
+
+Das Maschinenbeispiel zeigt **Attribut-Framing**: dieselbe Eigenschaft je nach Beschreibung unterschiedlich zu bewerten. Das hängt mit dem Framing riskanter Entscheidungen zusammen, ist aber davon zu unterscheiden; siehe [Levin, Schneider und Gaeth (1998)](https://doi.org/10.1006/obhd.1998.2804).
+
+Misserfolge zu beachten, ist nicht irrational. Für manche Entscheidungen sind gerade sie besonders wichtig.
+
+Das Problem entsteht, wenn sich unsere Bewertung allein wegen der Darstellung verändert, obwohl relevante Ergebnisse, Umstände und Entscheidungskriterien identisch bleiben.
+
+## Eine tatsächliche Entscheidung rahmen
+
+Stell dir eine Fabrik mit technischen Schwierigkeiten vor. 100 Bauteile drohen verloren zu gehen.
+
+Zwei Rettungsverfahren stehen zur Wahl. Entscheide dich einmal in jeder Beschreibung und untersuche dann die vollständigen Ergebnisse. Diese Aktivität gibt keine richtige Präferenz vor.
+
+<Interactive kind="module" module="reasoning-39" preset="risk" id="framing-risk" />
+
+### Gewinn- und Verlustbeschreibungen
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="gain" />
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="loss" />
+
+Verfahren A garantiert 60 gerettete und 40 verlorene Bauteile. Verfahren B rettet mit 60 % Wahrscheinlichkeit alle 100 und mit 40 % Wahrscheinlichkeit keines. Die Beschreibung anhand von Verlusten verändert keines der Verfahren.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="neutral" />
+
+Das Fabrikbeispiel ist eine eigenständige Anpassung des Problems riskanter Entscheidungen aus [Tversky und Kahneman (1981)](https://doi.org/10.1126/science.7455683). Seine Zahlen und sein Kontext dienen der Erklärung; sie sind nicht die berichteten Bedingungen oder Ergebnisse dieser Studie.
+
+### Erwartungswert und Risiko
+
+Für Verfahren A:
+
+$$
+\mathbb E[S_A]=1\cdot60=60.
+$$
+
+Für Verfahren B:
+
+$$
+\mathbb E[S_B]=0.6\cdot100+0.4\cdot0=60.
+$$
+
+Beide Verfahren haben dieselbe erwartete Anzahl geretteter Bauteile, aber unterschiedliche Risiken. Ein Erwartungswert von 60 bedeutet nicht, dass Verfahren B bei einem einzelnen Versuch jemals genau 60 rettet.
+
+Je nach Bedarf der Fabrik und ihrer Bereitschaft, Unsicherheit zu tragen, kann die Wahl jedes der beiden Verfahren vernünftig sein.
+
+Weder die Bevorzugung von A noch die von B ist zwangsläufig irrational. Zu untersuchen ist, ob sich eine Präferenz allein deshalb umkehrt, weil die Ergebnisse anders beschrieben wurden.
+
+## Das Problem des Bezugspunkts
+
+Ein weiterer wichtiger Aspekt des Framings ist der Bezugspunkt, an dem ein Ergebnis gemessen wird.
+
+Stell dir vor, ein Unternehmen erzielt 80.000 €. Ist das gut oder schlecht?
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="reference" />
+
+Ist das tatsächliche Ergebnis $x$ und der Bezugspunkt $r$, lautet die Differenz mathematisch:
+
+$$
+\Delta=x-r.
+$$
+
+Eine Änderung von $r$ kann das Vorzeichen von $\Delta$ verändern, ohne $x$ zu verändern.
+
+Anders als im Maschinenbeispiel können verschiedene Bezugspunkte jedoch tatsächlich relevante Informationen liefern. Eine vertraglich vorgeschriebene Mindesthöhe der Einnahmen könnte beispielsweise wichtiger sein als ein beliebiges Ziel.
+
+Die passende Frage lautet deshalb nicht nur, ob ein Bezugspunkt vorhanden ist, sondern ob er für die jeweilige Entscheidung gerechtfertigt ist.
+
+## Die zugrunde liegenden Informationen rekonstruieren
+
+Wenn du einer numerischen Behauptung begegnest, rekonstruiere sie in einer Form, die die relevanten Informationen ausdrücklich sichtbar macht.
+
+Diesen Vorgang nennen wir **Normalisierung**.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="normalization" />
+
+| Frage | Was sie kontrolliert |
+| --- | --- |
+| Verwenden wir dieselbe Bezugsgröße? | Relative Häufigkeiten und Populationsgrößen |
+| Verwenden wir denselben Zeitraum? | Zeitliche Unterschiede |
+| Beschreiben wir dieselben Ergebnisse? | Fehlende Informationen und veränderte Bedingungen |
+| Verwenden wir denselben Bezugspunkt? | Gewinne, Verluste und Bewertungskriterien |
+
+Ergänze beim Ankereffekt eine fünfte Frage: **Was sagt die Ausgangszahl tatsächlich über das aus, was ich schätzen möchte?**
+
+### Eine wichtige Ausnahme
+
+| Aussage | Information |
+| --- | --- |
+| 90 von 100 Versuchen waren erfolgreich. | Ausgangsinformation |
+| 10 derselben 100 Versuche schlugen fehl. | Gleichwertige Beschreibung |
+| 10 von 100 Versuchen schlugen fehl, und jeder Misserfolg verursachte dauerhafte Schäden. | Zusätzliche Information |
+
+Die dritte Aussage sollte unser Urteil möglicherweise verändern, weil sie eine neue Folge einführt.
+
+Außerdem können selbst logisch gleichwertige Beschreibungen durch die Wortwahl zusätzliche Kontextinformationen vermitteln. Wer ein Ergebnis als *nur zu 90 % erfolgreich* beschreibt, könnte damit eine höhere Erwartung andeuten. Ob dieser Schluss gerechtfertigt ist, muss gesondert geprüft werden. [Sher und McKenzie (2006)](https://pubmed.ncbi.nlm.nih.gov/16364278/) untersuchen diesen Unterschied zwischen logischer Gleichwertigkeit und Informationsgleichwertigkeit.
+
+Diese Unterscheidung verhindert, jede sprachliche Änderung als Manipulation zu behandeln.
+
+## Prüfe deine Überlegungen
+
+Unterscheide Evidenz und Darstellung, statt nur die Definitionen von Ankereffekt und Framing abzurufen. Formuliere eine Begründung, bevor du eine Antwort prüfst.
+
+<Interactive kind="module" module="reasoning-39" preset="quiz" id="framing-quiz" />
+
+## Was sollte invariant bleiben?
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="invariance" />
+
+**Invarianz** bedeutet, dass etwas bei einer Transformation unverändert bleibt.
+
+$I$ bezeichne die relevanten Informationen, $J(I)$ unsere Bewertung dieser Informationen. Ändert eine Transformation $T$ nur die Darstellung und erhält alle entscheidungsrelevanten Informationen, sollte eine konsistente Bewertung erfüllen:
+
+$$
+\boxed{J(I)=J(T(I))}.
+$$
+
+Das ist ein normativer Grundsatz des Schlussfolgerns, kein beschreibendes Gesetz der menschlichen Psychologie. Die Voraussetzung umfasst neben den numerischen Ergebnissen auch Folgen, Bezugspunkte und Entscheidungskriterien. Ändert sich eines dieser relevanten Merkmale, ist die Voraussetzung des Invarianzanspruchs möglicherweise nicht mehr erfüllt.
+
+Das verbindet diese Lektion mit Gleichheit, Äquivalenz und eigenschaftserhaltenden Transformationen.
+
+Wir können nicht immer kontrollieren, welche Zahl wir zuerst sehen oder welchen Teil der Wirklichkeit jemand betont. Aber wir können die Informationen selbst rekonstruieren.
+
+Wir können die Bezugsgröße prüfen, fehlende Ergebnisse ergänzen, den Bezugspunkt bestimmen und fragen, was die Evidenz tatsächlich stützt.
+
+Denn die eigene Meinung bei veränderter Evidenz zu ändern, ist Schlussfolgern. Sie allein wegen einer anderen Darstellung zu ändern, verdient eine genauere Untersuchung.
+
+**Die Fakten bleiben. Die Rahmung verschwindet.**
+
+**Habe ich neue Evidenz erhalten oder dieselbe Evidenz in einer anderen Form?**
+
+### Die visuellen Beziehungen
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="visual-language" />
+
+### Weiterlesen
+
+- [Tversky & Kahneman (1974), *Judgment under Uncertainty: Heuristics and Biases*](https://doi.org/10.1126/science.185.4157.1124): Ankereffekt und Anpassung.
+- [Tversky & Kahneman (1981), *The Framing of Decisions and the Psychology of Choice*](https://doi.org/10.1126/science.7455683): Framing riskanter Entscheidungen.
+- [Levin, Schneider & Gaeth (1998), *All Frames Are Not Created Equal*](https://doi.org/10.1006/obhd.1998.2804): Attribut-, Entscheidungs- und Ziel-Framing sind unterschiedliche Kategorien.
+- [Sher & McKenzie (2006), *Information Leakage from Logically Equivalent Frames*](https://pubmed.ncbi.nlm.nih.gov/16364278/): Kontextinformationen können auch bei logisch gleichwertigen ausdrücklichen Beschreibungen relevant sein.
+
+Wohnung, Maschine, Bauteilrettung und Punkte sind erfundene Beispiele. Die Erwartungswertrechnung und der formale Invarianzgrundsatz sind didaktische Erweiterungen im gelieferten Skript; die illustrativen Verteilungen sind keine empirischen Befunde.

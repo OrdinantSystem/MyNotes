@@ -1,0 +1,688 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-30
+sourcePages: []
+sourceLocations: ["Sections 1–10; supplementary worksheet, generalized pigeonhole principle, course connections and preparation references"]
+title: "Proving by counting the same thing differently"
+navTitle: "Counting proofs"
+description: "Find the collection behind a count, prove the pigeonhole principle and count graph incidences in two ways."
+order: 30
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [sets-and-mathematical-worlds, what-makes-a-proof]
+thumbnail: module:reasoning-30
+---
+
+## 1. Something you can know without looking
+
+Imagine that we invite thirteen strangers into a room.
+
+You have never met any of them. You don't know their names, their ages, where they come from, or when they were born.
+
+And yet, before any of them tells you anything about themselves, you can make a statement about these people that you know must be true.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="strangers" />
+
+At least two of these people were born in the same month.
+
+Not probably. Not almost certainly.
+
+They must have been.
+
+But how can we know something about thirteen people without examining any of them?
+
+And perhaps more interestingly, what kind of information allows us to reach such a conclusion?
+
+We've spent much of this course learning how to prove statements by following logical implications, examining contradictions, constructing intermediate steps and identifying properties that cannot change.
+
+Today, we're going to explore another method of reasoning. One that looks almost suspiciously simple.
+
+We're going to count.
+
+But the difficult part will not be the arithmetic. It will be discovering **what we should be counting in the first place.**
+
+## 2. Try to make the statement false
+
+Instead of immediately explaining why the statement is true, let's try to construct a situation in which it is false.
+
+We want thirteen people, all born in different months.
+
+<Interactive kind="module" module="reasoning-30" preset="months" id="counting-30-months" />
+
+We place the first person in January, the second in February, the third in March, and continue like this.
+
+After placing twelve people, every month contains exactly one person.
+
+So far, we've managed to avoid a shared birth month.
+
+But there is still one person left.
+
+Where can we put them?
+
+We could move the person in January to February. But now February contains two people. We could rearrange everyone completely, but that doesn't create an additional month.
+
+The problem is not that we haven't found a sufficiently clever arrangement.
+
+The problem is that the arrangement we are looking for cannot exist.
+
+If every month contained at most one person, then the twelve months could collectively contain at most twelve people.
+
+But we have thirteen.
+
+$$
+ 13>12
+$$
+
+And this is where something interesting happens. Notice how little we needed to know.
+
+We didn't need to know which month was shared. We didn't need to know which two people shared it. We didn't need to assign probabilities to different birthdays.
+
+We only needed two numbers and a restriction on how the objects could be distributed.
+
+**We have proved existence without identifying a particular example.**
+
+There must be a shared birth month, even though we might have absolutely no idea where it is.
+
+## 3. Discovering the pigeonhole principle
+
+Let's gradually remove the unnecessary details from our problem.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="pigeonhole" />
+
+What if we had six objects and only five categories?
+
+Exactly the same problem.
+
+One hundred and one objects and one hundred categories?
+
+Again, exactly the same problem.
+
+The specific numbers don't matter. What matters is the relationship between them.
+
+Suppose we have $n$ categories, where $n$ is a positive integer. And suppose every object belongs to exactly one of these categories.
+
+If there are more than $n$ objects, then at least one category must contain two or more objects.
+
+This is known as the **pigeonhole principle**.
+
+Its name comes from imagining pigeons returning to a collection of pigeonholes. But the pigeons are irrelevant. So are the holes.
+
+Mathematically, what we have discovered is a restriction on how objects can be assigned to categories.
+
+$$
+ \underbrace{n+1}_{\text{objects}} > \underbrace{n}_{\text{categories}}
+$$
+
+Suppose, for contradiction, that no category contains more than one object.
+
+Then the total number of objects cannot exceed $n$.
+
+But there are $n+1$ objects.
+
+Therefore, at least one category must contain more than one.
+
+Notice that this proof has the same structure as the argument we used with the thirteen people. We haven't developed a new argument for every possible number. We have identified the structure common to all of them.
+
+And this is why choosing the categories matters so much.
+
+Imagine that I tell you that among five integers, at least three must have the same parity.
+
+How would you prove that?
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="parity" />
+
+If both categories contained at most two integers, we could account for at most four integers. The fifth integer must force one of the categories to contain at least three.
+
+Once you recognize the correct categories, the argument becomes remarkably short.
+
+Sometimes the most difficult part of a proof is not performing a logical inference.
+
+It is discovering the representation in which that inference becomes obvious.
+
+## 4. A different way of counting
+
+Let's return to our room of people.
+
+This time, we'll make the situation a little smaller. Five people are attending a meeting.
+
+Some of them shake hands with one another. Not everyone necessarily shakes hands with everyone else, and no pair shakes hands more than once.
+
+At the end of the meeting, we want to know how many handshakes occurred.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="network" />
+
+Each point represents a person. Each line represents one handshake.
+
+We could simply count the lines.
+
+One, two, three, four, five.
+
+There were five handshakes.
+
+But imagine that we didn't have this complete picture. Imagine that each person only remembers how many people they shook hands with.
+
+So we ask the five people individually.
+
+Person A tells us they shook three hands.
+
+Person B tells us they shook two.
+
+Person C tells us they shook two.
+
+Person D tells us they shook two.
+
+And person E tells us they shook one.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="degrees" />
+
+$$
+ 3+2+2+2+1=10
+$$
+
+Adding these numbers together, we get ten.
+
+But a moment ago, we counted only five handshakes.
+
+Where did the additional five come from?
+
+Did someone give us incorrect information? Did we count the graph incorrectly? Or are these two calculations actually answering different questions?
+
+**Take a moment to decide what the number ten represents.**
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="totals" />
+
+Both results are correct.
+
+But they are counting different things.
+
+And understanding precisely how those two things are related is going to allow us to discover something much more general.
+
+## 5. Where does the factor of two come from?
+
+Let's isolate just one handshake.
+
+Person A shakes hands with person B.
+
+When we ask A how many handshakes they participated in, this handshake contributes one to A's answer.
+
+When we ask B, the very same handshake contributes one to B's answer.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="split" />
+
+There was only one physical event. But that event involved two people.
+
+And this is true for every handshake in our room.
+
+Every handshake contributes exactly two to the sum of the individual answers. Not sometimes two. Not approximately two. Exactly two.
+
+The reason is part of what a handshake between two people is.
+
+<Interactive kind="module" module="reasoning-30" preset="regroup" id="counting-30-regroup" />
+
+First representation — grouped by handshake
+
+$$
+ 2+2+2+2+2=10
+$$
+
+Second representation — regrouped by person
+
+$$
+ 3+2+2+2+1=10
+$$
+
+$$
+ 2\times5=3+2+2+2+1
+$$
+
+The same ten tokens have been reorganized. None were added or removed.
+
+Look carefully at what we have just done.
+
+Initially, we grouped these ten pieces of information by handshake. There were five groups, and every group contained two pieces.
+
+Then we grouped the same information by person. Now there are five groups of different sizes.
+
+But we haven't created anything. We haven't removed anything. We haven't changed the underlying collection.
+
+We've simply changed the way it is organized.
+
+So naturally, both methods must produce the same total.
+
+This is the essential idea behind a mathematical technique called **double counting**.
+
+We identify a collection of objects or relationships, count that collection in two different ways, and then equate the results.
+
+Because beneath two apparently different expressions, we are counting the same thing.
+
+## 6. From a room of people to a mathematical theorem
+
+The interesting thing about our picture is that it no longer needs to represent people.
+
+These points could represent cities, with lines representing roads between them. They could represent computers connected to one another, atoms connected by bonds, or people connected through mutual friendships.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="worlds" />
+
+In mathematics, we call this structure a **graph**.
+
+The points are called vertices, and the lines connecting them are called edges.
+
+For now, we're considering finite, undirected graphs without self-loops or multiple edges between the same two vertices.
+
+The number of edges connected to a vertex is called its *degree*.
+
+So when we asked each person how many hands they had shaken, we were actually asking for the degree of the corresponding vertex.
+
+Let's write the collection of vertices as $V$, the collection of edges as $E$, and the degree of a particular vertex $v$ as:
+
+$$
+ \deg(v)
+$$
+
+If we add together the degrees of all the vertices, we can express that sum using the following notation:
+
+$$
+ \sum_{v\in V}\deg(v)
+$$
+
+This simply means: go through every vertex in $V$, take its degree, and add those numbers together.
+
+Now, how many times does each edge contribute to this sum?
+
+Exactly twice, because each edge has two distinct endpoints.
+
+Therefore:
+
+$$
+ \underbrace{\sum_{v\in V}\deg(v)}_{\text{count by vertex}}=\underbrace{2|E|}_{\text{count by edge}}
+$$
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="lemma" />
+
+**The handshaking lemma**
+
+To make the reasoning completely precise, we can define the collection we are actually counting.
+
+Let $I$ be the set of vertex-edge pairs in which the vertex is an endpoint of the edge.
+
+$$
+ I=\{(v,e)\in V\times E: v\text{ is an endpoint of }e\}.
+$$
+
+If we count these pairs by vertex, each vertex contributes exactly its degree:
+
+$$
+ |I|=\sum_{v\in V}\deg(v).
+$$
+
+If we count them by edge, each edge contributes exactly two pairs:
+
+$$
+ |I|=2|E|.
+$$
+
+Both expressions equal the cardinality of the same set. Consequently,
+
+$$
+ \boxed{\sum_{v\in V}\deg(v)=2|E|}
+$$
+
+And that is the complete proof.
+
+We didn't verify every possible graph. We didn't require the vertices to form a particular shape or have particular degrees.
+
+We found a relationship that must hold for every graph satisfying our assumptions.
+
+The five people in the room were simply the environment in which we discovered it.
+
+## 7. Using counting to prove something impossible
+
+Now let's see what this relationship allows us to discover.
+
+Seven people attend a meeting. At the end of the meeting, every person claims to have shaken hands with exactly three other people.
+
+Could all seven people be telling the truth?
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="seven" />
+
+You could try drawing the connections.
+
+Connect the first person to three others. Then try satisfying the requirements of the remaining people.
+
+Perhaps you'll create a situation where one person has too many connections, another too few, and you'll have to rearrange everything.
+
+But we don't actually need to search through these possibilities anymore.
+
+If every person participated in exactly three handshakes, then the sum of the degrees would be:
+
+$$
+ 7\times3=21.
+$$
+
+However, we have just proved that this sum must equal twice the number of edges.
+
+$$
+ 21=2|E|
+$$
+
+And therefore:
+
+$$
+ |E|=\frac{21}{2}=10.5.
+$$
+
+But the number of handshakes must be an integer.
+
+You cannot have half of an edge in this graph.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="unpaired" />
+
+21 participations cannot be divided into groups of exactly two.
+
+Such an arrangement is impossible.
+
+And this reveals a more general consequence of our theorem.
+
+Since
+
+$$
+ \sum_{v\in V}\deg(v)=2|E|,
+$$
+
+the sum of the degrees of any graph of this kind must be even.
+
+Now, think about what happens when we add even and odd numbers together.
+
+Adding an even number doesn't change parity. Adding an odd number changes it.
+
+So if the total is even, there must have been an even number of odd contributions.
+
+This means that every finite graph of the kind we're considering has an **even number of vertices with odd degree**.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="odd" />
+
+$$
+ \underbrace{3+1}_{\text{odd degrees}}+\underbrace{2+2+2}_{\text{even degrees}}=10
+$$
+
+Exactly two vertices have odd degree in this example.
+
+Remember the previous episode, when we used invariants to show that certain configurations could never be reached?
+
+Here, we have discovered another necessary restriction on what configurations are possible. This time, it comes from counting.
+
+We began with something as ordinary as people shaking hands. And we arrived at a mathematical restriction on the structure of entire networks.
+
+## 8. When double counting goes wrong
+
+Double counting is a powerful technique, but there is a subtle danger.
+
+The fact that two calculations look similar does not mean that they are counting the same collection.
+
+Let's examine a proposed argument.
+
+Four people participate in an activity. Every pair of people shakes hands exactly once.
+
+Someone wants to determine how many handshakes occurred. They decide to count the handshakes involving each person, but they don't follow the same rule for everyone.
+
+Their counting process is displayed below.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="audit" />
+
+$$
+ 3+2+2+3=10
+$$
+
+Their conclusion:
+
+$$
+ \frac{10}{2}=5\text{ handshakes}
+$$
+
+They argue that every handshake involves two people. Therefore, we should divide the total by two.
+
+The arithmetic is correct. The conclusion, however, is false.
+
+Where exactly did the reasoning fail?
+
+Let's reorganize their recorded handshakes, this time grouping identical handshakes together.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="multiplicity" />
+
+We discover that some handshakes were counted twice, while others were counted only once.
+
+The problem wasn't dividing by two.
+
+The problem was assuming that every handshake had contributed exactly two to the total when that wasn't actually true.
+
+The number of times an object is counted is called its **multiplicity**.
+
+Dividing a count by two is justified when every object has been counted exactly twice. If the multiplicities are unequal, we cannot correct the entire count using that single division.
+
+And this gives us three questions we should ask whenever we encounter a counting proof.
+
+**Coverage**
+
+Have we included every object that belongs to the collection?
+
+**Duplication**
+
+Have any objects been counted more than once?
+
+**Multiplicity**
+
+Does each object contribute the number of times our argument assumes?
+
+These questions are not merely about avoiding arithmetic errors.
+
+They are about verifying that the mathematical expressions genuinely represent the objects we claim they represent.
+
+## 9. Can you discover a counting proof yourself?
+
+Let's finish with one more problem.
+
+Suppose there are $n$ people in a room, where $n$ is a positive integer.
+
+This time, everyone shakes hands with everyone else, exactly once.
+
+How many handshakes occur?
+
+And rather than attempting to remember a formula, try to construct one.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="complete" />
+
+In a room of six people, each person shakes hands with five others.
+
+Start with one person.
+
+How many other people can they shake hands with?
+
+There are $n$ people in total, but they cannot shake hands with themselves.
+
+Therefore, every person shakes hands with exactly $n-1$ other people.
+
+Since there are $n$ people, adding together their individual counts gives us:
+
+$$
+ n(n-1)
+$$
+
+But once again, every handshake has been counted twice.
+
+So the actual number of handshakes is:
+
+$$
+ \boxed{\frac{n(n-1)}{2}}
+$$
+
+$$
+ \frac{6\times5}{2}=15
+$$
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="matrix" />
+
+There is another way to see this.
+
+If we organize all the possible handshakes into a table, the entry corresponding to A shaking hands with B is mirrored by the entry corresponding to B shaking hands with A.
+
+They represent the same physical event.
+
+Once we remove the diagonal, where people would shake hands with themselves, exactly half of the remaining entries represent distinct handshakes.
+
+We have arrived at the same formula using another representation.
+
+In combinatorics, this number is also written as:
+
+$$
+ \binom{n}{2}=\frac{n(n-1)}{2}.
+$$
+
+It represents the number of ways of choosing two distinct objects from a collection of $n$ objects when their order does not matter.
+
+So although we were talking about handshakes, we have actually proved something about choosing pairs from any finite collection.
+
+## 10. Counting is more than arithmetic
+
+At the beginning of this episode, we discovered something about thirteen strangers without knowing anything about their individual birthdays.
+
+Later, we discovered a restriction on entire networks without having to examine every possible network.
+
+And finally, we obtained a formula that describes every possible number of handshakes when everyone shakes hands with everyone else exactly once.
+
+These conclusions came from two related ideas.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="synthesis" />
+
+**The pigeonhole principle**
+
+**Double counting**
+
+The first allows us to discover what must happen because of how objects are distributed.
+
+The second allows us to discover relationships between quantities because they describe the same underlying collection.
+
+But behind both techniques is a deeper skill.
+
+Whenever you encounter a mathematical problem, before asking how to calculate the answer, ask yourself what the quantities actually represent.
+
+What are the objects? How are they organized? What relationships connect them? Could you count those relationships differently?
+
+Sometimes, two expressions appear to have absolutely nothing in common.
+
+Until you realize they are describing the same thing.
+
+And at that moment, an equality is no longer something you have to memorize.
+
+It becomes something you understand.
+
+
+## Worksheet
+
+The five questions come from the supplied worksheet. Hints other than the first, and reference answers other than the second, are added learning support.
+
+### 1. Shared birth months
+
+Among 25 people, what is the minimum number guaranteed to share a birth month?
+
+<details><summary>Hint</summary><p>What would happen if every month contained at most two people?</p></details>
+
+<Exercise>
+At least three. If each of the twelve months contained at most two people, there could be at most $12\cdot2=24$ people. With 25, at least one month contains three or more. The guarantee cannot be increased to four: put three people in one month and two in each of the other eleven.
+</Exercise>
+
+### 2. Recovering the edge count
+
+A network has vertices with degrees 2, 3, 4, 1 and 2. How many edges does it have?
+
+<details><summary>Hint</summary><p>Count the vertex–edge incidences by vertex, then by edge.</p></details>
+
+<Exercise>
+6 edges. The degree sum is 12, and each edge contributes exactly two.
+
+$$
+|E|=\frac{2+3+4+1+2}{2}=6.
+$$
+</Exercise>
+
+### 3. An odd number of odd degrees
+
+Can a graph have exactly three vertices of odd degree?
+
+<details><summary>Hint</summary><p>What is the parity of a sum of three odd integers and any number of even integers?</p></details>
+
+<Exercise>
+No, under the finite, undirected, simple-graph assumptions of this lesson. Three odd degrees would make the degree sum odd. The handshaking lemma makes it even. Zero, two or four odd-degree vertices are possible; the count of odd-degree vertices must be even.
+</Exercise>
+
+### 4. Everyone shakes hands
+
+Ten people each shake hands with every other person exactly once. How many handshakes occur?
+
+<details><summary>Hint</summary><p>Each person contributes nine participations. How many participations belong to one handshake?</p></details>
+
+<Exercise>
+Each of ten people has degree nine, giving 90 participations. Every handshake contributes exactly two, so there are $10\cdot9/2=45$ handshakes.
+</Exercise>
+
+### 5. A necessary condition is not enough
+
+Can every vertex in a graph with six vertices have degree six?
+
+<details><summary>Hint</summary><p>Evenness of the degree sum is necessary. How many distinct other vertices can one vertex meet?</p></details>
+
+<Exercise>
+No, for a simple graph without self-loops. Each vertex has only five other vertices available, so its degree is at most five. The proposed degree sum, $6\cdot6=36$, is even, but this necessary condition alone does not establish existence.
+</Exercise>
+
+## Extension: the generalized pigeonhole principle
+
+If $N$ objects are distributed among $k$ categories, where $k\geq1$, then at least one category contains at least
+
+$$
+\boxed{\left\lceil\frac{N}{k}\right\rceil}
+$$
+
+objects.
+
+Here, the ceiling notation means rounding upward to the nearest integer. We take $N$ to be a nonnegative integer and $k$ a positive integer.
+
+<Interactive kind="module" module="reasoning-30" preset="distribution" id="counting-30-distribution" />
+
+To understand why this holds, suppose every category contained at most
+
+$$
+\left\lceil\frac Nk\right\rceil-1
+$$
+
+objects. The total would then satisfy
+
+$$
+N\leq k\left(\left\lceil\frac Nk\right\rceil-1\right)<N,
+$$
+
+which is a contradiction. The strict inequality follows from $\lceil x\rceil-1<x$ and $k>0$, including when $N/k$ is an integer.
+
+The principle does not say that every category will have this many objects. It guarantees that **at least one** will.
+
+## Connections within the course
+
+| Previous lesson | Connection |
+| --- | --- |
+| AoR 04 — Visual proofs | Rearranging the same collection without changing its cardinality. |
+| AoR 06 — Counterexamples | Recognizing that satisfying a necessary condition does not guarantee existence. |
+| AoR 14 — Sets | Defining the precise collection of objects being counted. |
+| AoR 16 — Mathematical proof | Moving from a particular example to a universal argument. |
+| AoR 26 — Representation | Expressing the same relationships through diagrams, tables and equations. |
+| AoR 29 — Invariants | Establishing impossibility through structural restrictions. |
+
+This lesson connects foundational proof techniques with combinatorics, graph theory, discrete mathematics and probability.
+
+## Preparation references
+
+- Richard Hammack, [Book of Proof](https://richardhammack.github.io/BookOfProof/): division and pigeonhole principles, counting and combinatorial proofs.
+- Eric Lehman, F. Thomson Leighton and Albert R. Meyer, *Mathematics for Computer Science*: counting arguments and graph theory; [MIT course readings](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/).
+
+These are the preparation references supplied with the lesson; current editions and page numbers have not been independently verified.

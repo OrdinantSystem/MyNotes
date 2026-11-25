@@ -1,0 +1,25 @@
+# AoR 36 verification · 25 November 2026
+
+The complete locked production pipeline passed through lesson integration/update, then in `/MyNotes` configuration and again after normal-build restoration. Node 24.22.1 and the existing installed dependencies were used; package inputs were unchanged. Final prefix and restored builds each verified 275 static pages, 33,325 local links/assets, 12,273 generated TeX annotations and 188 indexed pages across EN/DE. Astro reported zero errors, zero warnings and six existing hints. All ten registered modules 29–38 and the existing library, preservation, content, localization, navigation, source-exclusion, search and contrast gates passed together. Later integrations may change these aggregate counts.
+
+## Model and source verification
+
+The verifier checks all 501,500 valid integer frequency states with 1≤attempts≤1000 and 0≤failures≤attempts, including zero/all failures. Floating point round-trip assertions allow arithmetic representation error, not count errors. Machine rates are independently checked as 20/1000=2% and 5/20=25%.
+
+All 26 employee populations (repair=0,4,…,100) retain 100 unique employees, whole matching counts, the 75%/25% model rules, and the same matching identifiers in population/highlight/filter views. At 20/80 the matches are 15/20, giving 15/35=3/7, distinct from P(M|R)=15/20=75%. Posterior monotonicity, the crossing between repair counts 24 and 28, endpoint empty-group conditionals, invalid inputs and all four practice judgments are checked. Rendering covers every EN/DE static variant, selected-delivery identity, both memory-size views, filtered legend counts, source boundaries and the native reference solution.
+
+The complete original specification and seventeen supplied screenshots are preserved privately with hashes and a 311-block disposition ledger. Teaching sections 1–10 become the continuous bilingual lesson. Production/timing/tool instructions, palette hex codes and subjective pedagogical scores remain private. Added practice feedback and the reference solution are identified as additions. The fictional numerical examples are distinguished from empirical research. The 1974 Tversky–Kahneman paper was checked via its DOI/publication record and university-hosted primary text, including availability/salience/recency and prior-probability discussions. OpenStax section 7.3 was checked as the supplied companion reference. Neither source establishes measured learning outcomes for this implementation.
+
+An early integration check incorrectly flagged the intentional word “undefined” in the empty-group explanation as malformed markup. The verifier now targets malformed undefined values/NaN; it retains the mathematically necessary explanation. The failed integration rolled back only episode 36 and rebuilt the preceding site before the corrected integration passed. No check or preservation gate was bypassed.
+
+## Browser evidence
+
+Isolated snapshots on ports 4436 and 4536 preserved other sessions’ previews. An occupied port 4437 was left untouched. Final normal pages were checked at 1280×844 and 390×844 in EN/DE and both themes: eight combinations, each with four activities, no page-wide horizontal overflow and no KaTeX errors. Screenshots and the JSON audit are in previews/reasoning-36-*.
+
+The selection reveal shows 100 events, ten outlined published records and the 80% versus 10% contrast. The filtered employee view shows the same 35 matching IDs, with the corrected 15/20 matching legend. Native keyboard input at repair=40 gives 30 matching repair/15 matching assembly and 66.7%; invalid 21 restores the last valid population. Slider Home/End verifies the 0% and 100% endpoint posteriors with the empty-department explanation. Reset restores the initial 20/80 population and 42.9% posterior. Frequency input changes 10/100 to 10/1000=1%. Practice starts without a selection and with reveal disabled; changing a choice hides feedback, supported/unsupported explanations differ, translated reveal/hide labels work, and the native German reference disclosure opens. Two gallery selection activities remain independent; all sixteen static variants appear there.
+
+English search “memorable” and German “Verfügbarkeitsheuristik” return the correct lesson. Keyboard Enter follows each verified result. German search and language links retain `/MyNotes`; the prefixed German route renders. The restored normal build contains proper Part Five ordering with lessons 35, 36 and 37 around the new lesson. No console errors were observed during interaction checks. Browser width overrides were reset after review.
+
+## Limits and completion
+
+Mathematical, cognitive-science and native-language review remain unreviewed. No physical touch/pen or screen-reader audit is claimed. Resizing psychological prominence is qualitative, not a quantitative model. State stays local; there are no external answers, scores, accounts or persistence. Temporary audit servers are stopped after verification; the shared preview is left to its owner. No shared registry, other episode, dependency input, Git history or deployment was changed by this lesson task.

@@ -1,0 +1,24 @@
+---
+import {initialState} from './model';
+import {containerMarkup,countsMarkup,removalMarkup,coinsMarkup} from './render';
+import {text} from './copy';
+import './styles.css';
+interface Props{preset:'containers'|'counts'|'removal'|'coins';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale),s=initialState();
+---
+<figure class="inv-lab" id={id} data-invariant-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='counts'&&<label for={`${id}-range`}>{c.placed}: <output data-inv-placed for={`${id}-range`}>0</output><input type="range" id={`${id}-range`} data-inv-range min="0" max="30" step="1" value="0" aria-controls={`${id}-output`}/></label>}
+ {preset==='coins'&&<><p data-inv-instruction>{c.select}</p><div class="inv-coins">{s.coins.map((face,i)=><button class="inv-coin" type="button" data-inv-coin={i} data-face={face} aria-pressed="false" aria-label={`${c.coin} ${i+1}: ${c.heads}`} aria-controls={`${id}-output`}><span>{locale==='de'?'K':'H'}</span><small>{i+1}</small></button>)}</div><div class="inv-controls"><button type="button" data-inv-flip disabled aria-controls={`${id}-output`}>{c.flip} (<span data-inv-selection>0/2</span>)</button></div></>}
+ <div id={`${id}-output`} data-inv-output set:html={preset==='containers'?containerMarkup(locale,s.containers,0):preset==='counts'?countsMarkup(locale,0):preset==='removal'?removalMarkup(locale,s.history):coinsMarkup(locale,s.coins,0,2)}/>
+ <div class="inv-controls">
+ {preset==='containers'&&[[0,1],[1,0],[1,2],[2,1]].map(([from,to])=><button type="button" data-inv-from={from} data-inv-to={to} aria-controls={`${id}-output`}>{'ABC'[from]} → {'ABC'[to]}</button>)}
+ {preset==='removal'&&[1,2].map(n=><button type="button" data-inv-remove={n} aria-controls={`${id}-output`}>{n===1?c.removeOne:c.removeTwo}</button>)}
+ <button type="button" data-inv-reset aria-controls={`${id}-output`}>{c.reset}</button>
+ </div>
+ {preset==='coins'&&<details><summary>{c.variation}</summary><p>{c.variationNote}</p><label>{c.rule}<select data-inv-rule aria-controls={`${id}-output`}><option value="2">{c.two}</option><option value="3">{c.three}</option></select></label><label>{c.start}<select data-inv-start aria-controls={`${id}-output`}><option value="0">{c.allHeads}</option><option value="1">{c.oneTail}</option></select></label></details>}
+ <p class="inv-status" role="status" aria-live="polite" data-inv-status></p>
+</figure>
+<script>
+import './controller';
+</script>

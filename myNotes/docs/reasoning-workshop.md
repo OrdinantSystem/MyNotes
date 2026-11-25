@@ -1,0 +1,9 @@
+# AoR 32 — discovery and justified uncertainty
+
+Lesson 32 is the module `reasoning-32`, key `discover-a-theorem`, in Part Four / Teil Vier. Its own manifest integrates English/German pages, source identity, thumbnail and gallery examples. The module README documents its figures, activities, bounds and verification. This separate guide avoids edits to shared course guides while lessons 29–31 are being authored concurrently.
+
+The source's eleven teaching sections are retained. Ten figures cover consecutive representations of 15, the three restrictions, evolving epistemic workspace, odd growth, the even counterexample, proper set inclusion with a separate pending tray, exhaustive exclusion of 8, both classification obligations and the continuing discovery cycle. Four local activities cover first-20 evidence, construction/general-proof stages, investigation of 16 and a copyable investigation record. The optional length/factor challenge is retained; the creator-only complete classification proof remains private.
+
+English prose preserves the supplied main explanation; copied UI fragments, TeX escaping and video annotations are adapted for the archive. The explicit hint and reference proof for 16 are additions. Checkboxes document a learner's reported investigation without certifying a proof. Unknown numbers never become excluded merely because a search failed. Colors follow canonical tokens, with cyan pending, blue open questions, green established results and coral rejected/proved-impossible claims.
+
+No shared shell, chapter, source, component or package file needs changing for this module. Integration/build operations use the shared lock; source authoring remains parallel. Mathematical and German-language review stay unreviewed. Build/browser evidence is kept in the module README to avoid concurrent writes to the global verification record.

@@ -1,0 +1,124 @@
+{
+  "date": "2026-11-25",
+  "lesson": "reasoning-29",
+  "layouts": [
+    {
+      "clippedFigures": [],
+      "figures": 14,
+      "labs": 4,
+      "locale": "de",
+      "overflow": false,
+      "shortControls": [],
+      "texErrors": 0,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "clippedFigures": [],
+      "figures": 14,
+      "labs": 4,
+      "locale": "de",
+      "overflow": false,
+      "shortControls": [],
+      "texErrors": 0,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "clippedFigures": [],
+      "figures": 14,
+      "labs": 4,
+      "locale": "de",
+      "overflow": false,
+      "shortControls": [],
+      "texErrors": 0,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "clippedFigures": [],
+      "figures": 14,
+      "labs": 4,
+      "locale": "de",
+      "overflow": false,
+      "shortControls": [],
+      "texErrors": 0,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "clippedFigures": [],
+      "figures": 14,
+      "labs": 4,
+      "locale": "en",
+      "overflow": false,
+      "shortControls": [],
+      "texErrors": 0,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "clippedFigures": [],
+      "figures": 14,
+      "labs": 4,
+      "locale": "en",
+      "overflow": false,
+      "shortControls": [],
+      "texErrors": 0,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "clippedFigures": [],
+      "figures": 14,
+      "labs": 4,
+      "locale": "en",
+      "overflow": false,
+      "shortControls": [],
+      "texErrors": 0,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "clippedFigures": [],
+      "figures": 14,
+      "labs": 4,
+      "locale": "en",
+      "overflow": false,
+      "shortControls": [],
+      "texErrors": 0,
+      "theme": "light",
+      "width": 1440
+    }
+  ],
+  "checks": {
+    "containerKeyboardAndEmptyBoundary": true,
+    "countSliderHomeEnd": true,
+    "removalHistoryAndTermination": true,
+    "coinToggleKeyboardAndFlip": true,
+    "coinRuleAndStartVariations": true,
+    "sourceReset": true,
+    "galleryIndependentInstances": true
+  },
+  "searchGerman": "/de/reasoning/lessons/invariants-and-monovariants/",
+  "prefixSearch": "/MyNotes/de/reasoning/lessons/invariants-and-monovariants/",
+  "prefixNavigation": {
+    "resultViaKeyboard": true,
+    "languageSwitch": true,
+    "pointerEnglish": true
+  },
+  "canonical": {
+    "figures": 14,
+    "heading": "What stays unchanged while everything moves?",
+    "labs": 4,
+    "overflow": false,
+    "texErrors": 0,
+    "url": "http://127.0.0.1:4321/reasoning/lessons/invariants-and-monovariants/#3-the-mutilated-chessboard"
+  },
+  "searchEnglish": "/reasoning/lessons/invariants-and-monovariants/",
+  "notes": [
+    "Prefix search tested in EN/DE; keyboard activation and stable desktop pointer activation verified.",
+    "Shared preview refreshed from a validated immutable snapshot; other session servers were not stopped.",
+    "No mathematical-expert or native-language review claimed."
+  ]
+}

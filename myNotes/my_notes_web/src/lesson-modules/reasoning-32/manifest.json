@@ -1,0 +1,12 @@
+{
+  "id": "reasoning-32",
+  "course": "reasoning",
+  "chapter": "reasoning-part-four",
+  "order": 32,
+  "key": "discover-a-theorem",
+  "title": "Discover a theorem, then earn it",
+  "sourceId": "reasoning-episode-32",
+  "sourceTitle": "Workshop: Discover a theorem, then earn it",
+  "presets": ["evidence", "proof", "sixteen", "record"],
+  "figures": ["sums", "restrictions", "workspace", "odd-growth", "counterexample", "inclusion", "eight", "obligations", "final-workspace", "cycle"]
+}

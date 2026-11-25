@@ -1,0 +1,620 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-28
+sourcePages: []
+sourceLocations: ["Complete episode script 00:00–17:00; preparation and production notes"]
+title: "What if the next step needs all the earlier steps?"
+navTitle: "Strong induction"
+description: "Use smaller cases, strict descent and a least hypothetical counterexample to prove the existence of prime factorizations."
+order: 28
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [mathematical-induction, inventing-a-lemma]
+thumbnail: reasoning-strong
+---
+
+## 1. When the previous step is not enough
+
+Imagine that you have been given the task of breaking any whole number greater than one into prime numbers. Not just ten, or a hundred, or a million. Any number whatsoever.
+
+<ReasoningFigure kind="strong-branch" />
+
+For sixty, this seems relatively straightforward. We can break it into six and ten. Six becomes two times three, and ten becomes two times five. Eventually, we arrive at numbers that cannot be broken down any further into smaller positive integer factors greater than one.
+
+$$
+60=2\cdot3\cdot2\cdot5
+$$
+
+But how do we know that this process is possible for every integer greater than one? How do we know that there isn't some enormous number for which the whole process somehow fails?
+
+We cannot check them all. There are infinitely many.
+
+Now, in an earlier episode, we discovered a remarkably powerful way of dealing with infinitely many statements: mathematical induction.
+
+<ReasoningFigure kind="induction-domino-started" />
+
+We established a starting point and proved that whenever one statement was true, the next statement had to be true as well.
+
+But look at what happened when we broke down sixty. We didn't need to know anything about fifty-nine. We needed to know something about six and ten.
+
+The natural structure of this problem isn't a straight line. It's a branching tree.
+
+And that raises an interesting question. What if, instead of depending on the immediately preceding statement, the next statement depends on several statements that came before it?
+
+Today, we're going to discover how a small change in the way we organize an inductive proof allows us to reason about problems with much more complicated internal structures.
+
+And along the way, we'll discover another technique that begins with a rather unusual question:
+
+If something were false, what would be the smallest possible place where it could fail?
+
+## 2. Changing what we are allowed to assume
+
+Let's return briefly to the structure of ordinary mathematical induction.
+
+Suppose that $P(n)$ represents some statement about the positive integer $n$.
+
+To establish that the statement is true for every positive integer, we first prove $P(1)$. Then we establish that, for any positive integer $k$,
+
+$$
+P(k)\implies P(k+1).
+$$
+
+Once these two things have been established, the truth of the first statement forces the truth of the second. The second forces the truth of the third. And so on.
+
+But notice something important about what happens along the way.
+
+When we arrive at the fifth statement, it isn't merely the fourth statement that has been established. The first, second, and third have been established as well.
+
+<ReasoningFigure kind="strong-comparison" />
+
+Why should we restrict ourselves to using only the fourth?
+
+Imagine that, rather than proving the next statement from its immediate predecessor, we could use any of the earlier statements.
+
+Perhaps the fifth requires the second and the third. Perhaps the sixth requires only the third. Perhaps the seventh requires information from almost everything that came before it.
+
+Ordinary induction uses the immediately preceding statement in its inductive hypothesis. Strong induction makes all earlier statements available.
+
+This is the idea behind **strong mathematical induction**.
+
+Instead of assuming only $P(k)$ during our inductive step, we temporarily assume that all the statements from $P(1)$ through $P(k)$ are true.
+
+From that assumption, we must establish $P(k+1)$.
+
+Formally, our inductive step becomes
+
+$$
+\bigl(P(1)\land P(2)\land\cdots\land P(k)\bigr) \implies P(k+1).
+$$
+
+Remember what the conjunction symbol means. Every statement on the left-hand side is being assumed.
+
+But there is an important distinction here. We are not assuming that the entire theorem is true. We are assuming only statements about smaller integers in order to establish the statement about the next integer.
+
+The destination remains outside our assumptions.
+
+<ReasoningFigure kind="strong-scope" />
+
+We still need a starting point. And we still need to justify why our assumptions are enough to reach the next statement.
+
+Interestingly, despite its name, strong induction is not logically more powerful than ordinary induction. Both can establish the same statements over the natural numbers.
+
+What changes is the organization of the argument. Strong induction gives us a more convenient way of accessing earlier results whenever the problem naturally depends on them.
+
+It's not a different kind of certainty. It's a different architecture for reaching that certainty.
+
+## 3. Discovering the structure of prime factorization
+
+Let's see why this change is useful.
+
+Before we attempt to prove anything, we need to understand the objects we're dealing with and the exact statement that we want to establish.
+
+A prime number is an integer greater than one whose only positive divisors are one and itself.
+
+Seven, for example, is prime. Twelve is not, because twelve can be written as three times four.
+
+Every integer greater than one therefore belongs to one of two categories. It is either prime, or it is composite.
+
+Now consider the following statement.
+
+$$
+\boxed{ \text{Every integer }n>1 \text{ is a product of primes.} }
+$$
+
+By a product of primes, we also allow a product consisting of a single prime. Seven, for example, already satisfies the statement without needing to be broken down.
+
+Let's explore a few numbers before attempting the general proof.
+
+<ReasoningFigure kind="strong-examples" />
+
+So far, everything works. But checking these examples doesn't prove that the statement is true for every number.
+
+What we are looking for is a reason why a new number cannot fail if all the smaller numbers have succeeded.
+
+Consider the number twelve. Suppose that we already know that every integer from two through eleven can be expressed as a product of primes.
+
+We notice that
+
+$$
+12=3\cdot4.
+$$
+
+Both three and four belong to the collection of numbers we already understand.
+
+We know that three is prime. And we know that four can be expressed as two times two.
+
+Substituting these representations gives us
+
+$$
+12=3\cdot(2\cdot2).
+$$
+
+But here's the interesting part. We didn't actually need to know which prime factors four had. We only needed to know that such a representation existed.
+
+If three is a product of primes, and four is a product of primes, then multiplying those two products together produces another product of primes.
+
+<ReasoningFigure kind="strong-combine" />
+
+This means we can reason about the existence of a factorization without having to calculate it.
+
+And this is exactly the kind of relationship we need for an inductive proof.
+
+The question is whether what happened with twelve can happen with every composite integer.
+
+<Interactive kind="strong" preset="scope" id="strong-scope" />
+
+## 4. Building the proof
+
+Let's construct the proof ourselves.
+
+First, we need to define precisely what our statement is.
+
+For every integer $n\geq2$, let $P(n)$ be the statement that $n$ can be expressed as a finite product of prime numbers.
+
+In mathematical notation,
+
+$$
+P(n):\quad n=p_1p_2\cdots p_r,
+$$
+
+where $r\geq1$ and every $p_i$ is prime, for some choice of $r$ and of the primes.
+
+<ReasoningFigure kind="strong-statement" />
+
+Notice that we are not asking for a particular number of factors. Different integers may require different numbers of primes.
+
+We are also not asking whether this representation is unique.
+
+Our claim is simply that at least one such representation exists.
+
+### The starting point
+
+Our domain begins at two, not one. So the first statement we need to establish is $P(2)$.
+
+Two is itself prime. Therefore, two can be expressed as a product consisting of the single prime two.
+
+Our base case is established.
+
+<ReasoningFigure kind="strong-base" />
+
+### The inductive hypothesis
+
+Now choose an arbitrary integer $k\geq2$.
+
+For the purpose of the inductive step, suppose that
+
+$$
+P(2),P(3),\ldots,P(k)
+$$
+
+are all true.
+
+In other words, every integer from two through $k$ can be expressed as a product of primes.
+
+We need to establish $P(k+1)$.
+
+To make the notation slightly easier to work with, let's call this next integer $n$, so that
+
+$$
+n=k+1.
+$$
+
+Our hypothesis now tells us that every integer $m$ satisfying
+
+$$
+2\leq m<n
+$$
+
+has a prime factorization.
+
+Can we establish that $n$ has one as well?
+
+<ReasoningFigure kind="strong-hypothesis" />
+
+### The first possibility: $n$ is prime
+
+If $n$ is prime, then there is almost nothing left to prove.
+
+The number $n$ is already a product of a single prime: itself.
+
+Therefore, $P(n)$ is true.
+
+### The second possibility: $n$ is composite
+
+If $n$ is composite, then there exist positive integers $a$ and $b$, both greater than one, such that
+
+$$
+n=ab.
+$$
+
+But there is a small detail here that our entire argument depends upon.
+
+We need to know that both $a$ and $b$ are smaller than $n$.
+
+Why?
+
+Because otherwise, we would not be entitled to apply our inductive hypothesis to them.
+
+Since $b\geq2$ and $a\geq2$, multiplying $a$ by $b$ makes the result strictly larger than $a$. Similarly, multiplying $b$ by $a$ makes the result strictly larger than $b$.
+
+Consequently,
+
+$$
+2\leq a<n,\qquad 2\leq b<n.
+$$
+
+<ReasoningFigure kind="strong-factors" />
+
+The exact positions of a and b are illustrative. What matters is that both lie in the range of smaller integers.
+
+And now we can use the information we temporarily assumed.
+
+Since $a$ is an integer between two and $n-1$, it can be expressed as a product of primes.
+
+$$
+a=p_1p_2\cdots p_r.
+$$
+
+Since $b$ is also an integer between two and $n-1$, it too can be expressed as a product of primes.
+
+$$
+b=q_1q_2\cdots q_s.
+$$
+
+All the $p_i$'s and $q_i$'s are prime numbers.
+
+Substituting these representations into our original equation gives us
+
+$$
+\begin{aligned}
+n&=ab\\
+&=(p_1p_2\cdots p_r)(q_1q_2\cdots q_s)\\
+&=p_1p_2\cdots p_rq_1q_2\cdots q_s.
+\end{aligned}
+$$
+
+<ReasoningFigure kind="strong-product" />
+
+And there it is. A finite product of prime numbers.
+
+We have established $P(n)$ in the composite case as well.
+
+Since every integer greater than one is either prime or composite, these two cases exhaust all possibilities.
+
+Our inductive step is complete.
+
+Together with our base case, strong induction establishes that every integer greater than one can be expressed as a product of primes.
+
+$$
+\boxed{\forall n\in\mathbb Z,\ n\geq2 \implies P(n)}
+$$
+
+But before moving on, notice what actually made this proof work.
+
+It wasn't merely the fact that a composite number could be broken into factors. It was the fact that those factors were strictly smaller integers.
+
+Without that relationship, we would have had no justification for applying the inductive hypothesis.
+
+## 5. Why does the process ever stop?
+
+There is another way to understand what we have just proved.
+
+Imagine that we start with a number, and whenever we encounter a composite factor, we break it into two smaller factors greater than one.
+
+Let's try this with seventy-two.
+
+<Interactive kind="strong" preset="tree" id="strong-tree" />
+
+Following any branch of this tree, something interesting happens. The numbers keep getting strictly smaller.
+
+For example,
+
+$$
+72>8>4>2.
+$$
+
+<ReasoningFigure kind="strong-descent" />
+
+And every number in the tree is an integer greater than or equal to two.
+
+Could such a sequence continue decreasing forever?
+
+No. Starting at seventy-two, each step decreases the integer by at least one, and the sequence cannot go below two.
+
+Every branch must therefore end after finitely many steps. Moreover, since each split produces only two branches and the depth is bounded, the entire tree is finite.
+
+And when we can no longer split a factor into two integers greater than one, that factor must be prime.
+
+There is an important distinction between this reasoning and simply observing that several factor trees happen to terminate.
+
+We have identified a structural reason why they must terminate.
+
+The same reason applies whether our starting number is seventy-two or an integer with a million digits.
+
+Whenever we construct a mathematical process that repeatedly reduces a positive integer, we should pay attention to this property.
+
+It often allows us to establish that the process cannot continue indefinitely.
+
+And it leads us to another remarkably useful proof technique.
+
+## 6. Looking for the smallest place where something fails
+
+Instead of trying to prove directly that every integer has a prime factorization, let's approach the problem from the opposite direction.
+
+Suppose that our theorem is false.
+
+That would mean that there is at least one integer greater than one that cannot be expressed as a product of primes.
+
+We don't know which integers these counterexamples might be. We don't know how many there are. We don't even know whether there is a largest one.
+
+But we do know something else.
+
+If there is at least one such integer, there must be a smallest one.
+
+This follows from a fundamental property of the natural numbers called the **well-ordering principle**.
+
+$$
+\boxed{ \begin{gathered} \text{Every nonempty subset of }\mathbb N\\ \text{has a least element.} \end{gathered} }
+$$
+
+Notice that the subset doesn't need to be finite. It doesn't need to contain consecutive integers. It could be an extremely complicated collection.
+
+As long as it is a nonempty subset of the natural numbers, it has a least element.
+
+Let's call the smallest counterexample to our theorem $c$.
+
+Formally, if we define
+
+$$
+C=\{n\in\mathbb N:n\geq2\land\neg P(n)\},
+$$
+
+then, under the assumption that our theorem is false,
+
+$$
+C\neq\varnothing.
+$$
+
+Therefore, by well-ordering, we may choose
+
+$$
+c=\min C.
+$$
+
+<ReasoningFigure kind="strong-least" />
+
+Now think carefully about what we have obtained.
+
+We haven't simply chosen a counterexample. We have chosen the smallest counterexample.
+
+That means that every integer between two and $c-1$ must satisfy our theorem.
+
+Otherwise, $c$ would not be the smallest.
+
+Does this collection of available information look familiar?
+
+It is precisely the kind of information we used during our strong inductive step.
+
+Now, could $c$ be prime?
+
+No. If it were prime, it would already be a product of a single prime, and therefore it would not be a counterexample.
+
+So $c$ must be composite.
+
+Consequently,
+
+$$
+c=ab,\qquad 2\leq a,b<c.
+$$
+
+But because $c$ is the smallest counterexample, neither $a$ nor $b$ can be a counterexample.
+
+Both must have prime factorizations.
+
+Multiplying these factorizations together gives us a prime factorization of $c$.
+
+<ReasoningFigure kind="strong-contradiction" />
+
+So $c$ both has and, by our assumption, does not have a prime factorization.
+
+That is a contradiction.
+
+Our assumption that a counterexample exists must therefore be false.
+
+This technique is called **proof by smallest counterexample**.
+
+Its strength comes from a clever choice. Rather than dealing with an arbitrary counterexample, we choose one with an additional property: every smaller permitted value must satisfy the theorem.
+
+In many problems, we can show that such a smallest counterexample would force an even smaller counterexample to exist.
+
+Here, for instance, if $c=ab$ had no prime factorization, at least one of its factors would also have to lack a prime factorization. Otherwise, we could combine their prime factorizations to obtain one for $c$.
+
+But both factors are smaller than $c$.
+
+The smallest counterexample would therefore produce a smaller counterexample.
+
+And that is impossible.
+
+<Interactive kind="strong" preset="least" id="strong-least" />
+
+### An important boundary
+
+We should be careful about where this reasoning is permitted.
+
+Consider the set of all strictly positive real numbers.
+
+$$
+S=\{x\in\mathbb R:x>0\}.
+$$
+
+Does this set have a smallest element?
+
+<ReasoningFigure kind="strong-reals" />
+
+Whatever positive real number $x$ we choose, we can always find a smaller positive real number:
+
+$$
+0<\frac{x}{2}<x.
+$$
+
+Zero is a lower bound, but it is not an element of our set. There is no smallest positive real number.
+
+So the fact that a collection is ordered, or even bounded below, is not sufficient to guarantee that it has a smallest element.
+
+The well-ordering property is what justifies our choice.
+
+Whenever you use a smallest-counterexample argument, ask yourself why a smallest counterexample must actually exist.
+
+## 7. Three arguments, one underlying structure
+
+We have now encountered three closely related ways of reasoning.
+
+Ordinary induction establishes a starting point and connects each statement to the next.
+
+Strong induction establishes a starting point and allows us to use all the smaller statements to establish the next one.
+
+The smallest-counterexample method supposes that something fails and demonstrates that the first place where it could fail cannot actually exist.
+
+Forward reasoning from a predecessor, forward reasoning from smaller cases, and reasoning against a hypothetical first failure.
+
+<ReasoningFigure kind="strong-methods" />
+
+These are not three unrelated mathematical inventions. Over the natural numbers, they are equivalent principles.
+
+In fact, we could recover strong induction from ordinary induction by defining a new statement,
+
+$$
+Q(k)=P(2)\land P(3)\land\cdots\land P(k).
+$$
+
+Instead of keeping track of just one statement, this new statement keeps track of everything established up to that point.
+
+<ReasoningFigure kind="strong-cumulative" />
+
+Ordinary induction on $Q(k)$ then gives us the cumulative structure of strong induction.
+
+The lesson here is not that you must memorize three entirely different proof techniques.
+
+It is that the same underlying mathematical structure can be organized in different ways, depending on the problem you are trying to understand.
+
+## 8. Can you justify the missing steps?
+
+Before we finish, I want you to examine three small questions.
+
+Don't merely try to remember the proof we just constructed. Try to reconstruct the reasons behind it.
+
+### 1. Which earlier statements are needed?
+
+Suppose $45=5\times9$. Which earlier statements allow strong induction to establish $P(45)$?
+
+<details>
+<summary>Added hint</summary>
+
+Which two factors lie in the range from two through forty-four?
+
+</details>
+
+<Exercise>
+
+**Added reference explanation.** The hypothesis makes $P(5)$ and $P(9)$ available, since $2\leq5,9<45$. A finite prime product for five and one for nine combine into a finite prime product for forty-five. $P(44)$ alone does not supply these two factorizations, and $P(45)$ cannot be assumed within this step.
+
+</Exercise>
+
+### 2. Additional practice: why exclude one as a factor?
+
+Why would $n=1\cdot n$ fail to justify the composite case by strong induction?
+
+<details>
+<summary>Added hint</summary>
+
+Check the permitted range for each factor.
+
+</details>
+
+<Exercise>
+
+**Added reference explanation.** One lies outside the domain $m\geq2$, and the other factor is $n$ itself, outside the smaller range $m<n$. Using $P(n)$ to establish $P(n)$ would be circular. Nontrivial factors $a,b\geq2$ instead guarantee $2\leq a,b<n$.
+
+</Exercise>
+
+### 3. Additional practice: existence or uniqueness?
+
+Two factor trees for sixty reach the same prime factors. Does our existence proof establish that every two prime factorizations of every integer agree, apart from order?
+
+<details>
+<summary>Added hint</summary>
+
+What does the existential statement $P(n)$ require, and what would uniqueness additionally require?
+
+</details>
+
+<Exercise>
+
+**Added reference explanation.** No. The argument constructs at least one finite prime product for each integer $n\geq2$. It does not compare arbitrary prime products for the same integer. Uniqueness, apart from rearranging the factors, needs a separate general proof; agreement for sixty is only an example.
+
+</Exercise>
+
+That last distinction is particularly important.
+
+Although we know that every integer greater than one has a prime factorization, we have not established that two different ways of breaking down a number must eventually produce the same collection of prime factors.
+
+<ReasoningFigure kind="strong-uniqueness" />
+
+They happen to agree in this example. But as we have learned throughout this course, agreement in an example is not a general proof.
+
+Existence and uniqueness are two different obligations. We have fulfilled the first.
+
+The second is another mathematical problem.
+
+## 9. The deeper idea
+
+The next time you encounter a difficult problem involving integers, ask yourself whether solving it requires solving a smaller version of the same problem.
+
+And then ask whether those smaller problems might already be enough.
+
+<ReasoningFigure kind="strong-dependencies" />
+
+Strong induction allows us to turn that relationship into a rigorous proof.
+
+But the essential ingredient is not the number of earlier statements we use. It is the direction in which the dependencies point.
+
+Every time our reasoning refers to another case, that case must be smaller.
+
+We can therefore build something infinitely extensive out of dependencies that are always finite and move toward a starting point.
+
+Sometimes, to understand the next step, we need more than the step immediately behind us.
+
+Sometimes, we need access to everything we have already established.
+
+**What would become possible if you could use everything you have already proved?**
+
+## Further reading
+
+[Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/). The author’s contents list places strong induction, smallest counterexamples and prime factorization in sections 10.2–10.4. These are further reading; the entire book has not been independently reviewed here.
+
+[MIT — Mathematics for Computer Science](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/). The course reading list assigns ordinary induction and strong induction in its first proof unit. The linked textbook offers alternative formulations and exercises; the full text was not checked here.
+
+[George Pólya — How to Solve It](https://people.math.harvard.edu/~knill/teaching/math21b2001/polya/index.html). The Harvard-hosted excerpt suggests related, simpler and auxiliary problems. It connects the present dependency structure with the problem-solving questions of the preceding lessons, rather than serving as the formal proof of strong induction.

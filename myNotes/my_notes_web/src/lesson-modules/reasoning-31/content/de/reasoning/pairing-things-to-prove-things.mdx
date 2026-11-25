@@ -1,0 +1,460 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-31
+sourcePages: []
+sourceLocations: ["Complete episode script 00:00–17:00; mathematical reference and misconception notes"]
+title: "Dinge zuordnen, um etwas zu beweisen"
+navTitle: "Beweisen durch Zuordnen"
+description: "Mit injektiven, surjektiven und bijektiven Funktionen endliche Mengen vergleichen und Gleichheiten durch Zuordnungen beweisen."
+order: 31
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [sets-and-mathematical-worlds, proof-by-contraposition]
+thumbnail: module:reasoning-31
+---
+
+## 1. Du musst nicht immer zählen
+
+Stell dir vor, jemand legt zwei Sammlungen von Gegenständen vor dich und fragt, ob beide genau gleich viele Dinge enthalten: auf der einen Seite blaue Steine, auf der anderen Münzen.
+
+Wie würdest du das herausfinden?
+
+Am naheliegendsten wäre es, die Gegenstände in der ersten Sammlung zu zählen, dann die in der zweiten und schließlich die beiden Zahlen zu vergleichen.
+
+Es gibt aber eine andere Möglichkeit: Wir könnten ihre Elemente paarweise zuordnen.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="opening" />
+
+Wenn jeder Stein genau eine Münze als Partner hat, jede Münze genau einen Stein und nichts übrig bleibt, müssen die beiden Sammlungen gleich viele Gegenstände enthalten.
+
+Wir müssen nicht einmal wissen, wie viele es sind.
+
+Wir haben eine Frage nach einer Anzahl beantwortet, indem wir eine Beziehung hergestellt haben. Statt zwei Zahlen zu bestimmen und zu vergleichen, haben wir etwas konstruiert, das ihre Gleichheit unvermeidlich macht.
+
+Diese unscheinbare Idee ist ein mächtiges Werkzeug. Mit ihr lassen sich Sammlungen vergleichen, mathematische Identitäten beweisen und unmögliche Zuordnungen erkennen. Später werden wir sogar Sammlungen betrachten können, die sich im gewöhnlichen Sinn gar nicht vollständig abzählen lassen.
+
+Damit diese Methode funktioniert, müssen wir genau verstehen, was eine gültige Paarung ausmacht. Das beginnt mit einem der wichtigsten mathematischen Begriffe: einer Funktion.
+
+## 2. Was eine Funktion eigentlich ist
+
+Stell dir eine Schule vor, in der jeder Schüler ein Schließfach erhalten soll.
+
+Wir haben vier Schüler: Anna, Ben, Clara und David. Dazu kommen vier Schließfächer mit den Nummern eins bis vier. Eine Zuordnung könnte so aussehen:
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="assignment" />
+
+Eine Funktion ordnet jedem Schüler genau ein Schließfach zu. Die Pfeile zeigen, welcher Schüler welches Schließfach erhält.
+
+Die Menge der möglichen Eingaben heißt **Definitionsmenge**, die Menge der vorgesehenen Ausgaben **Zielmenge**. Wir schreiben:
+
+$$
+f:A\longrightarrow B.
+$$
+
+Der Buchstabe $f$ bezeichnet unsere Funktion. Der Pfeil bedeutet, dass sie Elementen von $A$ Elemente von $B$ zuordnet. Zum Beispiel bedeutet
+
+$$
+f(\text{Anna})=1,
+$$
+
+dass Anna das Schließfach mit der Nummer eins erhält.
+
+Dabei muss jede Funktion eine grundlegende Regel erfüllen:
+
+**Jedem Element der Definitionsmenge wird genau ein Element der Zielmenge zugeordnet.**
+
+Erhält Anna überhaupt kein Schließfach, liegt keine Funktion von der gesamten Menge der Schüler in die Menge der Schließfächer vor.
+
+Erhält Anna zwei verschiedene Schließfächer, ist die Regel ebenfalls verletzt: Dieselbe Eingabe darf nicht zwei verschiedene Werte haben.
+
+Was passiert aber, wenn zwei verschiedene Schüler dasselbe Schließfach bekommen?
+
+Das mag für die Organisation der Schule eine schlechte Entscheidung sein. Mathematisch ist es trotzdem eine Funktion. Anna hat genau einen Wert, und Ben hat genau einen Wert. Die Grundregel bleibt erfüllt.
+
+Die Forderung lautet nicht, dass zu jeder Ausgabe genau eine Eingabe gehört. Sie lautet, dass jede Eingabe genau eine Ausgabe hat. Das klingt ähnlich, sind aber grundverschiedene Aussagen.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="function-rule" />
+
+Um zu verstehen, wann eine Funktion zum Paaren und Vergleichen von Mengen geeignet ist, müssen wir nun die Zielseite der Zuordnung betrachten.
+
+## 3. Kollisionen, unbenutzte Ziele und vollständige Paarungen
+
+### Injektivität: Kollisionen vermeiden
+
+Wenn Anna und Ben beide Schließfach eins erhalten, haben zwei verschiedene Schüler denselben Wert. Wir können das eine **Kollision** nennen: Zwei verschiedene Eingaben landen bei derselben Ausgabe.
+
+Eine Funktion, bei der das nie geschieht, heißt **injektiv**. Verschiedene Eingaben haben dann immer verschiedene Werte:
+
+$$
+a\neq b\quad\Longrightarrow\quad f(a)\neq f(b).
+$$
+
+Gleichwertig dazu gilt: Wenn zwei Funktionswerte gleich sind, müssen die zugehörigen Eingaben gleich gewesen sein.
+
+$$
+f(a)=f(b)\quad\Longrightarrow\quad a=b.
+$$
+
+Das sind zwei Formulierungen derselben Eigenschaft. Die erste beschreibt, was Injektivität verhindert. Die zweite eignet sich besonders gut, um Injektivität zu beweisen. Die Aussagen sind Kontrapositionen voneinander.
+
+Injektivität verlangt allerdings nicht, jedes Schließfach zu benutzen. Wir könnten jedem der vier Schüler ein eigenes Schließfach geben und zwei weitere Schließfächer leer lassen. Die Funktion wäre trotzdem injektiv: Niemand teilt sich ein Schließfach. Die unbenutzten Schließfächer spielen für diese Eigenschaft keine Rolle.
+
+### Surjektivität: jedes Ziel erreichen
+
+Nun könnte die Schule eine andere Forderung stellen: Jedes Schließfach soll benutzt werden, auch wenn Schüler sich ein Schließfach teilen.
+
+Diese Eigenschaft heißt **Surjektivität**. Eine Funktion ist surjektiv, wenn jedes Element ihrer Zielmenge der Wert mindestens eines Elements ihrer Definitionsmenge ist.
+
+Formal:
+
+$$
+\forall b\in B,\quad\exists a\in A:\ f(a)=b.
+$$
+
+Zu jedem Schließfach gibt es mindestens einen Schüler, dem es zugeordnet wurde. Wir sagen nicht, dass es genau einen solchen Schüler gibt. Es muss lediglich mindestens einer sein.
+
+Eine surjektive Funktion darf also Kollisionen haben. Was sie nicht haben darf, sind unerreichbare Elemente der Zielmenge.
+
+### Bijektivität: beide Forderungen zugleich
+
+Was geschieht, wenn wir beide Anforderungen erfüllen?
+
+Keine zwei Schüler teilen sich ein Schließfach, und kein Schließfach bleibt unbenutzt. Eine Funktion, die sowohl injektiv als auch surjektiv ist, heißt **bijektiv**.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="properties" />
+
+Die drei Begriffe beantworten unterschiedliche Fragen:
+
+- Injektivität: Können verschiedene Eingaben denselben Wert haben?
+- Surjektivität: Wird jedes vorgesehene Ziel erreicht?
+- Bijektivität: Gibt es eine vollständige Zuordnung, bei der jedes Element genau einen Partner hat?
+
+Die letzte Eigenschaft ermöglicht uns zu beweisen, dass zwei endliche Mengen gleich groß sind.
+
+## 4. Was eine Funktion über die Größe verrät
+
+Angenommen, wir haben zwei endliche Mengen $A$ und $B$. Wir wissen nicht unbedingt, wie viele Elemente sie enthalten. Jemand hat aber eine injektive Funktion von $A$ nach $B$ konstruiert.
+
+Was folgt daraus?
+
+Weil die Funktion injektiv ist, benötigt jedes Element von $A$ ein eigenes, von den anderen verschiedenes Element in $B$. Deshalb muss $B$ mindestens so viele Elemente wie $A$ enthalten:
+
+$$
+|A|\leq|B|.
+$$
+
+Die senkrechten Striche bezeichnen die **Mächtigkeit** einer Menge: im endlichen Fall die Anzahl ihrer Elemente.
+
+Nehmen wir nun an, es wurde stattdessen eine surjektive Funktion konstruiert.
+
+Jedes Element von $B$ muss mindestens einen Pfeil erhalten. Da jedes Element von $A$ nur einen Wert haben kann, brauchen wir genügend Elemente in $A$, um alle Elemente von $B$ zu erreichen. Somit gilt:
+
+$$
+|A|\geq|B|.
+$$
+
+Erfüllt die Funktion beide Eigenschaften, gelten beide Ungleichungen:
+
+$$
+|A|\leq|B|\qquad\text{und}\qquad|A|\geq|B|.
+$$
+
+Dann kann keine Menge größer sein als die andere:
+
+$$
+\boxed{|A|=|B|}.
+$$
+
+Wir haben bewiesen, dass die Mengen gleich viele Elemente enthalten, ohne ihre genaue Anzahl bestimmen zu müssen.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="sizes" />
+
+Für endliche Mengen schränkt die Struktur einer Funktion also die möglichen Größenverhältnisse ein. Damit können wir auch beweisen, dass bestimmte Zuordnungen unmöglich sind.
+
+Können wir fünf Schülern injektiv vier Schließfächer zuordnen?
+
+Nein. Jeder Schüler bräuchte ein eigenes Schließfach, und dafür gibt es zu wenige. Genau diese Schwierigkeit beschreibt das Schubfachprinzip. Nun können wir sie mit der Sprache der Funktionen ausdrücken.
+
+Wir müssen nicht jede mögliche Zuordnung ausprobieren. Bereits die Größenverhältnisse zeigen, dass jede gültige Funktion die Injektivität verletzen muss.
+
+Die Struktur eines Problems zu verstehen kann uns die Suche durch alle Möglichkeiten ersparen.
+
+## 5. Wie beweist man Injektivität?
+
+Bisher konnten wir an kleinen Diagrammen unmittelbar erkennen, ob zwei Pfeile kollidieren. Wie gehen wir aber mit Tausenden oder sogar unendlich vielen möglichen Eingaben um?
+
+Betrachte die Funktion
+
+$$
+f:\mathbb Z\longrightarrow\mathbb Z,\qquad f(n)=2n+1.
+$$
+
+Sie verdoppelt eine ganze Zahl und addiert eins. Beispielsweise:
+
+$$
+\begin{aligned}
+f(-2)&=-3,\\
+f(-1)&=-1,\\
+f(0)&=1,\\
+f(1)&=3,\\
+f(2)&=5.
+\end{aligned}
+$$
+
+Diese Beispiele legen nahe, dass verschiedene Eingaben immer verschiedene Werte ergeben. Fünf überprüfte Fälle beweisen aber keine Aussage über alle ganzen Zahlen.
+
+Stattdessen überlegen wir, was eine Kollision bedeuten würde. Die zweite Formulierung der Injektivität lautet:
+
+$$
+f(a)=f(b)\Longrightarrow a=b.
+$$
+
+Wir wollen zeigen, dass zwei Eingaben mit gleichen Funktionswerten tatsächlich dieselbe Eingabe sind.
+
+Seien also $a$ und $b$ beliebige ganze Zahlen. Nehmen wir an, dass
+
+$$
+f(a)=f(b).
+$$
+
+Nach der Definition unserer Funktion bedeutet das:
+
+$$
+2a+1=2b+1.
+$$
+
+Subtrahieren wir auf beiden Seiten eins, erhalten wir
+
+$$
+2a=2b.
+$$
+
+Division durch zwei liefert
+
+$$
+a=b.
+$$
+
+Damit sind wir fertig. Eine angenommene Kollision erzwingt, dass die beiden Eingaben identisch sind.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="collision-proof" />
+
+Beachte, wie wenig wir über die Eingaben wissen mussten. Ob sie positiv oder negativ, groß oder klein sind, war unerheblich. Wir brauchten ihnen nicht einmal konkrete Werte zu geben.
+
+Der Beweis funktioniert, weil aus der Gleichheit ihrer Funktionswerte notwendig die Gleichheit der Eingaben folgt. Das macht ihn zu einem allgemeinen Beweis statt zu einer Sammlung von Beobachtungen.
+
+Ist unsere Funktion auch surjektiv?
+
+Betrachte die ganze Zahl null. Gibt es eine ganze Zahl $n$ mit
+
+$$
+2n+1=0?
+$$
+
+Auflösen ergibt
+
+$$
+n=-\frac12.
+$$
+
+Diese Zahl ist nicht ganzzahlig und gehört somit nicht zur Definitionsmenge. Null liegt zwar in unserer Zielmenge, wird aber von keiner erlaubten Eingabe erreicht.
+
+Weil Surjektivität fordert, dass jedes Element der Zielmenge erreicht wird, reicht dieses eine Gegenbeispiel aus. Unsere Funktion ist injektiv, aber nicht surjektiv.
+
+Nun ändern wir genau eine Sache: Statt aller ganzen Zahlen wählen wir nur die ungeraden ganzen Zahlen als Zielmenge.
+
+$$
+O=\{2k+1:k\in\mathbb Z\}.
+$$
+
+Unsere Funktion lautet nun
+
+$$
+f:\mathbb Z\longrightarrow O,\qquad f(n)=2n+1.
+$$
+
+Die Formel bleibt dieselbe. Jede Eingabe erzeugt genau denselben Wert wie vorher. Geändert hat sich jedoch die Menge der vorgesehenen Ziele.
+
+Um Surjektivität zu beweisen, nehmen wir ein beliebiges $y\in O$. Weil $y$ ungerade ist, gibt es eine ganze Zahl $k$ mit
+
+$$
+y=2k+1.
+$$
+
+Damit gilt
+
+$$
+f(k)=y.
+$$
+
+Jedes Element der neuen Zielmenge hat also eine Eingabe, die es erreicht. Die Funktion ist nun surjektiv. Weil sie weiterhin injektiv ist, ist sie auch bijektiv.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="codomain" />
+
+<Interactive kind="module" module="reasoning-31" preset="codomain" id="pairing-codomain" />
+
+Dieselbe Formel kann mit verschiedenen Zielmengen zu Funktionen mit unterschiedlichen Eigenschaften gehören. Eine Funktion besteht nicht nur aus einer algebraischen Formel: Definitionsmenge, Zielmenge und Zuordnungsvorschrift sind gemeinsam entscheidend.
+
+Die Menge der tatsächlich angenommenen Werte heißt **Bild** der Funktion. Eine Funktion ist genau dann surjektiv, wenn ihr Bild mit ihrer Zielmenge übereinstimmt.
+
+Ob jedes Ziel erreicht wird, können wir erst beurteilen, wenn feststeht, welche Ziele überhaupt vorgesehen sind.
+
+## 6. Durch eine Zuordnung etwas beweisen
+
+Nun nutzen wir eine Bijektion für einen Beweis, der sonst nach einer Zählaufgabe aussehen würde.
+
+Unsere Sammlung besteht aus drei Gegenständen: einem roten Dreieck, einem blauen Kreis und einem goldenen Quadrat.
+
+$$
+S=\{r,b,g\}.
+$$
+
+Für jede Teilmenge entscheiden wir, welche Gegenstände dazugehören. Manche Teilmengen enthalten das goldene Quadrat, andere nicht.
+
+**Gibt es genau so viele Teilmengen mit dem goldenen Quadrat wie Teilmengen ohne dieses Quadrat?**
+
+Bei dieser kleinen Sammlung könnten wir sie einfach zählen. Betrachten wir stattdessen, was passiert, wenn wir eine beliebige Teilmenge ohne das Quadrat nehmen und das Quadrat hinzufügen.
+
+Jede Teilmenge links erhält genau einen Partner rechts.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="subset-pairs" />
+
+Aus der leeren Menge wird die Menge, die nur das goldene Quadrat enthält. Aus der Menge mit dem roten Dreieck wird die Menge mit Dreieck und Quadrat. Aus der Menge mit dem blauen Kreis wird die Menge mit Kreis und Quadrat. Entsprechend geht es weiter.
+
+Wir haben eine Funktion von den Teilmengen ohne Quadrat zu den Teilmengen mit Quadrat konstruiert. Nennen wir die erste Sammlung $A$ und die zweite $B$. Dann ist
+
+$$
+f:A\longrightarrow B,\qquad f(X)=X\cup\{g\}.
+$$
+
+Jetzt müssen wir nachweisen, dass diese Funktion bijektiv ist.
+
+Können zwei verschiedene Teilmengen gleich werden, wenn wir beiden dasselbe Quadrat hinzufügen?
+
+Nein. Das Hinzufügen löscht keinen der vorherigen Unterschiede. Formal nehmen wir an:
+
+$$
+X\cup\{g\}=Y\cup\{g\}.
+$$
+
+Weder $X$ noch $Y$ enthält ursprünglich $g$. Entfernen wir deshalb auf beiden Seiten $g$, folgt
+
+$$
+X=Y.
+$$
+
+Die Funktion ist also injektiv.
+
+Hat auch jede Teilmenge mit Quadrat einen Partner?
+
+Nimm eine beliebige solche Teilmenge $Z$ und entferne das Quadrat:
+
+$$
+X=Z\setminus\{g\}.
+$$
+
+Diese Teilmenge liegt in $A$. Fügen wir das Quadrat wieder hinzu, erhalten wir
+
+$$
+f(X)=Z.
+$$
+
+Somit wird jedes Element von $B$ erreicht. Die Funktion ist surjektiv, also bijektiv.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="inverse" />
+
+<Interactive kind="module" module="reasoning-31" preset="subsets" id="pairing-subsets" />
+
+Es folgt:
+
+$$
+|A|=|B|.
+$$
+
+Bemerkenswert ist, dass unser Argument an keiner Stelle genau drei Gegenstände voraussetzt. Es könnten zehn, hundert oder eine Million sein.
+
+Solange eine endliche Menge ein ausgezeichnetes Element enthält, enthält genau die Hälfte ihrer Teilmengen dieses Element. Wir mussten dafür nicht ausrechnen, wie viele Teilmengen es insgesamt gibt. Wir haben eine Transformation gefunden, die sie vollständig paart.
+
+Das ist der Kern eines Beweises durch Zuordnung: Manchmal beweisen wir die Gleichheit zweier Anzahlen am einfachsten, indem wir eine Bijektion zwischen den gezählten Objekten konstruieren.
+
+## 7. Kannst du die Zuordnung reparieren?
+
+Betrachte zum Abschluss drei Situationen. In jeder fragen wir, ob die Funktion so verändert werden kann, dass sie bijektiv wird.
+
+Du darfst die Zuordnungen ändern, aber innerhalb einer Situation weder Schüler noch Schließfächer hinzufügen oder entfernen. Mit der Auswahl kannst du zwischen den drei Situationen wechseln.
+
+### Situation eins
+
+<Interactive kind="module" module="reasoning-31" preset="lockers" id="pairing-lockers" />
+
+In der Ausgangssituation teilen sich zwei Schüler ein Schließfach, während ein anderes leer bleibt. Können wir beide Probleme durch eine einzige Änderung beheben?
+
+Ja. Wir ordnen einem der beiden Schüler mit gemeinsamem Schließfach das unbenutzte Schließfach zu. Damit beseitigen wir zugleich die Kollision und das unbenutzte Ziel. Die Funktion wird injektiv und surjektiv.
+
+### Situation zwei
+
+Nun haben wir fünf Schüler und vier Schließfächer. Können wir die Zuordnung irgendwie so umordnen, dass sie bijektiv wird?
+
+Nein. Selbst wenn wir jede einzelne Zuordnung ändern dürfen, lässt sich das Problem unter diesen Bedingungen nicht lösen.
+
+Die Schwierigkeit liegt nicht an der konkreten Funktion. Sie liegt am Größenverhältnis von Definitions- und Zielmenge. Von einer fünfelementigen in eine vierelementige Menge gibt es keine injektive Funktion.
+
+### Situation drei
+
+Jetzt haben wir drei Schüler und vier Schließfächer.
+
+Können wir eine injektive Funktion konstruieren? Ja: Jeder Schüler erhält ein anderes Schließfach.
+
+Können wir eine surjektive Funktion konstruieren? Nein. Drei Schüler mit jeweils genau einem Wert können höchstens drei verschiedene Schließfächer erreichen. Mindestens ein Schließfach bleibt unerreichbar.
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="possibilities" />
+
+Diese Beispiele zeigen einen wichtigen Unterschied im mathematischen Denken. Manchmal scheitert eine bestimmte Konstruktion, aber eine bessere könnte funktionieren. In anderen Fällen machen die Bedingungen Erfolg grundsätzlich unmöglich, unabhängig davon, welche Konstruktion wir wählen.
+
+Im ersten Fall müssen wir eine Lösung finden. Im zweiten müssen wir beweisen, dass keine Lösung existiert. Wer diesen Unterschied erkennt, erspart sich eine lange Suche nach etwas, das es gar nicht geben kann.
+
+## 8. Die tiefere Idee
+
+Am Anfang wollten wir zwei Sammlungen vergleichen. Statt zu zählen, haben wir ihre Elemente gepaart.
+
+Hinter dieser einfachen Alternative steckt eine ganze mathematische Sprache. Injektivität bedeutet, dass Kollisionen ausgeschlossen sind. Surjektivität bedeutet, dass jedes vorgesehene Ziel erreicht wird. Bijektivität bedeutet, dass jedes Element genau einen Partner hat.
+
+Gemeinsam erlauben uns diese Begriffe, über Größen endlicher Mengen nachzudenken, Gleichheiten zu beweisen und unmögliche Zuordnungen auszuschließen.
+
+Später werden wir diese Ideen auf unendliche Mengen anwenden. Obwohl wir unendlich viele Gegenstände niemals vollständig abzählen können, lässt sich zwischen ihnen manchmal trotzdem eine Zuordnung herstellen. Das gehört in eine andere Lektion.
+
+Für jetzt bleibt diese Idee:
+
+**Um herauszufinden, ob zwei Sammlungen gleich viele Dinge enthalten, musst du ihre Elemente nicht unbedingt zählen. Du kannst untersuchen, wie sie einander entsprechen.**
+
+<ReasoningFigure kind="module" module="reasoning-31" figure="process" />
+
+## Übersicht und häufige Missverständnisse
+
+Für eine Funktion $f:A\to B$ kommt es auf die Richtung von Existenz und Eindeutigkeit an:
+
+| Eigenschaft | Forderung |
+| --- | --- |
+| Funktion | $\forall a\in A,\ \exists!b\in B:\ f(a)=b$ |
+| Injektiv | $\forall a_1,a_2\in A,\ f(a_1)=f(a_2)\Rightarrow a_1=a_2$ |
+| Surjektiv | $\forall b\in B,\ \exists a\in A:\ f(a)=b$ |
+| Bijektiv | $\forall b\in B,\ \exists!a\in A:\ f(a)=b$ |
+
+Dabei bedeutet $\exists!$ „es gibt genau ein“. Eine Funktion benötigt für jede Eingabe genau einen Wert. Bei einer Bijektion gehört zusätzlich zu jeder vorgesehenen Ausgabe genau eine Eingabe.
+
+Bei gleich großen endlichen Mengen folgt aus Injektivität auch Surjektivität und umgekehrt. Gleiche Größe allein macht aber eine beliebige Funktion noch nicht bijektiv: Die anfängliche Kollision bei vier Schülern ist ein Gegenbeispiel. Verschiedene Größen schließen eine Bijektion unter den gegebenen Regeln aus.
+
+Mehrere überprüfte Eingaben beweisen keine Injektivität. Ein einziges unerreichbares Element der Zielmenge widerlegt dagegen die Surjektivität. Ein fehlgeschlagener Versuch beweist keine Unmöglichkeit; dazu müssen wir alle erlaubten Versuche durch ein allgemeines Hindernis ausschließen.
+
+Die beiden Injektivitätsformulierungen sind Kontrapositionen. Im Beispiel mit $2n+1$ verwenden wir einen direkten Beweis; null liefert ein Gegenbeispiel zur Surjektivität. Der Teilmengenbeweis wechselt die Darstellung und ersetzt das Zählen durch eine umkehrbare Beziehung. Das Größenhindernis formuliert das Schubfachprinzip in der Sprache der Funktionen.
+
+## Weiterführende Literatur
+
+[Richard Hammack — Book of Proof](https://richardhammack.github.io/BookOfProof/), Kapitel 12 über Funktionen.
+
+[Daniel J. Velleman — How to Prove It](https://www.cambridge.org/core/books/abs/how-to-prove-it/contents/D9098F367810400B8A7FFD6FFCC22695), zur logischen Struktur von Beweisen über Funktionen.
+
+[MIT — Mathematics for Computer Science](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/), zu Zählmethoden, Zuordnungen und dem Schubfachprinzip.

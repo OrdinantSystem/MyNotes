@@ -1,0 +1,12 @@
+{
+  "id":"reasoning-29",
+  "course":"reasoning",
+  "chapter":"reasoning-part-four",
+  "order":29,
+  "key":"invariants-and-monovariants",
+  "title":"Invariants, reachability and termination",
+  "sourceId":"reasoning-episode-29",
+  "sourceTitle":"What stays unchanged while everything moves? · invariants and monovariants",
+  "presets":["containers","counts","removal","coins"],
+  "figures":["regions","boards","colors","dominoes","obstruction","state-chain","induction","behaviors","halving","method","coin-moves","applications","abstraction","takeaway"]
+}

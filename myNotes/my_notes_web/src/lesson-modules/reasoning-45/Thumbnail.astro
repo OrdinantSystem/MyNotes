@@ -1,0 +1,5 @@
+---
+interface Props {locale?:'en'|'de'}
+const {locale='en'}=Astro.props;
+---
+<svg viewBox="0 0 220 130" role="img" aria-label={locale==='de'?'A führt innerhalb der Gruppen; B insgesamt':'A leads within groups; B overall'}><path d="M15 110H205" stroke="var(--axis)"/>{[[25,90,'blue'],[49,80,'coral'],[91,30,'blue'],[115,20,'coral'],[157,35.45,'blue'],[181,74.55,'coral']].map(([x,h,color])=><rect x={x} y={110-Number(h)} width="18" height={h} rx="3" fill={`var(--${color})`}/>)}</svg>

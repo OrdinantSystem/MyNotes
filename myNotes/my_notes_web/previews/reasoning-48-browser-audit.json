@@ -1,0 +1,224 @@
+{
+  "layouts": [
+    {
+      "activities": 6,
+      "figures": 22,
+      "height": 1000,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "activities": 6,
+      "figures": 22,
+      "height": 1000,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "activities": 6,
+      "figures": 22,
+      "height": 1000,
+      "locale": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "activities": 6,
+      "figures": 22,
+      "height": 1000,
+      "locale": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "height": 844,
+      "locale": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "height": 844,
+      "locale": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "height": 844,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "height": 844,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    }
+  ],
+  "checks": {
+    "unmatched": "Study once · 20 students · 5 minutes\nRetrieval practice · 20 students · 30 minutes\n\nThe comparison is 5 versus 30 active minutes. Any difference can reflect both the procedure and the extra time.",
+    "relative": "+48.9% relative to 45%\n\nConcept mapping: 45%\nRetrieval practice: 67%\n\nThe same 22-point gain is about 48.9% of the 45% baseline. The denominator changes; the observations do not.",
+    "comparisonReset": "Concept mapping · 20 students · 30 minutes\nRetrieval practice · 20 students · 30 minutes\n\nBoth procedures use 30 active minutes. Time is matched, but text access, activity format and sequence still differ.",
+    "predictGuard": "Choose a prediction before revealing the results.",
+    "prediction": "Short-answer assessment · d = 1.07\n1.07\nConcept-map assessment · d = 1.01\n1.01\n0\n0.8\n1.5\nExperiment 2: reported standardized effects favouring retrieval practice. These are effect sizes, not percentages.",
+    "classGuard": "Choose a category for each statement before checking.",
+    "correctClaims": [
+      "This category fits. This reports a sample mean; it does not explain its cause.",
+      "This category fits. This describes a relationship between variables without yet attributing the difference to an intervention.",
+      "This category fits. This attributes a difference to assigning a procedure, within the experiment’s conditions.",
+      "This category fits. This proposes a use in another domain; it requires evidence about mathematical proof learning."
+    ],
+    "staleFeedbackCleared": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "wrongClaim": "Reconsider the kind of inference. This reports a sample mean; it does not explain its cause.",
+    "checklist": "2/8 examined",
+    "copyStatus": "Checklist copied.",
+    "copiedText": "What exactly is being claimed?\nWho or what was investigated?\nHow were the variables measured?\nWhat comparison was made?\nHow large was the observed effect?\nHow uncertain is the estimate?\nWhich interpretation does the design support?\nWhere does the evidence stop?",
+    "planReset": {
+      "referenceOpen": false,
+      "value": ""
+    },
+    "isolation": "2/8 examined",
+    "german": {
+      "comparison": "Hier werden 5 mit 30 aktiven Minuten verglichen. Ein Unterschied kann sowohl an der Prozedur als auch an der zusätzlichen Zeit liegen.",
+      "relative": "+48,9 % relativ zu 45 %\n\nConcept-Mapping: 45%\nAbrufübung: 67%\n\nDieselben 22 Prozentpunkte entsprechen etwa 48,9 % des Ausgangswerts von 45 %. Der Nenner ändert sich, die Beobachtungen bleiben gleich.",
+      "prediction": "Berichtete Vorteile: d = 1,07 bei Kurzantworten und d = 1,01 bei Concept-Maps. Das schwächt eine reine Formatübereinstimmung als Erklärung, identifiziert aber nicht den vollständigen Mechanismus.",
+      "claims": [
+        "Diese Kategorie passt. Dies berichtet einen Stichprobenmittelwert und erklärt nicht seine Ursache.",
+        "Diese Kategorie passt. Dies beschreibt einen Zusammenhang zwischen Variablen, ohne ihn bereits einem Eingriff zuzuschreiben.",
+        "Diese Kategorie passt. Dies schreibt einen Unterschied der Zuweisung einer Prozedur unter den Versuchsbedingungen zu.",
+        "Diese Kategorie passt. Dies schlägt eine Anwendung in einem anderen Fach vor; dafür ist Evidenz zum Lernen mathematischer Beweise nötig."
+      ]
+    },
+    "optionalMath": {
+      "mathErrors": 0,
+      "open": true
+    },
+    "gallery": {
+      "first": "Study once · 20 students · 5 minutes\nRetrieval practice · 20 students · 30 minutes\n\nThe comparison is 5 versus 30 active minutes. Any difference can reflect both the procedure and the extra time.",
+      "independent": "Concept mapping · 20 students · 30 minutes\nRetrieval practice · 20 students · 30 minutes\n\nBoth procedures use 30 active minutes. Time is matched, but text access, activity format and sequence still differ.",
+      "figures": 23,
+      "duplicateIds": []
+    },
+    "searchEN": "/reasoning/lessons/take-a-research-claim-apart/",
+    "finalMarkup": {
+      "causal": "Observation and random assignmentPrior knowledge and motivation↓ May influence method choice↓ May influence performanceObservational comparison: possible confoundingRandom assignmentAssigned procedurePerformance: stronger causal evidenceIn the observational example, prior knowledge and motivation may influence both method choice and performance. Random assignment addresses systematic selection into procedures, not every uncertainty.",
+      "home": "/MyNotes/",
+      "reference": "Reference explanation"
+    },
+    "compactOpenReferences": {
+      "mathErrors": 0,
+      "openReferences": 4,
+      "overflow": false,
+      "scrollRegions": [
+        {
+          "content": 420,
+          "width": 303
+        },
+        {
+          "content": 420,
+          "width": 303
+        }
+      ]
+    },
+    "intervalKeyboardScroll": {
+      "content": 420,
+      "left": 0,
+      "width": 303
+    },
+    "compactControls": "+22 Prozentpunkte\n\nConcept-Mapping: 45%\nAbrufübung: 67%\n\n22 zusätzliche Einheiten auf einer 100-Punkte-Skala. Die Einheiten stehen für die Leistung, nicht für Studierende.",
+    "intervalKeyboardScrollFinal": {
+      "content": 420,
+      "left": 0,
+      "width": 303
+    },
+    "finalEffectAxis": "0\n0.75\n1.5",
+    "finalResets": {
+      "checklist": "0/8 examined",
+      "prediction": "",
+      "selected": 0
+    },
+    "searchPrefixDE": "/MyNotes/de/reasoning/lessons/take-a-research-claim-apart/",
+    "prefixDE": {
+      "home": "/MyNotes/de/",
+      "title": "Workshop: Eine Forschungsbehauptung zerlegen",
+      "url": "http://127.0.0.1:4458/MyNotes/de/reasoning/lessons/take-a-research-claim-apart/"
+    },
+    "prefixLanguageSwitch": {
+      "home": "/MyNotes/",
+      "title": "Workshop: Take a Research Claim Apart",
+      "url": "http://127.0.0.1:4458/MyNotes/reasoning/lessons/take-a-research-claim-apart/"
+    },
+    "finalNormal": {
+      "scroll": {
+        "content": 420,
+        "left": 80,
+        "width": 303
+      },
+      "route": {
+        "home": "/de/",
+        "overflow": false,
+        "title": "Workshop: Eine Forschungsbehauptung zerlegen",
+        "url": "http://127.0.0.1:4648/de/reasoning/lessons/take-a-research-claim-apart/"
+      },
+      "control": "+22 Prozentpunkte\n\nConcept-Mapping: 45%\nAbrufübung: 67%\n\n22 zusätzliche Einheiten auf einer 100-Punkte-Skala. Die Einheiten stehen für die Leistung, nicht für Studierende."
+    },
+    "finalGallery": {
+      "activities": 7,
+      "duplicateIds": [],
+      "reference": "Reference explanation",
+      "variants": 23,
+      "independent": "Concept mapping · 20 students · 30 minutes\nRetrieval practice · 20 students · 30 minutes\n\nBoth procedures use 30 active minutes. Time is matched, but text access, activity format and sequence still differ."
+    },
+    "returnFrom47": "http://127.0.0.1:4458/MyNotes/reasoning/lessons/take-a-research-claim-apart/",
+    "finalNormalEnglish": {
+      "height": 720,
+      "mathErrors": 0,
+      "overflow": false,
+      "title": "Workshop: Take a Research Claim Apart",
+      "url": "http://127.0.0.1:4648/reasoning/lessons/take-a-research-claim-apart/",
+      "width": 1280
+    },
+    "searchFinalDE": "/de/reasoning/lessons/take-a-research-claim-apart/"
+  },
+  "logs": {
+    "lesson": [],
+    "gallery": [],
+    "finalPrefix": [],
+    "finalGallery": [],
+    "finalNormal": [],
+    "search": []
+  },
+  "evidence": [
+    "reasoning-48-desktop-en.jpg",
+    "reasoning-48-compact-de.jpg"
+  ],
+  "notes": [
+    "Eight final layout combinations use actual measured viewport dimensions. Initial attempted viewport changes affected the last-created tab; those duplicate desktop measurements were discarded.",
+    "Reference labels, the 0.75 effect-axis midpoint, and the explicit two-branch common-cause figure were checked after correction.",
+    "Compact interval region is 303px wide with 420px content; native ArrowRight and horizontal pointer scrolling move its scroll position.",
+    "Clipboard copy succeeded. The permission-denied selectable-text fallback was not forced."
+  ]
+}

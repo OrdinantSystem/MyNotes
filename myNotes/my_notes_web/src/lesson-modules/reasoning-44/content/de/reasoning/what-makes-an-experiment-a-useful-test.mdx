@@ -1,0 +1,184 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-six
+sourceId: reasoning-episode-44
+sourcePages: []
+sourceLocations: ["Sections 1–10: experimental design and complete teaching argument", "Section 11 and supplied visuals 1–18: visual relationships", "Section 13: scope and fictional-example boundaries"]
+title: "Was macht ein Experiment zu einem aussagekräftigen Test?"
+navTitle: "Aussagekräftige Experimente"
+description: "Ein Experiment entwerfen, hinterfragen und verbessern, um die Tragfähigkeit seiner kausalen Schlussfolgerungen zu verstehen."
+order: 44
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [testing-competing-explanations, observation-and-inference]
+thumbnail: "module:reasoning-44"
+---
+
+Ein beobachteter Zusammenhang verrät nicht unbedingt, was wodurch verursacht wird. Ein Experiment geht einen Schritt weiter: Wir greifen gezielt in die Welt ein. Doch allein die Durchführung eines Experiments löst das Kausalitätsproblem nicht. Völlig korrekte Messungen können eine andere Frage beantworten als die ursprünglich beabsichtigte.
+
+Ein gutes Experiment erschwert konkurrierende Erklärungen für einen Ergebnisunterschied. Warum seine Absicherungen nötig sind, lässt sich verstehen, indem wir ein einziges Experiment entwerfen, seine Schwächen aufdecken und es verbessern.
+
+## 1. Ein Experiment, das zu viel beweist
+
+Wir gewinnen 100 Studierende für einen Vergleich zweier Lernmethoden. Fünfzig lesen das Material erneut; fünfzig versuchen, es ohne Nachschlagen abzurufen. Eine Woche später schreiben beide Gruppen eine Prüfung.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="opening" />
+
+Der Schluss scheint offensichtlich: Aktives Abrufen funktioniert besser. Wir haben sogar ein Experiment durchgeführt, um es zu zeigen.
+
+Nun erfahren wir drei weitere Tatsachen. Die Abrufgruppe lernte doppelt so lange, bestand aus erfahreneren Studierenden und wurde von einer besonders begeisterten Lehrkraft betreut.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="causes" />
+
+Die ursprünglichen Ergebnisse haben sich nicht verändert. Verändert hat sich unsere Fähigkeit, sie zu deuten. Wir beobachteten einen Unterschied von 16 Prozentpunkten. Welcher Anteil wurde durch die Lernmethode verursacht? Das wissen wir noch nicht. Ein Versuchsdesign soll diese Frage beantwortbar machen.
+
+Alle Zahlenstudien auf dieser Seite sind fiktive Lehrbeispiele. Sie belegen keinen bestimmten tatsächlichen Effekt einer Lernmethode.
+
+## 2. Vor dem Experiment die Frage entwerfen
+
+„Funktioniert aktives Abrufen besser?“ lässt fast alles offen. Besser als was? Für wen? Unter welchen Bedingungen? Was bedeutet „besser“? Wir brauchen eine Frage, die ein Experiment tatsächlich beantworten kann.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="question" />
+
+Statt einer abstrakten Eigenschaft namens Wirksamkeit untersuchen wir nun die Folgen einer bestimmten Intervention. Lernen ist ein Konstrukt; ein Prüfungsergebnis operationalisiert nur einige seiner Aspekte. Auch perfekte Zuweisung kann eine ungeeignete Messung nicht ausgleichen. Wenn wir unmittelbares Auswendiglernen messen, dürfen wir daraus nicht automatisch auf langfristiges Verständnis schließen.
+
+Was wollen wir eigentlich vergleichen? Stellen wir uns zwei mögliche Versionen derselben Person vor, mit genau demselben anfänglichen Wissen, derselben Motivation und denselben Umständen.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="counterfactual" />
+
+Idealerweise würden wir ihre Leistung unter beiden Bedingungen vom selben Ausgangspunkt aus beobachten. Aber wir können die Welt nicht zurückspulen und nur eine Entscheidung ändern. Einmaliges Lernen verändert bereits das Wissen; die andere Methode anschließend auszuprobieren stellt die fehlende Alternative nicht wieder her.
+
+Für Person $i$ sei $Y_i(0)$ das potenzielle Ergebnis unter erneutem Lesen und $Y_i(1)$ das potenzielle Ergebnis unter aktivem Abrufen. Der individuelle kausale Effekt wäre
+
+$$
+\tau_i=Y_i(1)-Y_i(0).
+$$
+
+In diesem Experiment wird für eine Person nur eines dieser potenziellen Ergebnisse beobachtet. Anstatt zwei identische Versionen eines Menschen zu erzeugen, versuchen wir, zwei vergleichbare Gruppen zu bilden. Unter geeigneten Bedingungen kann der Unterschied ihrer mittleren Ergebnisse einen durchschnittlichen kausalen Effekt schätzen. Das begründet die zufällige Zuweisung.
+
+## 3. Zufällige Zuweisung ermöglicht einen faireren Vergleich
+
+Studierende unterscheiden sich hinsichtlich Vorwissen, Konzentration, Motivation, Gedächtnis, Schlaf und Vertrautheit mit dem Thema. Einige Unterschiede sind messbar, andere nicht. Bei freier Methodenwahl können diese Merkmale sowohl die Wahl als auch die spätere Leistung beeinflussen.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="selection" />
+
+Wir könnten relevante Unterschiede messen und die Gruppen von Hand ausgleichen. Dafür müssten wir jedoch alles kennen, was eine Rolle spielt. Die Randomisierung geht anders vor: Ein Zufallsverfahren bestimmt die ursprüngliche Zuweisung. Vorbereitung und Motivation bestimmen damit nicht systematisch, wer welche Intervention erhält.
+
+Im kleineren Beispiel behält jede Person ihr Vorbereitungsniveau, während sich die Gruppenzuweisung ändert. Buchstaben und Anzahlen kennzeichnen die Vorbereitung unabhängig von der Farbe. Wiederhole die zufällige Zuweisung und betrachte auch ungleichmäßige Aufteilungen.
+
+<Interactive kind="module" module="reasoning-44" preset="assignment" id="aor44-assignment" />
+
+Zufällige Zuweisung schafft Vergleichbarkeit **im Erwartungswert**, keine garantierte Gleichheit in jedem Experiment. Eine sichtbar ungleiche Aufteilung ist möglich und darf nicht verworfen werden, nur weil sie das Bild stört. Größere Gruppen verringern im Allgemeinen das Ausmaß zufälliger Ungleichgewichte in den Gruppenmittelwerten.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="randomization" />
+
+Die Randomisierung beseitigt weder menschliche Unterschiede noch deren Einfluss auf Ergebnisse. Sie verändert die Beziehung dieser Unterschiede zur ursprünglichen Zuweisung. Das Fehlen eines systematischen Zuweisungsmechanismus bedeutet nicht, dass die tatsächlich entstandenen Gruppen identisch sind.
+
+## 4. Zufällige Stichprobenziehung ist keine zufällige Zuweisung
+
+Die zufällige Stichprobenziehung betrifft die Auswahl von Menschen aus einer Population. Die zufällige Zuweisung betrifft das Vorgehen, nachdem sie in die Studie aufgenommen wurden.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="sampling" />
+
+Angenommen, 100 Freiwillige aus einem universitären Mathematikkurs werden zufällig auf zwei Gruppen verteilt. Unter diesen Teilnehmenden könnten wir glaubwürdige kausale Evidenz gewinnen. Die zufällige Zuweisung zeigt aber nicht automatisch, dass die Ergebnisse auch für Kinder, ältere Menschen oder ein anderes Lernthema gelten.
+
+Umgekehrt könnte eine landesweite Zufallsstichprobe aus Tausenden Studierenden, deren bevorzugte Methoden wir lediglich beobachten, eine repräsentativere Beschreibung liefern, während die kausale Frage offenbleibt.
+
+| Rekrutierung | Zufällige Zuweisung | Keine zufällige Zuweisung |
+| --- | --- | --- |
+| Zufällige Stichprobenziehung | Unterstützt unter geeigneten Bedingungen kausale Schlüsse und die Verallgemeinerung auf die Population. | Unterstützt repräsentative Beschreibungen; Stichprobenziehung allein klärt keine Kausalität. |
+| Nicht zufällige Stichprobenziehung | Unterstützt kausale Schlüsse innerhalb der Studie; Übertragbarkeit braucht weitere Begründung. | Sowohl Kausalität als auch Übertragbarkeit brauchen weitere Begründung. |
+
+Das sind Möglichkeiten der Absicherung, keine automatischen Garantien: Durchführung, Messung, fehlende Daten und die benannte Zielpopulation bleiben entscheidend.
+
+## 5. Bedingungen kontrollieren: Was testen wir?
+
+Die zufällige Zuweisung steht fest. Ist das Problem damit gelöst? Angenommen, die Forschenden verwenden folgendes Protokoll.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="protocol" />
+
+Methode, Dauer und Unterstützung ändern sich gleichzeitig. Ein korrekt randomisiertes Experiment könnte den Effekt des einen gesamten Lernpakets gegenüber dem anderen schätzen, aber nicht den Effekt der Methode allein isolieren. Es beantwortet möglicherweise eine berechtigte kausale Frage – nur eine andere.
+
+Verbessere den dargestellten Vergleich, indem du Lernzeit und Anleitung angleichst. Ausgangsmaterial, Umgebung und Prüfungszeitpunkt stimmen in diesem Protokoll bereits überein.
+
+<Interactive kind="module" module="reasoning-44" preset="repair" id="aor44-repair" />
+
+Nun richtet sich das Protokoll unmittelbarer auf den beabsichtigten Methodenvergleich. Bedingungen zu kontrollieren bedeutet aber nicht, **nach** der Intervention alles gleich zu halten. Steigert aktives Abrufen die Motivation und verbessert diese das Lernen, kann Motivation Teil des Wirkmechanismus sein. Diesen Pfad zu entfernen verändert den untersuchten Effekt. Ob die Kontrolle einer Variablen hilft, hängt von ihrer kausalen Rolle und der Frage ab.
+
+## 6. Wenn das Experiment auf die Wirklichkeit trifft
+
+Ein sauberes Diagramm setzt voraus, dass alle die zugewiesene Methode anwenden und zur Prüfung zurückkehren. Reale Studien müssen beide Annahmen überprüfen.
+
+### Adhärenz: Zuweisung ist nicht Anwendung
+
+Fünf dem Abrufen zugewiesene Studierende finden die Methode zu anspruchsvoll und beginnen stattdessen, das Material erneut zu lesen.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="adherence" />
+
+Sollten wir diese fünf bei der Auswertung in die Lesegruppe verschieben? Vielleicht wechseln gerade diejenigen, die am meisten Schwierigkeiten haben. Das Verschieben kann das Selektionsproblem erneut erzeugen, das durch Randomisierung vermieden werden sollte.
+
+„Welchen Effekt hat die Zuweisung zu dieser Methode?“ und „Welchen Effekt hat die tatsächliche Anwendung dieser Methode?“ sind verschiedene kausale Fragen. Eine **Intention-to-treat-Analyse** behält Personen in ihren ursprünglich zugewiesenen Gruppen und hilft damit, die Randomisierung zu bewahren. Den Effekt tatsächlicher Einhaltung zu schätzen erfordert im Allgemeinen weitere Annahmen oder Methoden. Die ursprünglichen Gruppen beizubehalten löst auch nicht von selbst das Problem fehlender Ergebnisse.
+
+### Ausfälle: Wer ist verschwunden?
+
+Betrachten wir eine davon getrennte hypothetische Schwierigkeit: Einige Studierende kehren nicht zur verzögerten Prüfung zurück.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="attrition" />
+
+Falls Personen, denen Abrufen schwerfällt, seltener zurückkehren, könnten die verbleibenden Studierenden besonders gut abschneiden, ohne die ursprüngliche Gruppe zu repräsentieren. Fehlende Werte können eine systematische Verzerrung erzeugen, nicht bloß eine kleinere Stichprobe.
+
+Entferne in den bekannten fiktiven Ergebnissen unten die vier niedrigsten Beobachtungen. Keine der verbleibenden Personen lernt dadurch etwas hinzu.
+
+<Interactive kind="module" module="reasoning-44" preset="missing" id="aor44-missing" />
+
+Der beobachtete Mittelwert steigt, weil sich die beobachtete Menge verändert. In einer realen Studie wären die fehlenden Werte meist unbekannt; das Beispiel macht den verborgenen Mechanismus sichtbar. Entscheidend ist, welche Werte fehlen und warum. Unbekannte Ergebnisse als null zu werten würde eine weitere Annahme einführen, anstatt die fehlende Information wiederzugewinnen.
+
+### Verblindung: Können Erwartungen die Bewertung beeinflussen?
+
+Eine prüfende Person, die die Abrufgruppe kennt und deren Methode für überlegen hält, könnte unbewusst teilweise richtige Antworten großzügiger bewerten.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="blinding" />
+
+Studierende können kaum darüber im Unklaren sein, ob sie erneut lesen oder aktiv abrufen. Die Zuweisung lässt sich trotzdem vor Bewertenden verbergen. Verblindung ist keine Alles-oder-nichts-Eigenschaft: Verschiedene Beteiligte können gegenüber unterschiedlichen Informationen verblindet sein. Entscheidend ist, ob die Kenntnis der Zuweisung Verhalten, Messung oder Bewertung beeinflussen könnte.
+
+## 7. Richtig in Bezug worauf und für wen?
+
+Stellen wir uns ein verbessertes Experiment vor: zufällige Zuweisung, vergleichbare Bedingungen, hohe Einhaltung und Prüfungsteilnahme sowie verblindete Bewertung. Es stützt eine Verbesserung verzögerter Prüfungsleistungen unter diesen Bedingungen. Betrachten wir nun die viel umfassendere Behauptung: „Aktives Abrufen ist für alle Menschen die beste Methode, um irgendetwas zu lernen.“
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="generalization" />
+
+Jede Erweiterung braucht eine Begründung. Eine sorgfältig kontrollierte Vokabelstudie verrät womöglich relativ wenig über mathematische Beweise, Klavierspielen oder soziale Fähigkeiten.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="validity" />
+
+Hohe interne Validität kann mit begrenzter Evidenz für andere Umgebungen einhergehen. Halte die Schlussfolgerung innerhalb der Evidenzgrenzen, statt das Experiment abzulehnen, weil es nicht jede Frage beantwortet.
+
+Ein gutes Design ist außerdem etwas anderes als ein präzises Ergebnis. Zwei gut entworfene Studien können dieselbe Verbesserung mit sehr unterschiedlicher Unsicherheit schätzen.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="uncertainty" />
+
+Zufällige Zuweisung wirkt systematischen Selektionsunterschieden entgegen; zufällige Schwankungen beseitigt sie nicht. Ausreichende Daten und eine Quantifizierung der Unsicherheit bleiben nötig. Der Intervallvergleich ist schematisch, keine statistische Berechnung aus den fiktiven Ergebnissen von 68% und 84%.
+
+## 8. Eine Studie zu einer Lernanwendung verbessern
+
+Ein Unternehmen gewinnt 40 Studierende für den Vergleich seiner Lernanwendung mit einem Lehrbuch. Die Teilnehmenden wählen ihre Gruppe selbst. Die Anwendungsgruppe lernt 60 Minuten, die Lehrbuchgruppe 30. Die Prüfung wiederholt überwiegend Aufgaben aus der Anwendung. Mehrere Studierende kehren nicht zurück. Beschäftigte des Unternehmens bewerten die Antworten mit Kenntnis der jeweils verwendeten Methode. Das Unternehmen schließt, seine Anwendung sei für alle Studierenden besser.
+
+Benenne vor dem Lesen der Referenzantworten, was du ändern würdest und warum. Erkläre, welchen Schluss jede Schwäche gefährdet, statt nur einen Fachbegriff zu nennen.
+
+<Interactive kind="module" module="reasoning-44" preset="workshop" id="aor44-workshop" />
+
+Ungleiche Dauer erschwert es, Methode und zusätzliche Lernzeit zu trennen. Nicht repräsentative Rekrutierung begrenzt vor allem die Übertragbarkeit. Eine ungeeignete Prüfung schwächt die Deutung dessen, was sich verbessert hat. Verschiedene Mängel verlangen verschiedene Verbesserungen; keine Checkliste beweist automatisch einen Effekt der Anwendung.
+
+## 9. Ein Experiment ist ein Argument
+
+Kehren wir zu den ursprünglichen Zahlen zurück und stellen wir uns vor, sie stammten aus einem deutlich verbesserten hypothetischen Experiment.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="closing" />
+
+Die Werte sind identisch, ihre Aussagekraft könnte jedoch deutlich anders sein. Das Design bestimmt, welche alternativen Erklärungen plausibel bleiben, welche Annahmen nötig sind und welche Schlüsse vernünftigerweise folgen können.
+
+In der Mathematik begründen wir die Bedingungen, unter denen eine Schlussfolgerung aus Prämissen folgt. In experimenteller Wissenschaft schaffen wir Bedingungen, unter denen Beobachtungen Evidenz für eine Schlussfolgerung liefern. Diese Formen des Denkens unterscheiden sich: Experimentelle Schlüsse bleiben unsicher und annahmenabhängig. Beide verlangen eine ausdrückliche Begründung.
+
+Die Qualität eines Experiments bemisst sich daran, was seine Ergebnisse zu schließen erlauben, nicht daran, wie eindrucksvoll seine Zahlen aussehen.

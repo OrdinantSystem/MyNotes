@@ -1,0 +1,45 @@
+{
+  "id": "reasoning-44",
+  "course": "reasoning",
+  "chapter": "reasoning-part-six",
+  "chapterDefinition": {
+    "id": "reasoning-part-six",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Six",
+      "de": "Teil Sechs"
+    },
+    "description": {
+      "en": "Investigation, explanation, and scientific reasoning.",
+      "de": "Untersuchung, Erklärung und wissenschaftliches Denken."
+    }
+  },
+  "order": 44,
+  "key": "what-makes-an-experiment-a-useful-test",
+  "title": "What makes an experiment a useful test?",
+  "sourceId": "reasoning-episode-44",
+  "sourceTitle": "What makes an experiment a useful test? · experimental design and causal interpretation",
+  "figures": [
+    "opening",
+    "causes",
+    "question",
+    "counterfactual",
+    "selection",
+    "randomization",
+    "sampling",
+    "protocol",
+    "adherence",
+    "attrition",
+    "blinding",
+    "generalization",
+    "validity",
+    "uncertainty",
+    "closing"
+  ],
+  "presets": [
+    "assignment",
+    "repair",
+    "missing",
+    "workshop"
+  ]
+}

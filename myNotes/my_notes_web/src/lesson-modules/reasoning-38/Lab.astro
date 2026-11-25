@@ -1,0 +1,48 @@
+---
+import {copy} from './copy';
+import {initial} from './model';
+import {investigationMarkup,simulatorMarkup,predictionMarkup,reportsMarkup,sensitivityMarkup} from './render';
+import '../../styles/counterexamples.css';
+import './styles.css';
+interface Props{preset:string;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale==='de'?'de':'en',c=copy(locale);
+if(!['investigation','simulator','prediction','reports','sensitivity'].includes(preset))throw new Error('Unknown Bayesian activity');
+const names=['priorA','likelihoodA','likelihoodB'] as const;
+---
+<figure class="counter-lab aor38" id={id} data-aor38-lab={preset} data-locale={locale}>
+ <h3>{c.labTitles[preset as keyof typeof c.labTitles]}</h3>
+ {preset==='investigation'&&<><div data-output id={`${id}-output`} set:html={investigationMarkup(locale,0)}/><div class="counter-controls"><button type="button" data-back disabled aria-controls={`${id}-output`}>{c.back}</button><button type="button" data-next aria-controls={`${id}-output`}>{c.next}</button></div></>}
+ {preset==='simulator'&&<><p class="counter-help">{c.simHelp}</p>{names.map((name,i)=><div class="aor38-control"><span>{c.controlLabels[i]}</span><input type="range" min="0" max="100" step="1" value={initial[name]} data-param={name} aria-label={`${c.controlLabels[i]} · ${c.range}`} aria-controls={`${id}-output`}/><input type="number" min="0" max="100" step="1" value={initial[name]} data-param={name} aria-label={`${c.controlLabels[i]} · ${c.numeric}`} aria-controls={`${id}-output`}/></div>)}<div class="counter-controls"><button type="button" data-example="neutral">{c.neutral}</button><button type="button" data-example="a">{c.favorsA}</button><button type="button" data-example="b">{c.favorsB}</button></div><div data-output id={`${id}-output`} set:html={simulatorMarkup(locale)}/></>}
+ {preset==='prediction'&&<><p>{c.predictionQuestion}</p>{c.choices.map((choice,i)=><label class="aor38-choice"><input type="radio" name={`${id}-prediction`} value={i} data-choice/>{choice}</label>)}<div class="counter-controls"><button type="button" data-check aria-controls={`${id}-output`}>{c.check}</button></div><div data-output id={`${id}-output`} set:html={predictionMarkup(locale,null)}/></>}
+ {preset==='reports'&&<><p>{c.reportsHelp}</p><label class="aor38-choice">{c.count}<select data-count aria-controls={`${id}-output`}>{[1,2,3].map(n=><option value={n}>{n}</option>)}</select></label><div class="counter-controls"><button type="button" data-mode="copies" aria-pressed="true">{c.copies}</button><button type="button" data-mode="independent" aria-pressed="false">{c.independent}</button></div><div data-output id={`${id}-output`} set:html={reportsMarkup(locale,1,'copies')}/></>}
+ {preset==='sensitivity'&&<><div class="aor38-control"><span>{c.sensitivityLabel}</span><input type="range" data-prior-b min="0" max="100" step="1" value="25" aria-label={`${c.sensitivityLabel} · ${c.range}`} aria-controls={`${id}-output`}/><input type="number" data-prior-b min="0" max="100" step="1" value="25" aria-label={`${c.sensitivityLabel} · ${c.numeric}`} aria-controls={`${id}-output`}/></div><div data-output id={`${id}-output`} set:html={sensitivityMarkup(locale,25)}/></>}
+ <div class="counter-controls"><button type="button" data-reset>{c.reset}</button></div><p class="counter-help" role="status" aria-live="polite" data-status></p>
+</figure>
+<script>
+import {copy} from './copy';
+import {initial,readPercent,investigationStep,multiplierUpdate} from './model';
+import {investigationMarkup,simulatorMarkup,predictionMarkup,reportsMarkup,sensitivityMarkup,pct} from './render';
+for(const root of document.querySelectorAll<HTMLElement>('[data-aor38-lab]')){
+ const locale=root.dataset.locale==='de'?'de':'en',preset=root.dataset.aor38Lab,c=copy(locale),output=root.querySelector<HTMLElement>('[data-output]')!,status=root.querySelector<HTMLElement>('[data-status]')!;
+ let state={...initial},stage:0|1|2=0,choice:number|null=null,count=1,mode:'copies'|'independent'='copies',priorB=25;
+ function draw(){
+  if(preset==='investigation'){output.innerHTML=investigationMarkup(locale,stage);root.querySelector<HTMLButtonElement>('[data-back]')!.disabled=stage===0;root.querySelector<HTMLButtonElement>('[data-next]')!.disabled=stage===2;}
+  if(preset==='simulator')output.innerHTML=simulatorMarkup(locale,state);
+  if(preset==='prediction')output.innerHTML=predictionMarkup(locale,choice);
+  if(preset==='reports'){output.innerHTML=reportsMarkup(locale,count,mode);root.querySelector<HTMLSelectElement>('[data-count]')!.value=String(count);root.querySelectorAll<HTMLElement>('[data-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.mode===mode)));}
+  if(preset==='sensitivity')output.innerHTML=sensitivityMarkup(locale,priorB);
+ }
+ function sync(){root.querySelectorAll<HTMLInputElement>('[data-param]').forEach(input=>input.value=String(state[input.dataset.param as keyof typeof state]));root.querySelectorAll<HTMLInputElement>('[data-prior-b]').forEach(input=>input.value=String(priorB));}
+ root.querySelectorAll<HTMLInputElement>('[data-param],[data-prior-b]').forEach(input=>{
+  const changed=(restore:boolean)=>{const value=readPercent(input.value);if(value===null){if(restore)sync();status.textContent=c.invalid;return;}if(input.hasAttribute('data-prior-b'))priorB=value;else state[input.dataset.param as keyof typeof state]=value;sync();draw();status.textContent=preset==='sensitivity'?`${c.posterior}: ${pct(multiplierUpdate(priorB,6)!,locale)}`:c.checkScope;};
+  input.addEventListener('input',()=>changed(false));input.addEventListener('change',()=>changed(true));
+ });
+ for(const [name,delta] of [['back',-1],['next',1]] as const)root.querySelector(`[data-${name}]`)?.addEventListener('click',()=>{stage=investigationStep(stage+delta) as 0|1|2;draw();status.textContent=c.stages[stage];});
+ root.querySelectorAll<HTMLElement>('[data-example]').forEach(button=>button.addEventListener('click',()=>{state.likelihoodA=button.dataset.example==='b'?10:80;state.likelihoodB=button.dataset.example==='a'?20:button.dataset.example==='b'?60:80;sync();draw();status.textContent=c.checkScope;}));
+ root.querySelectorAll<HTMLInputElement>('[data-choice]').forEach(input=>input.addEventListener('change',()=>{choice=Number(input.value);output.innerHTML=predictionMarkup(locale,null);status.textContent='';}));
+ root.querySelector('[data-check]')?.addEventListener('click',()=>{draw();status.textContent=choice===null?c.choose:choice===1?c.correct:c.wrong;});
+ root.querySelector<HTMLSelectElement>('[data-count]')?.addEventListener('change',event=>{count=Number((event.target as HTMLSelectElement).value);draw();status.textContent=mode==='copies'?c.copiesReason:c.independentReason;});
+ root.querySelectorAll<HTMLElement>('[data-mode]').forEach(button=>button.addEventListener('click',()=>{mode=button.dataset.mode as 'copies'|'independent';draw();status.textContent=mode==='copies'?c.copiesReason:c.independentReason;}));
+ root.querySelector('[data-reset]')!.addEventListener('click',()=>{state={...initial};stage=0;choice=null;count=1;mode='copies';priorB=25;root.querySelectorAll<HTMLInputElement>('[data-choice]').forEach(input=>input.checked=false);sync();draw();status.textContent=c.reset;});
+}
+</script>

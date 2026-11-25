@@ -1,0 +1,384 @@
+---
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-29
+sourceLocations: ["Sections 1–10", "Central takeaway", "Preparation sources"]
+thumbnail: module:reasoning-29
+locale: de
+title: Was bleibt unverändert, während sich alles bewegt?
+description: Mit Invarianten unerreichbare Zustände ausschließen und mit geeigneten Monovarianten die Terminierung eines Prozesses beweisen.
+navTitle: Invarianten und Monovarianten
+order: 29
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [strong-induction, implication-and-its-converse]
+---
+
+## 1. Veränderung bedeutet nicht, dass sich alles ändert
+
+Bei Aufgaben mit Bewegungen, Umformungen oder wiederholten Entscheidungen verfolgen wir zunächst gern den Ablauf. Wir betrachten den ersten Zug, dann den zweiten und den dritten, um herauszufinden, wohin der Prozess führen könnte.
+
+Doch mit der Anzahl möglicher Züge wird dieses Vorgehen schnell unpraktisch. Selbst recht einfache Systeme können enorm viele Möglichkeiten erzeugen.
+
+Statt zu fragen, was sich nach jedem Zug ändert, können wir fragen: **Was bleibt unverändert, unabhängig davon, welchen Zug wir wählen?**
+
+Drei Behälter enthalten zusammen zwölf Objekte. Wir dürfen jeweils ein Objekt zwischen benachbarten Behältern verschieben, aber keines erzeugen oder entfernen.
+
+<Interactive kind="module" module="reasoning-29" preset="containers" id="invariant-containers" />
+
+Die Verteilung ändert sich. Einzelne Behälter können leer werden oder alle zwölf Objekte enthalten. Hunderte Züge können viele verschiedene Konfigurationen ergeben.
+
+Die Gesamtzahl bleibt dennoch immer zwölf.
+
+Daraus wissen wir bereits etwas über die Zukunft des Systems: Wie geschickt wir die Objekte auch verteilen, eine Konfiguration mit dreizehn Objekten ist unerreichbar.
+
+Um diese Unmöglichkeit zu beweisen, müssen wir keine vollständige Zugfolge untersuchen. Es genügt zu verstehen, was **jeder zulässige Zug erhält**. Eine solche Eigenschaft heißt **Invariante**.
+
+## 2. Warum Invarianten so wirkungsvoll sind
+
+Stellen wir jede mögliche Konfiguration durch einen Punkt dar. Verwandelt ein zulässiger Zug eine Konfiguration in eine andere, verbinden wir die Punkte.
+
+Um die Erreichbarkeit eines Ziels zu bestimmen, müssten wir scheinbar das gesamte Netz durchsuchen. Eine Invariante kann jedoch zeigen, dass es in getrennte Bereiche zerfällt.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="regions" />
+
+Innerhalb einer Klasse mit gleichem Invariantenwert können wir uns bewegen, aber keine Klasse mit anderem Wert erreichen. Gleiche Werte allein garantieren allerdings noch keinen verbindenden Weg.
+
+Damit ändert sich die Frage. Bevor wir eine erfolgreiche Zugfolge suchen, untersuchen wir, ob eine solche Folge überhaupt existieren könnte.
+
+| Eine Lösung suchen | Mit Invarianten argumentieren |
+| --- | --- |
+| Welche Züge soll ich wählen? | Was erhält jeder Zug? |
+| Welche Möglichkeiten habe ich untersucht? | Welche Möglichkeiten kann ich ausschließen? |
+| Untersucht einzelne Zugfolgen | Beweist Eigenschaften aller Zugfolgen |
+| Kann umfangreiche Berechnungen erfordern | Kann Unmöglichkeit unmittelbar beweisen |
+
+Eine Invariante erlaubt eine Aussage über eine ganze Menge von Möglichkeiten, ohne jede einzeln zu untersuchen.
+
+## 3. Das verstümmelte Schachbrett
+
+### Die Aufgabe verstehen
+
+Ein gewöhnliches Schachbrett hat 64 Felder. Jeder Dominostein bedeckt genau zwei waagerecht oder senkrecht benachbarte Felder. Das vollständige Brett lässt sich mit 32 Dominosteinen bedecken.
+
+Nun entfernen wir zwei diagonal gegenüberliegende Ecken.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="boards" />
+
+Lassen sich die verbleibenden 62 Felder vollständig mit 31 Dominosteinen bedecken, ohne Überlappungen und ohne über den Rand hinauszuragen?
+
+Auf den ersten Blick reichen die Steine genau aus:
+
+$$
+31\cdot2=62.
+$$
+
+Die Rechnung stimmt. Aber passt auch die Geometrie?
+
+### Warum die Gesamtzahl der Felder nicht genügt
+
+Eine gerade Anzahl von Feldern ist eine **notwendige Bedingung** für eine vollständige Pflasterung mit Dominosteinen. Bei einer ungeraden Anzahl wäre die Aufgabe sofort unmöglich.
+
+Eine notwendige Bedingung zu erfüllen beweist jedoch noch nicht die Existenz einer Lösung. Unsere erste Darstellung kann weitere Einschränkungen übersehen.
+
+Wir müssen aufhören, alle Felder gleich zu behandeln. Das Schachbrett liefert bereits eine weitere Einteilung: seine beiden abwechselnden Farben.
+
+Ein vollständiges Brett hat 32 dunkle und 32 helle Felder. Diagonal gegenüberliegende Ecken haben dieselbe Farbe. In unserer Zeichnung sind beide entfernten Ecken dunkel.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="colors" />
+
+Nun gibt es zwei helle Felder mehr als dunkle. Zunächst erscheint dieser Unterschied vielleicht bedeutungslos. Betrachten wir, was beim Legen eines Dominosteins geschieht.
+
+### Die Invariante entdecken
+
+Waagerecht und senkrecht benachbarte Felder haben immer verschiedene Farben. Jeder Dominostein bedeckt deshalb genau ein dunkles und ein helles Feld, unabhängig von Ort und Ausrichtung.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="dominoes" />
+
+Sei $L$ die Anzahl unbedeckter heller Felder und $D$ die Anzahl unbedeckter dunkler Felder. Jede zulässige Platzierung bewirkt
+
+$$
+(L,D)\longrightarrow(L-1,D-1).
+$$
+
+Beide Größen ändern sich, ihre Differenz jedoch nicht:
+
+$$
+(L-1)-(D-1)=L-D.
+$$
+
+Unsere Invariante ist
+
+$$
+\boxed{I=L-D}.
+$$
+
+Anfangs gilt $I=32-30=2$. Nach jeder zulässigen Platzierung muss die Differenz weiterhin zwei betragen.
+
+<Interactive kind="module" module="reasoning-29" preset="counts" id="invariant-board-counts" />
+
+Bei einem vollständig bedeckten Brett müssten beide Anzahlen null sein:
+
+$$
+L=0,\qquad D=0,\qquad I=0-0=0.
+$$
+
+Jede erreichbare Konfiguration hat aber den Invariantenwert zwei. Die gewünschte Endkonfiguration hätte den Wert null. **Eine vollständige Pflasterung ist unmöglich.**
+
+Wir mussten keine vollständige Pflasterung versuchen, vielversprechende Platzierungen auswählen oder jeden schwierigen Bereich untersuchen. Wir haben bewiesen, dass jede mögliche Anordnung scheitern muss.
+
+### Was haben wir genau bewiesen?
+
+Gleich viele helle und dunkle Felder sind notwendig für eine vollständige Pflasterung mit Dominosteinen. Wir haben **nicht** bewiesen, dass jedes Brett mit ausgeglichenen Farben pflasterbar ist.
+
+Betrachten wir diese Form aus sechs Feldern.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="obstruction" />
+
+Jedes der beiden markierten hellen Felder links kann nur von einem Dominostein bedeckt werden, der zugleich dasselbe dunkle Feld bedeckt. Da die Steine nicht überlappen dürfen, lassen sich nicht beide bedecken. Die Farben sind ausgeglichen, die Form ist trotzdem nicht pflasterbar.
+
+Mit $T$ für „pflasterbar“ und $B$ für „ausgeglichene Farben“ gilt
+
+$$
+T\implies B,\qquad B\not\implies T.
+$$
+
+Eine Invariante kann eine vorgeschlagene Lösung entscheidend ausschließen, ohne alle möglichen Lösungen vollständig zu charakterisieren. Das ist dieselbe logische Grenze wie in der Lektion über **Implikation und ihre Umkehrung**.
+
+## 4. Was eine Invariante mathematisch ist
+
+Sei $S$ eine Menge möglicher Zustände. Ein Zustand beschreibt die relevante Konfiguration zu einem bestimmten Zeitpunkt. Wir schreiben $s\longrightarrow t$, wenn ein zulässiger Zug den Zustand $s$ in den Zustand $t$ überführt.
+
+Eine invariante Größe ist eine Funktion
+
+$$
+I:S\longrightarrow A,
+$$
+
+wobei $A$ eine geeignete Wertemenge ist, etwa die ganzen Zahlen. Entscheidend ist die Bedingung
+
+$$
+\boxed{s\longrightarrow t\implies I(s)=I(t).}
+$$
+
+Jede zulässige Transformation erhält den Wert von $I$. Entlang einer endlichen Zugfolge
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="state-chain" />
+
+gilt deshalb
+
+$$
+I(s_0)=I(s_1)=I(s_2)=\cdots=I(s_n).
+$$
+
+Vom Anfangszustand $s_0$ aus ist kein Zustand $t$ erreichbar, für den
+
+$$
+I(t)\ne I(s_0).
+$$
+
+Das ist das allgemeine Prinzip hinter dem Schachbrettbeweis.
+
+### Die Verbindung zur Induktion
+
+Warum gilt die Erhaltung nach **jeder endlichen Anzahl** von Zügen und nicht nur nach einem? Wir verwenden Induktion über die Anzahl der Züge. Das verbindet diese Lektion mit der vollständigen und der starken Induktion.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="induction" />
+
+Anfangs hat die Invariante ihren Ausgangswert. Hat sie diesen Wert nach $k$ Zügen weiterhin, erhält ihn jeder zulässige nächste Zug. Also gilt er auch nach $k+1$ Zügen. Induktion macht aus einer lokalen Erhaltungsregel eine globale Garantie.
+
+**Gilt eine Eigenschaft anfangs und erhält sie jeder zulässige Übergang, gilt sie in jedem erreichbaren Zustand.**
+
+Eine solche invariante Eigenschaft muss keine Zahl sein. Sie kann eine Beziehung, eine Paritätsbedingung, eine logische Eigenschaft oder ein anderes erhaltenes Strukturmerkmal sein.
+
+## 5. Was, wenn sich eine Größe immer in dieselbe Richtung ändert?
+
+Manchmal ändert sich eine Größe, aber nur in eine Richtung.
+
+Wir beginnen mit zwölf Objekten. Jeder Zug entfernt eines oder zwei, jedoch nie mehr, als noch vorhanden sind. Die Gesamtzahl ist nicht mehr invariant. Jeder Zug macht sie aber streng kleiner.
+
+<Interactive kind="module" module="reasoning-29" preset="removal" id="invariant-removal" />
+
+Unabhängig von der zulässigen Wahl nimmt die Anzahl ab. Eine Größe, die sich während eines Prozesses monoton verändert, heißt **Monovariante**.
+
+Je nach Aufgabe kann sie zunehmen oder abnehmen, streng oder nicht streng monoton sein. Für den folgenden Terminierungsbeweis ist **strenge Abnahme** entscheidend.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="behaviors" />
+
+Monovarianten machen Fortschritt untersuchbar. Eine Invariante kann ein Ziel ausschließen; eine geeignete Monovariante kann zeigen, dass ein Prozess nicht endlos weitergehen kann.
+
+## 6. Warum bestimmte Prozesse enden müssen
+
+### Das Terminierungsargument
+
+Ein Prozess beginnt mit einer nichtnegativen ganzen Zahl $n_0$. Jeder zulässige Schritt verringert sie um mindestens eins, wobei sie nichtnegativ bleibt:
+
+$$
+n_0>n_1>n_2>\cdots\geq0.
+$$
+
+Nach $k$ Schritten gilt
+
+$$
+n_k\leq n_0-k.
+$$
+
+Mehr als $n_0$ Schritte würden einen negativen Wert erzwingen, im Widerspruch zu den Regeln. Der Prozess endet daher nach **höchstens $n_0$ Schritten**.
+
+Die genauen Entscheidungen mussten wir nicht kennen. Die Garantie gilt für **jede zulässige Zugfolge**, nicht nur für die im Experiment dargestellte. Das ist bei Algorithmen hilfreich: Eine geeignete abnehmende Größe kann Terminierung beweisen, auch wenn wir nicht jede Entscheidung für jede Eingabe vorhersagen können.
+
+### Der subtile Fehler: Abnahme allein genügt nicht
+
+Es liegt nahe zu behaupten, jede immer weiter abnehmende Größe müsse irgendwann aufhören, wenn sie nicht negativ werden darf. Diese Behauptung ist falsch.
+
+Wir beginnen bei eins und halbieren den aktuellen Wert nach jedem Schritt:
+
+$$
+1\longrightarrow\frac12\longrightarrow\frac14\longrightarrow\frac18\longrightarrow\frac1{16}\longrightarrow\cdots.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="halving" />
+
+Der Wert nimmt streng ab und ist durch null nach unten beschränkt. Trotzdem erreicht er null nach keiner endlichen Anzahl von Schritten. Nach $n$ Schritten gilt
+
+$$
+a_n=\frac1{2^n}>0.
+$$
+
+Wir können ihn jederzeit erneut halbieren. Entscheidend ist, ob die Wertemenge eine unendliche streng absteigende Folge zulässt.
+
+| Nichtnegative ganze Zahlen | Positive reelle Zahlen |
+| --- | --- |
+| $5,4,3,2,1,0$ | $1,\frac12,\frac14,\ldots$ |
+| Diskrete Werte | Beliebig kleine Abnahmen |
+| Keine unendliche streng absteigende Folge | Unendliche streng absteigende Folgen existieren |
+| Strenge Abnahme garantiert Terminierung | Strenge Abnahme allein genügt nicht |
+
+### Die Verbindung zur Wohlordnung
+
+Das Wohlordnungsprinzip aus der vorigen Lektion besagt: Jede nichtleere Teilmenge der nichtnegativen ganzen Zahlen hat ein kleinstes Element. Wir schreiben diese Wertemenge ausdrücklich als $\mathbb Z_{\geq0}$, einschließlich null.
+
+Angenommen, es gäbe darin eine unendliche streng absteigende Folge. Die Menge ihrer Werte hätte ein kleinstes Element. Doch der nächste Folgenterm wäre kleiner als dieses kleinste Element: ein Widerspruch.
+
+Wohlordnung erklärt damit, warum bestimmte Prozesse nicht unendlich absteigen können. Allgemeiner liefert eine Größe, die bei jedem Schritt in einer **wohlfundierten geordneten Menge** streng abnimmt, ein Terminierungsargument.
+
+**Die Wertemenge ist genauso wichtig wie das Verhalten.** Bei bloß nicht strenger Abnahme könnte ein Prozess außerdem für immer beim selben Wert bleiben.
+
+## 7. Wie entdecken wir eine Invariante?
+
+Eine vorgestellte Invariante zu verstehen ist leichter, als sie selbst zu entdecken. Warum betrachten wir beim Schachbrett die Farben statt der Zeilenanzahl, des Umfangs oder der Anzahl leerer Bereiche?
+
+Wir untersuchen den **elementaren Zug** statt einer vollständigen Lösung. Ein Dominostein bedeckt benachbarte Felder. Welche Beziehung teilen alle benachbarten Paare? Ihre verschiedenen Farben werden sofort relevant.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="method" />
+
+Es gibt keine allgemeine Formel zum Entdecken einer nützlichen Invariante. Einige Kandidaten treten jedoch häufig auf.
+
+| Kandidat | Worauf achten? |
+| --- | --- |
+| Gesamtsumme | Zwischen Objekten übertragene Größen |
+| Differenz | Zwei Größen, die sich gleich stark ändern |
+| Parität | Änderungen in Vielfachen von zwei |
+| Restklasse | Änderungen in Vielfachen einer anderen ganzen Zahl |
+| Färbung | Geometrische Einschränkungen zulässiger Züge |
+| Reihenfolge | Objekte, die einander nicht passieren oder ihre Plätze tauschen können |
+| Logische Eigenschaft | Eine bei jedem Übergang erhaltene Bedingung |
+
+Ein Kandidat ist zunächst eine **Vermutung**. Erst der Beweis, dass **jeder** zulässige Zug ihn erhält, macht ihn zur gesicherten Invariante. Getestete Züge allein genügen nicht.
+
+Nützlichkeit hängt von der Frage ab. Etwas Konstantes zu finden bringt uns nicht automatisch einer Lösung näher.
+
+## 8. Übung: das Münzproblem
+
+Fünf Münzen zeigen anfangs Kopf. Der einzige zulässige Zug besteht darin, **genau zwei verschiedene Münzen** auszuwählen und gleichzeitig umzudrehen.
+
+**Kann am Ende genau eine Münze Zahl zeigen?** Untersuche das Experiment vor dem Lesen der Erklärung. Mit den optionalen Einstellungen kannst du auch die beiden unten besprochenen Varianten erkunden.
+
+<Interactive kind="module" module="reasoning-29" preset="coins" id="invariant-coins" />
+
+### Die Lösung verstehen
+
+Es gibt nur drei grundsätzlich verschiedene Arten von Zweierzügen.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="coin-moves" />
+
+Die Anzahl $T$ der Zahlseiten ändert sich um $+2$, $0$ oder $-2$. Jede Änderung ist gerade. Die Anzahl selbst ist nicht invariant; **ihre Parität ist es**:
+
+$$
+I=T\bmod2.
+$$
+
+Anfangs gibt es keine Zahlseite, also ist $I=0$. Genau eine Zahlseite hätte $I=1$:
+
+$$
+I_{\mathrm{initial}}=0,\qquad I_{\mathrm{target}}=1.
+$$
+
+Die gewünschte Konfiguration ist deshalb unmöglich.
+
+### Die Aufgabe erweitern
+
+Können wir nur Kopf erreichen, wenn anfangs genau eine Münze Zahl zeigt? **Nein.** Die Anfangsanzahl ist ungerade, die Zielanzahl gerade. Dieselbe Invariante schließt den umgekehrten Weg aus.
+
+Was, wenn die Regel erlaubt, genau **drei** Münzen umzudrehen? Zeigen davon gerade $r$ Münzen Zahl, beträgt die Änderung
+
+$$
+\Delta T=3-2r,\qquad r\in\{0,1,2,3\}.
+$$
+
+Sie ist immer ungerade. Jeder Zug ändert also die Parität; die ursprüngliche Invariante gilt nicht mehr.
+
+**Invarianten hängen von den Regeln ab.** Eine Regeländerung kann eine Invariante zerstören oder eine neue hervorbringen. Dass die Parität ein Ziel nicht mehr ausschließt, beweist allein noch nicht dessen Erreichbarkeit.
+
+## 9. Über mathematische Rätsel hinaus
+
+Derselbe Ansatz begegnet uns in Mathematik, Physik und Informatik.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="applications" />
+
+Der euklidische Algorithmus verbindet beide Ideen. Für nichtnegative ganze Zahlen $a,b$ mit $b>0$ verwenden wir
+
+$$
+(a,b)\longrightarrow(b,a\bmod b).
+$$
+
+Der größte gemeinsame Teiler bleibt erhalten:
+
+$$
+\gcd(a,b)=\gcd(b,a\bmod b).
+$$
+
+Die zweite Komponente nimmt innerhalb der nichtnegativen ganzen Zahlen streng ab:
+
+$$
+0\leq a\bmod b<b.
+$$
+
+Der Prozess endet, wenn die zweite Komponente null wird. Wegen $\gcd(a,0)=a$ ist die verbleibende erste Komponente der ursprüngliche größte gemeinsame Teiler. Damit werden Korrektheit und Terminierung des Beispiels ausdrücklich begründet: Eine Größe erklärt die Erhaltung der Antwort, die andere das Ende des Prozesses.
+
+## 10. Das tiefere Denkprinzip
+
+Bei einem komplizierten System nehmen wir oft an, alles verfolgen zu müssen, was darin geschieht. Eine vollständige Beschreibung ist jedoch nicht immer nötig.
+
+Eine sorgfältig gewählte Größe kann genau die benötigte Information bewahren und enorme Mengen irrelevanter Komplexität ausblenden.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="abstraction" />
+
+Beim Schachbrett verwerfen wir die genauen Positionen unbedeckter Felder und behalten den Farbunterschied. Bei den Münzen verwerfen wir die Anordnung und behalten die Parität. Beim Terminierungsargument verwerfen wir die genauen Entscheidungen und behalten eine abnehmende ganze Zahl.
+
+Wir verlieren absichtlich Information, behalten aber genug, um die Frage zu beantworten. Mathematische Abstraktion bestimmt, welche Aspekte einer Situation die Antwort tatsächlich festlegen.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="takeaway" />
+
+Eine Invariante sagt uns, was ein Prozess nicht ändern kann. Eine geeignete Monovariante erklärt, warum ein Prozess nicht endlos weitergehen kann. Beide erlauben Aussagen über ganze Mengen von Möglichkeiten, ohne jede einzeln zu untersuchen.
+
+**Was kann ich entdecken, wenn ich nach dem Unveränderten suche, statt alles zu verfolgen, was sich ändert?**
+
+## Weiterführende Lektüre
+
+- [MIT · Mathematics for Computer Science, Vorlesungslektüre](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/): Lecture 04, State Machines, und das aktualisierte Kapitel verbinden Zustände, Übergänge, invariante Eigenschaften und Terminierung. Lecture 03 knüpft an die starke Induktion an.
+- [George Pólya · How to Solve It, Auszug bei Harvard](https://people.math.harvard.edu/~knill/teaching/math21b2001/polya/index.html): Fragen zu Hilfsgrößen, Darstellungen und der Beziehung zwischen Gegebenem und Gesuchtem.
+- [Richard Hammack · Book of Proof, Autorenseite](https://richardhammack.github.io/BookOfProof/): ergänzende Lektüre zu Induktion, Logik, Parität und notwendigen beziehungsweise hinreichenden Bedingungen.
+
+Das sind Vorbereitungsquellen. Es wird keine vollständige Durchsicht dieser Bücher für diese Lektion behauptet.

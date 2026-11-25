@@ -1,0 +1,628 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-32
+sourcePages: []
+sourceLocations: ["Full episode script 00:00–23:00, sections 1–11", "Production notes: visual relationships and optional advanced challenge"]
+title: "Workshop: Entdecke einen Satz und begründe ihn"
+navTitle: "Einen Satz entdecken"
+description: "Untersuche Summen aufeinanderfolgender positiver ganzer Zahlen, unterscheide Beispiele von Beweisen und dokumentiere begründete Ungewissheit."
+order: 32
+kind: worked-problem
+status: published
+reviewStatus: unreviewed
+prerequisites: [pictures-and-proofs, counterexamples-and-claims, proof-by-cases-and-equivalence]
+thumbnail: "module:reasoning-32"
+---
+
+## 1. Ein Problem ohne Anleitung
+
+Stell dir vor, ich gebe dir die Zahl 15 und bitte dich, sie als Summe aufeinanderfolgender positiver ganzer Zahlen darzustellen.
+
+Auf dem Bildschirm erscheint zunächst nur die Zahl 15.
+
+Vielleicht fällt dir auf:
+
+$$
+15=7+8.
+$$
+
+Aber es gibt noch eine Möglichkeit.
+
+$$
+15=4+5+6.
+$$
+
+Und noch eine.
+
+$$
+15=1+2+3+4+5.
+$$
+
+Drei verschiedene Darstellungen derselben Zahl.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="sums" />
+
+Das ist interessant. Aber versuche jetzt dasselbe mit der Zahl 16.
+
+Du könntest sieben und acht addieren, aber das ergibt 15. Acht und neun ergeben 17. Vielleicht funktionieren drei aufeinanderfolgende Zahlen. Oder vier. Oder fünf.
+
+Plötzlich wird aus einer scheinbar einfachen Rechenaufgabe ein Problem.
+
+Warum lassen sich manche Zahlen so leicht darstellen, während es bei anderen unmöglich scheint? Gibt es ein Muster? Bestimmt eine Eigenschaft der Zahl, ob eine solche Darstellung existiert?
+
+Heute beginne ich nicht mit einem Satz, dessen Beweis ich anschließend vorführe.
+
+Wir beginnen, ohne die Antwort zu kennen.
+
+Unser Ziel ist auch nicht nur, das Problem zu lösen. Wir wollen verstehen, was zwischen der ersten Begegnung mit einer Frage und dem Moment geschieht, in dem wir sagen können: *Ich weiß, dass das stimmt.*
+
+## 2. Was untersuchen wir eigentlich?
+
+Bevor wir nach Mustern suchen, müssen wir das Problem genau formulieren.
+
+Wir wollen wissen, welche positiven ganzen Zahlen sich als Summe von mindestens zwei aufeinanderfolgenden positiven ganzen Zahlen schreiben lassen.
+
+Drei Teile dieses Satzes werden hervorgehoben.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="restrictions" />
+
+Diese Einschränkungen sind entscheidend.
+
+Ohne die Forderung nach mindestens zwei Summanden wäre das Problem trivial. Jede positive ganze Zahl könnte einfach durch sich selbst dargestellt werden.
+
+Ohne die Forderung, dass die Summanden aufeinanderfolgen, würden wir eine andere Art von Summe untersuchen.
+
+Und ohne die Forderung, dass alle Summanden positiv sind, hätten wir zusätzliche Möglichkeiten, die in unserem ursprünglichen Problem nicht erlaubt sind.
+
+Mathematisch fragen wir für eine gegebene positive ganze Zahl $n$, ob positive ganze Zahlen $a$ und $r$ mit $r\geq 2$ existieren, sodass
+
+$$
+n=a+(a+1)+\cdots+(a+r-1).
+$$
+
+Dabei ist $a$ die Anfangszahl, und $r$ gibt an, wie viele Zahlen wir addieren.
+
+Wir brauchen diese Schreibweise nicht unbedingt, um die Untersuchung zu beginnen. Aber sie formuliert die Regeln genau. Wenn unsere Anschauung später nicht mehr ausreicht, geben uns diese Symbole eine verlässlichere Grundlage.
+
+## 3. Unseren Arbeitsbereich aufbauen
+
+Wenn du etwas Unbekanntes untersuchst, hilft es besonders, den Stand deines Wissens festzuhalten.
+
+Nicht alles, was du aufschreibst, verdient dasselbe Vertrauen.
+
+Unser Arbeitsbereich gliedert sich in drei Bereiche.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="workspace" />
+
+Im ersten Bereich sammeln wir bewiesene Tatsachen. Beispielsweise wissen wir, dass 15 mindestens drei zulässige Darstellungen besitzt, weil wir sie ausdrücklich konstruiert haben.
+
+Im zweiten Bereich sammeln wir Vermutungen. Das sind Aussagen, für die wir Gründe haben, die wir aber noch nicht bewiesen haben.
+
+Im dritten Bereich stehen unsere unbeantworteten Fragen.
+
+Beachte, dass die Aussage „16 lässt sich nicht darstellen“ nicht unter den bewiesenen Tatsachen steht.
+
+Wir haben einiges ausprobiert und keine Darstellung gefunden. Aber das ist etwas anderes, als zu beweisen, dass keine Darstellung existiert.
+
+Im Verlauf der Untersuchung verändern sich diese Einordnungen. Eine Frage kann zu einer Vermutung werden. Eine Vermutung kann zu einem Satz werden. Oder sie trifft auf ein Gegenbeispiel und wird vollständig verworfen.
+
+Das ist kein Protokoll unserer Intelligenz. Es hält fest, welche Aussagen unser bisheriges Denken tatsächlich rechtfertigt.
+
+## 4. Beispiele sammeln
+
+Beginnen wir mit kleinen Zahlen.
+
+Nicht, weil kleine Zahlen unbedingt am interessantesten wären, sondern weil wir mit ihnen schnell experimentieren können. Sie ermöglichen uns, die Struktur des Problems zu verstehen, bevor wir größere und kompliziertere Fälle betrachten.
+
+Wir beginnen mit 1.
+
+Unter unseren Regeln lässt sie sich nicht darstellen. Die kleinste erlaubte Summe ist bereits
+
+$$
+1+2=3.
+$$
+
+Daher lassen sich weder 1 noch 2 darstellen.
+
+Aber 3 lässt sich darstellen.
+
+$$
+3=1+2.
+$$
+
+Vier scheint nicht zu funktionieren. Fünf schon.
+
+$$
+5=2+3.
+$$
+
+Sechs funktioniert ebenfalls.
+
+$$
+6=1+2+3.
+$$
+
+Für sieben finden wir eine weitere Darstellung.
+
+$$
+7=3+4.
+$$
+
+Acht scheint schwieriger zu sein.
+
+Nach und nach entsteht eine Übersicht der Zahlen. Jede Zahl, für die wir eine Darstellung entdecken, wird grün. Zahlen, deren Status wir noch nicht geklärt haben, bleiben als ungeklärt gekennzeichnet.
+
+Erfolglose Versuche werden nicht sofort rot markiert. Das würde den Eindruck erwecken, wir hätten etwas bewiesen, das wir noch gar nicht bewiesen haben.
+
+<Interactive kind="module" module="reasoning-32" preset="evidence" id="workshop-evidence" />
+
+Nimm dir einen Moment Zeit und betrachte unsere bisherigen Ergebnisse.
+
+Versuche noch nichts zu beweisen. Schau dir einfach die Zahlen an.
+
+Was fällt dir auf?
+
+Vielleicht bemerkst du, dass jede ungerade Zahl größer als eins in unserer Untersuchung eine Darstellung besitzt.
+
+Vielleicht bemerkst du auch, dass viele gerade Zahlen Darstellungen besitzen.
+
+Und vielleicht noch etwas Interessanteres: Unter den Zahlen, für die wir keine Darstellung gefunden haben, stehen 4, 8 und 16.
+
+Hier scheint eine Struktur vorzuliegen.
+
+Aber wir haben nur zwanzig Zahlen untersucht. Unsere Beobachtungen könnten einen echten mathematischen Zusammenhang zeigen; sie könnten aber auch unvollständig sein.
+
+Als Nächstes müssen wir aus diesen Beobachtungen Aussagen machen, die wir tatsächlich untersuchen können.
+
+## 5. Unsere erste Vermutung formulieren
+
+Betrachte die ungeraden Zahlen.
+
+$$
+\begin{aligned}
+3&=1+2\\
+5&=2+3\\
+7&=3+4\\
+9&=4+5\\
+11&=5+6.
+\end{aligned}
+$$
+
+Das Muster ist sehr regelmäßig.
+
+Jedes Mal, wenn wir die ungerade Zahl um zwei erhöhen, steigen beide Summanden rechts um eins.
+
+Die Darstellung trennt die beiden Summanden in benachbarte Gruppen. Wenn beide Gruppen um eine Einheit wachsen, steigt ihr gemeinsamer Wert um zwei.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="odd-growth" />
+
+Das legt unsere erste Vermutung nahe:
+
+> Jede ungerade positive ganze Zahl größer als eins lässt sich als Summe zweier aufeinanderfolgender positiver ganzer Zahlen darstellen.
+
+Diese Aussage ist viel genauer als unsere ursprüngliche Frage.
+
+Wir haben nicht behauptet, bereits alle darstellbaren Zahlen zu kennen. Wir haben eine bestimmte Zahlenklasse erkannt, die sich offenbar einheitlich verhält.
+
+Und wir haben genau angegeben, wie viele Summanden wir zu benötigen glauben: zwei.
+
+Unsere erste Vermutung kommt in die mittlere Spalte des Arbeitsbereichs.
+
+Könnten wir eine noch stärkere Vermutung aufstellen?
+
+Vielleicht lässt sich eine positive ganze Zahl genau dann darstellen, wenn sie ungerade ist.
+
+Das wäre eine sehr elegante Antwort auf unsere ursprüngliche Frage.
+
+Leider wissen wir bereits, dass sie falsch ist.
+
+$$
+6=1+2+3.
+$$
+
+Sechs ist gerade und besitzt trotzdem eine zulässige Darstellung.
+
+Die stärkere Vermutung erscheint kurz, bevor die Zahl 6 danebenrückt und sie widerlegt.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="counterexample" />
+
+Das ist ein wichtiger Moment.
+
+Wir hatten recht damit, etwas Besonderes an ungeraden Zahlen zu bemerken. Es wäre falsch gewesen, daraus zu schließen, dass diese Eigenschaft ausschließlich ihnen zukommt.
+
+Eine gute Vermutung beschreibt nicht nur etwas Interessantes. Sie formuliert es genau mit der Stärke, die unsere bisherigen Ergebnisse nahelegen.
+
+## 6. Vom Muster zur Erklärung
+
+Kehren wir zu unserer ersten Vermutung zurück.
+
+Jede ungerade ganze Zahl größer als eins lässt sich als Summe zweier aufeinanderfolgender positiver ganzer Zahlen darstellen.
+
+Wir haben viele Beispiele gefunden.
+
+Aber wie könnten wir beweisen, dass das für jede ungerade Zahl funktioniert?
+
+Überlegen wir, was es bedeutet, dass eine ganze Zahl ungerade ist.
+
+Jede positive ungerade ganze Zahl hat die Form
+
+$$
+n=2k+1
+$$
+
+für eine nichtnegative ganze Zahl $k$.
+
+Ist $n$ größer als eins, muss $k$ mindestens eins sein.
+
+Die Zahl 11 wird durch elf einzelne Quadrate dargestellt.
+
+Wir ordnen fünf links und fünf rechts an; ein zusätzliches Quadrat bleibt in der Mitte.
+
+$$
+2k+1=k+(k+1).
+$$
+
+Was geschieht, wenn wir das zusätzliche Quadrat in die rechte Gruppe verschieben?
+
+Wir erhalten eine Gruppe mit fünf und eine mit sechs Quadraten.
+
+Das sind aufeinanderfolgende Zahlen.
+
+Aber war an den elf Quadraten etwas Besonderes?
+
+Beginnen wir stattdessen mit einer beliebigen ungeraden ganzen Zahl. Wir haben wieder zwei Gruppen mit jeweils $k$ Einheiten und eine zusätzliche Einheit.
+
+Diese zusätzliche Einheit können wir immer der zweiten Gruppe hinzufügen.
+
+Algebraisch tun wir Folgendes:
+
+$$
+\begin{aligned}
+n&=2k+1\\
+ &=k+k+1\\
+ &=k+(k+1).
+\end{aligned}
+$$
+
+Nun müssen wir noch etwas überprüfen.
+
+Unser ursprüngliches Problem hatte drei Bedingungen. Erfüllt unsere Konstruktion sie?
+
+Wir haben genau zwei Summanden. Sie folgen aufeinander, weil ihre Differenz eins ist. Und beide sind positiv, weil $k\geq 1$ gilt.
+
+Wir haben also nicht nur eine algebraische Identität entdeckt. Wir haben ein Objekt konstruiert, das alle Bedingungen unseres Problems erfüllt.
+
+Das ist unser Beweis.
+
+**Satz**
+
+Jede ungerade ganze Zahl größer als eins ist die Summe zweier aufeinanderfolgender positiver ganzer Zahlen.
+
+**Beweis.** Sei $n>1$ eine ungerade ganze Zahl. Nach der Definition von Ungeradheit gibt es eine ganze Zahl $k\geq 1$ mit
+
+$$
+n=2k+1.
+$$
+
+Daher gilt
+
+$$
+n=k+(k+1).
+$$
+
+Wegen $k\geq 1$ sind beide Summanden positiv. Ihre Differenz ist eins, also folgen sie aufeinander. Damit besitzt $n$ die gesuchte Darstellung.
+
+$$
+\square
+$$
+
+Jetzt wandert die Vermutung aus der mittleren Spalte zu den bewiesenen Tatsachen.
+
+Der Wortlaut der Aussage hat sich nicht verändert.
+
+Verändert hat sich der Grund, aus dem wir sie für wahr halten.
+
+Zuvor glaubten wir sie, weil sie in jedem untersuchten Beispiel funktionierte. Jetzt wissen wir sie, weil wir ein Argument angegeben haben, das für eine beliebige ungerade ganze Zahl größer als eins gilt.
+
+Wir haben nicht mehr Zahlen überprüft. Wir haben die Art unserer Begründung verändert.
+
+<Interactive kind="module" module="reasoning-32" preset="proof" id="workshop-proof" />
+
+## 7. Was haben wir genau bewiesen?
+
+Man könnte meinen, wir hätten das Problem gelöst. Wir haben ein Muster entdeckt, eine mathematische Aussage daraus gemacht und sie bewiesen.
+
+Aber betrachte noch einmal unsere ursprüngliche Frage.
+
+Welche positiven ganzen Zahlen lassen sich als Summe von mindestens zwei aufeinanderfolgenden positiven ganzen Zahlen schreiben?
+
+Unser Satz sagt etwas über ungerade ganze Zahlen größer als eins. Er sagt nichts darüber, welche geraden ganzen Zahlen Darstellungen besitzen.
+
+Die Zahl 6 besitzt eine. Die Zahl 10 besitzt eine. Die Zahl 12 besitzt eine.
+
+Was unterscheidet diese Zahlen von 8 oder 16?
+
+Um den Unterschied zu verstehen, stellen wir unser Wissen durch Mengen dar.
+
+Sei $S$ die Menge aller positiven ganzen Zahlen mit mindestens einer zulässigen Darstellung.
+
+Sei $O$ die Menge aller ungeraden positiven ganzen Zahlen größer als eins.
+
+Bewiesen haben wir:
+
+$$
+O\subseteq S.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="inclusion" />
+
+Jedes Element von $O$ gehört zu $S$.
+
+Aber wir haben die Menge $S$ nicht vollständig beschrieben.
+
+Unser früheres Gegenbeispiel zeigt sogar, dass diese beiden Mengen nicht gleich sein können.
+
+Sechs gehört zu $S$, aber nicht zu $O$.
+
+Diese Unterscheidung übersieht man leicht, wenn man sich über eine Entdeckung freut.
+
+Ein Beweis kann ein vollkommen richtiges Ergebnis liefern und trotzdem nur einen Teil der ursprünglichen Frage beantworten.
+
+Das macht ihn nicht zu einem schlechten Beweis. Es bedeutet, dass wir seine Reichweite verstehen müssen.
+
+Wir haben etwas Wesentliches bewiesen. Nur eben noch nicht alles.
+
+## 8. Aus einer erfolglosen Suche einen Beweis machen
+
+Kehren wir zu einer unserer ungeklärten Zahlen zurück.
+
+Acht.
+
+Bisher haben wir keine Darstellung als Summe aufeinanderfolgender positiver ganzer Zahlen gefunden. Aber vielleicht war unsere Suche einfach nicht gründlich genug.
+
+Wie könnten wir beweisen, dass es keine solche Darstellung gibt?
+
+Statt wahllos Summen auszuprobieren, ordnen wir alle Möglichkeiten nach der Anzahl ihrer Summanden.
+
+Beginnen wir mit zwei aufeinanderfolgenden positiven ganzen Zahlen.
+
+$$
+1+2=3
+$$
+
+$$
+2+3=5
+$$
+
+$$
+3+4=7
+$$
+
+$$
+4+5=9
+$$
+
+Wenn wir die Anfangszahl um eins erhöhen, steigt die Summe um zwei.
+
+Alle diese Summen sind ungerade. Acht ist gerade. Daher können keine zwei aufeinanderfolgenden ganzen Zahlen zusammen acht ergeben.
+
+Was ist mit drei aufeinanderfolgenden ganzen Zahlen?
+
+Wir beginnen mit der kleinsten erlaubten Anfangszahl.
+
+$$
+1+2+3=6.
+$$
+
+Erhöhen wir die Anfangszahl um eins, erhalten wir
+
+$$
+2+3+4=9.
+$$
+
+Damit sind wir bereits über acht hinaus. Jede spätere Summe ist noch größer.
+
+Also funktionieren auch drei Summanden nicht.
+
+Was ist mit vier Summanden?
+
+Die kleinste mögliche Summe ist
+
+$$
+1+2+3+4=10.
+$$
+
+Und zehn ist bereits größer als acht.
+
+Bei fünf, sechs oder noch mehr positiven Summanden wird die kleinste mögliche Summe nur größer.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="eight" />
+
+Betrachte, was gerade geschehen ist.
+
+Zuvor hatten wir mehrere Summen ausprobiert und acht nicht darstellen können.
+
+Jetzt haben wir die Möglichkeiten in Fälle eingeteilt und für jeden erlaubten Fall die Unmöglichkeit bewiesen.
+
+Das sind grundlegend verschiedene Leistungen.
+
+Unser Argument erfasst jede mögliche Anzahl von Summanden: zwei, drei oder mindestens vier. Es gibt keinen weiteren Fall, der außerhalb unserer Untersuchung verborgen bleibt.
+
+Endlich können wir die Aussage „8 lässt sich nicht darstellen“ zu den bewiesenen Tatsachen verschieben.
+
+Und in unserer Zahlenübersicht wechselt acht von ungeklärt zu rot.
+
+Die Farbe ändert sich nicht, weil wir zuversichtlicher geworden sind, sondern weil wir diese Zuversicht durch ein vollständiges Argument begründet haben.
+
+## 9. Eine weitergehende Möglichkeit entdecken
+
+Betrachte unsere Ergebnisse noch einmal.
+
+Eine Zahlenfamilie scheint besonders interessant zu sein.
+
+$$
+1,\quad 2,\quad 4,\quad 8,\quad 16,\quad\ldots
+$$
+
+Jede Zahl ist doppelt so groß wie die vorherige.
+
+Es sind Zweierpotenzen.
+
+$$
+2^0,\quad 2^1,\quad 2^2,\quad 2^3,\quad 2^4,\quad\ldots
+$$
+
+Was wäre, wenn genau diese Zahlen keine Darstellung besitzen?
+
+Das ergäbe eine viel weitergehende Vermutung.
+
+> Eine positive ganze Zahl lässt sich genau dann als Summe von mindestens zwei aufeinanderfolgenden positiven ganzen Zahlen schreiben, wenn sie keine Zweierpotenz ist.
+
+Die Vermutung erscheint in unserem Arbeitsbereich.
+
+Bevor wir uns zu sehr an sie gewöhnen, sollten wir aber erkennen, dass *genau dann, wenn* zwei getrennte Beweisaufgaben erzeugt.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="obligations" />
+
+Erstens müssten wir zeigen, dass jede positive ganze Zahl, die keine Zweierpotenz ist, eine Darstellung besitzt.
+
+Zweitens müssten wir zeigen, dass keine Zweierpotenz eine Darstellung besitzt.
+
+Bisher haben wir nur einzelne Fälle und ein allgemeines Ergebnis über ungerade ganze Zahlen bewiesen.
+
+Das reicht nicht aus.
+
+Aber vielleicht finden wir etwas, das uns weiterhilft.
+
+Addieren wir drei aufeinanderfolgende ganze Zahlen.
+
+$$
+a+(a+1)+(a+2).
+$$
+
+Durch Umformen erhalten wir
+
+$$
+3a+3=3(a+1).
+$$
+
+Jede Summe dreier aufeinanderfolgender ganzer Zahlen ist durch drei teilbar.
+
+Versuchen wir es mit vier aufeinanderfolgenden ganzen Zahlen.
+
+$$
+\begin{aligned}
+a+(a+1)+(a+2)+(a+3)&=4a+6\\
+ &=2(2a+3).
+\end{aligned}
+$$
+
+Diese Zahl ist das Doppelte einer ungeraden Zahl.
+
+Wir erkennen erste Zusammenhänge zwischen der Anzahl aufeinanderfolgender Summanden und den Teilern der entstehenden Summe.
+
+Vielleicht hängt die Antwort auf unsere ursprüngliche Frage mit Teilbarkeit zusammen.
+
+Diese Richtung lassen wir vorerst offen.
+
+Der heutige Workshop soll uns nicht möglichst schnell zum eindrucksvollsten Satz führen. Wir wollen erleben, wie mathematisches Wissen entsteht.
+
+## 10. Jetzt untersuchst du selbst
+
+Versuche eine kleine eigene Untersuchung.
+
+Wähle die Zahl 16.
+
+Kannst du beweisen, dass sie sich nicht als Summe von mindestens zwei aufeinanderfolgenden positiven ganzen Zahlen darstellen lässt?
+
+Denke daran: Es geht nicht nur darum, ein paar Summen auszuprobieren. Du sollst erkennen, ob du jede relevante Möglichkeit berücksichtigt hast.
+
+Du könntest zunächst fragen, wie viele Summanden eine Darstellung von 16 überhaupt enthalten kann.
+
+Die kleinste Summe mit sechs aufeinanderfolgenden positiven ganzen Zahlen ist bereits
+
+$$
+1+2+3+4+5+6=21.
+$$
+
+Das ist eine hilfreiche Einschränkung. Sechs oder mehr Summanden musst du nicht untersuchen.
+
+Kannst du die übrigen Fälle behandeln?
+
+<Interactive kind="module" module="reasoning-32" preset="sixteen" id="workshop-sixteen" />
+
+Aber ein anderer Teil dieser Aufgabe ist aus meiner Sicht noch wichtiger.
+
+Halte deine Untersuchung kurz schriftlich fest.
+
+Nicht unbedingt als ausgearbeiteten Beweis. Beschreibe einfach genau, was beim Nachdenken geschehen ist.
+
+<Interactive kind="module" module="reasoning-32" preset="record" id="workshop-record" />
+
+Vielleicht konntest du beweisen, dass sich 16 nicht darstellen lässt.
+
+Vielleicht hast du ein ganz anderes Muster entdeckt.
+
+Vielleicht hast du versucht, unsere Vermutung über Zweierpotenzen zu beweisen, und bemerkt, dass du das Argument nicht vervollständigen konntest.
+
+All das können wertvolle Ergebnisse sein.
+
+Entscheidend ist, dass dein Protokoll genau zwischen deinen Beobachtungen, deinen Vermutungen und deinen begründbaren Aussagen unterscheidet.
+
+Wenn du genau benennen kannst, welcher Teil eines Arguments noch fehlt, hast du bereits einen wesentlichen Fortschritt gemacht.
+
+Du hast aus einer vagen Schwierigkeit eine präzise mathematische Frage gemacht.
+
+## 11. Was es bedeutet, etwas zu wissen
+
+Zu Beginn dieser Folge hatten wir eine Frage und einige Beispiele.
+
+Wir wussten nicht, was die darstellbaren Zahlen von den nicht darstellbaren unterscheidet.
+
+Durch Experimentieren entdeckten wir ein Muster. Durch genaue Sprache machten wir daraus eine Vermutung. Durch logisches Denken bewiesen wir einen Satz.
+
+Und als dieser Satz unsere ursprüngliche Frage noch nicht vollständig beantwortete, untersuchten wir weiter.
+
+Unser Arbeitsbereich erscheint ein letztes Mal.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="final-workspace" />
+
+Die Spalte mit offenen Fragen ist nicht leer.
+
+Das ist völlig angemessen.
+
+Mathematisches Denken verlangt nicht, auf alles eine Antwort zu haben. Es verlangt, zwischen begründeten und noch nicht begründeten Antworten zu unterscheiden.
+
+Aus unserer Vermutung wurde ein Satz. Der Satz erzeugte neue Fragen. Diese Fragen führten uns zu einer tieferen Struktur, die wir anfangs noch nicht bemerkt hatten.
+
+So wächst Mathematik.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="cycle" />
+
+Entdecken und Beweisen bilden einen fortlaufenden Kreislauf, keinen einmaligen geradlinigen Weg.
+
+Ein Muster entdecken zu können, ist wertvoll. Eine Aussage beweisen zu können, ist wertvoll.
+
+Aber vielleicht ist die wichtigste Fähigkeit, den Unterschied zwischen beiden zu kennen.
+
+Denn beim logischen Denken geht es nicht bloß darum, Antworten zu finden.
+
+Es geht darum, zu verstehen, was uns berechtigt, etwas eine Antwort zu nennen.
+
+**Woher weißt du das?**
+
+## Optionale Untersuchung: Summanden und Teiler
+
+Zeige für $r\geq 2$ aufeinanderfolgende positive ganze Zahlen mit Anfangszahl $a\geq 1$:
+
+$$
+\begin{aligned}
+n &= a+(a+1)+\cdots+(a+r-1)\\
+  &= ra+\frac{r(r-1)}2\\
+  &= \frac{r(2a+r-1)}2.
+\end{aligned}
+$$
+
+Was sagt dieser Ausdruck über die Teiler von $n$, wenn $r$ ungerade beziehungsweise gerade ist? Kann eine Zweierpotenz die erforderlichen Teiler besitzen? Das ist eine Richtung für weitere Untersuchungen. Die vollständige Klassifikation wurde in der Hauptlektion noch nicht bewiesen.

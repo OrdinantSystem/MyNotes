@@ -1,0 +1,11 @@
+---
+import {copy} from './copy';
+import {figureMarkup} from './render';
+import '../../styles/counterexamples.css';
+import './styles.css';
+interface Props{figure:string}
+const {figure}=Astro.props,locale=Astro.locals.locale==='de'?'de':'en',c=copy(locale),title=c.titles[figure as keyof typeof c.titles];
+if(!title)throw new Error('Unknown experiment figure');
+const uid=`aor44-${figure}-${crypto.randomUUID()}`;
+---
+<figure class="counter-figure aor44" data-aor44-figure={figure}><h3>{title}</h3><div set:html={figureMarkup(locale,figure,uid)}/></figure>

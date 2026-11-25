@@ -1,0 +1,28 @@
+{
+  "id": "reasoning-31",
+  "order": 31,
+  "course": "reasoning",
+  "chapter": "reasoning-part-four",
+  "key": "pairing-things-to-prove-things",
+  "sourceId": "reasoning-episode-31",
+  "sourceTitle": "Pairing Things to Prove Things \u00b7 functions and proof by correspondence",
+  "title": "Pairing Things to Prove Things",
+  "figures": [
+    "opening",
+    "assignment",
+    "function-rule",
+    "properties",
+    "sizes",
+    "collision-proof",
+    "codomain",
+    "subset-pairs",
+    "inverse",
+    "possibilities",
+    "process"
+  ],
+  "presets": [
+    "lockers",
+    "codomain",
+    "subsets"
+  ]
+}

@@ -1,0 +1,348 @@
+---
+course: reasoning
+chapter: reasoning-part-five
+sourceId: reasoning-episode-35
+sourceLocations: ["Central idea and learning objectives", "Lesson Parts I–IX", "Everyday evidence and curriculum continuity", "Preparation sources"]
+sourcePages: []
+thumbnail: module:reasoning-35
+locale: de
+title: Wann sagen wenige Beobachtungen etwas über viele aus?
+navTitle: Stichproben und Auswahl
+description: Stichprobenstreuung von Auswahlverzerrung unterscheiden und prüfen, was eine Stichprobe über ihre Zielpopulation rechtfertigt.
+order: 35
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [observation-and-inference, mathematical-induction, sets-and-mathematical-worlds]
+---
+
+Bisher haben wir oft gefragt, ob eine Schlussfolgerung zwingend aus unserem Wissen folgt. Außerhalb der Mathematik verfügen wir selten über alles, was nötig wäre, um eine Aussage mit Gewissheit zu begründen.
+
+Wir beobachten einige Menschen und treffen Aussagen über eine Gesellschaft. Wir prüfen einige Produkte und urteilen über eine Fabrik. Eine medizinische Studie mit Hunderten Personen kann Fragen zu Millionen Menschen beleuchten. Wie kann das vernünftig sein?
+
+Die Stärke einer empirischen Verallgemeinerung hängt nicht nur davon ab, **wie viel wir beobachtet haben, sondern auch davon, wie diese Beobachtungen zu uns gelangt sind**. Statistik hilft uns, verantwortlich mit unvollständiger Information zu argumentieren.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="overview" />
+
+## 1. Etwas verstehen, das wir nicht vollständig sehen
+
+Ein Behälter enthält 100 Zählsteine: sechzig blaue und vierzig violette. Blau kennzeichnet die untersuchte Eigenschaft, Violett die andere Kategorie. Türkis markiert einen Referenzwert oder einen mathematischen Zusammenhang.
+
+Stell dir vor, du blickst zunächst in den durchsichtigen Behälter und verdeckst ihn dann. Von jetzt an lässt sich sein Inhalt nicht direkt betrachten. Die Steine werden gemischt und zehn gezogen.
+
+Unser Einstiegsbeispiel enthält sieben blaue und drei violette Steine. **70 % der beobachteten Stichprobe sind also blau.**
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="hidden" />
+
+Nun stellen sich drei Fragen:
+
+- **Wissen wir, dass 70 % des Behälterinhalts blau sind?**
+- **Wissen wir, dass Blau häufiger vorkommt?**
+- **Sagen die zehn Beobachtungen etwas Nützliches über die übrigen neunzig aus?**
+
+Die erste Schlussfolgerung ist nicht gesichert. Die zweite wird unter den Auswahlannahmen etwas gestützt, könnte aber trotzdem falsch sein. Die dritte Frage ist entscheidend: **Unvollständige Evidenz ist nicht zwangsläufig nutzlose Evidenz.**
+
+Hier können Schlussfolgerungen begründet sein, ohne logisch garantiert zu sein. Zwei Extreme sind zu vermeiden: vor jeder Überzeugung vollständige Gewissheit zu verlangen oder wenige Beobachtungen so zu behandeln, als bewiesen sie alles.
+
+## 2. Grundgesamtheit, Stichprobe und die fehlende Verbindung
+
+Decken wir den Behälter auf und untersuchen die Struktur des Beispiels.
+
+Sei $U$ die **Grundgesamtheit** der untersuchten Objekte:
+
+$$
+U=\{x_1,x_2,\ldots,x_{100}\}.
+$$
+
+Sei $S$ die ausgewählte **Stichprobe**:
+
+$$
+S\subseteq U,\qquad |S|=10.
+$$
+
+Sei $A$ die Menge der blauen Objekte:
+
+$$
+A=\{x\in U:x\text{ ist blau}\}.
+$$
+
+Der **Anteil in der Grundgesamtheit** ist
+
+$$
+p=\frac{|A|}{|U|}=\frac{60}{100}=0.6.
+$$
+
+Der **beobachtete Stichprobenanteil** ist
+
+$$
+\hat p=\frac{|A\cap S|}{|S|}=\frac7{10}=0.7.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="proportions" />
+
+Der Schnitt $A\cap S$ enthält die Objekte, die **zugleich blau und Teil der Stichprobe** sind. Er steht im Zähler, weil wir die blauen Objekte unter den tatsächlich ausgewählten zählen, nicht alle blauen Objekte der Grundgesamtheit. Die umrandeten Objekte im Diagramm der Grundgesamtheit gehören zu dieser Einstiegsstichprobe.
+
+Die gesuchte Größe ist nicht zwangsläufig die beobachtete Größe.
+
+Es fehlt noch etwas. Grundgesamtheit und Stichprobe zu kennen erklärt nicht, warum die eine etwas über die andere aussagen sollte. Wir brauchen den **Auswahlmechanismus**.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="mechanism" />
+
+Eine Stichprobe entsteht durch einen Prozess. Ohne diesen Prozess zu verstehen, lässt sich schwer bestimmen, welche Gruppe sie tatsächlich vertritt.
+
+## 3. Warum Zufall hilft, ohne Genauigkeit zu garantieren
+
+Lege alle Steine zurück, mische erneut und ziehe zehn neue. Stell dir diesmal fünf blaue Steine vor. Bei weiteren Wiederholungen erhältst du acht, dann sechs. Hier sind sechs Beispielstichproben:
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="repeated" />
+
+Die Grundgesamtheit hat sich nicht verändert. Verschiedene Stichproben derselben Grundgesamtheit ergeben verschiedene Schätzwerte. **Stichprobenstreuung** bezeichnet die Schwankung einer statistischen Größe durch die Beobachtung verschiedener Stichproben.
+
+Zufällige Auswahl bevorzugt nicht absichtlich eine Farbe. Genauer: In diesem Modell einer einfachen Zufallsstichprobe ist jede Teilmenge der gewählten Größe gleichwahrscheinlich. Der Vorgang lässt uns mathematisch untersuchen, welche Stichproben möglich und wie wahrscheinlich sie sind. Er garantiert nicht, dass jede einzelne Stichprobe die Grundgesamtheit genau abbildet.
+
+### Die Stichprobe vergrößern
+
+Betrachte statt zehn nun fünfzig oder achtzig Steine. Beim angegebenen Zufallsverfahren liegen die Schätzwerte im Allgemeinen enger um den tatsächlichen Anteil.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="spread" />
+
+Jeder Punkt steht hier für **einen hypothetischen Stichprobenschätzwert**, nicht für einen einzelnen Stein. Die Beispiele sind schematisch; sie sind weder simulierte Ergebnisse noch eine vollständige Wahrscheinlichkeitsverteilung.
+
+Das ist ein Ausblick auf **Stichprobenverteilungen**. Größere, angemessen geplante Zufallsstichproben verringern im Allgemeinen die Streuung. Sie garantieren nicht, dass jede konkrete größere Stichprobe näher an der Wahrheit liegt.
+
+Getrennt davon kannst du echte lokale Simulationen des beschriebenen Modells erzeugen. Das anfängliche Beispiel mit sieben von zehn ist vorgegeben; weitere Ziehungen folgen dem gleichwahrscheinlichen Verfahren. Innerhalb einer Stichprobe wird **ohne Zurücklegen** gezogen. Vor der nächsten werden **alle Steine zurückgelegt**.
+
+<Interactive kind="module" module="reasoning-35" preset="sampling" id="sampling-repeat" />
+
+Die Simulation veranschaulicht ein Modell. Sie ist keine Umfrage und kein Nachweis dafür, dass eine reale Sammlung korrekt beprobt wurde.
+
+## 4. Wie 30.000 Beobachtungen irreführen können
+
+Die Steine stehen nun für Menschen. Ein **fiktiver** Videokanal hat 100.000 Zuschauerinnen und Zuschauer. Die betreibende Person möchte wissen, ob das Publikum kürzere oder längere Videos bevorzugt.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="audience" />
+
+Sie veröffentlicht eine freiwillige Umfrage. Alle können teilnehmen, doch Menschen mit Vorliebe für längere Videos sind besonders motiviert, ihre Meinung mitzuteilen.
+
+Angenommen, **10 % der Gruppe für kurze Videos** antworten, gegenüber **60 % der Gruppe für lange Videos**.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="funnel" />
+
+Die Anzahlen sind
+
+$$
+60\,000\cdot0.10=6\,000,\qquad 40\,000\cdot0.60=24\,000.
+$$
+
+Von insgesamt 30.000 Antworten entfallen 24.000 auf längere Videos:
+
+$$
+\frac{24\,000}{30\,000}=0.8.
+$$
+
+Die Umfrage meldet, **80 % bevorzugten längere Videos**, obwohl dies nur auf 40 % des Publikums zutrifft.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="poll-result" />
+
+Die Umfrage beschreibt die Antwortenden korrekt. Der Fehler besteht darin, diese Menschen stillschweigend mit dem gesamten Publikum gleichzusetzen.
+
+Niemand muss lügen. Die aufgezeichneten Antworten müssen nicht manipuliert sein, und die Prozentrechnung stimmt. **Die Verzerrung entsteht schon vor der Rechnung.** Das ist **Auswahlverzerrung**: Freiwillige Teilnahme und Antwortausfälle können dazu führen, dass sich die beobachtete Gruppe systematisch von der Zielpopulation unterscheidet.
+
+### Ändern, wer teilnimmt
+
+Halte das Publikum fest und ändere den antwortenden Anteil jeder Gruppe. Das sind vorgegebene Teilnahmeanteile. Die angezeigten Anzahlen gelten daher exakt innerhalb dieses fiktiven Szenarios; einzelne Antwortentscheidungen werden nicht zufällig simuliert.
+
+<Interactive kind="module" module="reasoning-35" preset="selection" id="sampling-selection" />
+
+Änderst du beispielsweise die Quoten von 10 % und 60 % auf 15 % und 90 %, erhältst du **45.000 Antworten**, aber weiterhin die Aufteilung 20 %/80 %. Tausende zusätzliche Antworten können die Verzerrung unverändert lassen.
+
+Eine größere Stichprobe kann die antwortende Gruppe stabiler beschreiben, ohne die Zielpopulation genauer abzubilden. **Stichprobenstreuung und Auswahlverzerrung sind verschiedene Probleme.**
+
+## 5. Genauigkeit und Präzision sind verschiedene Probleme
+
+Im ersten Experiment war das Auswahlverfahren sinnvoll, die Anzahl der Beobachtungen aber klein. Bei der Umfrage war die Anzahl groß, der Auswahlprozess jedoch systematisch verzerrt.
+
+Stell dir eine Zielscheibe vor, deren Mittelpunkt den tatsächlichen Populationswert darstellt. Jeder Punkt steht für einen Schätzwert aus einer Wiederholung des gesamten Verfahrens.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="targets" />
+
+Die Zielscheiben sind eine schematische Analogie: Streuung stellt Variabilität dar, die Verschiebung vom Mittelpunkt Verzerrung.
+
+Die große verzerrte Stichprobe ist möglicherweise der gefährlichste Fall. Ihre Schätzwerte können konsistent, präzise und systematisch falsch sein.
+
+Wir unterscheiden den tatsächlichen Wert $p$ vom durchschnittlichen Schätzwert bei Wiederholung des Verfahrens:
+
+$$
+\operatorname{Bias}(\hat p)=\mathbb E[\hat p]-p.
+$$
+
+$\mathbb E[\hat p]$ bezeichnet hier den **langfristigen Durchschnitt der Schätzwerte beim festgelegten Verfahren**. Erwartungswert und Stichprobenverteilungen lassen sich später genauer entwickeln; hier geht es um eine anschauliche Einführung.
+
+| Problem | Was geschieht? | Was kann helfen? |
+| --- | --- | --- |
+| Stichprobenstreuung | Schätzwerte schwanken zwischen Stichproben. | Größere, angemessen geplante Stichproben. |
+| Auswahlverzerrung | Das Verfahren bevorzugt systematisch bestimmte Beobachtungen. | Den Auswahlprozess verbessern. |
+| Beides | Schätzwerte schwanken um einen verzerrten Wert. | Planung und Stichprobengröße verbessern. |
+
+Mehr Beobachtungen bei unverändert verzerrtem Verfahren können die Schätzwerte enger bündeln, ohne ihr Zentrum zur Wahrheit zu verschieben. **Präzision ersetzt keine Genauigkeit.**
+
+## 6. Aus dem Auswahlverfahren ein Wahrscheinlichkeitsmodell machen
+
+Kehren wir zum Behälter zurück. Wahrscheinlichkeit gibt uns eine mathematische Sprache, um den Auswahlmechanismus anzugeben.
+
+Wir vereinfachen auf **zehn einzeln nummerierte Steine**: sechs blaue und vier violette. Das Experiment ist **eine einzelne Ziehung**.
+
+Ein **Ergebnis** ist ein möglicher einzelner Ausgang, etwa Stein drei zu ziehen. Der **Ergebnisraum** enthält alle möglichen Ergebnisse:
+
+$$
+\Omega=\{1,2,3,4,5,6,7,8,9,10\}.
+$$
+
+Ein **Ereignis** ist eine Menge von Ergebnissen. Sei $A$ das Ereignis, dass der gezogene Stein blau ist:
+
+$$
+A=\{1,2,3,4,5,6\}.
+$$
+
+Das **Gegenereignis** enthält jedes Ergebnis des Ergebnisraums außerhalb von $A$:
+
+$$
+A^c=\Omega\setminus A=\{7,8,9,10\}.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="outcomes" />
+
+Das verbindet Wahrscheinlichkeit mit Mengen und logischer Verneinung. Bekannte Strukturen bekommen ein numerisches Maß.
+
+**Unter der Annahme, dass jeder nummerierte Stein gleichwahrscheinlich gezogen wird**, erhalten wir
+
+$$
+P(A)=\frac{|A|}{|\Omega|}=\frac6{10},\qquad P(A^c)=\frac4{10}.
+$$
+
+Beide Ereignisse sind disjunkt und schöpfen gemeinsam den Ergebnisraum aus. Daher gilt
+
+$$
+\boxed{P(A^c)=1-P(A)}.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="complement" />
+
+### Das Modell ist nicht die physische Welt
+
+Angenommen, die blauen Steine sind größer, sodass jemand sie beim Greifen in den Beutel ertasten kann. Die Anzahl und die Menge möglicher Ergebnisse bleiben gleich. Ihre Auswahlwahrscheinlichkeiten könnten sich aber ändern.
+
+| Mathematisches Modell | Physischer Auswahlvorgang |
+| --- | --- |
+| Jeder Stein ist gleichwahrscheinlich. | Sind alle Steine gleich gut erreichbar? |
+| Jeder Stein kann ausgewählt werden. | Können manche Steine feststecken? |
+| Keine Farbe wird bevorzugt. | Beeinflussen Größe oder Oberfläche die Auswahl? |
+| Das Verfahren ist angegeben. | Wurde es tatsächlich befolgt? |
+
+Die Formel
+
+$$
+P(A)=\frac{|A|}{|\Omega|}
+$$
+
+setzt einen **endlichen Ergebnisraum mit gleichwahrscheinlichen Ergebnissen** voraus. Abzählen beweist keine Gleichwahrscheinlichkeit. Die Gegenereignisregel gilt dagegen auch bei ungleichen Wahrscheinlichkeiten.
+
+Der folgende optionale Vergleich ergänzt ein ausdrückliches Beispiel, in dem jedes blaue Ergebnis das doppelte Auswahlgewicht eines violetten hat. Das ist eine veranschaulichende Annahme; die physische Größe allein begründet sie nicht. Die anderen Fälle setzen eine erste blaue oder violette Ziehung **ohne Zurücklegen** voraus.
+
+<Interactive kind="module" module="reasoning-35" preset="probability" id="sampling-probability" />
+
+Nach dem Entfernen eines blauen Steins aus dem gleichwahrscheinlichen Modell beträgt die nächste Blauwahrscheinlichkeit $5/9$ statt $6/10$. Nach einem violetten Stein beträgt sie $6/9$. Mehrere Ziehungen ohne Zurücklegen sind **nicht unabhängig**: Der Behälterinhalt ändert sich.
+
+Ein mathematisches Ergebnis kann innerhalb eines Modells völlig korrekt sein. Ob es auf die Wirklichkeit anwendbar ist, hängt trotzdem davon ab, ob die Modellannahmen gerechtfertigt sind.
+
+## 7. Empirische Induktion ist nicht vollständige Induktion
+
+Bei der vollständigen Induktion begründen ein Anfangsfall und eine allgemeine Implikation jeden Fall:
+
+$$
+P(1),\qquad \forall n\geq1,\quad P(n)\Rightarrow P(n+1).
+$$
+
+Zusammen begründen sie
+
+$$
+\forall n\geq1,\quad P(n).
+$$
+
+Wir haben nicht bloß viele erfolgreiche Fälle beobachtet, sondern einen logischen Mechanismus bewiesen, der alle Fälle erfasst.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="induction" />
+
+Bei **empirischer Induktion** stützen einzelne Beobachtungen eine allgemeinere Schlussfolgerung. Angenommen, wir prüfen 500 hergestellte Glühbirnen und finden keinen Defekt. Je nach Auswahlverfahren kann das die Aussage stark stützen, Defekte seien selten.
+
+Es beweist aber nicht
+
+$$
+\forall x\in U,\quad x\text{ ist fehlerfrei}.
+$$
+
+Der Unterschied besteht nicht darin, dass die eine Art zuverlässig und die andere unzuverlässig wäre. Beide begründen verschiedene Arten von Schlussfolgerungen.
+
+| | Vollständige Induktion | Empirische Induktion |
+| --- | --- | --- |
+| Grundlage | Logische Implikation | Beobachtete Evidenz |
+| Schlussfolgerung | Deduktiv begründet | In bestimmtem Maß gestützt |
+| Unbeobachtete Fälle | Vom Beweis erfasst | Aus Beobachtungen erschlossen |
+| Unsicherheit | Gehört nicht zu einem gültigen Beweis aus akzeptierten Prämissen | Bleibt im Allgemeinen bestehen |
+| Zentrale Frage | Folgt die Aussage notwendigerweise? | Wie stark stützt die Evidenz sie? |
+
+Wahrscheinlichkeit und Statistik ermöglichen systematisches Argumentieren ohne deduktive Gewissheit. Empirisches Denken ist dadurch für eine andere Art von Problem geeignet, nicht minderwertig.
+
+## 8. Welcher Stichprobe würdest du vertrauen?
+
+Eine Universität mit **20.000 Studierenden** möchte deren Zufriedenheit mit der Lehre schätzen. Drei Personen schlagen verschiedene Verfahren vor:
+
+- **A: 8.000 Antwortende** auf eine offene Umfrage über die sozialen Medien der Universität.
+- **B: 500 Studierende**, zufällig aus dem vollständigen Einschreibungsverzeichnis ausgewählt.
+- **C: 800 Studierende**, nach Fakultäten gegliedert und innerhalb jeder Fakultät zufällig ausgewählt.
+
+Wähle nicht einfach die größte Zahl und erkläre keinen Plan automatisch für richtig. Untersuche, welche Aussagen jedes Verfahren stützt.
+
+<Interactive kind="module" module="reasoning-35" preset="designs" id="sampling-designs" />
+
+A kann nützliche Information über engagierte Antwortende erhalten. B verwendet eine wahrscheinlichkeitsbasierte Ausgangsauswahl. C steuert zusätzlich, wie Fakultäten in diese Ausgangsstichprobe gelangen. Bei allen sind Erreichbarkeit und tatsächliches Antwortverhalten zu prüfen. Für eine universitätsweite Schätzung können ungleiche Auswahlquoten zwischen Fakultäten Gewichte erfordern.
+
+### Die Zielgruppe ändern, nicht die Daten
+
+Nun richtet sich die Frage nur auf **Mathematikstudierende**. Eine für die gesamte Universität geeignete Stichprobe kann zu wenige Mathematikstudierende enthalten, um die engere Frage präzise zu beantworten. Die tatsächlichen Anzahlen dieser Teilgruppe sind nicht angegeben; ihre Angemessenheit bleibt offen.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="population" />
+
+Dieselben Beobachtungen können über verschiedene Zielpopulationen unterschiedlich viel aussagen. Eine gute Stichprobe ist immer gut **im Hinblick auf eine bestimmte Frage**.
+
+Wie zuvor bei Mengen, Definitionsbereichen und dem Geltungsbereich einer Aussage müssen wir präzisieren, worauf sich die statistische Behauptung bezieht.
+
+## 9. Was hat die Evidenz wirklich begründet?
+
+Der Behälter, die Onlineumfrage und die Universität teilen dieselbe Struktur.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="synthesis" />
+
+Eine Prozentangabe ohne definierte Grundgesamtheit ist mehrdeutig. Eine Stichprobe ohne verstandenen Auswahlmechanismus lässt sich schwer verallgemeinern. Eine Schlussfolgerung ohne benannte Unsicherheit kann mehr behaupten, als die Evidenz rechtfertigt.
+
+Diese Fragen gelten auch für alltägliche Aussagen:
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="everyday" />
+
+Sie helfen, Evidenz zu beurteilen, statt sie automatisch abzulehnen. Damit führen sie die Fragen zu Wahrnehmung und Erinnerung fort:
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="continuity" />
+
+Selbst eine korrekte Wahrnehmung, an die wir uns vollkommen erinnern, kann eine unbegründete Schlussfolgerung stützen, wenn die Beobachtungen systematisch unrepräsentativ sind.
+
+Unvollständige Evidenz ist normal. Problematisch ist, nicht zu verstehen, **wodurch sie unvollständig wird**.
+
+**Frage zuerst, wie Beobachtungen ausgewählt wurden, bevor du fragst, wie viele eine Schlussfolgerung stützen.**
+
+## Weiterführende Lektüre
+
+- [OpenIntro Statistics](https://www.openintro.org/book/os/), von David Diez, Mine Çetinkaya-Rundel und Christopher Barr: Stichprobenprinzipien, Wahrscheinlichkeit und bedingte Wahrscheinlichkeit. Die offizielle Seite bietet Lehrbuch und Unterrichtsmaterial.
+- [Understanding Science · How science works](https://undsci.berkeley.edu/understanding-science-101/how-science-works/), University of California, Berkeley: die Beziehung zwischen Evidenz und Ideen beim wissenschaftlichen Denken.
+- [OpenIntro · Introduction to data, Folien zur zweiten Auflage](https://www.openintro.org/go/?id=os2_slides_01): ergänzendes Material zu Stichproben und Datenerhebung. Der verlinkte Foliensatz stammt aus der zweiten Auflage.
+
+Die numerischen Grundgesamtheiten sind fiktive Lehrmodelle. Die schematischen Diagramme sind keine empirischen Befunde. Die Verweise behaupten keine vollständige Durchsicht der Bücher und keine unabhängige mathematische Prüfung dieser Lektion.

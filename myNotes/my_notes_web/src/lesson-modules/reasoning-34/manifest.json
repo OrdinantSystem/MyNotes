@@ -1,0 +1,18 @@
+{
+  "id": "reasoning-34",
+  "course": "reasoning",
+  "chapter": "reasoning-part-five",
+  "chapterDefinition": {
+    "id": "reasoning-part-five",
+    "course": "reasoning",
+    "title": {"en": "Part Five", "de": "Teil Fünf"},
+    "description": {"en": "Observation, evidence, and cognitive reasoning.", "de": "Beobachtung, Evidenz und kognitives Schlussfolgern."}
+  },
+  "order": 34,
+  "key": "why-memory-is-not-a-recording",
+  "title": "Why memory is not a recording",
+  "sourceId": "reasoning-episode-34",
+  "sourceTitle": "Why memory is not a recording",
+  "figures": ["models", "processes", "retention", "construction", "questions", "study", "timeline", "sources", "confidence", "receipt", "comparison", "premises"],
+  "presets": ["scene", "reconstruction", "source-sorting", "worksheet"]
+}

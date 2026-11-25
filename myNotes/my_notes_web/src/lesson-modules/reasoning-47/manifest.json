@@ -1,0 +1,41 @@
+{
+  "id": "reasoning-47",
+  "course": "reasoning",
+  "chapter": "reasoning-part-six",
+  "chapterDefinition": {
+    "id": "reasoning-part-six",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Six",
+      "de": "Teil Sechs"
+    },
+    "description": {
+      "en": "Investigation, explanation, and scientific reasoning.",
+      "de": "Untersuchung, Erklärung und wissenschaftliches Denken."
+    }
+  },
+  "order": 47,
+  "key": "chance-and-selected-discoveries",
+  "title": "How can chance produce an impressive discovery?",
+  "sourceId": "reasoning-episode-47",
+  "sourceTitle": "How can chance produce an impressive discovery?",
+  "figures": [
+    "coins",
+    "distribution",
+    "tails",
+    "conditionals",
+    "experiments",
+    "filter",
+    "branches",
+    "exploration",
+    "preregistration",
+    "replication",
+    "study",
+    "whole-search"
+  ],
+  "presets": [
+    "tails",
+    "search",
+    "study"
+  ]
+}

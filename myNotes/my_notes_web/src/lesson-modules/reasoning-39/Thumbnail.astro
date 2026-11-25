@@ -1,0 +1,5 @@
+---
+interface Props{locale?:'en'|'de'}
+const {locale='en'}=Astro.props;
+---
+<svg viewBox="0 0 220 130" role="img" aria-label={locale==='de'?'Gleiche Ergebnisse, unterschiedliche Betonung':'Same outcomes, different emphasis'}><rect x="15" y="35" width="170" height="24" rx="4" fill="var(--accent)"/><rect x="185" y="35" width="20" height="24" rx="3" fill="var(--coral)"/><path d="M20 100H200" stroke="var(--axis)"/><circle cx="55" cy="100" r="7" fill="var(--blue)"/><circle cx="160" cy="100" r="7" fill="var(--coral)"/><path d="M160 72V90" stroke="var(--coral)" stroke-dasharray="4 4"/></svg>

@@ -1,0 +1,12 @@
+---
+import {moduleFor} from '../lib/lesson-modules.mjs';
+interface Props {module:string;view:'Figure'|'Lab'|'Thumbnail';preset?:string;figure?:string;id?:string;locale?:'en'|'de'}
+const props=Astro.props,m=moduleFor(props.module);
+if(props.view==='Figure'&&!m.figures.includes(props.figure))throw new Error(`Unknown module figure: ${props.module}/${props.figure}`);
+if(props.view==='Lab'&&(!m.presets.includes(props.preset)||!props.id))throw new Error(`Unknown module activity or missing id: ${props.module}/${props.preset}`);
+const views=import.meta.glob<{default:import('astro/runtime/server/index.js').AstroComponentFactory}>('../lesson-modules/*/{Figure,Lab,Thumbnail}.astro');
+const entry=views[`../lesson-modules/${props.module}/${props.view}.astro`];
+if(!entry)throw new Error(`Missing module view: ${props.module}/${props.view}`);
+const {default:View}=await entry();
+---
+<View {...props}/>

@@ -1,0 +1,348 @@
+---
+course: reasoning
+chapter: reasoning-part-five
+sourceId: reasoning-episode-35
+sourceLocations: ["Central idea and learning objectives", "Lesson Parts I–IX", "Everyday evidence and curriculum continuity", "Preparation sources"]
+sourcePages: []
+thumbnail: module:reasoning-35
+locale: en
+title: When can a few observations tell us about many?
+navTitle: Sampling and selection
+description: Distinguish sampling variability from selection bias, and ask what a sample can justify about its target population.
+order: 35
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [observation-and-inference, mathematical-induction, sets-and-mathematical-worlds]
+---
+
+Much of this course has asked whether a conclusion necessarily follows from what we know. Outside mathematics, we rarely have everything needed to establish a conclusion with certainty.
+
+We observe a few people and make claims about a society. We examine a few products and make claims about a factory. A medical study involving hundreds of patients may inform questions about millions. How can this be rational?
+
+The strength of an empirical generalization depends not only on **how much we observed, but on how those observations came to us**. Statistics is a way to reason responsibly from incomplete information.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="overview" />
+
+## 1. Understanding something we cannot see completely
+
+Begin with a container of 100 counters: sixty blue and forty purple. Blue marks the property under investigation, purple the alternative category, and teal a reference value or mathematical connection.
+
+Imagine looking into the transparent container, then covering it. From now on, its contents cannot be inspected directly. Mix the counters and draw ten.
+
+Our opening example contains seven blue and three purple counters. Thus **70% of the observed sample is blue**.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="hidden" />
+
+Now ask three questions:
+
+- **Do we know that 70% of the container is blue?**
+- **Do we know that blue is more common?**
+- **Do these ten observations tell us anything useful about the remaining ninety?**
+
+The first conclusion is not established. The second has some support, given the sampling assumptions, but could still be false. The third matters: **incomplete evidence is not necessarily useless evidence**.
+
+We are entering a kind of reasoning in which conclusions can be justified without being logically guaranteed. We need to avoid both extremes: demanding complete certainty before believing anything, and treating a few observations as if they established everything.
+
+## 2. Population, sample, and the missing connection
+
+Uncover the container and examine the structure behind the example.
+
+Let $U$ be the **population** of objects under investigation:
+
+$$
+U=\{x_1,x_2,\ldots,x_{100}\}.
+$$
+
+Let $S$ be the selected **sample**:
+
+$$
+S\subseteq U,\qquad |S|=10.
+$$
+
+Let $A$ be the set of blue objects:
+
+$$
+A=\{x\in U:x\text{ is blue}\}.
+$$
+
+The **population proportion** is
+
+$$
+p=\frac{|A|}{|U|}=\frac{60}{100}=0.6.
+$$
+
+The **observed sample proportion** is
+
+$$
+\hat p=\frac{|A\cap S|}{|S|}=\frac7{10}=0.7.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="proportions" />
+
+The intersection $A\cap S$ contains the objects that are **both blue and in the sample**. It belongs in the numerator because we count blue objects among those actually selected, rather than all blue objects in the population. Outlined objects in the population diagram belong to this opening sample.
+
+The quantity we want to know is not necessarily the quantity we observe.
+
+Something is still missing. Knowing the population and the sample does not explain why one should tell us about the other. We also need the **selection mechanism**.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="mechanism" />
+
+A sample is the result of a process. Without understanding that process, it is difficult to determine what the sample actually represents.
+
+## 3. Why randomness helps without guaranteeing accuracy
+
+Return all the counters, mix them again, and take a new sample of ten. This time, imagine five blue counters. Repeat and obtain eight, then six. Here are six illustrative samples:
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="repeated" />
+
+The population has not changed. Different samples of the same population produce different estimates. **Sampling variability** is the variation in a statistic caused by observing different samples.
+
+Random sampling does not deliberately favor one color. More precisely, in this simple random sampling model, every subset of the chosen size is equally likely. The procedure lets us reason mathematically about which samples can occur and how likely they are. It does not guarantee that a particular sample will mirror the population.
+
+### Increasing the sample size
+
+Instead of ten counters, consider samples of fifty or eighty. Under the specified random procedure, estimates generally become more concentrated around the true proportion.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="spread" />
+
+Each dot here represents **one hypothetical sample estimate**, not an individual counter. The displayed examples are schematic, not simulated results or a complete probability distribution.
+
+This previews **sampling distributions**. Larger, appropriately designed random samples generally reduce sampling variability; they do not guarantee that every particular larger sample will be closer to the truth.
+
+You can separately generate actual local simulations of the stated model. The initial seven-out-of-ten example is specified; subsequent draws use the uniform procedure. Within each sample, counters are drawn **without replacement**. Before the next sample, **all counters are returned**.
+
+<Interactive kind="module" module="reasoning-35" preset="sampling" id="sampling-repeat" />
+
+The simulation illustrates a model. It is not a survey or evidence that a real collection has been sampled correctly.
+
+## 4. How 30,000 observations can mislead
+
+Now let the counters stand for people. Consider a **fictional** video channel with 100,000 viewers. Its creator wants to know whether the audience prefers shorter or longer videos.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="audience" />
+
+The creator publishes a voluntary poll. Everyone can participate, but those who prefer longer videos are particularly motivated to express their opinion.
+
+Suppose **10% of the short-video group** responds, compared with **60% of the long-video group**.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="funnel" />
+
+The counts are
+
+$$
+60\,000\cdot0.10=6\,000,\qquad 40\,000\cdot0.60=24\,000.
+$$
+
+There are 30,000 responses, of which 24,000 favor longer videos:
+
+$$
+\frac{24\,000}{30\,000}=0.8.
+$$
+
+The poll reports that **80% prefer longer videos**, although only 40% of the audience does.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="poll-result" />
+
+The poll accurately describes the people who answered it. The mistake is silently substituting those respondents for the entire audience.
+
+Nobody has to lie. The recorded answers need not be manipulated, and the percentage calculation is correct. **The distortion appears before the calculation begins.** This is **selection bias**; voluntary response and nonresponse can make the observed group differ systematically from the target population.
+
+### Change who participates
+
+Keep the audience fixed and change the responding share of each group. These are specified participation fractions, so the displayed counts are exact within this fictional scenario; the activity does not randomly simulate individual decisions to respond.
+
+<Interactive kind="module" module="reasoning-35" preset="selection" id="sampling-selection" />
+
+For example, changing the response rates from 10% and 60% to 15% and 90% gives **45,000 responses** while retaining the same 20%/80% split. Thousands of extra responses can leave the distortion intact.
+
+A larger sample can give a more stable description of the responding group without giving a more accurate description of the target population. **Sampling variability and selection bias are different problems.**
+
+## 5. Accuracy and precision are different problems
+
+In the first experiment, the selection procedure was reasonable but the number observed was small. In the poll, the number observed was large but the selection procedure was systematically distorted.
+
+Imagine a target whose center represents the true population value. Each point represents an estimate from repeating the entire procedure.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="targets" />
+
+These targets are a schematic analogy: dispersion represents variability, while displacement from the center represents bias.
+
+The large biased sample is potentially the most dangerous case. Its estimates can be consistent, precise, and systematically wrong.
+
+We can distinguish the true value $p$ from the average estimate obtained by repeating the procedure:
+
+$$
+\operatorname{Bias}(\hat p)=\mathbb E[\hat p]-p.
+$$
+
+Here $\mathbb E[\hat p]$ means the **long-run average of estimates under the specified procedure**. Expected value and sampling distributions can be developed more formally later; this is an intuitive introduction.
+
+| Problem | What happens? | What can help? |
+| --- | --- | --- |
+| Sampling variability | Estimates fluctuate between samples. | Larger, appropriately designed samples. |
+| Selection bias | The procedure systematically favors certain observations. | Improve the selection procedure. |
+| Both | Estimates fluctuate around a distorted value. | Improve both design and sample size. |
+
+Increasing observations while keeping a biased mechanism unchanged can tighten the group of estimates without moving its center toward the truth. **Precision is not a substitute for accuracy.**
+
+## 6. Turning a selection procedure into a probability model
+
+Return to the container. Probability gives us a mathematical language for specifying the selection mechanism.
+
+Simplify to **ten individually numbered counters**: six blue and four purple. Define a **single draw** as the experiment.
+
+An **outcome** is one possible individual result, such as drawing counter three. The **sample space** contains all possible outcomes:
+
+$$
+\Omega=\{1,2,3,4,5,6,7,8,9,10\}.
+$$
+
+An **event** is a set of outcomes. Let $A$ be the event that the selected counter is blue:
+
+$$
+A=\{1,2,3,4,5,6\}.
+$$
+
+Its **complement** contains every outcome in the sample space outside $A$:
+
+$$
+A^c=\Omega\setminus A=\{7,8,9,10\}.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="outcomes" />
+
+This connects probability to sets and logical negation. Probability assigns numerical measures to familiar structures.
+
+**Assuming every numbered counter is equally likely to be selected**, we obtain
+
+$$
+P(A)=\frac{|A|}{|\Omega|}=\frac6{10},\qquad P(A^c)=\frac4{10}.
+$$
+
+The events are disjoint and together exhaust the sample space. Therefore,
+
+$$
+\boxed{P(A^c)=1-P(A)}.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="complement" />
+
+### The model is not the physical world
+
+Suppose the blue counters are physically larger, so someone reaching into the bag can recognize them by touch. The number of counters and the set of possible outcomes have not changed. Their selection probabilities might have changed.
+
+| Mathematical model | Physical collection procedure |
+| --- | --- |
+| Each counter has equal probability. | Are the counters equally accessible? |
+| Every counter can be selected. | Can some counters become trapped? |
+| Selection does not favor a color. | Does size or texture affect selection? |
+| The procedure is specified. | Was it actually followed? |
+
+The formula
+
+$$
+P(A)=\frac{|A|}{|\Omega|}
+$$
+
+requires a **finite sample space with equally likely outcomes**. Counting the objects does not establish equal likelihood. The complement rule, by contrast, remains valid with unequal probabilities.
+
+The following optional comparison adds an explicit example in which each blue outcome has twice the selection weight of each purple outcome. That weighting is an illustrative assumption; physical size alone does not establish it. The other cases condition on a first blue or purple draw **without replacement**.
+
+<Interactive kind="module" module="reasoning-35" preset="probability" id="sampling-probability" />
+
+After removing one blue counter from the equal-chance model, the next blue probability is $5/9$, rather than $6/10$. After removing a purple counter, it is $6/9$. Multiple draws without replacement are **not independent**: the container's contents change.
+
+A mathematical result can be perfectly correct within a model while its application to reality depends on whether the model's assumptions are justified.
+
+## 7. Empirical induction is not mathematical induction
+
+In mathematical induction, a base case and a general implication establish every case:
+
+$$
+P(1),\qquad \forall n\geq1,\quad P(n)\Rightarrow P(n+1).
+$$
+
+Together they establish
+
+$$
+\forall n\geq1,\quad P(n).
+$$
+
+We did not merely observe many successful cases. We proved a logical mechanism covering every case.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="induction" />
+
+In **empirical induction**, particular observations support a more general conclusion. Suppose we inspect 500 manufactured light bulbs and find no defects. Depending on the sampling procedure, this may strongly support the claim that defects are uncommon.
+
+It does not prove
+
+$$
+\forall x\in U,\quad x\text{ is defect-free}.
+$$
+
+The difference is not that one kind of induction is reliable and the other unreliable. They establish different kinds of conclusions.
+
+| | Mathematical induction | Empirical induction |
+| --- | --- | --- |
+| Foundation | Logical implication | Observed evidence |
+| Conclusion | Deductively established | Supported to some degree |
+| Unobserved cases | Covered by the proof | Inferred from observations |
+| Uncertainty | Not inherent to a valid proof from accepted premises | Generally remains |
+| Central question | Does the conclusion necessarily follow? | How strongly does the evidence support it? |
+
+Probability and statistics support systematic reasoning where deductive certainty is unavailable. This makes empirical reasoning appropriate for a different kind of problem, rather than inferior.
+
+## 8. Which sample would you trust?
+
+A university with **20,000 students** wants to estimate satisfaction with its teaching. Three researchers propose different approaches:
+
+- **A: 8,000 respondents** to an open survey on the university's social-media accounts.
+- **B: 500 students**, randomly selected from a complete enrollment list.
+- **C: 800 students**, obtained by dividing students into faculties and randomly selecting within each faculty.
+
+Rather than simply choosing the largest number or declaring one design automatically correct, examine what each procedure supports.
+
+<Interactive kind="module" module="reasoning-35" preset="designs" id="sampling-designs" />
+
+Researcher A may obtain useful information about engaged respondents. Researcher B uses a probability-based initial selection. Researcher C additionally controls how faculties enter that initial sample. All still need attention to coverage and actual response. For a university-wide estimate, unequal selection fractions across faculties may require weighting.
+
+### Change the target, not the data
+
+Suppose the question is instead about **mathematics students**. A sample suited to university-wide satisfaction may contain too few mathematics students for a precise answer to this narrower question. The actual mathematics subgroup counts are not specified; adequacy remains unknown.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="population" />
+
+The same observations can carry different amounts of information about different target populations. A good sample is always good **relative to a particular question**.
+
+This is the same care with sets, domains and the scope of a statement that we needed earlier. Statistical claims also need a clear account of what they refer to.
+
+## 9. What did the evidence really establish?
+
+The container, the online poll and the university survey share one structure.
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="synthesis" />
+
+A percentage without a defined population is ambiguous. A sample without an understood selection mechanism is hard to generalize from. A conclusion without acknowledged uncertainty can claim more than its evidence warrants.
+
+These questions also apply to everyday claims:
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="everyday" />
+
+They are reasons to evaluate evidence, not to reject it automatically. This extends the questions from perception and memory:
+
+<ReasoningFigure kind="module" module="reasoning-35" figure="continuity" />
+
+Even a correct perception remembered perfectly can support an unjustified conclusion if the observations are systematically unrepresentative.
+
+Incomplete evidence is normal. The problem is failing to understand **what makes it incomplete**.
+
+**Before asking how many observations support a conclusion, ask how those observations were selected.**
+
+## Further reading
+
+- [OpenIntro Statistics](https://www.openintro.org/book/os/), by David Diez, Mine Çetinkaya-Rundel and Christopher Barr: sampling principles, probability and conditional probability. The official site offers the textbook and teaching resources.
+- [Understanding Science · How science works](https://undsci.berkeley.edu/understanding-science-101/how-science-works/), University of California, Berkeley: how evidence and ideas interact in scientific reasoning.
+- [OpenIntro · Introduction to data slides, second edition](https://www.openintro.org/go/?id=os2_slides_01): supplementary sampling and data-collection material. The linked slide set is from the second edition.
+
+The numerical populations here are fictional teaching models. The schematic diagrams are not empirical findings. These references do not imply a complete review of their books or an independent mathematical review of this lesson.

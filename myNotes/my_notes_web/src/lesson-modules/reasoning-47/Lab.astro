@@ -1,0 +1,18 @@
+---
+import {initialState,rates,coinProbability,questions} from './model';
+import {tailsMarkup,searchMarkup,studyMarkup} from './render';
+import {text,percent} from './copy';
+import './styles.css';
+interface Props{preset:'tails'|'search'|'study';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale),s=initialState();
+---
+<figure class="a47-lab" id={id} data-a47-lab={preset} data-locale={locale}>
+ <h3>{c.labs[preset]}</h3>
+ {preset==='tails'&&<label>{c.observed}<input type="range" min="0" max="100" step="1" value={s.heads} data-a47-heads aria-controls={`${id}-output`}/><input type="number" min="0" max="100" step="1" value={s.heads} data-a47-heads-number aria-label={c.observed} aria-controls={`${id}-output`}/></label>}
+ {preset==='search'&&<><p>{c.assumption}</p><label>{c.tests}<input type="range" min="1" max="100" step="1" value={s.count} data-a47-count aria-controls={`${id}-output`}/><input type="number" min="1" max="100" step="1" value={s.count} data-a47-count-number aria-label={c.tests} aria-controls={`${id}-output`}/></label><label>{c.rate}<select data-a47-rate aria-controls={`${id}-output`}><optgroup label={c.generalRate}>{rates.map(rate=><option value={rate} selected={rate===s.rate}>{percent(rate,locale,0)}</option>)}</optgroup><option value={coinProbability}>{c.coinRate}</option></select></label></>}
+ {preset==='study'&&<><fieldset><legend>{c.prompt}</legend>{questions.map((q,i)=><label class="a47-choice"><input type="checkbox" value={q} data-a47-question/><span>{c.options[i]}</span></label>)}</fieldset><button type="button" data-a47-reveal aria-expanded="false" aria-controls={`${id}-output`}>{c.reveal}</button></>}
+ <div id={`${id}-output`} data-a47-output set:html={preset==='tails'?tailsMarkup(locale,s.heads):preset==='search'?searchMarkup(locale,s.count,s.rate):studyMarkup(locale,s.selected,s.revealed)}/>
+ <button type="button" data-a47-reset aria-controls={`${id}-output`}>{c.reset}</button>
+ <p class="a47-status" data-a47-status role="status" aria-live="polite"></p>
+</figure>
+<script>import './controller';</script>

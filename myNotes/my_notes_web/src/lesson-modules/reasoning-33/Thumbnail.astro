@@ -1,0 +1,5 @@
+---
+interface Props {locale?:'en'|'de'}
+const {locale='en'}=Astro.props;
+---
+<svg viewBox="0 0 220 130" role="img" aria-label={locale==='de'?'Beobachtung und Schlussfolgerung':'Observation and inference'}><rect x="15" y="10" width="190" height="110" rx="6" fill="var(--surface)"/><path d="M110 15V115" stroke="var(--axis)" stroke-dasharray="4 4"/>{[[45,35],[82,85],[145,40],[175,90]].map(([x,y])=><circle cx={x} cy={y} r="10" fill="var(--blue)"/>)}<path d="M145 65l12 12-12 12-12-12z" fill="var(--coral)"/></svg>

@@ -1,0 +1,49 @@
+{
+  "id": "reasoning-43",
+  "course": "reasoning",
+  "chapter": "reasoning-part-six",
+  "chapterDefinition": {
+    "id": "reasoning-part-six",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Six",
+      "de": "Teil Sechs"
+    },
+    "description": {
+      "en": "Investigation, explanation, and scientific reasoning.",
+      "de": "Untersuchung, Erkl\u00e4rung und wissenschaftliches Denken."
+    }
+  },
+  "order": 43,
+  "key": "does-a-connection-mean-a-cause",
+  "title": "Does a connection mean a cause?",
+  "sourceId": "reasoning-episode-43",
+  "sourceTitle": "Does a connection mean a cause? \u00b7 causal reasoning, confounding and intervention",
+  "figures": [
+    "opening",
+    "association",
+    "observation",
+    "direct",
+    "reverse",
+    "common",
+    "combined",
+    "composition",
+    "reversal",
+    "arrows",
+    "time",
+    "randomization",
+    "cut",
+    "fork",
+    "chain",
+    "collider",
+    "fire",
+    "network",
+    "process"
+  ],
+  "presets": [
+    "subgroups",
+    "intervention",
+    "fire-workshop",
+    "selection"
+  ]
+}

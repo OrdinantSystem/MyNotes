@@ -1,0 +1,7 @@
+{
+ "id":"reasoning-39","course":"reasoning","chapter":"reasoning-part-five",
+ "chapterDefinition":{"id":"reasoning-part-five","course":"reasoning","title":{"en":"Part Five","de":"Teil Fünf"},"description":{"en":"Observation, evidence, and cognitive reasoning.","de":"Beobachtung, Evidenz und kognitives Schlussfolgern."}},
+ "order":39,"key":"anchoring-and-framing","title":"How a number or a frame can steer your judgment","sourceId":"reasoning-episode-39","sourceTitle":"How a number or a frame can steer your judgment",
+ "figures":["mechanisms","same-outcomes","anchors","wheel","relevance","complements","gain","loss","neutral","reference","normalization","invariance","visual-language"],
+ "presets":["opening","estimate","frames","risk","quiz"]
+}

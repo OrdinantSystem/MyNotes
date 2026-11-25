@@ -1,0 +1,29 @@
+---
+import {copy,monthMarkup,regroupMarkup,distributionMarkup} from './render';
+import './style.css';
+interface Props {preset:string;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=copy(locale);
+---
+<figure id={id} class="aor30" data-counting-lab={preset} data-locale={locale}>
+<h3>{preset==='months'?c.monthsTitle:preset==='regroup'?c.regroupTitle:c.distribution}</h3>
+{preset==='distribution'&&<div class="a30-controls"><label>{c.objects} (0–60)<input type="number" min="0" max="60" step="1" value="13" data-n aria-controls={`${id}-output`}/></label><label>{c.categories} (1–12)<input type="number" min="1" max="12" step="1" value="12" data-k aria-controls={`${id}-output`}/></label></div>}
+{preset==='regroup'&&<div class="a30-controls"><button type="button" data-group="edge" aria-pressed="true" aria-controls={`${id}-output`}>{c.edge}</button><button type="button" data-group="person" aria-pressed="false" aria-controls={`${id}-output`}>{c.person}</button></div>}
+<div id={`${id}-output`} data-output set:html={preset==='months'?monthMarkup(locale,0):preset==='regroup'?regroupMarkup(locale,'edge'):distributionMarkup(locale,13,12)}/>
+<div class="a30-controls">{preset==='months'&&<button type="button" data-next aria-controls={`${id}-output`}>{c.place}</button>}<button type="button" data-reset aria-controls={`${id}-output`}>{c.reset}</button></div>
+<p class="a30-status" role="status" aria-live="polite" data-status></p>
+{preset==='distribution'&&<figcaption>{c.distributionCaption}</figcaption>}
+</figure>
+<script>
+import {copy,monthMarkup,regroupMarkup,distributionMarkup,type Lang} from './render';
+import {integer} from './model';
+for(const root of document.querySelectorAll<HTMLElement>('[data-counting-lab]')){
+ const l=root.dataset.locale as Lang,c=copy(l),preset=root.dataset.countingLab,output=root.querySelector<HTMLElement>('[data-output]')!,status=root.querySelector<HTMLElement>('[data-status]')!;
+ let placed=0,group='edge',n=13,k=12;
+ const ni=root.querySelector<HTMLInputElement>('[data-n]'),ki=root.querySelector<HTMLInputElement>('[data-k]'),next=root.querySelector<HTMLButtonElement>('[data-next]');
+ function draw(){output.innerHTML=preset==='months'?monthMarkup(l,placed):preset==='regroup'?regroupMarkup(l,group):distributionMarkup(l,n,k);if(next)next.disabled=placed===13;for(const button of root.querySelectorAll<HTMLButtonElement>('[data-group]'))button.setAttribute('aria-pressed',String(button.dataset.group===group));if(ni)ni.value=String(n);if(ki)ki.value=String(k);}
+ next?.addEventListener('click',()=>{placed=Math.min(13,placed+1);draw();status.textContent=`${placed} / 13 ${c.assigned}. ${placed===13?c.collision:''}`;});
+ for(const button of root.querySelectorAll<HTMLButtonElement>('[data-group]'))button.addEventListener('click',()=>{group=button.dataset.group!;draw();status.textContent=group==='edge'?c.byEdge:c.byPerson;});
+ for(const input of [ni,ki])input?.addEventListener('change',()=>{const a=integer(ni!.value,0,60),b=integer(ki!.value,1,12);if(a===null||b===null){draw();status.textContent=c.invalid;return;}n=a;k=b;draw();status.textContent=`${c.objects}: ${n}; ${c.categories}: ${k}; ${c.atLeast}: ${Math.ceil(n/k)}.`;});
+ root.querySelector('[data-reset]')!.addEventListener('click',()=>{placed=0;group='edge';n=13;k=12;draw();status.textContent=c.resetDone;});
+}
+</script>

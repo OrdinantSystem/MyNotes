@@ -1,0 +1,4 @@
+---
+const locale=Astro.props.locale||Astro.locals.locale||'en';
+---
+<svg viewBox="0 0 160 88" role="img" aria-label={locale==='de'?'Zwei vergleichbare Gruppen und ihre Ergebnisse':'Two comparable groups and their outcomes'}><rect x="8" y="10" width="65" height="44" rx="4" fill="var(--blue-tint)" stroke="var(--blue)"/><rect x="87" y="10" width="65" height="44" rx="4" fill="var(--purple-tint)" stroke="var(--purple)"/>{Array.from({length:6},(_,i)=><><circle cx={22+(i%3)*18} cy={24+Math.floor(i/3)*17} r="4" fill="var(--blue)"/><circle cx={101+(i%3)*18} cy={24+Math.floor(i/3)*17} r="4" fill="var(--purple)"/></>)}<path d="M40 58v8m80-8v8" stroke="var(--axis)"/><rect x="8" y="72" width="44" height="8" rx="2" fill="var(--blue)"/><rect x="87" y="72" width="55" height="8" rx="2" fill="var(--purple)"/></svg>

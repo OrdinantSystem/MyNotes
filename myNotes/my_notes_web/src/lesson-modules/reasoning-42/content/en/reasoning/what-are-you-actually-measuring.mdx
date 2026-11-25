@@ -1,0 +1,251 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-six
+sourceId: reasoning-episode-42
+sourcePages: []
+sourceLocations: ["Sections 1–12; section 14 educational evaluation; section 15 preparation sources; visual concepts from section 13"]
+thumbnail: module:reasoning-42
+title: Are you measuring what you think you are measuring?
+navTitle: What are you actually measuring?
+description: Distinguish constructs, procedures, proxies, reliability and validity, then examine how incentives change what a measurement means.
+order: 42
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [counterexamples-and-claims, understanding-and-independent-reasoning]
+---
+
+We want to know whether a student understands mathematics, whether a company is productive, or whether a product is good. None of these questions is answered simply by attaching a number to it. We observe something accessible, then infer something about the property we care about.
+
+**What has actually been measured, and what justifies the conclusion we draw from it?**
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="construct" />
+
+## An impressive dashboard
+
+Imagine that these are the analytics for this course. Every figure looks encouraging.
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="dashboard" />
+
+How much did the viewers actually learn? Perhaps the videos are entertaining. Perhaps viewers enjoy the animations or agree with the conclusions. Some may leave a video playing while doing something else. Others may follow every step while watching but be unable to reproduce the reasoning independently.
+
+All these possibilities are compatible with the dashboard. The observations could be perfectly accurate while the conclusion “the audience has learned to reason” remains unjustified. We need a connection between the recorded behavior and learning, and evidence for that connection.
+
+## From a construct to an observation
+
+A **construct** is a theoretical concept used to describe a property or phenomenon we want to investigate. The name does not specify which observations should count as evidence.
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="concepts" />
+
+Comparing two people’s height suggests a fairly straightforward procedure. Comparing their mathematical understanding is less simple. Should we count remembered formulas, measure calculation speed, ask for proofs, or test the ability to recognize an invalid argument? These abilities are related, but they are not interchangeable.
+
+An **operational definition** states the procedure through which a concept will be observed or measured. “Measure mathematical understanding” leaves the method open. “Give participants five unfamiliar reasoning problems, require independent work, and score their answers using predefined criteria” specifies an observable procedure.
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="procedure" />
+
+A reproducible protocol would also specify task selection, allowed time and resources, administration, and the scoring rubric. Making these choices explicit lets other people understand, criticize and reproduce the procedure. It does not establish that the score adequately captures mathematical understanding.
+
+$$
+\underbrace{\text{Defining a measurement}}_{\text{Procedure}}
+\ne
+\underbrace{\text{Justifying its meaning}}_{\text{Evidence}}.
+$$
+
+The first is a methodological decision. The second requires evidence and reasoning. A precise definition can still define a poor indicator of the intended property.
+
+## Proxies: what is captured, omitted or added?
+
+A **proxy** is an observable variable used as an indirect indicator of another property. Suppose we compare two people’s overall physical activity using their daily steps.
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="activity" />
+
+Steps provide useful information about walking. They may poorly represent cycling, swimming and other activities. A lower step count does not settle the broader comparison. This is a question about the coverage of the measurement, rather than whether the counter counted steps correctly.
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="coverage" />
+
+**Construct underrepresentation** means leaving out relevant aspects of the intended construct. A mathematical reasoning examination might never ask anyone to construct a proof.
+
+**Construct-irrelevant variance** means that factors outside the intended construct influence the measured result. Reading speed might strongly affect a reasoning score even when reading speed is not the ability being assessed. Whether an influence is irrelevant depends on the intended interpretation; it is not decided by the variable’s name alone.
+
+Both problems can coexist. A useful investigation asks what a proxy captures, what it misses, and what else influences it. Finding a perfect proxy is not a prerequisite for using imperfect evidence carefully.
+
+## Reliability and validity
+
+Place the same known 500-gram object on two scales several times.
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="scales" />
+
+Both sets of readings are repeatable. Scale B remains systematically wrong. Repetition alone does not remove its calibration error.
+
+- **Reliability:** Does the procedure produce sufficiently consistent results under comparable conditions?
+- **Validity:** Does the evidence justify interpreting the result as an indicator of the property we intend to assess?
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="targets" />
+
+The targets connect measurement consistency and systematic error to the distinction between precision and accuracy. They are a limited analogy: for an abstract construct such as understanding, we cannot generally place a known “true understanding” on a calibrated scale. We must accumulate evidence for the proposed interpretation.
+
+A standardized examination that asks people to reproduce definitions might reliably distinguish those who remember the definitions from those who do not. If it contains no unfamiliar problems, arguments to evaluate or independent applications, it may support an interpretation about definitional knowledge while providing weak evidence of transferable reasoning.
+
+**Validity concerns the inference we intend to make.** The same instrument can be useful for one purpose and inadequate for another.
+
+## Four ways to measure learning
+
+The educational goal of this course is the ability to recognize, construct, evaluate and independently apply valid reasoning. Several observations contribute evidence about that goal.
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="indicators" />
+
+These measurements answer different questions. Observable performance during or just after instruction can differ from durable learning; retention and transfer address aspects that immediate performance alone cannot establish. This distinction is developed in [Soderstrom and Bjork’s review of learning and performance](https://doi.org/10.1177/1745691615569000).
+
+Consider three fictional viewers of the same lesson. Change the criterion and watch the ranking change.
+
+<Interactive kind="module" module="reasoning-42" preset="rankings" id="aor42-learners" />
+
+The complete comparison remains available without operating the activity:
+
+| Measurement | Viewer A | Viewer B | Viewer C |
+| --- | ---: | ---: | ---: |
+| Video completion | 100% | 80% | 100% |
+| Immediate quiz | 100% | 70% | 90% |
+| Delayed recall | 40% | 80% | 90% |
+| Transfer | 20% | 90% | 50% |
+
+The people and their recorded results have not changed. Only the criterion used to rank them has changed. These percentages belong to different assessments; subtracting or averaging them would require further justification.
+
+A might recognize everything while the explanation is present but struggle to reconstruct it later. B might skip familiar passages and pause to work independently. C might remember definitions well while finding unfamiliar applications difficult. These are possible explanations, not conclusions established by the scores alone. No single column identifies who learned the most in every sense.
+
+### Following a proof and using its method
+
+While watching an explanation, every step of this argument may seem clear. If $n=2k$ for an integer $k$, then
+
+$$n^2=4k^2=2(2k^2).$$
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="independence" />
+
+Without the explanation, prove that the square of any even integer is even. Then prove that the square of any odd integer is odd. Identify why the integer assumption matters.
+
+<Exercise>
+
+**Added reference proofs.** If $n$ is even, then $n=2k$ for some $k\in\mathbb Z$. Hence $n^2=2(2k^2)$. Because $2k^2$ is an integer, this is twice an integer, so $n^2$ is even. The argument includes zero and negative even integers.
+
+If $n$ is odd, then $n=2k+1$ for some $k\in\mathbb Z$. Expanding gives
+
+$$n^2=(2k+1)^2=4k^2+4k+1=2(2k^2+2k)+1.$$
+
+Since $2k^2+2k$ is an integer, the result is odd. This also includes negative odd integers. The representation and closure in the integers justify the final parity conclusion.
+
+</Exercise>
+
+In this example, following, reconstructing and adapting the method demand increasingly independent use. The feeling of understanding is information about our experience; it does not conclusively establish the underlying skill.
+
+## When a measurement becomes a target
+
+Suppose audience retention is the only criterion for an episode’s success. Clearer explanations and better examples might improve both viewing and learning. But other changes might increase viewing while weakening the educational experience.
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="incentives" />
+
+The same numerical improvement can result from different processes. The relationship between the proxy and the objective can change when people adapt their behavior to the measurement.
+
+This is the concern commonly associated with **Goodhart’s law**: optimizing an indicator can reduce its usefulness as evidence of the underlying goal. Related concerns about consequential social indicators appear in Donald Campbell’s work on evaluation. This is a possible failure mechanism, not a claim that every target necessarily fails.
+
+Imagine a school that first improves teaching, then begins training students exclusively on predictable examination questions.
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="divergence" />
+
+The example does not establish that targeting scores always damages education. It shows why we should reconsider an indicator’s meaning when incentives change the process generating it.
+
+| Underlying objective | Proxy | Possible distortion |
+| --- | --- | --- |
+| Education | Exam scores | Memorizing predictable answers |
+| Scientific progress | Publication count | Prioritizing quantity over significance |
+| Productivity | Hours worked | Remaining busy without producing value |
+| Software quality | Lines of code | Creating unnecessary complexity |
+| Customer satisfaction | Resolution speed | Closing cases prematurely |
+| Educational content | Watch time | Maximizing entertainment over learning |
+
+## Designing complementary evidence
+
+A measurement plan can use different observations to answer complementary questions across time.
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="timeline" />
+
+A baseline matters: someone who succeeds at the final task may already have had that ability before the lesson. Observing success and showing that the course caused it are separate scientific problems. Comparable assessments and appropriately designed comparison groups help investigate causation; random assignment of instructional conditions can strengthen the design where feasible.
+
+### Delayed transfer: a sorting claim
+
+Imagine encountering this problem a week later, without being told which reasoning technique to use. A developer claims that an algorithm correctly sorts every admissible finite list of numbers in nondecreasing order, preserving every element and its multiplicity.
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="sorting" />
+
+Do these tests establish the claim for every admissible list? What observation would conclusively refute it?
+
+<Exercise>
+
+The successful tests establish correctness for those tested inputs. They do not cover every admissible input. A single admissible input on which the claimed algorithm actually gives an incorrect output would be a counterexample.
+
+For example, if it produced $[3,1,3]$ from $[3,3,1]$, the result would violate nondecreasing order. The proposed output is hypothetical; we have not run or inspected an actual algorithm. Merely inventing a bad output is not an observed counterexample.
+
+</Exercise>
+
+The following inspector adds a second possible failure: dropping a duplicate. It checks proposed outputs; it does not execute a sorting algorithm.
+
+<Interactive kind="module" module="reasoning-42" preset="sorting" id="aor42-sort" />
+
+The logical structure is unchanged from the counterexample lesson. For an input domain $X$, the universal claim is
+
+$$\forall x\in X,\ P(x).$$
+
+An actual admissible failure establishes
+
+$$\exists x\in X:\neg P(x),$$
+
+which refutes the claim. Moving from a familiar mathematical example to a software claim tests recognition of the method in another domain.
+
+### Specify the assessment rubric first
+
+| Criterion | Points |
+| --- | ---: |
+| Recognizes that the claim is universal | 1 |
+| Explains why the successful tests are insufficient | 1 |
+| Identifies the role of a counterexample | 1 |
+| Describes an admissible observation that would refute the claim | 1 |
+| Total | 4 |
+
+This proposed rubric makes the criteria explicit; it is not a validated assessment instrument. Evaluators still need shared examples and checks of agreement. Repeated disagreement about acceptable explanations indicates that the scoring procedure needs improvement. One transfer problem cannot establish mastery of a whole subject; multiple problems and contexts provide broader evidence.
+
+## Design a measurement of productivity
+
+An organization could record hours worked, tasks completed, quality of work, and useful outcomes. Which observations belong in a plan depends on the work and the actual objective. The two contexts below are added practice examples.
+
+<Interactive kind="module" module="reasoning-42" preset="plan" id="aor42-productivity" />
+
+<Exercise question="What must be justified beyond choosing some indicators?">
+
+**Added reference discussion.** Specify what counts as a task, how quality will be assessed, the follow-up period for useful outcomes, and how case complexity and resources will be handled. Explain how each observation supports the intended interpretation, what it misses, and how rewarding it might change behavior.
+
+Hours can help estimate resource use; they do not by themselves establish useful output. Task counts need comparable units. Quality needs criteria and reliable evaluation. Outcomes need follow-up and interpretation of outside influences. Selecting all four does not automatically make a plan valid, and collecting more data also has costs. Choose a defensible combination for the purpose and look for evidence that would challenge it.
+
+</Exercise>
+
+## A measurement is evidence to interpret
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="framework" />
+
+For an educational course, distinguish **distribution** (discovery and audience growth), **engagement** (viewing and participation) and **education** (lasting reasoning ability). Keep the original dashboard, but place it alongside immediate assessments, delayed retrieval and unfamiliar applications.
+
+<ReasoningFigure kind="module" module="reasoning-42" figure="evidence" />
+
+Cumulative challenges can ask learners to choose a method without naming it in advance: a counterexample, contraposition, a probability update or an analysis of quantifier order. This examines whether they recognize when a tool is appropriate. Voluntary assessments introduce selection bias: motivated participants’ results should not automatically be generalized to the whole audience.
+
+The numerical examples here are fictional, and the proposed assessment system has not been empirically validated. Formal psychometric validation lies beyond this lesson. We can still use imperfect measurements carefully by examining what they establish and what remains uncertain.
+
+**A measurement is an observation. Its meaning is an inference, and that inference requires justification.**
+
+## Further reading
+
+- [OpenStax, Psychology 2e, §2.3](https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings): operationalization, reliability and validity.
+- [OpenIntro Statistics](https://www.openintro.org/book/os/), Chapter 1: data collection and experimental design.
+- [Soderstrom and Bjork (2015), Learning Versus Performance](https://doi.org/10.1177/1745691615569000): immediate performance and durable learning.
+- [National Research Council (2000), Learning and Transfer](https://www.nationalacademies.org/read/9853/chapter/6): applying learning in new contexts.
+- [Campbell (1979), Assessing the Impact of Planned Social Change](https://doi.org/10.1016/0149-7189%2879%2990048-X): evaluation and social indicators.
+- [Strathern (1997), “Improving Ratings”](https://gwern.net/doc/statistics/decision/1997-strathern.pdf): audit and institutional incentives.

@@ -1,0 +1,8 @@
+---
+interface Props{locale?:'en'|'de'}
+const {locale='en'}=Astro.props;
+---
+<svg viewBox="0 0 220 130" role="img" aria-label={locale==='de'?'Veränderte Zustände mit demselben Invariantenwert':'Changing states with the same invariant value'}>
+ <path d="M35 45H185" stroke="var(--axis)" stroke-width="2"/>
+ {[35,110,185].map(x=><g><rect x={x-23} y="25" width="46" height="40" rx="5" fill="var(--blue-tint)" stroke="var(--blue)"/><path d={`M${x} 65V88`} stroke="var(--axis)" stroke-dasharray="3 3"/><circle cx={x} cy="103" r="17" fill="var(--tint)" stroke="var(--accent)"/><text x={x} y="109" text-anchor="middle" fill="var(--text)" font-size="16">c</text></g>)}
+</svg>

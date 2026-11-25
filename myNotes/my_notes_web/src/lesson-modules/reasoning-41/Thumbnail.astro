@@ -1,0 +1,9 @@
+---
+interface Props{locale?:'en'|'de'}
+const {locale='en'}=Astro.props;
+---
+<svg viewBox="0 0 220 130" role="img" aria-label={locale==='de'?'Eine Beobachtung führt zu drei möglichen Erklärungen und deren Prüfung':'One observation leads to three possible explanations and their comparison'}>
+ <rect x="80" y="10" width="60" height="24" rx="4" fill="var(--blue-tint)" stroke="var(--blue)"/>
+ {[30,110,190].map(x=><><path d={`M110 34L${x} 60`} fill="none" stroke="var(--axis)" stroke-dasharray="4 3"/><rect x={x-21} y="60" width="42" height="24" rx="4" fill="var(--purple-tint)" stroke="var(--purple)"/><path d={`M${x} 84L110 106`} fill="none" stroke="var(--axis)"/></>)}
+ <rect x="70" y="106" width="80" height="18" rx="4" fill="var(--accent-tint)" stroke="var(--accent)"/>
+</svg>

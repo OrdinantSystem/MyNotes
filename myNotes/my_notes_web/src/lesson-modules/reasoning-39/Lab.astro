@@ -1,0 +1,37 @@
+---
+import {copy} from './copy';
+import {gridMarkup,dotsMarkup,machineMarkup,riskMarkup} from './render';
+import './styles.css';
+interface Props {preset:'opening'|'estimate'|'frames'|'risk'|'quiz';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=copy(locale);
+---
+<figure id={id} class="aor39-lab" data-aor39-lab={preset} data-locale={locale} data-frame="positive">
+ <h3>{c.titles[preset]}</h3>
+ {preset==='opening'&&<>
+  <div data-machine set:html={machineMarkup(locale)}/><p class="aor39-headline" data-headline>{c.successRate}</p><p>{c.same}</p><p>{c.reflection}</p>
+  <label for={`${id}-impression`}>{c.impression}</label><textarea id={`${id}-impression`} rows="2" maxlength="1000" data-impression/>
+  <div data-second hidden><label for={`${id}-second`}>{c.secondImpression}</label><textarea id={`${id}-second`} rows="2" maxlength="1000"/></div>
+  <div data-grid hidden set:html={gridMarkup(locale)}/><button type="button" data-opening-next>{c.next}</button>
+ </>}
+ {preset==='estimate'&&<>
+  <p>{c.dotPrompt}</p><div set:html={dotsMarkup(locale)}/>
+  <label for={`${id}-estimate`}>{c.estimate}</label><input type="number" min="0" max="1000" step="1" id={`${id}-estimate`} data-estimate/>
+  <button type="button" data-estimate-commit>{c.commit}</button>
+  <div data-estimate-second hidden><p><strong>{c.anchor.replace('{n}','210')}</strong></p><p>{c.anchorNote}</p><label for={`${id}-revision`}>{c.revised}</label><input type="number" min="0" max="1000" step="1" id={`${id}-revision`} data-revision/><p>{c.noRevision}</p><label for={`${id}-reason`}>{c.reason}</label><textarea id={`${id}-reason`} rows="2" maxlength="1000"/><button type="button" data-count-reveal>{c.revealCount}</button></div>
+  <p data-actual hidden></p><p>{c.dotCaution}</p>
+ </>}
+ {preset==='frames'&&<>
+  <div class="aor39-controls">{['positive','negative','neutral'].map((value,i)=><button type="button" data-frame-choice={value} aria-pressed={i===0?'true':'false'}>{[c.positive,c.negative,c.neutralButton][i]}</button>)}</div>
+  <p class="aor39-headline" data-headline>{c.successRate}</p><p>{c.same}</p><div set:html={gridMarkup(locale)}/><p>{c.record}</p><p>{c.fixed}</p>
+ </>}
+ {preset==='risk'&&<>
+  <div data-risk-output set:html={riskMarkup(locale,0)}/>
+  <div data-risk-choices class="aor39-controls">{['A','B'].map(value=><button type="button" data-procedure={value} aria-pressed="false">{value==='A'?c.chooseA:c.chooseB}</button>)}</div>
+  <button type="button" data-risk-next>{c.continue}</button><p data-choice-history hidden></p>
+ </>}
+ {preset==='quiz'&&<>{c.questions.map((question,i)=><fieldset><legend>{i+1}. {question}</legend>{c.options[i].map((option,j)=><label class="aor39-choice"><input type="radio" name={`${id}-${i}`} value={j} data-answer={i}/>{option}</label>)}<p data-explanation={i} hidden/></fieldset>)}<button type="button" data-check>{c.check}</button><noscript><ol>{c.explanations.map(reason=><li>{reason}</li>)}</ol></noscript></>}
+ <div class="aor39-controls"><button type="button" data-reset>{c.reset}</button></div>
+ <p data-status role="status" aria-live="polite">{preset==='opening'?c.openingNotes[0]:preset==='quiz'?c.quizReady:''}</p>
+ <noscript><p>{c.offline}</p></noscript>
+</figure>
+<script>import './controller';</script>

@@ -1,0 +1,143 @@
+{
+  "initial": {
+    "activities": 4,
+    "figures": 9,
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "dark",
+    "title": "Did you observe it—or infer it?"
+  },
+  "pause": "Paused. Continue when ready, or reset.",
+  "blank": "Enter a whole number from 0 to 100.",
+  "question": true,
+  "replay": "The sequence contains 12 qualifying crossings. A coral diamond crosses the scene between seconds 8 and 13. Noticing or missing it is not a pass or a failure.",
+  "ids": "The IDs are consecutive. This check says nothing about the arithmetic.",
+  "totals": "Transaction 002: 6 + 2 = 8, not 9. Checking IDs did not inspect totals.",
+  "attention": "Attention is directed toward objects relevant to the counting task.",
+  "reasons": [
+    "This classification fits the evidence. A report of a count; a report can still be mistaken.",
+    "This classification fits the evidence. A relatively direct, checkable description, assuming it was seen in the footage.",
+    "This classification fits the evidence. A possible explanation of the bag and the visit; it needs more evidence.",
+    "This classification fits the evidence. Watching the main door does not establish what happened at every entrance.",
+    "This classification fits the evidence. A report about what the observer noticed, with a narrower scope than statement 4.",
+    "This classification fits the evidence. The recording as described does not establish theft or intent."
+  ],
+  "reset": {
+    "count": "",
+    "radios": 0,
+    "report": "",
+    "worksheetErrors": 0
+  },
+  "enLight": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "light"
+  },
+  "enCompactLight": {
+    "mathErrors": 0,
+    "overflow": false,
+    "tables": [
+      {
+        "scroll": 946,
+        "width": 337
+      },
+      {
+        "scroll": 767,
+        "width": 337
+      },
+      {
+        "scroll": 635,
+        "width": 337
+      }
+    ],
+    "theme": "light"
+  },
+  "enCompactDark": {
+    "overflow": false,
+    "theme": "dark"
+  },
+  "deInteractions": {
+    "attention": "Dieselbe Szene lässt sich mit einem anderen Ziel untersuchen.",
+    "inspection": "Buchung 002: 6 + 2 = 8, nicht 9. Die Prüfung der Kennnummern untersuchte die Summen nicht.",
+    "wrong": "Überdenke diese Einordnung. Die Beobachtung der Haupttür belegt nicht, was an sämtlichen Eingängen geschah."
+  },
+  "deCompactDark": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "dark",
+    "title": "Hast du es beobachtet — oder erschlossen?"
+  },
+  "deCompactLight": {
+    "overflow": false,
+    "theme": "light"
+  },
+  "deDesktopLight": {
+    "overflow": false,
+    "theme": "light"
+  },
+  "deDesktopDark": {
+    "overflow": false,
+    "theme": "dark"
+  },
+  "numericFinal": {
+    "diamond": "M390 288l32 32-32 32-32-32z",
+    "numeric": "10.0",
+    "startDisabled": true,
+    "time": "10.0"
+  },
+  "keyboardFinal": "10.1",
+  "boundFinal": {
+    "number": "20.0",
+    "time": "20.0"
+  },
+  "blankFrame": "20.0",
+  "isolation": {
+    "changed": "10.0",
+    "figures": 9,
+    "independent": "0",
+    "independentReveal": true
+  },
+  "searchEn": 1,
+  "searchDe": 1,
+  "prefixEn": {
+    "home": "/MyNotes/",
+    "mathErrors": 0,
+    "overflow": false,
+    "styles": 7,
+    "translation": [
+      "/MyNotes/",
+      "/MyNotes/search/",
+      "/MyNotes/reasoning/lessons/observation-and-inference/",
+      "/MyNotes/de/reasoning/lessons/observation-and-inference/"
+    ]
+  },
+  "prefixActivity": "10.0",
+  "prefixDe": {
+    "home": "/MyNotes/de/",
+    "lang": "de",
+    "mathErrors": 0,
+    "overflow": false,
+    "title": "Hast du es beobachtet — oder erschlossen?"
+  },
+  "prefixSearch": "/MyNotes/de/reasoning/lessons/observation-and-inference/",
+  "prefixSearchTitle": "Notizen durchsuchen",
+  "finalInspection": {
+    "live": "polite",
+    "note": "Buchung 002: 6 + 2 = 8, nicht 9. Die Prüfung der Kennnummern untersuchte die Summen nicht.",
+    "overflow": false,
+    "status": ""
+  },
+  "finalDeFrame": "10.0",
+  "final": {
+    "activities": 4,
+    "figures": 9,
+    "mathErrors": 0,
+    "overflow": false,
+    "partFive": [
+      "33Observation and inference"
+    ],
+    "theme": "dark",
+    "title": "Did you observe it—or infer it?"
+  },
+  "logs": []
+}

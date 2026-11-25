@@ -1,0 +1,167 @@
+{
+  "date": "2026-11-25",
+  "layouts": [
+    {
+      "clipped": [],
+      "figures": 13,
+      "katexErrors": 0,
+      "labs": 3,
+      "lang": "en",
+      "pageOverflow": false,
+      "smallTargets": [],
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "figures": 13,
+      "katexErrors": 0,
+      "labs": 3,
+      "lang": "en",
+      "pageOverflow": false,
+      "smallTargets": [],
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "figures": 13,
+      "katexErrors": 0,
+      "labs": 3,
+      "lang": "en",
+      "pageOverflow": false,
+      "smallTargets": [],
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "figures": 13,
+      "katexErrors": 0,
+      "labs": 3,
+      "lang": "en",
+      "pageOverflow": false,
+      "smallTargets": [],
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "figures": 13,
+      "katexErrors": 0,
+      "labs": 3,
+      "lang": "de",
+      "pageOverflow": false,
+      "smallTargets": [],
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "figures": 13,
+      "katexErrors": 0,
+      "labs": 3,
+      "lang": "de",
+      "pageOverflow": false,
+      "smallTargets": [],
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "clipped": [],
+      "figures": 13,
+      "katexErrors": 0,
+      "labs": 3,
+      "lang": "de",
+      "pageOverflow": false,
+      "smallTargets": [],
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "clipped": [],
+      "figures": 13,
+      "katexErrors": 0,
+      "labs": 3,
+      "lang": "de",
+      "pageOverflow": false,
+      "smallTargets": [],
+      "theme": "dark",
+      "width": 390
+    }
+  ],
+  "regression": "Initial compact page overflow was traced to absolute hidden matrix status labels and one long translated hypothesis-definition row. The final matrix contains its status labels, definitions are stacked, and the complete final eight-case layout matrix passes.",
+  "investigation": [
+    {
+      "step": "Step 1 of 6",
+      "candidates": "Complete power failure\nCompatible so far\nMotor drive failure\nCompatible so far\nPause mode selected\nCompatible so far",
+      "note": "All three predict a stopped conveyor. The observation fits every candidate and does not distinguish them."
+    },
+    {
+      "step": "Step 2 of 6",
+      "candidates": "Complete power failure\nConflicts with the record\nControl display\nMotor drive failure\nCompatible so far\nPause mode selected\nCompatible so far",
+      "note": "The illuminated display conflicts with a complete power failure in this model. A motor fault and Pause remain compatible."
+    },
+    {
+      "step": "Step 3 of 6",
+      "candidates": "Complete power failure\nConflicts with the record\nControl display · Run authorized\nMotor drive failure\nConflicts with the record\nRun authorized\nPause mode selected\nCompatible so far",
+      "note": "The controller has not authorized a run. That conflicts with the motor-only candidate. Pause remains compatible, but has not been established as true."
+    },
+    {
+      "step": "Step 4 of 6",
+      "candidates": "Complete power failure\nConflicts with the record\nControl display · Run authorized · Selected mode\nMotor drive failure\nConflicts with the record\nRun authorized\nPause mode selected\nConflicts with the record\nSelected mode",
+      "note": "The selected mode is Run. That conflicts with Pause. Every original candidate now conflicts with at least one observation: expand the investigation."
+    },
+    {
+      "step": "Step 5 of 6",
+      "candidates": "Complete power failure\nConflicts with the record\nControl display · Run authorized · Selected mode\nMotor drive failure\nConflicts with the record\nRun authorized\nPause mode selected\nConflicts with the record\nSelected mode\nOpen safety interlock\nCompatible so far",
+      "note": "The guard is open. An open safety interlock predicts every recorded finding. It is a new compatible explanation, not a consequence logically forced by the original list."
+    },
+    {
+      "step": "Step 6 of 6",
+      "candidates": "Complete power failure\nConflicts with the record\nControl display · Run authorized · Selected mode\nMotor drive failure\nConflicts with the record\nRun authorized\nPause mode selected\nConflicts with the record\nSelected mode\nOpen safety interlock\nCompatible so far",
+      "note": "In this fictional model, restoring the guard to its normal closed position enables run authorization and conveyor motion. This intervention adds support. The earlier record remains a record of the stopped machine."
+    }
+  ],
+  "tests": [
+    {
+      "test": "conveyor",
+      "result": "Stopped\nComplete power failure\nMotor drive failure\nPause mode selected\n\nAll three predict Stopped. Rechecking it does not separate these candidates. A repeated check may address measurement reliability, but it does not create a new difference in their predictions.\n\nThese are possible outcomes under the stated candidates, not actual findings. Reliability, cost, accessibility and safety also matter when choosing a real test."
+    },
+    {
+      "test": "display",
+      "result": "Off\nComplete power failure\nOn\nMotor drive failure\nPause mode selected\n\nPower failure predicts Off; motor failure and Pause predict On. This accessible observation can separate complete power loss from the other two candidates.\n\nThese are possible outcomes under the stated candidates, not actual findings. Reliability, cost, accessibility and safety also matter when choosing a real test."
+    },
+    {
+      "test": "authorization",
+      "result": "Unavailable\nComplete power failure\nYes\nMotor drive failure\nNo\nPause mode selected\n\nThe three candidates predict Unavailable, Yes and No. This would separate them in the stipulated model, if run authorization can be inspected reliably.\n\nThese are possible outcomes under the stated candidates, not actual findings. Reliability, cost, accessibility and safety also matter when choosing a real test."
+    },
+    {
+      "test": "mode",
+      "result": "Unavailable\nComplete power failure\nRun\nMotor drive failure\nPause\nPause mode selected\n\nPower failure makes the setting unavailable to inspection; motor failure predicts Run and Pause predicts Pause. Inspectability and reliability still matter.\n\nThese are possible outcomes under the stated candidates, not actual findings. Reliability, cost, accessibility and safety also matter when choosing a real test."
+    }
+  ],
+  "plant": [
+    {
+      "choice": "wilting",
+      "result": "Wilting is the observation we already need to explain. Both too little and too much water can fit it, so checking wilting again does little to distinguish those candidates.\n\nThis is a fictional reasoning exercise; the available observation does not establish why the plant wilted."
+    },
+    {
+      "choice": "soil",
+      "result": "Soil moisture and drainage can help distinguish insufficient water from excessive watering. This is a useful first comparison, not a diagnosis. Light and other possible causes still require further observations.\n\nThis is a fictional reasoning exercise; the available observation does not establish why the plant wilted."
+    },
+    {
+      "choice": "leaves",
+      "result": "A leaf count, without a prediction connecting it to these causes, does not meaningfully separate them. Ask what moisture, drainage and light conditions each candidate leads you to expect.\n\nThis is a fictional reasoning exercise; the available observation does not establish why the plant wilted."
+    },
+    {
+      "choice": "familiar",
+      "result": "Familiarity can suggest a candidate, but does not evaluate it. Prefer an observation that could differ if insufficient water rather than excessive watering were responsible.\n\nThis is a fictional reasoning exercise; the available observation does not establish why the plant wilted."
+    }
+  ],
+  "gallery": "Four activity instances, thirteen figures, unique ids. Advancing the first investigation to step two leaves the independent instance at step one.",
+  "keyboard": "Enter/Space navigation and reset; native radio ArrowDown; focused matrix ArrowRight scroll verified (0 to 40 px after settling).",
+  "navigation": "EN/DE root and /MyNotes Pagefind results and activation; equivalent-language routes; prefixed scripts; overview order 41 and native thumbnail; final root EN/DE routes and compact German page.",
+  "console": [],
+  "finalUrl": "http://127.0.0.1:4321/reasoning/lessons/stories-and-supported-explanations/"
+}

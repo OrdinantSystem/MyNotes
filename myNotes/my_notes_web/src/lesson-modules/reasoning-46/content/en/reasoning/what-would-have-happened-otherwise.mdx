@@ -1,0 +1,228 @@
+---
+course: reasoning
+chapter: reasoning-part-six
+sourceId: reasoning-episode-46
+sourceLocations: ["Sections 1–12", "Preparation sources"]
+sourcePages: []
+thumbnail: module:reasoning-46
+locale: en
+title: What would have happened otherwise?
+navTitle: Counterfactuals and causal effects
+description: Compare observed outcomes with missing alternatives, examine causal assumptions, and investigate John Snow’s evidence.
+order: 46
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+---
+
+## 1. The outcome you cannot see
+
+A student usually prepares by rereading her notes. For her next examination, she switches to active recall and scores 85. Did the new method improve her performance?
+
+Knowing the result does not answer the causal question. We need to know what **the same student would have scored on the same examination had she continued rereading**.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="opening" />
+
+The alternative score remains unknown. Different hypothetical values imply different effects, while leaving the observed score unchanged:
+
+| Observed score | Hypothetical alternative | Implied effect of active recall |
+| --- | --- | --- |
+| 85 | 65 | $85-65=+20$ points |
+| 85 | 85 | $85-85=0$ points |
+| 85 | 95 | $85-95=-10$ points |
+
+All three are compatible with the observed 85. An apparently successful outcome could accompany a beneficial, ineffective or harmful intervention. **The outcome is not the effect.**
+
+The reasoning moves from observation to a counterfactual, then to a causal difference, a comparison and the assumptions that justify it. This is the underlying problem that experimental design and the interpretation of group differences try to solve.
+
+## 2. What is a counterfactual?
+
+A **counterfactual** describes what would have happened under a specified alternative to the condition that actually occurred. A glass fell and broke: would it have broken had it remained on the table? A person took medication and recovered: would recovery also have occurred without it? The outcome alone leaves that question open.
+
+We must identify the changed condition, the outcome of interest and the relevant causal structure. The two versions share a past; changing one condition can then change its consequences. We do not invent an arbitrary world in which unrelated facts change whenever convenient.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="branches" />
+
+| Prediction | Causal counterfactual |
+| --- | --- |
+| Will the student pass tomorrow? | Would she have passed using another method? |
+| What will happen next? | What would happen under a specified alternative? |
+| May rely on associations | Requires assumptions about what causes what |
+
+Umbrellas predict rainy weather. Making everyone carry an umbrella would not make it rain. Strong prediction therefore does not by itself justify claims about interventions.
+
+## 3. Giving the missing outcome a mathematical form
+
+For student $i$, define two **potential outcomes** for the same target examination:
+
+$$
+Y_i(1)=\text{score using active recall},\qquad
+Y_i(0)=\text{score using rereading}.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="notation" />
+
+$Y$ denotes the outcome, $i$ identifies the student, and the value in parentheses identifies the study condition. The labels $1$ and $0$ mean neither success and failure nor before and after.
+
+The individual causal effect is the difference between the two potential outcomes:
+
+$$
+\tau_i=Y_i(1)-Y_i(0)=85-?.
+$$
+
+The expression is well defined, but one value is missing. For the same person and target occasion, we generally observe only the potential outcome under the condition actually received. This is the **fundamental problem of causal inference**.
+
+Change the assumed alternative below. Try 65, 85 and 95; then explain why the sign changes even though the evidence remains fixed.
+
+<Interactive kind="module" module="reasoning-46" preset="potential-outcomes" id="counterfactual-score" />
+
+This activity does not estimate the student's real effect. It shows how several causal explanations remain compatible with one observation.
+
+## 4. Why before and after is not enough
+
+Suppose her previous examination score was 60. The next score is 85. The observed improvement is $85-60=25$ points. Attributing all 25 points to the method requires more evidence.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="before-after" />
+
+The examinations took place at different times. The second might have been easier; the student might have accumulated knowledge or spent longer preparing. The relevant comparison is:
+
+$$
+\text{After with active recall}-\text{After with rereading},
+$$
+
+rather than simply “after minus before”. Both potential outcomes must refer to the **same target period**.
+
+The next activity adds illustrative assumptions about the missing trajectory. Natural growth ends at 80 without the method change, stable performance at 60, and decline at 40. These are possible scenarios, not estimates.
+
+<Interactive kind="module" module="reasoning-46" preset="timeline" id="counterfactual-timeline" />
+
+A situation can improve even when an intervention contributes nothing: the alternative might have improved just as much. It can also deteriorate despite a beneficial intervention if the alternative would have been worse. The distinction applies to educational programmes, policies and business decisions as well as individual choices.
+
+## 5. How experiments approximate the missing reality
+
+We cannot observe both outcomes for one student on the same examination. We can, however, compare groups. Imagine randomly assigning 200 students, 100 to each method. The following results are illustrative.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="randomization" />
+
+Random assignment makes the groups comparable **in expectation**; it does not guarantee perfect balance of knowledge, motivation and habits in every experiment. A suitable comparison group provides information about what would have happened on average under the alternative.
+
+An individual effect asks what happened to a particular person. The **average treatment effect** asks about a population average:
+
+$$
+\tau_i=Y_i(1)-Y_i(0),\qquad
+\operatorname{ATE}=\mathbb{E}[Y(1)-Y(0)].
+$$
+
+Here $\mathbb{E}$ denotes expectation, a population average. Under a suitable randomized design, the difference between observed group means estimates an average causal effect. Its interpretation still depends on the target population, implementation and assumptions; chance variation introduces uncertainty.
+
+An estimated average benefit of eight points does not mean every student gains eight points. Individual effects can vary, including no benefit or harm. Nor does the experiment reveal each student's missing outcome. Randomization is valuable because it supports the comparison needed to estimate an **average** effect.
+
+## 6. John Snow: from location to exposure
+
+In London in 1854, John Snow investigated whether contaminated water transmitted cholera, challenging influential explanations based on foul air. Examine the pattern on his map before deciding what it establishes.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="map" />
+
+The concentration of deaths near the Broad Street pump supports a hypothesis. It does not alone rule out population density, sanitation or other exposures.
+
+Living near a pump is an imperfect proxy for drinking its water. Switch from geography to consumption in this conceptual illustration.
+
+<Interactive kind="module" module="reasoning-46" preset="exposure" id="counterfactual-exposure" />
+
+Snow investigated water use, including informative exceptions. A nearby brewery used its own well and New River water; workers also received beer. Snow reported no severe cholera among its more than 70 workers, although two had been slightly ill.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="brewery" />
+
+Similar location with different water consumption provides a useful comparison. Workers could also differ from residents in other ways. This is supporting observational evidence, not a randomized experiment. Several imperfect observations can strengthen an argument together. [Snow's account of the Broad Street investigation](https://epi-snow.ph.ucla.edu/Stream2_BSPoutbreak_a.html).
+
+## 7. Did removing the handle stop the outbreak?
+
+The familiar story ends with removal of the pump handle and the outbreak's decline. But the number of new attacks had already fallen substantially before the handle was removed on 8 September 1854.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="outbreak" />
+
+The chart counts the onsets of recorded **fatal attacks**, not all illnesses or the deaths occurring on each day. It uses the selected dates discussed in Snow's text. Dates 4–7 are omitted **from this display**, not absent from his table. Snow reconstructed many attack dates from illness durations and death records; the dates are not all exact observations.
+
+The causal question is whether the outbreak would have been worse **had the pump remained accessible**. We cannot observe that history.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="histories" />
+
+Closing access to a suspected source was a reasonable precaution. Its precise impact is a separate question from whether contaminated water transmitted cholera. Snow acknowledged uncertainty about whether the water remained infectious when the handle was removed. **Action can be justified while its precise effect remains uncertain.** [Snow's chronology and qualification, Table I and accompanying text](https://epi-snow.ph.ucla.edu/Stream2_BSPoutbreak_a.html).
+
+## 8. A stronger comparison: the water companies
+
+Snow also studied overlapping areas of southern London supplied by two companies. Lambeth moved its intake upstream in 1852. Southwark & Vauxhall drew from a more sewage-polluted part of the Thames. Nearby households could therefore receive water from different sources.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="suppliers" />
+
+This natural experiment reduced geographical differences between comparison groups. Supply was not randomly assigned; other differences could remain.
+
+For the first seven weeks of the 1854 epidemic, Snow's Table IX reports:
+
+| Supply | Houses | Cholera deaths | Reported deaths per 10,000 houses |
+| --- | ---: | ---: | ---: |
+| Southwark & Vauxhall | 40,046 | 1,263 | 315 |
+| Lambeth | 26,107 | 98 | 37 |
+| Rest of London | 256,423 | 1,422 | 59 |
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="mortality" />
+
+The printed company rates give $315/37\approx8.5$. These are **deaths per house**, not individual risks. Some supplier classifications were estimated in Snow's wider inquiry. [Snow's water-supply investigation, Tables VIII–IX](https://epi-snow.ph.ucla.edu/Stream3_GrandExperiment_a.html).
+
+<Note title="Checking the historical arithmetic">
+The table is reproduced as printed. Recalculating $\text{deaths}/\text{houses}\times10{,}000$ gives approximately 315.39, 37.54 and 55.45, respectively. The last value does not reproduce the printed 59; the printed values are not all rounded versions of the listed counts. Using the two companies' counts gives a ratio of about 8.40 rather than 8.51. Both calculations show a large recorded contrast; neither establishes every causal assumption. This arithmetic check is an editorial addition, not an explanation of the historical discrepancy.
+</Note>
+
+The missing counterfactual is mortality among the exposed households **had they received the less contaminated supply**. Other-company households help approximate it. Similarity in household size, sanitation, income and other exposures matters, as do reliable supply and consumption measurements. A comparison supplies evidence about the missing branch; it does not turn that branch into an observed fact.
+
+## 9. The assumptions behind a comparison
+
+Whenever another person, group or period stands in for a missing counterfactual, assumptions connect the observed comparison to the causal question.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="assumptions" />
+
+Exchangeability means that, after any appropriate adjustment, the treatment groups are comparable in their potential outcomes. Positivity requires both conditions to be possible among the relevant kinds of people. Consistency connects the observed outcome to the potential outcome for the well-defined condition actually received.
+
+Interference requires special care: in infectious disease, one person's exposure can affect others. A simple model with one outcome under each person's own treatment assumes such spillovers are absent or appropriately incorporated into the intervention definition.
+
+| Strategy | How it approximates the missing outcome | Main concern |
+| --- | --- | --- |
+| Randomized experiment | Randomly assigned comparison group | Adherence, attrition and chance imbalance |
+| Observational comparison | People with similar relevant characteristics | Unmeasured confounding |
+| Natural experiment | Exposure differences created by external circumstances | Whether those circumstances are sufficiently independent of outcome determinants |
+| Before-and-after comparison | Earlier outcome or historical trend | Other changes over time |
+
+These strategies address the same missing-outcome problem, with different strengths and assumptions.
+
+## 10. Construct a better comparison
+
+A school introduces a new mathematics programme. Its average examination score rises from 60 to 78. It claims an 18-point causal improvement. What evidence would support that attribution?
+
+<Interactive kind="module" module="reasoning-46" preset="school" id="counterfactual-school" />
+
+Now suppose random assignment is impossible. Design an observational study. Identify the outcome, the alternative condition, a suitable comparison group and **at least two assumptions** needed for a causal interpretation.
+
+<Exercise>
+One possible design compares the same examination outcome for pupils in the new programme with pupils continuing the existing programme during the same period. Choose comparison schools or classes with similar prior scores and relevant backgrounds; measure the same outcome in both groups.
+
+The alternative is the existing programme, not “no learning”. We need comparable potential outcomes after adjustment for relevant prior differences, including no important unmeasured confounding. Both programme conditions must be represented among relevant pupil groups. Programmes and outcome measurement must be defined consistently. Check differential dropout and spillovers between classes too. Similar observed prior scores alone do not establish these assumptions. Other defensible designs are possible; their assumptions must be stated.
+</Exercise>
+
+## 11. The invisible half of causation
+
+The student, the outbreak and the school programme share one structure: what happened under an intervention versus what would have happened under the alternative.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="closing" />
+
+For the treated student, $Y_i(1)$ is observed and $Y_i(0)$ is missing; for a person receiving condition $0$, the roles reverse. The effect always compares the same outcome under the two defined conditions.
+
+When someone makes a causal claim, ask:
+
+1. What actually happened?
+2. What would have happened under the alternative?
+3. What justifies the estimate of that alternative?
+
+### Further reading
+
+Pearl, Glymour and Jewell's [*Causal Inference in Statistics: A Primer*](https://bayes.cs.ucla.edu/PRIMER/), Chapter 4, develops counterfactual reasoning. Hernán and Robins' [*Causal Inference: What If*](https://miguelhernan.org/whatifbook), Chapters 1–3, covers potential outcomes, randomized experiments and observational assumptions. Snow's 1855 accounts linked above provide the primary historical evidence. Educational scores, consumption networks and alternative trajectories in this lesson are illustrative; the map, outbreak counts and mortality table are historical material.

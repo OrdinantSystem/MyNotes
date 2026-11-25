@@ -47,3 +47,7 @@ Do not track dist/, local-web/, node_modules/, .astro/, .sites-runtime/, or priv
 The active workflow is repository-root .github/workflows/mynotes-pages.yml, authorized on 3 November 2026. It builds pull requests and relevant main pushes with Node 24 and npm ci, runs the complete production checks, and deploys successful main builds to https://ordinantsystem.github.io/MyNotes/. GitHub Pages must use GitHub Actions as its source. The artifact contains only myNotes/my_notes_web/dist. The older my_notes_web/deployment/github-pages.yml remains a reference template; edit the active workflow for hosting changes.
 
 The intended flow remains: edit → validate/build → authorized commit/push → CI build → successful publishing-branch deployment. A local commit does not itself publish. Generated files are artifacts, not source commits. Confirm current hosting/action details when activating the template; a folder rename does not authorize deployment.
+
+## Concurrent episode work
+
+`npm run build` and `npm run preview` now take the same cooperative process-owned lock. `npm run lesson:integrate -- lesson-work/reasoning-N` activates and verifies one completed module without shared registry edits; failures remove the candidate and restore the prior build. See [parallel-lessons.md](parallel-lessons.md) for ownership, staging, chapter definitions, lock recovery and the next-session prompt.

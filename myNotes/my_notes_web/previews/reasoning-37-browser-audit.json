@@ -1,0 +1,159 @@
+{
+  "initial": {
+    "duplicateIds": [],
+    "figures": 13,
+    "labs": 4,
+    "mathErrors": 0,
+    "openingSelected": 0,
+    "overflow": false,
+    "theme": "dark",
+    "title": "Why an accurate detector can still produce doubtful results",
+    "width": 1280,
+    "workshopOpen": false
+  },
+  "opening": "The base rate is missing. Sensitivity describes flagged among defective components; the question asks for defective among flagged components. Without the proportion of defective components, this second probability cannot be determined.",
+  "flagged": {
+    "defects": 9,
+    "dots": 108,
+    "healthy": 99,
+    "text": "Flagged · 108DefectiveHealthyFlaggedFill and shape show the actual condition; a ring shows the detector result. One dot represents one component. Regrouping preserves each component’s properties.Unflagged components outside the current reference group: 892.Correct detections9False alarms99Flagged108Defective among flagged components: 8.3%P(D∣+)=99+99=9108≈8.3%P(D\\mid+) = \\frac{9}{9+99}=\\frac{9}{108}\\approx 8.3\\%P(D∣+)=9+999​=1089​≈8.3%"
+  },
+  "identityPreserved": true,
+  "ten": [
+    "All components1,000Defective100Healthy900Base rate10%",
+    "Correct detections90False alarms90Flagged180"
+  ],
+  "fifty": {
+    "dots": 1000,
+    "range": "50",
+    "stats": [
+      "All components\n1,000\nDefective\n500\nHealthy\n500\nBase rate\n50%",
+      "Correct detections\n450\nFalse alarms\n50\nFlagged\n500"
+    ],
+    "value": "50"
+  },
+  "invalid": "Enter a whole percentage from 1 through 50.",
+  "workshop": "Defective\n100\nHealthy\n1,900\nCorrect detections\n80\nFalse alarms\n95\nMissed defects\n20\nFlagged\n175\n2000\n⋅\n0.05\n=\n100\n,\n100\n⋅\n0.8\n=\n80\n2000⋅0.05=100,100⋅0.8=80\n1900\n⋅\n0.05\n=\n95\n1900⋅0.05=95\n𝑃\n(\n𝐷\n∣\n+\n)\n=\n80\n80\n+\n95\n=\n80\n175\n≈\n45.7\n%\nP(D∣+)=\n80+95\n80\n\t​\n\n=\n175\n80\n\t​\n\n≈45.7%\n\nThe denominator contains all positive results: 80 correct detections and 95 false alarms. The 20 missed defects do not belong to this reference group.",
+  "workshopClosesOnEdit": true,
+  "estimateFeedback": "Your estimate: 45.7%. Your estimate stays local and is not graded.",
+  "enDesktopLight": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "light",
+    "width": 1280
+  },
+  "enCompactLight": {
+    "diagramWidth": 280.609375,
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "light",
+    "width": 390
+  },
+  "enCompactDark": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "dark",
+    "width": 390
+  },
+  "deCompactDark": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "dark",
+    "title": "Warum ein guter Detektor trotzdem zweifelhafte Ergebnisse liefern kann",
+    "width": 390
+  },
+  "deTen": [
+    "Alle Bauteile1.000Defekt100Intakt900Basisrate10 %",
+    "Richtig positive Meldungen90Falsch positive Meldungen90Markiert180"
+  ],
+  "deCompactLight": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "light",
+    "width": 390
+  },
+  "deDesktopLight": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "light",
+    "width": 1280
+  },
+  "deDesktopDark": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "dark",
+    "width": 1280
+  },
+  "gallery": {
+    "duplicateIds": [],
+    "figures": 13,
+    "labs": [
+      {
+        "id": "library-reasoning-37-opening",
+        "preset": "opening"
+      },
+      {
+        "id": "library-reasoning-37-regroup",
+        "preset": "regroup"
+      },
+      {
+        "id": "library-reasoning-37-base-rate",
+        "preset": "base-rate"
+      },
+      {
+        "id": "library-reasoning-37-workshop",
+        "preset": "workshop"
+      },
+      {
+        "id": "library-reasoning-37-independent",
+        "preset": "opening"
+      }
+    ],
+    "mathErrors": 0
+  },
+  "isolation": {
+    "first": 1,
+    "independent": 0,
+    "independentFeedback": ""
+  },
+  "germanSearch": 1,
+  "galleryLogs": [],
+  "englishSearch": 1,
+  "prefixEn": {
+    "css": 11,
+    "detector": "A flag is not yet a confirmed defectOne component→Detector→Flag +Every component passes through the same inspection.The actual condition is still unknown.",
+    "home": "/MyNotes/",
+    "mathErrors": 0,
+    "rate": "50",
+    "title": "Why an accurate detector can still produce doubtful results"
+  },
+  "prefixDe": {
+    "css": 11,
+    "home": "/MyNotes/de/",
+    "mathErrors": 0,
+    "title": "Warum ein guter Detektor trotzdem zweifelhafte Ergebnisse liefern kann"
+  },
+  "prefixSearch": 1,
+  "prefixSearchHref": "/MyNotes/de/reasoning/lessons/accurate-detectors-and-doubtful-results/",
+  "prefixLogs": [],
+  "final": {
+    "detector": "A flag is not yet a confirmed defectOne component→Detector→Flag +Every component passes through the same inspection.The actual condition is still unknown.",
+    "duplicateIds": [],
+    "mathErrors": 0,
+    "overflow": false,
+    "previousNext": [
+      {
+        "href": "/reasoning/lessons/memorable-examples-and-judgment/",
+        "text": "← PREVIOUSMemorable examples and judgment"
+      },
+      {
+        "href": "/reasoning/lessons/changing-your-mind-mathematically/",
+        "text": "NEXT →Bayesian updating"
+      }
+    ],
+    "theme": "dark",
+    "title": "Why an accurate detector can still produce doubtful results",
+    "width": 1280
+  },
+  "finalLogs": []
+}

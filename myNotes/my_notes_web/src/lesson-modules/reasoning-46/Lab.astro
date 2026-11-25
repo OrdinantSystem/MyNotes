@@ -1,0 +1,30 @@
+---
+import './styles.css';
+import {text} from './copy';
+import {potentialMarkup,timelineMarkup,exposureMarkup,schoolMarkup} from './render';
+interface Props {preset:string;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale);
+const title=preset==='potential-outcomes'?c.potentialTitle:preset==='timeline'?c.timelineTitle:preset==='exposure'?c.exposureTitle:c.schoolTitle;
+---
+<section class="p46-lab" id={id} data-p46-lab data-preset={preset} data-locale={locale} aria-label={title}>
+ <h3>{title}</h3>
+ {preset==='potential-outcomes'&&<>
+  <div class="p46-control"><label for={`${id}-range`}>{c.assumed}<input id={`${id}-range`} data-score type="range" min="0" max="100" step="1" value="70"/></label><label for={`${id}-number`}>{c.numeric}<input id={`${id}-number`} data-score aria-label={`${c.assumed} · ${c.numeric}`} type="number" min="0" max="100" step="1" value="70"/></label></div>
+  <div data-output set:html={potentialMarkup(locale)}/><p>{c.evidence}</p><p role="status" data-status/>
+ </>}
+ {preset==='timeline'&&<>
+  <label for={`${id}-trend`}>{c.trend}<select id={`${id}-trend`} data-trend>{['growth','stable','decline'].map((mode,i)=><option value={mode}>{c.trends[i]}</option>)}</select></label><div data-output set:html={timelineMarkup(locale)}/><p role="status" data-status/>
+ </>}
+ {preset==='exposure'&&<>
+  <label for={`${id}-view`}>{c.view}<select id={`${id}-view`} data-view>{['geography','consumption'].map((view,i)=><option value={view}>{c.views[i]}</option>)}</select></label><div data-output set:html={exposureMarkup(locale)}/><p role="status" data-status/>
+ </>}
+ {preset==='school'&&<>
+  <div set:html={schoolMarkup(locale)}/><p>{c.schoolNote}</p><fieldset><legend>{c.schoolQuestion}</legend>{c.schoolOptions.map((option,i)=><label class="p46-option"><input type="radio" name={`${id}-comparison`} value={i} data-choice/>{option}</label>)}</fieldset><p role="status" data-status>{c.schoolPrompt}</p>
+ </>}
+ <button type="button" data-reset>{c.reset}</button>
+ <noscript><p>{locale==='de'?'Die Ausgangsdarstellung und die Erklärungen bleiben lesbar; die Bedienelemente benötigen JavaScript.':'The initial illustration and explanations remain readable; the controls require JavaScript.'}</p></noscript>
+</section>
+<script>
+ import {mountCounterfactualLabs} from './controller';
+ mountCounterfactualLabs();
+</script>

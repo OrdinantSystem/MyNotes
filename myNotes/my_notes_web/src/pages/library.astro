@@ -1,5 +1,7 @@
 ---
+import {lessonModules} from '../lib/lesson-modules.mjs';
 import {uniquenessPresets,uniquenessFigures} from '../lib/interactive/uniqueness-model';
+import {strongPresets,strongFigures} from '../lib/interactive/strong-model';
 import {lemmaPresets,lemmaFigures} from '../lib/interactive/lemma-model';
 import {reframePresets,reframeFigures} from '../lib/interactive/reframe-model';
 import {trianglePresets,triangleFigures} from '../lib/interactive/triangle-model';
@@ -52,9 +54,12 @@ Astro.locals.locale='en';
     <ul>{assets.map(asset=><li><a href={`#${asset.id}`}>{asset.name}</a> — {asset.purpose}</li>)}</ul>
     {assets.map(asset=><section id={asset.id}>
       <h2>{asset.name}</h2><p>{asset.purpose}</p><pre><code>{asset.example}</code></pre>
-      {asset.id==='logic-revision'&&<>{(['concept-map','predicate-mapping','proof-paths'] as const).map(kind=><LogicFigure kind={kind}/>)}<RecallChecklist items={['Explain a statement and an open formula.','Read $P:\\mathbb N\\to\\{0,1\\}$.']}/></>}
+      {lessonModules.filter(m=>asset.id===`module-${m.id}`).map(m=><>{m.presets.map((preset:string)=><Interactive kind="module" module={m.id} preset={preset} id={`library-${m.id}-${preset}`}/>)}{m.presets.length>0&&<Interactive kind="module" module={m.id} preset={m.presets[0]} id={`library-${m.id}-independent`}/>} {m.figures.map((figure:string)=><ReasoningFigure kind="module" module={m.id} figure={figure}/>)}</>)}
+      {asset.id==='logic-revision' &&<>{(['concept-map','predicate-mapping','proof-paths'] as const).map(kind=><LogicFigure kind={kind}/>)}<RecallChecklist items={['Explain a statement and an open formula.','Read $P:\\mathbb N\\to\\{0,1\\}$.']}/></>}
       {asset.id==='uniqueness-labs'&&<>{uniquenessPresets.map(preset=><Interactive kind="uniqueness" preset={preset} id={`library-uniqueness-${preset}`}/>)}<Interactive kind="uniqueness" preset="machine" id="library-uniqueness-independent"/></>}
       {asset.id==='uniqueness-figures'&&uniquenessFigures.map(kind=><ReasoningFigure kind={kind}/>)}
+      {asset.id==='strong-labs'&&<>{strongPresets.map(preset=><Interactive kind="strong" preset={preset} id={`library-strong-${preset}`}/>)}<Interactive kind="strong" preset="tree" id="library-strong-independent"/></>}
+      {asset.id==='strong-figures'&&strongFigures.map(kind=><ReasoningFigure kind={kind}/>)}
       {asset.id==='lemma-labs'&&<>{lemmaPresets.map(preset=><Interactive kind="lemma" preset={preset} id={`library-lemma-${preset}`}/>)}<Interactive kind="lemma" preset="bridge" id="library-lemma-independent"/></>}
       {asset.id==='lemma-figures'&&lemmaFigures.map(kind=><ReasoningFigure kind={kind}/>)}
       {asset.id==='reframe-labs'&&<>{reframePresets.map(preset=><Interactive kind="reframe" preset={preset} id={`library-reframe-${preset}`}/>)}<Interactive kind="reframe" preset="construction" id="library-reframe-independent"/></>}

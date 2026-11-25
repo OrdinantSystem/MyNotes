@@ -1,0 +1,500 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-five
+sourceId: reasoning-episode-38
+sourcePages: []
+sourceLocations: ["Sections 1 and 3–11: central idea and complete teaching argument", "Section 12: visual relationships"]
+title: "How to change your mind mathematically"
+navTitle: "Bayesian updating"
+description: "Use priors, likelihoods and evidence provenance to understand when—and how far—a rational belief should change."
+order: 38
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [implication-and-its-converse, observation-and-inference]
+thumbnail: "module:reasoning-38"
+---
+
+Changing your mind is often understood as a qualitative process. You encounter new information, reconsider your position, and become more or less convinced of something.
+
+But can we describe this process mathematically?
+
+Suppose there are two possible explanations for an event. You initially consider one explanation more plausible than the other. Then something unexpected happens.
+
+How much should this observation change your judgment?
+
+The answer depends not simply on whether the evidence is compatible with an explanation, but on how much better that explanation predicts the evidence compared with its alternatives.
+
+This is the fundamental intuition behind Bayesian reasoning.
+
+## 1. A machine stops working
+
+Imagine a fictional factory machine that suddenly stops operating. An engineer must determine what caused the failure.
+
+There are two possible explanations in our simplified model:
+
+- $H_A$: A fault in the electrical system.
+- $H_B$: A fault in the cooling system.
+
+For the purposes of the example, assume that exactly one of these explanations is correct.
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="machine" />
+
+The engineer initially has no direct access to the internal components. Both explanations are compatible with the fact that the machine stopped working.
+
+This immediately establishes an important distinction:
+
+An explanation being compatible with an observation does not mean that the observation gives us a good reason to prefer that explanation.
+
+Both hypotheses explain the failure. We need information that helps distinguish between them.
+
+The question driving the entire episode becomes:
+
+What would we expect to observe if each explanation were true?
+
+## 2. What we believed before seeing the evidence
+
+Suppose the factory has a reliable record of 100 previous comparable failures.
+
+In 75 cases, the problem was electrical. In the remaining 25, it was related to the cooling system.
+
+Before investigating the current machine, these historical frequencies give us a reasonable starting point, provided we assume the present failure is comparable to the previous ones.
+<ReasoningFigure kind="module" module="reasoning-38" figure="prior" />
+
+We express this mathematically as:
+
+$$
+P(H_A)=0.75
+$$
+
+$$
+P(H_B)=0.25
+$$
+
+These are called prior probabilities.
+
+A prior represents our state of knowledge before incorporating the particular new evidence under consideration.
+
+It does not mean that the current machine is 75% electrically broken. The actual cause is already determined in this example. The probability describes our uncertainty about which cause is responsible.
+
+### Prior probability and base rates
+
+The prior is closely related to a base rate: the relative frequency of a cause before considering the particular new evidence.
+
+Ignoring the prior would mean ignoring what we already know about the relative frequencies of the two causes. But treating the prior as an unchangeable conclusion would be equally problematic.
+
+The prior is where reasoning begins, not where it must end.
+
+The historical frequencies now supply 100 weighted hypothetical cases representing our current uncertainty. We are using a probability model, not inspecting 100 physical copies of the current machine.
+
+## 3. Evidence that tells us almost nothing
+
+The engineer discovers that the machine's warning light was flashing before it stopped.
+
+At first, this sounds like useful information. We have discovered something new about the event.
+
+But how informative is it?
+
+Suppose previous investigations show that the warning light flashes in 80% of electrical failures and 80% of cooling failures.
+
+$$
+P(E_1\mid H_A)=0.8
+$$
+
+$$
+P(E_1\mid H_B)=0.8
+$$
+
+The vertical line means given that. We are asking how probable the observation is under each proposed explanation.
+<ReasoningFigure kind="module" module="reasoning-38" figure="neutral" />
+
+Of the 75 hypothetical electrical failures, 60 would produce this observation. Of the 25 hypothetical cooling failures, 20 would produce it.
+
+Restricting our attention to the 80 cases compatible with the observation gives:
+
+$$
+P(H_A\mid E_1)=\frac{60}{80}=75\%
+$$
+
+$$
+P(H_B\mid E_1)=\frac{20}{80}=25\%
+$$
+
+Our probabilities have not changed.
+
+We have learned something about the machine without learning anything that distinguishes these two possible causes.
+Both groups shrink by the same factor. Normalizing the surviving mass restores the original 75-to-25 proportions.
+
+Evidence can be new without being informative about the question we are trying to answer.
+
+This also connects to earlier discussions of confirmation bias. Finding evidence consistent with your belief is not particularly impressive if the same evidence is equally consistent with the competing belief.
+
+## 4. Evidence that actually changes our mind
+
+The engineer continues investigating and discovers coolant beneath the machine.
+
+Among failures that produced the first observation, suppose leaking coolant is found in 10% of electrical failures but 60% of cooling failures.
+
+Now we have an observation that distinguishes between the hypotheses.
+
+$$
+P(E_2\mid H_A,E_1)=0.1
+$$
+
+$$
+P(E_2\mid H_B,E_1)=0.6
+$$
+
+The new observation is six times as likely under the cooling hypothesis.
+
+Return to the remaining 80 weighted cases.
+<ReasoningFigure kind="module" module="reasoning-38" figure="coolant" />
+The evidence selectively removes probability weight from the less predictive explanation.
+Only 18 cases remain compatible with both observations in our weighted frequency model.
+
+Six correspond to electrical faults, while twelve correspond to cooling faults.
+
+Consequently:
+
+$$
+P(H_A\mid E_1,E_2)=\frac{6}{18}
+=\frac13
+$$
+
+$$
+P(H_B\mid E_1,E_2)=\frac{12}{18}
+=\frac23
+$$
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="evolution" />
+
+The most plausible explanation has changed.
+
+Initially, we had a rational reason to favor the electrical hypothesis. Now, given the additional information, we have a rational reason to favor the cooling hypothesis.
+
+Neither judgment needs to have been unreasonable.
+
+This is a crucial philosophical component of the episode: a rational judgment can change without the earlier judgment having been irrational.
+
+What matters is whether our conclusions appropriately reflect the information available at the time.
+
+## 5. Discovering Bayes' theorem
+
+We have already performed Bayesian updating twice. Now we can describe the same operation mathematically.
+
+Return to the machine investigation, treating the warning-light observation as part of our existing background knowledge. For readability, let $E$ now denote the discovery of coolant, with the probabilities understood relative to that background.
+
+We began this second update with:
+
+$$
+P(H_B)=0.25
+$$
+
+Of that probability mass, 60% predicts the observation:
+
+$$
+P(E\mid H_B)=0.6
+$$
+
+Multiplying gives the joint probability:
+
+$$
+P(H_B\cap E)=0.25\cdot0.6=0.15
+$$
+
+The same operation for electrical faults gives:
+
+$$
+P(H_A\cap E)=0.75\cdot0.1=0.075
+$$
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="area" />
+The area of each rectangle represents a probability. The highlighted regions represent the joint occurrence of a hypothesis and the evidence.
+Because the two hypotheses are mutually exclusive and collectively exhaustive in our model, the total probability of observing coolant is:
+
+$$
+P(E)=0.075+0.15=0.225
+$$
+
+But we are no longer interested in all possible failures. We know that the coolant was observed, so we restrict ourselves to that part of the probability space.
+
+Within that smaller space, what proportion belongs to the cooling hypothesis?
+
+$$
+P(H_B\mid E)=\frac{0.15}{0.225}
+$$
+
+$$
+=\frac23
+$$
+
+Now replace the numerical quantities with their mathematical definitions.
+
+$$
+\boxed{
+P(H_B\mid E)=
+\frac{P(E\mid H_B)P(H_B)}{P(E)}
+}
+$$
+
+This is Bayes' theorem.
+
+### Why the theorem is true
+
+From the definition of conditional probability:
+
+$$
+P(H\mid E)=\frac{P(H\cap E)}{P(E)}
+$$
+
+And, looking at the same intersection from the opposite direction:
+
+$$
+P(E\mid H)=\frac{P(H\cap E)}{P(H)}
+$$
+
+Therefore:
+
+$$
+P(H\cap E)=P(E\mid H)P(H)
+$$
+
+Substituting:
+
+$$
+\boxed{
+P(H\mid E)=
+\frac{P(E\mid H)P(H)}{P(E)}
+}
+$$
+
+The theorem follows directly from the fact that both conditional probabilities describe the same intersection from different perspectives, assuming the conditioning events have positive probability.
+
+As in our earlier proof investigations, we are explaining why the formula must be true, not simply presenting it as a useful rule.
+<ReasoningFigure kind="module" module="reasoning-38" figure="components" />
+
+## 6. A simpler way to think about changing your mind
+
+Although Bayes' theorem is powerful, there is another formulation that makes the underlying reasoning even more intuitive.
+
+Instead of expressing probabilities as percentages, we express the relative plausibility of the two hypotheses as odds.
+
+Initially:
+
+$$
+P(H_A)=75\%,\qquad P(H_B)=25\%
+$$
+
+Therefore:
+
+$$
+\frac{P(H_A)}{P(H_B)}=\frac{75}{25}=3
+$$
+
+The electrical hypothesis is initially three times as probable as the cooling hypothesis.
+<ReasoningFigure kind="module" module="reasoning-38" figure="odds" />
+
+Now consider the coolant evidence.
+
+The probability of observing it under the electrical hypothesis is 10%. Under the cooling hypothesis, it is 60%.
+
+Their ratio is:
+
+$$
+\frac{P(E\mid H_A)}{P(E\mid H_B)}
+=\frac{0.1}{0.6}=\frac16
+$$
+
+This is a likelihood ratio, with the hypotheses ordered as A relative to B.
+
+It measures how the evidence favors one hypothesis relative to the other.
+
+We multiply our original odds by this ratio:
+
+$$
+3\times\frac16=\frac12
+$$
+
+Our initial odds of 3:1 become posterior odds of 1:2.
+
+In general:
+
+$$
+\boxed{
+\underbrace{\frac{P(H_A\mid E)}{P(H_B\mid E)}}_{\text{Posterior odds}}
+=
+\underbrace{\frac{P(H_A)}{P(H_B)}}_{\text{Prior odds}}
+\times
+\underbrace{\frac{P(E\mid H_A)}{P(E\mid H_B)}}_{\text{Likelihood ratio}}
+}
+$$
+
+Or, in its most intuitive form:
+
+$$
+\boxed{
+\text{New odds}=\text{Old odds}\times
+\text{Evidence multiplier}
+}
+$$
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="evidence-types" />
+
+An observation can be very probable under a hypothesis and still count against it if it is even more probable under an alternative hypothesis.
+
+Conversely, a relatively rare observation can provide strong evidence for a hypothesis if it would be exceptionally unlikely under its alternatives.
+
+This is one of the most valuable insights in the entire episode.
+
+## 7. When more evidence is not actually more evidence
+
+The engineer receives three reports.
+
+The first report says that coolant was found beneath the machine. The second report says exactly the same thing. A third report confirms the discovery.
+
+Should our confidence in the cooling hypothesis increase three times?
+
+It depends on where those reports came from.
+<ReasoningFigure kind="module" module="reasoning-38" figure="provenance" />
+
+Suppose the second and third reports simply repeat the findings of the first report.
+
+If we have already established that the coolant observation is genuine, these repetitions provide no additional information about the cause of the machine failure.
+
+However, if we incorrectly treat them as three conditionally independent observations, our calculation produces a very different result.
+
+Our initial odds in favor of cooling were:
+
+$$
+\frac{P(H_B)}{P(H_A)}=\frac13
+$$
+
+Each coolant observation has a likelihood ratio of 6 in favor of cooling.
+
+If we count the observation once:
+
+$$
+\frac13\times6=2
+$$
+
+This corresponds to a posterior probability of approximately 66.7%.
+
+If we incorrectly count the same observation three times:
+
+$$
+\frac13\times6\times6\times6=72
+$$
+
+This corresponds to:
+
+$$
+\frac{72}{73}\approx98.6\%
+$$
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="repetition" />
+
+<Interactive kind="module" module="reasoning-38" preset="reports" id="bayes38-reports" />
+
+### The mathematical reason
+
+We cannot automatically assume that:
+
+$$
+P(E_1\cap E_2\mid H)
+=
+P(E_1\mid H)P(E_2\mid H)
+$$
+
+This factorization requires conditional independence.
+
+The general relationship is:
+
+$$
+P(E_1\cap E_2\mid H)
+=
+P(E_1\mid H)P(E_2\mid E_1,H)
+$$
+
+The second piece of evidence must be evaluated in light of what we already know.
+
+Repeated reports can sometimes increase our confidence that an original observation is accurate, particularly when they provide independent verification. But that is different from discovering multiple independent events that favor the same explanation.
+
+### Transfer to everyday reasoning
+
+Imagine encountering ten articles reporting the same scientific discovery. All ten articles cite a single original study.
+
+The number of articles might make the discovery feel extensively confirmed, but the underlying empirical evidence has not necessarily increased.
+
+This connects the mathematics of probability to the earlier episodes on memory, availability bias, observation and the evaluation of sources.
+
+We should count evidence according to its informational contribution, not simply according to how often we encounter it.
+
+## 8. Interactive reasoning workshop
+
+We can investigate the same probability model by changing its assumptions.
+
+The challenge is to predict the direction of the update before performing any arithmetic.
+
+### Change the evidence
+
+Start with the original probabilities of 75% for an electrical fault and 25% for a cooling fault.
+
+<Interactive kind="module" module="reasoning-38" preset="simulator" id="bayes38-simulator" />
+
+### Does favoring a hypothesis make it the most likely one?
+
+Suppose the electrical hypothesis initially has a probability of 90%.
+
+We encounter evidence that is twice as likely under the cooling hypothesis.
+
+Before calculating, decide whether the cooling hypothesis must now be the most probable explanation.
+<Interactive kind="module" module="reasoning-38" preset="prediction" id="bayes38-prediction" />
+
+This exercise distinguishes two concepts that people frequently conflate:
+
+- The direction in which evidence moves our beliefs.
+- The position at which our beliefs ultimately arrive.
+
+Evidence can weaken an explanation without making it implausible. It can strengthen another without making it sufficiently convincing to accept.
+
+### Sensitivity to our starting assumptions
+
+Hold the likelihood ratio constant at 6 in favor of cooling while changing the prior probability of cooling.
+<Interactive kind="module" module="reasoning-38" preset="sensitivity" id="bayes38-sensitivity" />
+
+Two people can encounter the same evidence, update in the same direction, and still arrive at different conclusions because they began with different information or assumptions.
+
+However, Bayesian mathematics does not automatically justify every prior. Starting probabilities should themselves be open to scrutiny.
+
+The practical lesson is to investigate whether reasonable changes in the assumptions substantially change the conclusion. When they do, our confidence in the precise numerical result should be more restrained.
+
+## 9. What it means to change your mind
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="synthesis" />
+
+<Interactive kind="module" module="reasoning-38" preset="investigation" id="bayes38-investigation" />
+
+The posterior can subsequently become the prior for another investigation. Bayesian reasoning is therefore not merely a single calculation. It describes a potentially continuous process of learning.
+
+But the mathematics is only as useful as the assumptions supporting it.
+
+A perfectly correct calculation can still produce a misleading conclusion if we omit plausible explanations, use unreliable frequencies, assign unjustified likelihoods or count dependent observations as independent ones.
+
+Bayes' theorem does not tell us which assumptions to make. It tells us how probabilities relate once those assumptions have been made.
+
+### What the available evidence justifies
+
+We often think of changing our minds as admitting that we were wrong. But perhaps that is not the best way to understand it.
+
+A belief is not necessarily a permanent commitment to a conclusion. It can be a description of what the available evidence currently justifies.
+
+When that evidence changes, our beliefs should be capable of changing with it.
+
+The important question is not whether we can find something that agrees with what we already believe. It is whether what we have observed is better explained by that belief than by its alternatives.
+
+Bayes' theorem gives this idea a mathematical form.
+
+It does not eliminate uncertainty. It gives us a coherent way of reasoning within it.
+
+The objective is not to become certain as quickly as possible. It is to become as certain as the evidence warrants.

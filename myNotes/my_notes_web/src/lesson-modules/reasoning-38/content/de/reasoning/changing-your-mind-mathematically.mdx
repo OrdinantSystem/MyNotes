@@ -1,0 +1,497 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-five
+sourceId: reasoning-episode-38
+sourcePages: []
+sourceLocations: ["Sections 1 and 3–11: central idea and complete teaching argument", "Section 12: visual relationships"]
+title: "Die eigene Meinung mathematisch ändern"
+navTitle: "Bayessche Aktualisierung"
+description: "Verstehe mithilfe von Ausgangswahrscheinlichkeiten, Likelihoods und der Herkunft von Evidenz, wann und wie stark sich eine begründete Einschätzung ändern sollte."
+order: 38
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [implication-and-its-converse, observation-and-inference]
+thumbnail: "module:reasoning-38"
+---
+
+Die eigene Meinung zu ändern, verstehen wir häufig als qualitativen Vorgang. Du erhältst neue Informationen, überdenkst deine Position und bist anschließend mehr oder weniger überzeugt.
+
+Aber lässt sich dieser Vorgang mathematisch beschreiben?
+
+Angenommen, für ein Ereignis gibt es zwei mögliche Erklärungen. Zunächst hältst du eine davon für plausibler. Dann geschieht etwas Unerwartetes.
+
+Wie stark sollte diese Beobachtung deine Einschätzung verändern?
+
+Die Antwort hängt nicht nur davon ab, ob die Evidenz mit einer Erklärung vereinbar ist. Entscheidend ist, wie viel besser diese Erklärung die Beobachtung vorhersagt als ihre Alternativen.
+
+Das ist der Grundgedanke des bayesschen Schlussfolgerns.
+
+## 1. Eine Maschine fällt aus
+
+Stell dir eine fiktive Fabrikmaschine vor, die plötzlich ausfällt. Eine Ingenieurin muss die Ursache ermitteln.
+
+In unserem vereinfachten Modell gibt es zwei mögliche Erklärungen:
+
+- $H_A$: Ein Fehler im elektrischen System.
+- $H_B$: Ein Fehler im Kühlsystem.
+
+Für dieses Beispiel nehmen wir an, dass genau eine dieser Erklärungen zutrifft.
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="machine" />
+
+Die Ingenieurin hat zunächst keinen direkten Zugang zu den inneren Bauteilen. Beide Erklärungen sind damit vereinbar, dass die Maschine ausgefallen ist.
+
+Daran zeigt sich ein wichtiger Unterschied:
+
+Dass eine Erklärung mit einer Beobachtung vereinbar ist, bedeutet noch nicht, dass diese Beobachtung einen guten Grund liefert, die Erklärung zu bevorzugen.
+
+Beide Hypothesen erklären den Ausfall. Wir benötigen Informationen, mit denen wir sie unterscheiden können.
+
+Die leitende Frage lautet:
+
+Was würden wir erwarten zu beobachten, wenn die jeweilige Erklärung zuträfe?
+
+## 2. Was wir vor der neuen Evidenz glaubten
+
+Angenommen, die Fabrik hat zuverlässige Aufzeichnungen über 100 frühere vergleichbare Ausfälle.
+
+In 75 Fällen war die Ursache elektrisch. In den übrigen 25 Fällen lag sie im Kühlsystem.
+
+Vor der Untersuchung der aktuellen Maschine geben uns diese Häufigkeiten einen vernünftigen Ausgangspunkt, sofern wir annehmen, dass der aktuelle Ausfall mit den früheren vergleichbar ist.
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="prior" />
+
+Mathematisch schreiben wir:
+
+$$
+P(H_A)=0.75
+$$
+
+$$
+P(H_B)=0.25
+$$
+
+Das sind die Ausgangswahrscheinlichkeiten, auch Prior-Wahrscheinlichkeiten genannt.
+
+Ein Prior beschreibt unseren Wissensstand, bevor wir die jeweils betrachtete neue Evidenz berücksichtigen.
+
+Das bedeutet nicht, dass die aktuelle Maschine zu 75 % elektrisch defekt ist. Die tatsächliche Ursache steht in diesem Beispiel bereits fest. Die Wahrscheinlichkeit beschreibt unsere Ungewissheit darüber, welche Ursache verantwortlich ist.
+
+### Ausgangswahrscheinlichkeit und Basisrate
+
+Der Prior hängt eng mit der Basisrate zusammen: der relativen Häufigkeit einer Ursache, bevor wir die konkrete neue Evidenz berücksichtigen.
+
+Den Prior zu ignorieren hieße, unser bisheriges Wissen über die relativen Häufigkeiten der beiden Ursachen zu ignorieren. Ihn als unveränderliche Schlussfolgerung zu behandeln wäre jedoch ebenso problematisch.
+
+Der Prior ist der Anfang des Schlussfolgerns, nicht sein vorgeschriebenes Ende.
+
+Aus den früheren Häufigkeiten bilden wir nun 100 gewichtete hypothetische Fälle, die unsere aktuelle Ungewissheit darstellen. Wir verwenden ein Wahrscheinlichkeitsmodell und untersuchen keine 100 physischen Kopien der aktuellen Maschine.
+
+## 3. Evidenz, die uns fast nichts verrät
+
+Die Ingenieurin entdeckt, dass die Warnleuchte vor dem Ausfall geblinkt hat.
+
+Zunächst klingt das nach einer nützlichen Information. Wir haben etwas Neues über das Ereignis erfahren.
+
+Aber wie aussagekräftig ist es?
+
+Angenommen, frühere Untersuchungen zeigen: Die Warnleuchte blinkt bei 80 % der elektrischen Fehler und bei 80 % der Kühlungsfehler.
+
+$$
+P(E_1\mid H_A)=0.8
+$$
+
+$$
+P(E_1\mid H_B)=0.8
+$$
+
+Der senkrechte Strich bedeutet *unter der Bedingung, dass*. Wir fragen, wie wahrscheinlich die Beobachtung unter der jeweiligen Erklärung ist.
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="neutral" />
+
+Von den 75 hypothetischen elektrischen Fehlern würden 60 diese Beobachtung hervorbringen. Von den 25 hypothetischen Kühlungsfehlern wären es 20.
+
+Beschränken wir uns auf die 80 Fälle, die mit der Beobachtung vereinbar sind, erhalten wir:
+
+$$
+P(H_A\mid E_1)=\frac{60}{80}=75\%
+$$
+
+$$
+P(H_B\mid E_1)=\frac{20}{80}=25\%
+$$
+
+Unsere Wahrscheinlichkeiten haben sich nicht verändert.
+
+Wir haben etwas über die Maschine erfahren, aber nichts, das zwischen diesen beiden möglichen Ursachen unterscheidet.
+
+Beide Gruppen schrumpfen um denselben Faktor. Normieren wir die verbleibende Masse, erhalten wir wieder die ursprünglichen Anteile von 75 zu 25.
+
+Evidenz kann neu sein, ohne etwas über die Frage auszusagen, die wir beantworten wollen.
+
+Das verbindet sich mit unseren früheren Überlegungen zum Bestätigungsfehler. Eine Beobachtung, die zu deiner Überzeugung passt, ist wenig aussagekräftig, wenn sie ebenso gut zur konkurrierenden Überzeugung passt.
+
+## 4. Evidenz, die unsere Einschätzung tatsächlich verändert
+
+Die Ingenieurin untersucht weiter und findet Kühlmittel unter der Maschine.
+
+Unter den Ausfällen mit der ersten Beobachtung, so nehmen wir an, tritt ausgetretenes Kühlmittel bei 10 % der elektrischen Fehler und bei 60 % der Kühlungsfehler auf.
+
+Jetzt haben wir eine Beobachtung, die zwischen den Hypothesen unterscheidet.
+
+$$
+P(E_2\mid H_A,E_1)=0.1
+$$
+
+$$
+P(E_2\mid H_B,E_1)=0.6
+$$
+
+Die neue Beobachtung ist unter der Kühlungshypothese sechsmal so wahrscheinlich.
+
+Kehren wir zu den 80 verbleibenden gewichteten Fällen zurück.
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="coolant" />
+
+Die Evidenz entfernt gezielt mehr Wahrscheinlichkeitsgewicht aus der Erklärung, unter der die Beobachtung weniger wahrscheinlich ist.
+
+In unserem gewichteten Häufigkeitsmodell bleiben nur 18 Fälle mit beiden Beobachtungen vereinbar.
+
+Sechs entsprechen elektrischen Fehlern, zwölf Kühlungsfehlern.
+
+Damit gilt:
+
+$$
+P(H_A\mid E_1,E_2)=\frac{6}{18}=\frac13
+$$
+
+$$
+P(H_B\mid E_1,E_2)=\frac{12}{18}=\frac23
+$$
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="evolution" />
+
+Die plausibelste Erklärung hat gewechselt.
+
+Anfangs hatten wir einen vernünftigen Grund, die elektrische Hypothese zu bevorzugen. Angesichts der zusätzlichen Information haben wir nun einen vernünftigen Grund, die Kühlungshypothese zu bevorzugen.
+
+Keine der beiden Einschätzungen muss unvernünftig gewesen sein.
+
+Das ist ein entscheidender philosophischer Punkt: Eine rationale Einschätzung kann sich ändern, ohne dass die frühere Einschätzung irrational gewesen sein muss.
+
+Entscheidend ist, ob unsere Schlussfolgerungen die jeweils verfügbaren Informationen angemessen widerspiegeln.
+
+## 5. Den Satz von Bayes entdecken
+
+Wir haben bereits zweimal bayessch aktualisiert. Jetzt können wir denselben Vorgang mathematisch beschreiben.
+
+Kehren wir zur Untersuchung zurück und behandeln die Beobachtung der Warnleuchte als Teil unseres bisherigen Hintergrundwissens. Der besseren Lesbarkeit halber bezeichnet $E$ nun den Kühlmittelfund. Alle Wahrscheinlichkeiten beziehen sich auf dieses Hintergrundwissen.
+
+Wir begannen die zweite Aktualisierung mit
+
+$$
+P(H_B)=0.25.
+$$
+
+Von dieser Wahrscheinlichkeitsmasse entfallen 60 % auf die Beobachtung:
+
+$$
+P(E\mid H_B)=0.6.
+$$
+
+Durch Multiplikation erhalten wir die gemeinsame Wahrscheinlichkeit:
+
+$$
+P(H_B\cap E)=0.25\cdot0.6=0.15.
+$$
+
+Für elektrische Fehler ergibt derselbe Vorgang:
+
+$$
+P(H_A\cap E)=0.75\cdot0.1=0.075.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="area" />
+
+Die Fläche jedes Rechtecks stellt eine Wahrscheinlichkeit dar. Die hervorgehobenen Bereiche zeigen das gemeinsame Eintreten einer Hypothese und der Beobachtung.
+
+Weil die beiden Hypothesen sich in unserem Modell gegenseitig ausschließen und alle Möglichkeiten abdecken, ist die Gesamtwahrscheinlichkeit des Kühlmittelfunds
+
+$$
+P(E)=0.075+0.15=0.225.
+$$
+
+Wir interessieren uns jedoch nicht mehr für alle möglichen Ausfälle. Wir wissen, dass Kühlmittel beobachtet wurde, und beschränken uns auf diesen Teil des Wahrscheinlichkeitsraums.
+
+Welcher Anteil dieses kleineren Raums gehört zur Kühlungshypothese?
+
+$$
+P(H_B\mid E)=\frac{0.15}{0.225}
+$$
+
+$$
+=\frac23
+$$
+
+Ersetzen wir nun die Zahlen durch ihre mathematischen Definitionen.
+
+$$
+\boxed{P(H_B\mid E)=\frac{P(E\mid H_B)P(H_B)}{P(E)}}
+$$
+
+Das ist der Satz von Bayes.
+
+### Warum der Satz gilt
+
+Nach der Definition der bedingten Wahrscheinlichkeit gilt:
+
+$$
+P(H\mid E)=\frac{P(H\cap E)}{P(E)}.
+$$
+
+Betrachten wir dieselbe Schnittmenge aus der anderen Richtung, erhalten wir:
+
+$$
+P(E\mid H)=\frac{P(H\cap E)}{P(H)}.
+$$
+
+Daher gilt:
+
+$$
+P(H\cap E)=P(E\mid H)P(H).
+$$
+
+Durch Einsetzen folgt:
+
+$$
+\boxed{P(H\mid E)=\frac{P(E\mid H)P(H)}{P(E)}}
+$$
+
+Der Satz folgt unmittelbar daraus, dass beide bedingten Wahrscheinlichkeiten dieselbe Schnittmenge aus verschiedenen Perspektiven beschreiben. Dabei setzen wir voraus, dass die Ereignisse, auf die bedingt wird, positive Wahrscheinlichkeit besitzen.
+
+Wie in unseren früheren Beweisuntersuchungen erklären wir, warum die Formel gelten muss, statt sie nur als nützliche Regel anzugeben.
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="components" />
+
+## 6. Eine einfachere Sicht auf veränderte Einschätzungen
+
+Der Satz von Bayes ist mächtig. Eine andere Formulierung macht den zugrunde liegenden Gedankengang jedoch noch anschaulicher.
+
+Statt Wahrscheinlichkeiten als Prozente auszudrücken, stellen wir die relative Plausibilität der Hypothesen als Chancenverhältnis dar.
+
+Anfangs gilt:
+
+$$
+P(H_A)=75\%,\qquad P(H_B)=25\%.
+$$
+
+Also:
+
+$$
+\frac{P(H_A)}{P(H_B)}=\frac{75}{25}=3.
+$$
+
+Die elektrische Hypothese ist anfangs dreimal so wahrscheinlich wie die Kühlungshypothese.
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="odds" />
+
+Betrachten wir nun den Kühlmittelfund.
+
+Unter der elektrischen Hypothese beträgt seine Wahrscheinlichkeit 10 %, unter der Kühlungshypothese 60 %.
+
+Das Verhältnis ist:
+
+$$
+\frac{P(E\mid H_A)}{P(E\mid H_B)}=\frac{0.1}{0.6}=\frac16.
+$$
+
+Das ist ein Likelihood-Verhältnis, hier in der Reihenfolge A relativ zu B.
+
+Es misst, wie die Evidenz eine Hypothese gegenüber der anderen begünstigt.
+
+Wir multiplizieren unser ursprüngliches Chancenverhältnis mit diesem Faktor:
+
+$$
+3\times\frac16=\frac12.
+$$
+
+Aus dem Ausgangsverhältnis 3:1 wird das aktualisierte Verhältnis 1:2.
+
+Allgemein gilt:
+
+$$
+\boxed{
+\underbrace{\frac{P(H_A\mid E)}{P(H_B\mid E)}}_{\text{Aktualisierte Chancen}}
+=
+\underbrace{\frac{P(H_A)}{P(H_B)}}_{\text{Ausgangschancen}}
+\times
+\underbrace{\frac{P(E\mid H_A)}{P(E\mid H_B)}}_{\text{Likelihood-Verhältnis}}
+}
+$$
+
+Anschaulich ausgedrückt:
+
+$$
+\boxed{\text{Neue Chancen}=\text{Bisherige Chancen}\times\text{Evidenzmultiplikator}}
+$$
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="evidence-types" />
+
+Eine Beobachtung kann unter einer Hypothese sehr wahrscheinlich sein und trotzdem gegen sie sprechen, wenn sie unter einer Alternative noch wahrscheinlicher ist.
+
+Umgekehrt kann eine relativ seltene Beobachtung starke Evidenz für eine Hypothese liefern, wenn sie unter den Alternativen außergewöhnlich unwahrscheinlich wäre.
+
+Das ist eine besonders wertvolle Einsicht dieser Lektion.
+
+## 7. Wenn mehr Berichte keine zusätzliche Evidenz liefern
+
+Die Ingenieurin erhält drei Berichte.
+
+Der erste meldet Kühlmittel unter der Maschine. Der zweite sagt genau dasselbe. Ein dritter bestätigt den Fund.
+
+Sollte unser Vertrauen in die Kühlungshypothese nun dreimal steigen?
+
+Das hängt davon ab, woher die Berichte stammen.
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="provenance" />
+
+Angenommen, der zweite und dritte Bericht wiederholen lediglich die Ergebnisse des ersten.
+
+Wenn wir bereits festgestellt haben, dass der Kühlmittelfund echt ist, liefern diese Wiederholungen keine zusätzliche Information über die Ausfallursache.
+
+Behandeln wir sie fälschlich als drei bedingt unabhängige Beobachtungen, ergibt unsere Rechnung jedoch ein ganz anderes Ergebnis.
+
+Unsere ursprünglichen Chancen zugunsten der Kühlung waren:
+
+$$
+\frac{P(H_B)}{P(H_A)}=\frac13.
+$$
+
+Jede Kühlmittelbeobachtung hat einen Likelihood-Faktor von 6 zugunsten der Kühlung.
+
+Zählen wir die Beobachtung einmal:
+
+$$
+\frac13\times6=2.
+$$
+
+Das entspricht einer aktualisierten Wahrscheinlichkeit von ungefähr 66,7 %.
+
+Zählen wir dieselbe Beobachtung fälschlich dreimal:
+
+$$
+\frac13\times6\times6\times6=72.
+$$
+
+Das entspricht
+
+$$
+\frac{72}{73}\approx98.6\%.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="repetition" />
+
+<Interactive kind="module" module="reasoning-38" preset="reports" id="bayes38-reports" />
+
+### Der mathematische Grund
+
+Wir dürfen nicht automatisch annehmen:
+
+$$
+P(E_1\cap E_2\mid H)=P(E_1\mid H)P(E_2\mid H).
+$$
+
+Diese Zerlegung setzt bedingte Unabhängigkeit voraus.
+
+Allgemein gilt:
+
+$$
+P(E_1\cap E_2\mid H)=P(E_1\mid H)P(E_2\mid E_1,H).
+$$
+
+Das zweite Beweisstück muss unter Berücksichtigung dessen bewertet werden, was wir bereits wissen.
+
+Wiederholte Berichte können unser Vertrauen darin erhöhen, dass eine ursprüngliche Beobachtung zutrifft, insbesondere wenn sie eine unabhängige Überprüfung liefern. Das ist jedoch etwas anderes als mehrere unabhängige Ereignisse zu entdecken, die für dieselbe Erklärung sprechen.
+
+### Übertragung auf alltägliches Schlussfolgern
+
+Stell dir vor, du stößt auf zehn Artikel über dieselbe wissenschaftliche Entdeckung. Alle zehn verweisen auf eine einzige ursprüngliche Studie.
+
+Die Anzahl der Artikel kann den Eindruck umfassender Bestätigung erzeugen. Die zugrunde liegende empirische Evidenz hat dadurch aber nicht unbedingt zugenommen.
+
+Das verbindet die Wahrscheinlichkeitsrechnung mit unseren früheren Themen Gedächtnis, Verfügbarkeitsfehler, Beobachtung und Quellenbewertung.
+
+Wir sollten Evidenz nach ihrem Informationsbeitrag zählen, nicht danach, wie oft wir ihr begegnen.
+
+## 8. Interaktiver Workshop
+
+Wir können dasselbe Wahrscheinlichkeitsmodell untersuchen, indem wir seine Annahmen verändern.
+
+Die Herausforderung besteht darin, die Richtung der Aktualisierung vor jeder Rechnung vorherzusagen.
+
+### Die Evidenz verändern
+
+Beginne mit den ursprünglichen Wahrscheinlichkeiten: 75 % für einen elektrischen Fehler und 25 % für einen Kühlungsfehler.
+
+<Interactive kind="module" module="reasoning-38" preset="simulator" id="bayes38-simulator" />
+
+### Macht Evidenz für eine Hypothese sie zur wahrscheinlichsten?
+
+Angenommen, die elektrische Hypothese besitzt anfangs Wahrscheinlichkeit 90 %.
+
+Wir erhalten eine Beobachtung, die unter der Kühlungshypothese doppelt so wahrscheinlich ist.
+
+Entscheide vor der Rechnung, ob die Kühlungshypothese nun die wahrscheinlichste Erklärung sein muss.
+
+<Interactive kind="module" module="reasoning-38" preset="prediction" id="bayes38-prediction" />
+
+Diese Aufgabe unterscheidet zwei häufig verwechselte Begriffe:
+
+- Die Richtung, in die Evidenz unsere Einschätzung verschiebt.
+- Den Punkt, an dem unsere Einschätzung anschließend liegt.
+
+Evidenz kann eine Erklärung schwächen, ohne sie unplausibel zu machen. Sie kann eine andere stärken, ohne diese bereits hinreichend überzeugend zu machen.
+
+### Empfindlichkeit gegenüber unseren Ausgangsannahmen
+
+Halte das Likelihood-Verhältnis bei 6 zugunsten der Kühlung fest und ändere die Ausgangswahrscheinlichkeit der Kühlungsursache.
+
+<Interactive kind="module" module="reasoning-38" preset="sensitivity" id="bayes38-sensitivity" />
+
+Zwei Menschen können dieselbe Evidenz erhalten, in dieselbe Richtung aktualisieren und trotzdem unterschiedliche Schlussfolgerungen ziehen, weil sie mit verschiedenen Informationen oder Annahmen begonnen haben.
+
+Bayessche Mathematik rechtfertigt jedoch nicht automatisch jeden Prior. Auch die Ausgangswahrscheinlichkeiten müssen hinterfragt werden können.
+
+Untersuche deshalb, ob vernünftige Änderungen der Annahmen die Schlussfolgerung wesentlich verändern. Wenn das der Fall ist, sollten wir der genauen Zahl weniger stark vertrauen.
+
+## 9. Was es bedeutet, die eigene Meinung zu ändern
+
+<ReasoningFigure kind="module" module="reasoning-38" figure="synthesis" />
+
+<Interactive kind="module" module="reasoning-38" preset="investigation" id="bayes38-investigation" />
+
+Die aktualisierte Wahrscheinlichkeit kann bei der nächsten Untersuchung zur Ausgangswahrscheinlichkeit werden. Bayessches Schlussfolgern ist also nicht nur eine einzelne Rechnung, sondern kann einen fortlaufenden Lernprozess beschreiben.
+
+Doch die Mathematik ist nur so nützlich wie die Annahmen, auf denen sie beruht.
+
+Eine vollkommen richtige Rechnung kann zu einer irreführenden Schlussfolgerung führen, wenn wir plausible Erklärungen auslassen, unzuverlässige Häufigkeiten verwenden, unbegründete Likelihoods ansetzen oder abhängige Beobachtungen als unabhängig zählen.
+
+Der Satz von Bayes sagt uns nicht, welche Annahmen wir wählen sollen. Er beschreibt, wie Wahrscheinlichkeiten zusammenhängen, sobald diese Annahmen feststehen.
+
+### Was die verfügbare Evidenz rechtfertigt
+
+Oft verstehen wir eine Meinungsänderung als Eingeständnis, dass wir falschlagen. Vielleicht ist das jedoch nicht die beste Deutung.
+
+Eine Überzeugung muss keine dauerhafte Bindung an eine Schlussfolgerung sein. Sie kann beschreiben, was die gegenwärtig verfügbare Evidenz rechtfertigt.
+
+Wenn sich diese Evidenz ändert, müssen sich auch unsere Überzeugungen ändern können.
+
+Die entscheidende Frage ist nicht, ob wir etwas finden, das mit unserer bisherigen Überzeugung übereinstimmt. Sie lautet, ob unsere Beobachtung durch diese Überzeugung besser erklärt wird als durch ihre Alternativen.
+
+Der Satz von Bayes gibt dieser Idee eine mathematische Form.
+
+Er beseitigt Ungewissheit nicht. Er bietet eine schlüssige Art, innerhalb dieser Ungewissheit zu denken.
+
+Das Ziel ist nicht, möglichst schnell sicher zu werden. Es ist, genau so sicher zu sein, wie es die Evidenz rechtfertigt.

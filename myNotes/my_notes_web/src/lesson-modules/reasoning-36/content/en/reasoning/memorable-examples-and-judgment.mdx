@@ -1,0 +1,344 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-five
+sourceId: reasoning-episode-36
+sourcePages: []
+sourceLocations: ["Sections 1–10; section 13 preparation sources; visual references from section 11"]
+thumbnail: module:reasoning-36
+title: Why memorable examples can dominate our judgment
+navTitle: Memorable examples and judgment
+description: Separate ease of recall and resemblance from frequency, base rates, and the process that selected the evidence.
+order: 36
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [observation-and-inference, why-memory-is-not-a-recording]
+---
+
+## 1. The central idea
+
+Imagine that you have seen eight videos of a particular machine breaking down. Each shows a real failure. None of the videos is fabricated.
+
+Would you conclude that the machine is unreliable?
+
+Now imagine discovering that those eight videos came from hundreds of successful uses that nobody bothered to record or publish.
+
+Nothing about the videos has changed. What has changed is your understanding of the world from which those examples came.
+
+**The information that comes most easily to mind is not necessarily the information that best describes reality.**
+
+We will explore two different mechanisms through which we make judgments under uncertainty:
+
+<ReasoningFigure kind="module" module="reasoning-36" figure="heuristics" />
+
+**Availability:** How easily can I remember an example?
+
+**Representativeness:** How closely does this resemble a familiar pattern?
+
+Both are heuristics: economical strategies for making judgments without examining every possible piece of information. Both can be useful, and both can systematically mislead us. This distinction is central to the [research of Amos Tversky and Daniel Kahneman](https://doi.org/10.1126/science.185.4157.1124).
+
+The objective is not to distrust intuition. It is to recognize when intuition needs additional information.
+
+<Note title="Fictional teaching models">
+The delivery-machine, factory and university examples in this lesson are fictional, with numbers chosen to make the reasoning transparent. They are not empirical findings from the cited research. The memory-size illustration is conceptual, not a quantitative model of memory.
+</Note>
+
+## 2. A world full of failures
+
+Imagine a fictional automated delivery machine operating throughout a city.
+
+Instead of showing its ordinary operation, we initially encounter a stream of short, dramatic recordings: a machine getting stuck, a package falling, a delivery arriving damaged, and several other failures.
+
+Each recording becomes a small card in your information feed.
+
+*Based on what you have seen, how reliable do you think this machine is?*
+
+More importantly:
+
+*What information would you need before making that judgment?*
+
+<Interactive kind="module" module="reasoning-36" preset="selection" id="judgment-36-selection" />
+
+Take a moment to formulate an answer before revealing the complete record. The purpose is not to guess correctly, but to distinguish having examples from having sufficient evidence.
+
+The ten recordings belong to a much larger collection of events.
+
+<ReasoningFigure kind="module" module="reasoning-36" figure="record" />
+
+The complete record contains 100 deliveries: 10 failures and 90 successes. The published reports show eight failures and two successes. Failures therefore make up $8/10=80\%$ of published reports, but only $10/100=10\%$ of all deliveries.
+
+Every failure report was genuine. Yet the collection of reports created a misleading impression of the frequency of failures.
+
+This connects to the question of sampling and selection in AoR 35: even accurate observations can produce poor estimates when the process that selects them is not representative of the population.
+
+## 3. The availability heuristic
+
+The availability heuristic occurs when we use the ease with which examples come to mind as an indication of how frequent or probable something is.
+
+This is not an unreasonable strategy in itself. If something happens frequently in our environment, we may naturally encounter and remember more instances of it.
+
+The difficulty is that frequency is not the only thing that influences memory.
+
+<ReasoningFigure kind="module" module="reasoning-36" figure="recall" />
+
+Frequency can make an event memorable, but memorability can also have other causes.
+
+A successful delivery is ordinary. A delivery machine falling into a fountain is unusual, entertaining, emotional and likely to be shared.
+
+Consequently, the failure may occupy substantially more space in our memory than a successful delivery, even though both represent exactly one event.
+
+### Memory weight versus statistical weight
+
+Compare the same twenty-event excerpt twice. Two events are failures. The second view enlarges those same two events to illustrate psychological prominence.
+
+<ReasoningFigure kind="module" module="reasoning-36" figure="prominence" />
+
+The number of failures remains unchanged. Only their psychological prominence increases.
+
+Two different quantities are being confused:
+
+$$
+\text{How easily I recall an event}
+$$
+
+and
+
+$$
+\text{How frequently that event occurs}
+$$
+
+They may be related, but they are not equivalent.
+
+### When availability is useful
+
+Suppose a teacher can immediately remember several students struggling with a particular explanation because the same misunderstanding has occurred repeatedly in class.
+
+That recollection may be a useful signal that the explanation needs improvement.
+
+The heuristic becomes problematic when the teacher treats the ease of recall as an accurate measurement without considering the students who understood the explanation, how many opportunities there were to misunderstand it, or which students received the most attention.
+
+The appropriate response is therefore not to discard remembered examples, but to investigate what they can legitimately tell us.
+
+## 4. Recovering the missing denominator
+
+Now consider two machine models that have produced different numbers of failures.
+
+<ReasoningFigure kind="module" module="reasoning-36" figure="machine-counts" />
+
+At first glance, Machine B appears preferable.
+
+However, the question cannot be answered from these numbers alone. We also need to know how many opportunities each machine had to fail.
+
+Include that missing information:
+
+<ReasoningFigure kind="module" module="reasoning-36" figure="machine-rates" />
+
+Formally, the observed relative frequency is:
+
+$$
+\text{Failure frequency}=\frac{\text{Number of failures}}{\text{Number of attempts}}
+$$
+
+Machine A has more recorded failures, but Machine B has a much higher observed failure frequency.
+
+This does not conclusively establish which machine will perform better in the future. We would also need to consider operating conditions, sample uncertainty and whether the attempts were comparable.
+
+First keep the number of failures fixed while expanding or contracting the total number of attempts. See how dramatically the interpretation of the same numerator changes. You can then investigate other failure counts.
+
+<Interactive kind="module" module="reasoning-36" preset="frequency" id="judgment-36-frequency" />
+
+The first corrective question emerges naturally:
+
+**Out of how many?**
+
+## 5. The representativeness heuristic
+
+Now consider a different mechanism.
+
+Imagine a factory with two departments. One specializes in repairing machines, while the other assembles new machines.
+
+We randomly select an employee and receive the following description:
+
+> This employee enjoys diagnosing technical problems, examining mechanical components and finding the causes of unexpected malfunctions.
+
+Which department do you think the employee belongs to?
+
+<ReasoningFigure kind="module" module="reasoning-36" figure="employee" />
+
+Our intuitive judgment may favor the repair department because the description resembles what we expect a repair specialist to be like.
+
+This is the representativeness heuristic: judging the probability of membership in a category through resemblance to that category's expected characteristics.
+
+Again, resemblance can be informative. The description might genuinely be more common among repair specialists.
+
+But there is something we still do not know.
+
+How many employees belong to each department?
+
+## 6. The hidden population: understanding base rates
+
+There are 100 employees in total. Twenty work in repair, while eighty work in assembly.
+
+<ReasoningFigure kind="module" module="reasoning-36" figure="population" />
+
+Before receiving the description, a randomly selected employee is four times as likely to work in assembly.
+
+These initial proportions are called **base rates**. They describe how common the categories are before we consider the additional information.
+
+However, it would also be incorrect to ignore the description entirely and automatically select the larger department.
+
+We must combine the relative sizes of the groups with how informative the description actually is.
+
+### Step 1: identify everyone who matches
+
+Suppose we examine all 100 employees and discover that the description applies to 75% of repair employees but only 25% of assembly employees.
+
+This makes the description genuinely informative. It is three times as common among repair employees.
+
+<ReasoningFigure kind="module" module="reasoning-36" figure="matches" />
+
+Of the twenty repair employees, $20\cdot0.75=15$ match. Of the eighty assembly employees, $80\cdot0.25=20$ match.
+
+### Step 2: change the population we are examining
+
+We now know that the randomly selected employee matches the description.
+
+Therefore, instead of considering all 100 employees, we restrict our attention to the 35 employees who match.
+
+<ReasoningFigure kind="module" module="reasoning-36" figure="filtered" />
+
+The unexpected result is that the employee is still more likely to work in assembly, despite matching the characteristics of repair employees more closely.
+
+The description improved the probability that the employee works in repair from 20% to approximately 43%. Nevertheless, it was not strong enough to overcome the difference in the base rates.
+
+### Step 3: express the reasoning mathematically
+
+Define two events:
+
+$$
+R=\text{Employee works in repair}
+$$
+
+$$
+M=\text{Employee matches the description}
+$$
+
+We know that:
+
+$$
+P(M\mid R)=\frac{15}{20}=75\%
+$$
+
+But the question we actually want to answer is:
+
+$$
+P(R\mid M)=\frac{15}{35}\approx42.9\%
+$$
+
+These two conditional probabilities are different.
+
+<ReasoningFigure kind="module" module="reasoning-36" figure="conditionals" />
+
+For $P(M\mid R)$, the denominator contains all repair employees. For $P(R\mid M)$, it contains all matching employees. The numerator is fifteen in both cases, but the comparison population changes.
+
+This introduces the intuition behind Bayesian reasoning without requiring Bayes' theorem yet.
+
+### When does resemblance become enough?
+
+Keep the matching percentages constant but change the relative sizes of the two departments. Compare the original population, the highlighted matches and the filtered population.
+
+<Interactive kind="module" module="reasoning-36" preset="base-rates" id="judgment-36-base-rates" />
+
+The same description leads to different rational estimates when the underlying population changes.
+
+That is the essential insight of this section.
+
+## 7. Two different shortcuts, one shared limitation
+
+The two heuristics are not interchangeable forms of irrational thinking.
+
+They answer different questions through different kinds of mental shortcuts.
+
+| | Availability | Representativeness |
+| --- | --- | --- |
+| Mental signal | Ease of recall | Degree of resemblance |
+| Typical judgment | How common is this? | What category does this belong to? |
+| Potentially missing information | Denominator and selection process | Base rates and strength of evidence |
+| Example | Remembering machine failures | Classifying an employee |
+| Useful when | Recall tracks actual frequency | Resemblance predicts membership |
+
+Their common limitation is that an easily accessible mental signal can substitute for a more demanding investigation.
+
+<ReasoningFigure kind="module" module="reasoning-36" figure="shortcuts" />
+
+These two mechanisms give us a way to examine intuitive judgments, rather than merely attaching names to errors.
+
+## 8. Three questions that improve our judgments
+
+Whenever a striking example or convincing description begins to influence your judgment, ask:
+
+<ReasoningFigure kind="module" module="reasoning-36" figure="questions" />
+
+**1. What is the denominator?**
+
+How many total opportunities were there for this event to happen? Eight failures mean very different things in ten attempts and in ten thousand attempts.
+
+**2. What is the appropriate comparison class?**
+
+Which population should this observation be compared with? Are we comparing all machines, machines of the same model, or machines operating under similar conditions?
+
+**3. How were these examples selected?**
+
+Were they randomly collected, personally remembered, deliberately published, recommended by an algorithm, or selected precisely because they were unusual?
+
+These questions reconnect the lesson to the earlier discussions about sampling, observation and memory.
+
+The important distinction is that we are examining not only the evidence itself but the process through which that evidence became available to us.
+
+## 9. Practice: the missing information
+
+Consider a fictional online discussion about two university courses.
+
+Course A has received twelve complaints about its difficulty. Course B has received four.
+
+Which course is more likely to cause difficulties for a randomly selected student?
+
+The exercise is to identify what information is missing before selecting a course.
+
+<Interactive kind="module" module="reasoning-36" preset="practice" id="judgment-36-practice" />
+
+The interactive feedback and the reference explanation below are added learning support; the supplied source gives the question and choices.
+
+<Exercise>
+There is insufficient information. We need the number of students in each course, the conditions under which they studied, and how complaints were solicited or selected. Repeated posts by the same student are not independent affected students.
+
+Even with enrollment denominators, the resulting complaint rates would measure recorded complaints, not automatically learning difficulty. We would need to establish what counts as difficulty and whether the measurement captures it comparably across both courses.
+</Exercise>
+
+Recovering the denominator is an improvement, but it does not automatically make a measurement valid.
+
+We must still ask whether we are measuring the phenomenon we originally wanted to understand.
+
+## 10. The example and the world
+
+Return to the original delivery failure. First consider it by itself, then within the context of surrounding events.
+
+<ReasoningFigure kind="module" module="reasoning-36" figure="context" />
+
+The original example has not become less true. It has simply acquired a context.
+
+A memorable example can tell us that something happens. It can help us recognize a danger, discover a problem or formulate a new hypothesis.
+
+But understanding how often something happens, or how likely an explanation is, requires more than recognizing a familiar story.
+
+Sometimes, reasoning better does not mean looking more closely at the example.
+
+It means looking at everything surrounding it.
+
+## Preparation and research sources
+
+- Amos Tversky and Daniel Kahneman, [Judgment under Uncertainty: Heuristics and Biases](https://doi.org/10.1126/science.185.4157.1124), *Science* 185 (1974), 1124–1131. The paper discusses representativeness, availability and prior probabilities; this lesson focuses on the first two heuristics.
+- OpenStax, [Psychology 2e, section 7.3: Problem Solving](https://openstax.org/books/psychology-2e/pages/7-3-problem-solving), an accessible companion on heuristics and judgment.
+
+The research motivates the distinctions; it does not supply the lesson's fictional numerical examples. Conditional probability is introduced through natural frequencies without developing the full Bayesian framework.

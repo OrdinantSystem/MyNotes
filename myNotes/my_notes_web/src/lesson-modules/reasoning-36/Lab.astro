@@ -1,0 +1,22 @@
+---
+import {copy} from './copy';
+import {deliveryMarkup,frequencyMarkup,baseMarkup,figureMarkup} from './render';
+import {stages,choices} from './model';
+import './styles.css';
+interface Props {preset:string;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=copy(locale);
+if(!['selection','frequency','base-rates','practice'].includes(preset))throw new Error('Unknown judgment activity');
+---
+<figure id={id} class="aor36" data-aor36-lab={preset} data-locale={locale}>
+<h3>{preset==='selection'?c.figures.feed:preset==='frequency'?c.frequencyTitle:preset==='base-rates'?c.baseTitle:c.practiceTitle}</h3>
+{preset==='frequency'&&<><p>{c.frequencyNote}</p><div class="a36-controls"><label>{c.failures} (0–1000)<input type="number" min="0" max="1000" step="1" value="10" data-failures aria-controls={`${id}-output`}/></label><label>{c.attempts} (1–1000)<input type="number" min="1" max="1000" step="1" value="100" data-attempts aria-controls={`${id}-output`}/></label></div></>}
+{preset==='base-rates'&&<><p>{c.baseRule}</p><label>{c.repairInput} — {c.slider}<input type="range" min="0" max="100" step="4" value="20" data-repair-range aria-controls={`${id}-output`}/></label><label>{c.repairInput} — {c.number}<input type="number" min="0" max="100" step="4" value="20" data-repair aria-controls={`${id}-output`}/></label><p class="a36-caption">{c.baseStep}</p><div class="a36-controls">{stages.map(stage=><button type="button" data-stage={stage} aria-pressed={stage==='population'?'true':'false'} aria-controls={`${id}-output`}>{c.stageNames[stage]}</button>)}</div></>}
+<div id={`${id}-output`} data-output set:html={preset==='selection'?deliveryMarkup(locale,false):preset==='frequency'?frequencyMarkup(locale,10,100):preset==='base-rates'?baseMarkup(locale,20,'population'):figureMarkup(locale,'courses')}/>
+{preset==='practice'&&<><div class="a36-practice-options" role="group" aria-label={c.practiceTitle}>{choices.map(choice=><button type="button" data-choice={choice} aria-pressed="false" aria-controls={`${id}-explanation`}>{c.options[choice]}</button>)}</div><div class="a36-controls"><button type="button" data-explain disabled aria-expanded="false" aria-controls={`${id}-explanation`}>{c.explain}</button></div><div id={`${id}-explanation`} data-explanation><p>{c.practicePrompt}</p></div></>}
+<div class="a36-controls">{preset==='selection'&&<button type="button" data-reveal aria-expanded="false" aria-controls={`${id}-output`}>{c.reveal}</button>}<button type="button" data-reset aria-controls={`${id}-output`}>{c.reset}</button></div>
+<p class="a36-status" role="status" aria-live="polite" data-status></p>
+<figcaption>{c.fiction}</figcaption>
+</figure>
+<script>
+import './controller';
+</script>

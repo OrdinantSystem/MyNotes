@@ -8,3 +8,6 @@ references/source/
 
 local-web/
 .local-web-*/
+
+lesson-work/
+.lesson-build.lock/

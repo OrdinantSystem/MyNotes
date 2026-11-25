@@ -1,0 +1,53 @@
+---
+import './pairing.css';
+import {names,initialAssignment} from './model.mjs';
+import {text} from './copy';
+import {mapping,properties,codomainMarkup,subsetPair} from './render';
+interface Props {preset:'lockers'|'codomain'|'subsets';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale),values=initialAssignment();
+---
+<figure class="pairing-view" id={id} data-pair-lab={preset} data-locale={locale}>
+ <h3>{preset==='lockers'?c.titles.assignment:preset==='codomain'?c.titles.codomain:c.titles['subset-pairs']}</h3>
+ {preset==='lockers'?<>
+ <div class="pair-controls"><label>{c.scenario}<select data-pair-count aria-controls={`${id}-output`}>{[4,5,3].map(n=><option value={n}>{n}</option>)}</select></label></div>
+ <div data-pair-diagram set:html={mapping(locale,values)}/>
+ <div class="pair-selects" data-pair-selects>{values.map((v,i)=><label>{c.choose} {names[i]}<select data-pair-student={i} aria-controls={`${id}-output`}>{[0,1,2,3].map(n=><option value={n} selected={n===v}>{c.locker} {n+1}</option>)}</select></label>)}</div>
+ <div id={`${id}-output`} data-pair-output set:html={properties(locale,values)}/><p>{c.assignmentCaption}</p>
+ </>:preset==='codomain'?<>
+ <div class="pair-controls"><label>{c.target}<input type="number" min="-12" max="12" step="1" value="0" data-pair-target aria-controls={`${id}-output`}/></label><label><input type="checkbox" data-pair-odd aria-controls={`${id}-output`}/>{c.oddOnly}</label></div>
+ <div id={`${id}-output`} data-pair-output set:html={codomainMarkup(locale,0,false)}/><p>{c.bounded}</p>
+ </>:<>
+ <div class="pair-controls"><label><input type="checkbox" data-pair-object="1" aria-controls={`${id}-output`}/>{c.red}</label><label><input type="checkbox" data-pair-object="2" aria-controls={`${id}-output`}/>{c.blue}</label></div>
+ <div id={`${id}-output`} data-pair-output set:html={subsetPair(locale,0)}/>
+ <div class="pair-controls"><button type="button" data-pair-add aria-pressed="true">{c.add}</button><button type="button" data-pair-remove aria-pressed="false">{c.remove}</button></div><p>{c.subsetNote}</p>
+ </>}
+ <div class="pair-controls"><button type="button" data-pair-reset>{c.reset}</button></div><p class="pair-status" role="status" aria-live="polite" data-pair-status></p>
+</figure>
+<script>
+import {names,initialAssignment,integerInput} from './model.mjs';
+import {text,type PairLocale} from './copy';
+import {mapping,properties,codomainMarkup,subsetPair} from './render';
+for(const root of document.querySelectorAll<HTMLElement>('[data-pair-lab]')){
+ const locale=root.dataset.locale as PairLocale,c=text(locale),preset=root.dataset.pairLab;
+ let count=4,values=initialAssignment(),target=0,odd=false,mask=0,back=false;
+ const output=root.querySelector<HTMLElement>('[data-pair-output]')!,status=root.querySelector<HTMLElement>('[data-pair-status]')!;
+ function draw(rebuild=false){
+  if(preset==='lockers'){
+   root.querySelector<HTMLElement>('[data-pair-diagram]')!.innerHTML=mapping(locale,values);
+   if(rebuild){
+    const selects=root.querySelector<HTMLElement>('[data-pair-selects]')!;selects.replaceChildren();
+    values.forEach((v,i)=>{const label=document.createElement('label');label.append(`${c.choose} ${names[i]}`);const select=document.createElement('select');select.dataset.pairStudent=String(i);select.setAttribute('aria-controls',output.id);[0,1,2,3].forEach(n=>select.add(new Option(`${c.locker} ${n+1}`,String(n))));select.value=String(v);label.append(select);selects.append(label);});
+   }else root.querySelectorAll<HTMLSelectElement>('[data-pair-student]').forEach((s,i)=>s.value=String(values[i]));
+   output.innerHTML=properties(locale,values);
+  }else if(preset==='codomain')output.innerHTML=codomainMarkup(locale,target,odd);
+  else{output.innerHTML=subsetPair(locale,mask,back);root.querySelector('[data-pair-add]')!.setAttribute('aria-pressed',String(!back));root.querySelector('[data-pair-remove]')!.setAttribute('aria-pressed',String(back));}
+ }
+ root.querySelector('[data-pair-selects]')?.addEventListener('change',e=>{const s=e.target as HTMLSelectElement;if(!s.matches('[data-pair-student]'))return;const i=Number(s.dataset.pairStudent),v=Number(s.value);if(!Number.isInteger(i)||i<0||i>=values.length||![0,1,2,3].includes(v))return;values[i]=v;draw();status.textContent=output.textContent;});
+ root.querySelector('[data-pair-count]')?.addEventListener('change',e=>{count=Number((e.target as HTMLSelectElement).value);values=initialAssignment(count);draw(true);status.textContent=output.textContent;});
+ root.querySelector<HTMLInputElement>('[data-pair-target]')?.addEventListener('change',e=>{const input=e.target as HTMLInputElement,n=integerInput(input.value);if(n===null){input.value=String(target);status.textContent=c.invalid;return;}target=n;draw();status.textContent=output.textContent;});
+ root.querySelector<HTMLInputElement>('[data-pair-odd]')?.addEventListener('change',e=>{odd=(e.target as HTMLInputElement).checked;draw();status.textContent=output.textContent;});
+ root.querySelectorAll<HTMLInputElement>('[data-pair-object]').forEach(input=>input.addEventListener('change',()=>{mask=0;root.querySelectorAll<HTMLInputElement>('[data-pair-object]:checked').forEach(x=>mask|=Number(x.dataset.pairObject));draw();status.textContent=c.subsetNote;}));
+ for(const action of ['add','remove'])root.querySelector(`[data-pair-${action}]`)?.addEventListener('click',()=>{back=action==='remove';draw();status.textContent=back?c.backward:c.forward;});
+ root.querySelector('[data-pair-reset]')!.addEventListener('click',()=>{count=4;values=initialAssignment();target=0;odd=false;mask=0;back=false;root.querySelectorAll<HTMLInputElement>('input[type=checkbox]').forEach(x=>x.checked=false);const n=root.querySelector<HTMLInputElement>('[data-pair-target]');if(n)n.value='0';const select=root.querySelector<HTMLSelectElement>('[data-pair-count]');if(select)select.value='4';draw(true);status.textContent=c.reset;});
+}
+</script>

@@ -1,0 +1,615 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-32
+sourcePages: []
+sourceLocations: ["Full episode script 00:00–23:00, sections 1–11", "Production notes: visual relationships and optional advanced challenge"]
+title: "Workshop: Discover a theorem, then earn it"
+navTitle: "Discover a theorem"
+description: "Investigate consecutive positive sums, distinguish evidence from proof, and keep track of justified uncertainty."
+order: 32
+kind: worked-problem
+status: published
+reviewStatus: unreviewed
+prerequisites: [pictures-and-proofs, counterexamples-and-claims, proof-by-cases-and-equivalence]
+thumbnail: "module:reasoning-32"
+---
+
+## 1. A problem without instructions
+
+Imagine that I give you the number 15 and ask you to express it as a sum of consecutive positive integers.
+
+On the screen, the number 15 appears alone.
+
+Perhaps you notice that:
+
+$$
+ 15=7+8.
+$$
+
+But there is another possibility.
+
+$$
+ 15=4+5+6.
+$$
+
+And another.
+
+$$
+ 15=1+2+3+4+5.
+$$
+
+Three different representations of the same number.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="sums" />
+
+That is interesting. But now try to do the same thing with the number 16.
+
+You could try 7 plus 8, but that gives you 15. Eight plus nine gives you 17. Perhaps three consecutive numbers will work. Or four. Or five.
+
+Suddenly, something that looked like a simple arithmetic exercise becomes a problem.
+
+Why are some numbers easy to represent in this way, while others seem impossible? Is there a pattern? Is there a property of the number that determines whether such a representation exists?
+
+Today, I'm not going to begin by giving you a theorem and then showing you its proof.
+
+We're going to begin without knowing the answer.
+
+And our goal is not merely to solve the problem. It is to understand what happens between encountering a question and eventually being able to say: *I know this is true.*
+
+## 2. Understanding what we are actually investigating
+
+Before we start looking for patterns, we need to be precise about the problem.
+
+We want to know which positive integers can be written as a sum of two or more consecutive positive integers.
+
+As the sentence appears on screen, three parts become highlighted.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="restrictions" />
+
+These restrictions matter.
+
+Without the requirement of at least two terms, the problem would be trivial. Every positive integer could simply be represented by itself.
+
+Without the requirement that the terms be consecutive, we would be investigating a different kind of sum.
+
+And without the requirement that the terms be positive, we would have additional possibilities that are not permitted in our original problem.
+
+In mathematical language, we are asking, for a given positive integer $n$, whether there exist positive integers $a$ and $r$, with $r\geq 2$, such that:
+
+$$
+ n=a+(a+1)+\cdots+(a+r-1).
+$$
+
+Here, $a$ is the starting number, and $r$ is how many numbers we are adding.
+
+We don't necessarily need this notation to begin our investigation. But it makes the rules precise, and later, when our intuition becomes insufficient, these symbols will give us something more reliable to work with.
+
+## 3. Building our investigation workspace
+
+When you investigate something unfamiliar, one of the most useful things you can do is keep track of the status of your knowledge.
+
+Not everything you write down deserves the same level of confidence.
+
+On screen, our workspace divides into three areas.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="workspace" />
+
+In the first area, we put things that we have established. For instance, we know that 15 has at least three valid representations, because we have explicitly constructed them.
+
+In the second area, we will put conjectures. These are statements that we have reasons to believe but have not yet proved.
+
+In the third area, we put our unanswered questions.
+
+Notice that I haven't placed the statement “16 cannot be represented” among our established facts.
+
+We have tried a few things and haven't found a representation. But that is not the same as establishing that no representation exists.
+
+Throughout this investigation, these categories will change. Something that begins as a question might become a conjecture. A conjecture might become a theorem. Or it might encounter a counterexample and disappear completely.
+
+This is not a record of how intelligent we are. It is a record of what our reasoning currently entitles us to claim.
+
+## 4. Collecting evidence
+
+Let's begin with small numbers.
+
+Not because small numbers are necessarily the most interesting, but because they allow us to experiment quickly. They give us an opportunity to understand the structure of the problem before dealing with larger, more complicated cases.
+
+We begin with 1.
+
+There is no way to represent it under our rules. The smallest permitted sum is already:
+
+$$
+ 1+2=3.
+$$
+
+Therefore, neither 1 nor 2 can be represented.
+
+But 3 can.
+
+$$
+ 3=1+2.
+$$
+
+Four doesn't seem to work. Five does.
+
+$$
+ 5=2+3.
+$$
+
+Six works as well.
+
+$$
+ 6=1+2+3.
+$$
+
+Seven gives us another representation.
+
+$$
+ 7=3+4.
+$$
+
+Eight appears to be more difficult.
+
+As we continue, a horizontal number line develops on screen. Each number for which we discover a representation becomes green. Numbers we haven't resolved remain neutral.
+
+Notice that we do not immediately color unsuccessful attempts red. That would visually suggest that we have proved something we haven't.
+
+<Interactive kind="module" module="reasoning-32" preset="evidence" id="workshop-evidence" />
+
+Now take a moment to examine what we have discovered.
+
+Don't try to prove anything yet. Just look at the numbers.
+
+What do you notice?
+
+You might notice that every odd number greater than one in our investigation has a representation.
+
+You might also notice that many even numbers have representations.
+
+And perhaps something more interesting: among the numbers we haven't managed to represent, we find 4, 8 and 16.
+
+There appears to be some structure here.
+
+But we have only examined twenty numbers. Our observations might reveal a genuine mathematical relationship, or they might be incomplete.
+
+The next step is to turn these observations into statements that we can actually investigate.
+
+## 5. Making our first conjecture
+
+Consider the odd numbers.
+
+$$
+ \begin{aligned} 3&=1+2\\ 5&=2+3\\ 7&=3+4\\ 9&=4+5\\ 11&=5+6 \end{aligned}
+$$
+
+There is a very consistent pattern.
+
+Each time we increase the odd number by two, both terms on the right increase by one.
+
+The animation separates the two summands into neighboring blocks. As both blocks grow by one unit, their combined value increases by two.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="odd-growth" />
+
+This suggests our first conjecture:
+
+> Every odd positive integer greater than one can be expressed as the sum of two consecutive positive integers.
+
+Notice how much more specific this statement is than our original question.
+
+We haven't claimed that we know which numbers can be represented. We have identified a particular class of numbers that seems to behave consistently.
+
+And we've specified exactly how many terms we expect to need: two.
+
+Our first conjecture moves into the middle column of our workspace.
+
+Could we make an even stronger conjecture?
+
+Perhaps a positive integer can be represented if and only if it is odd.
+
+That would be a very elegant answer to our original question.
+
+Unfortunately, we already know that it is false.
+
+$$
+ 6=1+2+3.
+$$
+
+Six is even, and yet it has a valid representation.
+
+The stronger conjecture appears on screen for a moment, before the number 6 moves beside it and invalidates it.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="counterexample" />
+
+This is an important moment.
+
+We were right to notice something special about odd numbers. We would have been wrong to assume that the property belonged exclusively to them.
+
+A good conjecture doesn't merely describe something interesting. It describes it with precisely the strength that our evidence suggests.
+
+## 6. From a pattern to an explanation
+
+Let's return to our first conjecture.
+
+Every odd integer greater than one can be expressed as the sum of two consecutive positive integers.
+
+We have found many examples.
+
+But how could we establish that it works for every odd number?
+
+Consider what it actually means for an integer to be odd.
+
+Every positive odd integer has the form:
+
+$$
+ n=2k+1
+$$
+
+for some nonnegative integer $k$.
+
+And if $n$ is greater than one, then $k$ must be at least one.
+
+On screen, the number 11 is represented by eleven individual squares.
+
+We separate five of them to the left, five to the right, and leave one extra square in the center.
+
+$$
+ 2k+1=k+(k+1)
+$$
+
+What happens if we move that extra square into the group on the right?
+
+We obtain a group of five and a group of six.
+
+And those are consecutive numbers.
+
+But was there anything special about using eleven squares?
+
+Suppose instead that we begin with an arbitrary odd integer. We still have two groups containing $k$ units each, together with one additional unit.
+
+We can always put that additional unit into the second group.
+
+Algebraically, we are doing this:
+
+$$
+ \begin{aligned} n&=2k+1\\ &=k+k+1\\ &=k+(k+1). \end{aligned}
+$$
+
+Now there is something we need to check.
+
+Our original problem had three restrictions. Does our construction satisfy them?
+
+We have exactly two terms. They are consecutive because their difference is one. And both are positive because $k\geq 1$.
+
+So we haven't merely discovered an algebraic identity. We have constructed an object that satisfies every condition in our problem.
+
+That is our proof.
+
+**Theorem**
+
+Every odd integer greater than one is the sum of two consecutive positive integers.
+
+**Proof.** Let $n>1$ be an odd integer. By the definition of oddness, there exists an integer $k\geq 1$ such that
+
+$$
+ n=2k+1.
+$$
+
+Therefore,
+
+$$
+ n=k+(k+1).
+$$
+
+Since $k\geq 1$, both summands are positive. Their difference is one, so they are consecutive. Hence $n$ has the required representation.
+
+$$
+ \square
+$$
+
+At this moment, the conjecture physically moves from the middle column into our established facts column.
+
+The wording of the statement hasn't changed.
+
+What has changed is the reason we have for believing it.
+
+Previously, we believed it because it worked in every example we had examined. Now, we know it because we have given an argument that applies to an arbitrary odd integer greater than one.
+
+We didn't check more numbers. We changed the nature of our justification.
+
+<Interactive kind="module" module="reasoning-32" preset="proof" id="workshop-proof" />
+
+## 7. What exactly have we proved?
+
+It's tempting to feel that we've solved the problem. We have discovered a pattern, transformed it into a mathematical statement, and proved it.
+
+But look again at our original question.
+
+Which positive integers can be written as a sum of two or more consecutive positive integers?
+
+Our theorem tells us something about odd integers greater than one. It says nothing about which even integers have representations.
+
+The number 6 has one. The number 10 has one. The number 12 has one.
+
+What distinguishes those numbers from 8 or 16?
+
+To understand the difference, let's represent our knowledge using sets.
+
+Let $S$ be the set of all positive integers that have at least one valid representation.
+
+And let $O$ be the set of all odd positive integers greater than one.
+
+What we have proved is:
+
+$$
+ O\subseteq S.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="inclusion" />
+
+Every element of $O$ belongs to $S$.
+
+But we have not completely described the set $S$.
+
+In fact, our counterexample from earlier tells us that these two sets cannot be equal.
+
+Six belongs to $S$, but not to $O$.
+
+This distinction is easy to overlook when you're excited about discovering something.
+
+A proof might establish a perfectly correct result while answering only part of the question you originally asked.
+
+That doesn't make it a bad proof. It means you need to understand its scope.
+
+We have proved something substantial. We just haven't proved everything.
+
+## 8. Turning an unsuccessful search into a proof
+
+Let's return to one of our unresolved numbers.
+
+Eight.
+
+Until now, we haven't managed to represent it as a sum of consecutive positive integers. But perhaps our search has simply been insufficient.
+
+How could we establish that no such representation exists?
+
+Instead of trying random sums, let's organize all the possibilities according to their length.
+
+We begin with two consecutive positive integers.
+
+$$
+ 1+2=3
+$$
+
+$$
+ 2+3=5
+$$
+
+$$
+ 3+4=7
+$$
+
+$$
+ 4+5=9
+$$
+
+Every time we increase the starting number by one, the total increases by two.
+
+The resulting sums are all odd. Eight is even, so no pair of consecutive integers can sum to eight.
+
+What about three consecutive integers?
+
+We begin with the smallest possible starting number.
+
+$$
+ 1+2+3=6.
+$$
+
+If we increase that starting number by one, we obtain:
+
+$$
+ 2+3+4=9.
+$$
+
+We have already passed eight. Every later sum will be even larger.
+
+Therefore, three terms cannot work either.
+
+What about four terms?
+
+The smallest possible sum is:
+
+$$
+ 1+2+3+4=10.
+$$
+
+And ten is already greater than eight.
+
+Using five terms, six terms, or any larger number of positive terms will only make the smallest possible sum larger.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="eight" />
+
+Now consider what has happened.
+
+Earlier, we tried several sums and failed to represent eight.
+
+Now, we have organized the possibilities into cases and established that every permitted case is impossible.
+
+These are fundamentally different achievements.
+
+Our argument has covered every possible number of terms: two, three, or at least four. There is no remaining case hidden somewhere outside our investigation.
+
+We can finally move the statement “8 cannot be represented” into our established facts column.
+
+And on our number line, eight changes from neutral to red.
+
+The color has changed not because we've become more confident, but because we've earned that confidence through an exhaustive argument.
+
+## 9. Discovering a deeper possibility
+
+Look at our results again.
+
+There seems to be a particularly interesting family of numbers.
+
+$$
+ 1,\quad 2,\quad 4,\quad 8,\quad 16,\quad \ldots
+$$
+
+Each number is twice the previous one.
+
+They are powers of two.
+
+$$
+ 2^0,\quad 2^1,\quad 2^2,\quad 2^3,\quad 2^4,\quad \ldots
+$$
+
+What if these numbers are precisely the ones that cannot be represented?
+
+This would give us a much more ambitious conjecture.
+
+> A positive integer can be written as a sum of two or more consecutive positive integers if and only if it is not a power of two.
+
+The conjecture appears in our investigation workspace.
+
+But before we become too attached to it, we should recognize that the words *if and only if* create two separate obligations.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="obligations" />
+
+First, we would need to establish that every positive integer that is not a power of two has a representation.
+
+Second, we would need to establish that every power of two has no representation.
+
+So far, we have only established some particular cases and one general result about odd integers.
+
+That is not enough.
+
+But perhaps we can find something that might help us continue.
+
+Suppose we add three consecutive integers.
+
+$$
+ a+(a+1)+(a+2).
+$$
+
+By rearranging, we obtain:
+
+$$
+ 3a+3=3(a+1).
+$$
+
+Every sum of three consecutive integers is divisible by three.
+
+Now try four consecutive integers.
+
+$$
+ \begin{aligned} a+(a+1)+(a+2)+(a+3) &=4a+6\\ &=2(2a+3). \end{aligned}
+$$
+
+Notice something interesting. This expression is twice an odd number.
+
+We are beginning to see relationships between the length of a consecutive sum and the factors of the number it produces.
+
+Perhaps the answer to our original problem has something to do with divisibility.
+
+But we will leave this as a direction to explore.
+
+The purpose of today's workshop isn't to rush toward the most impressive theorem we can find. It is to experience the process by which mathematical knowledge develops.
+
+## 10. Your turn to investigate
+
+I want you to try a small investigation of your own.
+
+Choose the number 16.
+
+Can you establish that it cannot be represented as a sum of two or more consecutive positive integers?
+
+Remember that your goal is not merely to try a few sums. Your goal is to understand whether you have considered every relevant possibility.
+
+You might begin by asking yourself how many terms a representation of 16 could possibly contain.
+
+The smallest sum containing six consecutive positive integers is already:
+
+$$
+ 1+2+3+4+5+6=21.
+$$
+
+That gives you a useful restriction. You don't need to investigate six terms or anything larger.
+
+Can you deal with the remaining cases?
+
+<Interactive kind="module" module="reasoning-32" preset="sixteen" id="workshop-sixteen" />
+
+But there is another part of this exercise that I think is even more important.
+
+I want you to create a short record of your investigation.
+
+Not a polished proof necessarily. Just an accurate description of what happened in your reasoning.
+
+<Interactive kind="module" module="reasoning-32" preset="record" id="workshop-record" />
+
+Perhaps you managed to establish that 16 cannot be represented.
+
+Perhaps you found an entirely different pattern.
+
+Perhaps you tried to prove our conjecture about powers of two and discovered that you didn't know how to complete the argument.
+
+All of these can be valuable outcomes.
+
+The important thing is that your record accurately distinguishes what you observed, what you suspect, and what you can justify.
+
+If you have reached a point where you can identify exactly which part of an argument is missing, you have already made meaningful progress.
+
+You have transformed a vague difficulty into a precise mathematical question.
+
+## 11. What it means to know something
+
+At the beginning of this episode, we had a question and a few examples.
+
+We didn't know what distinguished the numbers that could be represented from those that couldn't.
+
+But through experimentation, we discovered a pattern. Through precise language, we transformed that pattern into a conjecture. Through reasoning, we established a theorem.
+
+And when that theorem turned out to be insufficient to answer our original question, we continued investigating.
+
+Our workspace appears one final time.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="final-workspace" />
+
+Notice that our open questions column is not empty.
+
+And that is perfectly reasonable.
+
+Mathematical reasoning does not require you to have an answer to everything. It requires you to distinguish between the answers you have earned and those you haven't.
+
+The conjecture we began with became a theorem. The theorem generated new questions. Those questions led us toward a deeper structure that we had not noticed at the beginning.
+
+And this is how mathematics grows.
+
+<ReasoningFigure kind="module" module="reasoning-32" figure="cycle" />
+
+Discovery and proof form a continuing cycle, not a single linear journey.
+
+The ability to discover a pattern is valuable. The ability to prove a statement is valuable.
+
+But perhaps the most important ability is knowing the difference between the two.
+
+Because reasoning is not simply about finding answers.
+
+It is about understanding what gives us the right to call something an answer.
+
+**How do you know?**
+
+## Optional investigation: lengths and factors
+
+For $r\geq 2$ consecutive positive integers beginning at $a\geq 1$, establish that
+
+$$
+\begin{aligned}
+n &= a+(a+1)+\cdots+(a+r-1) \\
+  &= ra+\frac{r(r-1)}2 \\
+  &= \frac{r(2a+r-1)}2.
+\end{aligned}
+$$
+
+What does this expression tell you about the factors of $n$ when $r$ is odd, and when $r$ is even? Could a power of two have the required factors? This is a direction for further investigation; the complete classification has not been proved in the main lesson.

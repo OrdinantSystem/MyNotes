@@ -1,0 +1,184 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-six
+sourceId: reasoning-episode-44
+sourcePages: []
+sourceLocations: ["Sections 1–10: experimental design and complete teaching argument", "Section 11 and supplied visuals 1–18: visual relationships", "Section 13: scope and fictional-example boundaries"]
+title: "What makes an experiment a useful test?"
+navTitle: "Useful experiments"
+description: "Design, break and repair an experiment to see which causal conclusions its results can support."
+order: 44
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [testing-competing-explanations, observation-and-inference]
+thumbnail: "module:reasoning-44"
+---
+
+Observing a relationship does not necessarily tell us what causes what. An experiment takes the next step: we deliberately intervene in the world. But performing an experiment does not automatically resolve the causal problem. Perfectly accurate measurements can answer a different question from the one we intended to investigate.
+
+A good experiment is designed so that competing explanations for a difference in outcomes become increasingly difficult to sustain. We can discover why its safeguards matter by designing, breaking and repairing a single experiment.
+
+## 1. An experiment that proves too much
+
+Imagine that we recruit 100 students to compare two learning methods. Fifty reread the material; fifty attempt to recall it without looking at it. One week later, both groups take an examination.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="opening" />
+
+The conclusion appears obvious: active recall works better. We even conducted an experiment to demonstrate it.
+
+Now reveal three additional facts. The recall group studied for twice as long, contained more experienced students and received instruction from a particularly enthusiastic teacher.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="causes" />
+
+Nothing about the original scores has changed. What has changed is our ability to interpret them. We observed a difference of 16 percentage points. How much was caused by the learning method? We do not yet know. Experimental design attempts to make this question answerable.
+
+All numerical studies on this page are fictional teaching examples, not evidence that one learning method has a particular real-world effect.
+
+## 2. Design the question before the experiment
+
+“Does active recall work better?” leaves almost everything undefined. Better than what? For whom? Under which conditions? What does “better” mean? We need a question an experiment can actually answer.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="question" />
+
+We have moved from an abstract property called effectiveness to the consequences of a specific intervention. Learning is a construct; an examination score operationalizes only some aspects of it. Even perfect assignment cannot compensate for inappropriate measurement. If we measure immediate memorization, we cannot automatically claim to have measured long-term understanding.
+
+What are we actually trying to compare? Imagine two possible versions of the same student, with precisely the same starting knowledge, motivation and circumstances.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="counterfactual" />
+
+Ideally, we would observe how that person performs under both conditions from that same starting point. But we cannot rewind the world and change only one decision. Learning the material once changes their knowledge, so trying the other method afterward does not recreate the missing alternative.
+
+For student $i$, let $Y_i(0)$ be the potential score under rereading and $Y_i(1)$ the potential score under active recall. The individual causal effect would be
+
+$$
+\tau_i=Y_i(1)-Y_i(0).
+$$
+
+Only one of these potential outcomes is observed for a student in this experiment. Instead of constructing two identical versions of a person, we try to construct two comparable groups. Under suitable conditions, the difference in their average outcomes can estimate an average causal effect. This motivates random assignment.
+
+## 3. Random assignment makes a fairer comparison
+
+Students arrive with different knowledge, concentration, motivation, memory, sleep and familiarity with the subject. Some differences can be measured; others cannot. If students choose their own method, those characteristics may influence both their choice and their eventual performance.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="selection" />
+
+We could measure relevant differences and manually balance the groups, but doing so perfectly requires knowing everything that matters. Randomization takes a different approach: use a random procedure to determine the original assignment, so preparation and motivation do not systematically determine who receives which intervention.
+
+In the smaller illustration below, each student keeps their preparation level while the group assignment changes. The letters and the counts identify preparation independently of color. Repeat the random assignment and keep the uneven divisions in view.
+
+<Interactive kind="module" module="reasoning-44" preset="assignment" id="aor44-assignment" />
+
+Random assignment creates comparability **in expectation**, not guaranteed equality in each experiment. A visibly uneven split is possible and must not be discarded just because it spoils the picture. Larger groups generally reduce the size of chance imbalances in group averages.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="randomization" />
+
+Randomization does not eliminate human differences or their influence on outcomes. It changes how those differences relate to the original assignment. The absence of a systematic assignment mechanism is different from an assertion that the realized groups are identical.
+
+## 4. Random sampling is not random assignment
+
+Random sampling concerns how people are selected from a population. Random assignment concerns what happens after they enter the study.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="sampling" />
+
+Suppose 100 volunteers from a mathematics university course are randomly divided into two groups. We might obtain credible causal evidence among those participants. Their random assignment does not automatically establish that the results apply to children, older adults or people learning a different subject.
+
+Conversely, randomly sampling thousands of students across a country and observing their preferred methods could provide a more representative description while leaving the causal question unresolved.
+
+| Recruitment | Random assignment | No random assignment |
+| --- | --- | --- |
+| Random sampling | Supports causal inference and population generalization, under suitable conditions. | Supports representative descriptions; sampling alone does not resolve causality. |
+| Nonrandom sampling | Supports causal inference within the study; generalization needs further justification. | Both causality and generalization need further justification. |
+
+These are forms of support, not automatic guarantees: implementation, measurement, missing data and the stated target population still matter.
+
+## 5. Control the conditions: what are we testing?
+
+Random assignment is in place. Have we solved the problem? Suppose the researchers implement the following protocol.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="protocol" />
+
+Method, duration and instructional support all change together. A properly randomized experiment could estimate the effect of one entire educational package compared with the other, but it cannot isolate the method’s effect alone. The experiment may answer a legitimate causal question—just a different one.
+
+Repair the displayed comparison by equalizing study time and instructional support. The source material, environment and assessment delay are already matched in this protocol.
+
+<Interactive kind="module" module="reasoning-44" preset="repair" id="aor44-repair" />
+
+Now the protocol addresses the original method comparison more directly. But controlling conditions does not mean forcing everything to remain equal **after** the intervention. If active recall raises motivation and that improves learning, motivation may be part of the mechanism. Removing that pathway changes the effect being studied. Whether controlling a variable helps depends on its causal role and the question.
+
+## 6. When the experiment meets reality
+
+A clean diagram assumes everyone follows the assigned method and returns for assessment. Real studies require us to examine both assumptions.
+
+### Adherence: assignment is not receipt
+
+Imagine five students assigned to recall find it too demanding and start rereading instead.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="adherence" />
+
+Should we move those five into the rereading group for analysis? Perhaps the students struggling most are precisely those who switched. Moving them can reintroduce the selection problem that randomization was meant to address.
+
+“What is the effect of being assigned this method?” and “What is the effect of actually following this method?” are different causal questions. An **intention-to-treat analysis** retains people in their original groups, helping preserve randomization. Estimating the effect of adherence generally needs further assumptions or methods. Keeping original groups also does not, by itself, solve missing outcomes.
+
+### Attrition: who disappeared?
+
+Consider a separate hypothetical complication: some students do not return for the delayed examination.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="attrition" />
+
+If students who found recall difficult are less likely to return, the remaining students might perform particularly well without representing the original group. Missingness can create systematic bias, not merely a smaller sample.
+
+Use the known fictional scores below to remove the four lowest observations. No remaining student learns anything additional.
+
+<Interactive kind="module" module="reasoning-44" preset="missing" id="aor44-missing" />
+
+The observed average rises because the observed set changes. In a real study we usually would not know the missing scores; the illustration makes that hidden mechanism visible. What is missing, and why it is missing, matters. Treating unknown outcomes as zeros would introduce another assumption rather than recover the missing information.
+
+### Blinding: can expectations influence assessment?
+
+An examiner who knows the recall group and believes its method is superior may unintentionally award more generous scores for partially correct answers.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="blinding" />
+
+Students cannot realistically be unaware of whether they are rereading or retrieving. We can still conceal assignment from graders. Blinding is not all-or-nothing: different people can be blinded to different information. Ask whether knowing the assignment could influence behavior, measurement or evaluation.
+
+## 7. Correct about what, and for whom?
+
+Imagine a repaired experiment: randomized assignment, comparable conditions, high adherence and assessment completion, and blinded graders. It supports improved delayed examination performance under these conditions. Now consider the much larger claim: “Active recall is the best way for everyone to learn anything.”
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="generalization" />
+
+Every expansion needs justification. A carefully controlled vocabulary study may tell us relatively little about mathematical proofs, piano playing or social skills.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="validity" />
+
+Strong internal validity can coexist with limited evidence about other settings. Keep the conclusion within the evidence’s boundaries rather than reject the experiment for not answering every question.
+
+A good design also differs from a precise result. Two well-designed studies can estimate the same improvement with very different uncertainty.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="uncertainty" />
+
+Random assignment addresses systematic selection differences; it does not eliminate random variation. Sufficient data and quantified uncertainty are still needed. The interval comparison is schematic, not a statistical calculation from the fictional 68% and 84% scores.
+
+## 8. Repair an application study
+
+A company recruits 40 students to compare its learning application with a textbook. Students choose their own group. Application users study for 60 minutes; textbook users for 30. The examination mainly repeats questions from the application. Several students do not return. Company employees grade the papers knowing each student’s method. The company concludes that its application is better for all students.
+
+Before reading the reference answers, identify what you would change and explain why. Name the inference each weakness threatens, not just the methodological term.
+
+<Interactive kind="module" module="reasoning-44" preset="workshop" id="aor44-workshop" />
+
+Unequal duration makes it hard to separate method from extra study time. Unrepresentative recruitment chiefly limits generalization. An inappropriate assessment weakens the interpretation of what improved. Different failures require different repairs; no checklist automatically proves the application’s effect.
+
+## 9. An experiment is an argument
+
+Return to the original numbers and imagine them emerging from a substantially improved hypothetical experiment.
+
+<ReasoningFigure kind="module" module="reasoning-44" figure="closing" />
+
+The scores are identical, but their evidential meaning could be substantially different. A design determines which alternative explanations remain plausible, which assumptions are necessary and which conclusions can reasonably follow.
+
+In mathematics, we establish the conditions under which a conclusion follows from premises. In experimental science, we construct conditions under which observations provide evidence for a conclusion. These forms of reasoning differ: experimental conclusions remain uncertain and assumption-dependent. Both require the justification to be explicit.
+
+The quality of an experiment is measured by what its results allow us to conclude, not by how impressive its numbers look.

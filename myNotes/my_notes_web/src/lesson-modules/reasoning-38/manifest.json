@@ -1,0 +1,7 @@
+{
+  "id":"reasoning-38","course":"reasoning","chapter":"reasoning-part-five",
+  "chapterDefinition":{"id":"reasoning-part-five","course":"reasoning","title":{"en":"Part Five","de":"Teil Fünf"},"description":{"en":"Observation, evidence, and cognitive reasoning.","de":"Beobachtung, Evidenz und kognitives Schlussfolgern."}},
+  "order":38,"key":"changing-your-mind-mathematically","title":"How to change your mind mathematically","sourceId":"reasoning-episode-38","sourceTitle":"How to change your mind mathematically · probability and Bayesian reasoning",
+  "figures":["machine","prior","neutral","coolant","evolution","area","components","odds","evidence-types","provenance","repetition","synthesis"],
+  "presets":["investigation","simulator","prediction","reports","sensitivity"]
+}

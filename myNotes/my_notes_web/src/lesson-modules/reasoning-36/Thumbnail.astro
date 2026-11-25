@@ -1,0 +1,4 @@
+---
+const l=Astro.props.locale||Astro.locals.locale||'en';
+---
+<svg viewBox="0 0 220 130" role="img" aria-label={l==='de'?'Ein auffälliges Beispiel innerhalb einer größeren Menge':'One salient example inside a larger collection'}>{Array.from({length:40},(_,i)=><circle cx={30+(i%10)*18} cy={30+Math.floor(i/10)*23} r={i===14?9:4} fill={i===14?'var(--coral)':'var(--axis)'}/>)}<rect x="18" y="15" width="187" height="98" rx="8" fill="none" stroke="var(--line)"/></svg>

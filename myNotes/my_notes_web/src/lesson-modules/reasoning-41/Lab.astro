@@ -1,0 +1,18 @@
+---
+import {initialState,tests,plantChoices} from './model';
+import {investigationMarkup,testsMarkup,plantMarkup} from './render';
+import {text} from './copy';
+import './styles.css';
+interface Props {preset:'investigation'|'tests'|'plant';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale),s=initialState();
+---
+<figure class="a41-lab" id={id} data-a41-lab={preset} data-locale={locale}>
+ <h3>{c.labs[preset]}</h3>
+ {preset==='investigation'&&<><p data-a41-progress>{c.step} 1 {c.of} 6</p><div class="a41-controls"><button type="button" data-a41-previous disabled aria-controls={`${id}-output`}>{c.previous}</button><button type="button" data-a41-next aria-controls={`${id}-output`}>{c.stepAction[0]}</button></div></>}
+ {preset==='tests'&&<><p>{c.testQuestion}</p><label>{c.chooseTest}<select data-a41-test aria-controls={`${id}-output`}><option value="">{c.choose}</option>{tests.map(test=><option value={test}>{c.observations[test]}</option>)}</select></label><button type="button" data-a41-compare disabled aria-controls={`${id}-output`}>{c.compare}</button></>}
+ {preset==='plant'&&<><fieldset><legend>{c.practiceQuestion}</legend>{plantChoices.map((value,i)=><label class="a41-radio"><input type="radio" name={`${id}-plant`} value={value} data-a41-plant aria-controls={`${id}-output`}/><span>{c.plantOptions[i]}</span></label>)}</fieldset><button type="button" data-a41-reveal disabled aria-expanded="false" aria-controls={`${id}-output`}>{c.reveal}</button></>}
+ <div id={`${id}-output`} data-a41-output set:html={preset==='investigation'?investigationMarkup(locale,s.stage):preset==='tests'?testsMarkup(locale,s.test,s.testRevealed):plantMarkup(locale,s.plant,s.plantRevealed)}/>
+ <div class="a41-controls"><button type="button" data-a41-reset aria-controls={`${id}-output`}>{preset==='investigation'?c.reset:c.resetOther}</button></div>
+ <p class="a41-status" data-a41-status role="status" aria-live="polite"></p>
+</figure>
+<script>import './controller';</script>

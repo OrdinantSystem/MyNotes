@@ -1,0 +1,44 @@
+---
+import MathText from '../../components/MathText.astro';
+import {copy} from './copy';
+import {evidence} from './model';
+import {evidenceMarkup,proofMarkup} from './render';
+import '../../styles/counterexamples.css';
+import './workshop.css';
+interface Props{preset:string;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale==='de'?'de':'en',c=copy(locale);
+if(!['evidence','proof','sixteen','record'].includes(preset))throw new Error('Unknown workshop activity');
+const title={evidence:c.board,proof:c.proofTitle,sixteen:c.sixteen,record:c.record}[preset];
+---
+<figure class="counter-lab aor32" id={id} data-aor32-lab={preset} data-locale={locale}>
+<h3>{title}</h3>
+{preset==='evidence'&&<><p class="counter-help">{c.select}</p><div class="aor32-board">{Array.from({length:20},(_,i)=>{const n=i+1,s=evidence(n);return <button type="button" data-number={n} aria-pressed={n===15?'true':'false'} aria-controls={`${id}-output`} class={s==='found'?'aor32-established':s==='excluded'?'aor32-excluded':'aor32-question'}><strong>{n}</strong><span>{s==='found'?c.boardFound:s==='excluded'?c.boardExcluded:c.boardUnknown}</span></button>})}</div><div class="aor32-card" id={`${id}-output`} data-output set:html={evidenceMarkup(locale,15)}/></>}
+{preset==='proof'&&<><label>{c.k} <input data-k type="number" min="1" max="10" step="1" value="5" aria-controls={`${id}-output`}/></label><div data-output id={`${id}-output`} set:html={proofMarkup(locale,5,0)}/><div class="counter-controls"><button type="button" data-back disabled aria-controls={`${id}-output`}>{c.back}</button><button type="button" data-next aria-controls={`${id}-output`}>{c.next}</button></div><figcaption>{c.proofCaption}</figcaption></>}
+{preset==='sixteen'&&<><p><span>{c.checked}: </span><output data-count>0/4</output></p><p class="counter-help">{c.checkHelp}</p>{c.caseLabels.map((label,i)=><label class="aor32-check"><input type="checkbox" data-case={i}/>{label}</label>)}<details><summary>{c.hint}</summary><p><MathText text={c.hintText}/></p></details><details><summary>{c.solution}</summary><ol>{c.sixteenCases.map(line=><li><MathText text={line}/></li>)}</ol></details></>}
+{preset==='record'&&<><p class="counter-help">{c.recordHelp}</p>{c.recordLabels.map((label,i)=><label class="aor32-record-label" for={`${id}-entry-${i}`}>{i+1}. {label}<textarea id={`${id}-entry-${i}`} data-entry={i} placeholder={c.placeholders[i]} maxlength="12000"/></label>)}<div class="counter-controls"><button type="button" data-copy>{c.copy}</button></div></>}
+<div class="counter-controls"><button type="button" data-reset>{c.reset}</button></div><p class="counter-help" role="status" aria-live="polite" data-status></p>
+</figure>
+<script>
+import {copy} from './copy';
+import {readK,step} from './model';
+import {evidenceMarkup,proofMarkup} from './render';
+for(const root of document.querySelectorAll<HTMLElement>('[data-aor32-lab]')){
+ const locale=root.dataset.locale==='de'?'de':'en',preset=root.dataset.aor32Lab,c=copy(locale);
+ let k=5,stage=0;
+ const status=root.querySelector<HTMLElement>('[data-status]')!,output=root.querySelector<HTMLElement>('[data-output]'),input=root.querySelector<HTMLInputElement>('[data-k]');
+ function drawProof(){output!.innerHTML=proofMarkup(locale,k,stage);input!.value=String(k);root.querySelector<HTMLButtonElement>('[data-back]')!.disabled=stage===0;root.querySelector<HTMLButtonElement>('[data-next]')!.disabled=stage===3;}
+ root.querySelectorAll<HTMLButtonElement>('[data-number]').forEach(button=>button.addEventListener('click',()=>{root.querySelectorAll('[data-number]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));const n=Number(button.dataset.number);output!.innerHTML=evidenceMarkup(locale,n);status.textContent=`${n}: ${output!.querySelector('h4')!.textContent}`;}));
+ input?.addEventListener('input',()=>{const n=readK(input.value);if(n===null){status.textContent=c.invalid;return;}k=n;drawProof();status.textContent=`${2*k+1} = ${k} + ${k+1}. ${c.stages[stage]}`;});
+ input?.addEventListener('change',()=>{const n=readK(input.value);if(n===null){input.value=String(k);status.textContent=c.invalid;return;}k=n;drawProof();status.textContent=`${2*k+1} = ${k} + ${k+1}. ${c.stages[stage]}`;});
+ for(const [selector,direction] of [['[data-back]',-1],['[data-next]',1]] as const)root.querySelector(selector)?.addEventListener('click',()=>{stage=step(stage,direction);drawProof();status.textContent=c.stages[stage];});
+ root.querySelectorAll<HTMLInputElement>('[data-case]').forEach(box=>box.addEventListener('change',()=>{const n=root.querySelectorAll('[data-case]:checked').length;root.querySelector('[data-count]')!.textContent=`${n}/4`;status.textContent=`${c.checked}: ${n}/4. ${c.checkHelp}`;}));
+ root.querySelector('[data-copy]')?.addEventListener('click',async()=>{const fields=[...root.querySelectorAll<HTMLTextAreaElement>('[data-entry]')];const value=`${c.record}\n\n${fields.map((f,i)=>`${i+1}. ${c.recordLabels[i]}\n${f.value}`).join('\n\n')}`;try{await navigator.clipboard.writeText(value);status.textContent=c.copied;}catch{status.textContent=c.copyFailed;}});
+ root.querySelector('[data-reset]')!.addEventListener('click',()=>{
+  if(preset==='proof'){k=5;stage=0;drawProof();}
+  if(preset==='evidence'){root.querySelectorAll<HTMLElement>('[data-number]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.number==='15')));output!.innerHTML=evidenceMarkup(locale,15);}
+  root.querySelectorAll<HTMLInputElement>('[data-case]').forEach(b=>b.checked=false);
+  const count=root.querySelector('[data-count]');if(count)count.textContent='0/4';
+  root.querySelectorAll('details').forEach(d=>d.open=false);root.querySelectorAll<HTMLTextAreaElement>('[data-entry]').forEach(f=>f.value='');status.textContent=c.reset;
+ });
+}
+</script>

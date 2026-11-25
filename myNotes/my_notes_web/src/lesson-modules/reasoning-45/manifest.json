@@ -1,0 +1,7 @@
+{
+ "id":"reasoning-45","course":"reasoning","chapter":"reasoning-part-six",
+ "chapterDefinition":{"id":"reasoning-part-six","course":"reasoning","title":{"en":"Part Six","de":"Teil Sechs"},"description":{"en":"Investigation, explanation, and scientific reasoning.","de":"Untersuchung, Erklärung und wissenschaftliches Denken."}},
+ "order":45,"key":"simpsons-paradox","title":"How can a trend reverse when you combine the data?","sourceId":"reasoning-episode-45","sourceTitle":"How can a trend reverse when you combine the data?",
+ "figures":["comparison","people","balance","observations","composition","intervals","standardization","proof","confounder","mediator","compression"],
+ "presets":["opening","averages","weights","causal","challenge","compression"]
+}

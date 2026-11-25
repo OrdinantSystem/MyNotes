@@ -1,0 +1,112 @@
+{
+  "date": "2026-11-25",
+  "layouts": [
+    {
+      "clippedControls": 0,
+      "figures": 17,
+      "katexErrors": 0,
+      "labs": 4,
+      "lang": "en",
+      "overflow": [],
+      "scroll": 379,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "clippedControls": 0,
+      "figures": 17,
+      "katexErrors": 0,
+      "labs": 4,
+      "lang": "en",
+      "overflow": [],
+      "scroll": 379,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "clippedControls": 0,
+      "figures": 17,
+      "katexErrors": 0,
+      "labs": 4,
+      "lang": "en",
+      "overflow": [],
+      "scroll": 1429,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "clippedControls": 0,
+      "figures": 17,
+      "katexErrors": 0,
+      "labs": 4,
+      "lang": "en",
+      "overflow": [],
+      "scroll": 1429,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "clippedControls": 0,
+      "figures": 17,
+      "katexErrors": 0,
+      "labs": 4,
+      "lang": "de",
+      "overflow": [],
+      "scroll": 379,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "clippedControls": 0,
+      "figures": 17,
+      "katexErrors": 0,
+      "labs": 4,
+      "lang": "de",
+      "overflow": [],
+      "scroll": 379,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "clippedControls": 0,
+      "figures": 17,
+      "katexErrors": 0,
+      "labs": 4,
+      "lang": "de",
+      "overflow": [],
+      "scroll": 1429,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "clippedControls": 0,
+      "figures": 17,
+      "katexErrors": 0,
+      "labs": 4,
+      "lang": "de",
+      "overflow": [],
+      "scroll": 1429,
+      "theme": "light",
+      "width": 1440
+    }
+  ],
+  "activityChecks": [
+    "keyboard Enter/Space sampling, reveal and reset",
+    "size clears history; 12 draws disables further draw",
+    "range Home/End and native number entry/blur",
+    "0/0 undefined proportion; invalid 101 restores previous value",
+    "all four probability models and complements",
+    "design changes clear evaluation; mathematics subgroup unknown",
+    "German localized feedback, counts and decimal percentages",
+    "five gallery instances and independent sampling state; no duplicate IDs; native controls >=44px"
+  ],
+  "navigation": [
+    "EN/DE Pagefind result and activation",
+    "localized language switch",
+    "course overview and native thumbnail",
+    "prefix EN/DE routes, scripts, result hrefs and activation",
+    "shared root EN/DE lesson and language switch"
+  ],
+  "console": [],
+  "finalUrl": "http://127.0.0.1:4321/reasoning/lessons/sampling-and-selection/"
+}

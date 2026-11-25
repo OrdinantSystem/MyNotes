@@ -1,0 +1,106 @@
+{
+  "date": "2026-11-25",
+  "desktop": {
+    "width": 1440,
+    "height": 1000
+  },
+  "compact": {
+    "width": 390,
+    "height": 844
+  },
+  "checks": [
+    {
+      "test": "English opening reveal/reset; equal workload",
+      "lead": "A leads overall by 10 percentage points. A still has a higher rate in both difficulty categories."
+    },
+    {
+      "test": "English keyboard, pointer slider, numeric bounds, person mean, causal toggle, quiz feedback, compression conservation",
+      "passed": true,
+      "compression": {
+        "difficultyLabels": 0,
+        "observations": 220,
+        "successes": 121
+      }
+    },
+    {
+      "mathErrors": 0,
+      "overflow": false,
+      "test": "English desktop light",
+      "theme": "light"
+    },
+    {
+      "test": "English desktop dark initial",
+      "theme": "dark",
+      "lang": "en",
+      "overflow": false,
+      "mathErrors": 0,
+      "figures": 11,
+      "activities": 6
+    },
+    {
+      "lang": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "test": "English compact light",
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "overflow": false,
+      "test": "English compact dark",
+      "theme": "dark"
+    },
+    {
+      "lang": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "test": "German compact dark",
+      "theme": "dark"
+    },
+    {
+      "mathErrors": 0,
+      "overflow": false,
+      "test": "German compact light",
+      "theme": "light"
+    },
+    {
+      "mathErrors": 0,
+      "overflow": false,
+      "test": "German desktop light",
+      "theme": "light"
+    },
+    {
+      "mathErrors": 0,
+      "overflow": false,
+      "test": "German desktop dark",
+      "theme": "dark"
+    },
+    {
+      "test": "Gallery all11 figures, six presets and independent duplicate opening",
+      "firstRevealed": true,
+      "secondRevealed": false
+    },
+    {
+      "test": "English Pagefind query Simpson and result navigation",
+      "url": "http://127.0.0.1:4445/reasoning/lessons/simpsons-paradox/",
+      "title": "How can a trend reverse when you combine the data? · myNotes"
+    },
+    {
+      "test": "Prefixed EN/DE routes, localized home/language links, umlaut Pagefind result navigation and activity",
+      "prefix": "/MyNotes",
+      "title": "Wie kann sich ein Trend beim Zusammenfassen der Daten umkehren? · myNotes",
+      "lead": "A führt insgesamt mit 10 Prozentpunkten. A hat weiterhin in beiden Schwierigkeitskategorien die höhere Rate."
+    },
+    {
+      "test": "German normal Pagefind Simpson result navigation",
+      "url": "http://127.0.0.1:4445/de/reasoning/lessons/simpsons-paradox/",
+      "title": "Wie kann sich ein Trend beim Zusammenfassen der Daten umkehren? · myNotes",
+      "note": "Search controls initialized after reload; no console errors."
+    },
+    {
+      "test": "Final EN local preview",
+      "url": "http://127.0.0.1:4445/reasoning/lessons/simpsons-paradox/",
+      "theme": "dark"
+    }
+  ]
+}

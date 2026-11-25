@@ -1,0 +1,35 @@
+---
+import {strongPresets,divisors,treeChoices,initialStrongState,type StrongPreset} from '../../lib/interactive/strong-model';
+import {scopeMarkup,treeMarkup,leastMarkup} from '../../lib/interactive/strong-render';
+import {strongText} from '../../lib/reasoning/strong-copy';
+import '../../styles/counterexamples.css';import '../../styles/discovery.css';import '../../styles/strong.css';
+interface Props{preset:StrongPreset;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=strongText(locale),s=initialStrongState();
+if(!(strongPresets as readonly string[]).includes(preset))throw new Error('Unknown strong-induction preset');
+---
+<figure class="counter-lab strong-lab" id={id} data-strong-lab={preset} data-locale={locale}>
+ <h3>{c.titles[preset]}</h3>
+ {preset==='scope'?<><div class="counter-controls"><label>{c.n}<input data-strong-n type="number" min="2" max="100" step="1" value={s.n} aria-controls={`${id}-output`}/></label><label>{c.a}<select data-strong-a aria-controls={`${id}-output`}>{divisors(s.n).map(a=><option value={a} selected={a===s.a}>{a} × {s.n/a}</option>)}</select></label></div><div id={`${id}-output`} data-strong-output set:html={scopeMarkup(locale,s.n,s.a,s.applied)}/><button type="button" data-strong-apply aria-controls={`${id}-output`}>{c.apply}</button></>:preset==='tree'?<><label>{c.treeChoice}<select data-strong-tree aria-controls={`${id}-output`}>{treeChoices.map((choice,i)=><option value={choice}>{c.trees[i]}</option>)}</select></label><div id={`${id}-output`} data-strong-output set:html={treeMarkup(locale,s.tree,s.step)}/><div class="counter-controls"><button type="button" data-strong-back disabled aria-controls={`${id}-output`}>{c.back}</button><button type="button" data-strong-next aria-controls={`${id}-output`}>{c.next}</button></div></>:<><div id={`${id}-output`} data-strong-output set:html={leastMarkup(locale,s.least)}/><div class="counter-controls"><button type="button" data-strong-back disabled aria-controls={`${id}-output`}>{c.previousReason}</button><button type="button" data-strong-next aria-controls={`${id}-output`}>{c.nextReason}</button></div></>}
+ <div class="counter-controls"><button type="button" data-strong-reset>{c.reset}</button></div><p class="strong-status" role="status" aria-live="polite" data-strong-status></p>
+</figure>
+<script>
+import type {Locale} from '../../lib/i18n';
+import {initialStrongState,strongInput,divisors,treeState,treeAdvance,leastAdvance,type TreeChoice} from '../../lib/interactive/strong-model';
+import {scopeMarkup,treeMarkup,leastMarkup} from '../../lib/interactive/strong-render';
+import {strongText} from '../../lib/reasoning/strong-copy';
+for(const root of document.querySelectorAll<HTMLElement>('[data-strong-lab]')){
+ const locale=root.dataset.locale as Locale,preset=root.dataset.strongLab,c=strongText(locale);let s=initialStrongState();
+ const output=root.querySelector<HTMLElement>('[data-strong-output]')!,status=root.querySelector<HTMLElement>('[data-strong-status]')!,n=root.querySelector<HTMLInputElement>('[data-strong-n]'),a=root.querySelector<HTMLSelectElement>('[data-strong-a]'),tree=root.querySelector<HTMLSelectElement>('[data-strong-tree]');
+ function draw(rebuild=false){
+  if(preset==='scope'){n!.value=String(s.n);if(rebuild){const values=divisors(s.n);a!.replaceChildren(...(values.length?values.map(v=>new Option(`${v} × ${s.n/v}`,String(v))):[new Option(c.none,'')]));}a!.value=s.a===null?'':String(s.a);a!.disabled=s.a===null;root.querySelector<HTMLButtonElement>('[data-strong-apply]')!.disabled=s.a===null||s.applied;output.innerHTML=scopeMarkup(locale,s.n,s.a,s.applied);}
+  if(preset==='tree'){tree!.value=s.tree;const t=treeState(s.tree,s.step);output.innerHTML=treeMarkup(locale,s.tree,s.step);root.querySelector<HTMLButtonElement>('[data-strong-back]')!.disabled=s.step===0;root.querySelector<HTMLButtonElement>('[data-strong-next]')!.disabled=s.step===t.max;}
+  if(preset==='least'){output.innerHTML=leastMarkup(locale,s.least);root.querySelector<HTMLButtonElement>('[data-strong-back]')!.disabled=s.least===0;root.querySelector<HTMLButtonElement>('[data-strong-next]')!.disabled=s.least===4;}
+ }
+ n?.addEventListener('change',()=>{const value=strongInput(n.value);if(value===null){draw();status.textContent=c.invalid;return;}s.n=value;s.a=divisors(value)[0]??null;s.applied=false;draw(true);status.textContent=`${c.n}: ${s.n}. ${s.a===null?c.primeCase:c.bound}`;});
+ a?.addEventListener('change',()=>{s.a=Number(a.value);s.applied=false;draw();status.textContent=c.notAssumed;});
+ root.querySelector('[data-strong-apply]')?.addEventListener('click',()=>{s.applied=true;draw();status.textContent=c.applied;});
+ tree?.addEventListener('change',()=>{s.tree=tree.value as TreeChoice;s.step=0;draw();status.textContent=c.incomplete;});
+ for(const direction of ['back','next'] as const)root.querySelector(`[data-strong-${direction}]`)?.addEventListener('click',()=>{if(preset==='tree'){s.step=treeAdvance(s.tree,s.step,direction);draw();const t=treeState(s.tree,s.step);status.textContent=`${c.level} ${s.step} ${c.of} ${t.max}. ${c.product}: ${t.product}. ${t.complete?c.complete:c.incomplete}`;}else{s.least=leastAdvance(s.least,direction);draw();status.textContent=c.leastStages[s.least];}});
+ root.querySelector('[data-strong-reset]')!.addEventListener('click',()=>{s=initialStrongState();draw(true);status.textContent=c.reset;});
+}
+</script>

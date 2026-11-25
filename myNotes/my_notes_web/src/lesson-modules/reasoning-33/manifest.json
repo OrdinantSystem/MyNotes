@@ -1,0 +1,18 @@
+{
+  "id": "reasoning-33",
+  "course": "reasoning",
+  "chapter": "reasoning-part-five",
+  "chapterDefinition": {
+    "id": "reasoning-part-five",
+    "course": "reasoning",
+    "title": {"en": "Part Five", "de": "Teil Fünf"},
+    "description": {"en": "Observation, evidence, and cognitive reasoning.", "de": "Beobachtung, Evidenz und kognitives Schlussfolgern."}
+  },
+  "order": 33,
+  "key": "observation-and-inference",
+  "title": "Did you observe it—or infer it?",
+  "sourceId": "reasoning-episode-33",
+  "sourceTitle": "Did you observe it—or infer it?",
+  "presets": ["experiment", "attention", "inspection", "claims"],
+  "figures": ["pipeline", "event", "viewers", "machine", "interpretations", "worlds", "search", "methods", "boundaries"]
+}

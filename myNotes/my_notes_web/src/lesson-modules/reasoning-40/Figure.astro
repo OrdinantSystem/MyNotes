@@ -1,0 +1,8 @@
+---
+import './styles.css';
+import {text} from './copy';
+import {figureMarkup} from './render';
+interface Props {figure:string}
+const {figure}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale);
+---
+<figure class="p40-figure" data-p40-figure={figure}><h3>{c.titles[figure as keyof typeof c.titles]}</h3><div set:html={figureMarkup(locale,figure)}/></figure>

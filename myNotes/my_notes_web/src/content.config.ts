@@ -3,6 +3,7 @@ import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 import {chapters,chapterFor,courses,type CourseId} from './lib/navigation';
 import {sourceCatalog,type SourceId} from './lib/sources';
+import {lessonModules,moduleThumbnail} from './lib/lesson-modules.mjs';
 import {locales} from './lib/i18n';
 
 const sourceIds=Object.keys(sourceCatalog) as [SourceId,...SourceId[]];
@@ -10,13 +11,13 @@ const chapterIds=chapters.map(c=>c.id) as [string,...string[]];
 const courseIds=courses.map(c=>c.id) as [CourseId,...CourseId[]];
 const reference=z.object({sourceId:z.enum(sourceIds),pages:z.array(z.number().int().positive()).default([]),locations:z.array(z.string().trim().min(1)).default([])});
 const lessons = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/lessons' }),
+  loader: glob({ pattern: ['content/lessons/**/*.{md,mdx}',...lessonModules.map(m=>`lesson-modules/${m.id}/content/**/*.{md,mdx}`)], base:'./src',generateId:({entry})=>entry.startsWith('content/lessons/')?entry.slice('content/lessons/'.length).replace(/\.mdx?$/,''):entry.split('/content/')[1].replace(/\.mdx?$/,'') }),
   schema: z.object({
     course:z.enum(courseIds),
     chapter: z.enum(chapterIds),
     sourceId: z.enum(sourceIds),
     additionalSources:z.array(reference).default([]),
-    thumbnail: z.enum(['reasoning-lemma','reasoning-reframe','reasoning-triangle','reasoning-transfer','reasoning-audit','reasoning-induction','reasoning-uniqueness','reasoning-contradiction','reasoning-contraposition','reasoning-cases','reasoning-discovery','reasoning-justification','reasoning-equivalence','reasoning-worlds','reasoning-quantifiers','reasoning-switches','reasoning-conditional','reasoning-language','reasoning-arguments','reasoning-inquiry','reasoning-counterexample','reasoning-patterns','reasoning-proof','reasoning-equality','reasoning-algebra','reasoning','shear-inverse','area','diagonal','signs','words','equivalence','negative-identity','inverse-product','sheet-recap','logic','quantifiers','number-sets','implication','parity','proof','irrational','boolean-laws','identity-laws','complement','de-morgan','nand','learning-cycle','bloom','concept-map','explanation','practice','retrieval','workflow','hints','feedback','evidence','tutor','records','experiment','transcript']).optional(),
+    thumbnail: z.enum(['reasoning-strong','reasoning-lemma','reasoning-reframe','reasoning-triangle','reasoning-transfer','reasoning-audit','reasoning-induction','reasoning-uniqueness','reasoning-contradiction','reasoning-contraposition','reasoning-cases','reasoning-discovery','reasoning-justification','reasoning-equivalence','reasoning-worlds','reasoning-quantifiers','reasoning-switches','reasoning-conditional','reasoning-language','reasoning-arguments','reasoning-inquiry','reasoning-counterexample','reasoning-patterns','reasoning-proof','reasoning-equality','reasoning-algebra','reasoning','shear-inverse','area','diagonal','signs','words','equivalence','negative-identity','inverse-product','sheet-recap','logic','quantifiers','number-sets','implication','parity','proof','irrational','boolean-laws','identity-laws','complement','de-morgan','nand','learning-cycle','bloom','concept-map','explanation','practice','retrieval','workflow','hints','feedback','evidence','tutor','records','experiment','transcript',...lessonModules.map(m=>moduleThumbnail(m.id))]).optional(),
     locale: z.enum(locales).default('en'),
     title: z.string(),
     description: z.string(),

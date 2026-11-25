@@ -1,0 +1,228 @@
+---
+course: reasoning
+chapter: reasoning-part-six
+sourceId: reasoning-episode-46
+sourceLocations: ["Sections 1–12", "Preparation sources"]
+sourcePages: []
+thumbnail: module:reasoning-46
+locale: de
+title: Was wäre sonst geschehen?
+navTitle: Kontrafaktisches Denken und Kausalität
+description: Beobachtete Ergebnisse mit fehlenden Alternativen vergleichen, Kausalannahmen prüfen und John Snows Evidenz untersuchen.
+order: 46
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+---
+
+## 1. Das Ergebnis, das du nicht sehen kannst
+
+Eine Studentin bereitet sich gewöhnlich durch erneutes Lesen ihrer Notizen vor. Für die nächste Prüfung wechselt sie zum aktiven Abrufen und erzielt 85 Punkte. Hat die neue Methode ihre Leistung verbessert?
+
+Das Ergebnis allein beantwortet die Kausalfrage nicht. Wir müssten wissen, **wie dieselbe Studentin in derselben Prüfung abgeschnitten hätte, wenn sie weiterhin ihre Notizen gelesen hätte**.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="opening" />
+
+Die alternative Punktzahl bleibt unbekannt. Verschiedene hypothetische Werte bedeuten verschiedene Effekte, ohne die beobachtete Punktzahl zu verändern:
+
+| Beobachtete Punktzahl | Hypothetische Alternative | Implizierter Effekt des aktiven Abrufens |
+| --- | --- | --- |
+| 85 | 65 | $85-65=+20$ Punkte |
+| 85 | 85 | $85-85=0$ Punkte |
+| 85 | 95 | $85-95=-10$ Punkte |
+
+Alle drei Szenarien sind mit den beobachteten 85 Punkten vereinbar. Ein scheinbar erfolgreiches Ergebnis kann mit einer hilfreichen, wirkungslosen oder sogar schädlichen Intervention einhergehen. **Das Ergebnis ist nicht der Effekt.**
+
+Die Überlegung führt von der Beobachtung über ein kontrafaktisches Ergebnis zu einer kausalen Differenz, einem Vergleich und dessen rechtfertigenden Annahmen. Dies ist das grundlegende Problem hinter Versuchsplanung und der Interpretation von Gruppenunterschieden.
+
+## 2. Was bedeutet kontrafaktisch?
+
+Ein **kontrafaktisches Ergebnis** beschreibt, was unter einer bestimmten Alternative zur tatsächlich eingetretenen Bedingung geschehen wäre. Ein Glas fällt herunter und zerbricht: Wäre es auch zerbrochen, wenn es auf dem Tisch geblieben wäre? Eine Person nimmt ein Medikament und wird gesund: Wäre sie auch ohne das Medikament gesund geworden? Das Ergebnis allein lässt diese Frage offen.
+
+Wir müssen die veränderte Bedingung, das interessierende Ergebnis und die relevante Kausalstruktur benennen. Beide Varianten teilen eine Vergangenheit; die veränderte Bedingung kann anschließend ihre Folgen verändern. Wir erfinden keine beliebige Welt, in der sich unzusammenhängende Tatsachen nach Bedarf ändern.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="branches" />
+
+| Vorhersage | Kausale kontrafaktische Frage |
+| --- | --- |
+| Wird die Studentin morgen bestehen? | Hätte sie mit einer anderen Methode bestanden? |
+| Was geschieht als Nächstes? | Was würde unter einer bestimmten Alternative geschehen? |
+| Kann auf Zusammenhängen beruhen | Benötigt Annahmen über Ursachen |
+
+Regenschirme sagen Regen vorher. Wenn wir alle Menschen zum Tragen eines Schirms bringen, erzeugen wir dadurch keinen Regen. Gute Vorhersagen allein rechtfertigen daher keine Aussagen über Interventionen.
+
+## 3. Das fehlende Ergebnis mathematisch ausdrücken
+
+Für Studentin $i$ definieren wir zwei **potenzielle Ergebnisse** für dieselbe Zielprüfung:
+
+$$
+Y_i(1)=\text{Punktzahl mit aktivem Abrufen},\qquad
+Y_i(0)=\text{Punktzahl mit erneutem Lesen}.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="notation" />
+
+$Y$ steht für das Ergebnis, $i$ bezeichnet die Studentin und der Klammerwert die Lernbedingung. Die Bezeichnungen $1$ und $0$ bedeuten weder Erfolg und Misserfolg noch vorher und nachher.
+
+Der individuelle kausale Effekt ist die Differenz der beiden potenziellen Ergebnisse:
+
+$$
+\tau_i=Y_i(1)-Y_i(0)=85-?.
+$$
+
+Der Ausdruck ist wohldefiniert, doch ein Wert fehlt. Für dieselbe Person und denselben Zielanlass beobachten wir im Allgemeinen nur das potenzielle Ergebnis unter der tatsächlich erhaltenen Bedingung. Dies ist das **fundamentale Problem der Kausalinferenz**.
+
+Verändere unten die angenommene Alternative. Probiere 65, 85 und 95. Erkläre anschließend, warum sich das Vorzeichen ändert, obwohl die Evidenz gleich bleibt.
+
+<Interactive kind="module" module="reasoning-46" preset="potential-outcomes" id="counterfactual-score" />
+
+Diese Aktivität schätzt den tatsächlichen Effekt für die Studentin nicht. Sie zeigt, dass mehrere kausale Erklärungen mit einer Beobachtung vereinbar bleiben.
+
+## 4. Warum vorher und nachher nicht genügt
+
+Angenommen, ihre vorherige Prüfungspunktzahl war 60. Nun erzielt sie 85 Punkte. Die beobachtete Verbesserung beträgt $85-60=25$ Punkte. Alle 25 Punkte der Methode zuzuschreiben, erfordert weitere Evidenz.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="before-after" />
+
+Die Prüfungen fanden zu unterschiedlichen Zeiten statt. Die zweite könnte leichter gewesen sein; die Studentin könnte Wissen angesammelt oder länger gelernt haben. Der relevante Vergleich lautet:
+
+$$
+\text{Nachher mit aktivem Abrufen}-\text{Nachher mit erneutem Lesen},
+$$
+
+statt lediglich „nachher minus vorher“. Beide potenziellen Ergebnisse müssen sich auf **denselben Zielzeitraum** beziehen.
+
+Die nächste Aktivität ergänzt illustrative Annahmen über den fehlenden Verlauf. Natürlicher Zuwachs führt ohne Methodenwechsel zu 80 Punkten, stabile Leistung zu 60 und ein Rückgang zu 40. Das sind mögliche Szenarien, keine Schätzungen.
+
+<Interactive kind="module" module="reasoning-46" preset="timeline" id="counterfactual-timeline" />
+
+Eine Lage kann sich verbessern, obwohl eine Intervention nichts beiträgt: Die Alternative hätte sich ebenso verbessert. Eine Lage kann sich trotz hilfreicher Intervention verschlechtern, wenn die Alternative noch schlechter gewesen wäre. Diese Unterscheidung betrifft Bildungsprogramme, politische Maßnahmen und Geschäftsentscheidungen ebenso wie individuelle Entscheidungen.
+
+## 5. Wie Experimente die fehlende Realität annähern
+
+Wir können nicht beide Ergebnisse für dieselbe Studentin in derselben Prüfung beobachten. Wir können aber Gruppen vergleichen. Stelle dir vor, 200 Studierende würden zufällig den beiden Methoden zugewiesen, jeweils 100 pro Gruppe. Die folgenden Ergebnisse sind illustrativ.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="randomization" />
+
+Zufallszuweisung macht Gruppen **im Erwartungswert** vergleichbar. Sie garantiert nicht in jedem Experiment eine perfekte Balance von Wissen, Motivation und Gewohnheiten. Eine geeignete Vergleichsgruppe liefert Informationen darüber, was im Durchschnitt unter der Alternative geschehen wäre.
+
+Ein individueller Effekt betrifft eine bestimmte Person. Der **durchschnittliche Behandlungseffekt** fragt nach einem Populationsmittel:
+
+$$
+\tau_i=Y_i(1)-Y_i(0),\qquad
+\operatorname{ATE}=\mathbb{E}[Y(1)-Y(0)].
+$$
+
+$\mathbb{E}$ bezeichnet den Erwartungswert, also ein Populationsmittel. Bei einem geeigneten randomisierten Design schätzt die Differenz der beobachteten Gruppenmittelwerte einen durchschnittlichen kausalen Effekt. Die Interpretation hängt weiterhin von Zielpopulation, Umsetzung und Annahmen ab; Zufallsschwankungen erzeugen Unsicherheit.
+
+Ein geschätzter mittlerer Vorteil von acht Punkten bedeutet nicht, dass jede Person acht Punkte gewinnt. Individuelle Effekte können unterschiedlich sein, auch null oder negativ. Das Experiment enthüllt auch nicht jedes fehlende individuelle Ergebnis. Zufallszuweisung ist wertvoll, weil sie den Vergleich zur Schätzung eines **durchschnittlichen** Effekts ermöglicht.
+
+## 6. John Snow: vom Wohnort zur Exposition
+
+1854 untersuchte John Snow in London, ob verunreinigtes Wasser Cholera übertrug. Damit widersprach er einflussreichen Erklärungen durch schlechte Luft. Betrachte zuerst das Muster auf seiner Karte und prüfe dann, was es belegt.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="map" />
+
+Die Häufung von Todesfällen nahe der Broad-Street-Pumpe stützt eine Hypothese. Allein schließt sie Bevölkerungsdichte, Hygiene oder andere Expositionen nicht aus.
+
+Die Nähe zu einer Pumpe ist ein unvollkommener Stellvertreter für den Konsum ihres Wassers. Wechsle in dieser schematischen Darstellung von der Lage zum Konsum.
+
+<Interactive kind="module" module="reasoning-46" preset="exposure" id="counterfactual-exposure" />
+
+Snow untersuchte die Wassernutzung einschließlich aufschlussreicher Ausnahmen. Eine nahe Brauerei nutzte einen eigenen Brunnen und New-River-Wasser; die Beschäftigten erhielten auch Bier. Snow berichtete unter ihren über 70 Beschäftigten von keinem schweren Cholerafall; zwei waren leicht erkrankt gewesen.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="brewery" />
+
+Eine ähnliche Lage bei anderem Wasserkonsum schafft einen hilfreichen Vergleich. Beschäftigte konnten sich aber auch in anderen Merkmalen von Anwohnern unterscheiden. Dies ist stützende Beobachtungsevidenz, kein randomisiertes Experiment. Mehrere unvollkommene Beobachtungen können gemeinsam ein Argument stärken. [Snows Bericht zur Broad-Street-Untersuchung](https://epi-snow.ph.ucla.edu/Stream2_BSPoutbreak_a.html).
+
+## 7. Beendete das Entfernen des Griffs den Ausbruch?
+
+Die bekannte Geschichte endet mit dem entfernten Pumpengriff und dem Rückgang des Ausbruchs. Doch die Zahl neuer Erkrankungen war bereits deutlich gesunken, bevor der Griff am 8. September 1854 entfernt wurde.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="outbreak" />
+
+Die Grafik zählt den Beginn erfasster **tödlicher Erkrankungen**, nicht alle Erkrankungen oder die Todesfälle des jeweiligen Tages. Sie verwendet die ausgewählten Tage aus Snows Text. Die Tage 4–7 fehlen **in dieser Darstellung**, nicht in seiner Tabelle. Snow rekonstruierte viele Erkrankungsdaten aus Krankheitsdauer und Sterberegistern; die Zeitpunkte sind nicht durchweg exakt beobachtet.
+
+Die Kausalfrage lautet, ob der Ausbruch schlimmer verlaufen wäre, **wenn die Pumpe zugänglich geblieben wäre**. Diesen Verlauf können wir nicht beobachten.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="histories" />
+
+Den Zugang zu einer vermuteten Quelle zu schließen, war eine vernünftige Vorsichtsmaßnahme. Ihre genaue Wirkung ist eine andere Frage als die Übertragung von Cholera durch verunreinigtes Wasser. Snow räumte Unsicherheit darüber ein, ob das Wasser beim Entfernen des Griffs noch infektiös war. **Handeln kann gerechtfertigt sein, obwohl sein genauer Effekt ungewiss bleibt.** [Snows Chronologie und Einschränkung, Tabelle I mit Begleittext](https://epi-snow.ph.ucla.edu/Stream2_BSPoutbreak_a.html).
+
+## 8. Ein stärkerer Vergleich: die Wasserversorger
+
+Snow untersuchte außerdem überlappende Gebiete im Süden Londons, die zwei Unternehmen versorgten. Lambeth verlegte seine Entnahme 1852 flussaufwärts. Southwark & Vauxhall entnahm Wasser aus einem stärker mit Abwasser belasteten Teil der Themse. Benachbarte Haushalte konnten somit Wasser aus unterschiedlichen Quellen erhalten.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="suppliers" />
+
+Dieses natürliche Experiment verringerte geografische Unterschiede zwischen Vergleichsgruppen. Die Versorgung wurde nicht zufällig zugewiesen; andere Unterschiede konnten bestehen bleiben.
+
+Für die ersten sieben Wochen der Epidemie von 1854 berichtet Snows Tabelle IX:
+
+| Versorgung | Häuser | Choleratodesfälle | Berichtete Todesfälle je 10.000 Häuser |
+| --- | ---: | ---: | ---: |
+| Southwark & Vauxhall | 40.046 | 1.263 | 315 |
+| Lambeth | 26.107 | 98 | 37 |
+| Übriges London | 256.423 | 1.422 | 59 |
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="mortality" />
+
+Die gedruckten Unternehmensraten ergeben $315/37\approx8{,}5$. Es geht um **Todesfälle je Haus**, nicht um individuelle Risiken. Einige Versorgerzuordnungen in Snows umfassenderer Untersuchung wurden geschätzt. [Snows Wasserversorgungsuntersuchung, Tabellen VIII–IX](https://epi-snow.ph.ucla.edu/Stream3_GrandExperiment_a.html).
+
+<Note title="Die historische Rechnung prüfen">
+Die Tabelle ist wie gedruckt wiedergegeben. Die Neuberechnung $\text{Todesfälle}/\text{Häuser}\times10{.}000$ ergibt ungefähr 315,39, 37,54 und 55,45. Der letzte Wert reproduziert die gedruckte 59 nicht; die gedruckten Raten sind nicht durchweg gerundete Werte der angegebenen Anzahlen. Aus den Anzahlen der beiden Unternehmen folgt ein Verhältnis von etwa 8,40 statt 8,51. Beide Rechnungen zeigen einen großen erfassten Unterschied; keine belegt sämtliche Kausalannahmen. Diese Rechenprüfung ist eine redaktionelle Ergänzung, keine Erklärung der historischen Abweichung.
+</Note>
+
+Das fehlende kontrafaktische Ergebnis ist die Sterblichkeit der exponierten Haushalte, **wenn sie stattdessen die weniger belastete Versorgung erhalten hätten**. Haushalte des anderen Unternehmens helfen bei der Annäherung. Ähnliche Haushaltsgröße, Hygiene, Einkommen und weitere Expositionen sind wichtig, ebenso zuverlässige Messungen von Versorgung und Konsum. Ein Vergleich liefert Evidenz über den fehlenden Ast; er macht ihn nicht zu einer beobachteten Tatsache.
+
+## 9. Die Annahmen hinter einem Vergleich
+
+Sobald eine andere Person, Gruppe oder Zeitperiode ein fehlendes kontrafaktisches Ergebnis vertreten soll, verbinden Annahmen den beobachteten Vergleich mit der Kausalfrage.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="assumptions" />
+
+Austauschbarkeit bedeutet, dass die Behandlungsgruppen nach einer geeigneten Adjustierung hinsichtlich ihrer potenziellen Ergebnisse vergleichbar sind. Positivität verlangt, dass beide Bedingungen für die relevanten Personengruppen möglich sind. Konsistenz verbindet das beobachtete Ergebnis mit dem potenziellen Ergebnis für die klar definierte, tatsächlich erhaltene Bedingung.
+
+Interferenz verlangt besondere Aufmerksamkeit: Bei Infektionskrankheiten kann die Exposition einer Person andere beeinflussen. Ein einfaches Modell mit je einem Ergebnis unter der eigenen Behandlung setzt voraus, dass solche Übertragungseffekte fehlen oder angemessen in die Interventionsdefinition eingehen.
+
+| Strategie | Annäherung an das fehlende Ergebnis | Zentrale Schwierigkeit |
+| --- | --- | --- |
+| Randomisiertes Experiment | Zufällig zugewiesene Vergleichsgruppe | Einhaltung, Ausfälle und zufälliges Ungleichgewicht |
+| Beobachtungsvergleich | Personen mit ähnlichen relevanten Merkmalen | Ungemessene Störfaktoren |
+| Natürliches Experiment | Expositionsunterschiede durch äußere Umstände | Hinreichende Unabhängigkeit dieser Umstände von Ergebnisursachen |
+| Vorher-nachher-Vergleich | Früheres Ergebnis oder historischer Trend | Andere Veränderungen über die Zeit |
+
+Diese Strategien bearbeiten dasselbe Problem fehlender Ergebnisse, mit unterschiedlichen Stärken und Annahmen.
+
+## 10. Einen besseren Vergleich entwickeln
+
+Eine Schule führt ein neues Mathematikprogramm ein. Ihre mittlere Prüfungspunktzahl steigt von 60 auf 78. Sie behauptet eine kausale Verbesserung um 18 Punkte. Welche Evidenz würde diese Zuschreibung stützen?
+
+<Interactive kind="module" module="reasoning-46" preset="school" id="counterfactual-school" />
+
+Angenommen, Zufallszuweisung ist unmöglich. Entwirf eine Beobachtungsstudie. Benenne das Ergebnis, die alternative Bedingung, eine geeignete Vergleichsgruppe und **mindestens zwei Annahmen** für eine kausale Interpretation.
+
+<Exercise>
+Ein möglicher Entwurf vergleicht dasselbe Prüfungsergebnis bei Lernenden im neuen Programm mit Lernenden, die im selben Zeitraum das bisherige Programm fortsetzen. Wähle Vergleichsschulen oder Klassen mit ähnlichen früheren Leistungen und relevanten Hintergründen; miss in beiden Gruppen dasselbe Ergebnis.
+
+Die Alternative ist das bisherige Programm, nicht „kein Lernen“. Wir benötigen nach Adjustierung für relevante Ausgangsunterschiede vergleichbare potenzielle Ergebnisse, insbesondere keine wichtigen ungemessenen Störfaktoren. Beide Programmbedingungen müssen für relevante Schülergruppen vertreten sein. Programme und Ergebnismessung müssen konsistent definiert werden. Prüfe auch unterschiedliche Ausfälle und Übertragungseffekte zwischen Klassen. Ähnliche beobachtete Ausgangsleistungen allein belegen diese Annahmen nicht. Andere vertretbare Entwürfe sind möglich; ihre Annahmen müssen ausdrücklich genannt werden.
+</Exercise>
+
+## 11. Die unsichtbare Hälfte der Kausalität
+
+Studentin, Ausbruch und Schulprogramm teilen dieselbe Struktur: Was unter einer Intervention geschah, verglichen mit dem, was unter der Alternative geschehen wäre.
+
+<ReasoningFigure kind="module" module="reasoning-46" figure="closing" />
+
+Bei der behandelten Studentin ist $Y_i(1)$ beobachtet und $Y_i(0)$ fehlt. Bei einer Person unter Bedingung $0$ kehren sich die Rollen um. Der Effekt vergleicht stets dasselbe Ergebnis unter den beiden definierten Bedingungen.
+
+Frage bei einer Kausalbehauptung:
+
+1. Was ist tatsächlich geschehen?
+2. Was wäre unter der Alternative geschehen?
+3. Was rechtfertigt die Schätzung dieser Alternative?
+
+### Weiterführende Literatur
+
+Pearl, Glymour und Jewell entwickeln in [*Causal Inference in Statistics: A Primer*](https://bayes.cs.ucla.edu/PRIMER/), Kapitel 4, kontrafaktisches Denken. Hernán und Robins behandeln in [*Causal Inference: What If*](https://miguelhernan.org/whatifbook), Kapitel 1–3, potenzielle Ergebnisse, randomisierte Experimente und Beobachtungsannahmen. Snows oben verlinkte Berichte von 1855 liefern die historischen Primärbelege. Bildungspunktzahlen, Konsumnetzwerke und alternative Verläufe dieser Lektion sind illustrativ; Karte, Erkrankungszahlen und Sterblichkeitstabelle sind historisches Material.

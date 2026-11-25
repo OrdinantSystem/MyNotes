@@ -1,3 +1,4 @@
+import {lessonModules} from "./lesson-modules.mjs";
 import type { Locale } from "./i18n";
 import analysisOrganization from "./analysis-organization.json" with {type:"json"};
 type Label = Record<Locale, string>;
@@ -105,7 +106,7 @@ courses.push({id:'reasoning',area:'thinking',title:{en:'The Art of Reasoning',de
 chapters.push({id:'reasoning-part-one',course:'reasoning',directLessons:true,title:{en:'Part One',de:'Teil Eins'},description:{en:'From everyday observations to precise reasoning.',de:'Von alltäglichen Beobachtungen zu präzisem Denken.'},groups:[{key:'lessons',title:{en:'Lessons',de:'Lektionen'},orders:[1,2,3,4,5,6,7,8]}]});
 chapters.push({id:'reasoning-part-two',course:'reasoning',directLessons:true,title:{en:'Part Two',de:'Teil Zwei'},description:{en:'Seeing the structure beneath the words.',de:'Die Struktur hinter den Wörtern erkennen.'},groups:[{key:'lessons',title:{en:'Lessons',de:'Lektionen'},orders:[9,10,11,12,13,14,15,16]}]});
 chapters.push({id:'reasoning-part-three',course:'reasoning',directLessons:true,title:{en:'Part Three',de:'Teil Drei'},description:{en:'Building and inspecting proofs.',de:'Beweise entwickeln und prüfen.'},groups:[{key:'lessons',title:{en:'Lessons',de:'Lektionen'},orders:[17,18,19,20,21,22,23,24]}]});
-chapters.push({id:'reasoning-part-four',course:'reasoning',directLessons:true,title:{en:'Part Four',de:'Teil Vier'},description:{en:'Investigating problems before a solution is visible.',de:'Probleme untersuchen, bevor eine Lösung sichtbar ist.'},groups:[{key:'lessons',title:{en:'Lessons',de:'Lektionen'},orders:[25,26,27]}]});
+chapters.push({id:'reasoning-part-four',course:'reasoning',directLessons:true,title:{en:'Part Four',de:'Teil Vier'},description:{en:'Investigating problems before a solution is visible.',de:'Probleme untersuchen, bevor eine Lösung sichtbar ist.'},groups:[{key:'lessons',title:{en:'Lessons',de:'Lektionen'},orders:[25,26,27,28]}]});
 const learningChapters:Chapter[]=[
  {id:'learning-methods',course:'learning',title:{en:'Principles and methods',de:'Prinzipien und Methoden'},description:{en:'Give each method a clear job: organize, explain, choose, and recall.',de:'Jeder Methode eine klare Aufgabe geben: ordnen, erklären, auswählen und abrufen.'},groups:[{key:'orientation',title:{en:'Start with a purpose',de:'Mit einem Ziel beginnen'},orders:[1,2]},{key:'methods',title:{en:'The four methods',de:'Die vier Methoden'},orders:[3,4,5,6]}]},
  {id:'learning-practice',course:'learning',title:{en:'The study workflow',de:'Der Lernablauf'},description:{en:'Turn the methods into attempts, feedback, and evidence you can revisit.',de:'Aus Methoden werden Versuche, Rückmeldungen und überprüfbare Ergebnisse.'},groups:[{key:'practice',title:{en:'Practise and repair',de:'Üben und verbessern'},orders:[7,8,9]},{key:'continuity',title:{en:'Evidence and continuity',de:'Nachweise und Kontinuität'},orders:[10,11,12,13]}]},
@@ -118,6 +119,16 @@ const analysisChapters:Chapter[]=analysisOrganization.modules.map(module=>({
 }));
 chapters.push(...analysisChapters);
 chapters.push({id:'analysis-second-exam-prep',course:'analysis',directLessons:true,title:{en:'Second Exam Prep',de:'Vorbereitung auf die zweite Klausur'},description:{en:'Revision sheets for the second exam.',de:'Lernzettel für die zweite Klausur.'},groups:[{key:'lessons',title:{en:'Revision sheets',de:'Lernzettel'},orders:[21]}]});
+// Each activated module owns one order; registration is deterministic even if 31 arrives before 30.
+for(const m of lessonModules){
+ let chapter=chapters.find(c=>c.id===m.chapter);
+ if(!chapter){
+  if(!m.chapterDefinition)throw new Error(`Module needs an explicit chapter definition: ${m.id}`);
+  const d=m.chapterDefinition;chapter={...d,directLessons:true,groups:[{key:'lessons',title:{en:'Lessons',de:'Lektionen'},orders:[]}]};chapters.push(chapter!);
+ }else if(m.chapterDefinition&&(JSON.stringify(chapter.title)!==JSON.stringify(m.chapterDefinition.title)||JSON.stringify(chapter.description)!==JSON.stringify(m.chapterDefinition.description)))throw new Error(`Conflicting module chapter: ${m.chapter}`);
+ if(chapter!.course!==m.course||chapters.some(c=>c.course===m.course&&c.groups.some(g=>g.orders.includes(m.order))))throw new Error(`Module navigation collision: ${m.id}`);
+ chapter!.groups[0].orders.push(m.order);chapter!.groups[0].orders.sort((a,b)=>a-b);
+}
 export function courseFor(id:CourseId){const c=courses.find(c=>c.id===id);if(!c)throw new Error(`Unknown course ${id}`);return c;}
 export function chapterFor(id:string){const c=chapters.find(c=>c.id===id);if(!c)throw new Error(`Unknown chapter ${id}`);return c;}
 export const chaptersFor=(course:CourseId)=>chapters.filter(c=>c.course===course);

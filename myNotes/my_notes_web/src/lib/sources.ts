@@ -1,5 +1,10 @@
 /** Provenance identities only; private originals are never public links. */
+import {lessonModules} from "./lesson-modules.mjs";
+interface Source {title:string;kind:"markdown"|"pdf"|"transcript";pages:number;course:"reasoning"|"analysis"|"learning"|"linear-algebra"}
+const moduleSources:Record<`reasoning-episode-${number}`,Source>=Object.fromEntries(lessonModules.map(m=>[m.sourceId,{title:m.sourceTitle,kind:"markdown",pages:0,course:m.course}]));
 export const sourceCatalog = {
+ ...moduleSources,
+ 'reasoning-episode-28':{title:'Strong induction · prime factorization and least counterexamples',kind:'markdown',pages:0,course:'reasoning'},
  'reasoning-episode-27':{title:'Inventing a lemma · intermediate claims and divisibility',kind:'markdown',pages:0,course:'reasoning'},
  'reasoning-episode-26':{title:'Changing representations · triangular sums and handshakes',kind:'markdown',pages:0,course:'reasoning'},
  'reasoning-episode-25':{title:'Making progress when stuck · triangle problem',kind:'markdown',pages:0,course:'reasoning'},

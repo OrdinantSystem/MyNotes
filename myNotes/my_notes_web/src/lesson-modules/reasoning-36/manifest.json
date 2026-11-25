@@ -1,0 +1,7 @@
+{
+ "id":"reasoning-36","course":"reasoning","chapter":"reasoning-part-five",
+ "chapterDefinition":{"id":"reasoning-part-five","course":"reasoning","title":{"en":"Part Five","de":"Teil Fünf"},"description":{"en":"Observation, evidence, and cognitive reasoning.","de":"Beobachtung, Evidenz und kognitives Schlussfolgern."}},
+ "order":36,"key":"memorable-examples-and-judgment","title":"Why memorable examples can dominate our judgment","sourceId":"reasoning-episode-36","sourceTitle":"AoR 36 — Why memorable examples can dominate our judgment",
+ "figures":["heuristics","feed","record","recall","prominence","machine-counts","machine-rates","employee","population","matches","filtered","conditionals","shortcuts","questions","courses","context"],
+ "presets":["selection","frequency","base-rates","practice"]
+}

@@ -1,0 +1,96 @@
+{
+  "date": "2026-11-25",
+  "matrix": [
+    {
+      "activities": 3,
+      "fieldsFit": true,
+      "figures": 15,
+      "locale": "en",
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "activities": 3,
+      "fieldsFit": true,
+      "figures": 15,
+      "locale": "en",
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "activities": 3,
+      "fieldsFit": true,
+      "figures": 15,
+      "locale": "en",
+      "overflow": false,
+      "theme": "light",
+      "width": 1365
+    },
+    {
+      "activities": 3,
+      "fieldsFit": true,
+      "figures": 15,
+      "locale": "en",
+      "overflow": false,
+      "theme": "dark",
+      "width": 1365
+    },
+    {
+      "activities": 3,
+      "fieldsFit": true,
+      "figures": 15,
+      "locale": "de",
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "activities": 3,
+      "fieldsFit": true,
+      "figures": 15,
+      "locale": "de",
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "activities": 3,
+      "fieldsFit": true,
+      "figures": 15,
+      "locale": "de",
+      "overflow": false,
+      "theme": "light",
+      "width": 1365
+    },
+    {
+      "activities": 3,
+      "fieldsFit": true,
+      "figures": 15,
+      "locale": "de",
+      "overflow": false,
+      "theme": "dark",
+      "width": 1365
+    }
+  ],
+  "checks": [
+    "opening reveal/reset",
+    "range and number controls",
+    "pointer and keyboard input",
+    "reference reset",
+    "exact-capacity equality and one-chair shortage",
+    "floating-point ceiling boundary 80 × 2.85 = 228",
+    "invalid numeric input rejected",
+    "capacity endpoints 0 and 400",
+    "outside-domain boundary caption",
+    "journey original/exact distance/exact speed and reset",
+    "approximation signs and German numeric formatting",
+    "reference solution disclosure",
+    "independent gallery instances",
+    "EN Pagefind precision",
+    "DE /MyNotes Pagefind Präzision"
+  ],
+  "prefix": "/MyNotes",
+  "consoleErrors": []
+}

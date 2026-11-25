@@ -1,0 +1,42 @@
+{
+  "id": "reasoning-41",
+  "course": "reasoning",
+  "chapter": "reasoning-part-six",
+  "chapterDefinition": {
+    "id": "reasoning-part-six",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Six",
+      "de": "Teil Sechs"
+    },
+    "description": {
+      "en": "Investigation, explanation, and scientific reasoning.",
+      "de": "Untersuchung, Erkl\u00e4rung und wissenschaftliches Denken."
+    }
+  },
+  "order": 41,
+  "key": "stories-and-supported-explanations",
+  "title": "Why the best story is not automatically the best explanation",
+  "sourceId": "reasoning-episode-41",
+  "sourceTitle": "Why the best story is not automatically the best explanation",
+  "figures": [
+    "machine",
+    "hypotheses",
+    "directions",
+    "generation",
+    "criteria",
+    "patches",
+    "tests",
+    "expanded",
+    "interlock",
+    "stories",
+    "framework",
+    "cycle",
+    "plant"
+  ],
+  "presets": [
+    "investigation",
+    "tests",
+    "plant"
+  ]
+}

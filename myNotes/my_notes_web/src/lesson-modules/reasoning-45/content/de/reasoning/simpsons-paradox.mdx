@@ -1,0 +1,263 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-six
+sourceId: reasoning-episode-45
+sourcePages: []
+sourceLocations: ["Episode script sections 1 and 3–10", "Visual relationships in section 11; preparation sources in section 12"]
+title: "Wie kann sich ein Trend beim Zusammenfassen der Daten umkehren?"
+navTitle: "Daten zusammenfassen und Trends umkehren"
+description: "Das Simpson-Paradoxon anhand einzelner Beobachtungen, gewichteter Mittelwerte, Standardisierung und kausaler Fragen erklären."
+order: 45
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+thumbnail: "module:reasoning-45"
+---
+
+## In jeder Kategorie besser, insgesamt schlechter?
+
+Stell dir zwei Trainingsmethoden A und B vor, die das Problemlösen verbessern sollen. Beide werden anhand von jeweils 110 Aufgabenversuchen bewertet. Die Daten sind fiktiv. Betrachte zunächst die Gesamtergebnisse und bilde dir einen ersten Eindruck, bevor du die Aufgabenkategorien aufdeckst.
+
+<Interactive kind="module" module="reasoning-45" preset="opening" id="reversal-opening" />
+
+Die Gesamterfolgsrate von B ist mehr als doppelt so hoch wie die von A. Würde das genügen, um B zu wählen, wenn du besser im Problemlösen werden möchtest?
+
+Die Aufgaben gehören zu zwei Kategorien: leicht und schwierig. A löst 90 % der leichten Aufgaben, B nur 80 %. Auch bei schwierigen Aufgaben liegt A mit 30 % vor B mit 20 %. Trotzdem hat B insgesamt die höhere Rate. Alle Berechnungen beschreiben dieselben Beobachtungen.
+
+Wie kann eine Methode in jeder Kategorie eine höhere Rate haben und insgesamt eine niedrigere? Zunächst müssen wir verstehen, was ein Mittelwert darstellt.
+
+## Was ein Mittelwert tatsächlich darstellt
+
+Zwei Personen erreichen jeweils 90 Punkte; acht weitere jeweils 50.
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="people" />
+
+Werden beide Gruppen gleich gewichtet, ergibt sich
+
+$$
+\frac{90+50}{2}=70.
+$$
+
+Werden alle zehn Personen gleich gewichtet, ergibt sich
+
+$$
+\frac{2\cdot90+8\cdot50}{10}=58.
+$$
+
+Beide Rechnungen sind mathematisch zulässig. Sie beantworten verschiedene Fragen: den Mittelwert zweier Gruppenmittel oder den Mittelwert über zehn Personen. Die erste Rechnung berücksichtigt die ungleichen Gruppengrößen nicht. Sie gäbe jeder Person in der kleineren Gruppe mehr Einfluss.
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="balance" />
+
+Der Ausgleichspunkt liegt näher bei 50, weil acht Personen diese Punktzahl beitragen. Ändere die Gruppengrößen und sage voraus, ob der Personenmittelwert nach links oder rechts wandert. Der gleich gewichtete Mittelwert der beiden Gruppenmittel bleibt 70.
+
+<Interactive kind="module" module="reasoning-45" preset="averages" id="reversal-averages" />
+
+Für zwei Gruppen mit Mittelwerten $r_1,r_2$ und positiven Größen $n_1,n_2$ ist der gemeinsame Mittelwert
+
+$$
+r=\frac{n_1r_1+n_2r_2}{n_1+n_2}=w_1r_1+w_2r_2,
+$$
+
+wobei
+
+$$
+w_1=\frac{n_1}{n_1+n_2},\qquad w_2=\frac{n_2}{n_1+n_2},\qquad w_1+w_2=1.
+$$
+
+Die Gewichte beschreiben den Beitrag jeder Gruppe. Bei einer Gesamterfolgsrate sind dies die Anteile der Versuche in den Kategorien, nicht die Anteile der Erfolge.
+
+## Die einzelnen Beobachtungen rekonstruieren
+
+Zurück zu den Methoden: Jedes Quadrat steht für einen Versuch. Gefüllte Quadrate zeigen Erfolge, umrandete Misserfolge. Die tatsächlichen Gruppengrößen bleiben erhalten. Die Spalten kennzeichnen die Methode, die beschrifteten Gruppen die Schwierigkeit und Füllung beziehungsweise Umrandung das Ergebnis.
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="observations" />
+
+Dieselben Beobachtungen ergeben folgende Tabelle:
+
+| Aufgabenschwierigkeit | Methode A | Methode B | Höhere beobachtete Rate |
+| --- | --- | --- | --- |
+| Leicht | $9/10=90\%$ | $80/100=80\%$ | A |
+| Schwierig | $30/100=30\%$ | $2/10=20\%$ | A |
+| Insgesamt | $39/110\approx35.5\%$ | $82/110\approx74.5\%$ | B |
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="comparison" />
+
+Der Vorsprung von A beträgt innerhalb jeder Kategorie **10 Prozentpunkte**: Die Differenz zwischen 90 % und 80 % beziehungsweise zwischen 30 % und 20 % beträgt 0,10. Dies ist eine absolute Ratendifferenz, kein relativer Anstieg um 10 %. Der Gesamtvorsprung von B ist
+
+$$
+\frac{82-39}{110}=\frac{43}{110}\approx0.3909,
+$$
+
+also etwa **39,1 Prozentpunkte**. Berechne Differenzen aus den zugrunde liegenden Brüchen, bevor du angezeigte Prozentsätze rundest.
+
+Das ist das **Simpson-Paradoxon**: Ein Zusammenhang innerhalb von Gruppen kann beim Zusammenfassen verschwinden oder sich umkehren. Die Arithmetik enthält keinen Widerspruch. Die Erwartung, dass eine Rangfolge innerhalb jeder Gruppe beim Zusammenfassen erhalten bleibt, übersieht die Gewichte der beiden Gesamtraten.
+
+## Die verborgenen Gewichte sichtbar machen
+
+A bearbeitet 10 leichte und 100 schwierige Aufgaben. B bearbeitet 100 leichte und 10 schwierige Aufgaben. Beide haben 110 Versuche, aber unter deutlich verschiedenen Bedingungen.
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="composition" />
+
+Die Gesamtrate von A wird in Richtung der Rate für schwierige Aufgaben gezogen, die von B in Richtung der Rate für leichte Aufgaben:
+
+$$
+\begin{aligned}
+R_A&=\frac{10}{110}(0.9)+\frac{100}{110}(0.3)=\frac{39}{110},\\
+R_B&=\frac{100}{110}(0.8)+\frac{10}{110}(0.2)=\frac{82}{110}.
+\end{aligned}
+$$
+
+A hat höhere bedingte Raten, die aber mit ungünstigeren Gewichten kombiniert werden. Der Vergleich der Gesamtraten vermischt daher Leistungsunterschiede und Unterschiede im Aufgabenmix.
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="intervals" />
+
+Jede Gesamtrate liegt zwischen ihren beiden bedingten Raten, wie jeder gewichtete Mittelwert mit nichtnegativen Gewichten. Die Endpunkte von A, 30 % und 90 %, liegen beide über den entsprechenden Endpunkten von B, 20 % und 80 %. Doch der Gesamtpunkt von A liegt nahe am unteren Endpunkt, der von B nahe am oberen. Beide Mittelwerte halten ihre Grenzen ein.
+
+## Gewichte ändern, Erfolgsraten beibehalten
+
+Sage voraus, was geschieht, wenn beide Methoden denselben Aufgabenmix erhalten. In der Aktivität bleiben alle vier bedingten Raten unverändert. Nur die Mischung aus leichten und schwierigen Aufgaben ändert sich.
+
+<Interactive kind="module" module="reasoning-45" preset="weights" id="reversal-weights" />
+
+Wähle **Gleicher Aufgabenmix**. Wenn leichte und schwierige Aufgaben jeweils die Hälfte des Gewichts erhalten, gilt
+
+$$
+\begin{aligned}
+R_A&=0.5(0.9)+0.5(0.3)=0.6,\\
+R_B&=0.5(0.8)+0.5(0.2)=0.5.
+\end{aligned}
+$$
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="standardization" />
+
+Die Umkehrung verschwindet. Das ist **Standardisierung**: Raten werden für eine gemeinsame Verteilung relevanter Gruppen berechnet. Die Rechnung schätzt, welche Raten für diesen Mix gelten würden, falls die bedingten Raten dort anwendbar wären. Sie gewichtet die ursprünglichen Raten um; sie ist kein neues Experiment.
+
+Ein 50/50-Mix ist hier bequem, aber nicht automatisch das richtige Ziel. In der Praxis sollten die Gewichte die Population oder Bedingungen darstellen, die du verstehen möchtest. Begründe diese Wahl.
+
+### Warum jeder gemeinsame Mix den Vorsprung von A erhält
+
+Sei $p\in[0,1]$ der gemeinsame Anteil leichter Aufgaben. Dann gilt
+
+$$
+\begin{aligned}
+R_A(p)&=0.9p+0.3(1-p)=0.3+0.6p,\\
+R_B(p)&=0.8p+0.2(1-p)=0.2+0.6p,\\
+R_A(p)-R_B(p)&=0.1.
+\end{aligned}
+$$
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="proof" />
+
+Die Geraden sind parallel, weil die Raten beider Methoden mit dem Anteil leichter Aufgaben gleich stark steigen. Ihr vertikaler Abstand beträgt immer 10 Prozentpunkte, auch an den Endpunkten: nur schwierige oder nur leichte Aufgaben.
+
+Allgemeiner: A habe in jeder Kategorie eine strikt höhere Rate als B. Identische nichtnegative Gewichte mit Summe eins ergeben
+
+$$
+\sum_i w_i r_{Ai}-\sum_i w_i r_{Bi}=\sum_i w_i(r_{Ai}-r_{Bi})>0.
+$$
+
+Jeder Summand ist nichtnegativ und mindestens einer positiv, weil mindestens ein Gewicht positiv ist. Gemeinsame Gewichte können die strikte Rangfolge somit nicht umkehren. Eine Simpson-Umkehrung dieser Art erfordert unterschiedliche Gewichte der verglichenen Methoden; unterschiedliche Gewichte allein garantieren noch keine Umkehrung.
+
+## Welchem Schluss sollten wir vertrauen?
+
+„Immer das Gesamtergebnis verwenden“ und „immer die einzelnen Gruppen verwenden“ sind beide unzureichend. Bestimme zuerst die Frage.
+
+| Frage | Relevanter Vergleich |
+| --- | --- |
+| Welche Methode verzeichnete hier mehr Erfolge? | Anzahlen: 39 gegenüber 82 |
+| Welche hatte insgesamt die höhere beobachtete Erfolgsrate? | Gesamtraten: $39/110$ gegenüber $82/110$ |
+| Welche hatte bei jeder Schwierigkeit die höhere beobachtete Rate? | Bedingte Raten |
+| Welche hat unter einem gewählten gemeinsamen Mix die höhere geschätzte Rate? | Standardisierte Raten |
+| Welche würde bessere Leistung verursachen, wenn Menschen ihr zugewiesen würden? | Erfordert kausale Annahmen oder geeignete experimentelle Evidenz |
+
+Anzahlen und Raten ergeben hier dieselbe Rangfolge, weil die Gesamtzahlen gleich sind. Allgemein beantworten sie verschiedene Fragen. Die ersten vier Zeilen lassen sich durch Arithmetik und eine ausdrückliche Gewichtswahl beantworten. Für die letzte reicht diese Tabelle allein nicht aus.
+
+### Welt 1: Schwierigkeit beeinflusst die Methodenwahl
+
+Angenommen, Betreuende wählen bevorzugt A für schwierige und B für leichte Aufgaben. Die Schwierigkeit liegt zeitlich vor der Methodenwahl und beeinflusst sowohl diese als auch den Erfolg. Sie ist eine **Störvariable** des Zusammenhangs zwischen Methode und Erfolg.
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="confounder" />
+
+Der Vergleich gleich schwieriger Aufgaben kann diese bestimmte Störquelle berücksichtigen. Standardisierte Raten können bei der Schätzung eines Effekts helfen, wenn die notwendigen kausalen Annahmen gelten, darunter ausreichende Kontrolle weiterer Störvariablen und genügend Daten für die relevanten Vergleiche. Die Pfeile beschreiben einen angenommenen Entstehungsprozess; die beobachteten Prozentsätze beweisen ihn nicht.
+
+### Welt 2: Die Methode verändert die versuchten Aufgaben
+
+Nun ermutige A die Lernenden zu schwierigen Problemen, B hingegen zu leichteren. Die Methode verändert die Aufgabenwahl. Schwierigkeit ist ein **Mediator**, der einen Teil der Wirkung der Methode auf den Erfolg vermittelt.
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="mediator" />
+
+Nur der Pfeil zwischen Methode und Schwierigkeit wurde umgedreht. Wenn uns der Gesamteffekt des vollständigen Trainingssystems interessiert, einschließlich der geförderten Aufgabenwahl, kann deren Herausrechnen einen Teil des gesuchten Effekts entfernen. Eine gemeinsame feste Prüfung beantwortet eine andere Frage: die nach Leistung bei gleicher Schwierigkeit.
+
+Unter geeigneten kausalen Annahmen oder in einem korrekt randomisierten Vergleich vollständiger Systeme könnte eine Gesamtrate deren Gesamteffekt auf die Erfolgsrate schätzen. Auch das Konditionieren auf einen Mediator allein identifiziert im Allgemeinen keinen direkten kausalen Effekt.
+
+<Interactive kind="module" module="reasoning-45" preset="causal" id="reversal-causal" />
+
+Dieselbe Tabelle kann mit beiden kausalen Strukturen vereinbar sein. Die vier bedingten Raten verraten nicht, welcher Prozess sie erzeugt hat. Wir benötigen Informationen über Zuweisung, zeitliche Reihenfolge, weitere relevante Unterschiede und die tatsächlichen Änderungen durch einen Eingriff. Manche scheinbar statistischen Fragen verlangen Wissen jenseits der statistischen Tabelle.
+
+## Einen neuen Vergleich rekonstruieren
+
+Zwei fiktive Krankenhäuser verwenden die Genesungsprogramme X und Y. Berechne vor dem Prüfen die Gesamtraten. Diese erfundenen Zahlen veranschaulichen statistisches Denken und sind keine Evidenz für eine Behandlung.
+
+| Patientenkategorie | Programm X | Programm Y |
+| --- | --- | --- |
+| Niedriges Risiko | $8/10$ | $70/100$ |
+| Hohes Risiko | $20/100$ | $1/10$ |
+| Insgesamt | ? | ? |
+
+<Interactive kind="module" module="reasoning-45" preset="challenge" id="reversal-challenge" />
+
+### Die Umkehrung erklären, ohne sie zu benennen
+
+<Exercise question="Erkläre, warum die Rangfolge insgesamt von der in beiden Risikokategorien abweicht, ohne den Namen des Paradoxons zu verwenden.">
+X behandelt überwiegend Menschen mit hohem Risiko, Y dagegen mit niedrigem Risiko. Die Gesamtraten gewichten unterschiedliche Risikokategorien stärker. X hat in jeder Kategorie höhere Raten, aber der günstigere Fallmix von Y führt zur höheren Gesamtrate. Die Benennung des Phänomens würde diesen Mechanismus nicht erklären.
+
+$$
+R_X=\frac{8+20}{110}\approx25.5\%,\qquad R_Y=\frac{70+1}{110}\approx64.5\%.
+$$
+</Exercise>
+
+### Einen gemeinsamen Patientenmix vergleichen
+
+<Exercise question="Beide Programme behandeln nun je 50 % Menschen mit niedrigem und hohem Risiko. Berechne ihre standardisierten Raten.">
+Die bedingten Raten betragen für X 80 % und 20 %, für Y 70 % und 10 %. Dieselben Gewichte ergeben
+
+$$
+R_X=0.5(0.8)+0.5(0.2)=0.5,\qquad R_Y=0.5(0.7)+0.5(0.1)=0.4.
+$$
+
+Die standardisierte Rate von X beträgt 50 %, die von Y 40 %. Die Umgewichtung bezieht den Vergleich auf dieselbe Patientenzusammensetzung. Sie erzeugt keine Beobachtungen aus dieser Zielpopulation.
+</Exercise>
+
+### Feststellen, was weiterhin unbekannt ist
+
+<Exercise question="Beweist dies, dass X eine bessere Genesung verursacht? Welche Informationen oder welche Studie würden diesen Schluss stärken?">
+Nein. Wir müssen wissen, wie Patienten zugewiesen wurden, ob weitere relevante Unterschiede bestehen und wie unsicher die Schätzungen sind. Manche Kategorien umfassen nur zehn Personen. Standardisierung bearbeitet ein Vergleichbarkeitsproblem, beweist aber weder Kausalität noch beseitigt sie Stichprobenunsicherheit.
+
+Ein Studienvorschlag könnte Zielpopulation und Beobachtungszeitraum festlegen, gegebenenfalls eine geeignete zufällige Zuweisung verwenden, Ausgangsrisiken einheitlich erfassen und Ergebnisse samt Unsicherheit vergleichen. Bei beobachtender Zuweisung sind die Identifikationsannahmen und verbleibende Störquellen zu erklären. Das Design muss zur kausalen Frage passen; eine numerische Umkehrung allein bestimmt kein Studiendesign.
+</Exercise>
+
+## Was geht beim Zusammenfassen verloren?
+
+Eine Gesamtkennzahl verdichtet eine komplexere Population. Sie kann nützlich sein und zugleich eine für den Vergleich wichtige Struktur verbergen. Wechsle unten zwischen gruppierter und zusammengefasster Ansicht. Identitäten und Ergebnisse aller 220 Versuche bleiben erhalten.
+
+<Interactive kind="module" module="reasoning-45" preset="compression" id="reversal-compression" />
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="compression" />
+
+Mögliche Anwendungsfelder sind Prüfungsergebnisse nach Vorwissen, Genesungsraten nach Krankheitsschwere, Einkommen nach Beruf, Beförderungen nach Abteilung, Zuverlässigkeit nach Arbeitslast und Interaktion nach Publikumszusammensetzung. Dies sind mögliche Orte für eine Untersuchung, keine Belege dafür, dass in jedem Fall eine Umkehrung auftritt.
+
+Bevor du einem Gesamtvergleich vertraust:
+
+1. **Bestimme die Frage.** Was genau vergleichst du?
+2. **Prüfe die Gruppen.** Welche relevanten Teilpopulationen werden zusammengefasst?
+3. **Rekonstruiere die Gewichte.** Wie stark trägt jede Gruppe bei?
+4. **Vergleiche gemeinsame Bedingungen.** Ändert sich die Rangfolge bei derselben Verteilung?
+5. **Untersuche Kausalität.** Warum unterscheiden sich die Gruppen, und welche Rolle spielt die Gruppierungsvariable?
+
+Eine Zahl kann völlig korrekt sein und trotzdem eine andere Frage beantworten als die, die dich interessiert. Daten zu verstehen heißt zu verstehen, was gezählt wurde, wie Beobachtungen kombiniert wurden und warum sie sich unterscheiden. **Woher weißt du das?**
+
+## Weiterführende Lektüre
+
+Die mathematischen und kausalen Unterscheidungen behandelt [Pearls „Understanding Simpson’s Paradox“](https://doi.org/10.1080/00031305.2014.876829). Der [Eintrag der Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/paradox-simpson/) gibt einen Überblick über das Phänomen und seine Interpretation. Weitere Vorbereitung bieten [der praktische Leitfaden von Kievit und Kollegen](https://pmc.ncbi.nlm.nih.gov/articles/PMC3740239/), [Causal Inference in Statistics: A Primer](https://bayes.cs.ucla.edu/PRIMER/) und [OpenIntro Statistics](https://www.openintro.org/book/os/). Die Trainings- und Genesungsdaten oben sind fiktive Lehrbeispiele.

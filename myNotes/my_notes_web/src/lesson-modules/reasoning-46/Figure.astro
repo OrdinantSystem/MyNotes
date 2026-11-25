@@ -1,0 +1,15 @@
+---
+import './styles.css';
+import {text} from './copy';
+import {figureMarkup} from './render';
+import snowMap from './assets/snow-map.jpg';
+interface Props {figure:string}
+const {figure}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale);
+---
+<figure class="p46-figure" data-p46-figure={figure}>
+ <h3>{c.titles[figure as keyof typeof c.titles]}</h3>
+ {figure==='map'?<>
+  <a href={snowMap.src} target="_blank" rel="noopener"><img src={snowMap.src} width="1280" height="1201" loading="lazy" alt={locale==='de'?'Snows historische Karte mit Straßen, Pumpen und schwarzen Todesfallmarkierungen rund um die Broad Street.':'Snow’s historical map showing streets, pumps and black death marks around Broad Street.'}/></a>
+  <figcaption>{locale==='de'?'John Snow / C. F. Cheffins, 1855. Schwarze Striche markieren Todesfälle an Adressen. Die Originalkarte lässt sich vergrößern.':'John Snow / C. F. Cheffins, 1855. Black marks record deaths at addresses. Open the original map to enlarge it.'} <a href="https://commons.wikimedia.org/wiki/File:Snow-cholera-map-1.jpg">Wikimedia Commons</a> · {locale==='de'?'gemeinfrei':'public domain'}.</figcaption>
+ </>:<div set:html={figureMarkup(locale,figure)}/>}
+</figure>

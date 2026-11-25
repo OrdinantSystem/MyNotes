@@ -1,0 +1,45 @@
+{
+  "id": "reasoning-42",
+  "course": "reasoning",
+  "chapter": "reasoning-part-six",
+  "chapterDefinition": {
+    "id": "reasoning-part-six",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Six",
+      "de": "Teil Sechs"
+    },
+    "description": {
+      "en": "Investigation, explanation, and scientific reasoning.",
+      "de": "Untersuchung, Erklärung und wissenschaftliches Denken."
+    }
+  },
+  "order": 42,
+  "key": "what-are-you-actually-measuring",
+  "title": "Are you measuring what you think you are measuring?",
+  "sourceId": "reasoning-episode-42",
+  "sourceTitle": "AoR 42 — Are you measuring what you think you are measuring?",
+  "figures": [
+    "construct",
+    "dashboard",
+    "concepts",
+    "procedure",
+    "activity",
+    "coverage",
+    "scales",
+    "targets",
+    "indicators",
+    "independence",
+    "incentives",
+    "divergence",
+    "timeline",
+    "sorting",
+    "framework",
+    "evidence"
+  ],
+  "presets": [
+    "rankings",
+    "sorting",
+    "plan"
+  ]
+}

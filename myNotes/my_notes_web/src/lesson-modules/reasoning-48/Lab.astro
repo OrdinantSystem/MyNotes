@@ -1,0 +1,17 @@
+---
+import './styles.css';
+import {comparisonMarkup,framingMarkup} from './render';
+import {text} from './copy';
+import {categories,type Locale} from './model';
+interface Props{preset:'comparison'|'framing'|'prediction'|'classification'|'checklist'|'plan';id:string}
+const {preset,id}=Astro.props,locale=(Astro.locals.locale||'en') as Locale,c=text(locale);
+const title={comparison:c.titles.timing,framing:c.absolute,prediction:c.prediction,classification:locale==='de'?'Jede Aussage zuordnen':'Classify each claim',checklist:locale==='de'?'Checkliste zum Lesen einer Studie':'Research-reading checklist',plan:c.attempt}[preset];
+---
+<figure class="research-view" id={id} data-research-lab={preset} data-locale={locale}>
+ <h3>{title}</h3>
+ {preset==='comparison'?<><div class="research-controls"><button type="button" data-comparison="matched" aria-pressed="true" aria-controls={`${id}-output`}>{c.matched}</button><button type="button" data-comparison="once" aria-pressed="false" aria-controls={`${id}-output`}>{c.versusOnce}</button></div><div data-output id={`${id}-output`} set:html={comparisonMarkup(locale,'matched')}/></>:preset==='framing'?<><div class="research-controls"><button type="button" data-framing="absolute" aria-pressed="true" aria-controls={`${id}-output`}>{c.absolute}</button><button type="button" data-framing="relative" aria-pressed="false" aria-controls={`${id}-output`}>{c.relative}</button></div><div data-output id={`${id}-output`} set:html={framingMarkup(locale,'absolute')}/></>:preset==='prediction'?<><fieldset><legend>{c.prediction}</legend><div class="research-options">{c.predictChoices.map((s,i)=><label><input type="radio" name={`${id}-prediction`} value={i}/>{s}</label>)}</div></fieldset><div class="research-controls"><button type="button" data-reveal>{c.reveal}</button></div><div data-output id={`${id}-output`}></div><details><summary>{c.reference}</summary><p>{c.predictionFeedback}</p></details></>:preset==='classification'?<><p data-progress>0/4 {c.answered}</p>{c.claims.map((claim,i)=><fieldset><legend>{i+1}. {claim}</legend><div class="research-options">{categories.map((category,j)=><label><input type="radio" name={`${id}-claim-${i}`} value={category} data-claim={i}/>{c.categories[j]}</label>)}</div><p class="research-feedback" data-feedback={i}></p></fieldset>)}<div class="research-controls"><button type="button" data-check>{c.check}</button></div><details><summary>{c.reference}</summary>{c.reasons.map((reason,i)=><p>{i+1}. <strong>{c.categories[i]}.</strong> {reason}</p>)}</details></>:preset==='checklist'?<><p data-progress>0/8 {c.checked}</p><div class="research-checklist">{c.questions.map(q=><label><input type="checkbox" data-checklist/>{q}</label>)}</div><div class="research-controls"><button type="button" data-copy>{c.copy}</button></div><div data-copy-fallback hidden><p>{c.copyFallback}</p><pre class="research-copy-text" tabindex="0">{c.questions.join('\n')}</pre></div></>:<><label for={`${id}-attempt`}>{c.attempt}</label><textarea id={`${id}-attempt`} maxlength="4000" data-attempt></textarea><p>{c.local}</p><details><summary>{c.reference}</summary><p>{c.planAnswer}</p></details></>}
+ <div class="research-controls"><button type="button" data-reset>{c.reset}</button></div><p role="status" aria-live="polite" class="research-status" data-status></p>
+</figure>
+<script>
+import './controller';
+</script>

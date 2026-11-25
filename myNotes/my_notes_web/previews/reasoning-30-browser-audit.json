@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-25",
+  "matrix": [
+    {
+      "lang": "en",
+      "width": 1280,
+      "theme": "light",
+      "activities": 3,
+      "katexErrors": 0,
+      "pageWidth": 1269,
+      "viewport": 1280
+    },
+    {
+      "lang": "en",
+      "width": 1280,
+      "theme": "dark",
+      "activities": 3,
+      "katexErrors": 0,
+      "pageWidth": 1269,
+      "viewport": 1280
+    },
+    {
+      "lang": "de",
+      "width": 1280,
+      "theme": "light",
+      "activities": 3,
+      "katexErrors": 0,
+      "pageWidth": 1269,
+      "viewport": 1280
+    },
+    {
+      "lang": "de",
+      "width": 1280,
+      "theme": "dark",
+      "activities": 3,
+      "katexErrors": 0,
+      "pageWidth": 1269,
+      "viewport": 1280
+    },
+    {
+      "lang": "en",
+      "width": 390,
+      "theme": "light",
+      "activities": 3,
+      "katexErrors": 0,
+      "pageWidth": 379,
+      "viewport": 390
+    },
+    {
+      "lang": "en",
+      "width": 390,
+      "theme": "dark",
+      "activities": 3,
+      "katexErrors": 0,
+      "pageWidth": 379,
+      "viewport": 390
+    },
+    {
+      "lang": "de",
+      "width": 390,
+      "theme": "light",
+      "activities": 3,
+      "katexErrors": 0,
+      "pageWidth": 379,
+      "viewport": 390
+    },
+    {
+      "lang": "de",
+      "width": 390,
+      "theme": "dark",
+      "activities": 3,
+      "katexErrors": 0,
+      "pageWidth": 379,
+      "viewport": 390
+    }
+  ],
+  "checks": {
+    "monthPlacement13": true,
+    "disabledEndpoint": true,
+    "tenConservedTokenIdentities": true,
+    "keyboardRegroupAndReset": true,
+    "invalidNumericRestoration": true,
+    "zeroObjects": true,
+    "twentyFiveObjects": true,
+    "fiveSolutionsOpened": true,
+    "independentGalleryInstances": true,
+    "enSearch": "pigeonhole",
+    "deSearch": "Schubfachprinzip",
+    "prefixSearchNavigation": true,
+    "prefixEquivalentLanguageLinks": true,
+    "finalNeighborOrders": [
+      29,
+      31
+    ],
+    "consoleErrors": []
+  },
+  "preview": "http://127.0.0.1:4330/reasoning/lessons/proving-by-counting/",
+  "limitations": [
+    "No physical touch/pen test",
+    "No screen-reader audit",
+    "Mathematical and translation review unreviewed"
+  ]
+}

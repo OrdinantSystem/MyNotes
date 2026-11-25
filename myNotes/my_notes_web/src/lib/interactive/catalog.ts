@@ -1,5 +1,9 @@
+import {lessonModules} from '../lesson-modules.mjs';
 /** Developer catalog. Keep examples executable in pages/library.astro. */
 export const assets = [
+ ...lessonModules.map(m=>({id:`module-${m.id}`,name:m.title,purpose:'Lesson-owned figures and activities; registered without editing shared dispatchers.',example:`<Interactive kind="module" module="${m.id}" preset="${m.presets[0]??''}" id="example-${m.id}" />`,module:m.id})),
+ {id:'strong-labs',name:'Smaller cases, factor trees and a least counterexample',purpose:'Inspect conditional factor dependencies, preserve a product through finite splits, and discharge the assumption of a symbolic first failure.',example:'<Interactive kind="strong" preset="tree" id="example-strong" />'},
+ {id:'strong-figures',name:'Strong induction and well-ordering',purpose:'Keep targets outside a temporary hypothesis; compare induction with minimality and distinguish factorization existence from uniqueness.',example:'<ReasoningFigure kind="strong-factors" />'},
  {id:'lemma-labs',name:'Invent, prove and use an intermediate claim',purpose:'Regroup three finite copies, separate a sufficient unproved candidate from an independent lemma and inspect all four source transfer claims.',example:'<Interactive kind="lemma" preset="bridge" id="example-lemma" />'},
  {id:'lemma-figures',name:'Accessibility, sufficiency and proof discovery',purpose:'Compare available assumptions with a goal, distinguish discovery order from justification, and expose a false cancellation claim with a concrete counterexample.',example:'<ReasoningFigure kind="lemma-match" />'},
  {id:'reframe-labs',name:'Change a representation and justify the correspondence',purpose:'Follow original object identities through copy, rotation and combination, inspect complementary rows and identify mirrored handshake cells.',example:'<Interactive kind="reframe" preset="construction" id="example-reframe" />'},

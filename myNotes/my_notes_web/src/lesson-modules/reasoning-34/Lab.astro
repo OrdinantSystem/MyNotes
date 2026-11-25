@@ -1,0 +1,40 @@
+---
+import './styles.css';
+import {text} from './copy';
+import {claims,initialDetails,origins} from './model';
+import {room,detailRows} from './render';
+interface Props {preset:string;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale);
+---
+<section class="memory-lab" id={id} data-memory-lab data-preset={preset} data-locale={locale} aria-label={preset==='scene'?c.sceneTitle:preset==='worksheet'?c.worksheet:preset==='source-sorting'?c.sortTitle:c.titles.construction}>
+{preset==='scene'&&<>
+ <h3>{c.sceneTitle}</h3>
+ <div class="memory-stage" data-stage><p>{c.ready}</p></div>
+ <div class="memory-controls"><button type="button" data-play>{c.play}</button><button type="button" data-pause disabled>{c.pause}</button><button type="button" data-reset>{c.reset}</button><span class="memory-counter" data-counter>0 / 12 s</span></div>
+ <p role="status" data-status>{c.ready}</p>
+ <div data-answers hidden>{c.questions.map((q,i)=><label>{i+1}. {q}<textarea data-answer={i} maxlength="600"/></label>)}</div>
+ <details data-untimed><summary>{c.untimed}</summary><p>{c.untimedText}</p><label>{c.time}<input data-time type="range" min="0" max="12" step="0.25" value="7"/></label><div data-inspect set:html={room(locale,7)}/></details>
+ <noscript><p>{c.finished}</p>{c.questions.map(q=><p>{q}</p>)}</noscript>
+</>}
+{preset==='reconstruction'&&<>
+ <h3>{c.titles.construction}</h3><p>{c.leadingPrompt}</p><label>{c.answer}<input data-umbrella-answer maxlength="100"/></label>
+ <div class="memory-controls"><button type="button" data-reveal>{c.reveal}</button><button type="button" data-reset>{c.reset}</button></div>
+ <div data-comparison hidden><label><input type="checkbox" data-origins/>{c.originToggle}</label><div data-scene-pair/><p>{c.reconstructHint}</p></div><p>{c.noChange}</p>
+ <noscript><p>{c.untimedText}</p></noscript>
+</>}
+{preset==='source-sorting'&&<>
+ <h3>{c.sortTitle}</h3><p>{c.sortHint}</p>
+ {claims.map(claim=><div class="memory-sort-row"><label>{c.claimLabels[claim.id]}<select data-sort={claim.id}>{origins.map(o=><option value={o} selected={o==='unsure'}>{c[o==='seen'?'seen':o==='inferred'?'inferred':o==='later'?'later':'unsure']}</option>)}</select></label><p role="status" data-feedback={claim.id}>{c.feedback.unsure}</p></div>)}
+ <button type="button" data-reset>{c.reset}</button>
+</>}
+{preset==='worksheet'&&<>
+ <h3>{c.worksheet}</h3><p>{c.worksheetHint}</p><div data-rows set:html={detailRows(locale,initialDetails(locale))}/>
+ <div class="memory-controls"><button type="button" data-add>{c.add}</button><button type="button" data-copy>{c.copy}</button><button type="button" data-reset>{c.reset}</button></div>
+ <p class="memory-caption">{c.limit}</p><p role="status" data-status/>
+ <label data-export-label hidden>{c.exportLabel}<textarea data-export readonly/></label>
+</>}
+</section>
+<script>
+ import {mountMemoryLabs} from './controller';
+ mountMemoryLabs();
+</script>

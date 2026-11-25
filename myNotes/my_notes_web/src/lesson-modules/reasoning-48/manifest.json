@@ -1,0 +1,55 @@
+{
+  "id": "reasoning-48",
+  "course": "reasoning",
+  "chapter": "reasoning-part-six",
+  "chapterDefinition": {
+    "id": "reasoning-part-six",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Six",
+      "de": "Teil Sechs"
+    },
+    "description": {
+      "en": "Investigation, explanation, and scientific reasoning.",
+      "de": "Untersuchung, Erklärung und wissenschaftliches Denken."
+    }
+  },
+  "order": 48,
+  "key": "take-a-research-claim-apart",
+  "title": "Workshop: take a research claim apart",
+  "sourceId": "reasoning-episode-48",
+  "sourceTitle": "AoR 48 — Workshop: Take a Research Claim Apart",
+  "figures": [
+    "chain",
+    "headline",
+    "meanings",
+    "questions",
+    "methods",
+    "participants",
+    "timing",
+    "measurement",
+    "example",
+    "delay",
+    "results",
+    "variation",
+    "interval",
+    "causal",
+    "mechanism",
+    "experiment-two",
+    "effects",
+    "iteration",
+    "counts",
+    "radius",
+    "evidence",
+    "conclusion",
+    "follow-up"
+  ],
+  "presets": [
+    "comparison",
+    "framing",
+    "prediction",
+    "classification",
+    "checklist",
+    "plan"
+  ]
+}

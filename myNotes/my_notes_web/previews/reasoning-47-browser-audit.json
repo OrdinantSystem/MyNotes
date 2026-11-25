@@ -1,0 +1,123 @@
+{
+  "layouts": [
+    {
+      "clipped": 0,
+      "figures": 12,
+      "labs": 3,
+      "locale": "en",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "clipped": 0,
+      "figures": 12,
+      "labs": 3,
+      "locale": "en",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "clipped": 0,
+      "figures": 12,
+      "labs": 3,
+      "locale": "en",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "clipped": 0,
+      "figures": 12,
+      "labs": 3,
+      "locale": "en",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "clipped": 0,
+      "figures": 12,
+      "labs": 3,
+      "locale": "de",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "clipped": 0,
+      "figures": 12,
+      "labs": 3,
+      "locale": "de",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "clipped": 0,
+      "figures": 12,
+      "labs": 3,
+      "locale": "de",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "clipped": 0,
+      "figures": 12,
+      "labs": 3,
+      "locale": "de",
+      "overflow": false,
+      "smallControls": 0,
+      "texErrors": 0,
+      "theme": "dark",
+      "width": 390
+    }
+  ],
+  "interactions": {
+    "tails": "Corrected final build: numeric 50 gives 100%; Home gives nonzero scientific notation; End gives 100 heads; invalid 101 restores 0; Enter reset restores 61.",
+    "search": "Coin rate => 51.2%; Home => 3.5%; End => 97.2%; reset => 20 and 5%, 64.2%",
+    "study": "Pointer selection; Enter reveal; Space changes selection and hides feedback; reset clears all choices",
+    "numericCount": "Typed 100 synchronizes range and 99.4%; invalid 0 restores 100; reset restores 20/5%.",
+    "gallery": "First tails activity changed to 0 while independent instance remained 61.",
+    "german": "Localized coin-specific option gives 51,2%; reset and tiny-probability display checked at compact width without overflow."
+  },
+  "searchEnglish": true,
+  "searchGerman": true,
+  "languageSwitch": true,
+  "prefix": {
+    "englishSearch": true,
+    "germanSearch": true,
+    "languageSwitch": true,
+    "rootLinksWithoutPrefix": 0,
+    "localizedScientificNotation": true
+  },
+  "normalPreview": {
+    "url": "http://127.0.0.1:4321/reasoning/lessons/chance-and-selected-discoveries/#4-what-happens-when-we-keep-looking",
+    "figures": 12,
+    "labs": 3,
+    "activeNavigation": "page",
+    "overflow": false,
+    "katexErrors": 0
+  },
+  "notes": [
+    "Eight EN/DE/theme/width combinations passed; final numeric correction and scientific notation checked separately.",
+    "Prefix snapshot, normal restoration and shared preview refresh used the cooperative lock.",
+    "No expert mathematical or native-language review claimed."
+  ]
+}

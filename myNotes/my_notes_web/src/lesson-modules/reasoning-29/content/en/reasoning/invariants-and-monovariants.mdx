@@ -1,0 +1,384 @@
+---
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-29
+sourceLocations: ["Sections 1–10", "Central takeaway", "Preparation sources"]
+thumbnail: module:reasoning-29
+locale: en
+title: What stays unchanged while everything moves?
+description: Use invariants to rule out unreachable states and suitable monovariants to prove that a process terminates.
+navTitle: Invariants and monovariants
+order: 29
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [strong-induction, implication-and-its-converse]
+---
+
+## 1. Change does not mean everything changes
+
+When a problem involves movement, transformation or repeated decisions, our natural inclination is to follow what happens. We examine the first move, then the second, then the third, trying to understand where the process might lead.
+
+But as the number of possible moves increases, this approach quickly becomes impractical. Even relatively simple systems can produce enormous numbers of possibilities.
+
+Instead of asking what changes after every move, we can ask **what does not change, regardless of which move we make.**
+
+Consider three containers holding twelve objects in total. We may transfer one object at a time between neighboring containers, but we cannot create or remove any.
+
+<Interactive kind="module" module="reasoning-29" preset="containers" id="invariant-containers" />
+
+The distribution changes. Individual containers can become empty or contain all twelve objects. We can perform hundreds of moves and obtain many different configurations.
+
+Yet the total number of objects always remains twelve.
+
+This immediately tells us something about the future of the system: no matter how cleverly we redistribute the objects, we will never reach a configuration containing thirteen objects.
+
+We do not need to investigate a complete sequence of moves to establish this impossibility. We only need to understand what **every permitted move preserves**. A property of this kind is called an **invariant**.
+
+## 2. Why invariants are powerful
+
+Imagine that every possible configuration is represented by a point. Whenever a permitted move transforms one configuration into another, we connect those points.
+
+Determining whether a destination is reachable might seem to require exploring the entire network. But an invariant can reveal that the network is divided into separate regions.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="regions" />
+
+We can move within one invariant-value class, but we cannot cross into a class with a different value. Equal invariant values, however, do not by themselves guarantee that a connecting path exists.
+
+This changes the question. Rather than searching for a successful sequence, we first examine whether such a sequence could exist.
+
+| Searching for a solution | Reasoning with invariants |
+| --- | --- |
+| What moves should I make? | What does every move preserve? |
+| Which possibilities have I explored? | Which possibilities can I eliminate? |
+| Investigates particular sequences | Establishes properties of all sequences |
+| May require extensive computation | Can establish impossibility immediately |
+
+An invariant lets us make a statement about an entire collection of possibilities without examining them individually.
+
+## 3. The mutilated chessboard
+
+### Understanding the problem
+
+Consider an ordinary chessboard with 64 squares. Each domino covers exactly two horizontally or vertically adjacent squares. An ordinary board can be covered with 32 dominoes.
+
+Now remove two diagonally opposite corners.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="boards" />
+
+Can the remaining 62 squares be covered completely with 31 dominoes, without overlap or extending beyond the board?
+
+At first glance, we have exactly enough dominoes:
+
+$$
+31\cdot2=62.
+$$
+
+The arithmetic works. But does the geometry?
+
+### Why counting all squares is not enough
+
+An even number of squares is a **necessary condition** for a complete domino tiling. An odd number would make the task impossible immediately.
+
+But satisfying one necessary condition does not establish that a solution exists. There may be restrictions our first representation does not capture.
+
+We need to stop treating all squares as identical. The chessboard already supplies another classification: its two alternating colors.
+
+An ordinary board has 32 dark and 32 light squares. Diagonally opposite corners have the same color. In our drawing, both removed corners are dark.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="colors" />
+
+There are now two more light squares than dark squares. This might initially seem irrelevant. Consider what happens whenever we place a domino.
+
+### Discovering the invariant
+
+Horizontally and vertically adjacent squares always have different colors. Every domino therefore covers exactly one dark square and one light square, wherever it is placed and in either orientation.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="dominoes" />
+
+Let $L$ be the number of uncovered light squares and $D$ the number of uncovered dark squares. Every legal placement produces
+
+$$
+(L,D)\longrightarrow(L-1,D-1).
+$$
+
+Both quantities change, but their difference does not:
+
+$$
+(L-1)-(D-1)=L-D.
+$$
+
+Our invariant is
+
+$$
+\boxed{I=L-D}.
+$$
+
+Initially, $I=32-30=2$. After every permitted placement, the difference must still be two.
+
+<Interactive kind="module" module="reasoning-29" preset="counts" id="invariant-board-counts" />
+
+For a completely covered board, both counts would have to become zero:
+
+$$
+L=0,\qquad D=0,\qquad I=0-0=0.
+$$
+
+But every reachable configuration has invariant value two. The desired final configuration has value zero. **A complete tiling is impossible.**
+
+We never needed to attempt a complete tiling, decide which placements looked promising or investigate each difficult region. We established that every possible arrangement must fail.
+
+### What exactly have we proved?
+
+Equal numbers of light and dark squares are necessary for a complete domino tiling. We have **not** proved that every balanced board can be tiled.
+
+Consider this six-square shape.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="obstruction" />
+
+Each of the two marked light squares on the left can only be covered by a domino that also covers the same dark square. Since dominoes cannot overlap, covering both is impossible. The colors are balanced, yet the shape cannot be tiled.
+
+Writing $T$ for “tileable” and $B$ for “balanced colors,” we have
+
+$$
+T\implies B,\qquad B\not\implies T.
+$$
+
+An invariant can decisively reject a proposed solution without completely characterizing all possible solutions. This is the same logical boundary as in the lesson on **implication and its converse**.
+
+## 4. What an invariant is, mathematically
+
+Let $S$ be a collection of possible states. A state describes the relevant configuration at a particular moment. We write $s\longrightarrow t$ when a permitted move transforms state $s$ into state $t$.
+
+An invariant quantity is a function
+
+$$
+I:S\longrightarrow A,
+$$
+
+where $A$ is a suitable set of values, such as the integers. Its essential condition is
+
+$$
+\boxed{s\longrightarrow t\implies I(s)=I(t).}
+$$
+
+Every permitted transformation preserves the value of $I$. Along a finite sequence of moves,
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="state-chain" />
+
+we therefore have
+
+$$
+I(s_0)=I(s_1)=I(s_2)=\cdots=I(s_n).
+$$
+
+Starting from $s_0$, we cannot reach a state $t$ with
+
+$$
+I(t)\ne I(s_0).
+$$
+
+This is the general principle behind the chessboard proof.
+
+### Connection to induction
+
+Why does preservation hold after **any finite number** of moves, rather than just one? Use induction on the number of moves, connecting this lesson to mathematical induction and strong induction.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="induction" />
+
+Initially, the invariant has its starting value. If it still has that value after $k$ moves, every permitted next move preserves it, so it has the same value after $k+1$ moves. Induction extends a local preservation rule into a global guarantee.
+
+**If a property holds initially and every permitted transition preserves it, it holds in every reachable state.**
+
+Such an invariant property need not be numerical. It can be a relationship, a parity condition, a logical property or another structural feature that remains true.
+
+## 5. What if a quantity always changes in the same direction?
+
+Sometimes a quantity changes, but only in one direction.
+
+Begin with twelve objects. Each move removes either one or two, without removing more than remain. The total is no longer invariant, but every move makes it strictly smaller.
+
+<Interactive kind="module" module="reasoning-29" preset="removal" id="invariant-removal" />
+
+Regardless of the permitted choice, the number decreases. A quantity that changes monotonically during a process is called a **monovariant**.
+
+Depending on the problem, a monovariant may be increasing or decreasing, strictly or non-strictly. For the termination argument below, **strict decrease** is essential.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="behaviors" />
+
+Monovariants let us reason about progress. An invariant can rule out a destination; a suitable monovariant can show that a process cannot continue forever.
+
+## 6. Why certain processes must stop
+
+### The termination argument
+
+Suppose a process begins with a nonnegative integer $n_0$. Every permitted step reduces it by at least one while keeping it nonnegative:
+
+$$
+n_0>n_1>n_2>\cdots\geq0.
+$$
+
+After $k$ steps,
+
+$$
+n_k\leq n_0-k.
+$$
+
+More than $n_0$ steps would force the value below zero, contradicting the rules. Thus the process terminates after **at most $n_0$ steps**.
+
+We did not need the exact choices. The guarantee applies to **every legal sequence**, not just the one displayed by an experiment. This is useful when analyzing algorithms: an appropriate decreasing quantity can prove termination even when we cannot predict every decision for every input.
+
+### The subtle mistake: decrease alone is insufficient
+
+It is tempting to claim that any quantity which keeps decreasing and cannot become negative must eventually stop. That claim is false.
+
+Start at one and halve the current value after every step:
+
+$$
+1\longrightarrow\frac12\longrightarrow\frac14\longrightarrow\frac18\longrightarrow\frac1{16}\longrightarrow\cdots.
+$$
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="halving" />
+
+The value decreases strictly and is bounded below by zero, yet never reaches zero in finitely many steps. After $n$ steps,
+
+$$
+a_n=\frac1{2^n}>0.
+$$
+
+We can always halve it again. What matters is whether the domain permits an infinite strictly decreasing sequence.
+
+| Nonnegative integers | Positive real numbers |
+| --- | --- |
+| $5,4,3,2,1,0$ | $1,\frac12,\frac14,\ldots$ |
+| Discrete values | Arbitrarily small decreases |
+| No infinite strictly descending sequence | Infinite strictly descending sequences exist |
+| Strict decrease guarantees termination | Strict decrease alone is insufficient |
+
+### Connection to well-ordering
+
+The well-ordering principle from the previous lesson says that every nonempty subset of the nonnegative integers has a least element. We write this domain explicitly as $\mathbb Z_{\geq0}$, including zero.
+
+Suppose an infinite strictly decreasing sequence in that domain existed. The set of its values would have a least element. But the next term would be smaller than that least element—a contradiction.
+
+Well-ordering therefore explains why certain processes cannot descend indefinitely. More generally, a quantity that strictly decreases at every step in a **well-founded ordered set** provides a termination argument.
+
+**The domain matters just as much as the behavior.** Non-strict decrease alone also allows a process to stay at the same value forever.
+
+## 7. How do we discover an invariant?
+
+Understanding an invariant after seeing it is easier than discovering one independently. In the chessboard problem, why consider colors rather than the number of rows, the perimeter or the number of empty regions?
+
+Examine the **elementary move**, rather than a complete solution. A domino covers adjacent squares. Which relationship do all adjacent pairs share? Their opposite colors immediately become relevant.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="method" />
+
+There is no universal formula for discovering a useful invariant, but several candidates recur.
+
+| Candidate | What to look for |
+| --- | --- |
+| Total sum | Quantities transferred between objects |
+| Difference | Two quantities changing equally |
+| Parity | Changes occurring in multiples of two |
+| Remainder | Changes occurring in multiples of another integer |
+| Coloring | Geometric restrictions on permitted moves |
+| Order | Objects that cannot pass or exchange positions |
+| Logical property | A condition preserved by every transition |
+
+A candidate is initially a **conjecture**. It becomes an established invariant only after we prove preservation under **every** legal move. Tested moves alone are insufficient.
+
+An invariant is useful relative to a question. Finding something constant does not automatically bring us closer to solving the problem.
+
+## 8. Practice: the coin-flipping puzzle
+
+Five coins initially show heads. The only permitted move is to choose **exactly two distinct coins** and flip them simultaneously.
+
+**Can exactly one coin end up showing tails?** Try the experiment before reading the explanation. The optional settings also let you explore the two variations discussed below.
+
+<Interactive kind="module" module="reasoning-29" preset="coins" id="invariant-coins" />
+
+### Understanding the solution
+
+There are only three fundamentally different kinds of two-coin moves.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="coin-moves" />
+
+The number $T$ of tails changes by $+2$, $0$ or $-2$. Each change is even. The count itself is not invariant; **its parity is**:
+
+$$
+I=T\bmod2.
+$$
+
+Initially there are zero tails, so $I=0$. Exactly one tail would have $I=1$:
+
+$$
+I_{\mathrm{initial}}=0,\qquad I_{\mathrm{target}}=1.
+$$
+
+The desired configuration is therefore impossible.
+
+### Extending the problem
+
+If we begin with exactly one tail, can we reach all heads? **No.** The initial count is odd and the target count is even. The same invariant rules out the reverse journey.
+
+What if the rule permits flipping exactly **three** coins? If $r$ of those three currently show tails, the change is
+
+$$
+\Delta T=3-2r,\qquad r\in\{0,1,2,3\}.
+$$
+
+It is always odd, so each move changes parity. The original invariant no longer holds.
+
+**Invariants depend on the rules.** Changing a rule can destroy one invariant or introduce another. Losing the parity obstruction alone is not a proof that an arbitrary target is reachable.
+
+## 9. Beyond mathematical puzzles
+
+The same approach appears in mathematics, physics and computer science.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="applications" />
+
+The Euclidean algorithm combines both ideas. For nonnegative integers $a,b$ with $b>0$, use
+
+$$
+(a,b)\longrightarrow(b,a\bmod b).
+$$
+
+The greatest common divisor is preserved:
+
+$$
+\gcd(a,b)=\gcd(b,a\bmod b).
+$$
+
+The second component strictly decreases in the nonnegative integers:
+
+$$
+0\leq a\bmod b<b.
+$$
+
+The process stops when the second component becomes zero. Since $\gcd(a,0)=a$, the remaining first component is the original gcd. This spells out the correctness and termination implicit in the example: one quantity explains why the answer is preserved; another explains why the process ends.
+
+## 10. The deeper reasoning principle
+
+When faced with a complicated system, we often assume that understanding it requires tracking everything inside it. A complete description is not always necessary.
+
+A carefully chosen quantity can retain exactly the information we need while ignoring enormous amounts of irrelevant complexity.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="abstraction" />
+
+For the chessboard, we discarded exact uncovered-square positions and kept the color imbalance. For the coins, we discarded the arrangement and kept parity. For termination, we discarded the precise decisions and kept a decreasing integer.
+
+In every case we deliberately lost information, yet retained enough to answer the question. Mathematical abstraction identifies which aspects of a situation determine the answer.
+
+<ReasoningFigure kind="module" module="reasoning-29" figure="takeaway" />
+
+An invariant tells us what a process cannot change. A suitable monovariant tells us why a process cannot continue forever. Both let us reason about whole collections of possibilities without exploring each one.
+
+**Instead of following everything that changes, what can I discover by looking for what stays the same?**
+
+## Further reading
+
+- [MIT · Mathematics for Computer Science, lecture readings](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/): Lecture 04, State Machines, and its updated chapter connect states, transitions, invariant properties and termination. Lecture 03 provides continuity with strong induction.
+- [George Pólya · How to Solve It, Harvard-hosted excerpt](https://people.math.harvard.edu/~knill/teaching/math21b2001/polya/index.html): questions about auxiliary quantities, representations and the relationship between what is given and what is sought.
+- [Richard Hammack · Book of Proof, author’s page](https://richardhammack.github.io/BookOfProof/): complementary reading on induction, logic, parity, and necessary versus sufficient conditions.
+
+These are preparation references, not claims that their complete books have been reviewed for this lesson.

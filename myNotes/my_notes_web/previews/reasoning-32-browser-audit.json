@@ -1,0 +1,122 @@
+{
+  "date": "2026-11-25",
+  "module": "reasoning-32",
+  "key": "discover-a-theorem",
+  "build": {
+    "node": "24.22.1",
+    "production": true,
+    "prefix": "/MyNotes",
+    "normalRestored": true,
+    "staticPages": 263,
+    "localLinksAndAssets": 29448,
+    "texAnnotations": 11894,
+    "pagefindPages": 176,
+    "errors": 0,
+    "warnings": 0,
+    "existingHints": 6
+  },
+  "layouts": [
+    {
+      "locale": "en",
+      "width": 1440,
+      "height": 1000,
+      "theme": "light",
+      "pageOverflow": false,
+      "katexErrors": 0
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "height": 1000,
+      "theme": "dark",
+      "pageOverflow": false,
+      "katexErrors": 0
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "pageOverflow": false,
+      "katexErrors": 0
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "pageOverflow": false,
+      "katexErrors": 0
+    },
+    {
+      "locale": "de",
+      "width": 1440,
+      "height": 1000,
+      "theme": "light",
+      "pageOverflow": false,
+      "katexErrors": 0
+    },
+    {
+      "locale": "de",
+      "width": 1440,
+      "height": 1000,
+      "theme": "dark",
+      "pageOverflow": false,
+      "katexErrors": 0
+    },
+    {
+      "locale": "de",
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "pageOverflow": false,
+      "katexErrors": 0
+    },
+    {
+      "locale": "de",
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "pageOverflow": false,
+      "katexErrors": 0
+    }
+  ],
+  "interactions": [
+    "positive-witness evidence for 15",
+    "unresolved 8 retained",
+    "proof forward/backward and endpoint disabling",
+    "numeric 1/10 boundaries and 0 rejection",
+    "native Enter/Space activation",
+    "per-activity reset isolation",
+    "sixteen self-report checklist and hint/reference disclosure",
+    "local four-field record and successful copy",
+    "independent gallery evidence instance",
+    "EN/DE production search results",
+    "EN/DE base-prefixed routes and controls"
+  ],
+  "sourceHashes": {
+    "Lab.astro": "922b988cff0fc630375783802f82e38922a9b6e97fa52a5256b7a9e3ed940919",
+    "workshop.css": "232fc6b96e78bb2c75009bdd58f6a138643aa8b11dcfd91f3282893385444c5f",
+    "Thumbnail.astro": "defc4716b2420e0c0c1c92a057240bf2647ec4b36690f059c4025f8d850d829d",
+    "model.ts": "a971adffe96210c457f6186cb3f091d0d59ac24c3e5352052a9431846f7ebdf6",
+    "verify.mjs": "7a4866c38bb623e38f7e40c349d72919348b345ed0b75546e0bd2cd754b0e12c",
+    "copy.ts": "5a49d5b8c6063d18436c0d96c465bd8eda7e0edde77741b1d7e67d4e8835dc20",
+    "manifest.json": "77290938f94365a183562430a1d46aaaac7081afc2040a3df646ace718257550",
+    "Figure.astro": "63a85e4e87ddf177ed2137cbf186a5f22dbf1283ea5a84d22f032ec118c38f0f",
+    "render.ts": "5625f344366020cc2c4eea41353395ba1262a00f83133e3540b313086f6ba4e5",
+    "content/de/reasoning/discover-a-theorem.mdx": "bccfbe789f400dee41ce3347bc96db1e4eb0392bbe4e6e90a5ae0e9841a2d880",
+    "content/en/reasoning/discover-a-theorem.mdx": "f59668f8c58ab02a87d94339b00cc17c96478009a47da3e58fbb3507122da2dc"
+  },
+  "reviewStatus": "unreviewed",
+  "screenshots": [
+    "reasoning-32-desktop.jpg",
+    "reasoning-32-compact-de.jpg"
+  ],
+  "preview": "http://127.0.0.1:18532/reasoning/lessons/discover-a-theorem/",
+  "limitations": [
+    "No native-language or independent mathematical certification",
+    "No physical touch/pen or screen-reader audit",
+    "Clipboard-denial fallback not forcibly simulated"
+  ],
+  "gitWriteOrDeployment": false
+}

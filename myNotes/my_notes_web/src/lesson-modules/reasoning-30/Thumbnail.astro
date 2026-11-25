@@ -1,0 +1,4 @@
+---
+const locale=Astro.props.locale||Astro.locals.locale||'en';
+---
+<svg viewBox="0 0 220 130" role="img" aria-label={locale==='de'?'Fünf Kanten verbinden fünf Knoten':'Five edges connect five vertices'}><g transform="translate(45 0)" fill="var(--blue-tint)" stroke="var(--blue)" stroke-width="2"><path d="M27 25H100L63 66Z M27 25V99H100" fill="none"/><circle cx="27" cy="25" r="7"/><circle cx="100" cy="25" r="7"/><circle cx="63" cy="66" r="7"/><circle cx="27" cy="99" r="7"/><circle cx="100" cy="99" r="7"/></g></svg>

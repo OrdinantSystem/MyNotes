@@ -1,0 +1,472 @@
+{
+  "date": "2026-11-25",
+  "lesson": "strong-induction",
+  "checks": {
+    "initial": {
+      "conclusion": "open",
+      "exerciseDetails": [
+        false,
+        false,
+        false
+      ],
+      "labs": 3,
+      "mathErrors": 0,
+      "newFigures": 18,
+      "reusedFigures": 1,
+      "selectedDivisor": "6"
+    },
+    "scopeApplied": "conditional",
+    "scopeChange": {
+      "scope": "open",
+      "status": "The target is not assumed."
+    },
+    "primeKeyboard": {
+      "applyDisabled": true,
+      "conclusion": "prime",
+      "divisorDisabled": true,
+      "n": "61"
+    },
+    "scopeInputs": [
+      {
+        "typed": "100",
+        "divisor": "2",
+        "divisorDisabled": false,
+        "n": "100",
+        "scope": "open",
+        "status": "Target integer n: 100. Only integer cases from two through n−1 are covered."
+      },
+      {
+        "typed": "101",
+        "divisor": "2",
+        "divisorDisabled": false,
+        "n": "100",
+        "scope": "open",
+        "status": "Use an integer from 2 to 100. The last valid target was restored."
+      },
+      {
+        "typed": "",
+        "divisor": "2",
+        "divisorDisabled": false,
+        "n": "100",
+        "scope": "open",
+        "status": "Use an integer from 2 to 100. The last valid target was restored."
+      },
+      {
+        "typed": "2.5",
+        "divisor": "2",
+        "divisorDisabled": false,
+        "n": "100",
+        "scope": "open",
+        "status": "Use an integer from 2 to 100. The last valid target was restored."
+      },
+      {
+        "typed": "1",
+        "divisor": "2",
+        "divisorDisabled": false,
+        "n": "100",
+        "scope": "open",
+        "status": "Use an integer from 2 to 100. The last valid target was restored."
+      },
+      {
+        "typed": "2",
+        "divisor": "",
+        "divisorDisabled": true,
+        "n": "2",
+        "scope": "base",
+        "status": "Target integer n: 2. A prime is already a product of one prime. No smaller factorization is needed."
+      },
+      {
+        "typed": "45",
+        "divisor": "3",
+        "divisorDisabled": false,
+        "n": "45",
+        "scope": "open",
+        "status": "Target integer n: 45. Only integer cases from two through n−1 are covered."
+      }
+    ],
+    "fortyFive": "Under the temporary hypothesis, both factors have prime products, so their product does too.",
+    "tree": [
+      {
+        "backDisabled": true,
+        "level": "Split level 0 of 3",
+        "nextDisabled": false,
+        "nodes": [
+          [
+            "r",
+            "72"
+          ]
+        ],
+        "status": ""
+      },
+      {
+        "backDisabled": false,
+        "level": "Split level 1 of 3",
+        "nextDisabled": false,
+        "nodes": [
+          [
+            "r",
+            "72"
+          ],
+          [
+            "a",
+            "8"
+          ],
+          [
+            "b",
+            "9"
+          ]
+        ],
+        "status": "Split level 1 of 3. Preserved product: 72. A composite frontier factor can still split."
+      },
+      {
+        "backDisabled": false,
+        "level": "Split level 2 of 3",
+        "nextDisabled": false,
+        "nodes": [
+          [
+            "r",
+            "72"
+          ],
+          [
+            "a",
+            "8"
+          ],
+          [
+            "aa",
+            "2"
+          ],
+          [
+            "ab",
+            "4"
+          ],
+          [
+            "b",
+            "9"
+          ],
+          [
+            "ba",
+            "3"
+          ],
+          [
+            "bb",
+            "3"
+          ]
+        ],
+        "status": "Split level 2 of 3. Preserved product: 72. A composite frontier factor can still split."
+      },
+      {
+        "backDisabled": false,
+        "level": "Split level 3 of 3",
+        "nextDisabled": true,
+        "nodes": [
+          [
+            "r",
+            "72"
+          ],
+          [
+            "a",
+            "8"
+          ],
+          [
+            "aa",
+            "2"
+          ],
+          [
+            "ab",
+            "4"
+          ],
+          [
+            "aba",
+            "2"
+          ],
+          [
+            "abb",
+            "2"
+          ],
+          [
+            "b",
+            "9"
+          ],
+          [
+            "ba",
+            "3"
+          ],
+          [
+            "bb",
+            "3"
+          ]
+        ],
+        "status": "Split level 3 of 3. Preserved product: 72. Every frontier factor is prime."
+      }
+    ],
+    "treeBack": "Split level 2 of 3",
+    "sixtyTrees": [
+      {
+        "choice": "60-six",
+        "level": "Split level 2 of 2",
+        "nodes": [
+          "60",
+          "6",
+          "2",
+          "3",
+          "10",
+          "2",
+          "5"
+        ],
+        "status": "Split level 2 of 2. Preserved product: 60. Every frontier factor is prime."
+      },
+      {
+        "choice": "60-four",
+        "level": "Split level 2 of 2",
+        "nodes": [
+          "60",
+          "4",
+          "2",
+          "2",
+          "15",
+          "3",
+          "5"
+        ],
+        "status": "Split level 2 of 2. Preserved product: 60. Every frontier factor is prime."
+      }
+    ],
+    "least": [
+      {
+        "backDisabled": true,
+        "discharged": "false",
+        "nextDisabled": false,
+        "stage": "0",
+        "status": ""
+      },
+      {
+        "backDisabled": false,
+        "discharged": "false",
+        "nextDisabled": false,
+        "stage": "1",
+        "status": "Choose its least element by well-ordering"
+      },
+      {
+        "backDisabled": false,
+        "discharged": "false",
+        "nextDisabled": false,
+        "stage": "2",
+        "status": "The least counterexample cannot be prime"
+      },
+      {
+        "backDisabled": false,
+        "discharged": "false",
+        "nextDisabled": false,
+        "stage": "3",
+        "status": "Its smaller factors satisfy the claim"
+      },
+      {
+        "backDisabled": false,
+        "discharged": "true",
+        "nextDisabled": true,
+        "stage": "4",
+        "status": "Combine the factors and discharge the assumption"
+      }
+    ],
+    "resetIsolation": {
+      "tree": "Split level 1 of 3",
+      "least": "0"
+    },
+    "exercises": [
+      "Added reference explanation. The hypothesis makes P(5)P(5)P(5) and P(9)P(9)P(9) available, since 2≤5,9<452\\leq5,9<452≤5,9<45. A finite prime product for five and one for nine combine into a finite prime product for forty-five. P(44)P(44)P(44) alone does not supply these two factorizations, and P(45)P(45)P(45) cannot be assumed within this step.",
+      "Added reference explanation. One lies outside the domain m≥2m\\geq2m≥2, and the other factor is nnn itself, outside the smaller range m<nm<nm<n. Using P(n)P(n)P(n) to establish P(n)P(n)P(n) would be circular. Nontrivial factors a,b≥2a,b\\geq2a,b≥2 instead guarantee 2≤a,b<n2\\leq a,b<n2≤a,b<n.",
+      "Added reference explanation. No. The argument constructs at least one finite prime product for each integer n≥2n\\geq2n≥2. It does not compare arbitrary prime products for the same integer. Uniqueness, apart from rearranging the factors, needs a separate general proof; agreement for sixty is only an example."
+    ],
+    "german": {
+      "url": "http://127.0.0.1:4321/de/reasoning/lessons/strong-induction/",
+      "statuses": [
+        "Unter der vorübergehenden Annahme besitzen beide Faktoren Primzahlprodukte, also auch ihr Produkt.",
+        "Zerlegungsstufe 1 von 3. Erhaltenes Produkt: 72. Ein zusammengesetzter Randfaktor lässt sich noch zerlegen.",
+        "Mit dem Wohlordnungsprinzip ihr kleinstes Element wählen"
+      ],
+      "openDetails": 6
+    },
+    "navigation": {
+      "deNext": "http://127.0.0.1:4321/de/reasoning/lessons/strong-induction/",
+      "enPrevious": "http://127.0.0.1:4321/reasoning/lessons/inventing-a-lemma/",
+      "enNext": "http://127.0.0.1:4321/reasoning/lessons/strong-induction/"
+    },
+    "overview": {
+      "cards": 28,
+      "lastLesson": "28nabWas, wenn der nächste Schritt alle früheren Schritte braucht?↗",
+      "partFour": "Teil Vier4 Lektionen"
+    },
+    "gallery": {
+      "duplicateIds": [],
+      "figures": 18,
+      "labs": 4,
+      "independence": [
+        "Split level 1 of 3",
+        "Split level 0 of 3"
+      ]
+    },
+    "searchDE": "/de/reasoning/lessons/strong-induction/",
+    "prefixEN": {
+      "home": "/MyNotes/",
+      "level": "Split level 1 of 3",
+      "mathErrors": 0,
+      "styles": 2,
+      "url": "http://127.0.0.1:8448/MyNotes/reasoning/lessons/strong-induction/"
+    },
+    "prefixDE": {
+      "home": "/MyNotes/de/",
+      "leastStage": "1",
+      "mathErrors": 0,
+      "scope": "conditional",
+      "styles": 2,
+      "url": "http://127.0.0.1:8448/MyNotes/de/reasoning/lessons/strong-induction/"
+    },
+    "searchEN": "/reasoning/lessons/strong-induction/",
+    "prefixSearch": "/MyNotes/de/reasoning/lessons/strong-induction/",
+    "compactTreeKeyboard": {
+      "content": 600,
+      "left": 40,
+      "width": 303
+    },
+    "finalPrefixDE": {
+      "displayWrappers": 88,
+      "home": "/MyNotes/de/",
+      "mathErrors": 0,
+      "url": "http://127.0.0.1:8448/MyNotes/de/reasoning/lessons/strong-induction/",
+      "openingFigureLevel": "Zerlegungsstufe 2 von 2"
+    },
+    "finalPrefixEN": {
+      "home": "/MyNotes/",
+      "mathErrors": 0,
+      "scope": "conditional",
+      "url": "http://127.0.0.1:8448/MyNotes/reasoning/lessons/strong-induction/"
+    }
+  },
+  "layouts": [
+    {
+      "height": 844,
+      "locale": "de",
+      "mathErrors": 0,
+      "openDetails": 6,
+      "overflow": false,
+      "theme": "light",
+      "wideEquations": [
+        {
+          "content": 285,
+          "w": 269
+        },
+        {
+          "content": 429,
+          "w": 337
+        },
+        {
+          "content": 326,
+          "w": 269
+        },
+        {
+          "content": 412,
+          "w": 303
+        },
+        {
+          "content": 351,
+          "w": 269
+        },
+        {
+          "content": 351,
+          "w": 269
+        },
+        {
+          "content": 285,
+          "w": 269
+        },
+        {
+          "content": 336,
+          "w": 269
+        }
+      ],
+      "width": 390
+    },
+    {
+      "height": 844,
+      "locale": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "height": 1000,
+      "locale": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "height": 1000,
+      "locale": "de",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "height": 1000,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "light",
+      "width": 1440
+    },
+    {
+      "height": 1000,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "height": 844,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "height": 844,
+      "locale": "en",
+      "mathErrors": 0,
+      "overflow": false,
+      "theme": "light",
+      "width": 390
+    }
+  ],
+  "logs": {
+    "lesson": [],
+    "gallery": [],
+    "prefix": [],
+    "finalPrefix": [],
+    "finalLesson": []
+  },
+  "resolvedFindings": [
+    {
+      "issue": "Same-line display delimiters made the German boxed theorem inline and caused 471px page width at a 390px viewport.",
+      "fix": "Display delimiters now occupy separate lines, enabling the existing accessible local-scroll wrappers."
+    }
+  ],
+  "final": {
+    "exerciseDetailsOpen": 0,
+    "height": 720,
+    "mathErrors": 0,
+    "overflow": false,
+    "title": "What if the next step needs all the earlier steps?",
+    "tree": "Split level 0 of 3",
+    "url": "http://127.0.0.1:4321/reasoning/lessons/strong-induction/",
+    "width": 1280
+  },
+  "evidence": [
+    "reasoning-28-desktop.jpg",
+    "reasoning-28-compact-de.jpg"
+  ]
+}

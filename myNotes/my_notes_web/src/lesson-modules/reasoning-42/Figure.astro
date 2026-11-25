@@ -1,0 +1,7 @@
+---
+import './styles.css';
+import {figureTitle,figureMarkup} from './render';
+interface Props {figure:string}
+const {figure}=Astro.props,locale=Astro.locals.locale||'en';
+---
+<figure class="a42" data-a42-figure={figure}><h3>{figureTitle(locale,figure)}</h3><div set:html={figureMarkup(locale,figure)}/></figure>

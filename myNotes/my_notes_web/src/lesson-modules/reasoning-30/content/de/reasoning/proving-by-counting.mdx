@@ -1,0 +1,687 @@
+---
+locale: de
+course: reasoning
+chapter: reasoning-part-four
+sourceId: reasoning-episode-30
+sourcePages: []
+sourceLocations: ["Sections 1–10; supplementary worksheet, generalized pigeonhole principle, course connections and preparation references"]
+title: "Beweisen, indem man dasselbe unterschiedlich zählt"
+navTitle: "Zählbeweise"
+description: "Die Menge hinter einer Zählung erkennen, das Schubfachprinzip beweisen und Graphinzidenzen auf zwei Arten zählen."
+order: 30
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [sets-and-mathematical-worlds, what-makes-a-proof]
+thumbnail: module:reasoning-30
+---
+
+## 1. Was du wissen kannst, ohne nachzusehen
+
+Stell dir vor, wir laden dreizehn einander unbekannte Menschen in einen Raum ein.
+
+Du hast niemanden von ihnen je getroffen. Du kennst weder ihre Namen noch ihr Alter, ihre Herkunft oder ihre Geburtstage.
+
+Trotzdem kannst du schon, bevor jemand etwas über sich erzählt, eine Aussage über diese Menschen machen, die mit Sicherheit wahr ist.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="strangers" />
+
+Mindestens zwei dieser Menschen wurden im selben Monat geboren.
+
+Nicht wahrscheinlich. Nicht mit an Sicherheit grenzender Wahrscheinlichkeit.
+
+Es muss so sein.
+
+Aber wie können wir etwas über dreizehn Menschen wissen, ohne einen von ihnen näher zu betrachten?
+
+Und welche Art von Information erlaubt uns überhaupt einen solchen Schluss?
+
+In diesem Kurs haben wir gelernt, Aussagen zu beweisen, indem wir logischen Folgerungen folgen, Widersprüche untersuchen, Zwischenschritte konstruieren und unveränderliche Eigenschaften erkennen.
+
+Heute untersuchen wir eine weitere Methode. Sie wirkt fast verdächtig einfach.
+
+Wir werden zählen.
+
+Die Schwierigkeit liegt dabei nicht im Rechnen. Sie liegt darin, herauszufinden, **was wir überhaupt zählen sollten.**
+
+## 2. Versuche, die Aussage falsch zu machen
+
+Statt sofort zu erklären, warum die Aussage stimmt, versuchen wir zunächst eine Situation zu konstruieren, in der sie falsch ist.
+
+Wir wollen dreizehn Menschen, die alle in verschiedenen Monaten geboren wurden.
+
+<Interactive kind="module" module="reasoning-30" preset="months" id="counting-30-months" />
+
+Wir ordnen die erste Person dem Januar zu, die zweite dem Februar, die dritte dem März und fahren so fort.
+
+Nachdem zwölf Personen zugeordnet sind, enthält jeder Monat genau eine Person.
+
+Bis hierhin haben wir einen gemeinsamen Geburtsmonat vermieden.
+
+Aber eine Person ist noch übrig.
+
+Wohin können wir sie setzen?
+
+Wir könnten die Person aus dem Januar in den Februar verschieben. Dann enthält der Februar allerdings zwei Personen. Wir könnten auch alle Personen neu verteilen, aber dadurch entsteht kein zusätzlicher Monat.
+
+Das Problem ist nicht, dass wir noch keine hinreichend geschickte Anordnung gefunden haben.
+
+Die gesuchte Anordnung kann nicht existieren.
+
+Enthielte jeder Monat höchstens eine Person, könnten die zwölf Monate insgesamt höchstens zwölf Personen aufnehmen.
+
+Wir haben aber dreizehn.
+
+$$
+13>12
+$$
+
+Beachte, wie wenig wir wissen mussten.
+
+Wir mussten weder wissen, welcher Monat geteilt wird, noch welche zwei Personen ihn teilen. Auch Wahrscheinlichkeiten für Geburtstage waren unnötig.
+
+Wir brauchten nur zwei Zahlen und eine Einschränkung dafür, wie sich die Objekte verteilen lassen.
+
+**Wir haben Existenz bewiesen, ohne ein bestimmtes Beispiel zu identifizieren.**
+
+Es muss einen gemeinsamen Geburtsmonat geben, selbst wenn wir nicht wissen, welcher es ist.
+
+## 3. Das Schubfachprinzip entdecken
+
+Entfernen wir schrittweise die unwesentlichen Einzelheiten unseres Problems.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="pigeonhole" />
+
+Was wäre, wenn wir sechs Objekte und nur fünf Kategorien hätten?
+
+Genau dasselbe Problem.
+
+Einhunderteins Objekte und einhundert Kategorien?
+
+Wieder dasselbe Problem.
+
+Die konkreten Zahlen sind unwichtig. Entscheidend ist ihre Beziehung.
+
+Angenommen, wir haben $n$ Kategorien, wobei $n$ eine positive ganze Zahl ist. Jedes Objekt gehört genau einer dieser Kategorien an.
+
+Gibt es mehr als $n$ Objekte, muss mindestens eine Kategorie zwei oder mehr Objekte enthalten.
+
+Dies ist das **Schubfachprinzip**.
+
+Der englische Name „pigeonhole principle“ erinnert an Tauben, die in ihre Fächer zurückkehren. Die Tauben sind aber ebenso unwesentlich wie die Fächer.
+
+Mathematisch haben wir eine Einschränkung dafür entdeckt, wie Objekte Kategorien zugeordnet werden können.
+
+$$
+\underbrace{n+1}_{\text{Objekte}}>\underbrace{n}_{\text{Kategorien}}
+$$
+
+Nehmen wir zum Widerspruch an, keine Kategorie enthalte mehr als ein Objekt.
+
+Dann kann die Gesamtzahl der Objekte $n$ nicht überschreiten.
+
+Es gibt aber $n+1$ Objekte.
+
+Also muss mindestens eine Kategorie mehr als eines enthalten.
+
+Dieser Beweis hat dieselbe Struktur wie das Argument mit den dreizehn Menschen. Wir haben keinen neuen Beweis für jede mögliche Zahl entwickelt, sondern die gemeinsame Struktur erkannt.
+
+Deshalb ist die Wahl der Kategorien so wichtig.
+
+Stell dir vor, ich behaupte, unter fünf ganzen Zahlen müssten mindestens drei dieselbe Parität haben.
+
+Wie würdest du das beweisen?
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="parity" />
+
+Enthielten beide Kategorien höchstens zwei ganze Zahlen, könnten sie zusammen höchstens vier Zahlen aufnehmen. Die fünfte Zahl erzwingt, dass eine Kategorie mindestens drei enthält.
+
+Sobald die richtigen Kategorien erkannt sind, wird das Argument sehr kurz.
+
+Manchmal ist das Schwierigste an einem Beweis nicht die logische Folgerung selbst.
+
+Es ist die Darstellung zu finden, in der diese Folgerung offensichtlich wird.
+
+## 4. Eine andere Art zu zählen
+
+Kehren wir zu unserem Raum zurück.
+
+Diesmal machen wir die Situation etwas kleiner. Fünf Menschen nehmen an einem Treffen teil.
+
+Einige geben einander die Hand. Nicht unbedingt jede Person begrüßt jede andere, und kein Paar gibt sich mehr als einmal die Hand.
+
+Am Ende möchten wir wissen, wie viele Händedrücke stattgefunden haben.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="network" />
+
+Jeder Punkt steht für eine Person. Jede Linie steht für einen Händedruck.
+
+Wir könnten einfach die Linien zählen.
+
+Eins, zwei, drei, vier, fünf.
+
+Es gab fünf Händedrücke.
+
+Stell dir nun vor, wir hätten dieses vollständige Bild nicht. Jede Person erinnert sich nur daran, wie vielen anderen sie die Hand gegeben hat.
+
+Wir fragen also die fünf Personen einzeln.
+
+Person A nennt drei.
+
+Person B nennt zwei.
+
+Person C nennt zwei.
+
+Person D nennt zwei.
+
+Und Person E nennt einen.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="degrees" />
+
+$$
+3+2+2+2+1=10
+$$
+
+Addieren wir diese Zahlen, erhalten wir zehn.
+
+Eben haben wir aber nur fünf Händedrücke gezählt.
+
+Woher kommen die zusätzlichen fünf?
+
+Hat jemand eine falsche Auskunft gegeben? Haben wir den Graphen falsch gezählt? Oder beantworten die beiden Rechnungen unterschiedliche Fragen?
+
+**Überlege kurz, wofür die Zahl zehn steht.**
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="totals" />
+
+Beide Ergebnisse sind richtig.
+
+Aber sie zählen verschiedene Dinge.
+
+Wenn wir genau verstehen, wie diese Dinge zusammenhängen, können wir etwas viel Allgemeineres entdecken.
+
+## 5. Woher kommt der Faktor zwei?
+
+Betrachten wir einen einzigen Händedruck.
+
+Person A gibt Person B die Hand.
+
+Fragen wir A nach der Anzahl der eigenen Händedrücke, trägt dieser Händedruck eins zu As Antwort bei.
+
+Fragen wir B, trägt derselbe Händedruck eins zu Bs Antwort bei.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="split" />
+
+Es gab nur ein körperliches Ereignis. Daran waren aber zwei Menschen beteiligt.
+
+Das gilt für jeden Händedruck in unserem Raum.
+
+Jeder Händedruck trägt genau zwei zur Summe der einzelnen Antworten bei. Nicht manchmal zwei. Nicht ungefähr zwei. Genau zwei.
+
+Der Grund liegt darin, was ein Händedruck zwischen zwei Menschen ist.
+
+<Interactive kind="module" module="reasoning-30" preset="regroup" id="counting-30-regroup" />
+
+Erste Darstellung: nach Händedruck gruppiert.
+
+$$
+2+2+2+2+2=10
+$$
+
+Zweite Darstellung: nach Person umgruppiert.
+
+$$
+3+2+2+2+1=10
+$$
+
+$$
+2\times5=3+2+2+2+1
+$$
+
+Dieselben zehn Plättchen wurden neu angeordnet. Keines wurde hinzugefügt oder entfernt.
+
+Sieh dir genau an, was wir gerade getan haben.
+
+Zunächst haben wir diese zehn Informationen nach Händedruck gruppiert. Es gab fünf Gruppen mit je zwei Teilen.
+
+Dann haben wir dieselben Informationen nach Person gruppiert. Nun gibt es fünf unterschiedlich große Gruppen.
+
+Wir haben aber nichts erzeugt, entfernt oder an der zugrunde liegenden Menge geändert.
+
+Wir haben nur ihre Anordnung verändert.
+
+Also müssen beide Methoden dieselbe Gesamtzahl ergeben.
+
+Das ist die Grundidee einer mathematischen Technik namens **doppeltes Abzählen**.
+
+Wir bestimmen eine Menge von Objekten oder Beziehungen, zählen diese Menge auf zwei verschiedene Arten und setzen die Ergebnisse gleich.
+
+Denn hinter zwei scheinbar unterschiedlichen Ausdrücken zählen wir dasselbe.
+
+## 6. Vom Raum voller Menschen zum mathematischen Satz
+
+Unser Bild muss keine Menschen mehr darstellen.
+
+Die Punkte könnten Städte sein und die Linien Straßen. Sie könnten Computer mit Verbindungen, Atome mit Bindungen oder Menschen mit gegenseitigen Freundschaften darstellen.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="worlds" />
+
+In der Mathematik nennen wir diese Struktur einen **Graphen**.
+
+Die Punkte heißen Knoten, die verbindenden Linien Kanten.
+
+Wir betrachten vorerst endliche, ungerichtete Graphen ohne Schleifen und ohne mehrere Kanten zwischen denselben zwei Knoten.
+
+Die Anzahl der mit einem Knoten verbundenen Kanten heißt sein *Grad*.
+
+Als wir jede Person nach ihren Händedrücken fragten, fragten wir also nach dem Grad des entsprechenden Knotens.
+
+Bezeichnen wir die Knotenmenge mit $V$, die Kantenmenge mit $E$ und den Grad eines Knotens $v$ mit:
+
+$$
+\deg(v)
+$$
+
+Die Summe der Grade aller Knoten lässt sich so schreiben:
+
+$$
+\sum_{v\in V}\deg(v)
+$$
+
+Das bedeutet: Gehe alle Knoten in $V$ durch, nimm jeweils ihren Grad und addiere diese Zahlen.
+
+Wie oft trägt jede Kante zu dieser Summe bei?
+
+Genau zweimal, denn jede Kante hat zwei verschiedene Endpunkte.
+
+Daher:
+
+$$
+\underbrace{\sum_{v\in V}\deg(v)}_{\text{nach Knoten zählen}}=\underbrace{2|E|}_{\text{nach Kanten zählen}}
+$$
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="lemma" />
+
+**Das Handschlaglemma**
+
+Um die Begründung vollständig präzise zu machen, definieren wir die Menge, die wir tatsächlich zählen.
+
+Sei $I$ die Menge aller Knoten-Kanten-Paare, bei denen der Knoten ein Endpunkt der Kante ist.
+
+$$
+I=\{(v,e)\in V\times E:v\text{ ist ein Endpunkt von }e\}.
+$$
+
+Zählen wir diese Paare nach Knoten, trägt jeder Knoten genau seinen Grad bei:
+
+$$
+|I|=\sum_{v\in V}\deg(v).
+$$
+
+Zählen wir nach Kanten, trägt jede Kante genau zwei Paare bei:
+
+$$
+|I|=2|E|.
+$$
+
+Beide Ausdrücke sind die Mächtigkeit derselben Menge. Folglich gilt:
+
+$$
+\boxed{\sum_{v\in V}\deg(v)=2|E|}
+$$
+
+Das ist der vollständige Beweis.
+
+Wir haben nicht jeden möglichen Graphen überprüft. Die Knoten mussten weder eine bestimmte Form bilden noch bestimmte Grade haben.
+
+Wir haben eine Beziehung gefunden, die für jeden Graphen gilt, der unsere Voraussetzungen erfüllt.
+
+Die fünf Menschen im Raum waren nur der Ausgangspunkt ihrer Entdeckung.
+
+## 7. Durch Zählen Unmöglichkeit beweisen
+
+Untersuchen wir, was uns diese Beziehung erkennen lässt.
+
+Sieben Menschen nehmen an einem Treffen teil. Am Ende behauptet jede Person, genau drei anderen die Hand gegeben zu haben.
+
+Können alle sieben die Wahrheit sagen?
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="seven" />
+
+Du könntest versuchen, die Verbindungen zu zeichnen.
+
+Verbinde die erste Person mit drei anderen. Versuche dann, auch die Anforderungen der übrigen Personen zu erfüllen.
+
+Vielleicht erhält eine Person zu viele und eine andere zu wenige Verbindungen, sodass du alles umordnen musst.
+
+Wir müssen diese Möglichkeiten aber nicht mehr durchsuchen.
+
+Wäre jede Person an genau drei Händedrücken beteiligt gewesen, wäre die Gradsumme:
+
+$$
+7\times3=21.
+$$
+
+Wir haben jedoch gerade bewiesen, dass diese Summe das Doppelte der Kantenzahl ist.
+
+$$
+21=2|E|
+$$
+
+Also:
+
+$$
+|E|=\frac{21}{2}=10.5.
+$$
+
+Die Anzahl der Händedrücke muss aber ganzzahlig sein.
+
+Eine halbe Kante ist in diesem Graphen nicht möglich.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="unpaired" />
+
+21 Beteiligungen lassen sich nicht in Gruppen mit genau zwei Elementen aufteilen.
+
+Eine solche Anordnung ist unmöglich.
+
+Daraus folgt eine allgemeinere Konsequenz unseres Satzes.
+
+Wegen
+
+$$
+\sum_{v\in V}\deg(v)=2|E|
+$$
+
+muss die Gradsumme jedes solchen Graphen gerade sein.
+
+Denke nun daran, was beim Addieren gerader und ungerader Zahlen passiert.
+
+Eine gerade Zahl verändert die Parität nicht. Eine ungerade Zahl wechselt sie.
+
+Ist die Summe gerade, muss es also eine gerade Anzahl ungerader Summanden gegeben haben.
+
+Jeder endliche Graph der betrachteten Art hat daher eine **gerade Anzahl von Knoten mit ungeradem Grad**.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="odd" />
+
+$$
+\underbrace{3+1}_{\text{ungerade Grade}}+\underbrace{2+2+2}_{\text{gerade Grade}}=10
+$$
+
+In diesem Beispiel haben genau zwei Knoten ungeraden Grad.
+
+Erinnerst du dich an die vorige Lektion, in der wir mit Invarianten gezeigt haben, dass bestimmte Konfigurationen niemals erreicht werden können?
+
+Hier haben wir eine weitere notwendige Einschränkung möglicher Konfigurationen entdeckt. Diesmal folgt sie aus dem Zählen.
+
+Wir begannen mit Händedrücken und gelangten zu einer mathematischen Einschränkung für die Struktur ganzer Netzwerke.
+
+## 8. Wenn doppeltes Abzählen schiefgeht
+
+Doppeltes Abzählen ist wirkungsvoll, birgt aber eine subtile Gefahr.
+
+Dass zwei Rechnungen ähnlich aussehen, bedeutet nicht, dass sie dieselbe Menge zählen.
+
+Betrachten wir ein vorgeschlagenes Argument.
+
+Vier Menschen nehmen an einer Aktivität teil. Jedes Paar gibt sich genau einmal die Hand.
+
+Jemand möchte die Anzahl der Händedrücke bestimmen und zählt die Händedrücke der einzelnen Personen. Dabei wird aber nicht für alle dieselbe Regel verwendet.
+
+Das Vorgehen ist unten dargestellt.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="audit" />
+
+$$
+3+2+2+3=10
+$$
+
+Die Schlussfolgerung lautet:
+
+$$
+\frac{10}{2}=5\text{ Händedrücke}
+$$
+
+Das Argument: An jedem Händedruck sind zwei Menschen beteiligt, also teilen wir die Gesamtzahl durch zwei.
+
+Die Rechnung ist richtig. Die Schlussfolgerung ist jedoch falsch.
+
+Wo genau scheitert die Begründung?
+
+Ordnen wir die erfassten Händedrücke neu und gruppieren diesmal gleiche Händedrücke zusammen.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="multiplicity" />
+
+Wir stellen fest: Manche Händedrücke wurden zweimal gezählt, andere nur einmal.
+
+Das Problem war nicht das Teilen durch zwei.
+
+Das Problem war die Annahme, jeder Händedruck habe genau zwei zur Summe beigetragen, obwohl das gar nicht stimmte.
+
+Wie oft ein Objekt gezählt wird, heißt seine **Vielfachheit** oder **Multiplizität**.
+
+Eine Zählung durch zwei zu teilen ist gerechtfertigt, wenn jedes Objekt genau zweimal gezählt wurde. Sind die Vielfachheiten unterschiedlich, können wir die gesamte Zählung nicht mit dieser einen Division korrigieren.
+
+Daraus ergeben sich drei Fragen für jeden Zählbeweis.
+
+**Vollständigkeit**
+
+Haben wir jedes Objekt der betrachteten Menge erfasst?
+
+**Mehrfachzählung**
+
+Wurde ein Objekt mehr als einmal gezählt?
+
+**Vielfachheit**
+
+Trägt jedes Objekt so oft bei, wie es unser Argument voraussetzt?
+
+Dabei geht es um mehr als das Vermeiden von Rechenfehlern.
+
+Wir prüfen, ob die mathematischen Ausdrücke wirklich die Objekte darstellen, die sie angeblich darstellen.
+
+## 9. Kannst du selbst einen Zählbeweis entdecken?
+
+Zum Abschluss noch ein Problem.
+
+In einem Raum befinden sich $n$ Menschen, wobei $n$ eine positive ganze Zahl ist.
+
+Diesmal gibt jede Person jeder anderen genau einmal die Hand.
+
+Wie viele Händedrücke finden statt?
+
+Versuche eine Formel zu konstruieren, statt dich an eine zu erinnern.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="complete" />
+
+Bei sechs Menschen gibt jede Person fünf anderen die Hand.
+
+Beginne mit einer Person.
+
+Wie vielen anderen kann sie die Hand geben?
+
+Insgesamt gibt es $n$ Menschen, aber niemand gibt sich selbst die Hand.
+
+Jede Person gibt also genau $n-1$ anderen die Hand.
+
+Da es $n$ Personen gibt, ergibt die Summe ihrer einzelnen Anzahlen:
+
+$$
+n(n-1)
+$$
+
+Dabei wurde aber wieder jeder Händedruck zweimal gezählt.
+
+Die tatsächliche Anzahl ist also:
+
+$$
+\boxed{\frac{n(n-1)}{2}}
+$$
+
+$$
+\frac{6\times5}{2}=15
+$$
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="matrix" />
+
+Es gibt noch eine andere Sichtweise.
+
+Ordnen wir alle möglichen Händedrücke in einer Tabelle an, wird der Eintrag für A mit B durch den Eintrag für B mit A gespiegelt.
+
+Beide stehen für dasselbe körperliche Ereignis.
+
+Entfernen wir die Diagonale, auf der Personen sich selbst die Hand gäben, steht genau die Hälfte der übrigen Einträge für verschiedene Händedrücke.
+
+Wir sind mit einer anderen Darstellung zur selben Formel gelangt.
+
+In der Kombinatorik schreibt man diese Zahl auch als:
+
+$$
+\binom{n}{2}=\frac{n(n-1)}{2}.
+$$
+
+Sie zählt die Möglichkeiten, aus einer Menge mit $n$ Objekten zwei verschiedene Objekte auszuwählen, wenn ihre Reihenfolge keine Rolle spielt.
+
+Obwohl wir über Händedrücke gesprochen haben, haben wir also etwas über die Auswahl von Paaren aus jeder endlichen Menge bewiesen.
+
+## 10. Zählen ist mehr als Rechnen
+
+Zu Beginn haben wir etwas über dreizehn Unbekannte herausgefunden, ohne ihre individuellen Geburtstage zu kennen.
+
+Später haben wir eine Einschränkung für ganze Netzwerke entdeckt, ohne jedes mögliche Netzwerk zu betrachten.
+
+Schließlich haben wir eine Formel für die Anzahl der Händedrücke gewonnen, wenn jede Person jeder anderen genau einmal die Hand gibt.
+
+Diese Ergebnisse beruhen auf zwei verwandten Ideen.
+
+<ReasoningFigure kind="module" module="reasoning-30" figure="synthesis" />
+
+**Das Schubfachprinzip**
+
+**Doppeltes Abzählen**
+
+Das erste lässt uns erkennen, was aufgrund der Verteilung von Objekten geschehen muss.
+
+Das zweite lässt uns Beziehungen zwischen Größen erkennen, weil sie dieselbe zugrunde liegende Menge beschreiben.
+
+Hinter beiden Techniken steht aber eine grundlegendere Fähigkeit.
+
+Frage bei einem mathematischen Problem zuerst, wofür die Größen tatsächlich stehen, bevor du fragst, wie du das Ergebnis berechnest.
+
+Was sind die Objekte? Wie sind sie angeordnet? Welche Beziehungen verbinden sie? Könntest du diese Beziehungen anders zählen?
+
+Manchmal scheinen zwei Ausdrücke überhaupt nichts gemeinsam zu haben.
+
+Bis du erkennst, dass sie dasselbe beschreiben.
+
+Dann ist eine Gleichheit nicht länger etwas, das du auswendig lernen musst.
+
+Sie wird zu etwas, das du verstehst.
+
+## Übungsblatt
+
+Die fünf Fragen stammen aus dem mitgelieferten Übungsblatt. Die Hinweise außer dem ersten und die Referenzlösungen außer der zweiten wurden als Lernhilfen ergänzt.
+
+### 1. Gemeinsame Geburtsmonate
+
+Wie viele von 25 Menschen haben garantiert mindestens denselben Geburtsmonat?
+
+<details><summary>Hinweis</summary><p>Was wäre, wenn jeder Monat höchstens zwei Personen enthielte?</p></details>
+
+<Exercise>
+Mindestens drei. Enthielte jeder der zwölf Monate höchstens zwei Personen, gäbe es höchstens $12\cdot2=24$ Personen. Bei 25 muss mindestens ein Monat drei oder mehr enthalten. Vier lassen sich nicht garantieren: Ordne einem Monat drei Personen und den übrigen elf Monaten jeweils zwei zu.
+</Exercise>
+
+### 2. Die Kantenzahl rekonstruieren
+
+Ein Netzwerk hat Knoten mit den Graden 2, 3, 4, 1 und 2. Wie viele Kanten hat es?
+
+<details><summary>Hinweis</summary><p>Zähle die Knoten-Kanten-Inzidenzen zuerst nach Knoten und dann nach Kanten.</p></details>
+
+<Exercise>
+6 Kanten. Die Gradsumme ist 12, und jede Kante trägt genau zwei bei.
+
+$$
+|E|=\frac{2+3+4+1+2}{2}=6.
+$$
+</Exercise>
+
+### 3. Eine ungerade Anzahl ungerader Grade
+
+Kann ein Graph genau drei Knoten mit ungeradem Grad haben?
+
+<details><summary>Hinweis</summary><p>Welche Parität hat die Summe dreier ungerader Zahlen und beliebig vieler gerader Zahlen?</p></details>
+
+<Exercise>
+Nein, unter den Voraussetzungen dieser Lektion: endlich, ungerichtet und einfach. Drei ungerade Grade würden die Gradsumme ungerade machen. Nach dem Handschlaglemma ist sie gerade. Null, zwei oder vier Knoten mit ungeradem Grad sind möglich; ihre Anzahl muss gerade sein.
+</Exercise>
+
+### 4. Alle geben einander die Hand
+
+Zehn Menschen geben jeweils jeder anderen Person genau einmal die Hand. Wie viele Händedrücke finden statt?
+
+<details><summary>Hinweis</summary><p>Jede Person trägt neun Beteiligungen bei. Wie viele Beteiligungen gehören zu einem Händedruck?</p></details>
+
+<Exercise>
+Jede der zehn Personen hat Grad neun, also gibt es 90 Beteiligungen. Jeder Händedruck trägt genau zwei bei. Daher gibt es $10\cdot9/2=45$ Händedrücke.
+</Exercise>
+
+### 5. Eine notwendige Bedingung genügt nicht
+
+Kann in einem Graphen mit sechs Knoten jeder Knoten Grad sechs haben?
+
+<details><summary>Hinweis</summary><p>Eine gerade Gradsumme ist notwendig. Wie viele verschiedene andere Knoten kann ein Knoten erreichen?</p></details>
+
+<Exercise>
+Nein, für einen einfachen Graphen ohne Schleifen. Zu jedem Knoten gibt es nur fünf andere Knoten, also ist sein Grad höchstens fünf. Die vorgeschlagene Gradsumme $6\cdot6=36$ ist zwar gerade, doch diese notwendige Bedingung allein beweist keine Existenz.
+</Exercise>
+
+## Erweiterung: das verallgemeinerte Schubfachprinzip
+
+Werden $N$ Objekte auf $k$ Kategorien verteilt, wobei $k\geq1$, enthält mindestens eine Kategorie mindestens
+
+$$
+\boxed{\left\lceil\frac{N}{k}\right\rceil}
+$$
+
+Objekte.
+
+Die Aufrundungsklammern bedeuten, zur nächsten ganzen Zahl aufzurunden. Dabei ist $N$ eine nichtnegative und $k$ eine positive ganze Zahl.
+
+<Interactive kind="module" module="reasoning-30" preset="distribution" id="counting-30-distribution" />
+
+Um dies zu verstehen, nehmen wir an, jede Kategorie enthielte höchstens
+
+$$
+\left\lceil\frac Nk\right\rceil-1
+$$
+
+Objekte. Dann müsste insgesamt gelten:
+
+$$
+N\leq k\left(\left\lceil\frac Nk\right\rceil-1\right)<N,
+$$
+
+ein Widerspruch. Die strikte Ungleichung folgt aus $\lceil x\rceil-1<x$ und $k>0$, auch wenn $N/k$ ganzzahlig ist.
+
+Das Prinzip sagt nicht, dass jede Kategorie so viele Objekte enthält. Es garantiert dies für **mindestens eine**.
+
+## Verbindungen innerhalb des Kurses
+
+| Frühere Lektion | Verbindung |
+| --- | --- |
+| AoR 04 — Visuelle Beweise | Dieselbe Menge umordnen, ohne ihre Mächtigkeit zu verändern. |
+| AoR 06 — Gegenbeispiele | Erkennen, dass eine notwendige Bedingung noch keine Existenz garantiert. |
+| AoR 14 — Mengen | Die gezählte Menge präzise definieren. |
+| AoR 16 — Mathematischer Beweis | Vom konkreten Beispiel zu einem allgemeinen Argument gelangen. |
+| AoR 26 — Darstellung | Dieselben Beziehungen durch Diagramme, Tabellen und Gleichungen ausdrücken. |
+| AoR 29 — Invarianten | Unmöglichkeit durch strukturelle Einschränkungen begründen. |
+
+Diese Lektion verbindet grundlegende Beweistechniken mit Kombinatorik, Graphentheorie, diskreter Mathematik und Wahrscheinlichkeit.
+
+## Vorbereitende Literatur
+
+- Richard Hammack, [Book of Proof](https://richardhammack.github.io/BookOfProof/): Divisions- und Schubfachprinzip, Zählen und kombinatorische Beweise.
+- Eric Lehman, F. Thomson Leighton und Albert R. Meyer, *Mathematics for Computer Science*: Zählargumente und Graphentheorie; [MIT-Lektüreliste](https://ocw.mit.edu/courses/6-1200j-mathematics-for-computer-science-spring-2024/pages/readings/).
+
+Dies sind die mitgelieferten Vorbereitungshinweise. Aktuelle Ausgaben und Seitenzahlen wurden nicht unabhängig überprüft.

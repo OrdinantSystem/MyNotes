@@ -1,0 +1,43 @@
+{
+  "id": "reasoning-46",
+  "course": "reasoning",
+  "chapter": "reasoning-part-six",
+  "chapterDefinition": {
+    "id": "reasoning-part-six",
+    "course": "reasoning",
+    "title": {
+      "en": "Part Six",
+      "de": "Teil Sechs"
+    },
+    "description": {
+      "en": "Investigation, explanation, and scientific reasoning.",
+      "de": "Untersuchung, Erklärung und wissenschaftliches Denken."
+    }
+  },
+  "order": 46,
+  "key": "what-would-have-happened-otherwise",
+  "title": "What would have happened otherwise?",
+  "sourceId": "reasoning-episode-46",
+  "sourceTitle": "What would have happened otherwise?",
+  "figures": [
+    "opening",
+    "branches",
+    "notation",
+    "before-after",
+    "randomization",
+    "map",
+    "brewery",
+    "outbreak",
+    "histories",
+    "suppliers",
+    "mortality",
+    "assumptions",
+    "closing"
+  ],
+  "presets": [
+    "potential-outcomes",
+    "timeline",
+    "exposure",
+    "school"
+  ]
+}

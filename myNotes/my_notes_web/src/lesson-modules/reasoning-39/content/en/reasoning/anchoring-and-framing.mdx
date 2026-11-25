@@ -1,0 +1,307 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-five
+sourceId: reasoning-episode-39
+sourcePages: []
+sourceLocations: ["Episode script sections 1 and 3–11", "Visual relationships in section 12; preparation sources in section 13"]
+title: "How a number or a frame can steer your judgment"
+navTitle: "Anchoring and framing"
+description: "Distinguish evidence from presentation using anchors, fixed outcomes, risky choices and information invariance."
+order: 39
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+thumbnail: "module:reasoning-39"
+---
+
+## Changes in evidence, changes in presentation
+
+Two people can receive the same relevant information and reach different judgments simply because of how that information was presented.
+
+A number introduced before an estimate can influence where we begin reasoning. A description can emphasize the positive or negative aspects of an otherwise identical situation. Neither necessarily changes the underlying evidence, yet both can change our conclusions or preferences.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="mechanisms" />
+
+The deeper purpose is not simply to learn the names of two cognitive biases. It is to distinguish between **changes in evidence and changes in the presentation of evidence**.
+
+When should information change our beliefs? Here, we explore what happens when our judgments change without a corresponding change in information.
+
+## Two descriptions, one reality
+
+Imagine a fictional machine used to manufacture electronic components. You are considering whether the machine is reliable enough to purchase.
+
+<Interactive kind="module" module="reasoning-39" preset="opening" id="framing-opening" />
+
+The machine has not changed. The components have not changed. No additional experiment has taken place. Only the description has changed.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="same-outcomes" />
+
+This is the first conceptual revelation: **a description of reality is not reality itself**.
+
+This reflection introduces a possibility; it does not diagnose an individual bias or imply that everyone responds differently. The record also does not, by itself, establish whether this machine meets a particular purchasing requirement or how it will perform in future conditions.
+
+## Anchoring — Where does your estimate begin?
+
+Before explaining framing in greater depth, consider a different way in which presentation can influence judgment.
+
+<Interactive kind="module" module="reasoning-39" preset="estimate" id="framing-estimate" />
+
+The important question is not whether the second estimate is better or worse. It is why you changed it.
+
+Did you notice something about the distribution of dots? Did you discover that your original estimation method was inaccurate? Did you learn that the other person had counted the dots?
+
+Or did the number simply become a new reference point?
+
+### Two possible starting points
+
+Consider a hypothetical comparison between two groups. Both groups see the exact same collection of dots, but one encounters a low number before estimating and the other encounters a high number.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="anchors" />
+
+The low anchor may pull estimates downward, while the high anchor may pull them upward. These shapes illustrate a possible influence; they are not results collected from learners or measurements from the cited studies.
+
+**Anchoring effect:** the tendency for an initially encountered value to exert an influence on a subsequent judgment, sometimes beyond what its informational relevance warrants.
+
+### The original research
+
+In their [1974 paper, *Judgment under Uncertainty: Heuristics and Biases*](https://doi.org/10.1126/science.185.4157.1124), Amos Tversky and Daniel Kahneman described an experiment in which participants encountered a number produced by a wheel before estimating the percentage of African countries among United Nations members. Different arbitrary starting numbers influenced the estimates.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="wheel" />
+
+The marker has no informational connection to the question being answered. That absence of a connection is what makes the example important. The dot activity is a fictional teaching example, not a replication of that experiment.
+
+## When anchoring is actually useful
+
+Starting from a previously known number is not inherently irrational. In fact, it is often an efficient way of reasoning.
+
+Imagine estimating the current value of a fictional apartment. You receive two possible starting points.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="relevance" />
+
+Numerically, both starting points are identical. Epistemically, they are completely different.
+
+The first may contain useful information about the apartment market, although differences in location, condition and size still need to be considered. The second contains no comparable evidence.
+
+### Connecting this to Bayesian reasoning
+
+Let $H$ be a hypothesis about the value of the apartment, and let $E$ be the information we receive. For the conditional-likelihood derivation below, assume $0<P(H)<1$ and $P(E)>0$.
+
+If $E$ is independent of $H$, then:
+
+$$
+P(E\mid H)=P(E).
+$$
+
+Using Bayes' theorem:
+
+$$
+P(H\mid E)=\frac{P(E\mid H)P(H)}{P(E)}.
+$$
+
+Therefore:
+
+$$
+\boxed{P(H\mid E)=P(H)}.
+$$
+
+The belief should remain unchanged by that information.
+
+The mathematical connection links a psychological phenomenon to formal reasoning: an independent, irrelevant number does not justify a belief update. Calling a number irrelevant is not enough; the independence assumption must fit the actual process that produced it. A comparable sale price and a random output do not have the same relationship to the apartment value.
+
+- An informative starting point can make reasoning more efficient.
+- An irrelevant starting point can influence reasoning without improving it.
+- A weakly informative starting point deserves only as much weight as its evidence justifies.
+
+The goal is not to eliminate starting points. It is to evaluate their relevance.
+
+## Framing — Changing the description without changing the facts
+
+Return to the manufacturing machine from the opening. This time, reconstruct the information mathematically.
+
+Let $U$ represent the set of all 100 manufacturing attempts, $S$ the successful attempts and $F$ the failed attempts.
+
+Assume that every attempt is classified as exactly one of these two outcomes.
+
+$$
+|U|=100
+$$
+
+$$
+|S|=90,\qquad |F|=10
+$$
+
+Since success and failure are mutually exclusive and exhaustive:
+
+$$
+F=U\setminus S.
+$$
+
+Consequently:
+
+$$
+P(F)=1-P(S).
+$$
+
+Here, probability can be understood as selecting one attempt uniformly at random from the recorded attempts.
+
+$$
+P(F)=1-0.9=0.1.
+$$
+
+The failure rate is therefore not an independent piece of information. It is already determined by the success rate under the stated assumptions.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="complements" />
+
+### Change the emphasis, keep the objects
+
+<Interactive kind="module" module="reasoning-39" preset="frames" id="framing-outcomes" />
+
+The individual components never move, disappear or change their classification. Only their emphasis and the description change. The visual demonstrates the equivalence.
+
+When the successful outcomes are emphasized, our attention may be directed toward reliability and opportunity. When unsuccessful outcomes are emphasized, our attention may instead be directed toward risk and possible loss.
+
+This can influence how we evaluate an otherwise unchanged situation.
+
+The manufacturing example illustrates what researchers call **attribute framing**: evaluating the same characteristic differently depending on how it is described. This is related to, but distinct from, the framing of risky decisions; see [Levin, Schneider and Gaeth (1998)](https://doi.org/10.1006/obhd.1998.2804).
+
+Paying attention to failures is not irrational. For some decisions, failures are precisely what matters most.
+
+The problem arises when our evaluation changes merely because the presentation changes, even though the relevant outcomes, circumstances and decision criteria remain identical.
+
+## Framing an actual decision
+
+Imagine a factory experiencing technical difficulties. It has 100 components at risk of being lost.
+
+Two recovery procedures are available. Choose once in each description, then inspect the full outcomes. There is no correct preference supplied by this activity.
+
+<Interactive kind="module" module="reasoning-39" preset="risk" id="framing-risk" />
+
+### Gain and loss descriptions
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="gain" />
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="loss" />
+
+Procedure A guarantees 60 saved and 40 lost. Procedure B gives a 60% chance of saving all 100 and a 40% chance of saving none. Describing these outcomes in terms of losses does not change either procedure.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="neutral" />
+
+This factory example is an original adaptation of the risky-choice framing problem explored by [Tversky and Kahneman (1981)](https://doi.org/10.1126/science.7455683). Its numbers and setting are teaching examples, not the reported conditions or results of their study.
+
+### Expected value and risk
+
+For Procedure A:
+
+$$
+\mathbb E[S_A]=1\cdot60=60.
+$$
+
+For Procedure B:
+
+$$
+\mathbb E[S_B]=0.6\cdot100+0.4\cdot0=60.
+$$
+
+Both procedures have the same expected number of saved components, but they have different levels of risk. An expected value of 60 does not mean that Procedure B ever saves exactly 60 in a single attempt.
+
+Choosing either procedure can be reasonable depending on the factory's needs and tolerance for uncertainty.
+
+The crucial distinction is that choosing A over B is not necessarily irrational, nor is choosing B over A. What deserves examination is reversing one's preference solely because the outcomes were described differently.
+
+## The reference point problem
+
+There is another important aspect of framing: the reference point against which a result is evaluated.
+
+Imagine a company earns €80,000. Is that good or bad?
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="reference" />
+
+Mathematically, if the actual result is $x$ and the reference point is $r$, the difference is:
+
+$$
+\Delta=x-r.
+$$
+
+Changing $r$ can change the sign of $\Delta$, without changing $x$.
+
+Unlike the earlier manufacturing example, however, different reference points can provide genuinely relevant information. A contractual minimum revenue requirement, for instance, might matter more than an arbitrary target.
+
+Therefore, the appropriate question is not simply whether a reference point exists, but whether it is justified for the decision being made.
+
+## How to reconstruct the underlying information
+
+When encountering a numerical claim, reconstruct it into a representation that makes the relevant information explicit.
+
+Call this process **normalization**.
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="normalization" />
+
+| Question | What it controls |
+| --- | --- |
+| Are we using the same denominator? | Relative frequencies and population sizes |
+| Are we using the same time period? | Temporal differences |
+| Are we describing the same outcomes? | Missing information and changed conditions |
+| Are we using the same reference point? | Gains, losses and evaluation criteria |
+
+For anchoring, add a fifth question: **What does the initial number actually tell me about the thing I am estimating?**
+
+### An important exception
+
+| Statement | Information |
+| --- | --- |
+| 90 out of 100 attempts succeeded. | Baseline information |
+| 10 out of the same 100 attempts failed. | Equivalent description |
+| 10 out of 100 attempts failed, and every failure caused permanent damage. | Additional information |
+
+The third statement should potentially change our judgment because it introduces a new consequence.
+
+Furthermore, even logically equivalent descriptions can sometimes communicate additional contextual information through the speaker's choice of words. For example, describing a result as *only 90% successful* might suggest that the speaker expected a higher rate. Whether this implication is justified must be evaluated separately. [Sher and McKenzie (2006)](https://pubmed.ncbi.nlm.nih.gov/16364278/) examine this distinction between logical equivalence and information equivalence.
+
+This prevents us from treating every change in wording as manipulation.
+
+## Test your reasoning
+
+Distinguish evidence from presentation, rather than merely recalling the definitions of anchoring and framing. Formulate a reason before checking each answer.
+
+<Interactive kind="module" module="reasoning-39" preset="quiz" id="framing-quiz" />
+
+## What should remain invariant?
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="invariance" />
+
+**Invariance** means something remaining unchanged under a transformation.
+
+Let $I$ represent the relevant information and $J(I)$ our evaluation of that information. If a transformation $T$ changes only the presentation, preserving all decision-relevant information, then a consistent evaluation should satisfy:
+
+$$
+\boxed{J(I)=J(T(I))}.
+$$
+
+This is a normative reasoning principle, not a descriptive law of human psychology. The qualification includes consequences, reference points and decision criteria, as well as the numerical outcomes. If one of those relevant features changes, the premise of this invariance claim may no longer hold.
+
+It also connects this lesson to equality, equivalence and transformations that preserve properties.
+
+We cannot always control which number we encounter first, or which part of reality someone chooses to emphasize. But we can reconstruct the information for ourselves.
+
+We can examine the denominator, recover the missing outcomes, identify the reference point and ask what the evidence actually supports.
+
+Because changing your mind when the evidence changes is reasoning. Changing your mind when only the presentation changes is something worth investigating.
+
+**The facts remain. The frame disappears.**
+
+**Did I receive new evidence, or did I receive the same evidence in a different form?**
+
+### The visual relationships
+
+<ReasoningFigure kind="module" module="reasoning-39" figure="visual-language" />
+
+### Further reading
+
+- [Tversky & Kahneman (1974), *Judgment under Uncertainty: Heuristics and Biases*](https://doi.org/10.1126/science.185.4157.1124): anchoring and adjustment.
+- [Tversky & Kahneman (1981), *The Framing of Decisions and the Psychology of Choice*](https://doi.org/10.1126/science.7455683): risky-choice framing.
+- [Levin, Schneider & Gaeth (1998), *All Frames Are Not Created Equal*](https://doi.org/10.1006/obhd.1998.2804): attribute, risky-choice and goal framing are distinct categories.
+- [Sher & McKenzie (2006), *Information Leakage from Logically Equivalent Frames*](https://pubmed.ncbi.nlm.nih.gov/16364278/): contextual information can matter even when explicit descriptions are logically equivalent.
+
+The apartment, machine, component-recovery and dot examples are fictional. The expected-value calculation and formal invariance principle are teaching extensions in the supplied script; the illustrative distributions are not empirical findings.

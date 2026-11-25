@@ -1,0 +1,126 @@
+{
+  "date": "2026-11-25",
+  "matrix": [
+    {
+      "width": 1280,
+      "lang": "en",
+      "theme": "light",
+      "activities": 4,
+      "katexErrors": 0,
+      "pageWidth": 1269,
+      "viewport": 1280
+    },
+    {
+      "width": 1280,
+      "lang": "en",
+      "theme": "dark",
+      "activities": 4,
+      "katexErrors": 0,
+      "pageWidth": 1269,
+      "viewport": 1280
+    },
+    {
+      "width": 1280,
+      "lang": "de",
+      "theme": "light",
+      "activities": 4,
+      "katexErrors": 0,
+      "pageWidth": 1269,
+      "viewport": 1280
+    },
+    {
+      "width": 1280,
+      "lang": "de",
+      "theme": "dark",
+      "activities": 4,
+      "katexErrors": 0,
+      "pageWidth": 1269,
+      "viewport": 1280
+    },
+    {
+      "width": 390,
+      "lang": "en",
+      "theme": "light",
+      "activities": 4,
+      "katexErrors": 0,
+      "pageWidth": 379,
+      "viewport": 390
+    },
+    {
+      "width": 390,
+      "lang": "en",
+      "theme": "dark",
+      "activities": 4,
+      "katexErrors": 0,
+      "pageWidth": 379,
+      "viewport": 390
+    },
+    {
+      "width": 390,
+      "lang": "de",
+      "theme": "light",
+      "activities": 4,
+      "katexErrors": 0,
+      "pageWidth": 379,
+      "viewport": 390
+    },
+    {
+      "width": 390,
+      "lang": "de",
+      "theme": "dark",
+      "activities": 4,
+      "katexErrors": 0,
+      "pageWidth": 379,
+      "viewport": 390
+    }
+  ],
+  "checks": {
+    "deliveryReveal": {
+      "published": 10,
+      "publishedFailures": 8,
+      "all": 100,
+      "allFailures": 10,
+      "outlined": 10
+    },
+    "filteredEmployees": {
+      "repair": 15,
+      "assembly": 20,
+      "total": 35,
+      "identitiesPreserved": true,
+      "legendUsesFilteredCounts": true
+    },
+    "population40": {
+      "repairMatches": 30,
+      "assemblyMatches": 15,
+      "posterior": "66.7%"
+    },
+    "rangeEndpoints": {
+      "repair0": "0/25=0%",
+      "repair100": "75/75=100%"
+    },
+    "invalidPopulationRestoresLastValue": true,
+    "frequency": "10/1000=1%",
+    "keyboardReset": true,
+    "practice": {
+      "initialRevealDisabled": true,
+      "changedAnswerHidesFeedback": true,
+      "localizedRevealHideLabels": true,
+      "referenceDisclosure": true
+    },
+    "galleryInstancesIndependent": true,
+    "search": {
+      "english": "memorable",
+      "german": "Verfügbarkeitsheuristik",
+      "prefix": "/MyNotes",
+      "navigation": "Keyboard Enter activated each verified result"
+    },
+    "languageLinksPreservePrefix": true,
+    "consoleErrors": []
+  },
+  "limitations": [
+    "No physical touch or pen test",
+    "No screen-reader audit",
+    "Psychological and translation review unreviewed",
+    "Images of psychological prominence are qualitative"
+  ]
+}

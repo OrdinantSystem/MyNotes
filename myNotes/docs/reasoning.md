@@ -96,3 +96,8 @@ Episode 26 adds `changing-representations`, order 26 in Part Four / Teil Vier (2
 
 
 Episode 27 adds `inventing-a-lemma`, order 27 and the third lesson in Part Four / Teil Vier (25–27). Ten teaching sections, fourteen native figures and three `Interactive kind="lemma"` presets retain the independently proved parity lemma, full signed-integer divisibility proof, accessibility/sufficiency distinction, false factor-cancellation counterexample and four-choice odd-square transfer with complete proof. See [reasoning-lemmas.md](reasoning-lemmas.md) for the candidate/proved/conclusion scopes and source boundaries.
+
+
+Episode 28 adds `strong-induction`, order 28, fourth lesson of Part Four / Teil Vier (25–28). Nine teaching sections, nineteen figures (eighteen new variants and the reused induction dominoes), three local activities and three reasoning questions preserve strong induction, the complete prime-factorization existence proof, strict-descent termination, smallest counterexamples, the positive-real boundary and the cumulative Q(k) reduction. Two missing source questions and all hints/reference answers are explicit additions. See [reasoning-strong-induction.md](reasoning-strong-induction.md).
+
+Episode 29 adds `invariants-and-monovariants` in EN/DE, order 29 in Part Four. Its four activities, fourteen figures, complete chessboard impossibility proof and termination boundaries live in `src/lesson-modules/reasoning-29/`. Read its README for source and state contracts. Later episodes can register independently using [parallel-lessons.md](parallel-lessons.md); no placeholder lessons are added.

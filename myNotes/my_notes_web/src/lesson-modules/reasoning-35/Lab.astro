@@ -1,0 +1,22 @@
+---
+import {initialState,sampleSizes,probabilityCases} from './model';
+import {sampleMarkup,pollMarkup,probabilityMarkup,designMarkup,number} from './render';
+import {text} from './copy';
+import './styles.css';
+interface Props{preset:'sampling'|'selection'|'probability'|'designs';id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale||'en',c=text(locale),s=initialState();
+---
+<figure class="s35-lab" id={id} data-s35-lab={preset} data-locale={locale}>
+ <h3>{c.labTitles[preset]}</h3>
+ {preset==='sampling'&&<><label>{c.size}<select data-s35-size aria-controls={`${id}-output`}>{sampleSizes.map(n=><option value={n}>{n}</option>)}</select></label><div class="s35-controls"><button type="button" data-s35-draw aria-controls={`${id}-output`}>{c.draw}</button><button type="button" data-s35-reveal aria-expanded="false" aria-controls={`${id}-output`}>{c.reveal}</button></div></>}
+ {preset==='selection'&&<><p>{c.rateNote}</p><p>{c.fixed}: {c.short} {number(60000,locale)} · {c.long} {number(40000,locale)}</p>{(['short','long'] as const).map((group,i)=><div><label for={`${id}-${group}-range`}>{group==='short'?c.shortRate:c.longRate}: <output data-s35-rate-label={group} for={`${id}-${group}-range`}>{i===0?10:60}%</output></label><input data-s35-range={group} id={`${id}-${group}-range`} type="range" min="0" max="100" step="1" value={i===0?10:60} aria-controls={`${id}-output`}/><label>{group==='short'?c.shortRate:c.longRate} (%)<input data-s35-number={group} type="number" min="0" max="100" step="1" value={i===0?10:60} aria-controls={`${id}-output`}/></label></div>)}</>}
+ {preset==='probability'&&<label>{c.rule}<select data-s35-probability aria-controls={`${id}-output`}>{probabilityCases.map((value,i)=><option value={value}>{c.cases[i]}</option>)}</select></label>}
+ {preset==='designs'&&<><label>{c.target}<select data-s35-target aria-controls={`${id}-output`}><option value="all">{c.allTarget}</option><option value="math">{c.mathTarget}</option></select></label><label>{c.design}<select data-s35-design aria-controls={`${id}-output`}>{(['a','b','c'] as const).map((value,i)=><option value={value}>{c.researchers[i]}</option>)}</select></label><p data-s35-design-summary>{c.designs[0]}</p><button type="button" data-s35-evaluate aria-controls={`${id}-output`}>{c.evaluate}</button></>}
+ <div id={`${id}-output`} data-s35-output set:html={preset==='sampling'?sampleMarkup(locale,s.ids,s.history,s.revealed):preset==='selection'?pollMarkup(locale,s.shortRate,s.longRate):preset==='probability'?probabilityMarkup(locale,s.probability):designMarkup(locale,s.design,s.target,s.evaluated)}/>
+ <div class="s35-controls"><button type="button" data-s35-reset aria-controls={`${id}-output`}>{c.reset}</button></div>
+ {preset==='sampling'&&<p>{c.limit}</p>}
+ <p class="s35-status" role="status" aria-live="polite" data-s35-status></p>
+</figure>
+<script>
+import './controller';
+</script>

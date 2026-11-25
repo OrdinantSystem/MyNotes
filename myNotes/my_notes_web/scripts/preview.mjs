@@ -1,3 +1,4 @@
+import {withBuildLock} from './build-lock.mjs';
 import {cp,mkdtemp,rm} from 'node:fs/promises';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
@@ -12,6 +13,7 @@ const run=(script,options={})=>{
  if(result.status!==0)throw new Error(`Preview command exited with status ${result.status}`);
 };
 
+await withBuildLock(async()=>{
 // Management commands retain Astro's background-server lifecycle.
 if(['stop','status','logs'].includes(args[0])){
  run([astro,'preview',...args]);
@@ -34,3 +36,5 @@ if(['stop','status','logs'].includes(args[0])){
   throw new Error(`Could not start the preview from ${path.basename(snapshot)}.`,{cause:error});
  }
 }
+
+});

@@ -1,3 +1,4 @@
+import {moduleLessonFiles} from '../src/lib/lesson-modules.mjs';
 import {locales} from '../src/lib/i18n.ts';
 import { readFile, readdir, access } from "node:fs/promises";
 import path from "node:path";
@@ -234,14 +235,15 @@ const courseIds=courses.map(c=>c.id);
 const {default:organization}=await import('../src/lib/analysis-organization.json',{with:{type:'json'}});
 const canonicalAnalysis=new Set(organization.lessons.map(l=>l.key));
 const compatibilityCount=Object.keys(organization.aliases.en).filter(k=>!canonicalAnalysis.has(k)).length;
+const lessonSource=(locale,name)=>moduleLessonFiles(locale).find(x=>x.name===name)?.file??`src/content/lessons/${locale}/${name}`;
 const lessonSets = Object.fromEntries(
   await Promise.all(
     locales.map(async (locale) => {
-      const entries = (await walk(`src/content/lessons/${locale}`)).map(f=>path.relative(`src/content/lessons/${locale}`,f));
+      const entries = (await walk(`src/content/lessons/${locale}`)).map(f=>path.relative(`src/content/lessons/${locale}`,f)).concat(moduleLessonFiles(locale).map(x=>x.name));
       const published = [];
       for (const name of entries.filter((n) => /\.mdx?$/.test(n))) {
         const source = await readFile(
-          `src/content/lessons/${locale}/${name}`,
+          lessonSource(locale,name),
           "utf8",
         );
         if (/^status:\s*['"]?published['"]?\s*(?:#.*)?$/m.test(source)) published.push(name);
@@ -303,11 +305,11 @@ for (const locale of locales) {
     );
     assert.ok(!html.includes("{{"), "Unresolved translation placeholder");
     const source = await readFile(
-      `src/content/lessons/${locale}/${filename}`,
+      lessonSource(locale,filename),
       "utf8",
     );
     const english = await readFile(
-      `src/content/lessons/en/${filename}`,
+      lessonSource('en',filename),
       "utf8",
     );
     const normalize = (s) =>

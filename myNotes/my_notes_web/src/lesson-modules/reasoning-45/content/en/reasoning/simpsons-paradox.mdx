@@ -1,0 +1,263 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-six
+sourceId: reasoning-episode-45
+sourcePages: []
+sourceLocations: ["Episode script sections 1 and 3–10", "Visual relationships in section 11; preparation sources in section 12"]
+title: "How can a trend reverse when you combine the data?"
+navTitle: "Combining data and reversing trends"
+description: "Explain Simpson’s paradox through individual counts, weighted averages, standardization and causal questions."
+order: 45
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: []
+thumbnail: "module:reasoning-45"
+---
+
+## Better in every category, worse overall?
+
+Imagine two training methods, A and B, intended to improve problem solving. Each is evaluated across 110 task attempts. These are fictional data. Begin with the overall results and form an initial judgment before revealing the task categories.
+
+<Interactive kind="module" module="reasoning-45" preset="opening" id="reversal-opening" />
+
+B records more than twice A’s overall success rate. Would that be enough to choose B if you wanted to become better at solving problems?
+
+The tasks belong to two categories: easy and difficult. A succeeds on 90% of easy tasks, compared with B’s 80%. A also succeeds on 30% of difficult tasks, compared with B’s 20%. Yet B has the higher combined rate. All of these calculations describe the same observations.
+
+How can a method have a higher rate within every category and a lower rate overall? We first need to understand what an average represents.
+
+## What an average actually represents
+
+Two people each score 90; eight others each score 50.
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="people" />
+
+Giving equal importance to the two groups gives
+
+$$
+\frac{90+50}{2}=70.
+$$
+
+Giving equal importance to each of the ten people gives
+
+$$
+\frac{2\cdot90+8\cdot50}{10}=58.
+$$
+
+Both calculations are mathematically legitimate. They answer different questions: the mean of two group means versus the mean across ten people. The first calculation does not account for the unequal group sizes. It would give the people in the smaller group more influence per person.
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="balance" />
+
+The balance point lies closer to 50 because eight people contribute that score. Change the group sizes and predict whether the person mean will move left or right. The equal average of the two group means remains 70.
+
+<Interactive kind="module" module="reasoning-45" preset="averages" id="reversal-averages" />
+
+For two groups with means $r_1,r_2$ and positive sizes $n_1,n_2$, the combined mean is
+
+$$
+r=\frac{n_1r_1+n_2r_2}{n_1+n_2}=w_1r_1+w_2r_2,
+$$
+
+where
+
+$$
+w_1=\frac{n_1}{n_1+n_2},\qquad w_2=\frac{n_2}{n_1+n_2},\qquad w_1+w_2=1.
+$$
+
+The weights describe how much each group contributes. For a combined success rate, the weights are the proportions of attempts in each category, rather than the proportions of successes.
+
+## Reconstruct the individual observations
+
+Return to the methods. Every square below is one attempt. Filled squares are successes; outlined squares are failures. The groups retain their actual sizes. Method identity is given by columns; difficulty by separate labelled groups; outcome by fill and outline.
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="observations" />
+
+The same observations give this table:
+
+| Task difficulty | Method A | Method B | Higher observed rate |
+| --- | --- | --- | --- |
+| Easy | $9/10=90\%$ | $80/100=80\%$ | A |
+| Difficult | $30/100=30\%$ | $2/10=20\%$ | A |
+| Combined | $39/110\approx35.5\%$ | $82/110\approx74.5\%$ | B |
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="comparison" />
+
+A’s advantage within each category is **10 percentage points**: subtracting rates of 90% and 80%, or 30% and 20%, gives a difference of 0.10. This is an absolute rate difference, not a 10% relative increase. B’s overall advantage is
+
+$$
+\frac{82-39}{110}=\frac{43}{110}\approx0.3909,
+$$
+
+or about **39.1 percentage points**. Calculate differences from the underlying fractions before rounding the displayed percentages.
+
+This is **Simpson’s paradox**: an association within groups can disappear or reverse when those groups are combined. There is no contradiction in arithmetic. The expectation that a within-group ordering must survive aggregation overlooks the weights used in the two aggregates.
+
+## Make the hidden weights visible
+
+A attempts 10 easy and 100 difficult tasks. B attempts 100 easy and 10 difficult tasks. Both have 110 attempts, but they face dramatically different conditions.
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="composition" />
+
+A’s overall rate is pulled toward its difficult-task rate. B’s overall rate is pulled toward its easy-task rate:
+
+$$
+\begin{aligned}
+R_A&=\frac{10}{110}(0.9)+\frac{100}{110}(0.3)=\frac{39}{110},\\
+R_B&=\frac{100}{110}(0.8)+\frac{10}{110}(0.2)=\frac{82}{110}.
+\end{aligned}
+$$
+
+A has higher conditional rates, but those rates receive less favourable weights. Comparing the overall rates therefore combines differences in performance with differences in workload.
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="intervals" />
+
+Each combined rate lies between its own two conditional rates, as every weighted mean with nonnegative weights must. A’s endpoints, 30% and 90%, are both higher than B’s corresponding endpoints, 20% and 80%. But A’s combined point lies near its lower endpoint, while B’s lies near its upper endpoint. Neither average violates its bounds.
+
+## Change the weights, keep the success rates
+
+Predict what will happen when both methods receive the same workload. In the explorer, all four conditional rates stay fixed. Only the easy/difficult mixture changes.
+
+<Interactive kind="module" module="reasoning-45" preset="weights" id="reversal-weights" />
+
+Choose **Equal workload**. With half the weight on easy tasks and half on difficult tasks,
+
+$$
+\begin{aligned}
+R_A&=0.5(0.9)+0.5(0.3)=0.6,\\
+R_B&=0.5(0.8)+0.5(0.2)=0.5.
+\end{aligned}
+$$
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="standardization" />
+
+The reversal disappears. This is **standardization**: calculating rates under a common distribution of relevant groups. The calculation estimates what the rates would be for that mixture if the conditional rates applied there. It is a reweighting of the original rates, not a new experiment.
+
+A 50/50 workload is convenient here, but it is not inherently the correct target. In practice, choose weights to represent the population or conditions you want to understand, and explain that choice.
+
+### Why any common mixture preserves A’s lead
+
+Let $p\in[0,1]$ be a shared proportion of easy tasks. Then
+
+$$
+\begin{aligned}
+R_A(p)&=0.9p+0.3(1-p)=0.3+0.6p,\\
+R_B(p)&=0.8p+0.2(1-p)=0.2+0.6p,\\
+R_A(p)-R_B(p)&=0.1.
+\end{aligned}
+$$
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="proof" />
+
+The lines are parallel because both methods’ rates increase by the same amount as the easy-task share increases. Their vertical separation is always 10 percentage points, including at the endpoints: all difficult or all easy.
+
+More generally, suppose A has a strictly higher rate than B in every category. Using identical nonnegative weights that sum to one gives
+
+$$
+\sum_i w_i r_{Ai}-\sum_i w_i r_{Bi}=\sum_i w_i(r_{Ai}-r_{Bi})>0.
+$$
+
+Every term is nonnegative and at least one is positive because at least one weight is positive. Thus common weights cannot reverse that strict ordering. A Simpson reversal of this kind requires unequal weights across the compared methods; unequal weights alone do not guarantee a reversal.
+
+## Which conclusion should we trust?
+
+“Always use the overall result” and “always use the separate groups” are both inadequate rules. First identify the question.
+
+| Question | Relevant comparison |
+| --- | --- |
+| Which method recorded more successes here? | Counts: 39 versus 82 |
+| Which had the higher combined observed success rate? | Combined rates: $39/110$ versus $82/110$ |
+| Which had a higher observed rate at each difficulty? | Conditional rates |
+| Which has a higher estimated rate under a chosen common workload? | Standardized rates |
+| Which would cause better performance if people were assigned to it? | Requires causal assumptions or suitable experimental evidence |
+
+Counts and rates happen to give the same ordering here because the totals are equal. They answer different questions in general. The first four rows can be answered by arithmetic and an explicit choice of weights. The final row cannot be answered from this table alone.
+
+### World 1: difficulty influences method selection
+
+Suppose supervisors tend to choose A for difficult tasks and B for easy tasks. Difficulty precedes and influences both method selection and success. It is a **confounder** of the method–success relationship.
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="confounder" />
+
+Comparing tasks of equal difficulty can address this particular source of confounding. Standardized rates can help estimate an effect if the required causal assumptions hold, including sufficient control of other confounders and adequate data for the relevant comparisons. The arrows express a proposed data-generating process; they are not proved by the observed percentages.
+
+### World 2: the method changes the tasks attempted
+
+Now suppose A encourages learners to attempt difficult problems, while B encourages easier ones. The method changes task selection. Difficulty is a **mediator**, carrying part of the method’s effect on success.
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="mediator" />
+
+Only the arrow between method and difficulty has reversed. If we want the total effect of adopting the complete training system, including the tasks it encourages, adjusting away task selection may remove part of the effect we want to study. A fixed common assessment answers a different question about performance at shared levels of difficulty.
+
+Under suitable causal assumptions, or in a properly randomized comparison of the complete systems, an aggregate rate could estimate their total effect on overall success rate. Conditioning on a mediator alone does not generally identify a direct causal effect either.
+
+<Interactive kind="module" module="reasoning-45" preset="causal" id="reversal-causal" />
+
+The same table can be compatible with these different causal structures. The four conditional rates do not tell us which process generated them. We need information about assignment, time order, other relevant differences, and what an intervention actually changes. Some apparently statistical questions require knowledge beyond the statistical table.
+
+## Reconstruct a new comparison
+
+Two fictional hospitals use recovery programs X and Y. Work out the combined rates before checking. These invented numbers illustrate statistical reasoning, not treatment evidence.
+
+| Patient category | Program X | Program Y |
+| --- | --- | --- |
+| Low risk | $8/10$ | $70/100$ |
+| High risk | $20/100$ | $1/10$ |
+| Combined | ? | ? |
+
+<Interactive kind="module" module="reasoning-45" preset="challenge" id="reversal-challenge" />
+
+### Explain the reversal without naming it
+
+<Exercise question="Explain why the combined ordering differs from the ordering in both risk categories, without using the name of the paradox.">
+X treats mainly high-risk patients, whereas Y treats mainly low-risk patients. The pooled rates give greater weight to different risk categories. X has higher rates within each category, but Y’s easier case mix produces the higher combined rate. Naming the phenomenon would not explain this mechanism.
+
+$$
+R_X=\frac{8+20}{110}\approx25.5\%,\qquad R_Y=\frac{70+1}{110}\approx64.5\%.
+$$
+</Exercise>
+
+### Compare a common patient mix
+
+<Exercise question="Suppose both programs treat 50% low-risk and 50% high-risk patients. Calculate their standardized rates.">
+The conditional rates are 80% and 20% for X, and 70% and 10% for Y. Using the same weights gives
+
+$$
+R_X=0.5(0.8)+0.5(0.2)=0.5,\qquad R_Y=0.5(0.7)+0.5(0.1)=0.4.
+$$
+
+X’s standardized rate is 50%, versus Y’s 40%. Reweighting makes this comparison refer to the same patient composition. It does not create observations from that target population.
+</Exercise>
+
+### Identify what remains unknown
+
+<Exercise question="Does this establish that X causes better recovery? What information or study would strengthen that conclusion?">
+No. We need to know how patients were assigned, whether other relevant differences remain, and how uncertain the estimates are. Some categories contain only ten patients. Standardization addresses a comparability problem but does not establish causality or eliminate sampling uncertainty.
+
+A proposed study could define a target patient population and outcome period, use suitable random assignment where appropriate, assess baseline risk consistently, and compare outcomes with uncertainty estimates. If assignment is observational, explain the identification assumptions and remaining confounding risks. The design must match the causal question; a numerical reversal alone does not select a study design.
+</Exercise>
+
+## What is lost when we combine observations?
+
+An overall statistic compresses a more complicated population. It can be useful while hiding structure relevant to a comparison. Switch between grouped and combined views below. The identities and outcomes of all 220 attempts remain the same.
+
+<Interactive kind="module" module="reasoning-45" preset="compression" id="reversal-compression" />
+
+<ReasoningFigure kind="module" module="reasoning-45" figure="compression" />
+
+Possible settings include examination results grouped by prior preparation, recovery rates by disease severity, income by occupation, promotions by department, reliability by workload, and engagement by audience composition. These are possible places to investigate a reversal, not evidence that one occurs in every setting.
+
+Before trusting an aggregate comparison:
+
+1. **Define the question.** What precisely are you comparing?
+2. **Inspect the groups.** Which relevant subpopulations are combined?
+3. **Recover the weights.** How much does each group contribute?
+4. **Compare common conditions.** Does the ordering change under a shared distribution?
+5. **Investigate causality.** Why do the groups differ, and what role does the grouping variable play?
+
+A number can be perfectly correct and still answer a different question from the one you care about. Understanding data requires understanding what was counted, how observations were combined, and why they differ. **How do you know?**
+
+## Further reading
+
+The mathematical and causal distinctions are developed in [Pearl’s “Understanding Simpson’s Paradox”](https://doi.org/10.1080/00031305.2014.876829). The [Stanford Encyclopedia of Philosophy entry](https://plato.stanford.edu/entries/paradox-simpson/) surveys the phenomenon and its interpretation. Further preparation sources are [Kievit and colleagues’ practical guide](https://pmc.ncbi.nlm.nih.gov/articles/PMC3740239/), [Causal Inference in Statistics: A Primer](https://bayes.cs.ucla.edu/PRIMER/), and [OpenIntro Statistics](https://www.openintro.org/book/os/). The training and recovery datasets above are fictional teaching examples.

@@ -1,0 +1,36 @@
+---
+import {copy} from './copy';
+import {assignmentMarkup,protocolMarkup,missingMarkup,workshopMarkup} from './render';
+import '../../styles/counterexamples.css';
+import './styles.css';
+interface Props{preset:string;id:string}
+const {preset,id}=Astro.props,locale=Astro.locals.locale==='de'?'de':'en',c=copy(locale);
+if(!['assignment','repair','missing','workshop'].includes(preset))throw new Error('Unknown experiment activity');
+---
+<figure class="counter-lab aor44" id={id} data-aor44-lab={preset} data-locale={locale}>
+ <h3>{c.labTitles[preset as keyof typeof c.labTitles]}</h3>
+ {preset==='assignment'&&<><div class="counter-controls"><button type="button" data-self aria-pressed="true">{c.self}</button><button type="button" data-random aria-pressed="false">{c.randomMode}</button><button type="button" data-repeat>{c.repeat}</button></div><div data-output id={`${id}-output`} set:html={assignmentMarkup(locale)}/></>}
+ {preset==='repair'&&<><label class="aor44-choice"><input type="checkbox" data-time aria-controls={`${id}-output`}/>{c.matchTime}</label><label class="aor44-choice"><input type="checkbox" data-support aria-controls={`${id}-output`}/>{c.matchSupport}</label><div data-output id={`${id}-output`} set:html={protocolMarkup(locale,{time:false,support:false})}/><p class="counter-help">{c.unchanged}</p></>}
+ {preset==='missing'&&<><label class="aor44-choice"><input type="checkbox" data-remove aria-controls={`${id}-output`}/>{c.remove}</label><div data-output id={`${id}-output`} set:html={missingMarkup(locale,false,id)}/></>}
+ {preset==='workshop'&&<><div data-output id={`${id}-output`} set:html={workshopMarkup(locale,id)}/><div class="counter-controls"><button type="button" data-reveal>{c.reveal}</button><button type="button" data-hide>{c.hide}</button></div></>}
+ <div class="counter-controls"><button type="button" data-reset>{c.reset}</button></div><p class="counter-help" data-status role="status" aria-live="polite"></p>
+</figure>
+<script>
+import {copy} from './copy';
+import {assign,selfSelection,attrition} from './model';
+import {assignmentMarkup,protocolMarkup,missingMarkup,percent} from './render';
+for(const root of document.querySelectorAll<HTMLElement>('[data-aor44-lab]')){
+ const locale=root.dataset.locale==='de'?'de':'en',c=copy(locale),preset=root.dataset.aor44Lab,output=root.querySelector<HTMLElement>('[data-output]')!,status=root.querySelector<HTMLElement>('[data-status]')!;
+ let trial=0;
+ const pressed=(random:boolean)=>{root.querySelector('[data-self]')?.setAttribute('aria-pressed',String(!random));root.querySelector('[data-random]')?.setAttribute('aria-pressed',String(random));};
+ root.querySelector('[data-self]')?.addEventListener('click',()=>{output.innerHTML=assignmentMarkup(locale,selfSelection(),false,trial);pressed(false);status.textContent=c.selfReason;});
+ for(const button of root.querySelectorAll('[data-random],[data-repeat]'))button.addEventListener('click',()=>{trial++;output.innerHTML=assignmentMarkup(locale,assign(),true,trial);pressed(true);status.textContent=`${c.trial}: ${trial}. ${c.randomReason}`;});
+ const repair=()=>{const state={time:root.querySelector<HTMLInputElement>('[data-time]')!.checked,support:root.querySelector<HTMLInputElement>('[data-support]')!.checked};output.innerHTML=protocolMarkup(locale,state);status.textContent=state.time&&state.support?c.repairReason:c.packageReason;};
+ root.querySelectorAll('[data-time],[data-support]').forEach(input=>input.addEventListener('change',repair));
+ root.querySelector<HTMLInputElement>('[data-remove]')?.addEventListener('change',event=>{const remove=(event.target as HTMLInputElement).checked;output.innerHTML=missingMarkup(locale,remove,root.id);status.textContent=`${c.mean}: ${percent(attrition(remove).mean,locale)}. ${remove?c.noLearning:c.allScores}`;});
+ const solutions=(open:boolean)=>root.querySelectorAll<HTMLDetailsElement>('[data-solution]').forEach(item=>item.open=open);
+ root.querySelector('[data-reveal]')?.addEventListener('click',()=>{solutions(true);status.textContent=c.reveal;});
+ root.querySelector('[data-hide]')?.addEventListener('click',()=>{solutions(false);status.textContent=c.hide;});
+ root.querySelector('[data-reset]')!.addEventListener('click',()=>{trial=0;root.querySelectorAll<HTMLInputElement>('input[type=checkbox]').forEach(input=>input.checked=false);if(preset==='assignment'){output.innerHTML=assignmentMarkup(locale);pressed(false);}if(preset==='repair')output.innerHTML=protocolMarkup(locale,{time:false,support:false});if(preset==='missing')output.innerHTML=missingMarkup(locale,false,root.id);if(preset==='workshop')solutions(false);status.textContent=c.statusReset;});
+}
+</script>

@@ -1,0 +1,226 @@
+---
+locale: en
+course: reasoning
+chapter: reasoning-part-six
+sourceId: reasoning-episode-47
+sourcePages: []
+sourceLocations: ["1. The central idea of the episode", "2–5. Coin experiment, null model, p-values and repeated testing", "6–8. Selection, exploration and safeguards", "9–10. Reasoning exercise and conclusion", "12–14. Preparation sources, learning goals and model boundaries"]
+thumbnail: module:reasoning-47
+title: How can chance produce an impressive discovery?
+navTitle: Chance and selected discoveries
+description: Evaluate unusual observations in the context of the search that selected them.
+order: 47
+kind: concept
+status: published
+reviewStatus: unreviewed
+prerequisites: [testing-competing-explanations, implication-and-its-converse]
+---
+
+An observation can be entirely real, correctly measured and mathematically unusual—and still provide much weaker evidence than it initially appears to.
+
+The problem is not necessarily that the researchers made a calculation error, manipulated their data or lied. The problem can be that we are evaluating the discovery without knowing the process that produced it. Instead of asking only “How unlikely is this result?”, ask **“How unlikely is it that this entire investigation would produce a result at least this impressive?”**
+
+Those are different questions. Randomness itself has mathematical structure: although individual outcomes are uncertain, the collective behavior of many random outcomes can become remarkably predictable. We will move from random variation to an unusual observation, repeated testing, selective reporting and scientific safeguards.
+
+## 1. An extraordinary discovery
+
+A coin has been tossed 100 times, producing 61 heads and 39 tails.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="coins" />
+
+Is this evidence of a biased coin? If the coin is fair and its tosses are independent, obtaining an imbalance at least this large in either direction has a probability of approximately **3.52%**. That seems unusual enough to investigate.
+
+A headline could read: “Experiment reveals statistically significant deviation from fairness.” But this experiment is only one of twenty experiments conducted using simulated fair coins. How did we discover apparent evidence of bias in a system deliberately constructed to have none? To understand that, reconstruct the investigation from its beginning.
+
+## 2. Randomness does not mean perfect balance
+
+If a coin is fair, 100 tosses should produce approximately 50 heads and 50 tails. This intuition becomes misleading when we treat 50 as an outcome that must occur. A fair coin is defined by the probabilities of its possible outcomes, not by a requirement that every collection of tosses perfectly reflect those probabilities:
+
+$$
+P(H)=P(T)=\frac12.
+$$
+
+Let $X$ be the number of heads in 100 independent tosses. Then $X$ has a binomial distribution, and
+
+$$
+\mathbb E[X]=100\cdot\frac12=50.
+$$
+
+An expected value is not a guaranteed observation. Sometimes heads leads, sometimes tails leads. Even after 100 tosses, the balance will usually not be perfectly centered. Repeat the experiment many times and record each final head count: the outcomes accumulate into a distribution.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="distribution" />
+
+The tails of this distribution are not places where randomness stops working. They are part of randomness itself. The same model that predicts ordinary outcomes also predicts occasional extraordinary outcomes.
+
+Replace the coin with two groups of students receiving identical instruction. Their average examination scores will probably differ simply because different individuals produce different observations. A difference in observed results does not necessarily imply a difference in the underlying effect.
+
+This introduces the **null hypothesis**, $H_0$. In many experiments it represents the hypothesis that a specified effect or difference is absent. Together with additional statistical assumptions, it provides a model against which observed results can be evaluated. Here the complete model specifies independent tosses with head probability $1/2$.
+
+## 3. How unusual is this result?
+
+Return to 61 heads. Use distance from 50 as the measure of extremeness. Sixty-two or sixty-three heads would be at least as extreme, but thirty-nine heads would also represent the same magnitude of imbalance. Both tails count.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="tails" />
+
+Under the fair-coin model, the exact expression is
+
+$$
+p=P(X\leq39\text{ or }X\geq61\mid H_0)
+ =2\sum_{k=61}^{100}\binom{100}{k}2^{-100}
+ \approx0.0352002.
+$$
+
+Each tail has probability approximately 1.76%. Together they give approximately 3.52%. This is a two-sided **p-value**: under a specified statistical model, the probability of obtaining a test statistic at least as extreme as the observed one. The definition of “extreme” belongs to the testing procedure; here it is the absolute distance from 50.
+
+<Interactive kind="module" module="reasoning-47" preset="tails" id="a47-coin-tails" />
+
+Try 50, 61, 39 and a more distant count. A balanced observation has p-value 1 under this extremeness rule; reflecting the count about 50 leaves the p-value unchanged. The calculation includes all outcomes from 0 to 100, even though the plot shows only the central range 30–70.
+
+### Do not reverse the conditional
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="conditionals" />
+
+The two probabilities answer different questions. A p-value of 0.0352 does **not** mean there is a 3.52% probability that the coin is fair. It also does not measure the importance or size of the effect, the probability that “chance caused the result,” or the probability that the discovery is true. This connects to the earlier distinction between an implication and its converse.
+
+The conventional 5% significance threshold is a decision rule, not a transformation of uncertainty into knowledge. Scientific reasoning requires study design, effect estimates, uncertainty and context as well as statistical calculations. [ASA statement on p-values](https://www.amstat.org/asa/files/pdfs/P-ValueStatement.pdf)
+
+## 4. What happens when we keep looking?
+
+Now consider twenty separate experiments, each consisting of 100 independent fair-coin tosses. The procedure and underlying probability are identical. No coin has been modified. Their observed results nevertheless vary.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="experiments" />
+
+Experiment 20, with 61 heads, is the most extreme result in this illustrative sequence. The sequence was deliberately selected for teaching from a reproducible simulation, rather than presented as a randomly selected demonstration. It shows what is possible; the probability calculation below tells us how often a whole search produces an extreme result.
+
+### The chance of finding at least one
+
+Suppose each test has false-positive probability $\alpha$, all null hypotheses are true, and the tests are independent. A **false positive** means that the procedure flags an effect when its null hypothesis is true. The probability that one test avoids a false positive is $1-\alpha$. Independence lets us multiply those probabilities:
+
+$$
+P(\text{no false positives in }m\text{ tests})=(1-\alpha)^m.
+$$
+
+“At least one” is the complement of “none,” so
+
+$$
+P(\text{at least one false positive})=1-(1-\alpha)^m.
+$$
+
+For twenty independent tests each with false-positive probability exactly 5%,
+
+$$
+1-(1-0.05)^{20}\approx0.6415=64.15\%.
+$$
+
+| Number of independent tests | Chance of at least one false positive |
+| --- | --- |
+| 1 | 5.0% |
+| 5 | 22.6% |
+| 10 | 40.1% |
+| 20 | 64.2% |
+| 50 | 92.3% |
+| 100 | 99.4% |
+
+<Interactive kind="module" module="reasoning-47" preset="search" id="a47-repeated-tests" />
+
+Keep the general example and the coin example distinct. For the specific coin threshold of 61–39 or more extreme, the per-experiment probability is approximately 3.52%, not 5%. Across twenty independent coin experiments,
+
+$$
+1-(1-0.0352002\ldots)^{20}\approx0.51164=51.16\%.
+$$
+
+The activity offers both examples. The coin calculation uses the unrounded binomial probability. Because this count is discrete, a test that rejects when its two-sided p-value is at most 0.05 has actual false-positive probability approximately 3.52%, not exactly 5%.
+
+The multiplication formula assumes independent tests with the stated probabilities. Scientific analyses often share data and are dependent, making the calculation more complicated. Multiple testing remains relevant, but counting comparisons alone does not establish their joint false-positive probability.
+
+## 5. The discovery that survives the filter
+
+Imagine all twenty experiments moving toward a publication filter. Nineteen ordinary results disappear from view. The most unusual result passes through and becomes a published finding.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="filter" />
+
+No measurement was fabricated. No calculation was necessarily incorrect. The reported experiment actually produced 61 heads. Nevertheless, the audience is being given an incomplete account of the evidence: it sees the result, but not necessarily the opportunities that produced it.
+
+### From coins to research
+
+Imagine investigating whether a new learning technique improves student performance. Researchers could measure immediate recall, delayed recall, reading speed, examination scores, attention, motivation and confidence. They could compare different age groups, prior preparation and study durations. Every additional comparison potentially creates another opportunity to observe a striking result.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="branches" />
+
+| Concept | Meaning |
+| --- | --- |
+| Multiple testing | Evaluating numerous hypotheses or comparisons. |
+| Selective reporting | Reporting a subset of results chosen because of their outcomes. |
+| P-hacking | Using result-dependent analytical choices to obtain statistically significant findings. |
+| Publication bias | A broader tendency for certain kinds of findings to enter the published literature more readily. |
+
+These phenomena are related but not identical. Multiple testing is not inherently bad, and exploring several hypotheses is legitimate science. The problem arises when selection is ignored while evaluating the evidence. Nor does every case involve deliberate dishonesty: individually reasonable decisions can unintentionally create a misleading overall process.
+
+## 6. Discovering a possibility versus testing it
+
+Science would be unnecessarily restrictive if researchers could never investigate unexpected patterns. Interesting questions often arise because the data contain something nobody anticipated. But noticing a pattern and independently testing whether it persists are different intellectual activities.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="exploration" />
+
+In exploratory research, observations may determine the hypothesis. In confirmatory research, the hypothesis and testing procedure constrain how evidence will be evaluated. Both activities are necessary and serve different purposes. The diagram describes their logical roles, not a universal linear recipe for science. [UC Berkeley: How science works](https://undsci.berkeley.edu/understanding-science-101/how-science-works/)
+
+This returns to counterexamples and confirmations, testing rather than protecting an idea, and reaching a correct conclusion for the wrong reason. A hypothesis discovered through an unreliable process might still be true. Its possible truth should not be confused with adequately establishing it.
+
+## 7. How science protects itself from accidental discoveries
+
+### Preregistration
+
+A research team records its hypothesis, primary outcomes, collection rules and analysis before examining the relevant results.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="preregistration" />
+
+Readers can distinguish decisions made before seeing results from decisions influenced by them. Preregistration does not prohibit further exploration or guarantee a sensible plan. Deviations can be legitimate when justified and transparently reported. [Center for Open Science: Preregistration](https://www.cos.io/initiatives/prereg)
+
+### Transparent reporting
+
+Make the publication filter transparent: all twenty experiments remain visible, including ordinary results. The discovery does not disappear; readers can evaluate how it was selected. Transparency does not automatically correct a flawed analysis, but it makes problems more identifiable.
+
+### Independent replication
+
+The unusual result generates a hypothesis: perhaps the selected coin is biased. Formulate a specific prediction and test that coin again using fresh, independent tosses. Do not search the other nineteen coins for another winner.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="replication" />
+
+A successful replication can strengthen evidence under appropriate conditions. A failed replication calls for investigation but does not automatically prove that the original claim was false. Measurement differences, inadequate sample sizes and changed experimental conditions can also affect replication. These safeguards address different weaknesses; none guarantees truth.
+
+## 8. Evaluate a reported discovery
+
+A fictional study claims that a particular background color improves learning.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="study" />
+
+Is this sufficient information to evaluate the discovery? The reported scores and p-value are stipulated; without sample sizes, variability and a testing procedure, we cannot derive that p-value from the two averages.
+
+<Interactive kind="module" module="reasoning-47" preset="study" id="a47-study-questions" />
+
+<Exercise question="What should you ask before treating this reported result as strong evidence?">
+Ask how many comparisons were attempted, whether the hypothesis was specified in advance, what the other results were, whether independent data support the finding, and how large and uncertain the estimated effect is. The hidden investigation considered five colors, four learning outcomes and three age groups: $5\cdot4\cdot3=60$ comparisons. Only one was emphasized. Shared participants and outcomes may make these comparisons dependent, so the independent-test formula cannot simply be assumed.
+
+The correct conclusion is that the reported result alone is insufficient to establish the strength of the evidence. It is not that green backgrounds definitely have no effect. Aesthetic preference alone does not resolve the inferential problem.
+</Exercise>
+
+## 9. Evidence includes the search
+
+Return to the twenty experiments. Highlight the most unusual one, but frame the entire collection.
+
+<ReasoningFigure kind="module" module="reasoning-47" figure="whole-search" />
+
+An extraordinary result might be the beginning of an extraordinary discovery. But it might also be the most extraordinary result among many ordinary experiments. To understand the difference, we need to know not only what was found, but how it was found.
+
+**Evidence is not just a result. It is also the process that produced it.**
+
+You should now be able to explain random variation under a no-effect model, interpret a p-value without reversing its conditional, recognize multiple testing and selective reporting, distinguish exploration from confirmation, and explain why planning, transparency and independent replication help scientific reasoning.
+
+## Further reading
+
+- [OpenIntro Statistics](https://www.openintro.org/book/os/) introduces null models, sampling distributions, hypothesis tests and Type I and Type II errors.
+- [Wasserstein and Lazar: The ASA statement on p-values](https://doi.org/10.1080/00031305.2016.1154108) discusses context, reporting and the limits of thresholds.
+- [Simmons, Nelson and Simonsohn: False-Positive Psychology](https://doi.org/10.1177/0956797611417632) examines flexibility in data collection, analysis and reporting.
+- [Ioannidis: Why Most Published Research Findings Are False](https://doi.org/10.1371/journal.pmed.0020124) studies how power, prior plausibility and bias affect reliability under specified assumptions. Its title is not an unconditional mathematical fact about all research.
+
+Bonferroni correction and false discovery rate control are further topics; neither is needed for the complement calculation developed here.

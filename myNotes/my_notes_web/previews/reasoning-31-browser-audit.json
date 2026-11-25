@@ -1,0 +1,174 @@
+{
+  "initial": {
+    "duplicateIds": [],
+    "figures": 11,
+    "labs": 3,
+    "mathErrors": 0,
+    "overflow": false,
+    "width": 1280
+  },
+  "repair": "Injective\nYes\nSurjective\nYes\nBijective\nYes\n\nUnused lockers: 0. Shared lockers: 0.\n\nThis assignment is bijective: Every student has a distinct locker and every locker is used.",
+  "five": "Injective\nNo\nSurjective\nYes\nBijective\nNo\n\nUnused lockers: 0. Shared lockers: 1.\n\nA bijection is impossible: Five inputs cannot receive four distinct targets.",
+  "three": "Injective\nYes\nSurjective\nNo\nBijective\nNo\n\nUnused lockers: 1. Shared lockers: 0.\n\nA bijection is impossible: Three inputs can reach at most three of the four targets.",
+  "excludedEven": "𝑓\n(\n𝑛\n)\n=\n2\n𝑛\n+\n1\nf(n)=2n+1\n\nCodomain: odd integers only\n\n-3\nYes\n-1\nYes\n1\nYes\n3\nYes\nTarget y: 0\n\nCandidate input n = (y − 1) / 2: -0.5\n\nThis value is outside the chosen codomain; it is not a counterexample to surjectivity here.\n\nWith codomain the odd integers, the function is bijective. For every odd y, (y − 1) / 2 is an integer.",
+  "oddNegative": "𝑓\n(\n𝑛\n)\n=\n2\n𝑛\n+\n1\nf(n)=2n+1\n\nCodomain: odd integers only\n\n-3\nYes\n-1\nYes\n1\nYes\n3\nYes\nTarget y: 0\n\nCandidate input n = (y − 1) / 2: -0.5\n\nThis value is outside the chosen codomain; it is not a counterexample to surjectivity here.\n\nWith codomain the odd integers, the function is bijective. For every odd y, (y − 1) / 2 is an integer.",
+  "invalid": "Enter an integer from −12 through 12.",
+  "subsetReverse": "Without square\nRed triangle\nBlue circle\n←\nWith square\nRed triangle\nBlue circle\nDesignated square\n\nBackward: h(Z) = Z ∖ {g}",
+  "subsetReset": "Without square\n∅ · Empty set\n→\nWith square\nDesignated square\n\nForward: f(X) = X ∪ {g}",
+  "negative": "𝑓\n(\n𝑛\n)\n=\n2\n𝑛\n+\n1\nf(n)=2n+1\n\nCodomain: odd integers only\n\n-3\nYes\n-1\nYes\n1\nYes\n3\nYes\nTarget y: -3\n\nCandidate input n = (y − 1) / 2: -2\n\nThe candidate is an integer and reaches this target.\n\nWith codomain the odd integers, the function is bijective. For every odd y, (y − 1) / 2 is an integer.",
+  "enLight": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "light",
+    "width": 1280
+  },
+  "enCompactLight": {
+    "mathErrors": 0,
+    "overflow": false,
+    "width": 390
+  },
+  "enCompactDark": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "dark",
+    "width": 390
+  },
+  "deCompactDark": {
+    "duplicateIds": [],
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "dark",
+    "title": "Dinge zuordnen, um etwas zu beweisen",
+    "width": 390
+  },
+  "deRepair": "Injektiv\nJa\nSurjektiv\nJa\nBijektiv\nJa\n\nUnbenutzte Schließfächer: 0. Geteilte Schließfächer: 0.\n\nDiese Zuordnung ist bijektiv: Jeder Schüler hat ein eigenes Schließfach, und jedes Schließfach wird benutzt.",
+  "deCompactLight": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "light",
+    "width": 390
+  },
+  "deDesktopLight": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "light",
+    "width": 1280
+  },
+  "deDesktopDark": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "dark",
+    "width": 1280
+  },
+  "gallery": {
+    "duplicateIds": [],
+    "figures": 11,
+    "labs": [
+      {
+        "id": "library-reasoning-31-lockers",
+        "preset": "lockers"
+      },
+      {
+        "id": "library-reasoning-31-codomain",
+        "preset": "codomain"
+      },
+      {
+        "id": "library-reasoning-31-subsets",
+        "preset": "subsets"
+      },
+      {
+        "id": "library-reasoning-31-independent",
+        "preset": "lockers"
+      }
+    ],
+    "mathErrors": 0
+  },
+  "isolation": {
+    "first": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "second": [
+      "0",
+      "2",
+      "2",
+      "3"
+    ]
+  },
+  "prefixEn": {
+    "home": "/MyNotes/",
+    "mathErrors": 0,
+    "repaired": "true",
+    "styles": 4,
+    "title": "Pairing things to prove things"
+  },
+  "prefixDe": {
+    "home": "/MyNotes/de/",
+    "mathErrors": 0,
+    "styles": 4,
+    "title": "Dinge zuordnen, um etwas zu beweisen"
+  },
+  "finalGallery": {
+    "figures": 11,
+    "labs": 4,
+    "mathErrors": 0
+  },
+  "germanSearch": 1,
+  "finalCompact": {
+    "listVisible": "block",
+    "mappingRows": [
+      "Anna→Schließfach 1",
+      "Ben→Schließfach 3geteilt",
+      "Clara→Schließfach 3geteilt",
+      "David→Schließfach 4"
+    ],
+    "mathErrors": 0,
+    "overflow": false,
+    "svgHidden": "none",
+    "theme": "dark",
+    "width": 390
+  },
+  "galleryLogs": [],
+  "prefixLogs": [],
+  "compactRepair": "Injektiv\nJa\nSurjektiv\nJa\nBijektiv\nJa\n\nUnbenutzte Schließfächer: 0. Geteilte Schließfächer: 0.\n\nDiese Zuordnung ist bijektiv: Jeder Schüler hat ein eigenes Schließfach, und jedes Schließfach wird benutzt.",
+  "finalEnCompact": {
+    "listVisible": "block",
+    "mathErrors": 0,
+    "overflow": false,
+    "width": 390
+  },
+  "englishSearch": 1,
+  "finalCompactLight": {
+    "list": "block",
+    "overflow": false,
+    "theme": "light",
+    "width": 390
+  },
+  "finalDesktop": {
+    "mathErrors": 0,
+    "outline": [
+      "29Invariants and monovariants",
+      "30Counting proofs",
+      "31Pairing things to prove things"
+    ],
+    "overflow": false,
+    "previousNext": [
+      {
+        "href": "/reasoning/lessons/proving-by-counting/",
+        "text": "← PREVIOUSCounting proofs"
+      },
+      {
+        "href": "/reasoning/lessons/discover-a-theorem/",
+        "text": "NEXT →Discover a theorem"
+      }
+    ],
+    "width": 1280
+  },
+  "keyboardRepair": {
+    "bijective": "true",
+    "value": "1"
+  },
+  "logs": []
+}

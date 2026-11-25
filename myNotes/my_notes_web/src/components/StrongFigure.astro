@@ -1,0 +1,8 @@
+---
+import type {StrongFigure} from '../lib/interactive/strong-model';
+import {strongFigure,strongTitle} from '../lib/interactive/strong-render';
+import '../styles/counterexamples.css';import '../styles/discovery.css';import '../styles/strong.css';
+interface Props{kind:StrongFigure}
+const {kind}=Astro.props,locale=Astro.locals.locale||'en';
+---
+<figure class="counter-lab strong-figure" data-strong-figure={kind}><h3>{strongTitle(locale,kind)}</h3><div set:html={strongFigure(locale,kind)}/></figure>

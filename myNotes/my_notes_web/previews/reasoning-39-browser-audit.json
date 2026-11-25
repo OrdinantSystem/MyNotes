@@ -1,0 +1,1996 @@
+{
+  "initial": {
+    "activities": 5,
+    "figures": 13,
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "dark",
+    "title": "How a number or a frame can steer your judgment"
+  },
+  "openingFailure": "10% failure rate",
+  "openingReveal": {
+    "endpoint": true,
+    "heading": "90 successes · 10 failures",
+    "impression": "Reliable for a noncritical task.",
+    "rectangles": 100
+  },
+  "beforeGrid": [
+    {
+      "classification": "success",
+      "id": "0",
+      "x": "25",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "1",
+      "x": "59",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "2",
+      "x": "93",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "3",
+      "x": "127",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "4",
+      "x": "161",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "5",
+      "x": "195",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "6",
+      "x": "229",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "7",
+      "x": "263",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "8",
+      "x": "297",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "9",
+      "x": "331",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "10",
+      "x": "25",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "11",
+      "x": "59",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "12",
+      "x": "93",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "13",
+      "x": "127",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "14",
+      "x": "161",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "15",
+      "x": "195",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "16",
+      "x": "229",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "17",
+      "x": "263",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "18",
+      "x": "297",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "19",
+      "x": "331",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "20",
+      "x": "25",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "21",
+      "x": "59",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "22",
+      "x": "93",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "23",
+      "x": "127",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "24",
+      "x": "161",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "25",
+      "x": "195",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "26",
+      "x": "229",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "27",
+      "x": "263",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "28",
+      "x": "297",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "29",
+      "x": "331",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "30",
+      "x": "25",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "31",
+      "x": "59",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "32",
+      "x": "93",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "33",
+      "x": "127",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "34",
+      "x": "161",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "35",
+      "x": "195",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "36",
+      "x": "229",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "37",
+      "x": "263",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "38",
+      "x": "297",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "39",
+      "x": "331",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "40",
+      "x": "25",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "41",
+      "x": "59",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "42",
+      "x": "93",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "43",
+      "x": "127",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "44",
+      "x": "161",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "45",
+      "x": "195",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "46",
+      "x": "229",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "47",
+      "x": "263",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "48",
+      "x": "297",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "49",
+      "x": "331",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "50",
+      "x": "25",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "51",
+      "x": "59",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "52",
+      "x": "93",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "53",
+      "x": "127",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "54",
+      "x": "161",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "55",
+      "x": "195",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "56",
+      "x": "229",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "57",
+      "x": "263",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "58",
+      "x": "297",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "59",
+      "x": "331",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "60",
+      "x": "25",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "61",
+      "x": "59",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "62",
+      "x": "93",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "63",
+      "x": "127",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "64",
+      "x": "161",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "65",
+      "x": "195",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "66",
+      "x": "229",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "67",
+      "x": "263",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "68",
+      "x": "297",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "69",
+      "x": "331",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "70",
+      "x": "25",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "71",
+      "x": "59",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "72",
+      "x": "93",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "73",
+      "x": "127",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "74",
+      "x": "161",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "75",
+      "x": "195",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "76",
+      "x": "229",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "77",
+      "x": "263",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "78",
+      "x": "297",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "79",
+      "x": "331",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "80",
+      "x": "25",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "81",
+      "x": "59",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "82",
+      "x": "93",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "83",
+      "x": "127",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "84",
+      "x": "161",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "85",
+      "x": "195",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "86",
+      "x": "229",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "87",
+      "x": "263",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "88",
+      "x": "297",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "89",
+      "x": "331",
+      "y": "265"
+    },
+    {
+      "classification": "failure",
+      "id": "90",
+      "x": "25",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "91",
+      "x": "59",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "92",
+      "x": "93",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "93",
+      "x": "127",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "94",
+      "x": "161",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "95",
+      "x": "195",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "96",
+      "x": "229",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "97",
+      "x": "263",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "98",
+      "x": "297",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "99",
+      "x": "331",
+      "y": "295"
+    }
+  ],
+  "negativeGrid": [
+    {
+      "classification": "success",
+      "id": "0",
+      "x": "25",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "1",
+      "x": "59",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "2",
+      "x": "93",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "3",
+      "x": "127",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "4",
+      "x": "161",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "5",
+      "x": "195",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "6",
+      "x": "229",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "7",
+      "x": "263",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "8",
+      "x": "297",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "9",
+      "x": "331",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "10",
+      "x": "25",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "11",
+      "x": "59",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "12",
+      "x": "93",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "13",
+      "x": "127",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "14",
+      "x": "161",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "15",
+      "x": "195",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "16",
+      "x": "229",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "17",
+      "x": "263",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "18",
+      "x": "297",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "19",
+      "x": "331",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "20",
+      "x": "25",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "21",
+      "x": "59",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "22",
+      "x": "93",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "23",
+      "x": "127",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "24",
+      "x": "161",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "25",
+      "x": "195",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "26",
+      "x": "229",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "27",
+      "x": "263",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "28",
+      "x": "297",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "29",
+      "x": "331",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "30",
+      "x": "25",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "31",
+      "x": "59",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "32",
+      "x": "93",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "33",
+      "x": "127",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "34",
+      "x": "161",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "35",
+      "x": "195",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "36",
+      "x": "229",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "37",
+      "x": "263",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "38",
+      "x": "297",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "39",
+      "x": "331",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "40",
+      "x": "25",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "41",
+      "x": "59",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "42",
+      "x": "93",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "43",
+      "x": "127",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "44",
+      "x": "161",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "45",
+      "x": "195",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "46",
+      "x": "229",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "47",
+      "x": "263",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "48",
+      "x": "297",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "49",
+      "x": "331",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "50",
+      "x": "25",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "51",
+      "x": "59",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "52",
+      "x": "93",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "53",
+      "x": "127",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "54",
+      "x": "161",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "55",
+      "x": "195",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "56",
+      "x": "229",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "57",
+      "x": "263",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "58",
+      "x": "297",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "59",
+      "x": "331",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "60",
+      "x": "25",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "61",
+      "x": "59",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "62",
+      "x": "93",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "63",
+      "x": "127",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "64",
+      "x": "161",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "65",
+      "x": "195",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "66",
+      "x": "229",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "67",
+      "x": "263",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "68",
+      "x": "297",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "69",
+      "x": "331",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "70",
+      "x": "25",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "71",
+      "x": "59",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "72",
+      "x": "93",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "73",
+      "x": "127",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "74",
+      "x": "161",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "75",
+      "x": "195",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "76",
+      "x": "229",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "77",
+      "x": "263",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "78",
+      "x": "297",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "79",
+      "x": "331",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "80",
+      "x": "25",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "81",
+      "x": "59",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "82",
+      "x": "93",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "83",
+      "x": "127",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "84",
+      "x": "161",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "85",
+      "x": "195",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "86",
+      "x": "229",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "87",
+      "x": "263",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "88",
+      "x": "297",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "89",
+      "x": "331",
+      "y": "265"
+    },
+    {
+      "classification": "failure",
+      "id": "90",
+      "x": "25",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "91",
+      "x": "59",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "92",
+      "x": "93",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "93",
+      "x": "127",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "94",
+      "x": "161",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "95",
+      "x": "195",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "96",
+      "x": "229",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "97",
+      "x": "263",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "98",
+      "x": "297",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "99",
+      "x": "331",
+      "y": "295"
+    }
+  ],
+  "neutralGrid": [
+    {
+      "classification": "success",
+      "id": "0",
+      "x": "25",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "1",
+      "x": "59",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "2",
+      "x": "93",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "3",
+      "x": "127",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "4",
+      "x": "161",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "5",
+      "x": "195",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "6",
+      "x": "229",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "7",
+      "x": "263",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "8",
+      "x": "297",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "9",
+      "x": "331",
+      "y": "25"
+    },
+    {
+      "classification": "success",
+      "id": "10",
+      "x": "25",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "11",
+      "x": "59",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "12",
+      "x": "93",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "13",
+      "x": "127",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "14",
+      "x": "161",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "15",
+      "x": "195",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "16",
+      "x": "229",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "17",
+      "x": "263",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "18",
+      "x": "297",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "19",
+      "x": "331",
+      "y": "55"
+    },
+    {
+      "classification": "success",
+      "id": "20",
+      "x": "25",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "21",
+      "x": "59",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "22",
+      "x": "93",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "23",
+      "x": "127",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "24",
+      "x": "161",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "25",
+      "x": "195",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "26",
+      "x": "229",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "27",
+      "x": "263",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "28",
+      "x": "297",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "29",
+      "x": "331",
+      "y": "85"
+    },
+    {
+      "classification": "success",
+      "id": "30",
+      "x": "25",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "31",
+      "x": "59",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "32",
+      "x": "93",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "33",
+      "x": "127",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "34",
+      "x": "161",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "35",
+      "x": "195",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "36",
+      "x": "229",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "37",
+      "x": "263",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "38",
+      "x": "297",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "39",
+      "x": "331",
+      "y": "115"
+    },
+    {
+      "classification": "success",
+      "id": "40",
+      "x": "25",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "41",
+      "x": "59",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "42",
+      "x": "93",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "43",
+      "x": "127",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "44",
+      "x": "161",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "45",
+      "x": "195",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "46",
+      "x": "229",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "47",
+      "x": "263",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "48",
+      "x": "297",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "49",
+      "x": "331",
+      "y": "145"
+    },
+    {
+      "classification": "success",
+      "id": "50",
+      "x": "25",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "51",
+      "x": "59",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "52",
+      "x": "93",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "53",
+      "x": "127",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "54",
+      "x": "161",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "55",
+      "x": "195",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "56",
+      "x": "229",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "57",
+      "x": "263",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "58",
+      "x": "297",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "59",
+      "x": "331",
+      "y": "175"
+    },
+    {
+      "classification": "success",
+      "id": "60",
+      "x": "25",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "61",
+      "x": "59",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "62",
+      "x": "93",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "63",
+      "x": "127",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "64",
+      "x": "161",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "65",
+      "x": "195",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "66",
+      "x": "229",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "67",
+      "x": "263",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "68",
+      "x": "297",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "69",
+      "x": "331",
+      "y": "205"
+    },
+    {
+      "classification": "success",
+      "id": "70",
+      "x": "25",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "71",
+      "x": "59",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "72",
+      "x": "93",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "73",
+      "x": "127",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "74",
+      "x": "161",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "75",
+      "x": "195",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "76",
+      "x": "229",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "77",
+      "x": "263",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "78",
+      "x": "297",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "79",
+      "x": "331",
+      "y": "235"
+    },
+    {
+      "classification": "success",
+      "id": "80",
+      "x": "25",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "81",
+      "x": "59",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "82",
+      "x": "93",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "83",
+      "x": "127",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "84",
+      "x": "161",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "85",
+      "x": "195",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "86",
+      "x": "229",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "87",
+      "x": "263",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "88",
+      "x": "297",
+      "y": "265"
+    },
+    {
+      "classification": "success",
+      "id": "89",
+      "x": "331",
+      "y": "265"
+    },
+    {
+      "classification": "failure",
+      "id": "90",
+      "x": "25",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "91",
+      "x": "59",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "92",
+      "x": "93",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "93",
+      "x": "127",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "94",
+      "x": "161",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "95",
+      "x": "195",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "96",
+      "x": "229",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "97",
+      "x": "263",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "98",
+      "x": "297",
+      "y": "295"
+    },
+    {
+      "classification": "failure",
+      "id": "99",
+      "x": "331",
+      "y": "295"
+    }
+  ],
+  "emptyEstimate": "Enter a whole number from 0 to 1000.",
+  "fractional": "Enter a whole number from 0 to 1000.",
+  "anchorStage": {
+    "actualHidden": true,
+    "anchorVisible": true,
+    "dots": 137,
+    "locked": true
+  },
+  "estimateResult": {
+    "actual": "The actual count is 137.",
+    "reason": "First estimate: 120. Revised estimate: 150. A change alone does not diagnose anchoring; examine the reason for it."
+  },
+  "noChoice": "Choose A or B before continuing.",
+  "lossStage": "Consider the descriptions in terms of components lost. Which would you prefer?\n\nProcedure A\n40 lost\n\nGuaranteed outcome\n\nProcedure B\nAll or nothing\n\n0 lost · 60%\n\n100 lost · 40%",
+  "riskResult": {
+    "history": "Your choices: gain description A; loss description B.",
+    "reason": "The preference changed. Ask whether your reasons or decision criteria changed; this single attempt does not establish a psychological diagnosis. Both procedures have an expected 60 saved components. A guarantees 60; B saves either 100 or 0. Equal expected values do not make their risks equal.",
+    "outcomes": "Procedure\tProbability\tsaved\tlost\nA\t100%\t60\t40\nB\t60%\t100\t0\nB\t40%\t0\t100\n\nBoth procedures have an expected 60 saved components. A guarantees 60; B saves either 100 or 0. Equal expected values do not make their risks equal."
+  },
+  "quiz": [
+    "This answer distinguishes evidence from presentation. The €100 difference is arithmetic, not evidence of market value. An arbitrary original price cannot establish a bargain.",
+    "This answer distinguishes evidence from presentation. 98% and 2% describe complementary outcomes in the same record, with the same denominator and exhaustive binary classification.",
+    "This answer distinguishes evidence from presentation. An irreversible consequence is additional decision-relevant information, even when the failure frequency stays the same.",
+    "This answer distinguishes evidence from presentation. Inspection may supply relevant evidence. Evaluate the technician’s method and information rather than rejecting every external number."
+  ],
+  "reset": {
+    "estimate": "",
+    "opening": "90% success rate",
+    "radios": 0,
+    "risk": "Keep this choice and continue"
+  },
+  "enDesktopLight": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "light"
+  },
+  "enCompactLight": {
+    "overflow": false,
+    "theme": "light"
+  },
+  "enCompactDark": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "dark"
+  },
+  "deOpening": "10 % Misserfolgsquote",
+  "deWrong": "Überdenke, welche Information tatsächlich hinzugekommen ist. 98 % und 2 % beschreiben komplementäre Ergebnisse derselben Aufzeichnung mit gleicher Bezugsgröße und vollständiger binärer Einordnung.",
+  "deCompactDark": {
+    "lang": "de",
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "dark"
+  },
+  "deCompactLight": {
+    "overflow": false,
+    "theme": "light"
+  },
+  "deDesktopLight": {
+    "overflow": false,
+    "theme": "light"
+  },
+  "deDesktopDark": {
+    "overflow": false,
+    "theme": "dark"
+  },
+  "prefixEn": {
+    "home": "/MyNotes/",
+    "lang": "en",
+    "mathErrors": 0,
+    "styleSheets": 11,
+    "translation": [
+      "/MyNotes/",
+      "/MyNotes/search/",
+      "/MyNotes/reasoning/lessons/anchoring-and-framing/",
+      "/MyNotes/de/reasoning/lessons/anchoring-and-framing/"
+    ]
+  },
+  "prefixFrame": "10% failure rate",
+  "finalCompactCharts": {
+    "mathErrors": 0,
+    "overflow": true,
+    "scrollCharts": [
+      {
+        "scroll": 600,
+        "width": 303
+      },
+      {
+        "scroll": 600,
+        "width": 600
+      },
+      {
+        "scroll": 600,
+        "width": 600
+      }
+    ]
+  },
+  "prefixSearch": "/MyNotes/de/reasoning/lessons/anchoring-and-framing/",
+  "prefixSearchTitle": "Wie eine Zahl oder ein Rahmen dein Urteil lenken kann",
+  "isolation": {
+    "activities": 6,
+    "changed": "10% failure rate",
+    "figures": 13,
+    "independent": "90% success rate",
+    "independentGridHidden": true
+  },
+  "finalDeCompact": {
+    "charts": [
+      {
+        "scroll": 600,
+        "width": 303
+      },
+      {
+        "scroll": 600,
+        "width": 303
+      },
+      {
+        "scroll": 600,
+        "width": 303
+      }
+    ],
+    "mathErrors": 0,
+    "overflow": false
+  },
+  "chartKeyboard": {
+    "offset": 40,
+    "scroll": 600,
+    "width": 303
+  },
+  "finalDeCompactLight": {
+    "overflow": false,
+    "theme": "light"
+  },
+  "finalEnCompact": {
+    "mathErrors": 0,
+    "overflow": false
+  },
+  "upperBound": "Enter a whole number from 0 to 1000.",
+  "numericArrow": "1",
+  "zeroOptional": "First estimate: 0. Revised estimate: 0. A change alone does not diagnose anchoring; examine the reason for it.",
+  "sameRisk": "The preference remained the same. This single attempt does not measure immunity to framing.",
+  "searchEn": "/reasoning/lessons/anchoring-and-framing/",
+  "finalEnCompactLight": {
+    "overflow": false,
+    "theme": "light"
+  },
+  "finalEnDesktopLight": {
+    "overflow": false,
+    "theme": "light"
+  },
+  "finalEnDesktopDark": {
+    "overflow": false,
+    "theme": "dark"
+  },
+  "finalDeDesktopDark": {
+    "mathErrors": 0,
+    "overflow": false,
+    "theme": "dark"
+  },
+  "finalDeDesktopLight": {
+    "overflow": false,
+    "theme": "light"
+  },
+  "final": {
+    "failures": 10,
+    "headline": "10% failure rate",
+    "mathErrors": 0,
+    "overflow": false,
+    "rectangles": 100,
+    "successes": 90,
+    "theme": "dark",
+    "title": "How a number or a frame can steer your judgment"
+  },
+  "logs": []
+}

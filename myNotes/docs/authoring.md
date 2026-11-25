@@ -54,7 +54,7 @@ Explain the reference solution and how to check it.
 <Interactive kind="vectors" preset="linear-combination" id="my-linear-combination" />
 ```
 
-Use regular Markdown for headings, paragraphs, lists, and tables. The math pipeline also supports inline/display dollar notation. Math.tex examples use KaTeX syntax with semantic colA/colB/colC/colResult macros. Do not hardcode theme colors into equations. Wide tables receive centered scroll wrappers automatically.
+Use regular Markdown for headings, paragraphs, lists, and tables. The math pipeline also supports inline/display dollar notation. Put display `$$` delimiters on separate lines so equations receive the canonical focusable local-scroll wrapper; same-line delimiters can be parsed as inline mathematics. Math.tex examples use KaTeX syntax with semantic colA/colB/colC/colResult macros. Do not hardcode theme colors into equations. Wide tables receive centered scroll wrappers automatically.
 
 The [representation library](representation-library.md) documents available visual components and data variants. Use a meaningful caption and accessible description for static figures. Arbitrary scripts, inline SVG HTML strings, per-lesson global styles, and a new layout are outside the lesson contract. Typed preset data imported from a shared module is acceptable.
 
@@ -108,3 +108,7 @@ Write mathematical expressions and their variable references as `$...$` inside p
 String-valued teaching copy (exercise questions, Flow labels/details/captions, comparison details, and interactive feedback) supports explicit `$TeX$` through the shared `MathText` component and `renderMathText` helper. Ordinary text is escaped; only explicit math is rendered with the shared KaTeX options. JavaScript/JSON strings require doubled backslashes; plain MDX attributes use literal backslashes. For a question with TeX, prefer `question="... $\sqrt{2}$ ..."` with a single literal backslash in the authored MDX. Use `Math` for a whole formula and native SVG text for coordinate/diagram labels. Preserve plain metadata titles for navigation and search.
 
 Inline KaTeX is 1.16 times its surrounding font size; display formulas retain 1.1. This scale applies to both Markdown math and component math in both themes.
+
+## Parallel Reasoning lessons
+
+Episodes 29 onward may use self-contained lesson modules rather than edit central registries. Read [parallel-lessons.md](parallel-lessons.md) before starting a concurrent episode. Stage one complete EN/DE bundle outside the active source tree, then use the locked integration command. Existing content paths and editorial/source rules remain valid.

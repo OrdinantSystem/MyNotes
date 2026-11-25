@@ -1,0 +1,34 @@
+/* Module-owned additions use the archive's surfaces, scales and mathematical roles. */
+.aor32 .aor32-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-3)}
+.aor32 .aor32-card{padding:var(--space-4);border:1px solid var(--line);border-radius:var(--radius-control);min-width:0;background:var(--surface)}
+.aor32 .aor32-card p{margin:var(--space-2) 0;font-size:14px;line-height:1.7}
+.aor32 .aor32-established{background:var(--tint);border-color:var(--accent)}
+.aor32 .aor32-pending{background:var(--cyan-tint);border-color:var(--cyan);border-style:dashed}
+.aor32 .aor32-question{background:var(--blue-tint);border-color:var(--blue)}
+.aor32 .aor32-excluded{background:var(--coral-tint);border-color:var(--coral)}
+.aor32 .aor32-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:var(--space-2);margin:var(--space-4) 0}
+.aor32 .aor32-term{display:inline-grid;place-items:center;min-width:38px;min-height:42px;padding:var(--space-2);background:var(--blue-tint);border:1px solid var(--blue);border-radius:4px;color:var(--blue);font-size:20px}
+.aor32 .aor32-unit{display:inline-block;width:14px;height:23px;border-radius:2px;background:var(--blue)}
+.aor32 .aor32-extra{background:var(--purple);color:var(--purple)}
+.aor32 .aor32-group{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;padding:var(--space-2);border-bottom:2px solid var(--line);max-width:100%}
+.aor32 .aor32-number{font-size:23px;min-width:48px}
+.aor32 .aor32-board{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--space-2);margin:var(--space-4) 0}
+.aor32 .aor32-board button{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:var(--space-2);border:1px solid var(--line);border-radius:4px;color:var(--text);min-height:74px;min-width:0;font:inherit;cursor:pointer}
+.aor32 .aor32-board button strong{font-size:20px}.aor32 .aor32-board button span{font-size:10px;line-height:1.3;overflow-wrap:anywhere}
+.aor32 .aor32-board button[aria-pressed=true]{outline:2px solid var(--blue);outline-offset:1px}
+.aor32 :is(button,input,textarea,summary):focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.aor32 input[type=number]{width:85px;min-height:44px;padding:var(--space-2);font:inherit;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:4px}
+.aor32 .aor32-check{display:flex;align-items:center;gap:var(--space-3);min-height:48px;font-size:14px;line-height:1.5}
+.aor32 input[type=checkbox]{width:20px;height:20px;flex-shrink:0;accent-color:var(--accent)}
+.aor32 .aor32-record-label{display:block;margin:var(--space-5) 0;font-size:14px}
+.aor32 textarea{display:block;width:100%;min-height:110px;resize:vertical;border:1px solid var(--line);border-radius:4px;padding:var(--space-3);font:inherit;color:var(--text);background:var(--panel);margin-top:var(--space-2)}
+.aor32 details{margin:var(--space-4) 0}.aor32 summary{cursor:pointer;min-height:44px;line-height:1.6;padding:var(--space-2)}
+.aor32 .aor32-math-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-3);padding:var(--space-2) 0;border-bottom:1px solid var(--line);font-size:13px}
+.aor32 .aor32-set{padding:var(--space-5);border:2px dashed var(--blue);border-radius:var(--radius-panel);background:var(--blue-tint);margin-bottom:var(--space-4)}
+.aor32 .aor32-subset{border:2px solid var(--accent);background:var(--tint);padding:var(--space-4);border-radius:var(--radius-panel);margin:var(--space-4) 0}
+.aor32 .aor32-stack{display:grid;gap:var(--space-3)}.aor32 .aor32-arrow{text-align:center;color:var(--secondary);font-size:24px;line-height:1.2}
+.aor32 button:disabled{opacity:.5;cursor:default}.aor32 .aor32-scroll{overflow-x:auto;max-width:100%}.aor32 svg{width:100%;height:auto;min-width:500px;display:block}.aor32 svg text{fill:var(--text);font:16px system-ui,sans-serif;text-anchor:middle}.aor32 svg .aor32-point{fill:var(--blue)}.aor32 svg line{stroke:var(--axis);stroke-width:2}
+@media(max-width:650px){.aor32 .aor32-grid{grid-template-columns:1fr}.aor32 .aor32-board{grid-template-columns:repeat(4,minmax(0,1fr))}.aor32 .aor32-card{padding:var(--space-3)}}
+@media(prefers-reduced-motion:no-preference){.aor32 [data-proof-card]{animation:aor32-arrive .25s ease-out}@keyframes aor32-arrive{from{opacity:.45;transform:translateY(6px)}to{opacity:1;transform:none}}}
+
+.aor32 svg .aor32-target{fill:var(--coral);font-weight:700}
